@@ -14,7 +14,7 @@ I struggled as a beginner coming in to Fortran because the basic functions that 
 
 This was initially the driving motivation for me to develop this library.  The simple fact that Fortran does not have these basic functions readily available, and that any user starting from scratch would have to write their own. I humbly hope that this library will help to alleviate this issue, by providing functions/subroutines with complexities that range from the most basic to the more advanced, but all in pure Fortran.  The effect is hopefully similar to a Python user who has immediate access to amazing packages such as numpy and scipy.
 
-The code comes with a complete set of source code documentation that is easily generated into html pages. These docs also contain working examples on how to run each function and subroutine within the library.  Also included in the docs are the references to papers or online material that I used.
+The code comes with a complete set of [source code documentation](https://leonfoks.github.io/coretran/) that is easily generated into html pages. These docs also contain working examples on how to run each function and subroutine within the library.  Also included in the docs are the references to papers or online material that I used.
 
 This library is written using modern Fortran standards with modules, sub modules, and object oriented derived types.
 
@@ -50,9 +50,9 @@ Go to [Top](#top)
 
 ## Getting Ready for Compiling and Creating the Documentation
 There are three aspects that we need to address
-1. Installing a fortran compiler to create the libraries
-2. Installing a software build tool that compiles the codes in the correct order, so you don't have to!
-3. Install Python and the software to generate the source code documentation
+1. Installing a Fortran compiler to create the libraries
+2. Installing the software build tool that compiles the codes in the correct order, so you don't have to!
+3. Install Python and the software to generate the source code documentation locally (optional! You could just go [here](https://leonfoks.github.io/coretran/))
 
 ### Installing the GNU fortran compiler <a name="gfortran"></a>
 To compile my library, I have been using gfortran version 6.3.0 because of the use of submodules and other 2008 standards. I you want to use Intel's fortran compiler you will need ifort version 16+ or 17+
@@ -66,7 +66,7 @@ On a Mac, I use Brew to manage my libraries/programs.  So type "brew install gfo
 #### * Windows
 Windows is a little trickier but it is still easy! The easiest way I have found is to use [MinGW](http://mingw-w64.org/doku.php). There is a good tutorial on installing mingw [here](https://computingabdn.com/softech/mingw-howto-install-gcc-for-windows/). I will summarize below.
 
-Go to MinGW - Downloads, and click on "Mingw-builds" in the table to redirect to sourceforge.  This will download the installer. 
+Go to [MinGW - Downloads](http://mingw-w64.org/doku.php/download), and click on "Mingw-builds" in the table to redirect to sourceforge.  This will download the installer. 
 
 When you run the installer, choose the following
 
@@ -78,15 +78,16 @@ When you run the installer, choose the following
 
 You should change the Destination Folder so that the path does not contain any spaces.
 
-Add an environment variable called "MinGW_Home" and point it to your chosen destination folder.
+Add an environment variable called "MinGW\_Home" and point it to the bin directory in your chosen destination folder. e.g. "C:\programs\mingw-w64\x86_64-6.3.0-posix-sjlj-rt_v5-rev1\mingw64\bin"
 
 I don't require MSYS to build my library so you can stop here if you like. I do however suggest making an alias to the MinGW32-make executable, this is optional, so later in these instructions simply replace "make" with "mingw32-make" if you choose not to do this.
 
 Go to the bin directory in your installation folder, on my system it is "C:\programs\mingw-w64\x86_64-6.3.0-posix-sjlj-rt_v5-rev1\mingw64\bin" and create a file called "make.bat"
 
 Edit the file with a text editor and add the following single line "mingw32-make %\*"
-This allows you to use "make" on windows which we will need later to build to library.
+This allows you to use the command "make" on windows which we will need later to build to library.
 
+## Compilation
 To compile my source code and generate the documentation for it, I use two packages, both written in Python. 
 
 * Compilation :  [CMAKE: an open-source, cross-platform family of tools designed to build, test and package software](https://cmake.org/)
@@ -96,24 +97,29 @@ Cmake allows you to compile my library very easily without having to write your 
 
 In the next few sections I briefly discuss the installation of cmake.  Followed by the installation of Ford.  Since Ford is a python package, I will also discuss the installation of python too.
 
-#### Installing Cmake ####
+#### Installing Cmake
 
 The installation of cmake should be quite easy. Similar to the section above on installing [gfortran](#gfortran).
 
-On a Mac, I simply use brew again.  On windows, you should be able to download the installation binary from their website. 
+On a Mac, I simply use brew again.  On windows, you should be able to download the installation binary from their [website](https://cmake.org/download/). 
 
 #### Installing and Setting up Python <a name="python"></a>
 
 I have so far found the [Anaconda Distribution of Python](https://www.continuum.io/downloads) to be the most friendly cross platform distribution.  Go ahead and install Anaconda on your system, if you are on Windows, allow the installer to modify your environment variables (so you don't have to later).  Ford uses python version 3+ so be sure to get the correct installer.
 
-## Compiling the Fortran libraries
+
+#### Compiling the coretran library
 
 To compile the source codes I have chosen to use [CMAKE: an open-source, cross-platform family of tools designed to build, test and package software](https://cmake.org/). Cmake allows you to easily build the same source code on Windows, OSX, and Linux with no changes.  I always found make files cumbersome on Windows so Cmake made my life very easy.  The portability of Cmake to multiple architectures was the driving reason for me choosing it, plus Cmake can handle the newer, more modern, aspects of Fortran 2003, 2008+.
  
 
-#### Compiling the Fortran Code
+#### Compiling the coretran test code
 
+Todo
 
+#### How to include coretran in your library or program
+
+Todo
 
 
 
