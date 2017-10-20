@@ -137,7 +137,8 @@ cmake -DCMAKE_BUILD_TYPE=[DEBUG,RELEASE] -G "Insert type here" ../src
 
 	The following generators are available on this platform:
   	Unix Makefiles               = Generates standard UNIX makefiles.
-	Ninja                        = Generates build.ninja files.	Xcode                        = Generate Xcode project files.
+	Ninja                        = Generates build.ninja files.
+	Xcode                        = Generate Xcode project files.
    	CodeBlocks - Ninja           = Generates CodeBlocks project files.
    	CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
    	CodeLite - Ninja             = Generates CodeLite project files.
