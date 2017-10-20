@@ -1,0 +1,17 @@
+build/CMakeFiles/
+documentation/doc/
+*.smod
+*.mod
+*.*~
+*.swp
+*.obj
+*.o
+CMakeCache.txt
+tests/build/CMakeFiles/
+cmake_install.cmake
+*.dblite
+*.dylib
+*.a
+*.dll
+*.so
+*.exe

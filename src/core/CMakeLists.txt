@@ -1,0 +1,17 @@
+target_sources(${libName}
+    PUBLIC
+        "${CMAKE_CURRENT_LIST_DIR}/m_variableKind.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_swap.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_indexing.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_strings.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_errors.f90"
+	"${CMAKE_CURRENT_LIST_DIR}/m_fileIO.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_parameters.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_debugging.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_write.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_read.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_allocate.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_reallocate.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_copy.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_partition.f90"
+)
