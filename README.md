@@ -30,6 +30,8 @@ The code can be compiled easily across platforms using [CMake](https://cmake.org
 [![Compiler](https://img.shields.io/badge/NAG-not%20tested-yellow.svg)]()
 [![Compiler](https://img.shields.io/badge/PGI-not%20tested-yellow.svg)]()
 
+## [Read the source documentation](https://leonfoks.github.io/coretran)
+
 ---
 
 [Main features](#main-features) | [Documentation](#docs) | [Compiling](#compile) | [An example of coretran](#example)
@@ -61,7 +63,7 @@ To compile my library, I have been using gfortran version 6.3.0 because of the u
 If you work in Linux you should be well versed in installing packages on your system. At the time of writing this I am running on Ubuntu 16.04 LTS.
 
 #### * Mac
-On a Mac, I use Brew to manage my libraries/programs.  So type "brew install gfortran" and you should be golden.
+On a Mac, I use Brew to manage my libraries/programs.  So type "brew install gcc" and you should be golden.
 
 #### * Windows
 Windows is a little trickier but it is still easy! The easiest way I have found is to use [MinGW](http://mingw-w64.org/doku.php). There is a good tutorial on installing mingw [here](https://computingabdn.com/softech/mingw-howto-install-gcc-for-windows/). I will summarize below.
@@ -87,39 +89,94 @@ Go to the bin directory in your installation folder, on my system it is "C:\prog
 Edit the file with a text editor and add the following single line "mingw32-make %\*"
 This allows you to use the command "make" on windows which we will need later to build to library.
 
-## Compilation
-To compile my source code and generate the documentation for it, I use two packages, both written in Python. 
+## Compilation <a name="compile"></a>
+The library can be compiled with any custom approach you choose, however to make life easier, I have included instructions on how to use cmake to generate makefiles. Cmake allows you to easily build the same source code on Windows, OSX, and Linux with no changes.  I always found make files cumbersome on Windows so Cmake made my life very easy.  The portability of Cmake to multiple architectures was the driving reason for me choosing it, plus Cmake can handle the newer, more modern, aspects of Fortran 2003, 2008+, and handles source code dependencies very well.
 
 * Compilation :  [CMAKE: an open-source, cross-platform family of tools designed to build, test and package software](https://cmake.org/)
-* Documentation :  [Ford - FORtran Documenter](https://github.com/cmacmackin/ford)
-
-Cmake allows you to compile my library very easily without having to write your own build scripts. I already did the hard work so you don't have to.  Any good software library should come with documentation. In this library, I have extensive source code comments that you should be able to follow.  The source code comments also contain snippets of code that show how to use the functions I have written. In addition to this, the source code comments can be used to automatically generate html pages.  These pages are fully searchable and very nicely organized.  This is where Ford comes in.
-
-In the next few sections I briefly discuss the installation of cmake.  Followed by the installation of Ford.  Since Ford is a python package, I will also discuss the installation of python too.
 
 #### Installing Cmake
 
 The installation of cmake should be quite easy. Similar to the section above on installing [gfortran](#gfortran).
 
-On a Mac, I simply use brew again.  On windows, you should be able to download the installation binary from their [website](https://cmake.org/download/). 
+On a Mac, I simply use brew again.  
 
-#### Installing and Setting up Python <a name="python"></a>
-
-I have so far found the [Anaconda Distribution of Python](https://www.continuum.io/downloads) to be the most friendly cross platform distribution.  Go ahead and install Anaconda on your system, if you are on Windows, allow the installer to modify your environment variables (so you don't have to later).  Ford uses python version 3+ so be sure to get the correct installer.
+On windows, you should be able to download the installation binary from their [website](https://cmake.org/download/). 
 
 
 #### Compiling the coretran library
 
-To compile the source codes I have chosen to use [CMAKE: an open-source, cross-platform family of tools designed to build, test and package software](https://cmake.org/). Cmake allows you to easily build the same source code on Windows, OSX, and Linux with no changes.  I always found make files cumbersome on Windows so Cmake made my life very easy.  The portability of Cmake to multiple architectures was the driving reason for me choosing it, plus Cmake can handle the newer, more modern, aspects of Fortran 2003, 2008+.
- 
+To compile the coretran library, navigate to the root directory and create a new folder "build".
+
+Change directory to build and type 
+
+```
+cmake -DCMAKE_BUILD_TYPE=[DEBUG,RELEASE] -G "Insert type here" ../src
+```
+
+* -D
+	* CMAKE\_BUILD\_TYPE 
+		* DEBUG will add all debugging flags, tracebacks, and array bound checking.  This is great for development.
+		* RELEASE will turn of the less efficient checks, and will compile with higher levels of optimization.  This is great for production runs once everything is debugged.
+	* CMAKE\_Fortran\_COMPILER
+		* If cmake does not use the compiler you need, you can specify the path to the compiler you want. I had some issues on OSX with the intel compiler and gfortran both installed.  Using -G "Unix Makefiles" would always detect the intel compiler.  To force cmake to use gfortran, I used -DCMAKE\_Fortran\_COMPILER=/usr/local/Cellar/gcc/6.2.0/bin/gfortran (Remember I used brew to install gfortran, and that the version number might change!) 
+
+* -G 
+
+	Cmake can generate makefiles for a multitude of different compilers.  The -G option specifies which compiler you wish to generate make files for.
+
+	If you type 
+
+	```
+	cmake -h
+	```
+
+	You will see not only the man pages for cmake, but also a list of generators e.g.
+
+	```
+	Generators
+
+	The following generators are available on this platform:
+  	Unix Makefiles               = Generates standard UNIX makefiles.
+	Ninja                        = Generates build.ninja files.
+   Xcode                        = Generate Xcode project files.
+   CodeBlocks - Ninja           = Generates CodeBlocks project files.
+   CodeBlocks - Unix Makefiles  = Generates CodeBlocks project files.
+   CodeLite - Ninja             = Generates CodeLite project files.
+   CodeLite - Unix Makefiles    = Generates CodeLite project files.
+   Sublime Text 2 - Ninja       = Generates Sublime Text 2 project files.
+   Sublime Text 2 - Unix Makefiles
+                               = Generates Sublime Text 2 project files.
+   Kate - Ninja                 = Generates Kate project files.
+   Kate - Unix Makefiles        = Generates Kate project files.
+   Eclipse CDT4 - Ninja         = Generates Eclipse CDT 4.0 project files.
+   Eclipse CDT4 - Unix Makefiles= Generates Eclipse CDT 4.0 project files.
+   KDevelop3                    = Generates KDevelop 3 project files.
+   KDevelop3 - Unix Makefiles   = Generates KDevelop 3 project files.
+	```
+
+	On Windows, you should also see a generator for "MinGW Makefiles"
+
+	So choose which one you want.  
+	
+	On OSX and Linux I have always used \"Unix Makefiles\".
+	
+	On Windows, I have used \"MinGW Makefiles\" or \"NMake Makefile\" for gfortran or intel respectively.
 
 #### Compiling the coretran test code
 
-Todo
+Most software libraries have a built in test build function when the library is built.  I have stayed away from this so that you can see how I build my test such that it links to the coretran library.  You can duplicate my process for your own programs.
 
-#### How to include coretran in your library or program
+Navigate to the test folder of coretran.
 
-Todo
+Create a new folder "build" and change directory to that folder.
+
+Run the same cmake command you used to build the coretran library.
+
+Run the test script!  It should show whether each function has passed or failed, and may show timings for the sorting routines.
+
+#### How to use coretran in your library or program
+
+Once the coretran library is compiled, you can easily use it in your own program.  When you compile your Fortran codes to object files, simply use -I/path/to/coretran/include.  When you link your objects, use -L/path/to/coretran/lib and -lcoretran.
 
 
 
@@ -127,9 +184,15 @@ Todo
 
 ## Documentation <a name="docs"></a>
 
-The html documentation for the source code be created locally using the [ford Fortran Documentation Tool](https://github.com/cmacmackin/ford). 
+Any good software library should come with documentation. In this library, I have extensive source code comments that you should be able to follow.  The source code comments also contain snippets of code that show how to use the functions I have written. In addition to this, the source code comments can be used to automatically generate html pages.  These pages are fully searchable and very nicely organized.  This is where Ford comes in.
+
+The html documentation for the source code be created locally using the [ford Fortran Documentation Tool](https://github.com/cmacmackin/ford).  If you don't want to create it locally you can simply see it [here](https://leonfoks.github.io/coretran).
 
 You can install Ford like any other Python module using "pip install ford".  
+
+#### Installing and Setting up Python <a name="python"></a>
+
+I have so far found the [Anaconda Distribution of Python](https://www.continuum.io/downloads) to be the most friendly cross platform distribution.  Go ahead and install Anaconda on your system, if you are on Windows, allow the installer to modify your environment variables (so you don't have to later).  Ford uses python version 3+ so be sure to get the correct installer.
 
 Ford can also generate a dependency graph of the fortran modules by using [Graphviz](http://www.graphviz.org/), you will need to install Graphviz separately.
 
@@ -140,6 +203,12 @@ Ford can also generate a dependency graph of the fortran modules by using [Graph
 * **OSX Graphviz Installation**
 
   To manage my programs I use [Homebrew](http://brew.sh/). To install Graphviz, I simply used "brew install Graphviz"
+
+#### Generating the docs
+
+Once Ford and perhaps Graphviz are installed, simply navigate to the root coretran folder in a terminal/command prompt and type "ford Docs.md". This will generate html pages under the docs folder.
+
+
 
 Go to [Top](#top)
 
