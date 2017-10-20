@@ -1,5 +1,5 @@
 cmake_minimum_required (VERSION 3.6)
-project (libFortran)
+project (coretran)
 enable_language (Fortran)
 
 # Setup the Fortran cmake environment
@@ -9,8 +9,8 @@ include(../../myCMakeFiles/FortranEnvironment.cmake)
 link_directories(../../lib)
 
 # Initialize the program
-set(programName libFortranTest)
-add_executable(${programName} test_libFortran.f90)
+set(programName coretranTest)
+add_executable(${programName} test_coretran.f90)
 
 # Link in the library
 target_link_libraries(${programName} Fortran)
