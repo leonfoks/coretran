@@ -1,7 +1,7 @@
 title: coretran
-project_dir: ../
-src_dir: ../src
-output_dir: ./doc
+project_dir: ./
+src_dir: ./src
+output_dir: ./docs
 project_github: https://github.com/leonfoks/coretran
 project_website: http://github.com/leonfoks/
 summary: Modern well documented core Fortran routines for cleaner, smarter code.
@@ -21,5 +21,4 @@ graph: true
 search: true
 macro: TEST
        LOGIC=.true.
-extra_mods: ford: http://leonfoks.github.io
             

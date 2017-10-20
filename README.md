@@ -172,7 +172,9 @@ if (istat /= 0) then
 endif
 end program
 ```
+
 ### The same code using coretran
+
 ```Fortran
 program theMean
 use variableKind, only: r64,i32
