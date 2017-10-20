@@ -1,5 +1,5 @@
-program test_libFortran
-  !! Test program for the libFortran library
+program test_coretran
+  !! Test program for the coretran library
   use iso_fortran_env
   use variableKind
   use m_array1D
@@ -65,7 +65,7 @@ program test_libFortran
   ib = command_argument_count()
   if (ib < 2) then
     write(*,'(a)') 'Error with input options'
-    write(*,'(a)') 'Usage: libFortranTest size iterations'
+    write(*,'(a)') 'Usage: coretranTest size iterations'
     write(*,'(a)') '  size : Size of the array to run tests on'
     write(*,'(a)') '  iterations : Number of times to run a test that is being timed'
     stop
