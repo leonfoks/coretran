@@ -14,7 +14,7 @@ I struggled as a beginner coming in to Fortran because the basic functions that 
 
 This was initially the driving motivation for me to develop this library.  The simple fact that Fortran does not have these basic functions readily available, and that any user starting from scratch would have to write their own. I humbly hope that this library will help to alleviate this issue, by providing functions/subroutines with complexities that range from the most basic to the more advanced, but all in pure Fortran.  The effect is hopefully similar to a Python user who has immediate access to amazing packages such as numpy and scipy.
 
-The code comes with a complete set of source code documentation that is easily generated into html pages. These docs also contain working examples on how to run each function and subroutine within the library.  Also included in the docs are the references to papers or online material that I used.
+The code comes with a complete set of [source code documentation](https://leonfoks.github.io/coretran/) that is easily generated into html pages. These docs also contain working examples on how to run each function and subroutine within the library.  Also included in the docs are the references to papers or online material that I used.
 
 This library is written using modern Fortran standards with modules, sub modules, and object oriented derived types.
 
