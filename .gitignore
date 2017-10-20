@@ -8,6 +8,9 @@ documentation/doc/
 *.o
 CMakeCache.txt
 tests/build/CMakeFiles/
+tests/bin
+tests/include
+tests/lib
 cmake_install.cmake
 *.dblite
 *.dylib
@@ -15,3 +18,5 @@ cmake_install.cmake
 *.dll
 *.so
 *.exe
+lib/
+include/
