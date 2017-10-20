@@ -257,16 +257,16 @@ use m_deallocate, only: deallocate
 use m_array1D, only: arange
 use m_maths only: mean
 implicit none
-real(real64), allocatable :: a(:)
-real(real64) :: theMean
-integer(int32) :: N
+real(r64), allocatable :: a(:)
+real(r64) :: theMean
+integer(i32) :: N
 N=1000
 
 ! Allocate a and check for errors
 call allocate(a,N)
 
 ! Create numbers from 1 to N
-call arange(a, 1.d0, 1000.d0)
+call arange(a, 1.0_r64, 1000.0_r64)
 
 ! Compute the mean
 theMean = mean(a)
