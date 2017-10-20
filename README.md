@@ -1,12 +1,10 @@
 <a name="top"></a>
 
-# SciFor
-
 [![License](https://img.shields.io/badge/license-GNU%20GeneraL%20Public%20License%20v3,%20GPLv3-blue.svg)]()
 
-An easy to follow library to make Fortran easier in general with wrapped interfaces, sorting routines, kD-Trees, and other algorithms to handle scientific data and concepts. The library contains base fortran routines and object-oriented classes.
+An easy to follow library to make Fortran easier in general with wrapped interfaces, sorting routines, kD-Trees, and other algorithms to handle scientific data and concepts. The library contains core fortran routines and object-oriented classes.
 
-### Why SciFor?
+### Why coretran?
 
 I used Fortran extensively during my PhD to solve very large systems of equations with application to the inversion of geophysical data for 3D subsurface physical property models. I developed algorithms that utilized random point clouds in space, structured rectilinear, triangular, and voronoi meshes, and the unstructured versions of these.  Fortran has relatively little modern and freely available source code, compared to other languages, which have easy to use libraries that perform these types of operations. 
 
@@ -34,7 +32,7 @@ The code can be compiled easily across platforms using [CMake](https://cmake.org
 
 ---
 
-[Main features](#main-features) | [Documentation](#docs) | [Compiling](#compile) | [An example of sciFor](#example)
+[Main features](#main-features) | [Documentation](#docs) | [Compiling](#compile) | [An example of coretran](#example)
 
 ---
 
@@ -45,7 +43,7 @@ All functions and subroutines are interfaces, they work no matter the input type
 
 ## Licensing
 
-sciFor is an open source project, it is distributed under the GPL v3 licensing system:
+coretran is an open source project, it is distributed under the GPL v3 licensing system:
 [GPL v3](http://www.gnu.org/licenses/gpl-3.0.html)
 
 Go to [Top](#top)
@@ -139,7 +137,7 @@ Ford can also generate a dependency graph of the fortran modules by using [Graph
 
 Go to [Top](#top)
 
-## An example of sciFor <a name="example"></a>
+## An example of coretran <a name="example"></a>
 
 Here is a small example of how this library makes Fortran easier to use (especially for a beginner), and how it can clean up your code. While this example is not extensive it should give you an idea.
 
@@ -174,7 +172,7 @@ if (istat /= 0) then
 endif
 end program
 ```
-### The same code using SciFor
+### The same code using coretran
 ```Fortran
 program theMean
 use variableKind, only: r64,i32
