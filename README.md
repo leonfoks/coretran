@@ -84,6 +84,7 @@ Add an environment variable called "MinGW\_Home" and point it to the bin directo
 
 I don't require MSYS to build my library so you can stop here if you like. I do however suggest making an alias to the MinGW32-make executable, this is optional, so later in these instructions simply replace "make" with "mingw32-make" if you choose not to do this.
 
+<a name="makeAlias"></a>
 Go to the bin directory in your installation folder, on my system it is "C:\programs\mingw-w64\x86_64-6.3.0-posix-sjlj-rt_v5-rev1\mingw64\bin" and create a file called "make.bat"
 
 Edit the file with a text editor and add the following single line "mingw32-make %\*"
@@ -161,6 +162,8 @@ cmake -DCMAKE_BUILD_TYPE=[DEBUG,RELEASE] -G "Insert type here" ../src
 	
 	On Windows, I have used \"MinGW Makefiles\" or \"NMake Makefile\" for gfortran or intel respectively.
 
+Finally, to compile the library, type "make", or "mingw32-make" on windows if you did not follow [this step](#makeAlias)
+
 #### Compiling the coretran test code
 
 Most software libraries have a built in test build function when the library is built.  I have stayed away from this so that you can see how I build my test such that it links to the coretran library.  You can duplicate my process for your own programs.
@@ -171,7 +174,9 @@ Create a new folder "build" and change directory to that folder.
 
 Run the same cmake command you used to build the coretran library.
 
-Run the test script!  It should show whether each function has passed or failed, and may show timings for the sorting routines.
+Type "make", or "mingw32-make" on windows if you did not follow [this step](#makeAlias)
+
+Run the test script located in the bin folder!  It should show whether each function has passed or failed, and may show timings for the sorting routines.
 
 #### How to use coretran in your library or program
 
