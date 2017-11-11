@@ -17,7 +17,10 @@ program test_coretran
   ! Sorting routines
   use m_Sort
   !use m_PartialQuicksort
-  use m_quickSelect
+  use m_Select
+  !use m_medianOfMedians
+  !use m_Select_FloydRivest
+  !use m_heapSelect
   use m_maths
 
   use Stopwatch_Class
@@ -237,8 +240,11 @@ program test_coretran
 
   write(*,1) 'Setting the random seed'
 
-  call setRNG(.true.)
+  !call setRNG(.true.)
   !call setRNG([546420601, 1302718556, 802583095, 136684118, 1163051410, 592779069, 660876855, 767615536, 1788597594, 775517554, 657867655, 1334969129])
+  call allocate(ia1D, 33)
+  ia1D = 546420601
+  call setRNG(ia1D)
 !  ia=1
 !  call rngInteger(ia1D,ia)
   write(*,1) 'Random integers'
@@ -529,10 +535,13 @@ program test_coretran
   ! Initial setup for testing
   call allocate(ar1D, N)
   call allocate(br1D, N)
-  allocate(a1D(N))
-  allocate(ia1D(N))
+  call allocate(a1D, N)
+  call allocate(ia1D, N)
   call allocate(ic1D, N)
   call allocate(b1D, N)
+  call allocate(iad1D, N)
+  call allocate(ibd1D, N)
+
 
 
   call rngNormal(a1D)
@@ -555,9 +564,6 @@ program test_coretran
   ia1D = [(ia, ia=1, N)]
   call argsort(br1D, ia1D,.true.)
   call test(isSorted(br1D(ia1D)),'argMergesort_r1D')
-
-
-  call rngNormal(a1D)
 
   b1D = a1D
   call sort(b1D)
@@ -597,81 +603,77 @@ program test_coretran
   call argsort(ib1D,ic1D,.true.)
   call test(isSorted(ib1D(ic1D)),'argMergesort_i1D')
 
-  call Msg('---  Timing the double precision introspection sort ---')
-  call clk%restart()
-  ib = nIterations
-  do ia = 1, ib
-    b1D = a1D
-    call sort(b1D)
-  enddo
-  call clk%stop()
-  write(*,'(a)') 'Total time for '//str(ib)//' sorts of length '//str(N)//str(clk%elapsedInSeconds())
-  write(*,'(a)') 'Time: '//str(clk%elapsedInSeconds() / dble(ib))//'seconds per sort of length '//str(N)
-  call test(isSorted(b1D),'Introsort_d1D')
-
-  call Msg('---  Timing an already sorted double precision introspection sort ---')
-  call clk%restart()
-  ib = nIterations
-  b1D = a1D
-  call sort(b1D)
-  do ia = 1, ib
-    call sort(b1D)
-  enddo
-  call clk%stop()
-  write(*,'(a)') 'Total time for '//str(ib)//' sorts of length '//str(N)//str(clk%elapsedInSeconds())
-  write(*,'(a)') 'Time: '//str(clk%elapsedInSeconds() / dble(ib))//'seconds per sort of length '//str(N)
-  call test(isSorted(b1D),'Introsort_d1D')
-
-
 
   call Msg('==========================')
-  call Msg('Testing : Quick Select')
+  call Msg('Testing : Select')
   call Msg('==========================')
 
-  b1D = a1D
-  ia = 1
-  ib = size(b1D)
-  ic = (ib+ia)/2
+  br1D = ar1D
+  ic = (size(br1D+1))/2 ! Get the median
+  a = select(br1D, ic)
+
+  la = all(br1D(1:ic-1) <= br1D(ic)) .and. all(br1D(ic+1:ib) >= br1D(ic))
+  call sort(br1D)
+  call test(a == br1D(ic) .and. la, 'quickselect_r1D')
+
+  br1D = ar1D
+  ic = 3
+  a = select(br1D, ic)
+
+  la = all(br1D(1:ic-1) <= br1D(ic)) .and. all(br1D(ic+1:ib) >= br1D(ic))
+  call sort(br1D)
+  call test(a == br1D(ic) .and. la, 'quickselect_r1D')
+
+  br1D = ar1D
+  ic1D = [(ib, ib=1, N)]
+  ia = argSelect(br1D,ic1D, ic)
+  la = all(br1D((ic1D(1:ic-1))) <= br1D(ia)) .and. all(br1D(ic1D(ic+1:ib)) >= br1D(ia))
+  call test(la,'argQuickSelect_r1D')
 
   b1D = a1D
-  ic = ib/2 ! Middle location
-  a = quickSelect(b1D, ic)
+  ic = (size(b1D+1))/2 ! Get the median
+  a = select(b1D, ic)
 
   la = all(b1D(1:ic-1) <= b1D(ic)) .and. all(b1D(ic+1:ib) >= b1D(ic))
   call sort(b1D)
   call test(a == b1D(ic) .and. la, 'quickselect_d1D')
 
   b1D = a1D
-  ia1D = [(ia, ia=1, N)]
-  a = argQuickSelect(b1D, ia1D, ic)
-  la = a == b1D(ia1D(ic))
-  lb = all(b1D(ia1D(1:ic-1)) < b1D(ia1D(ic))) .and. all(b1D(ia1D(ic+1:ib)) > b1D(ia1D(ic)))
-  call sort(b1D)
-  call test(la .and. lb, 'argQuickselect_d1D')
+  ic = (size(b1D+1))/2 ! Get the median
+  call arange(ic1D, 1, N)
+  ia = argSelect(b1D, ic1D, ic)
+  lb = all(b1D(ic1D(1:ic-1)) < b1D(ic1D(ic))) .and. all(b1D(ic1D(ic+1:ib)) > b1D(ic1D(ic)))
+  call test(la, 'argQuickselect_d1D')
 
-  call Msg('---  Timing the quick select on random numbers ---')
-  call clk%restart()
-  ib = nIterations
-  do ia = 1, ib
-    b1D = a1D
-    a = quickselect(b1D, ic)
-  enddo
-  call clk%stop()
-  write(*,'(a)') 'Total time for '//str(ib)//' quickselects of length '//str(N)//str(clk%elapsedInSeconds())
-  write(*,'(a)') 'Time: '//str(clk%elapsedInSeconds() / dble(ib))//'seconds per select of length '//str(N)
+  ib1D = ia1D
+  ic = (size(ib1D+1))/2 ! Get the median
+  a = select(ib1D, ic)
 
-  call Msg('---  Timing the quick select on already sorted numbers ---')
-  call clk%restart()
-  ib = nIterations
-  c1D = a1D
-  call sort(c1D)
-  do ia = 1, ib
-    b1D = c1D
-    a = quickselect(b1D, ic)
-  enddo
-  call clk%stop()
-  write(*,'(a)') 'Total time for '//str(ib)//' quickselects of length '//str(N)//str(clk%elapsedInSeconds())
-  write(*,'(a)') 'Time: '//str(clk%elapsedInSeconds() / dble(ib))//'seconds per select of length '//str(N)
+  la = all(ib1D(1:ic-1) <= ib1D(ic)) .and. all(ib1D(ic+1:ib) >= ib1D(ic))
+  call sort(ib1D)
+  call test(a == ib1D(ic) .and. la, 'quickselect_i1D')
+
+  ib1D = ia1D
+  ic = (size(ib1D+1))/2 ! Get the median
+  call arange(ic1D, 1, N)
+  ia = argSelect(ib1D, ic1D, ic)
+  lb = all(ib1D(ic1D(1:ic-1)) < ib1D(ic1D(ic))) .and. all(ib1D(ic1D(ic+1:ib)) > ib1D(ic1D(ic)))
+  call test(la, 'argQuickselect_i1D')
+
+  ibd1D = iad1D
+  ic = (size(ibd1D+1))/2 ! Get the median
+  iad = select(ibd1D, ic)
+
+  la = all(ibd1D(1:ic-1) <= ibd1D(ic)) .and. all(ibd1D(ic+1:ib) >= ibd1D(ic))
+  call sort(ibd1D)
+  call test(iad == ibd1D(ic) .and. la, 'quickselect_id1D')
+
+  ibd1D = iad1D
+  ic = (size(ib1D+1))/2 ! Get the median
+  call arange(ic1D, 1, N)
+  ia = argSelect(ibd1D, ic1D, ic)
+  lb = all(ibd1D(ic1D(1:ic-1)) < ibd1D(ic1D(ic))) .and. all(ibd1D(ic1D(ic+1:ib)) > ibd1D(ic1D(ic)))
+  call test(la, 'argQuickselect_id1D')
 
 
   call reallocate(ar1D,3)

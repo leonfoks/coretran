@@ -11,8 +11,16 @@ link_directories(../../lib)
 # Initialize the program
 set(programName coretranTest)
 add_executable(${programName} test_coretran.f90)
-
 # Link in the library
 target_link_libraries(${programName} Fortran)
 # Add the include folder that contains the library modules
+target_include_directories(${programName} PUBLIC ../../include)
+
+
+# Create the scalability test
+set(programName coretranScale)
+add_executable(${programName} scale_coretran.f90)
+# Link the Library
+target_link_libraries(${programName} Fortran)
+# Add the library include
 target_include_directories(${programName} PUBLIC ../../include)
