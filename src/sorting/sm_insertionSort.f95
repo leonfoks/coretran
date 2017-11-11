@@ -16,6 +16,7 @@ module procedure insertionSort_r1D
 !real(r32) :: this(:)
 !integer(i32) :: iLeft,iRight
 integer(i32) :: i,j
+
 do i=iLeft,iRight
   inner: do j=i,iLeft+1,-1
     if (this(j) < this(j-1))then

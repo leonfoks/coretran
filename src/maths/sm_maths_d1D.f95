@@ -4,7 +4,7 @@ use variableKind
 use m_allocate, only: allocate
 use m_errors, only:eMsg,mErr
 use m_sort, only: argsort
-use m_quickSelect, only: argQuickSelect
+use m_select, only: argSelect
 use m_array1D, only: arange
 implicit none
 
@@ -111,12 +111,12 @@ contains
   call arange(i,1,N)
 
   if (mod(N,2)==0) then
-    res=argQuickSelect(this,i,N/2)
+    res=argSelect(this,i,N/2)
     call arange(i,1,N)
-    res=0.5d0*(res+argQuickSelect(this,i,(N/2)+1))
+    res=0.5d0*(res+argSelect(this,i,(N/2)+1))
   else
     iMed=N/2+1
-    res=argQuickSelect(this,i,iMed)
+    res=argSelect(this,i,iMed)
   end if
   deallocate(i)
   end function

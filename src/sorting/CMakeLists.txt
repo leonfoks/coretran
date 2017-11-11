@@ -5,7 +5,8 @@ target_sources(${libName}
     "${CMAKE_CURRENT_LIST_DIR}/sm_insertionSort.f95"
     "${CMAKE_CURRENT_LIST_DIR}/sm_introSort.f95"
     "${CMAKE_CURRENT_LIST_DIR}/sm_mergeSort.f95"
-    "${CMAKE_CURRENT_LIST_DIR}/m_quickSelect.f90"
     "${CMAKE_CURRENT_LIST_DIR}/m_medianOf3.f90"
     "${CMAKE_CURRENT_LIST_DIR}/sm_heapSort.f95"
+    "${CMAKE_CURRENT_LIST_DIR}/m_select.f90"
+    "${CMAKE_CURRENT_LIST_DIR}/sm_quickSelect.f95"
 )
