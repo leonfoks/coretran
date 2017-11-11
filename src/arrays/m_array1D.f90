@@ -40,7 +40,7 @@ end interface
 
 public :: diff
 interface diff
-!! Compute the variance of an array
+!! Compute the difference along an array
   module subroutine diff_r1D(this, res)
       !! Interfaced with diff()
       real(r32),intent(in) :: this(:) !! 1D array
