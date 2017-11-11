@@ -10,7 +10,7 @@
     <meta name="author" content="Leon Foks" >
     <link rel="icon" href="../favicon.png">
 
-    <title>argQuickSelect &ndash; Fortran Program</title>
+    <title>select1 &ndash; Fortran Program</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -108,7 +108,7 @@
     
   
   <div class="row">
-    <h1>argQuickSelect
+    <h1>select1
 	 <small>Interface</small>
     
     </h1>
@@ -126,20 +126,20 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p> 0.3% of total for procedures.</p>Including implementation: 131 statements, 12.0% of total for procedures.">3 statements</a>
+	  title="<p> 0.3% of total for procedures.</p>Including implementation: 23 statements,  2.0% of total for procedures.">3 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/m_quickSelect.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/m_FloydRivest.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/m_quickselect.f90.html'>m_quickSelect.f90</a></li>
+     <li><a href='../sourcefile/m_floydrivest.f90.html'>m_FloydRivest.f90</a></li>
   
-     <li><a href='../module/m_quickselect.html'>m_quickSelect</a></li>
+     <li><a href='../module/m_select_floydrivest.html'>m_Select_FloydRivest</a></li>
   
-     <li class="active">argQuickSelect</li>
+     <li class="active">select1</li>
   </ol>
 </div>
 </div>
@@ -181,13 +181,9 @@
   <div id="modprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../interface/argquickselect.html#moduleprocedure-argquickselect_r1d">argQuickselect_r1D</a>
+      <a class="list-group-item" href="../interface/select1.html#moduleprocedure-floydrivest_r1d">floydRivest_r1D</a>
       
-      <a class="list-group-item" href="../interface/argquickselect.html#moduleprocedure-argquickselect_d1d">argQuickSelect_d1D</a>
-      
-      <a class="list-group-item" href="../interface/argquickselect.html#moduleprocedure-argquickselect_i1d">argQuickSelect_i1D</a>
-      
-      <a class="list-group-item" href="../interface/argquickselect.html#moduleprocedure-argquickselect_id1d">argQuickSelect_id1D</a>
+      <a class="list-group-item" href="../interface/select1.html#moduleprocedure-floydrivest_d1d">floydRivest_d1D</a>
       
     </div>
   </div>
@@ -217,7 +213,7 @@
       
       <a class="list-group-item" href="../interface/argpartition.html">argPartition</a>
       
-      <a class="list-group-item" href="../interface/argquickselect.html">argQuickSelect</a>
+      <a class="list-group-item" href="../interface/argselect.html">argSelect</a>
       
       <a class="list-group-item" href="../interface/argsort.html">argSort</a>
       
@@ -329,8 +325,6 @@
       
       <a class="list-group-item" href="../interface/project.html">project</a>
       
-      <a class="list-group-item" href="../interface/quickselect.html">quickSelect</a>
-      
       <a class="list-group-item" href="../proc/read1dble.html">read1Dble</a>
       
       <a class="list-group-item" href="../proc/read1integer.html">read1Integer</a>
@@ -358,6 +352,10 @@
       <a class="list-group-item" href="../interface/rnguniform.html">rngUniform</a>
       
       <a class="list-group-item" href="../interface/rngweibull.html">rngWeibull</a>
+      
+      <a class="list-group-item" href="../interface/select.html">select</a>
+      
+      <a class="list-group-item" href="../interface/select1.html">select1</a>
       
       <a class="list-group-item" href="../interface/setrng.html">setRNG</a>
       
@@ -405,8 +403,8 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>public interface argQuickSelect</h2>
-	 <p>Find the kth smallest element in an array without modifying the array, instead the indices into that array are modified</p>
+      <h2>public interface select1</h2>
+	 <p>Find the kth smallest element in an array</p>
      
      
     <br>
@@ -437,13 +435,9 @@
   <div id="modprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../interface/argquickselect.html#moduleprocedure-argquickselect_r1d">argQuickselect_r1D</a>
+      <a class="list-group-item" href="../interface/select1.html#moduleprocedure-floydrivest_r1d">floydRivest_r1D</a>
       
-      <a class="list-group-item" href="../interface/argquickselect.html#moduleprocedure-argquickselect_d1d">argQuickSelect_d1D</a>
-      
-      <a class="list-group-item" href="../interface/argquickselect.html#moduleprocedure-argquickselect_i1d">argQuickSelect_i1D</a>
-      
-      <a class="list-group-item" href="../interface/argquickselect.html#moduleprocedure-argquickselect_id1d">argQuickSelect_id1D</a>
+      <a class="list-group-item" href="../interface/select1.html#moduleprocedure-floydrivest_d1d">floydRivest_d1D</a>
       
     </div>
   </div>
@@ -463,8 +457,8 @@
 	 
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-argquickselect_r1d"></span><h3>
-private function argQuickselect_r1D(this, indx, k) result(res)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-floydrivest_r1d"></span><h3>
+private function floydRivest_r1D(this, k) result(res)
     
     
 	 
@@ -472,10 +466,6 @@ private function argQuickselect_r1D(this, indx, k) result(res)
   <div class="panel-body">
        
     
-
-
-
-<p>Interfaced with argQuickselect()</p>
     
     <h4>Arguments</h4>
     
@@ -496,12 +486,12 @@ private function argQuickselect_r1D(this, indx, k) result(res)
   
 <tr>
   
-  <td><span class="anchor" ></span>real(kind=r32),</td>
-  <td>intent(in)</td>
+  <td><span class="anchor" ></span>real(kind=r32)</td>
+  <td></td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td><p>1D array</p></td>
+  <td><strong>this</strong>(:)</td><td></td>
   
 </tr>
 
@@ -511,27 +501,12 @@ private function argQuickselect_r1D(this, indx, k) result(res)
   
 <tr>
   
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(inout)</td>
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>indx</strong>(:)</td><td><p>Index into array</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>k</strong></td><td><p>kth smallest element to find</p></td>
+  <td><strong>k</strong></td><td></td>
   
 </tr>
 
@@ -548,7 +523,7 @@ private function argQuickselect_r1D(this, indx, k) result(res)
   
      <h4>Return Value <small>real(kind=r32)
   </small></h4>
-  <p>kth element</p>
+  
     
 
   </div>
@@ -557,8 +532,8 @@ private function argQuickselect_r1D(this, indx, k) result(res)
  	 
     
   <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-argquickselect_d1d"></span><h3>
-private function argQuickselect_d1D(this, indx, k) result(res)
+  <div class="panel-heading codesum"><span class="anchor" id="proc-floydrivest_d1d"></span><h3>
+private function floydRivest_d1D(this, k) result(res)
     
     
 	 
@@ -566,10 +541,6 @@ private function argQuickselect_d1D(this, indx, k) result(res)
   <div class="panel-body">
        
     
-
-
-
-<p>Interfaced with argQuickselect()</p>
     
     <h4>Arguments</h4>
     
@@ -590,12 +561,12 @@ private function argQuickselect_d1D(this, indx, k) result(res)
   
 <tr>
   
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td>intent(in)</td>
+  <td><span class="anchor" ></span>real(kind=r64)</td>
+  <td></td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td><p>1D array</p></td>
+  <td><strong>this</strong>(:)</td><td></td>
   
 </tr>
 
@@ -605,27 +576,12 @@ private function argQuickselect_d1D(this, indx, k) result(res)
   
 <tr>
   
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(inout)</td>
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>indx</strong>(:)</td><td><p>Index into array</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>k</strong></td><td><p>kth smallest element to find</p></td>
+  <td><strong>k</strong></td><td></td>
   
 </tr>
 
@@ -642,195 +598,7 @@ private function argQuickselect_d1D(this, indx, k) result(res)
   
      <h4>Return Value <small>real(kind=r64)
   </small></h4>
-  <p>kth element</p>
-    
-
-  </div>
-  </div>
-
- 	 
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-argquickselect_i1d"></span><h3>
-private function argQuickselect_i1D(this, indx, k) result(res)
-    
-    
-	 
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-<p>Interfaced with argQuickselect()</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
   
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td><p>1D array</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(inout)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>indx</strong>(:)</td><td><p>Index into array</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>k</strong></td><td><p>kth smallest element to find</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=i32)
-  </small></h4>
-  <p>kth element</p>
-    
-
-  </div>
-  </div>
-
- 	 
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-argquickselect_id1d"></span><h3>
-private function argQuickselect_id1D(this, indx, k) result(res)
-    
-    
-	 
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-<p>Interfaced with argQuickselect()</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td><p>1D array</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(inout)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>indx</strong>(:)</td><td><p>Index into array</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>k</strong></td><td><p>kth smallest element to find</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=i64)
-  </small></h4>
-  <p>kth element</p>
     
 
   </div>
@@ -865,7 +633,7 @@ private function argQuickselect_id1D(this, indx, k) result(res)
       
       <a class="list-group-item" href="../interface/argpartition.html">argPartition</a>
       
-      <a class="list-group-item" href="../interface/argquickselect.html">argQuickSelect</a>
+      <a class="list-group-item" href="../interface/argselect.html">argSelect</a>
       
       <a class="list-group-item" href="../interface/argsort.html">argSort</a>
       
@@ -977,8 +745,6 @@ private function argQuickselect_id1D(this, indx, k) result(res)
       
       <a class="list-group-item" href="../interface/project.html">project</a>
       
-      <a class="list-group-item" href="../interface/quickselect.html">quickSelect</a>
-      
       <a class="list-group-item" href="../proc/read1dble.html">read1Dble</a>
       
       <a class="list-group-item" href="../proc/read1integer.html">read1Integer</a>
@@ -1006,6 +772,10 @@ private function argQuickselect_id1D(this, indx, k) result(res)
       <a class="list-group-item" href="../interface/rnguniform.html">rngUniform</a>
       
       <a class="list-group-item" href="../interface/rngweibull.html">rngWeibull</a>
+      
+      <a class="list-group-item" href="../interface/select.html">select</a>
+      
+      <a class="list-group-item" href="../interface/select1.html">select1</a>
       
       <a class="list-group-item" href="../interface/setrng.html">setRNG</a>
       

@@ -126,7 +126,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p> 0.3% of total for procedures.</p>Including implementation: 123 statements, 11.3% of total for procedures.">3 statements</a>
+	  title="<p> 0.3% of total for procedures.</p>Including implementation: 123 statements, 10.8% of total for procedures.">3 statements</a>
      </li> 
      
      
@@ -217,7 +217,7 @@
       
       <a class="list-group-item" href="../interface/argpartition.html">argPartition</a>
       
-      <a class="list-group-item" href="../interface/argquickselect.html">argQuickSelect</a>
+      <a class="list-group-item" href="../interface/argselect.html">argSelect</a>
       
       <a class="list-group-item" href="../interface/argsort.html">argSort</a>
       
@@ -329,8 +329,6 @@
       
       <a class="list-group-item" href="../interface/project.html">project</a>
       
-      <a class="list-group-item" href="../interface/quickselect.html">quickSelect</a>
-      
       <a class="list-group-item" href="../proc/read1dble.html">read1Dble</a>
       
       <a class="list-group-item" href="../proc/read1integer.html">read1Integer</a>
@@ -358,6 +356,10 @@
       <a class="list-group-item" href="../interface/rnguniform.html">rngUniform</a>
       
       <a class="list-group-item" href="../interface/rngweibull.html">rngWeibull</a>
+      
+      <a class="list-group-item" href="../interface/select.html">select</a>
+      
+      <a class="list-group-item" href="../interface/select1.html">select1</a>
       
       <a class="list-group-item" href="../interface/setrng.html">setRNG</a>
       
@@ -415,7 +417,7 @@
 <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
 <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">j</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
 <span class="n">arr</span><span class="o">=</span><span class="p">[(</span><span class="nb">dble</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
-<span class="n">j</span> <span class="o">=</span> <span class="n">binarySearch_wNeighbours</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">1</span><span class="mf">0.5d0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">binarySearch_wNeighbours</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">1</span><span class="mf">0.5</span><span class="n">d0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Location of 10.5 in arr is -1? &#39;</span><span class="p">,</span><span class="n">j</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;The interval containing 10.5 is [10,11]? &#39;</span><span class="p">,</span><span class="n">j</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">]</span>
 </pre></div>
@@ -949,7 +951,7 @@ private recursive function binarySearch_wNeighbours_id1D(this, v, imin, imax) re
       
       <a class="list-group-item" href="../interface/argpartition.html">argPartition</a>
       
-      <a class="list-group-item" href="../interface/argquickselect.html">argQuickSelect</a>
+      <a class="list-group-item" href="../interface/argselect.html">argSelect</a>
       
       <a class="list-group-item" href="../interface/argsort.html">argSort</a>
       
@@ -1061,8 +1063,6 @@ private recursive function binarySearch_wNeighbours_id1D(this, v, imin, imax) re
       
       <a class="list-group-item" href="../interface/project.html">project</a>
       
-      <a class="list-group-item" href="../interface/quickselect.html">quickSelect</a>
-      
       <a class="list-group-item" href="../proc/read1dble.html">read1Dble</a>
       
       <a class="list-group-item" href="../proc/read1integer.html">read1Integer</a>
@@ -1090,6 +1090,10 @@ private recursive function binarySearch_wNeighbours_id1D(this, v, imin, imax) re
       <a class="list-group-item" href="../interface/rnguniform.html">rngUniform</a>
       
       <a class="list-group-item" href="../interface/rngweibull.html">rngWeibull</a>
+      
+      <a class="list-group-item" href="../interface/select.html">select</a>
+      
+      <a class="list-group-item" href="../interface/select1.html">select1</a>
       
       <a class="list-group-item" href="../interface/setrng.html">setRNG</a>
       

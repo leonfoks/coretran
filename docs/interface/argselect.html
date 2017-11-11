@@ -10,7 +10,7 @@
     <meta name="author" content="Leon Foks" >
     <link rel="icon" href="../favicon.png">
 
-    <title>sub2ind &ndash; Fortran Program</title>
+    <title>argSelect &ndash; Fortran Program</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -108,8 +108,8 @@
     
   
   <div class="row">
-    <h1>sub2ind
-      <small>Function</small>
+    <h1>argSelect
+	 <small>Interface</small>
     
     </h1>
     
@@ -126,20 +126,20 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 1.3% of total for procedures.">15 statements</a>
+	  title="<p> 2.3% of total for procedures.</p>Including implementation: 26 statements,  2.3% of total for procedures.">26 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/m_indexing.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/m_select.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/m_indexing.f90.html'>m_indexing.f90</a></li>
+     <li><a href='../sourcefile/m_select.f90.html'>m_select.f90</a></li>
   
-     <li><a href='../module/m_indexing.html'>m_indexing</a></li>
+     <li><a href='../module/m_select.html'>m_select</a></li>
   
-     <li class="active">sub2ind</li>
+     <li class="active">argSelect</li>
   </ol>
 </div>
 </div>
@@ -154,7 +154,7 @@
   
   <div class="row">
     <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
-    
+      
 <div id="sidebar">
   
 
@@ -168,6 +168,23 @@
 
 
 
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs-0">Functions</a></h3></div>
+  <div id="funcs-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../interface/argselect.html#proc-argquickselect_i1d">argQuickSelect_i1D</a>
+      
+      <a class="list-group-item" href="../interface/argselect.html#proc-argquickselect_id1d">argQuickSelect_id1D</a>
+      
+      <a class="list-group-item" href="../interface/argselect.html#proc-argquickselect_r1d">argQuickSelect_r1D</a>
+      
+      <a class="list-group-item" href="../interface/argselect.html#proc-argquickselect_d1d">argQuickSelect_d1D</a>
+      
+    </div>
+  </div>
+</div>
 
 
 
@@ -390,22 +407,104 @@
     </div>
     
     <div class="col-md-9" id='text'>
-    <h2>
-public function sub2ind(iSub, nSub) result(iG)
+      <h2>public interface argSelect</h2>
+	 <p>Use an indirect introspection sort on an array of numbers</p>
+<p>Example usage</p>
+<div class="codehilite"><pre><span></span><span class="k">program </span><span class="n">argSortTest</span>
+<span class="k">use </span><span class="n">variableKind</span>
+<span class="k">use </span><span class="n">m_strings</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">str</span>
+<span class="k">use </span><span class="n">m_random</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">rngInteger</span><span class="p">,</span><span class="n">rngNormal</span>
+<span class="k">use </span><span class="n">m_arrays</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">isSorted</span>
+<span class="k">use </span><span class="n">m_Sort</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">argSort</span>
+<span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">d1D</span><span class="p">(:)</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">i1D</span><span class="p">(:)</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">indx</span><span class="p">(:)</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="n">N</span>
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span>
+<span class="k">call allocate</span><span class="p">(</span><span class="n">indx</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="k">call </span><span class="n">arange</span><span class="p">(</span><span class="n">indx</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="k">call allocate</span><span class="p">(</span><span class="n">d1D</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">d1D</span><span class="p">)</span>
+<span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">d1D</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<span class="k">call </span><span class="n">argSelect</span><span class="p">(</span><span class="n">d1D</span><span class="p">,</span> <span class="n">indx</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Double array is indirectly sorted? &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">d1D</span><span class="p">(</span><span class="n">indx</span><span class="p">)))</span>
+
+<span class="k">call </span><span class="n">arange</span><span class="p">(</span><span class="n">indx</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="k">call allocate</span><span class="p">(</span><span class="n">i1D</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<span class="k">call </span><span class="n">rngInteger</span><span class="p">(</span><span class="n">i1D</span><span class="p">)</span>
+<span class="k">call </span><span class="n">argSelectt</span><span class="p">(</span><span class="n">i1D</span><span class="p">,</span> <span class="n">indx</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Integer array is indirectly sorted? &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">i1D</span><span class="p">(</span><span class="n">indx</span><span class="p">)))</span>
+<span class="k">end program</span>
+</pre></div>
+     
+     
+    <br>
+
+     <section class="visible-xs visible-sm hidden-md">
+       
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs-1">Functions</a></h3></div>
+  <div id="funcs-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../interface/argselect.html#proc-argquickselect_i1d">argQuickSelect_i1D</a>
+      
+      <a class="list-group-item" href="../interface/argselect.html#proc-argquickselect_id1d">argQuickSelect_id1D</a>
+      
+      <a class="list-group-item" href="../interface/argselect.html#proc-argquickselect_r1d">argQuickSelect_r1D</a>
+      
+      <a class="list-group-item" href="../interface/argselect.html#proc-argquickselect_d1d">argQuickSelect_d1D</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+     </section>
+     <br class="visible-xs visible-sm hidden-md">
+     
+	
+	 <h2>Functions</h2>
+	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-argquickselect_i1d"></span><h3>
+public function argQuickSelect_i1D(this, indx, k) result(res)
     
     
 	 
-</h2>
-    
-  
-
-
-    
-    <p>Given component indices, get the global vector location.</p>
+</h3></div>
+  <div class="panel-body">
+       
     
 
-    <h3>Arguments</h3>
+
+
+<p>Interfaced with argSelect()</p>
     
+    <h4>Arguments</h4>
+    
+      
       
 <table class="table table-striped varlist">
 <thead><tr><th>Type</th>
@@ -422,12 +521,12 @@ public function sub2ind(iSub, nSub) result(iG)
   
 <tr>
   
-  <td><span class="anchor" id="variable-isub%7E2"></span>integer(kind=i32),</td>
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>iSub</strong>(:)</td><td><p>Indices in each dimension. The first entry in iL is the left most index</p></td>
+  <td><strong>this</strong>(:)</td><td><p>1D array</p></td>
   
 </tr>
 
@@ -437,80 +536,340 @@ public function sub2ind(iSub, nSub) result(iG)
   
 <tr>
   
-  <td><span class="anchor" id="variable-nsub%7E2"></span>integer(kind=i32),</td>
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>indx</strong>(:)</td><td><p>Index to choose kth smallest from</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
   <td>intent(in)</td>
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>nSub</strong>(:)</td><td><p>Size in each dimension</p></td>
+  <td><strong>k</strong></td><td><p>kth smallest element</p></td>
   
 </tr>
 
 </tbody>
 </table>
 
-    
-    
-    
-    
-    
-    
-    
-	 <h3>Return Value <small><span class="anchor" id="variable-ig%7E2"></span>integer(kind=i32)
-  </small></h3>
-    <p>Index in the global vector</p>
-    
-    
-     
-    <br>
-
-    <section class="visible-xs visible-sm hidden-md">
       
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    </section>
-    <br class="visible-xs visible-sm hidden-md">
-
-    
-
-    
-    
-    
     
     
 
-    
-    
-    
-    
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=i32)
+  </small></h4>
+  <p>Index of the kth smallest element</p>
     
 
-
-    
-    
-    
-    
-    </div>
   </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-argquickselect_id1d"></span><h3>
+public function argQuickSelect_id1D(this, indx, k) result(res)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with argSelect()</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>1D array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>indx</strong>(:)</td><td><p>Index to choose kth smallest from</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>k</strong></td><td><p>kth smallest element</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=i32)
+  </small></h4>
+  <p>Index of the kth smallest element</p>
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-argquickselect_r1d"></span><h3>
+public function argQuickSelect_r1D(this, indx, k) result(res)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with argSelect()</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>1D array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>indx</strong>(:)</td><td><p>Index to choose kth smallest from</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>k</strong></td><td><p>kth smallest element</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=i32)
+  </small></h4>
+  <p>Index of the kth smallest element</p>
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-argquickselect_d1d"></span><h3>
+public function argQuickSelect_d1D(this, indx, k) result(res)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with argSelect()</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>1D array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>indx</strong>(:)</td><td><p>Index to choose kth smallest from</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>k</strong></td><td><p>kth smallest element</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=i32)
+  </small></h4>
+  <p>Index of the kth smallest element</p>
+    
+
+  </div>
+  </div>
+
+ 	 
+  	 
+
+	
+
+	
+
+ </div>
+</div>
 
   <section class="visible-xs visible-sm hidden-md">
     <hr>

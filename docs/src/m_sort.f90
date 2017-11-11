@@ -29,42 +29,45 @@
     !!use variableKind
     !!use m_strings, only: str
     !!use m_allocate, only: allocate
-    !!use m_random, only: rngInteger,rngNormal
-    !!use m_arrays, only: isSorted
+    !!use m_random, only: rngInteger, rngNormal
+    !!use m_arrays, only: arange, isSorted
     !!use m_sort, only: sort
     !!real(r64),allocatable :: d1D(:)
     !!integer(i32),allocatable :: i1D(:)
+    !!integer(i32) :: N
+    !!
+    !!N = 10000
     !!write(*,'(a)') 'In-place sort a 10000 length array of random double precision numbers'
-    !!call allocate(d1D,10000)
+    !!call allocate(d1D,N)
     !!call rngNormal(d1D)
     !!call sort(d1D)
     !!write(*,'(a)') 'Double array is sorted? '//str(isSorted(d1D))
     !!write(*,'(a)') 'In-place sort a 10000 length array of random integers''
-    !!call allocate(i1D,10000)
+    !!call allocate(i1D,N)
     !!call rngInteger(i1D)
     !!call sort(i1D)
     !!write(*,'(a)') 'Integer array is sorted? '//str(isSorted(i1D))
     !!end program
     !!```
-    module subroutine sort_i1D(this, stable_)
+    module subroutine sort_i1D(this, stable)
       !! Interfaced with sort()
       integer(i32) :: this(:)
-      logical, optional :: stable_
+      logical, optional :: stable
     end subroutine
-    module subroutine sort_id1D(this, stable_)
+    module subroutine sort_id1D(this, stable)
       !! Interfaced with sort()
       integer(i64) :: this(:)
-      logical, optional :: stable_
+      logical, optional :: stable
     end subroutine
-    module subroutine sort_r1D(this, stable_)
+    module subroutine sort_r1D(this, stable)
       !! Interfaced with sort()
       real(r32) :: this(:)
-      logical, optional :: stable_
+      logical, optional :: stable
     end subroutine
-    module subroutine sort_d1D(this, stable_)
+    module subroutine sort_d1D(this, stable)
       !! Interfaced with sort()
       real(r64) :: this(:)
-      logical, optional :: stable_
+      logical, optional :: stable
     end subroutine
   end interface
   private :: sort_i1D, sort_id1D, sort_r1D, sort_d1D
@@ -79,49 +82,52 @@
     !!program argSortTest
     !!use variableKind
     !!use m_strings, only: str
-    !!use m_random, only: rngInteger,rngNormal
-    !!use m_arrays, only: isSorted
+    !!use m_random, only: rngInteger, rngNormal
+    !!use m_arrays, only: arange, isSorted
     !!use m_Sort, only: argSort
     !!real(r64),allocatable :: d1D(:)
     !!integer(i32),allocatable :: i1D(:)
     !!integer(i32),allocatable :: indx(:)
-    !!integer(i32) :: i
-    !!indx = [(i, i=1, 10000)]
-    !!allocate(d1D(10000))
+    !!integer(i32) :: i, N
+    !!
+    !!N=10000
+    !!call allocate(indx, N)
+    !!call arange(indx, 1, N)
+    !!call allocate(d1D, N)
     !!call rngNormal(d1D)
     !!call argSort(d1D, indx)
     !!write(*,'(a)') 'Double array is indirectly sorted? '//str(isSorted(d1D(indx)))
     !!
-    !!indx = [(i, i=1, 10000)]
-    !!allocate(i1D(10000))
+    !!call arange(indx, 1, N)
+    !!call allocate(i1D,N)
     !!call rngInteger(i1D)
     !!call argSort(i1D, indx)
     !!write(*,'(a)') 'Integer array is indirectly sorted? '//str(isSorted(i1D(indx)))
     !!end program
     !!```
-    module subroutine argSort_i1D(this, i, stable_)
+    module subroutine argSort_i1D(this, i, stable)
       !! Interfaced with argsort()
       integer(i32) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Index to sort
-      logical, optional :: stable_ !! Stable sort?
+      logical, optional :: stable !! Stable sort?
     end subroutine
-    module subroutine argSort_id1D(this, i, stable_)
+    module subroutine argSort_id1D(this, i, stable)
       !! Interfaced with argsort()
       integer(i64) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Index to sort
-      logical, optional :: stable_ !! Stable sort?
+      logical, optional :: stable !! Stable sort?
     end subroutine
-    module subroutine argSort_r1D(this, i, stable_)
+    module subroutine argSort_r1D(this, i, stable)
       !! Interfaced with argsort()
       real(r32) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Index to sort
-      logical, optional :: stable_ !! Stable sort?
+      logical, optional :: stable !! Stable sort?
     end subroutine
-    module subroutine argSort_d1D(this, i, stable_)
+    module subroutine argSort_d1D(this, i, stable)
       !! Interfaced with argsort()
       real(r64) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Index to sort
-      logical, optional :: stable_ !! Stable sort?
+      logical, optional :: stable !! Stable sort?
     end subroutine
   end interface
   private :: argSort_i1D, argSort_id1D, argSort_r1D, argSort_d1D

@@ -118,8 +118,6 @@ interface repeat
     end subroutine
 end interface
 
-
-
 !  interface isConstant
 !  module procedure :: isConstant_DV
 !  end interface

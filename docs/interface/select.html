@@ -10,7 +10,7 @@
     <meta name="author" content="Leon Foks" >
     <link rel="icon" href="../favicon.png">
 
-    <title>quickSelect &ndash; Fortran Program</title>
+    <title>select &ndash; Fortran Program</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -108,7 +108,7 @@
     
   
   <div class="row">
-    <h1>quickSelect
+    <h1>select
 	 <small>Interface</small>
     
     </h1>
@@ -126,20 +126,20 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p> 0.3% of total for procedures.</p>Including implementation: 127 statements, 11.7% of total for procedures.">3 statements</a>
+	  title="<p> 1.9% of total for procedures.</p>Including implementation: 22 statements,  1.9% of total for procedures.">22 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/m_quickSelect.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/m_select.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/m_quickselect.f90.html'>m_quickSelect.f90</a></li>
+     <li><a href='../sourcefile/m_select.f90.html'>m_select.f90</a></li>
   
-     <li><a href='../module/m_quickselect.html'>m_quickSelect</a></li>
+     <li><a href='../module/m_select.html'>m_select</a></li>
   
-     <li class="active">quickSelect</li>
+     <li class="active">select</li>
   </ol>
 </div>
 </div>
@@ -169,29 +169,29 @@
 
 
 
-
-
-
-
-
-
-
 <div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#modprocs-0">Module Procedures</a></h3></div>
-  <div id="modprocs-0" class="panel-collapse collapse">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs-0">Functions</a></h3></div>
+  <div id="funcs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../interface/quickselect.html#moduleprocedure-quickselect_r1d">quickSelect_r1D</a>
+      <a class="list-group-item" href="../interface/select.html#proc-quickselect_i1d">quickSelect_i1D</a>
       
-      <a class="list-group-item" href="../interface/quickselect.html#moduleprocedure-quickselect_d1d">quickSelect_d1D</a>
+      <a class="list-group-item" href="../interface/select.html#proc-quickselect_id1d">quickSelect_id1D</a>
       
-      <a class="list-group-item" href="../interface/quickselect.html#moduleprocedure-quickselect_i1d">quickSelect_i1D</a>
+      <a class="list-group-item" href="../interface/select.html#proc-quickselect_r1d">quickSelect_r1D</a>
       
-      <a class="list-group-item" href="../interface/quickselect.html#moduleprocedure-quickselect_id1d">quickSelect_id1D</a>
+      <a class="list-group-item" href="../interface/select.html#proc-quickselect_d1d">quickSelect_d1D</a>
       
     </div>
   </div>
 </div>
+
+
+
+
+
+
+
 
 
 
@@ -217,7 +217,7 @@
       
       <a class="list-group-item" href="../interface/argpartition.html">argPartition</a>
       
-      <a class="list-group-item" href="../interface/argquickselect.html">argQuickSelect</a>
+      <a class="list-group-item" href="../interface/argselect.html">argSelect</a>
       
       <a class="list-group-item" href="../interface/argsort.html">argSort</a>
       
@@ -329,8 +329,6 @@
       
       <a class="list-group-item" href="../interface/project.html">project</a>
       
-      <a class="list-group-item" href="../interface/quickselect.html">quickSelect</a>
-      
       <a class="list-group-item" href="../proc/read1dble.html">read1Dble</a>
       
       <a class="list-group-item" href="../proc/read1integer.html">read1Integer</a>
@@ -358,6 +356,10 @@
       <a class="list-group-item" href="../interface/rnguniform.html">rngUniform</a>
       
       <a class="list-group-item" href="../interface/rngweibull.html">rngWeibull</a>
+      
+      <a class="list-group-item" href="../interface/select.html">select</a>
+      
+      <a class="list-group-item" href="../interface/select1.html">select1</a>
       
       <a class="list-group-item" href="../interface/setrng.html">setRNG</a>
       
@@ -405,8 +407,34 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      <h2>public interface quickSelect</h2>
-	 <p>Find the kth smallest element in an array</p>
+      <h2>public interface select</h2>
+	 <p>Use an in-place quick select on an array of numbers</p>
+<p>Example usage</p>
+<div class="codehilite"><pre><span></span><span class="k">program </span><span class="n">selectTest</span>
+<span class="k">use </span><span class="n">variableKind</span>
+<span class="k">use </span><span class="n">m_strings</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">str</span>
+<span class="k">use </span><span class="n">m_allocate</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="k">allocate</span>
+<span class="k">use </span><span class="n">m_random</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">rngInteger</span><span class="p">,</span><span class="n">rngNormal</span>
+<span class="k">use </span><span class="n">m_select</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="k">select</span>
+<span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">d1D</span><span class="p">(:)</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">i1D</span><span class="p">(:)</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">k</span>
+<span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">dv</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iv</span>
+
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Select the kth smallest element from a 10000 length array of random double precision numbers&#39;</span>
+<span class="k">call allocate</span><span class="p">(</span><span class="n">d1D</span><span class="p">,</span> <span class="mi">10000</span><span class="p">)</span>
+<span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">d1D</span><span class="p">)</span>
+<span class="n">k</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">size</span><span class="p">(</span><span class="n">d1D</span><span class="p">))</span><span class="o">/</span><span class="mi">2</span>
+<span class="n">dv</span> <span class="o">=</span> <span class="k">select</span><span class="p">(</span><span class="n">d1D</span><span class="p">,</span><span class="n">k</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;kth element? &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">dv</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Select the kth smallest element from a 10000 length array of random integers&#39;&#39;</span>
+<span class="s1">call allocate(i1D, 10000)</span>
+<span class="s1">call rngInteger(i1D)</span>
+<span class="s1">iv = select(i1D, k)</span>
+<span class="s1">write(*,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;) &#39;</span><span class="n">kth</span> <span class="n">element</span><span class="err">?</span> <span class="err">&#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">iv</span><span class="p">)</span>
+<span class="k">end program</span>
+</pre></div>
      
      
     <br>
@@ -425,25 +453,18 @@
 
 
 
-
-
-
-
-
-
-
 <div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#modprocs-1">Module Procedures</a></h3></div>
-  <div id="modprocs-1" class="panel-collapse collapse">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs-1">Functions</a></h3></div>
+  <div id="funcs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../interface/quickselect.html#moduleprocedure-quickselect_r1d">quickSelect_r1D</a>
+      <a class="list-group-item" href="../interface/select.html#proc-quickselect_i1d">quickSelect_i1D</a>
       
-      <a class="list-group-item" href="../interface/quickselect.html#moduleprocedure-quickselect_d1d">quickSelect_d1D</a>
+      <a class="list-group-item" href="../interface/select.html#proc-quickselect_id1d">quickSelect_id1D</a>
       
-      <a class="list-group-item" href="../interface/quickselect.html#moduleprocedure-quickselect_i1d">quickSelect_i1D</a>
+      <a class="list-group-item" href="../interface/select.html#proc-quickselect_r1d">quickSelect_r1D</a>
       
-      <a class="list-group-item" href="../interface/quickselect.html#moduleprocedure-quickselect_id1d">quickSelect_id1D</a>
+      <a class="list-group-item" href="../interface/select.html#proc-quickselect_d1d">quickSelect_d1D</a>
       
     </div>
   </div>
@@ -451,178 +472,23 @@
 
 
 
+
+
+
+
+
+
+
      </section>
      <br class="visible-xs visible-sm hidden-md">
      
 	
-
-	
-
-	
-	 <h2>Module Procedures</h2>
+	 <h2>Functions</h2>
 	 
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-quickselect_r1d"></span><h3>
-private function quickSelect_r1D(this, k) result(res)
-    
-    
-	 
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-<p>Interfaced with quickselect()</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r32),</td>
-  <td>intent(inout)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td><p>1D array</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>k</strong></td><td><p>kth smallest element to find</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>real(kind=r32)
-  </small></h4>
-  <p>kth element</p>
-    
-
-  </div>
-  </div>
-
- 	 
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-quickselect_d1d"></span><h3>
-private function quickSelect_d1D(this, k) result(res)
-    
-    
-	 
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-<p>Interfaced with quickselect()</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td>intent(inout)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td><p>1D array</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>k</strong></td><td><p>kth smallest element to find</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>real(kind=r64)
-  </small></h4>
-  <p>kth element</p>
-    
-
-  </div>
-  </div>
-
- 	 
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-quickselect_i1d"></span><h3>
-private function quickSelect_i1D(this, k) result(res)
+public function quickSelect_i1D(this, k) result(res)
     
     
 	 
@@ -633,7 +499,7 @@ private function quickSelect_i1D(this, k) result(res)
 
 
 
-<p>Interfaced with quickselect()</p>
+<p>Interfaced with select()</p>
     
     <h4>Arguments</h4>
     
@@ -659,7 +525,7 @@ private function quickSelect_i1D(this, k) result(res)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td><p>1D array</p></td>
+  <td><strong>this</strong>(:)</td><td><p>Array to choose kth smallest from</p></td>
   
 </tr>
 
@@ -674,7 +540,7 @@ private function quickSelect_i1D(this, k) result(res)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>k</strong></td><td><p>kth smallest element to find</p></td>
+  <td><strong>k</strong></td><td><p>kth smallest element</p></td>
   
 </tr>
 
@@ -691,7 +557,7 @@ private function quickSelect_i1D(this, k) result(res)
   
      <h4>Return Value <small>integer(kind=i32)
   </small></h4>
-  <p>kth element</p>
+  
     
 
   </div>
@@ -701,7 +567,7 @@ private function quickSelect_i1D(this, k) result(res)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-quickselect_id1d"></span><h3>
-private function quickSelect_id1D(this, k) result(res)
+public function quickSelect_id1D(this, k) result(res)
     
     
 	 
@@ -712,7 +578,7 @@ private function quickSelect_id1D(this, k) result(res)
 
 
 
-<p>Interfaced with quickselect()</p>
+<p>Interfaced with select()</p>
     
     <h4>Arguments</h4>
     
@@ -738,7 +604,7 @@ private function quickSelect_id1D(this, k) result(res)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td><p>1D array</p></td>
+  <td><strong>this</strong>(:)</td><td><p>Array to choose kth smallest from</p></td>
   
 </tr>
 
@@ -753,7 +619,7 @@ private function quickSelect_id1D(this, k) result(res)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>k</strong></td><td><p>kth smallest element to find</p></td>
+  <td><strong>k</strong></td><td><p>kth smallest element</p></td>
   
 </tr>
 
@@ -770,7 +636,165 @@ private function quickSelect_id1D(this, k) result(res)
   
      <h4>Return Value <small>integer(kind=i64)
   </small></h4>
-  <p>kth element</p>
+  
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-quickselect_r1d"></span><h3>
+public function quickSelect_r1D(this, k) result(res)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with select()</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r32),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Array to choose kth smallest from</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>k</strong></td><td><p>kth smallest element</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=r32)
+  </small></h4>
+  
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-quickselect_d1d"></span><h3>
+public function quickSelect_d1D(this, k) result(res)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with select()</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Array to choose kth smallest from</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>k</strong></td><td><p>kth smallest element</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>real(kind=r64)
+  </small></h4>
+  
     
 
   </div>
@@ -778,6 +802,10 @@ private function quickSelect_id1D(this, k) result(res)
 
  	 
   	 
+
+	
+
+	
 
  </div>
 </div>
@@ -805,7 +833,7 @@ private function quickSelect_id1D(this, k) result(res)
       
       <a class="list-group-item" href="../interface/argpartition.html">argPartition</a>
       
-      <a class="list-group-item" href="../interface/argquickselect.html">argQuickSelect</a>
+      <a class="list-group-item" href="../interface/argselect.html">argSelect</a>
       
       <a class="list-group-item" href="../interface/argsort.html">argSort</a>
       
@@ -917,8 +945,6 @@ private function quickSelect_id1D(this, k) result(res)
       
       <a class="list-group-item" href="../interface/project.html">project</a>
       
-      <a class="list-group-item" href="../interface/quickselect.html">quickSelect</a>
-      
       <a class="list-group-item" href="../proc/read1dble.html">read1Dble</a>
       
       <a class="list-group-item" href="../proc/read1integer.html">read1Integer</a>
@@ -946,6 +972,10 @@ private function quickSelect_id1D(this, k) result(res)
       <a class="list-group-item" href="../interface/rnguniform.html">rngUniform</a>
       
       <a class="list-group-item" href="../interface/rngweibull.html">rngWeibull</a>
+      
+      <a class="list-group-item" href="../interface/select.html">select</a>
+      
+      <a class="list-group-item" href="../interface/select1.html">select1</a>
       
       <a class="list-group-item" href="../interface/setrng.html">setRNG</a>
       

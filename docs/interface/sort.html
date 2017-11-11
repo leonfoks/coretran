@@ -126,7 +126,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p> 1.7% of total for procedures.</p>Including implementation: 18 statements,  1.7% of total for procedures.">18 statements</a>
+	  title="<p> 1.6% of total for procedures.</p>Including implementation: 18 statements,  1.6% of total for procedures.">18 statements</a>
      </li> 
      
      
@@ -217,7 +217,7 @@
       
       <a class="list-group-item" href="../interface/argpartition.html">argPartition</a>
       
-      <a class="list-group-item" href="../interface/argquickselect.html">argQuickSelect</a>
+      <a class="list-group-item" href="../interface/argselect.html">argSelect</a>
       
       <a class="list-group-item" href="../interface/argsort.html">argSort</a>
       
@@ -329,8 +329,6 @@
       
       <a class="list-group-item" href="../interface/project.html">project</a>
       
-      <a class="list-group-item" href="../interface/quickselect.html">quickSelect</a>
-      
       <a class="list-group-item" href="../proc/read1dble.html">read1Dble</a>
       
       <a class="list-group-item" href="../proc/read1integer.html">read1Integer</a>
@@ -358,6 +356,10 @@
       <a class="list-group-item" href="../interface/rnguniform.html">rngUniform</a>
       
       <a class="list-group-item" href="../interface/rngweibull.html">rngWeibull</a>
+      
+      <a class="list-group-item" href="../interface/select.html">select</a>
+      
+      <a class="list-group-item" href="../interface/select1.html">select1</a>
       
       <a class="list-group-item" href="../interface/setrng.html">setRNG</a>
       
@@ -412,18 +414,21 @@
 <span class="k">use </span><span class="n">variableKind</span>
 <span class="k">use </span><span class="n">m_strings</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">str</span>
 <span class="k">use </span><span class="n">m_allocate</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="k">allocate</span>
-<span class="k">use </span><span class="n">m_random</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">rngInteger</span><span class="p">,</span><span class="n">rngNormal</span>
-<span class="k">use </span><span class="n">m_arrays</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">isSorted</span>
+<span class="k">use </span><span class="n">m_random</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">rngInteger</span><span class="p">,</span> <span class="n">rngNormal</span>
+<span class="k">use </span><span class="n">m_arrays</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">arange</span><span class="p">,</span> <span class="n">isSorted</span>
 <span class="k">use </span><span class="n">m_sort</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">sort</span>
 <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">d1D</span><span class="p">(:)</span>
 <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">i1D</span><span class="p">(:)</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">N</span>
+
+<span class="n">N</span> <span class="o">=</span> <span class="mi">10000</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;In-place sort a 10000 length array of random double precision numbers&#39;</span>
-<span class="k">call allocate</span><span class="p">(</span><span class="n">d1D</span><span class="p">,</span><span class="mi">10000</span><span class="p">)</span>
+<span class="k">call allocate</span><span class="p">(</span><span class="n">d1D</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
 <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">d1D</span><span class="p">)</span>
 <span class="k">call </span><span class="n">sort</span><span class="p">(</span><span class="n">d1D</span><span class="p">)</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Double array is sorted? &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">d1D</span><span class="p">))</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;In-place sort a 10000 length array of random integers&#39;&#39;</span>
-<span class="s1">call allocate(i1D,10000)</span>
+<span class="s1">call allocate(i1D,N)</span>
 <span class="s1">call rngInteger(i1D)</span>
 <span class="s1">call sort(i1D)</span>
 <span class="s1">write(*,&#39;</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="s1">&#39;) &#39;</span><span class="kt">Integer </span><span class="k">array is </span><span class="n">sorted</span><span class="err">?</span> <span class="err">&#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">i1D</span><span class="p">))</span>
@@ -484,7 +489,7 @@
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-sort_i1d"></span><h3>
-public subroutine sort_i1D(this, stable_)
+public subroutine sort_i1D(this, stable)
     
     
 	 
@@ -536,7 +541,7 @@ public subroutine sort_i1D(this, stable_)
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>stable_</strong></td><td></td>
+  <td><strong>stable</strong></td><td></td>
   
 </tr>
 
@@ -554,7 +559,7 @@ public subroutine sort_i1D(this, stable_)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-sort_id1d"></span><h3>
-public subroutine sort_id1D(this, stable_)
+public subroutine sort_id1D(this, stable)
     
     
 	 
@@ -606,7 +611,7 @@ public subroutine sort_id1D(this, stable_)
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>stable_</strong></td><td></td>
+  <td><strong>stable</strong></td><td></td>
   
 </tr>
 
@@ -624,7 +629,7 @@ public subroutine sort_id1D(this, stable_)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-sort_r1d"></span><h3>
-public subroutine sort_r1D(this, stable_)
+public subroutine sort_r1D(this, stable)
     
     
 	 
@@ -676,7 +681,7 @@ public subroutine sort_r1D(this, stable_)
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>stable_</strong></td><td></td>
+  <td><strong>stable</strong></td><td></td>
   
 </tr>
 
@@ -694,7 +699,7 @@ public subroutine sort_r1D(this, stable_)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-sort_d1d"></span><h3>
-public subroutine sort_d1D(this, stable_)
+public subroutine sort_d1D(this, stable)
     
     
 	 
@@ -746,7 +751,7 @@ public subroutine sort_d1D(this, stable_)
   <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>stable_</strong></td><td></td>
+  <td><strong>stable</strong></td><td></td>
   
 </tr>
 
@@ -791,7 +796,7 @@ public subroutine sort_d1D(this, stable_)
       
       <a class="list-group-item" href="../interface/argpartition.html">argPartition</a>
       
-      <a class="list-group-item" href="../interface/argquickselect.html">argQuickSelect</a>
+      <a class="list-group-item" href="../interface/argselect.html">argSelect</a>
       
       <a class="list-group-item" href="../interface/argsort.html">argSort</a>
       
@@ -903,8 +908,6 @@ public subroutine sort_d1D(this, stable_)
       
       <a class="list-group-item" href="../interface/project.html">project</a>
       
-      <a class="list-group-item" href="../interface/quickselect.html">quickSelect</a>
-      
       <a class="list-group-item" href="../proc/read1dble.html">read1Dble</a>
       
       <a class="list-group-item" href="../proc/read1integer.html">read1Integer</a>
@@ -932,6 +935,10 @@ public subroutine sort_d1D(this, stable_)
       <a class="list-group-item" href="../interface/rnguniform.html">rngUniform</a>
       
       <a class="list-group-item" href="../interface/rngweibull.html">rngWeibull</a>
+      
+      <a class="list-group-item" href="../interface/select.html">select</a>
+      
+      <a class="list-group-item" href="../interface/select1.html">select1</a>
       
       <a class="list-group-item" href="../interface/setrng.html">setRNG</a>
       
