@@ -16,7 +16,6 @@ docmark_alt: #
 predocmark_alt: <
 display: public
          protected
-	 private
 source: false
 sort: order
 graph: false
@@ -24,3 +23,22 @@ coloured_edges: false
 search: true
 macro: TEST
        LOGIC=.true.
+exclude: sm_array_r1D.f90
+	 sm_array_d1D.f90
+	 sm_array_i1D.f90
+	 sm_array_id1D.f90
+	 sm_partition.f90
+	 sm_maths_r1D.f90
+	 sm_maths_d1D.f90
+	 sm_maths_i1D.f90
+	 sm_maths_id1D.f90
+	 sm_shuffle.f90
+	 sm_heapSort.f90       
+	 sm_insertionSort.f90  
+	 sm_introSort.f90      
+	 sm_mergeSort.f90      
+	 sm_quickSelect.f90    
+	 sm_sort.f90
+	 sm_KdTreeBranch_class.f90  
+	 sm_KdTreeSearch_class.f90  
+	 sm_KdTree_class.f90
