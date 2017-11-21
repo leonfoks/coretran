@@ -175,14 +175,26 @@ program scaleTest_coretran
   call Msg('==========================')
   call Msg('Testing : Spatial')
   call Msg('==========================')
-  call Msg('---  Timing the KdTree ---')
+  call Msg('---  Timing the 2D KdTree ---')
+  call rngNormal(a1D)
   call rngNormal(b1D)
-  call rngNormal(c1D)
   do ia = 0, 5
     ib = 2**(24-ia)
 
     call clk%restart()
     call tree%init(a1D(1:ib), b1D(1:ib))
+    call clk%stop()
+    call tree%deallocate()
+    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+  enddo
+
+  call Msg('---  Timing the 3D KdTree ---')
+  call rngNormal(c1D)
+  do ia = 0, 5
+    ib = 2**(24-ia)
+
+    call clk%restart()
+    call tree%init(a1D(1:ib), b1D(1:ib), c1D(1:ib))
     call clk%stop()
     call tree%deallocate()
     write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()

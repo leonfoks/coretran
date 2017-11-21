@@ -92,6 +92,107 @@ contains
   end if
   end subroutine
   !====================================================================!
+
+  !====================================================================!
+  module procedure init3D_KdTree!(this, x, y, z)
+  !====================================================================!
+  !  class(kdTree) :: this
+  !    !! KdTree Class
+  !  real(r64),intent(in) :: x(:)
+  !    !! x-coordinates of the points
+  !  real(r64),intent(in) :: y(:)
+  !    !! y-coordinates of the points
+  !  real(r64),intent(in) :: z(:)
+  !    !! z-coordinates of the points
+
+  integer(i32) :: i, istat
+  real(r64), allocatable :: aux(:)
+
+  call this%deallocate()
+
+  ! Initialize the number of entries and dimensions of the tree
+  this%N = size(x)
+  this%nDims = 3
+
+  ! Set the root node
+  call this%trunk%init(1, this%N)
+
+  ! Allocated and initialize the indexer
+  call allocate(this%indx, this%N)
+  call arange(this%indx, 1, this%N)
+
+  ! Allocate the auxiliary space
+  call allocate(aux, this%N)
+
+  ! Grow the KD tree
+  call growKdTree_3D(this%trunk, x, y, z, this%indx, aux)
+
+  call deallocate(aux)
+  this%set=.true.
+  end procedure
+  !====================================================================!
+  !====================================================================!
+  recursive subroutine growKdTree_3D(trunk, x, y, z, indx, aux)
+  !====================================================================!
+  class(KdTreebranch) :: trunk
+  real(r64), intent(in) :: x(:), y(:), z(:)
+  integer(i32), intent(inout) :: indx(:)
+  real(r64), intent(inout) :: aux(:)
+
+  integer(i32) :: splitAlong, iMedian, iMid, istat, N
+  real(r64) :: maxVariance
+
+  N = trunk%right - trunk%left + 1
+
+  iMid = (trunk%right+trunk%left) / 2
+
+  ! Only recurse through the tree for array sections bigger than a fixed size to prevent tail recursion.
+  ! Arrays of size 5 or less are the leaves at the end of the branch
+  if (N > 5) then
+    ! Assign first dimension as split along to begin with
+    aux(1:N) = x(indx(trunk%left:trunk%right))
+    maxVariance = variance(aux(1:N))
+    splitAlong = 1
+    ! Test the second dimension
+    aux(1:N) = y(indx(trunk%left:trunk%right))
+    if (variance(aux(1:N)) > maxVariance) then
+      splitAlong = 2
+    end if
+    ! Test the thrid dimension
+    aux(1:N) = z(indx(trunk%left:trunk%right))
+    if (variance(aux(1:N)) > maxVariance) then
+      splitAlong = 3
+    end if
+    trunk%splitAlong = splitAlong
+
+    iMedian = 0
+    select case(splitAlong)
+    case(1)
+      ! arg select the median value
+      call argSelect(x, indx, iMid, iMedian, trunk%left, trunk%right)
+      trunk%median = x(iMedian)
+    case(2)
+      ! arg select the median value
+      call argSelect(y, indx, iMid, iMedian, trunk%left, trunk%right)
+      trunk%median = y(iMedian)
+    case(3)
+      ! arg select the median value
+      call argSelect(z, indx, iMid, iMedian, trunk%left, trunk%right)
+      trunk%median = z(iMedian)
+    end select
+
+    ! Allocate the children nodes
+    allocate(trunk%buds(2))
+    ! Initialize the children nodes
+    call trunk%buds(1)%init(trunk%left, iMid)
+    call trunk%buds(2)%init(iMid+1, trunk%right)
+    ! Grow the tree through the new branches
+    call growKdTree_3D(trunk%buds(1),x,y,z,indx, aux)
+    call growKdTree_3D(trunk%buds(2),x,y,z,indx, aux)
+  end if
+  end subroutine
+  !====================================================================!
+
   !====================================================================!
   module procedure deallocate_KdTree
     !! Overloaded type bound procedure KdTree%deallocate()

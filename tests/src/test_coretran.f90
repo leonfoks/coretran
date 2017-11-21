@@ -864,6 +864,7 @@ program test_coretran
 
   call allocate(a1D, N)
   call allocate(b1D, N)
+
   a1D = 0.d0; b1D = 0.d0
 
   call rngNormal(a1D)
@@ -875,8 +876,15 @@ program test_coretran
 
   call test(ia == minloc(a1D**2.d0+b1D**2.d0, 1), 'KdTree_2D')
 
+  call allocate(c1D, N)
+  c1D = 0.d0
+  call rngNormal(c1D)
 
+  call tree%init(a1D, b1D, c1D)
 
+  ia = search%kNearest(tree, a1D, b1D, c1D, 0.d0, 0.d0, 0.d0)
+
+  call test(ia == minloc(a1D**2.d0+b1D**2.d0+c1D**2.d0, 1), 'KdTree_3D')
 
   call tree%deallocate()
 
