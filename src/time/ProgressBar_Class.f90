@@ -50,7 +50,7 @@
     !procedure, private :: set_id1_ProgressBar_ => set_id1_ProgressBar
     !! Initialize the Progress Bar
     generic, public :: print => print_i1_ProgressBar_,print_id1_ProgressBar_
-    !! Print the progress Bar
+      !! Print the progress Bar
     procedure, private :: print_i1_ProgressBar_ => print_i1_ProgressBar
     procedure, private :: print_id1_ProgressBar_ => print_id1_ProgressBar
   end type
@@ -64,8 +64,8 @@
 
   contains
   !====================================================================!
-  module function ProgressBar_i1(N,title,time) result(res)
-    !! Interfaced with set()
+  function ProgressBar_i1(N,title,time) result(res)
+    !! Interfaced with class instantiation ProgressBar()
   !====================================================================!
   integer(i32), intent(in) :: N !! Maximum expected number of iterations
   character(len=*), intent(in), optional :: title !! Title to give the progress bar
@@ -75,8 +75,8 @@
   end function
   !====================================================================!
   !====================================================================!
-  module function ProgressBar_id1(N,title,time) result(res)
-    !! Interfaced with set()
+  function ProgressBar_id1(N,title,time) result(res)
+    !! Interfaced with class instantiation ProgressBar()
   !====================================================================!
   integer(i64), intent(in) :: N !! Maximum expected number of iterations
   character(len=*), intent(in), optional :: title !! Title to give the progress bar

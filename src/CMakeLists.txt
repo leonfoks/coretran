@@ -25,6 +25,8 @@ include(searching/CMakeLists.txt)
 include(arrays/CMakeLists.txt)
 # Sorting
 include(sorting/CMakeLists.txt)
+# Spatial
+include(spatial/CMakeLists.txt)
 # Maths
 include(maths/CMakeLists.txt)
 

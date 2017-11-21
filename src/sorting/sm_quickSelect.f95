@@ -163,7 +163,7 @@ submodule (m_Select) sm_quickselect
   end procedure
   !====================================================================!
   !====================================================================!
-  module procedure argQuickselect_r1D !(this, indx, k) result(res)
+  module procedure argQuickselect_r1D !(this, indx, k, left, right) result(res)
     !! Interfaced with argQuickselect()
   !====================================================================!
   !real(r32), intent(in) :: this(:) !! 1D array
@@ -176,7 +176,9 @@ submodule (m_Select) sm_quickselect
   integer(i32) :: mid
 
   lo = 1
-  hi = size(this)
+  hi = size(indx)
+  if (present(left)) lo = left
+  if (present(right)) hi = right
 
   do while (hi > lo)
     if (hi - lo < 16) then
@@ -202,7 +204,7 @@ submodule (m_Select) sm_quickselect
   end procedure
   !====================================================================!
   !====================================================================!
-  module procedure argQuickselect_d1D !(this, indx, k) result(res)
+  module procedure argQuickselect_d1D
     !! Interfaced with argQuickselect()
   !====================================================================!
   !real(r64), intent(in) :: this(:) !! 1D array
@@ -215,7 +217,9 @@ submodule (m_Select) sm_quickselect
   integer(i32) :: mid
 
   lo = 1
-  hi = size(this)
+  hi = size(indx)
+  if (present(left)) lo = left
+  if (present(right)) hi = right
 
   do while (hi > lo)
     if (hi - lo < 16) then
@@ -241,7 +245,7 @@ submodule (m_Select) sm_quickselect
   end procedure
   !====================================================================!
   !====================================================================!
-  module procedure argQuickselect_i1D !(this, indx, k) result(res)
+  module procedure argQuickselect_i1D !(this, indx, k, left, right) result(res)
     !! Interfaced with argQuickselect()
   !====================================================================!
   !integer(i32), intent(in) :: this(:) !! 1D array
@@ -254,7 +258,9 @@ submodule (m_Select) sm_quickselect
   integer(i32) :: mid
 
   lo = 1
-  hi = size(this)
+  hi = size(indx)
+  if (present(left)) lo = left
+  if (present(right)) hi = right
 
   do while (hi > lo)
     if (hi - lo < 16) then
@@ -280,7 +286,7 @@ submodule (m_Select) sm_quickselect
   end procedure
   !====================================================================!
   !====================================================================!
-  module procedure argQuickselect_id1D !(this, indx, k) result(res)
+  module procedure argQuickselect_id1D !(this, indx, k, left, right) result(res)
     !! Interfaced with argQuickselect()
   !====================================================================!
   !integer(i64), intent(in) :: this(:) !! 1D array
@@ -293,7 +299,9 @@ submodule (m_Select) sm_quickselect
   integer(i32) :: mid
 
   lo = 1
-  hi = size(this)
+  hi = size(indx)
+  if (present(left)) lo = left
+  if (present(right)) hi = right
 
   do while (hi > lo)
     if (hi - lo < 16) then

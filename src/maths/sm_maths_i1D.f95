@@ -2,7 +2,8 @@ submodule (m_maths) sm_maths_i1D
 
 use variableKind
 use m_allocate, only: allocate
-use m_errors, only:eMsg,mErr
+use m_deallocate, only: deallocate
+use m_errors, only:eMsg
 use m_sort, only: argsort
 use m_select, only: argSelect
 use m_array1D, only: arange
@@ -69,18 +70,26 @@ contains
   integer(i32), allocatable :: i(:)
   integer(i32) :: iMed
   integer(i32) :: N
+
+  integer(i32) :: iTmp
+
   N=size(this)
   call allocate(i,N)
   call arange(i,1,N)
 
   if (mod(N,2)==0) then
-    res=this(argSelect(this,i,N/2))
+    iMed = N/2
+    call argSelect(this, i, iMed, iTmp)
+    res=this(iTmp)
     call arange(i,1,N)
-    res=0.5d0*(res+this(argSelect(this,i,(N/2)+1)))
+    call argSelect(this, i, iMed+1, iTmp)
+    res=0.5d0*(res+this(iTmp))
   else
-    iMed=N/2+1
-    res=argSelect(this,i,iMed)
+    iMed=N/2 + 1
+    call argSelect(this, i, iMed, iTmp)
+    res = this(iTmp)
   end if
+
   deallocate(i)
   end function
   !====================================================================!
@@ -104,6 +113,7 @@ contains
   res=maxval(abs(this))
   end procedure
   !====================================================================!
+
   !====================================================================!
   module procedure trimmedmean_i1D
   !====================================================================!
@@ -117,6 +127,9 @@ contains
   integer(i32) :: tmp
   integer(i32), allocatable :: i(:)
   real(r64) :: alpha_
+
+  integer(i32), allocatable :: iTmp(:)
+
   N=size(this)
   alpha_=alpha*0.01d0
   ! Test the percentage
@@ -130,14 +143,17 @@ contains
   tmp=idnint(alpha_*dble(N))
 
   ! Set the indices into the vector
-  allocate(i(N),stat=istat); call mErr(istat,'trimmedmean:i',1)
-  i=[(j, j=1, N)]
+  call allocate(i, N)
+  call arange(i, 1, N)
 
   ! Sort the vector
   call argSort(this,i)
 
-  res=mean(this(i(tmp+1:N-tmp)))
-  deallocate(i,stat=istat) ; call mErr(istat,'trimmedmean:i',2)
+  call allocate(iTmp, N-(2*tmp))
+  iTmp =this(i(tmp+1:N-tmp))
+  res=mean(iTmp)
+  call deallocate(i)
+  call deallocate(iTmp)
   end procedure
   !====================================================================!
 

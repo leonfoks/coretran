@@ -11,7 +11,9 @@ target_sources(${libName}
         "${CMAKE_CURRENT_LIST_DIR}/m_write.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_read.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_allocate.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_deallocate.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_reallocate.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_copy.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_partition.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/sm_partition.f95"
 )

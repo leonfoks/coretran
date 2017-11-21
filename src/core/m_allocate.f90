@@ -1,8 +1,7 @@
 module m_allocate
-  !! Contains fundamental routines to allocate allocatable arrays of different types and shapes
-  !! Does not overload the intrinsic allocate function.
+  !! Contains fundamental interface to allocate allocatable arrays of different types and shapes
   !!
-  !! This way, calling allocate makes the user aware that checks are being made, and memory will be re-allocated.
+  !! See [[allocate]] for more information.
 
   use variableKind
   use m_errors, only: eMsg,mErr
@@ -15,7 +14,13 @@ module m_allocate
 
   interface allocate
     !! Allocate an allocatable array. If the array is already allocated, memory is reallocated to the given size, unless no size change will occur.
-    !! The allocated memory is NOT initialized to any value, so be sure to do so if you call allocate
+    !! The allocated memory is NOT initialized to any value, so be sure to do so afterwards if you call allocate.
+    !!
+    !! Does not overload the intrinsic allocate function.
+    !!
+    !! This way, calling allocate makes the user aware that checks are being made, and memory will be re-allocated.
+    !!
+    !! Checks for an error during allocation, and will stop the code if there is one.
     !!
     !! Example usage
     !!```fortran
@@ -27,38 +32,205 @@ module m_allocate
     !!call allocate(a3D, [20,20,20])
     !!write(*,'(a)') 'Shape of a3D is [20,20,20]? '//all(shape(a3D) == [20,20,20])
     !!```
-    module procedure :: allocate_r1D, allocate_r2D, allocate_r3D
-    module procedure :: allocate_d1D, allocate_d2D, allocate_d3D
-    module procedure :: allocate_i1D, allocate_i2D, allocate_i3D
-    module procedure :: allocate_id1D, allocate_id2D, allocate_id3D
-    module procedure :: allocate_c1D, allocate_c2D, allocate_c3D
-    module procedure :: allocate_z1D, allocate_z2D, allocate_z3D
-    module procedure :: allocate_l1D, allocate_l2D, allocate_l3D
+    !====================================================================!
+    module subroutine allocate_r1D(this, n)
+    !====================================================================!
+      !!Interfaced with [[allocate]]
+      real(r32), allocatable, intent(inout) :: this(:) !! 1D array
+      integer(i32), intent(in) :: n !! Allocation size
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine allocate_r2D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      real(r32), allocatable, intent(inout) :: this(:,:) !! 1D array
+      integer(i32), intent(in) :: n(2) !! Allocation size
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine allocate_r3D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      real(r32), allocatable, intent(inout) :: this(:,:,:) !! 1D array
+      integer(i32), intent(in) :: n(3) !! Allocation size
+    end subroutine
+    !====================================================================!
+
+    !====================================================================!
+    module subroutine allocate_d1D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      real(r64), allocatable, intent(inout) :: this(:) !! 1D array
+      integer(i32), intent(in) :: n !! Allocation size
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine allocate_d2D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      real(r64), allocatable, intent(inout) :: this(:,:) !! 1D array
+      integer(i32), intent(in) :: n(2) !! Allocation size
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine allocate_d3D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      real(r64), allocatable, intent(inout) :: this(:,:,:) !! 1D array
+      integer(i32), intent(in) :: n(3) !! Allocation size
+    end subroutine
+    !====================================================================!
+
+    !====================================================================!
+    module subroutine allocate_i1D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      integer(i32), allocatable, intent(inout) :: this(:) !! 1D array
+      integer(i32), intent(in) :: n !! Allocation size
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine allocate_i2D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      integer(i32), allocatable, intent(inout) :: this(:,:) !! 1D array
+      integer(i32), intent(in) :: n(2) !! Allocation size
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine allocate_i3D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      integer(i32), allocatable, intent(inout) :: this(:,:,:) !! 1D array
+      integer(i32), intent(in) :: n(3) !! Allocation size
+    end subroutine
+    !====================================================================!
+
+    !====================================================================!
+    module subroutine allocate_id1D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      integer(i64), allocatable, intent(inout) :: this(:) !! 1D array
+      integer(i32), intent(in) :: n !! Allocation size
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine allocate_id2D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      integer(i64), allocatable, intent(inout) :: this(:,:) !! 1D array
+      integer(i32), intent(in) :: n(2) !! Allocation size
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine allocate_id3D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      integer(i64), allocatable, intent(inout) :: this(:,:,:) !! 1D array
+      integer(i32), intent(in) :: n(3) !! Allocation size
+    end subroutine
+    !====================================================================!
+
+    !====================================================================!
+    module subroutine allocate_c1D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      complex(r32), allocatable, intent(inout) :: this(:) !! 1D array
+      integer(i32), intent(in) :: n !! Allocation size
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine allocate_c2D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      complex(r32), allocatable, intent(inout) :: this(:,:) !! 1D array
+      integer(i32), intent(in) :: n(2) !! Allocation size
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine allocate_c3D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      complex(r32), allocatable, intent(inout) :: this(:,:,:) !! 1D array
+      integer(i32), intent(in) :: n(3) !! Allocation size
+    end subroutine
+    !====================================================================!
+
+    !====================================================================!
+    module subroutine allocate_z1D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      complex(r64), allocatable, intent(inout) :: this(:) !! 1D array
+      integer(i32), intent(in) :: n !! Allocation size
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine allocate_z2D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      complex(r64), allocatable, intent(inout) :: this(:,:) !! 1D array
+      integer(i32), intent(in) :: n(2) !! Allocation size
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine allocate_z3D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      complex(r64), allocatable, intent(inout) :: this(:,:,:) !! 1D array
+      integer(i32), intent(in) :: n(3) !! Allocation size
+    end subroutine
+    !====================================================================!
+
+    !====================================================================!
+    module subroutine allocate_l1D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      logical, allocatable, intent(inout) :: this(:) !! 1D array
+      integer(i32), intent(in) :: n !! Allocation size
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine allocate_l2D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      logical, allocatable, intent(inout) :: this(:,:) !! 1D array
+      integer(i32), intent(in) :: n(2) !! Allocation size
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine allocate_l3D(this, n)
+    !====================================================================!
+      !!Interfaced with  [[allocate]]
+      logical, allocatable, intent(inout) :: this(:,:,:) !! 1D array
+      integer(i32), intent(in) :: n(3) !! Allocation size
+    end subroutine
+    !====================================================================!
   end interface
 
   contains
 
   !====================================================================!
-  subroutine allocate_r1D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_r1D(this, n)
+    !!Interfaced with  [[allocate]]
   !====================================================================!
-    real(r32), allocatable, intent(inout) :: this(:) !! 1D array
-    integer(i32), intent(in) :: n !! Allocation size
-    integer(i32) :: istat
+  real(r32), allocatable, intent(inout) :: this(:) !! 1D array
+  integer(i32), intent(in) :: n !! Allocation size
+  integer(i32) :: istat
 
-    if(allocated(this)) then
-      if (n == size(this)) then
-        return ! Don't need to allocate the same size
-      else
-        deallocate(this) ! No need to duplicate memory
-      end if
+  if(allocated(this)) then
+    if (n == size(this)) then
+      return ! Don't need to allocate the same size
+    else
+      deallocate(this) ! No need to duplicate memory
     end if
-    allocate(this(n), stat=istat); call mErr(istat,'allocate_r1D:this',1)
+  end if
+  allocate(this(n), stat=istat); call mErr(istat,'allocate_r1D:this',1)
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_r2D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_r2D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     real(r32), allocatable, intent(inout) :: this(:,:) !! 2D array
     integer(i32), intent(in) :: n(2) !! New allocation shape
@@ -75,8 +247,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_r3D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_r3D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     real(r32), allocatable, intent(inout) :: this(:,:,:) !! 3D array
     integer(i32), intent(in) :: n(3) !! New allocation shape
@@ -93,8 +265,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_d1D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_d1D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     real(r64), allocatable, intent(inout) :: this(:) !! 1D array
     integer(i32), intent(in) :: n !! Allocation size
@@ -111,8 +283,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_d2D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_d2D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     real(r64), allocatable, intent(inout) :: this(:,:) !! 2D array
     integer(i32), intent(in) :: n(2) !! New allocation shape
@@ -129,8 +301,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_d3D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_d3D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     real(r64), allocatable, intent(inout) :: this(:,:,:) !! 3D array
     integer(i32), intent(in) :: n(3) !! New allocation shape
@@ -147,8 +319,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_i1D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_i1D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     integer(i32), allocatable, intent(inout) :: this(:) !! 1D array
     integer(i32), intent(in) :: n !! Allocation size
@@ -165,8 +337,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_i2D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_i2D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     integer(i32), allocatable, intent(inout) :: this(:,:) !! 2D array
     integer(i32), intent(in) :: n(2) !! New allocation shape
@@ -183,8 +355,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_i3D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_i3D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     integer(i32), allocatable, intent(inout) :: this(:,:,:) !! 3D array
     integer(i32), intent(in) :: n(3) !! New allocation shape
@@ -200,9 +372,9 @@ module m_allocate
     allocate(this(n(1),n(2),n(3)), stat=istat); call mErr(istat,'allocate_i3D:this',1)
   end subroutine
   !====================================================================!
-    !====================================================================!
-  subroutine allocate_id1D(this, n)
-    !! Interfaced with allocate()
+  !====================================================================!
+  module subroutine allocate_id1D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     integer(i64), allocatable, intent(inout) :: this(:) !! 1D array
     integer(i32), intent(in) :: n !! Allocation size
@@ -219,8 +391,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_id2D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_id2D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     integer(i64), allocatable, intent(inout) :: this(:,:) !! 2D array
     integer(i32), intent(in) :: n(2) !! New allocation shape
@@ -237,8 +409,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_id3D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_id3D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     integer(i64), allocatable, intent(inout) :: this(:,:,:) !! 3D array
     integer(i32), intent(in) :: n(3) !! New allocation shape
@@ -255,8 +427,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_c1D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_c1D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     complex(r32), allocatable, intent(inout) :: this(:) !! 1D array
     integer(i32), intent(in) :: n !! Allocation size
@@ -273,8 +445,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_c2D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_c2D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     complex(r32), allocatable, intent(inout) :: this(:,:) !! 2D array
     integer(i32), intent(in) :: n(2) !! New allocation shape
@@ -291,8 +463,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_c3D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_c3D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     complex(r32), allocatable, intent(inout) :: this(:,:,:) !! 3D array
     integer(i32), intent(in) :: n(3) !! New allocation shape
@@ -309,8 +481,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_z1D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_z1D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     complex(r64), allocatable, intent(inout) :: this(:) !! 1D array
     integer(i32), intent(in) :: n !! Allocation size
@@ -327,8 +499,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_z2D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_z2D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     complex(r64), allocatable, intent(inout) :: this(:,:) !! 2D array
     integer(i32), intent(in) :: n(2) !! New allocation shape
@@ -345,8 +517,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_z3D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_z3D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     complex(r64), allocatable, intent(inout) :: this(:,:,:) !! 3D array
     integer(i32), intent(in) :: n(3) !! New allocation shape
@@ -363,8 +535,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_l1D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_l1D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     logical, allocatable, intent(inout) :: this(:) !! 1D array
     integer(i32), intent(in) :: n !! Allocation size
@@ -381,8 +553,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_l2D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_l2D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     logical, allocatable, intent(inout) :: this(:,:) !! 2D array
     integer(i32), intent(in) :: n(2) !! New allocation shape
@@ -399,8 +571,8 @@ module m_allocate
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine allocate_l3D(this, n)
-    !! Interfaced with allocate()
+  module subroutine allocate_l3D(this, n)
+    !! Interfaced with [[allocate]]
   !====================================================================!
     logical, allocatable, intent(inout) :: this(:,:,:) !! 3D array
     integer(i32), intent(in) :: n(3) !! New allocation shape

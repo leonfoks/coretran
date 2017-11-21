@@ -9,7 +9,7 @@
   contains
   !====================================================================!
   module procedure arange_d1D
-    !! Interfaced with arange()
+    !! Interfaced with [[arange]]
   !====================================================================!
   !module function arange_d1D(start,stp,_step) result(this)
   !real(r64) :: start !! Start from here
@@ -18,21 +18,21 @@
   !real(r64), allocatable :: res(:)
   integer(i32) :: i
   integer(i32) :: N
-  real(r64) :: step
-  step=1.d0
-  if (present(step_)) step=step_
-  N=int((stp-start)/step)+1
+  real(r64) :: step_
+  step_=1.d0
+  if (present(step)) step_ = step
+  N=int((stp-start)/step_)+1
   if (size(res) /= N) call eMsg('arange_d1D:1D Array must be size '//str(N))
-  if (step == 1.d0) then
+  if (step_ == 1.d0) then
       res = [(start + real(i-1, kind=r64), i=1,N)]
   else
-      res = [(start+real(i-1, kind=r64)*step,i=1,N)]
+      res = [(start+real(i-1, kind=r64)*step_,i=1,N)]
   endif
   end procedure
   !====================================================================!
   !====================================================================!
   module procedure diff_d1D
-    !! Interfaced diff()
+    !! Interfaced [[diff]]
   !====================================================================!
 !  real(r64), intent(in) :: this(:) !! 1D array
 !  real(r64) :: res(size(this)-1) !! Difference along array
@@ -47,7 +47,7 @@
   !====================================================================!
   !====================================================================!
   module procedure isSorted_d1D
-    !! Interfaced with isSorted()
+    !! Interfaced with [[isSorted]]
   !====================================================================!
   !module function isSorted_d1D(this) result(yes)
   !real(r64):: this(:) !! 1D array
@@ -65,7 +65,7 @@
   !====================================================================!
   !====================================================================!
   module procedure repeat_d1D
-    !! Interfaced with repeat()
+    !! Interfaced with [[repeat]]
   !====================================================================!
 !  real(r64) :: this(:) !! 1D array
 !  integer(i32) :: nRepeats !! Number of times each element should be repeated
@@ -73,7 +73,8 @@
   integer(i32) :: i,k,N,nTmp
   N = size(this)
   nTmp = N*nRepeats
-  if (size(res) /= nTmp) call eMsg('repeat_d1D:Result must be size '//str(nTmp))
+  call allocate(res, nTmp)
+  !if (size(res) /= nTmp) call eMsg('repeat_d1D:Result must be size '//str(nTmp))
   k=1
   do i = 1, N
     res(k:k+nRepeats-1) = this(i) ! Repeat the element
