@@ -12,16 +12,14 @@ program test_coretran
   use m_writeLine
   use m_time
   use m_allocate
+  use m_deallocate
   use m_reallocate
   use m_copy
   ! Sorting routines
   use m_Sort
-  !use m_PartialQuicksort
   use m_Select
-  !use m_medianOfMedians
-  !use m_Select_FloydRivest
-  !use m_heapSelect
   use m_maths
+  use m_KdTree
 
   use Stopwatch_Class
   use ProgressBar_Class
@@ -63,6 +61,8 @@ program test_coretran
   integer(i32) :: testTotal = 0
   type(Stopwatch) :: clk
   type(ProgressBar) :: P
+  type(KdTree) :: tree
+  type(KdTreeSearch) :: search
 
 ! Get an integer from command line argument
   ib = command_argument_count()
@@ -79,12 +79,12 @@ program test_coretran
   call get_command_argument(2, sa)
   read(sa,*) nIterations
 
-
-
-
   fName = 'testFile.txt'
 
   a = 1.d0 ; b = 2.d0 ; c = 3.d0
+  call allocate(a1D, 5)
+  call allocate(b1D, 5)
+  call allocate(c1D, 5)
   a1D = [0.d0,1.d0,2.d0,3.d0,4.d0]
   b1D = [5.d0,6.d0,7.d0,8.d0,9.d0]
   c1D = [10.d0,11.d0,12.d0,13.d0,14.d0]
@@ -237,14 +237,15 @@ program test_coretran
   call Msg('==========================')
   call Msg('Testing : Random')
   call Msg('==========================')
-
-  write(*,1) 'Setting the random seed'
-
-  !call setRNG(.true.)
-  !call setRNG([546420601, 1302718556, 802583095, 136684118, 1163051410, 592779069, 660876855, 767615536, 1788597594, 775517554, 657867655, 1334969129])
+!
+!  write(*,1) 'Setting the random seed'
+!
+!  !call setRNG(.true.)
+!  !call setRNG([546420601, 1302718556, 802583095, 136684118, 1163051410, 592779069, 660876855, 767615536, 1788597594, 775517554, 657867655, 1334969129])
   call allocate(ia1D, 33)
   ia1D = 546420601
   call setRNG(ia1D)
+  call allocate(ia1D, 3)
 !  ia=1
 !  call rngInteger(ia1D,ia)
   write(*,1) 'Random integers'
@@ -535,10 +536,14 @@ program test_coretran
   ! Initial setup for testing
   call allocate(ar1D, N)
   call allocate(br1D, N)
+
   call allocate(a1D, N)
-  call allocate(ia1D, N)
-  call allocate(ic1D, N)
   call allocate(b1D, N)
+
+  call allocate(ia1D, N)
+  call allocate(ib1D, N)
+  call allocate(ic1D, N)
+
   call allocate(iad1D, N)
   call allocate(ibd1D, N)
 
@@ -610,29 +615,29 @@ program test_coretran
 
   br1D = ar1D
   ic = (size(br1D+1))/2 ! Get the median
-  a = select(br1D, ic)
+  call select(br1D, ic, ar)
 
   la = all(br1D(1:ic-1) <= br1D(ic)) .and. all(br1D(ic+1:ib) >= br1D(ic))
   call sort(br1D)
-  call test(a == br1D(ic) .and. la, 'quickselect_r1D')
+  call test(ar == br1D(ic) .and. la, 'quickselect_r1D')
 
   br1D = ar1D
   ic = 3
-  a = select(br1D, ic)
+  call select(br1D, ic, ar)
 
   la = all(br1D(1:ic-1) <= br1D(ic)) .and. all(br1D(ic+1:ib) >= br1D(ic))
   call sort(br1D)
-  call test(a == br1D(ic) .and. la, 'quickselect_r1D')
+  call test(ar == br1D(ic) .and. la, 'quickselect_r1D')
 
   br1D = ar1D
-  ic1D = [(ib, ib=1, N)]
-  ia = argSelect(br1D,ic1D, ic)
+  call arange(ic1D, 1, N)
+  call argSelect(br1D,ic1D, ic, ia)
   la = all(br1D((ic1D(1:ic-1))) <= br1D(ia)) .and. all(br1D(ic1D(ic+1:ib)) >= br1D(ia))
   call test(la,'argQuickSelect_r1D')
 
   b1D = a1D
   ic = (size(b1D+1))/2 ! Get the median
-  a = select(b1D, ic)
+  call select(b1D, ic, a)
 
   la = all(b1D(1:ic-1) <= b1D(ic)) .and. all(b1D(ic+1:ib) >= b1D(ic))
   call sort(b1D)
@@ -641,37 +646,37 @@ program test_coretran
   b1D = a1D
   ic = (size(b1D+1))/2 ! Get the median
   call arange(ic1D, 1, N)
-  ia = argSelect(b1D, ic1D, ic)
-  lb = all(b1D(ic1D(1:ic-1)) < b1D(ic1D(ic))) .and. all(b1D(ic1D(ic+1:ib)) > b1D(ic1D(ic)))
+  call argSelect(b1D, ic1D, ic, ia)
+  lb = all(b1D(ic1D(1:ia-1)) < b1D(ic1D(ia))) .and. all(b1D(ic1D(ia+1:ib)) > b1D(ic1D(ia)))
   call test(la, 'argQuickselect_d1D')
 
   ib1D = ia1D
   ic = (size(ib1D+1))/2 ! Get the median
-  a = select(ib1D, ic)
+  call select(ib1D, ic, ia)
 
   la = all(ib1D(1:ic-1) <= ib1D(ic)) .and. all(ib1D(ic+1:ib) >= ib1D(ic))
   call sort(ib1D)
-  call test(a == ib1D(ic) .and. la, 'quickselect_i1D')
+  call test(ia == ib1D(ic) .and. la, 'quickselect_i1D')
 
   ib1D = ia1D
   ic = (size(ib1D+1))/2 ! Get the median
   call arange(ic1D, 1, N)
-  ia = argSelect(ib1D, ic1D, ic)
+  call argSelect(ib1D, ic1D, ic, ia)
   lb = all(ib1D(ic1D(1:ic-1)) < ib1D(ic1D(ic))) .and. all(ib1D(ic1D(ic+1:ib)) > ib1D(ic1D(ic)))
   call test(la, 'argQuickselect_i1D')
 
-  ibd1D = iad1D
+  ibd1D = ia1D
   ic = (size(ibd1D+1))/2 ! Get the median
-  iad = select(ibd1D, ic)
+  call select(ibd1D, ic, iad)
 
   la = all(ibd1D(1:ic-1) <= ibd1D(ic)) .and. all(ibd1D(ic+1:ib) >= ibd1D(ic))
   call sort(ibd1D)
   call test(iad == ibd1D(ic) .and. la, 'quickselect_id1D')
 
-  ibd1D = iad1D
-  ic = (size(ib1D+1))/2 ! Get the median
+  ibd1D = ia1D
+  ic = (size(ibd1D+1))/2 ! Get the median
   call arange(ic1D, 1, N)
-  ia = argSelect(ibd1D, ic1D, ic)
+  call argSelect(ibd1D, ic1D, ic, ia)
   lb = all(ibd1D(ic1D(1:ic-1)) < ibd1D(ic1D(ic))) .and. all(ibd1D(ic1D(ic+1:ib)) > ibd1D(ic1D(ic)))
   call test(la, 'argQuickselect_id1D')
 
@@ -853,10 +858,32 @@ program test_coretran
   a=median(iad1D)
   call test(a==2.d0,'median_id1D')
 
+  call Msg('==========================')
+  call Msg('Testing : Spatial')
+  call Msg('==========================')
+
+  call allocate(a1D, N)
+  call allocate(b1D, N)
+  a1D = 0.d0; b1D = 0.d0
+
+  call rngNormal(a1D)
+  call rngNormal(b1D)
+
+  call tree%init(a1D, b1D)
+
+  ia = search%kNearest(tree, a1D, b1D, 0.d0, 0.d0)
+
+  call test(ia == minloc(a1D**2.d0+b1D**2.d0, 1), 'KdTree_2D')
+
+
+
+
+  call tree%deallocate()
 
   call Msg('==========================')
   write(output_unit,1) trim(str(passCount))//'/'//trim(str(testTotal))//' tests passed'
   call Msg('==========================')
+
 
   stop
 1 format(a)
@@ -876,3 +903,6 @@ character(len=*) :: msg
 end subroutine
 
 end program
+
+
+

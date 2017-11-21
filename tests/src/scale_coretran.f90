@@ -26,6 +26,8 @@ program scaleTest_coretran
 
   use Stopwatch_Class
   use ProgressBar_Class
+  use m_KdTree
+
   implicit none
 
   character(len=100) :: fName
@@ -64,6 +66,8 @@ program scaleTest_coretran
   integer(i32) :: testTotal = 0
   type(Stopwatch) :: clk
   type(ProgressBar) :: P
+  type(KdTree) :: tree
+  type(KdTreeSearch) :: search
 
   N=2**24
 
@@ -81,9 +85,10 @@ program scaleTest_coretran
   call allocate(ar1D, N)
   call allocate(br1D, N)
   call allocate(a1D, N)
-  call allocate(ia1D,N)
   call allocate(b1D, N)
   call allocate(c1D, N)
+  call allocate(ia1D,N)
+
 
   call rngNormal(a1D)
   ar1D = real(a1D)
@@ -136,6 +141,10 @@ program scaleTest_coretran
     write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
   enddo
 
+  call Msg('==========================')
+  call Msg('Testing : Selection')
+  call Msg('==========================')
+
   call Msg('---  Timing the double precision quick select ---')
   do ia = 0, 5
     ib = 2**(24-ia)
@@ -144,7 +153,7 @@ program scaleTest_coretran
     ic = (ib+1)/2
 
     call clk%restart()
-    a = select(b1D(1:ib), ic)
+    call select(b1D(1:ib), ic, a)
     call clk%stop()
     write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
   enddo
@@ -157,8 +166,25 @@ program scaleTest_coretran
     ic = (ib+1)/2
 
     call clk%restart()
-    a = select(b1D(1:ib), ic)
+    call select(b1D(1:ib), ic, a)
     call clk%stop()
+    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+  enddo
+
+
+  call Msg('==========================')
+  call Msg('Testing : Spatial')
+  call Msg('==========================')
+  call Msg('---  Timing the KdTree ---')
+  call rngNormal(b1D)
+  call rngNormal(c1D)
+  do ia = 0, 5
+    ib = 2**(24-ia)
+
+    call clk%restart()
+    call tree%init(a1D(1:ib), b1D(1:ib))
+    call clk%stop()
+    call tree%deallocate()
     write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
   enddo
 
@@ -181,3 +207,4 @@ contains
   end subroutine
 
 end program
+
