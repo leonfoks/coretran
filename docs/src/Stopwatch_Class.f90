@@ -3,8 +3,9 @@
     !!
     !! Example usage
     !!```fortran
-    !!use variableKind
-    !!use Stopwatch_Class
+    !!program stopwatch_test
+    !!use variableKind, only: i32
+    !!use Stopwatch_Class, only: Stopwatch
     !!type(Stopwatch) :: clk
     !!integer(i32) :: i, N
     !!call clk%start('Some Title')
@@ -15,6 +16,7 @@
     !!call clk%stop()
     !!call clk%elapsed()
     !!write(*,'(a)') 'Finished on '//clk%datetime()
+    !!end program
     !!```
   use iso_fortran_env, only: output_unit
   use variableKind, only: i32,r64
@@ -25,24 +27,24 @@
   private
 
   type, public :: Stopwatch
-    !! Class for timing sections of code
+    !! Class for timing sections of code, See the Stopwatch_Class module documentation for usage.
     private
     logical :: running = .false.
     integer(i32) :: LapTime_(8)=0
     integer(i32) :: startTime_(8)=0
     integer(i32) :: stopTime_(8)=0
   contains
-  procedure :: start      => start_Stopwatch !! Start the Stopwatch
-  procedure :: stop       => stop_Stopwatch  !! Stop the Stopwatch
-  procedure :: reset      => reset_Stopwatch !! Reset the Stopwatch
-  procedure :: restart    => restart_Stopwatch !! Restart the Stopwatch
-  procedure :: time       => time_Stopwatch !! Get the current or stopped time
-  procedure :: lap    => lap_Stopwatch !! Lap the Stopwatch
-  procedure :: lapInSeconds => lapInSeconds_Stopwatch !! Get the lap time in seconds
-  procedure :: elapsed    => elapsed_Stopwatch !! Get the current elapsed time
-  procedure :: elapsedInSeconds => elapsedInSeconds_Stopwatch !! Get the elapsed time in seconds
-  procedure :: date       => date_Stopwatch !! Print the date
-  procedure :: dateAndTime   => dateAndTime_Stopwatch !! Print the date and time
+  procedure, public :: start      => start_Stopwatch !! Start the Stopwatch
+  procedure, public :: stop       => stop_Stopwatch  !! Stop the Stopwatch
+  procedure, public :: reset      => reset_Stopwatch !! Reset the Stopwatch
+  procedure, public :: restart    => restart_Stopwatch !! Restart the Stopwatch
+  procedure, public :: time       => time_Stopwatch !! Get the current or stopped time
+  procedure, public :: lap    => lap_Stopwatch !! Lap the Stopwatch
+  procedure, public :: lapInSeconds => lapInSeconds_Stopwatch !! Get the lap time in seconds
+  procedure, public :: elapsed    => elapsed_Stopwatch !! Get the current elapsed time
+  procedure, public :: elapsedInSeconds => elapsedInSeconds_Stopwatch !! Get the elapsed time in seconds
+  procedure, public :: date       => date_Stopwatch !! Print the date
+  procedure, public :: dateAndTime   => dateAndTime_Stopwatch !! Print the date and time
   end type
 
   contains

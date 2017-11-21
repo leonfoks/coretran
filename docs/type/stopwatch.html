@@ -126,7 +126,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p>39.6% of total for derived types.</p>Including implementation: 128 statements, 50.2% of total for derived types.">19 statements</a>
+	  title="<p>24.1% of total for derived types.</p>Including implementation: 128 statements, 44.8% of total for derived types.">19 statements</a>
      </li> 
      
      
@@ -159,6 +159,23 @@
   
 
 
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-0">Variables</a></h3></div>
+  <div id="vars-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../type/stopwatch.html#variable-running">running</a>
+      
+      <a class="list-group-item" href="../type/stopwatch.html#variable-laptime_">LapTime_</a>
+      
+      <a class="list-group-item" href="../type/stopwatch.html#variable-starttime_">startTime_</a>
+      
+      <a class="list-group-item" href="../type/stopwatch.html#variable-stoptime_">stopTime_</a>
+      
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -188,7 +205,7 @@
       
       <a class="list-group-item" href="../type/stopwatch.html#boundprocedure-restart">restart</a>
       
-      <a class="list-group-item" href="../type/stopwatch.html#boundprocedure-time">time</a>
+      <a class="list-group-item" href="../type/stopwatch.html#boundprocedure-time%7E2">time</a>
       
       <a class="list-group-item" href="../type/stopwatch.html#boundprocedure-lap">lap</a>
       
@@ -219,6 +236,12 @@
       
       <a class="list-group-item" href="../type/c_printoptions.html">c_printOptions</a>
       
+      <a class="list-group-item" href="../type/kdtree.html">KdTree</a>
+      
+      <a class="list-group-item" href="../type/kdtreebranch.html">KdTreebranch</a>
+      
+      <a class="list-group-item" href="../type/kdtreesearch.html">KdTreeSearch</a>
+      
       <a class="list-group-item" href="../type/progressbar.html">ProgressBar</a>
       
       <a class="list-group-item" href="../type/stopwatch.html">Stopwatch</a>
@@ -235,13 +258,30 @@
     <div class="col-md-9" id='text'>
       <h2>type, public :: Stopwatch</h2>
     
-    <p>Class for timing sections of code</p>
+    <p>Class for timing sections of code, See the Stopwatch_Class module documentation for usage.</p>
     <br>
     
 
     <section class="visible-xs visible-sm hidden-md">
       
 
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#vars-1">Variables</a></h3></div>
+  <div id="vars-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../type/stopwatch.html#variable-running">running</a>
+      
+      <a class="list-group-item" href="../type/stopwatch.html#variable-laptime_">LapTime_</a>
+      
+      <a class="list-group-item" href="../type/stopwatch.html#variable-starttime_">startTime_</a>
+      
+      <a class="list-group-item" href="../type/stopwatch.html#variable-stoptime_">stopTime_</a>
+      
+    </div>
+  </div>
+</div>
 
 
 
@@ -272,7 +312,7 @@
       
       <a class="list-group-item" href="../type/stopwatch.html#boundprocedure-restart">restart</a>
       
-      <a class="list-group-item" href="../type/stopwatch.html#boundprocedure-time">time</a>
+      <a class="list-group-item" href="../type/stopwatch.html#boundprocedure-time%7E2">time</a>
       
       <a class="list-group-item" href="../type/stopwatch.html#boundprocedure-lap">lap</a>
       
@@ -297,6 +337,80 @@
     <br class="visible-xs visible-sm hidden-md">
 
     
+    <section>
+    <h2>Components</h2>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-running"></span>logical,</td>
+  
+  <td>private</td>
+  <td></td><td>::</td>
+  <td><strong>running</strong></td><td> =</td><td>.false.</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-laptime_"></span>integer(kind=i32),</td>
+  
+  <td>private</td>
+  <td></td><td>::</td>
+  <td><strong>LapTime_</strong>(8)</td><td> =</td><td>0</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-starttime_"></span>integer(kind=i32),</td>
+  
+  <td>private</td>
+  <td></td><td>::</td>
+  <td><strong>startTime_</strong>(8)</td><td> =</td><td>0</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-stoptime_"></span>integer(kind=i32),</td>
+  
+  <td>private</td>
+  <td></td><td>::</td>
+  <td><strong>stopTime_</strong>(8)</td><td> =</td><td>0</td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    </section>
+    <br>
+    
     
     
     
@@ -308,7 +422,7 @@
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-start"></span><h3>procedure, public :: <strong>start</strong>  => start_Stopwatch 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-start"></span><h3>procedure, public :: <strong>start</strong>  => <a href='../proc/start_stopwatch.html'>start_Stopwatch</a> 
     
   </h3></div>
   
@@ -326,12 +440,16 @@
          
     
     <h3>
-private subroutine start_Stopwatch(this, title, iunit)
+private subroutine <a href='../proc/start_stopwatch.html'>start_Stopwatch</a>(this, title, iunit)
     
     
 	 
 </h3>
     
+
+
+
+
 
 
 
@@ -411,7 +529,7 @@ private subroutine start_Stopwatch(this, title, iunit)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-stop"></span><h3>procedure, public :: <strong>stop</strong>  => stop_Stopwatch 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-stop"></span><h3>procedure, public :: <strong>stop</strong>  => <a href='../proc/stop_stopwatch.html'>stop_Stopwatch</a> 
     
   </h3></div>
   
@@ -429,12 +547,16 @@ private subroutine start_Stopwatch(this, title, iunit)
          
     
     <h3>
-private subroutine stop_Stopwatch(this, title, iunit)
+private subroutine <a href='../proc/stop_stopwatch.html'>stop_Stopwatch</a>(this, title, iunit)
     
     
 	 
 </h3>
     
+
+
+
+
 
 
 
@@ -514,7 +636,7 @@ private subroutine stop_Stopwatch(this, title, iunit)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-reset"></span><h3>procedure, public :: <strong>reset</strong>  => reset_Stopwatch 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-reset"></span><h3>procedure, public :: <strong>reset</strong>  => <a href='../proc/reset_stopwatch.html'>reset_Stopwatch</a> 
     
   </h3></div>
   
@@ -532,12 +654,16 @@ private subroutine stop_Stopwatch(this, title, iunit)
          
     
     <h3>
-private subroutine reset_Stopwatch(this)
+private subroutine <a href='../proc/reset_stopwatch.html'>reset_Stopwatch</a>(this)
     
     
 	 
 </h3>
     
+
+
+
+
 
 
 
@@ -587,7 +713,7 @@ private subroutine reset_Stopwatch(this)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-restart"></span><h3>procedure, public :: <strong>restart</strong>  => restart_Stopwatch 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-restart"></span><h3>procedure, public :: <strong>restart</strong>  => <a href='../proc/restart_stopwatch.html'>restart_Stopwatch</a> 
     
   </h3></div>
   
@@ -605,12 +731,16 @@ private subroutine reset_Stopwatch(this)
          
     
     <h3>
-private subroutine restart_Stopwatch(this)
+private subroutine <a href='../proc/restart_stopwatch.html'>restart_Stopwatch</a>(this)
     
     
 	 
 </h3>
     
+
+
+
+
 
 
 
@@ -660,7 +790,7 @@ private subroutine restart_Stopwatch(this)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-time"></span><h3>procedure, public :: <strong>time</strong>  => time_Stopwatch 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-time%7E2"></span><h3>procedure, public :: <strong>time</strong>  => <a href='../proc/time_stopwatch.html'>time_Stopwatch</a> 
     
   </h3></div>
   
@@ -678,12 +808,16 @@ private subroutine restart_Stopwatch(this)
          
     
     <h3>
-private function time_Stopwatch(this) result(res)
+private function <a href='../proc/time_stopwatch.html'>time_Stopwatch</a>(this) result(res)
     
     
 	 
 </h3>
     
+
+
+
+
 
 
 
@@ -742,7 +876,7 @@ private function time_Stopwatch(this) result(res)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-lap"></span><h3>procedure, public :: <strong>lap</strong>  => lap_Stopwatch 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-lap"></span><h3>procedure, public :: <strong>lap</strong>  => <a href='../proc/lap_stopwatch.html'>lap_Stopwatch</a> 
     
   </h3></div>
   
@@ -760,12 +894,16 @@ private function time_Stopwatch(this) result(res)
          
     
     <h3>
-private function lap_Stopwatch(this) result(res)
+private function <a href='../proc/lap_stopwatch.html'>lap_Stopwatch</a>(this) result(res)
     
     
 	 
 </h3>
     
+
+
+
+
 
 
 
@@ -824,7 +962,7 @@ private function lap_Stopwatch(this) result(res)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-lapinseconds"></span><h3>procedure, public :: <strong>lapInSeconds</strong>  => lapInSeconds_Stopwatch 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-lapinseconds"></span><h3>procedure, public :: <strong>lapInSeconds</strong>  => <a href='../proc/lapinseconds_stopwatch.html'>lapInSeconds_Stopwatch</a> 
     
   </h3></div>
   
@@ -842,12 +980,16 @@ private function lap_Stopwatch(this) result(res)
          
     
     <h3>
-private function lapInSeconds_Stopwatch(this) result(res)
+private function <a href='../proc/lapinseconds_stopwatch.html'>lapInSeconds_Stopwatch</a>(this) result(res)
     
     
 	 
 </h3>
     
+
+
+
+
 
 
 
@@ -906,7 +1048,7 @@ private function lapInSeconds_Stopwatch(this) result(res)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-elapsed"></span><h3>procedure, public :: <strong>elapsed</strong>  => elapsed_Stopwatch 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-elapsed"></span><h3>procedure, public :: <strong>elapsed</strong>  => <a href='../proc/elapsed_stopwatch.html'>elapsed_Stopwatch</a> 
     
   </h3></div>
   
@@ -924,12 +1066,16 @@ private function lapInSeconds_Stopwatch(this) result(res)
          
     
     <h3>
-private function elapsed_Stopwatch(this) result(res)
+private function <a href='../proc/elapsed_stopwatch.html'>elapsed_Stopwatch</a>(this) result(res)
     
     
 	 
 </h3>
     
+
+
+
+
 
 
 
@@ -988,7 +1134,7 @@ private function elapsed_Stopwatch(this) result(res)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-elapsedinseconds"></span><h3>procedure, public :: <strong>elapsedInSeconds</strong>  => elapsedInSeconds_Stopwatch 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-elapsedinseconds"></span><h3>procedure, public :: <strong>elapsedInSeconds</strong>  => <a href='../proc/elapsedinseconds_stopwatch.html'>elapsedInSeconds_Stopwatch</a> 
     
   </h3></div>
   
@@ -1006,12 +1152,16 @@ private function elapsed_Stopwatch(this) result(res)
          
     
     <h3>
-private function elapsedInSeconds_Stopwatch(this) result(res)
+private function <a href='../proc/elapsedinseconds_stopwatch.html'>elapsedInSeconds_Stopwatch</a>(this) result(res)
     
     
 	 
 </h3>
     
+
+
+
+
 
 
 
@@ -1070,7 +1220,7 @@ private function elapsedInSeconds_Stopwatch(this) result(res)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-date"></span><h3>procedure, public :: <strong>date</strong>  => date_Stopwatch 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-date"></span><h3>procedure, public :: <strong>date</strong>  => <a href='../proc/date_stopwatch.html'>date_Stopwatch</a> 
     
   </h3></div>
   
@@ -1088,12 +1238,16 @@ private function elapsedInSeconds_Stopwatch(this) result(res)
          
     
     <h3>
-private function date_Stopwatch(this) result(res)
+private function <a href='../proc/date_stopwatch.html'>date_Stopwatch</a>(this) result(res)
     
     
 	 
 </h3>
     
+
+
+
+
 
 
 
@@ -1152,7 +1306,7 @@ private function date_Stopwatch(this) result(res)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-dateandtime"></span><h3>procedure, public :: <strong>dateAndTime</strong>  => dateAndTime_Stopwatch 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-dateandtime"></span><h3>procedure, public :: <strong>dateAndTime</strong>  => <a href='../proc/dateandtime_stopwatch.html'>dateAndTime_Stopwatch</a> 
     
   </h3></div>
   
@@ -1170,12 +1324,16 @@ private function date_Stopwatch(this) result(res)
          
     
     <h3>
-private function dateAndTime_Stopwatch(this) result(res)
+private function <a href='../proc/dateandtime_stopwatch.html'>dateAndTime_Stopwatch</a>(this) result(res)
     
     
 	 
 </h3>
     
+
+
+
+
 
 
 
@@ -1250,6 +1408,12 @@ private function dateAndTime_Stopwatch(this) result(res)
     <div class="list-group">
       
       <a class="list-group-item" href="../type/c_printoptions.html">c_printOptions</a>
+      
+      <a class="list-group-item" href="../type/kdtree.html">KdTree</a>
+      
+      <a class="list-group-item" href="../type/kdtreebranch.html">KdTreebranch</a>
+      
+      <a class="list-group-item" href="../type/kdtreesearch.html">KdTreeSearch</a>
       
       <a class="list-group-item" href="../type/progressbar.html">ProgressBar</a>
       

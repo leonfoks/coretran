@@ -3,7 +3,7 @@
     !!
     !! Uses an introspective sort on a set of number. See this http://www.geeksforgeeks.org/know-your-sorting-algorithm-set-2-introsort-cs-sorting-weapon/ for more information
     !!
-    !! To begin, a quicksort with a median of three pivot is used until the size of the array is less than 16.  At this point, an insertion sort is used to reduce cache overhead.
+    !! To begin, a quicksort with a median of three pivot is used until the size of the array is less than 16.  At this point, an insertion sort is used to reduce cache overhead and tail recursion.
     !! Unfortunately, a quicksort is not ideal for sorted/almost sorted arrays or arrays with duplicate values.  Therefore if the number of iterations exceededs a threshold, a heapsort is used instead.
     !! This provides a robust sorting algorithm that is still very fast for almost sorted arrays.
     !!
@@ -11,7 +11,7 @@
     !!
     !! Often, the numbers wish to be maintained in their given order, so with an O(N) memory overhead we can sort an integer array instead by calling argsort()
     !!
-    !!Click on the interfaces to see how to use these routines
+    !! See [[sort]] and [[argSort]] for more information.
   use variableKind
 
   implicit none
@@ -26,7 +26,7 @@
     !!Example usage
     !!```fortran
     !!program sortTest
-    !!use variableKind
+    !!use variableKind, only: i32, r64
     !!use m_strings, only: str
     !!use m_allocate, only: allocate
     !!use m_random, only: rngInteger, rngNormal
@@ -50,22 +50,22 @@
     !!end program
     !!```
     module subroutine sort_i1D(this, stable)
-      !! Interfaced with sort()
+      !! Interfaced with [[sort]]
       integer(i32) :: this(:)
       logical, optional :: stable
     end subroutine
     module subroutine sort_id1D(this, stable)
-      !! Interfaced with sort()
+      !! Interfaced with [[sort]]
       integer(i64) :: this(:)
       logical, optional :: stable
     end subroutine
     module subroutine sort_r1D(this, stable)
-      !! Interfaced with sort()
+      !! Interfaced with [[sort]]
       real(r32) :: this(:)
       logical, optional :: stable
     end subroutine
     module subroutine sort_d1D(this, stable)
-      !! Interfaced with sort()
+      !! Interfaced with [[sort]]
       real(r64) :: this(:)
       logical, optional :: stable
     end subroutine
@@ -106,25 +106,25 @@
     !!end program
     !!```
     module subroutine argSort_i1D(this, i, stable)
-      !! Interfaced with argsort()
+      !! Interfaced with [[argSort]]
       integer(i32) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Index to sort
       logical, optional :: stable !! Stable sort?
     end subroutine
     module subroutine argSort_id1D(this, i, stable)
-      !! Interfaced with argsort()
+      !! Interfaced with [[argSort]]
       integer(i64) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Index to sort
       logical, optional :: stable !! Stable sort?
     end subroutine
     module subroutine argSort_r1D(this, i, stable)
-      !! Interfaced with argsort()
+      !! Interfaced with [[argSort]]
       real(r32) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Index to sort
       logical, optional :: stable !! Stable sort?
     end subroutine
     module subroutine argSort_d1D(this, i, stable)
-      !! Interfaced with argsort()
+      !! Interfaced with [[argSort]]
       real(r64) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Index to sort
       logical, optional :: stable !! Stable sort?
@@ -132,45 +132,47 @@
   end interface
   private :: argSort_i1D, argSort_id1D, argSort_r1D, argSort_d1D
 
+  private :: introsort
   interface introsort
     !! Perform an in-place introspective sort on an array
     module subroutine introsort_r1D(this)
-      !! Interfaced with introsort()
+      !! Interfaced with [[introsort]]
       real(r32) :: this(:) !! 1D array
     end subroutine
     module subroutine introsort_d1D(this)
-      !! Interfaced with introsort()
+      !! Interfaced with [[introsort]]
       real(r64) :: this(:) !! 1D array
     end subroutine
     module subroutine introsort_i1D(this)
-      !! Interfaced with introsort()
+      !! Interfaced with [[introsort]]
       integer(i32) :: this(:) !! 1D array
     end subroutine
     module subroutine introsort_id1D(this)
-      !! Interfaced with introsort()
+      !! Interfaced with [[introsort]]
       integer(i64) :: this(:) !! 1D array
     end subroutine
   end interface
 
+  private :: argIntrosort
   interface argintrosort
     !! Perform an indirect introsort on an array
     module subroutine argintrosort_r1D(this,i)
-      !! Interfaced with argintrosort()
+      !! Interfaced with [[argIntrosort]]
       real(r32) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Sort this integer key
     end subroutine
     module subroutine argintrosort_d1D(this,i)
-      !! Interfaced with argintrosort()
+      !! Interfaced with [[argIntrosort]]
       real(r64) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Sort this integer key
     end subroutine
     module subroutine argintrosort_i1D(this,i)
-      !! Interfaced with argintrosort()
+      !! Interfaced with [[argIntrosort]]
       integer(i32) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Sort this integer key
     end subroutine
     module subroutine argintrosort_id1D(this,i)
-      !! Interfaced with argintrosort()
+      !! Interfaced with [[argIntrosort]]
       integer(i64) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Sort this integer key
     end subroutine
@@ -179,19 +181,19 @@
   interface MergeSort
     !! Perform an in-place stable merge sort on an array
     module subroutine mergesort_r1D(this)
-      !! Interf aced with mergesort()
+      !! Interf aced with [[mergesort]]
       real(r32):: this(:) !! 1D array
     end subroutine
     module subroutine mergesort_d1D(this)
-      !! Interfaced with mergesort()
+      !! Interfaced with [[mergesort]]
       real(r64) :: this(:) !! 1D array
     end subroutine
     module subroutine mergesort_i1D(this)
-      !! Interfaced with mergesort()
+      !! Interfaced with [[mergesort]]
       integer(i32) :: this(:) !! 1D array
     end subroutine
     module subroutine mergesort_id1D(this)
-      !! Interfaced with mergesort()
+      !! Interfaced with [[mergesort]]
       integer(i64) :: this(:) !! 1D array
     end subroutine
   end interface
@@ -199,22 +201,22 @@
   interface argMergeSort
     !! Perform an indirect stable merge sort on an array
     module subroutine argmergesort_r1D(this,i)
-      !! Interfaced with argmergesort()
+      !! Interfaced with [[argmergesort]]
       real(r32) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Sort this integer key
     end subroutine
     module subroutine argmergesort_d1D(this,i)
-      !! Interfaced with argmergesort()
+      !! Interfaced with [[argmergesort]]
       real(r64) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Sort this integer key
     end subroutine
     module subroutine argmergesort_i1D(this,i)
-      !! Interfaced with argmergesort()
+      !! Interfaced with [[argmergesort]]
       integer(i32) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Sort this integer key
     end subroutine
     module subroutine argmergesort_id1D(this,i)
-      !! Interfaced with argmergesort()
+      !! Interfaced with [[argmergesort]]
       integer(i64) :: this(:) !! 1D array
       integer(i32) :: i(:) !! Sort this integer key
     end subroutine
@@ -225,65 +227,68 @@
   interface insertionsort
     !! Perform an in-place insertion sort on an array
     module subroutine insertionsort_r1D(this,iLeft,iRight)
-      !! Interfaced with insertionsort()
+      !! Interfaced with [[insertionsort]]
       real(r32) :: this(:) !! 1D array
       integer(i32) :: iLeft !! Left index
       integer(i32) :: iRight !! Right index
     end subroutine
     module subroutine insertionsort_d1D(this,iLeft,iRight)
-      !! Interfaced with insertionsort()
+      !! Interfaced with [[insertionsort]]
       real(r64) :: this(:) !! 1D array
       integer(i32) :: iLeft !! Left index
       integer(i32) :: iRight !! Right index
     end subroutine
     module subroutine insertionsort_i1D(this,iLeft,iRight)
-      !! Interfaced with insertionsort()
+      !! Interfaced with [[insertionsort]]
       integer(i32) :: this(:) !! 1D array
       integer(i32) :: iLeft !! Left index
       integer(i32) :: iRight !! Right index
     end subroutine
     module subroutine insertionsort_id1D(this,iLeft,iRight)
-      !! Interfaced with insertionsort()
+      !! Interfaced with [[insertionsort]]
       integer(i64) :: this(:) !! 1D array
       integer(i32) :: iLeft !! Left index
       integer(i32) :: iRight !! Right index
     end subroutine
   end interface
+  private :: insertionsort_r1D, insertionsort_d1D, insertionsort_i1D, insertionsort_id1D
 
   public :: argInsertionsort
 
   interface argInsertionsort
     !! Perform an indirect insertion sort on an array
     module subroutine argInsertionsort_r1D(this,indx,iLeft,iRight)
-      !! Interfaced with arginsertionsort()
+      !! Interfaced with [[arginsertionsort]]
       real(r32) :: this(:) !! 1D array
       integer(i32) :: indx(:) !! Sort this integer key
       integer(i32) :: iLeft !! Left index
       integer(i32) :: iRight !! Right index
     end subroutine
     module subroutine argInsertionsort_d1D(this,indx,iLeft,iRight)
-      !! Interfaced with arginsertionsort()
+      !! Interfaced with [[arginsertionsort]]
       real(r64) :: this(:) !! 1D array
       integer(i32) :: indx(:) !! Sort this integer key
       integer(i32) :: iLeft !! Left index
       integer(i32) :: iRight !! Right index
     end subroutine
     module subroutine argInsertionsort_i1D(this,indx,iLeft,iRight)
-      !! Interfaced with arginsertionsort()
+      !! Interfaced with [[arginsertionsort]]
       integer(i32) :: this(:) !! 1D array
       integer(i32) :: indx(:) !! Sort this integer key
       integer(i32) :: iLeft !! Left index
       integer(i32) :: iRight !! Right index
     end subroutine
     module subroutine argInsertionsort_id1D(this,indx,iLeft,iRight)
-      !! Interfaced with arginsertionsort()
+      !! Interfaced with [[arginsertionsort]]
       integer(i64) :: this(:) !! 1D array
       integer(i32) :: indx(:) !! Sort this integer key
       integer(i32) :: iLeft !! Left index
       integer(i32) :: iRight !! Right index
     end subroutine
   end interface
+  private :: argInsertionsort_r1D, argInsertionsort_d1D, argInsertionsort_i1D, argInsertionsort_id1D
 
+  private :: heapsort
   interface heapsort
     !! Perform an in-place heapsort on an array
     module subroutine heapsort_r1D(this)
@@ -304,6 +309,7 @@
     end subroutine
   end interface
 
+  private :: argHeapsort
   interface argHeapsort
     !! Perform an indirect heapsort on an array
     module subroutine argHeapsort_r1D(this,indx)

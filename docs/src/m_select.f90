@@ -39,30 +39,30 @@
     !!write(*,'(a)') 'kth element? '//str(iv)
     !!end program
     !!```
-    module function quickSelect_i1D(this, k) result(res)
+    module subroutine quickSelect_i1D(this, k, res)
       !! Interfaced with select()
       integer(i32), intent(inout) :: this(:) !! Array to choose kth smallest from
       integer(i32), intent(in) :: k !! kth smallest element
       integer(i32) :: res
-    end function
-    module function quickSelect_id1D(this, k) result(res)
+    end subroutine
+    module subroutine quickSelect_id1D(this, k, res)
       !! Interfaced with select()
       integer(i64), intent(inout) :: this(:) !! Array to choose kth smallest from
       integer(i32), intent(in) :: k !! kth smallest element
       integer(i64) :: res
-    end function
-    module function quickSelect_r1D(this, k) result(res)
+    end subroutine
+    module subroutine quickSelect_r1D(this, k, res)
       !! Interfaced with select()
       real(r32), intent(inout) :: this(:) !! Array to choose kth smallest from
       integer(i32), intent(in) :: k !! kth smallest element
       real(r32) :: res
-    end function
-    module function quickSelect_d1D(this, k) result(res)
+    end subroutine
+    module subroutine quickSelect_d1D(this, k, res)
       !! Interfaced with select()
       real(r64), intent(inout) :: this(:) !! Array to choose kth smallest from
       integer(i32), intent(in) :: k !! kth smallest element
       real(r64) :: res
-    end function
+    end subroutine
   end interface
 
   public :: argSelect
@@ -98,34 +98,42 @@
     !!write(*,'(a)') 'Integer array is indirectly sorted? '//str(isSorted(i1D(indx)))
     !!end program
     !!```
-    module function argQuickSelect_i1D(this, indx, k) result(res)
+    module subroutine argQuickSelect_i1D(this, indx, k, res, left, right)
       !! Interfaced with argSelect()
       integer(i32), intent(in) :: this(:) !! 1D array
       integer(i32), intent(inout) :: indx(:) !! Index to choose kth smallest from
       integer(i32), intent(in) :: k !! kth smallest element
       integer(i32) :: res !! Index of the kth smallest element
-    end function
-    module function argQuickSelect_id1D(this, indx, k) result(res)
+      integer(i32), intent(in), optional :: left !! Select over the region left:right
+      integer(i32), intent(in), optional :: right !! Select over the region left:right
+    end subroutine
+    module subroutine argQuickSelect_id1D(this, indx, k, res, left, right)
       !! Interfaced with argSelect()
       integer(i64), intent(in) :: this(:) !! 1D array
       integer(i32), intent(inout) :: indx(:) !! Index to choose kth smallest from
       integer(i32), intent(in) :: k  !! kth smallest element
       integer(i32) :: res !! Index of the kth smallest element
-    end function
-    module function argQuickSelect_r1D(this, indx, k) result(res)
+      integer(i32), intent(in), optional :: left !! Select over the region left:right
+      integer(i32), intent(in), optional :: right !! Select over the region left:right
+    end subroutine
+    module subroutine argQuickSelect_r1D(this, indx, k, res, left, right)
       !! Interfaced with argSelect()
       real(r32), intent(in) :: this(:) !! 1D array
       integer(i32), intent(inout) :: indx(:) !! Index to choose kth smallest from
       integer(i32), intent(in) :: k !! kth smallest element
       integer(i32) :: res !! Index of the kth smallest element
-    end function
-    module function argQuickSelect_d1D(this, indx, k) result(res)
+      integer(i32), intent(in), optional :: left !! Select over the region left:right
+      integer(i32), intent(in), optional :: right !! Select over the region left:right
+    end subroutine
+    module subroutine argQuickSelect_d1D(this, indx, k, res, left, right)
       !! Interfaced with argSelect()
       real(r64), intent(in) :: this(:) !! 1D array
       integer(i32), intent(inout) :: indx(:) !! Index to choose kth smallest from
       integer(i32), intent(in) :: k!! kth smallest element
       integer(i32) :: res !! Index of the kth smallest element
-    end function
+      integer(i32), intent(in), optional :: left !! Select over the region left:right
+      integer(i32), intent(in), optional :: right !! Select over the region left:right
+    end subroutine
   end interface
 
   end module
