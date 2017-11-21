@@ -16,9 +16,11 @@ docmark_alt: #
 predocmark_alt: <
 display: public
          protected
+	 private
 source: false
-graph: true
+sort: order
+graph: false
+coloured_edges: false
 search: true
 macro: TEST
        LOGIC=.true.
-            
