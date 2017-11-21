@@ -189,32 +189,6 @@
 </div>
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs-0">Functions</a></h3></div>
-  <div id="funcs-0" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/progressbar_class.html#proc-progressbar_i1">ProgressBar_i1</a>
-      
-      <a class="list-group-item" href="../module/progressbar_class.html#proc-progressbar_id1">ProgressBar_id1</a>
-      
-    </div>
-  </div>
-</div>
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
-  <div class="list-group">
-    <div id="subs-0" class="panel-collapse collapse">
-      
-      <a class="list-group-item" href="../module/progressbar_class.html#proc-print_i1_progressbar">print_i1_ProgressBar</a>
-      
-      <a class="list-group-item" href="../module/progressbar_class.html#proc-print_id1_progressbar">print_id1_ProgressBar</a>
-      
-    </div>
-  </div>
-</div>
 
 
 
@@ -380,32 +354,6 @@
 </div>
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#funcs-1">Functions</a></h3></div>
-  <div id="funcs-1" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/progressbar_class.html#proc-progressbar_i1">ProgressBar_i1</a>
-      
-      <a class="list-group-item" href="../module/progressbar_class.html#proc-progressbar_id1">ProgressBar_id1</a>
-      
-    </div>
-  </div>
-</div>
-
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
-  <div class="list-group">
-    <div id="subs-1" class="panel-collapse collapse">
-      
-      <a class="list-group-item" href="../module/progressbar_class.html#proc-print_i1_progressbar">print_i1_ProgressBar</a>
-      
-      <a class="list-group-item" href="../module/progressbar_class.html#proc-print_id1_progressbar">print_id1_ProgressBar</a>
-      
-    </div>
-  </div>
-</div>
 
 
 
@@ -442,16 +390,12 @@
     
     
     <h3>
-private function <a href='../proc/progressbar_i1.html'>ProgressBar_i1</a>(N, title, time) result(res)
+private function ProgressBar_i1(N, title, time) result(res)
     
     
 	 
 </h3>
     
-
-
-
-
 
 
 
@@ -537,16 +481,12 @@ private function <a href='../proc/progressbar_i1.html'>ProgressBar_i1</a>(N, tit
     
     
     <h3>
-private function <a href='../proc/progressbar_id1.html'>ProgressBar_id1</a>(N, title, time) result(res)
+private function ProgressBar_id1(N, title, time) result(res)
     
     
 	 
 </h3>
     
-
-
-
-
 
 
 
@@ -655,175 +595,6 @@ private function <a href='../proc/progressbar_id1.html'>ProgressBar_id1</a>(N, t
  Print the progress Bar</p>
     
      
-     <h4>Components</h4>
-    
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th><th>Visibility</th>
-
-<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-clk"></span>type(Stopwatch),</td>
-  
-  <td>private</td>
-  <td></td><td>::</td>
-  <td><strong>clk</strong></td><td></td><td></td><td><p>Stopwatch to estimate time remaining</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-title"></span>character(len=14),</td>
-  
-  <td>private</td>
-  <td></td><td>::</td>
-  <td><strong>title</strong></td><td></td><td></td><td><p>Give a title for the progress bar</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-n%7E2"></span>integer(kind=i64),</td>
-  
-  <td>private</td>
-  <td></td><td>::</td>
-  <td><strong>N</strong></td><td></td><td></td><td><p>Total number of iterations</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-old1p"></span>integer(kind=i32),</td>
-  
-  <td>private</td>
-  <td></td><td>::</td>
-  <td><strong>old1p</strong></td><td></td><td></td><td><p>1% counter</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-old10p"></span>integer(kind=i32),</td>
-  
-  <td>private</td>
-  <td></td><td>::</td>
-  <td><strong>old10p</strong></td><td></td><td></td><td><p>10% counter</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-next1p"></span>integer(kind=i32),</td>
-  
-  <td>private</td>
-  <td></td><td>::</td>
-  <td><strong>next1p</strong></td><td></td><td></td><td><p>1% counter</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-next10p"></span>integer(kind=i32),</td>
-  
-  <td>private</td>
-  <td></td><td>::</td>
-  <td><strong>next10p</strong></td><td></td><td></td><td><p>10% counter</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-time"></span>logical,</td>
-  
-  <td>private</td>
-  <td></td><td>::</td>
-  <td><strong>time</strong></td><td></td><td></td><td><p>Provide an estimated time remaining?</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-itime"></span>integer(kind=i32),</td>
-  
-  <td>private</td>
-  <td></td><td>::</td>
-  <td><strong>iTime</strong></td><td></td><td></td><td><p>Counter to estimate time</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-cumtime"></span>real(kind=r64),</td>
-  
-  <td>private</td>
-  <td></td><td>::</td>
-  <td><strong>cumTime</strong></td><td></td><td></td><td><p>Cumulative time</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-bar"></span>character(len=88),</td>
-  
-  <td>private</td>
-  <td></td><td>::</td>
-  <td><strong>bar</strong></td><td></td><td></td><td><p>String to write the progress bar to output</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-     
      
      <h4>Constructor</h4>
        
@@ -835,10 +606,10 @@ private function <a href='../proc/progressbar_id1.html'>ProgressBar_id1</a>(N, t
              
              
              
-             <tr><td>private  function <strong><a href='../proc/progressbar_i1.html'>ProgressBar_i1</a></strong>(N, title, time)</td><td><p>Interfaced with class instantiation ProgressBar()</p></td></tr>
+             <tr><td>private  function <strong>ProgressBar_i1</strong>(N, title, time)</td><td><p>Interfaced with class instantiation ProgressBar()</p></td></tr>
              
              
-             <tr><td>private  function <strong><a href='../proc/progressbar_id1.html'>ProgressBar_id1</a></strong>(N, title, time)</td><td><p>Interfaced with class instantiation ProgressBar()</p></td></tr>
+             <tr><td>private  function <strong>ProgressBar_id1</strong>(N, title, time)</td><td><p>Interfaced with class instantiation ProgressBar()</p></td></tr>
              
         
        </tbody>
@@ -853,12 +624,6 @@ private function <a href='../proc/progressbar_id1.html'>ProgressBar_id1</a>(N, t
        <tr><td>generic, public :: <strong><a href='../type/progressbar.html#boundprocedure-print'>print</a></strong>  => print_i1_ProgressBar_, print_id1_ProgressBar_ </td>
        <td><p>Print the progress Bar</p></td></tr>
       
-       <tr><td>procedure, private :: <strong><a href='../type/progressbar.html#boundprocedure-print_i1_progressbar_'>print_i1_ProgressBar_</a></strong>  => print_i1_ProgressBar </td>
-       <td></td></tr>
-      
-       <tr><td>procedure, private :: <strong><a href='../type/progressbar.html#boundprocedure-print_id1_progressbar_'>print_id1_ProgressBar_</a></strong>  => print_id1_ProgressBar </td>
-       <td></td></tr>
-      
        </tbody>
        </table>
      
@@ -870,364 +635,8 @@ private function <a href='../proc/progressbar_id1.html'>ProgressBar_id1</a>(N, t
 	<br>
     
     
-     
-    <section>
-    <h2>Functions</h2>
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-progressbar_i1"></span><h3>
-private function <a href='../proc/progressbar_i1.html'>ProgressBar_i1</a>(N, title, time) result(res)
-    
-    
-	 
-</h3></div>
-  <div class="panel-body">
-       
     
 
-
-
-
-
-
-
-<p>Interfaced with class instantiation ProgressBar()</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>N</strong></td><td><p>Maximum expected number of iterations</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>title</strong></td><td><p>Title to give the progress bar</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>time</strong></td><td><p>Show an estimated time to completion?</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>type(<a href='../type/progressbar.html'>ProgressBar</a>)
-  </small></h4>
-  
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-progressbar_id1"></span><h3>
-private function <a href='../proc/progressbar_id1.html'>ProgressBar_id1</a>(N, title, time) result(res)
-    
-    
-	 
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-
-
-<p>Interfaced with class instantiation ProgressBar()</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>N</strong></td><td><p>Maximum expected number of iterations</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>character(len=*),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>title</strong></td><td><p>Title to give the progress bar</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>time</strong></td><td><p>Show an estimated time to completion?</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>type(<a href='../type/progressbar.html'>ProgressBar</a>)
-  </small></h4>
-  
-    
-
-  </div>
-  </div>
-
-    
-    </section>
-    <br>
-    
-
-    
-    <section>
-    <h2>Subroutines</h2>
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-print_i1_progressbar"></span><h3>
-private subroutine <a href='../proc/print_i1_progressbar.html'>print_i1_ProgressBar</a>(this, i)
-    
-    
-	 
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-
-
-<p>Interfaced with ProgressBar%print()</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/progressbar.html'>ProgressBar</a>)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong></td><td><p>ProgressBar Class</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>i</strong></td><td><p>Current iteration number</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  </div>
-  </div>
-
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-print_id1_progressbar"></span><h3>
-private subroutine <a href='../proc/print_id1_progressbar.html'>print_id1_ProgressBar</a>(this, i)
-    
-    
-	 
-</h3></div>
-  <div class="panel-body">
-       
-    
-
-
-
-
-
-
-
-<p>Interfaced with ProgressBar%print()</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/progressbar.html'>ProgressBar</a>)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong></td><td><p>ProgressBar Class</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>i</strong></td><td><p>Current iteration number</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  </div>
-  </div>
-
-    
-    </section>    
-    <br>
     
     
     
