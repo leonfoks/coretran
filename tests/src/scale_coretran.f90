@@ -184,9 +184,9 @@ program scaleTest_coretran
     call clk%restart()
     call tree%init(a1D(1:ib), b1D(1:ib))
     call clk%stop()
-    call tree%deallocate()
     write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
   enddo
+  call tree%deallocate()
 
   call Msg('---  Timing the 3D KdTree ---')
   call rngNormal(c1D)
@@ -196,9 +196,22 @@ program scaleTest_coretran
     call clk%restart()
     call tree%init(a1D(1:ib), b1D(1:ib), c1D(1:ib))
     call clk%stop()
-    call tree%deallocate()
     write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
   enddo
+  call tree%deallocate()
+
+  call allocate(a2D, [N, 5])
+  call Msg('---  Timing the ND KdTree ---')
+  call rngNormal(a2D)
+  do ia = 0, 5
+    ib = 2**(24-ia)
+
+    call clk%restart()
+    call tree%init(a2D(1:ib,:))
+    call clk%stop()
+    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+  enddo
+  call tree%deallocate()
 
 
   stop

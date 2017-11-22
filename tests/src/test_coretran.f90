@@ -888,6 +888,18 @@ program test_coretran
 
   call tree%deallocate()
 
+  call allocate(a2D, [N, 2])
+  a2D(:,1) = a1D
+  a2D(:,2) = b1D
+  call tree%init(a2D)
+
+  ia = search%kNearest(tree, a2D, [0.d0, 0.d0])
+
+  call test(ia == minloc(sum(a2D**2.d0, 2), 1), 'KdTree_ND')
+
+  call tree%deallocate()
+
+
   call Msg('==========================')
   write(output_unit,1) trim(str(passCount))//'/'//trim(str(testTotal))//' tests passed'
   call Msg('==========================')

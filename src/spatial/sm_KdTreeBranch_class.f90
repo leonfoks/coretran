@@ -1,5 +1,5 @@
 submodule (m_KdTree) sm_KdTreeBranch_class
-
+  !! Contains the implementations of overloaded KdTreeBranch class type bound procedures
 implicit none
 
 contains
