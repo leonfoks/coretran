@@ -7,7 +7,7 @@ implicit none
 contains
 !====================================================================!
 module procedure shuffle_r1D
-  !! Interfaced with shuffle()
+  !! Interfaced with [[shuffle]]
 !====================================================================!
 !module subroutine shuffle_r1D(this)
 !real(r32) :: this(:)
@@ -23,7 +23,7 @@ end procedure
 !====================================================================!
 !====================================================================!
 module procedure shuffle_d1D
-  !! Interfaced with shuffle()
+  !! Interfaced with [[shuffle]]
 !====================================================================!
 !module subroutine shuffle_d1D(this)
 !real(r64) :: this(:)
@@ -39,7 +39,7 @@ end procedure
 !====================================================================!
 !====================================================================!
 module procedure shuffle_i1D
-  !! Interfaced with shuffle()
+  !! Interfaced with [[shuffle]]
 !====================================================================!
 !module subroutine shuffle_i1D(this)
 !integer(i32) :: this(:)
@@ -55,7 +55,7 @@ end procedure
 !====================================================================!
 !====================================================================!
 module procedure shuffle_id1D
-  !! Interfaced with shuffle()
+  !! Interfaced with [[shuffle]]
 !====================================================================!
 !module subroutine shuffle_id1D(this)
 !integer(i64) :: this(:)
