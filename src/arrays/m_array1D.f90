@@ -47,29 +47,29 @@ interface arange
     !! Interfaced with [[arange]]
     real(r32), intent(in) :: start !! Start from here
     real(r32), intent(in) :: stp !! Stop here
-    real(r32),optional, intent(in) :: step !! Step size
-    real(r32),allocatable, intent(inout) :: res(:)
+    real(r32), optional, intent(in) :: step !! Step size
+    real(r32), allocatable, intent(inout) :: res(:)
   end subroutine
   module subroutine arange_d1D(res,start,stp,step)
     !! Interfaced with [[arange]]
     real(r64), intent(in) :: start !! Start from here
     real(r64), intent(in) :: stp !! Stop here
-    real(r64),optional, intent(in) :: step !! Step size
-    real(r64),allocatable, intent(inout) :: res(:)
+    real(r64), optional, intent(in) :: step !! Step size
+    real(r64), allocatable, intent(inout) :: res(:)
   end subroutine
   module subroutine arange_i1D(res,start,stp,step)
     !! Interfaced with [[arange]]
     integer(i32), intent(in) :: start !! Start from here
     integer(i32), intent(in) :: stp !! Stop here
-    integer(i32),optional, intent(in) :: step !! Step size
-    integer(i32),allocatable, intent(inout) :: res(:)
+    integer(i32), optional, intent(in) :: step !! Step size
+    integer(i32), allocatable, intent(inout) :: res(:)
   end subroutine
   module subroutine arange_id1D(res,start,stp,step)
     !! Interfaced with [[arange]]
     integer(i64), intent(in) :: start !! Start from here
     integer(i64), intent(in) :: stp !! Stop here
-    integer(i64),optional, intent(in) :: step !! Step size
-    integer(i64),allocatable, intent(inout) :: res(:)
+    integer(i64), optional, intent(in) :: step !! Step size
+    integer(i64), allocatable, intent(inout) :: res(:)
   end subroutine
 end interface
 
