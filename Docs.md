@@ -32,6 +32,13 @@ exclude: sm_array_r1D.f90
 	 sm_maths_d1D.f90
 	 sm_maths_i1D.f90
 	 sm_maths_id1D.f90
+	 sm_rngChiSq.f90
+         sm_rngGamma.f90 
+         sm_rngNormal.f90
+         sm_rngWeibull.f90
+	 sm_rngExponential.f90
+	 sm_rngInteger.f90
+         sm_rngUniform.f90
 	 sm_shuffle.f90
 	 sm_heapSort.f90       
 	 sm_insertionSort.f90  
@@ -42,3 +49,7 @@ exclude: sm_array_r1D.f90
 	 sm_KdTreeBranch_class.f90  
 	 sm_KdTreeSearch_class.f90  
 	 sm_KdTree_class.f90
+         sm_dDynamicArray.f90
+         sm_idDynamicArray.f90
+         sm_iDynamicArray.f90
+         sm_rDynamicArray.f90
