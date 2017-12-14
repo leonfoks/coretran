@@ -2,10 +2,19 @@
     !! Perform a quickselect on an array. Quick select finds the kth smallest number in an array. It also puts values lower than the kth on the left, and those higher on the right
     !! This makes it perfect for finding the median.
   use variableKind
+  use m_errors, only: msg
+  use m_allocate, only: allocate
+  use m_array1D, only: arange
+  use m_deallocate, only: deallocate
+  use m_random, only: rngNormal
+  use m_sort, only: sort
+  use m_unitTester, only: tester
 
   implicit none
 
   private
+
+  public :: select_test
 
   public  :: select
 
@@ -136,4 +145,111 @@
     end subroutine
   end interface
 
+  contains
+
+  !====================================================================!
+  subroutine select_test(test, N)
+  !====================================================================!
+  class(tester) :: test
+  integer(i32) :: N
+
+  real(r32) :: ar
+  real(r32), allocatable :: ar1D(:), br1D(:)
+  real(r64) :: a
+  real(r64), allocatable :: a1D(:), b1D(:)
+  integer(i32) :: ia, ib, ic
+  integer(i32), allocatable :: ia1D(:), ib1D(:), ic1D(:)
+  integer(i64) :: iad
+  integer(i64), allocatable :: iad1D(:), ibd1D(:)
+  logical :: la, lb
+
+  call Msg('==========================')
+  call Msg('Testing : Select')
+  call Msg('==========================')
+
+  call allocate(ar1D, N)
+  call allocate(br1D, N)
+
+  call allocate(a1D, N)
+  call allocate(b1D, N)
+
+  call allocate(ia1D, N)
+  call allocate(ib1D, N)
+  call allocate(ic1D, N)
+
+  call allocate(iad1D, N)
+  call allocate(ibd1D, N)
+
+  call rngNormal(a1D)
+  ar1D = real(a1D)
+
+  br1D = ar1D
+  ic = (size(br1D+1))/2 ! Get the median
+  call select(br1D, ic, ar)
+
+  la = all(br1D(1:ic-1) <= br1D(ic)) .and. all(br1D(ic+1:ib) >= br1D(ic))
+  call sort(br1D)
+  call test%test(ar == br1D(ic) .and. la, 'quickselect_r1D')
+
+  br1D = ar1D
+  ic = 3
+  call select(br1D, ic, ar)
+
+  la = all(br1D(1:ic-1) <= br1D(ic)) .and. all(br1D(ic+1:ib) >= br1D(ic))
+  call sort(br1D)
+  call test%test(ar == br1D(ic) .and. la, 'quickselect_r1D')
+
+  br1D = ar1D
+  call arange(ic1D, 1, N)
+  call argSelect(br1D,ic1D, ic, ia)
+  la = all(br1D((ic1D(1:ic-1))) <= br1D(ia)) .and. all(br1D(ic1D(ic+1:ib)) >= br1D(ia))
+  call test%test(la,'argQuickSelect_r1D')
+
+  b1D = a1D
+  ic = (size(b1D+1))/2 ! Get the median
+  call select(b1D, ic, a)
+
+  la = all(b1D(1:ic-1) <= b1D(ic)) .and. all(b1D(ic+1:ib) >= b1D(ic))
+  call sort(b1D)
+  call test%test(a == b1D(ic) .and. la, 'quickselect_d1D')
+
+  b1D = a1D
+  ic = (size(b1D+1))/2 ! Get the median
+  call arange(ic1D, 1, N)
+  call argSelect(b1D, ic1D, ic, ia)
+  lb = all(b1D(ic1D(1:ia-1)) < b1D(ic1D(ia))) .and. all(b1D(ic1D(ia+1:ib)) > b1D(ic1D(ia)))
+  call test%test(la, 'argQuickselect_d1D')
+
+  ib1D = ia1D
+  ic = (size(ib1D+1))/2 ! Get the median
+  call select(ib1D, ic, ia)
+
+  la = all(ib1D(1:ic-1) <= ib1D(ic)) .and. all(ib1D(ic+1:ib) >= ib1D(ic))
+  call sort(ib1D)
+  call test%test(ia == ib1D(ic) .and. la, 'quickselect_i1D')
+
+  ib1D = ia1D
+  ic = (size(ib1D+1))/2 ! Get the median
+  call arange(ic1D, 1, N)
+  call argSelect(ib1D, ic1D, ic, ia)
+  lb = all(ib1D(ic1D(1:ic-1)) < ib1D(ic1D(ic))) .and. all(ib1D(ic1D(ic+1:ib)) > ib1D(ic1D(ic)))
+  call test%test(la, 'argQuickselect_i1D')
+
+  ibd1D = ia1D
+  ic = (size(ibd1D+1))/2 ! Get the median
+  call select(ibd1D, ic, iad)
+
+  la = all(ibd1D(1:ic-1) <= ibd1D(ic)) .and. all(ibd1D(ic+1:ib) >= ibd1D(ic))
+  call sort(ibd1D)
+  call test%test(iad == ibd1D(ic) .and. la, 'quickselect_id1D')
+
+  ibd1D = ia1D
+  ic = (size(ibd1D+1))/2 ! Get the median
+  call arange(ic1D, 1, N)
+  call argSelect(ibd1D, ic1D, ic, ia)
+  lb = all(ibd1D(ic1D(1:ic-1)) < ibd1D(ic1D(ic))) .and. all(ibd1D(ic1D(ic+1:ib)) > ibd1D(ic1D(ic)))
+  call test%test(la, 'argQuickselect_id1D')
+
+  end subroutine
+  !====================================================================!
   end module

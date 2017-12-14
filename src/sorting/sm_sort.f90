@@ -15,9 +15,9 @@
   logical :: stable_=.false.
   if (present(stable)) stable_=stable
   if (stable_) then
-    call MergeSort(this)
+    call MergeSort_i1D(this)
   else
-    call introsort(this)
+    call introsort_i1D(this)
   end if
   end procedure
   !====================================================================!
@@ -31,9 +31,9 @@
   logical :: stable_=.false.
   if (present(stable)) stable_=stable
   if (stable_) then
-    call MergeSort(this)
+    call MergeSort_id1D(this)
   else
-    call introsort(this)
+    call introsort_id1D(this)
   end if
   end procedure
   !====================================================================!
@@ -47,9 +47,9 @@
   logical :: stable_=.false.
   if (present(stable)) stable_=stable
   if (stable_) then
-    call MergeSort(this)
+    call MergeSort_r1D(this)
   else
-    call introsort(this)
+    call introsort_r1D(this)
   end if
   end procedure
   !====================================================================!
@@ -63,9 +63,9 @@
   logical :: stable_=.false.
   if (present(stable)) stable_=stable
   if (stable_) then
-    call MergeSort(this)
+    call MergeSort_d1D(this)
   else
-    call introsort(this)
+    call introsort_d1D(this)
   end if
   end procedure
   !====================================================================!
@@ -79,9 +79,9 @@
   logical :: stable_=.false.
   if (present(stable)) stable_=stable
   if (stable_) then
-    call argMergeSort(this,i)
+    call argMergeSort_r1D(this,i)
   else
-    call argintrosort(this,i)
+    call argintrosort_r1D(this,i)
   end if
   end procedure
   !====================================================================!
@@ -95,9 +95,9 @@
   logical :: stable_=.false.
   if (present(stable)) stable_=stable
   if (stable_) then
-    call argMergeSort(this,i)
+    call argMergeSort_d1D(this,i)
   else
-    call argintrosort(this,i)
+    call argintrosort_d1D(this,i)
   end if
   end procedure
   !====================================================================!
@@ -111,9 +111,9 @@
   logical :: stable_=.false.
   if (present(stable)) stable_=stable
   if (stable_) then
-    call argMergeSort(this,i)
+    call argMergeSort_i1D(this,i)
   else
-    call argintrosort(this,i)
+    call argintrosort_i1D(this,i)
   end if
   end procedure
   !====================================================================!
@@ -127,9 +127,9 @@
   logical :: stable_=.false.
   if (present(stable)) stable_=stable
   if (stable_) then
-    call argMergeSort(this,i)
+    call argMergeSort_id1D(this,i)
   else
-    call argintrosort(this,i)
+    call argintrosort_id1D(this,i)
   end if
   end procedure
   !====================================================================!

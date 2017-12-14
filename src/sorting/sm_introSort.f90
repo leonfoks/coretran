@@ -35,7 +35,7 @@ submodule (m_Sort) sm_introsort
     return
   end if
   if (maxDepth == 0) then
-    call heapsort(this(left:right+1))
+    call heapsort_r1D(this(left:right+1))
     return
   end if
   imid = left + N/2
@@ -71,7 +71,7 @@ submodule (m_Sort) sm_introsort
     return
   end if
   if (maxDepth == 0) then
-    call heapsort(this(left:right+1))
+    call heapsort_d1D(this(left:right+1))
     return
   end if
   imid = left + N/2
@@ -108,7 +108,7 @@ submodule (m_Sort) sm_introsort
       return
     end if
     if (maxDepth == 0) then
-      call heapsort(this(left:right+1))
+      call heapsort_i1D(this(left:right+1))
       return
     end if
     imid = left + N/2
@@ -145,7 +145,7 @@ submodule (m_Sort) sm_introsort
       return
     end if
     if (maxDepth == 0) then
-      call heapsort(this(left:right+1))
+      call heapsort_id1D(this(left:right+1))
       return
     end if
     imid = left + N/2
@@ -183,7 +183,7 @@ submodule (m_Sort) sm_introsort
     return
   end if
   if (maxDepth == 0) then
-    call argHeapsort(this, idx(left:right+1))
+    call argHeapsort_r1D(this, idx(left:right+1))
     return
   end if
   imid = left + N/2
@@ -221,7 +221,7 @@ submodule (m_Sort) sm_introsort
     return
   end if
   if (maxDepth == 0) then
-    call argHeapsort(this, idx(left:right+1))
+    call argHeapsort_d1D(this, idx(left:right+1))
     return
   end if
   imid = left + N/2
@@ -259,7 +259,7 @@ submodule (m_Sort) sm_introsort
     return
   end if
   if (maxDepth == 0) then
-    call argHeapsort(this, idx(left:right+1))
+    call argHeapsort_i1D(this, idx(left:right+1))
     return
   end if
   imid = left + N/2
@@ -297,7 +297,7 @@ submodule (m_Sort) sm_introsort
     return
   end if
   if (maxDepth == 0) then
-    call argHeapsort(this, idx(left:right+1))
+    call argHeapsort_id1D(this, idx(left:right+1))
     return
   end if
   imid = left + N/2
