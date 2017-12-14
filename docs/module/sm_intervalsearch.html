@@ -10,7 +10,7 @@
     <meta name="author" content="Leon Foks" >
     <link rel="icon" href="../favicon.png">
 
-    <title>m_simpleSearch &ndash; Fortran Program</title>
+    <title>sm_intervalSearch &ndash; Fortran Program</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -108,8 +108,8 @@
     
   
   <div class="row">
-    <h1>m_simpleSearch 
-    <small>Module</small>
+    <h1>sm_intervalSearch 
+    <small>Submodule</small>
     
     </h1>
     
@@ -126,18 +126,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 0.5% of total for modules and submodules.">24 statements</a>
+	  title=" 1.6% of total for modules and submodules.">105 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/m_SimpleSearch.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/sm_intervalSearch.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/m_simplesearch.f90.html'>m_SimpleSearch.f90</a></li>
+     <li><a href='../sourcefile/sm_intervalsearch.f90.html'>sm_intervalSearch.f90</a></li>
   
-     <li class="active">m_simpleSearch</li>
+     <li class="active">sm_intervalSearch</li>
   </ol>
 </div>
 </div>
@@ -163,17 +163,6 @@
 
 
 
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-0">Interfaces</a></h3></div>
-  <div id="inters-0" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/m_simplesearch.html#interface-simplesearch">simpleSearch</a>
-      
-    </div>
-  </div>
-</div>
 
 
 
@@ -201,8 +190,6 @@
       
       <a class="list-group-item" href="../module/m_array1d.html">m_array1D</a>
       
-      <a class="list-group-item" href="../module/m_binarysearch.html">m_BinarySearch</a>
-      
       <a class="list-group-item" href="../module/m_compare.html">m_compare</a>
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
@@ -211,9 +198,13 @@
       
       <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
       
+      <a class="list-group-item" href="../module/m_dynamicarray.html">m_dynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_fixedarrays.html">m_fixedArrays</a>
       
       <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
       
@@ -235,9 +226,11 @@
       
       <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
       
-      <a class="list-group-item" href="../module/m_select.html">m_select</a>
+      <a class="list-group-item" href="../module/m_rnglib.html">m_rngLib</a>
       
-      <a class="list-group-item" href="../module/m_simplesearch.html">m_simpleSearch</a>
+      <a class="list-group-item" href="../module/m_searching.html">m_searching</a>
+      
+      <a class="list-group-item" href="../module/m_select.html">m_select</a>
       
       <a class="list-group-item" href="../module/m_sort.html">m_sort</a>
       
@@ -246,6 +239,8 @@
       <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
       
       <a class="list-group-item" href="../module/m_time.html">m_time</a>
+      
+      <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
       
       <a class="list-group-item" href="../module/m_writeline.html">m_writeline</a>
       
@@ -266,12 +261,30 @@
     
     <div class="col-md-9" id='text'>
       
-    
+  
+    <ul class="list-inline">
+      <li><h4>Ancestors:</h4></li>
+      
+      <li><a href='../module/m_searching.html'>m_searching</a></li>
+      
+      
+    </ul>
   
 
     
-    <p>Contains simple search routines</p>
-    <br>
+  
+    <ul class="list-inline">
+      <li><h4>Uses:</h4></li>
+      
+      <li><a href='../module/variablekind.html'>variableKind</a></li>
+      
+    </ul>
+    
+    
+
+    
+    
+    
     
 
     <section class="visible-xs visible-sm hidden-md">
@@ -284,17 +297,6 @@
 
 
 
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-1">Interfaces</a></h3></div>
-  <div id="inters-1" class="panel-collapse collapse">
-    <div class="list-group">
-      
-      <a class="list-group-item" href="../module/m_simplesearch.html#interface-simplesearch">simpleSearch</a>
-      
-    </div>
-  </div>
-</div>
 
 
 
@@ -318,103 +320,6 @@
     
     
     
-    <section>
-	 <h2>Interfaces</h2>
-	 
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-simplesearch"></span><h3>public interface <a href='../interface/simplesearch.html'>simpleSearch</a>
-    
-  </h3></div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private function simpleSearch_i1D(this, i) result(iout)
-    
-    
-	 
-</h3>
-    
-
-
-
-<p>Simple search over an integer vector</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td><p>Search this vector</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>i</strong></td><td><p>Number to find in the vector</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=i32)
-  </small></h4>
-  <p>Location of i in this</p>
-    
-
-    </li>
-  
-  
-  </ul>
-</div>
-
-    
-    </section>
-	<br>
-    
 
     
     
@@ -423,6 +328,14 @@ private function simpleSearch_i1D(this, i) result(iout)
     
 
     
+    
+    
+    
+        
+
+        
+
+        
     
     
     </div>
@@ -443,8 +356,6 @@ private function simpleSearch_i1D(this, i) result(iout)
       
       <a class="list-group-item" href="../module/m_array1d.html">m_array1D</a>
       
-      <a class="list-group-item" href="../module/m_binarysearch.html">m_BinarySearch</a>
-      
       <a class="list-group-item" href="../module/m_compare.html">m_compare</a>
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
@@ -453,9 +364,13 @@ private function simpleSearch_i1D(this, i) result(iout)
       
       <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
       
+      <a class="list-group-item" href="../module/m_dynamicarray.html">m_dynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_fixedarrays.html">m_fixedArrays</a>
       
       <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
       
@@ -477,9 +392,11 @@ private function simpleSearch_i1D(this, i) result(iout)
       
       <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
       
-      <a class="list-group-item" href="../module/m_select.html">m_select</a>
+      <a class="list-group-item" href="../module/m_rnglib.html">m_rngLib</a>
       
-      <a class="list-group-item" href="../module/m_simplesearch.html">m_simpleSearch</a>
+      <a class="list-group-item" href="../module/m_searching.html">m_searching</a>
+      
+      <a class="list-group-item" href="../module/m_select.html">m_select</a>
       
       <a class="list-group-item" href="../module/m_sort.html">m_sort</a>
       
@@ -488,6 +405,8 @@ private function simpleSearch_i1D(this, i) result(iout)
       <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
       
       <a class="list-group-item" href="../module/m_time.html">m_time</a>
+      
+      <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
       
       <a class="list-group-item" href="../module/m_writeline.html">m_writeline</a>
       

@@ -2,11 +2,17 @@
     !! Module provides string handling capabilities
   use iso_fortran_env, only: output_unit
   use variableKind
-  use m_errors, only: wMsg,eMsg,Ferr,mErr
-  use m_parameters, only: NaN,inf
+  use m_allocate, only: allocate
+  use m_deallocate, only: deallocate
+  use m_errors, only: wMsg, eMsg, Ferr, mErr, msg
+  use m_parameters, only: NaN, inf
+  use m_unitTester, only: tester
   implicit none
 
   private
+
+  public :: strings_test
+
   public :: appendString
   public :: compact
   public :: countEntries
@@ -889,5 +895,106 @@ end subroutine
     res(i) = iachar(this(i:i))
   end do
   end function
+  !====================================================================!
+  !====================================================================!
+  subroutine strings_test(test)
+  !====================================================================!
+  class(tester) :: test
+
+  character(len=:), allocatable :: cTest
+  real(r64) :: a
+  real(r64), allocatable :: a1D(:), a2D(:,:)
+  integer(i32) :: ia, istat
+
+
+  call Msg('==========================')
+  call Msg('Testing : Strings')
+  call Msg('==========================')
+
+  cTest = 'aBcDeFgH   7483027401'
+  call test%test(lowerCase(cTest) == 'abcdefgh   7483027401','lowerCase')
+  call test%test(upperCase(cTest) == 'ABCDEFGH   7483027401','upperCase')
+  call test%test(isString(cTest,'aBcDeFgH   7483027401') .eqv. .true.,'isString')
+  call test%test(isString(cTest,'abcdefgh   7483027401',.true.) .eqv. .false.,'isString')
+  a = 1.d0
+  write(*,1) str(a)
+  call test%test(str(a) == '1. ', 'str(r64)')
+  a = 5.6d-5
+  write(*,1) str(a)
+  call test%test(str(a) == '5.600E-05 ','str(r64)')
+
+  a = 3.217986d24
+  printOptions%precision = 6
+  write(*,1) str(a)
+  call test%test(str(a) == '3.217986E+24 ','str(r64)')
+
+  a = 3.217986d-24
+  printOptions%precision = 8
+  write(*,1) str(a)
+  call test%test(str(a) == '3.21798600E-24 ','str(r64)')
+
+  a = 0.d0
+  printOptions%precision = 6
+  write(*,1) str(a)
+  call test%test(str(a) == '0. ','str(r64)')
+
+  a = 4.d3
+  printOptions%precision = 3
+  write(*,1) str(a)
+  call test%test(str(a) == '4000. ','str(r64)')
+
+  ia = 9999
+  write(*,1) str(ia)
+  call test%test(str(ia) == '9999 ','str(i32)')
+
+  call allocate(a1D, 5)
+  a1D = 0.d0
+  cTest = str(a1D)
+  write(*,1) 'str(1D dble array)'//new_line('a')//trim(cTest)
+  call test%test(trim(cTest) == '0. 0. 0. 0. 0.','str(1D dble array)')
+
+  call allocate(a2D, [3,3])
+  a2D = 0.d0
+  cTest = str(a2D(1:3,1:3))
+  write(*,1) 'str(2D dble array(3x3))'//new_line('a')//trim(cTest)
+  call test%test(trim(cTest) == '0. 0. 0. '//new_line('a')//'0. 0. 0. '//new_line('a')//'0. 0. 0.','str(2D dble array(3x3))')
+
+  call allocate(a2D, [10,10])
+  a2D = 0.d0
+  cTest = str(a2D)
+  write(*,1) 'str(2D dble array(10x10)) with reduced output'//new_line('a')//trim(cTest)
+  call test%test(trim(cTest) == &
+    '0. 0. 0. ... 0. 0. 0. '//new_line('a') &
+  //'0. 0. 0. ... 0. 0. 0. '//new_line('a') &
+  //'0. 0. 0. ... 0. 0. 0. '//new_line('a') &
+  //'...'//new_line('a')&
+  //'0. 0. 0. ... 0. 0. 0. '//new_line('a') &
+  //'0. 0. 0. ... 0. 0. 0. '//new_line('a') &
+  //'0. 0. 0. ... 0. 0. 0. ','str(2D dble array(10x10))')
+
+  call test%test(str(.true.) == 'True ','str(L)')
+  call test%test(str(.false.) == 'False ','str(L)')
+  cTest = 'a      b, c; '//achar(9)//'d. e f g '
+  call compact(cTest)
+  call test%test(trim(cTest) == 'a b, c; d. e f g','compact')
+  call test%test(countEntries(cTest) == 7,'countEntries')
+  call test%test(hasNentries(cTest,7),'hasNentries')
+  cTest = prependString(cTest,'Stuff',';')
+  call test%test(trim(cTest) == 'Stuff;a b, c; d. e f g','prependString')
+  cTest = appendString(cTest,'Stuff','#')
+  call test%test(trim(cTest) == 'Stuff;a b, c; d. e f g#Stuff','prependString')
+  call replaceDelim(cTest,';',' ')
+  call test%test(trim(cTest) == 'Stuff a b, c  d. e f g#Stuff','replaceDelim')
+  cTest = 'stuff ! Here is a comment'
+  call removeComments(cTest)
+  call test%test(trim(cTest) == 'stuff','removeComments')
+  cTest = '1 2 3 4'
+  call read1Integer(cTest,ia,istat)
+  call test%test(ia == 1,'read1integer')
+
+  call deallocate(a1D)
+  call deallocate(a2D)
+  1 format(a)
+  end subroutine
   !====================================================================!
   end module

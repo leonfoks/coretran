@@ -126,7 +126,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p>13.0% of total for derived types.</p>Including implementation: 9 statements,  3.3% of total for derived types.">9 statements</a>
+	  title="<p> 3.2% of total for derived types.</p>Including implementation: 7 statements,  1.9% of total for derived types.">7 statements</a>
      </li> 
      
      
@@ -180,8 +180,6 @@
   <div id="boundprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/kdtreesearch.html#boundprocedure-init%7E2">init</a>
-      
       <a class="list-group-item" href="../type/kdtreesearch.html#boundprocedure-knearest">kNearest</a>
       
     </div>
@@ -201,13 +199,23 @@
       
       <a class="list-group-item" href="../type/c_printoptions.html">c_printOptions</a>
       
+      <a class="list-group-item" href="../type/ddynamicarray.html">dDynamicArray</a>
+      
+      <a class="list-group-item" href="../type/iddynamicarray.html">idDynamicArray</a>
+      
+      <a class="list-group-item" href="../type/idynamicarray.html">iDynamicArray</a>
+      
       <a class="list-group-item" href="../type/kdtree.html">KdTree</a>
       
       <a class="list-group-item" href="../type/kdtreesearch.html">KdTreeSearch</a>
       
       <a class="list-group-item" href="../type/progressbar.html">ProgressBar</a>
       
+      <a class="list-group-item" href="../type/rdynamicarray.html">rDynamicArray</a>
+      
       <a class="list-group-item" href="../type/stopwatch.html">Stopwatch</a>
+      
+      <a class="list-group-item" href="../type/tester.html">tester</a>
       
     </div>
   </div>
@@ -250,8 +258,6 @@
   <div id="boundprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/kdtreesearch.html#boundprocedure-init%7E2">init</a>
-      
       <a class="list-group-item" href="../type/kdtreesearch.html#boundprocedure-knearest">kNearest</a>
       
     </div>
@@ -276,7 +282,7 @@
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-init%7E2"></span><h3>procedure, public :: <strong>init</strong>  => init_KdTreeSearch 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-knearest"></span><h3>generic, public :: <strong>kNearest</strong>  => kNearest2D, kNearest3D, kNearestKD 
     
   </h3></div>
   
@@ -284,7 +290,7 @@
     
 
 
-    <p>Initialize the class</p>
+    <p>KdTreeSearch%kNearest() - Perform a k nearest neighbour search</p>
   </div>
   
   <ul class="list-group">
@@ -292,9 +298,10 @@
       <li class="list-group-item">
       
          
+            
     
     <h3>
-private interface init_KdTreeSearch()
+private interface kNearest_2D()
     
     
 	 
@@ -307,27 +314,9 @@ private interface init_KdTreeSearch()
     
     
 
+         
       
       </li>
-    
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-knearest"></span><h3>generic, public :: <strong>kNearest</strong>  => kNearest2D 
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>Perform a k nearest neighbour search</p>
-  </div>
-  
-  <ul class="list-group">
     
       <li class="list-group-item">
       
@@ -335,7 +324,30 @@ private interface init_KdTreeSearch()
             
     
     <h3>
-private interface kNearest_2D()
+private interface kNearest_3D()
+    
+    
+	 
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      <em>None</em>
+    
+    
+
+         
+      
+      </li>
+    
+      <li class="list-group-item">
+      
+         
+            
+    
+    <h3>
+private interface kNearest_KD()
     
     
 	 
@@ -375,13 +387,23 @@ private interface kNearest_2D()
       
       <a class="list-group-item" href="../type/c_printoptions.html">c_printOptions</a>
       
+      <a class="list-group-item" href="../type/ddynamicarray.html">dDynamicArray</a>
+      
+      <a class="list-group-item" href="../type/iddynamicarray.html">idDynamicArray</a>
+      
+      <a class="list-group-item" href="../type/idynamicarray.html">iDynamicArray</a>
+      
       <a class="list-group-item" href="../type/kdtree.html">KdTree</a>
       
       <a class="list-group-item" href="../type/kdtreesearch.html">KdTreeSearch</a>
       
       <a class="list-group-item" href="../type/progressbar.html">ProgressBar</a>
       
+      <a class="list-group-item" href="../type/rdynamicarray.html">rDynamicArray</a>
+      
       <a class="list-group-item" href="../type/stopwatch.html">Stopwatch</a>
+      
+      <a class="list-group-item" href="../type/tester.html">tester</a>
       
     </div>
   </div>

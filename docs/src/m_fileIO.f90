@@ -2,8 +2,11 @@
     !! Contains functions and subroutines that inquire and operate on files
     !! including reading and writing multiple entries to a file
   use variableKind, only: i32,r64
-  use m_strings, only: compact,lowercase,isString,str
-  use m_errors, only: Emsg,Ferr
+  use m_strings, only: compact, lowercase, isString, str
+  use m_errors, only: Emsg, Ferr, msg
+  use m_readline, only: readline
+  use m_writeline, only: writeline
+  use m_unitTester, only: tester
   implicit none
 
   contains
@@ -226,5 +229,65 @@
   i=scan(fName,'.'); if(i == 0) call Emsg('trimExtension : Filename '//trim(fName)//' needs an extension (.txt?)')
   that=fName(1:i-1)
   end function
+  !====================================================================!
+  !====================================================================!
+  subroutine fileIO_test(test)
+  !====================================================================!
+  class(tester) :: test
+  character(len=100) :: fname
+  integer(i32) :: istat, iTest
+  logical :: lTest
+  real(r64) :: a, b, c
+  real(r64) :: a1D(5), b1D(5), c1D(5)
+
+  fName = 'testFile.txt'
+
+  a = 1.d0 ; b = 2.d0 ; c = 3.d0
+  a1D = [0.d0,1.d0,2.d0,3.d0,4.d0]
+  b1D = [5.d0,6.d0,7.d0,8.d0,9.d0]
+  c1D = [10.d0,11.d0,12.d0,13.d0,14.d0]
+
+  call Msg('==========================')
+  call Msg('Testing : file IO')
+  call Msg('==========================')
+  call deleteFile(fName) ! Make sure tests can work!
+  call test%test(fileExists(fName) .eqv. .false.,'fileExists')
+  call test%test(hasExtension(fName,'txt'),'hasExtension')
+  call test%test(getExtension(fName) == 'txt','getExtension')
+  call test%test(trimExtension(fName) == 'testFile','trimExtension')
+  call test%test(.not. isOpen(fName),'isOpen')
+  call openFile(fName,iTest,'unknown',istat)
+  call test%test(istat == 0,'openFile')
+  call test%test(isOpen(fName),'isOpen')
+  call writeLine(a,fName,iTest)
+  call writeLine(a,b,fName,iTest)
+  call writeLine(a,b,c,fName,iTest)
+  call writeLine(a,b1D,fName,iTest)
+  call writeLine(a1D,b1D,c1D,fName,iTest)
+  call closeFile(fName,iTest,'',istat)
+  call test%test(istat == 0,'closeFile')
+  lTest = fileExists(fName)
+  call test%test(lTest .eqv. .true.,'fileExists')
+  if (lTest .eqv. .false.) call eMsg('Make sure you change to the directory containing the executable before running the test')
+  call test%test(.not.isOpen(fName),'isOpen')
+  iTest = getFileSize(fName)
+  call test%test(itest > 0,'getFileSize '//str(iTest)//'bytes')
+  call openFile(fName,iTest,'unknown',istat)
+  call skipFileLines(iTest,1)
+  a = 0.d0 ; b = 0.d0 ; c = 0.d0
+  a1D = 0.d0 ; b1D = 0.d0 ; c1D = 0.d0
+  call readLine(a,b,fName,iTest)
+  call readLine(a,b,c,fName,iTest)
+  call readLine(a,b1D,fName,iTest)
+  call readLine(a1D,b1D,c1D,fName,iTest)
+  call test%test(a == 1.d0,'writeLine/readLine')
+  call test%test(b == 2.d0,'writeLine/readLine')
+  call test%test(c == 3.d0,'writeLine/readLine')
+  call test%test(all(a1D == [0.d0,1.d0,2.d0,3.d0,4.d0]),'writeLine/readLine')
+  call test%test(all(b1D == [5.d0,6.d0,7.d0,8.d0,9.d0]),'writeLine/readLine')
+  call test%test(all(c1D == [10.d0,11.d0,12.d0,13.d0,14.d0]),'writeLine/readLine')
+  call closeFile(fName,iTest,'delete',istat)
+  call test%test(istat == 0,'closeFile + Delete')
+  end subroutine
   !====================================================================!
 end module

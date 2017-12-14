@@ -126,7 +126,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 4.4% of total for modules and submodules.">201 statements</a>
+	  title=" 4.1% of total for modules and submodules.">273 statements</a>
      </li> 
      
      
@@ -185,6 +185,17 @@
 
 
 
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-0" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/m_sort.html#proc-sorting_test">sorting_test</a>
+      
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -207,8 +218,6 @@
       
       <a class="list-group-item" href="../module/m_array1d.html">m_array1D</a>
       
-      <a class="list-group-item" href="../module/m_binarysearch.html">m_BinarySearch</a>
-      
       <a class="list-group-item" href="../module/m_compare.html">m_compare</a>
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
@@ -217,9 +226,13 @@
       
       <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
       
+      <a class="list-group-item" href="../module/m_dynamicarray.html">m_dynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_fixedarrays.html">m_fixedArrays</a>
       
       <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
       
@@ -241,9 +254,11 @@
       
       <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
       
-      <a class="list-group-item" href="../module/m_select.html">m_select</a>
+      <a class="list-group-item" href="../module/m_rnglib.html">m_rngLib</a>
       
-      <a class="list-group-item" href="../module/m_simplesearch.html">m_simpleSearch</a>
+      <a class="list-group-item" href="../module/m_searching.html">m_searching</a>
+      
+      <a class="list-group-item" href="../module/m_select.html">m_select</a>
       
       <a class="list-group-item" href="../module/m_sort.html">m_sort</a>
       
@@ -252,6 +267,8 @@
       <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
       
       <a class="list-group-item" href="../module/m_time.html">m_time</a>
+      
+      <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
       
       <a class="list-group-item" href="../module/m_writeline.html">m_writeline</a>
       
@@ -278,6 +295,16 @@
       <li><h4>Uses:</h4></li>
       
       <li><a href='../module/variablekind.html'>variableKind</a></li>
+      
+      <li><a href='../module/m_errors.html'>m_errors</a></li>
+      
+      <li><a href='../module/m_allocate.html'>m_allocate</a></li>
+      
+      <li><a href='../module/m_array1d.html'>m_array1D</a></li>
+      
+      <li><a href='../module/m_random.html'>m_random</a></li>
+      
+      <li><a href='../module/m_unittester.html'>m_unitTester</a></li>
       
     </ul>
     
@@ -326,6 +353,17 @@
 
 
 
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-1" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/m_sort.html#proc-sorting_test">sorting_test</a>
+      
+    </div>
+  </div>
+</div>
 
 
 
@@ -1751,6 +1789,78 @@ public subroutine argInsertionsort_id1D(this, indx, iLeft, iRight)
     
 
     
+    <section>
+    <h2>Subroutines</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-sorting_test"></span><h3>
+public subroutine <a href='../proc/sorting_test.html'>sorting_test</a>(test, N)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/tester.html'>tester</a>)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>test</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>N</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+    
+    </section>    
+    <br>
+    
     
     
     </div>
@@ -1771,8 +1881,6 @@ public subroutine argInsertionsort_id1D(this, indx, iLeft, iRight)
       
       <a class="list-group-item" href="../module/m_array1d.html">m_array1D</a>
       
-      <a class="list-group-item" href="../module/m_binarysearch.html">m_BinarySearch</a>
-      
       <a class="list-group-item" href="../module/m_compare.html">m_compare</a>
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
@@ -1781,9 +1889,13 @@ public subroutine argInsertionsort_id1D(this, indx, iLeft, iRight)
       
       <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
       
+      <a class="list-group-item" href="../module/m_dynamicarray.html">m_dynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_fixedarrays.html">m_fixedArrays</a>
       
       <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
       
@@ -1805,9 +1917,11 @@ public subroutine argInsertionsort_id1D(this, indx, iLeft, iRight)
       
       <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
       
-      <a class="list-group-item" href="../module/m_select.html">m_select</a>
+      <a class="list-group-item" href="../module/m_rnglib.html">m_rngLib</a>
       
-      <a class="list-group-item" href="../module/m_simplesearch.html">m_simpleSearch</a>
+      <a class="list-group-item" href="../module/m_searching.html">m_searching</a>
+      
+      <a class="list-group-item" href="../module/m_select.html">m_select</a>
       
       <a class="list-group-item" href="../module/m_sort.html">m_sort</a>
       
@@ -1816,6 +1930,8 @@ public subroutine argInsertionsort_id1D(this, indx, iLeft, iRight)
       <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
       
       <a class="list-group-item" href="../module/m_time.html">m_time</a>
+      
+      <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
       
       <a class="list-group-item" href="../module/m_writeline.html">m_writeline</a>
       

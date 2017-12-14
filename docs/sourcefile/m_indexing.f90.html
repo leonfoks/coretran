@@ -126,7 +126,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 1.1% of total for source files.">52 statements</a>
+	  title=" 1.1% of total for source files.">74 statements</a>
      </li> 
      
      
@@ -203,8 +203,6 @@
       
       <a class="list-group-item" href="../sourcefile/m_array1d.f90.html">m_array1D.f90</a>
       
-      <a class="list-group-item" href="../sourcefile/m_binarysearch.f90.html">m_BinarySearch.f90</a>
-      
       <a class="list-group-item" href="../sourcefile/m_compare.f90.html">m_compare.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_copy.f90.html">m_copy.f90</a>
@@ -213,9 +211,13 @@
       
       <a class="list-group-item" href="../sourcefile/m_debugging.f90.html">m_debugging.f90</a>
       
+      <a class="list-group-item" href="../sourcefile/m_dynamicarray.f90.html">m_dynamicArray.f90</a>
+      
       <a class="list-group-item" href="../sourcefile/m_errors.f90.html">m_errors.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_fileio.f90.html">m_fileIO.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_fixedarray.f90.html">m_fixedArray.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_format.f90.html">m_format.f90</a>
       
@@ -239,9 +241,11 @@
       
       <a class="list-group-item" href="../sourcefile/m_reallocate.f90.html">m_reallocate.f90</a>
       
-      <a class="list-group-item" href="../sourcefile/m_select.f90.html">m_select.f90</a>
+      <a class="list-group-item" href="../sourcefile/m_rnglib.f90.html">m_rnglib.f90</a>
       
-      <a class="list-group-item" href="../sourcefile/m_simplesearch.f90.html">m_SimpleSearch.f90</a>
+      <a class="list-group-item" href="../sourcefile/m_searching.f90.html">m_searching.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_select.f90.html">m_select.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_sort.f90.html">m_sort.f90</a>
       
@@ -251,11 +255,19 @@
       
       <a class="list-group-item" href="../sourcefile/m_time.f90.html">m_time.f90</a>
       
+      <a class="list-group-item" href="../sourcefile/m_unittester.f90.html">m_unitTester.f90</a>
+      
       <a class="list-group-item" href="../sourcefile/m_variablekind.f90.html">m_variableKind.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_write.f90.html">m_write.f90</a>
       
       <a class="list-group-item" href="../sourcefile/progressbar_class.f90.html">ProgressBar_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/sm_binarysearch.f90.html">sm_binarySearch.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/sm_intervalsearch.f90.html">sm_intervalSearch.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/sm_simplesearch.f90.html">sm_simpleSearch.f90</a>
       
       <a class="list-group-item" href="../sourcefile/stopwatch_class.f90.html">Stopwatch_Class.f90</a>
       
@@ -322,79 +334,107 @@
     <div class="hl"><pre><span></span><a name="ln-1"></a>  <span class="k">module </span><span class="n">m_indexing</span>
 <a name="ln-2"></a>    <span class="c">!! Contains routines to obtain packed and unpacked indices into arrays</span>
 <a name="ln-3"></a>  <span class="k">use </span><span class="n">variableKind</span>
-<a name="ln-4"></a>  <span class="k">implicit none</span>
-<a name="ln-5"></a>
-<a name="ln-6"></a><span class="k">  contains</span>
+<a name="ln-4"></a>  <span class="k">use </span><span class="n">m_errors</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">msg</span>
+<a name="ln-5"></a>  <span class="k">use </span><span class="n">m_unitTester</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">tester</span>
+<a name="ln-6"></a>  <span class="k">implicit none</span>
 <a name="ln-7"></a>
-<a name="ln-8"></a>  <span class="c">!====================================================================!</span>
-<a name="ln-9"></a>  <span class="k">function </span><span class="n">ind2sub</span><span class="p">(</span><span class="n">iG</span><span class="p">,</span><span class="n">nSub</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">iSub</span><span class="p">)</span>
-<a name="ln-10"></a>    <span class="c">!! Compute the indices in each dimension from the global index</span>
-<a name="ln-11"></a>  <span class="c">!====================================================================!</span>
-<a name="ln-12"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iG</span> <span class="c">!! Index into a global vector</span>
-<a name="ln-13"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nSub</span><span class="p">(:)</span> <span class="c">!! Size in each dimension</span>
-<a name="ln-14"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iSub</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">nSub</span><span class="p">))</span> <span class="c">!! Indices in each dimension to return</span>
-<a name="ln-15"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span><span class="n">iGtmp</span><span class="p">,</span><span class="n">iTmp</span>
-<a name="ln-16"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nDims</span>
-<a name="ln-17"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">prod</span>
-<a name="ln-18"></a>
-<a name="ln-19"></a>  <span class="n">nDims</span><span class="o">=</span><span class="n">size</span><span class="p">(</span><span class="n">nSub</span><span class="p">)</span>
-<a name="ln-20"></a>  <span class="k">if</span> <span class="p">(</span><span class="n">nDims</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-21"></a><span class="k">    </span><span class="n">iSub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">iG</span>
-<a name="ln-22"></a>    <span class="k">return</span>
-<a name="ln-23"></a><span class="k">  end if</span>
-<a name="ln-24"></a>
-<a name="ln-25"></a><span class="k">  </span><span class="n">prod</span> <span class="o">=</span> <span class="nb">product</span><span class="p">(</span><span class="n">nSub</span><span class="p">)</span>
-<a name="ln-26"></a>  <span class="n">iGtmp</span> <span class="o">=</span> <span class="n">iG</span>
-<a name="ln-27"></a>  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="n">nDims</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
-<a name="ln-28"></a>    <span class="n">prod</span> <span class="o">=</span> <span class="n">prod</span> <span class="o">/</span> <span class="n">nSub</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<a name="ln-29"></a>    <span class="n">iTmp</span> <span class="o">=</span> <span class="nb">mod</span><span class="p">(</span><span class="n">iGtmp</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">prod</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
-<a name="ln-30"></a>    <span class="n">iSub</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">iGtmp</span> <span class="o">-</span> <span class="n">iTmp</span><span class="p">)</span><span class="o">/</span><span class="n">prod</span> <span class="o">+</span> <span class="mi">1</span>
-<a name="ln-31"></a>    <span class="n">iGtmp</span> <span class="o">=</span> <span class="n">iTmp</span>
-<a name="ln-32"></a>  <span class="k">end do</span>
-<a name="ln-33"></a>
-<a name="ln-34"></a><span class="k">  end function</span>
-<a name="ln-35"></a>  <span class="c">!====================================================================!</span>
-<a name="ln-36"></a>  <span class="c">!====================================================================!</span>
-<a name="ln-37"></a>  <span class="k">function </span><span class="n">sub2ind</span><span class="p">(</span><span class="n">iSub</span><span class="p">,</span><span class="n">nSub</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">iG</span><span class="p">)</span>
-<a name="ln-38"></a>    <span class="c">!! Given component indices, get the global vector location.</span>
-<a name="ln-39"></a>  <span class="c">!====================================================================!</span>
-<a name="ln-40"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iSub</span><span class="p">(:)</span> <span class="c">!! Indices in each dimension. The first entry in iL is the left most index</span>
-<a name="ln-41"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nSub</span><span class="p">(:)</span> <span class="c">!! Size in each dimension</span>
-<a name="ln-42"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iG</span> <span class="c">!! Index in the global vector</span>
-<a name="ln-43"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
-<a name="ln-44"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nDims</span>
-<a name="ln-45"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">prod</span>
-<a name="ln-46"></a>  <span class="n">nDims</span><span class="o">=</span><span class="n">size</span><span class="p">(</span><span class="n">iSub</span><span class="p">)</span>
-<a name="ln-47"></a>
-<a name="ln-48"></a>  <span class="n">prod</span> <span class="o">=</span> <span class="mi">1</span>
-<a name="ln-49"></a>  <span class="n">iG</span> <span class="o">=</span> <span class="mi">1</span>
-<a name="ln-50"></a>  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nDims</span>
-<a name="ln-51"></a>    <span class="n">iG</span> <span class="o">=</span> <span class="n">iG</span> <span class="o">+</span> <span class="p">(</span><span class="n">iSub</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">prod</span>
-<a name="ln-52"></a>    <span class="n">prod</span> <span class="o">=</span> <span class="n">prod</span> <span class="o">*</span> <span class="n">nSub</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-<a name="ln-53"></a>  <span class="k">end do</span>
-<a name="ln-54"></a>
-<a name="ln-55"></a><span class="k">  end function</span>
-<a name="ln-56"></a>  <span class="c">!====================================================================!</span>
-<a name="ln-57"></a>  <span class="c">!====================================================================!</span>
-<a name="ln-58"></a>  <span class="k">function </span><span class="n">integerBin</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">bound</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-8"></a><span class="k">  contains</span>
+<a name="ln-9"></a>
+<a name="ln-10"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-11"></a>  <span class="k">function </span><span class="n">ind2sub</span><span class="p">(</span><span class="n">iG</span><span class="p">,</span><span class="n">nSub</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">iSub</span><span class="p">)</span>
+<a name="ln-12"></a>    <span class="c">!! Compute the indices in each dimension from the global index</span>
+<a name="ln-13"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-14"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iG</span> <span class="c">!! Index into a global vector</span>
+<a name="ln-15"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nSub</span><span class="p">(:)</span> <span class="c">!! Size in each dimension</span>
+<a name="ln-16"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iSub</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">nSub</span><span class="p">))</span> <span class="c">!! Indices in each dimension to return</span>
+<a name="ln-17"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span><span class="n">iGtmp</span><span class="p">,</span><span class="n">iTmp</span>
+<a name="ln-18"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nDims</span>
+<a name="ln-19"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">prod</span>
+<a name="ln-20"></a>
+<a name="ln-21"></a>  <span class="n">nDims</span><span class="o">=</span><span class="n">size</span><span class="p">(</span><span class="n">nSub</span><span class="p">)</span>
+<a name="ln-22"></a>  <span class="k">if</span> <span class="p">(</span><span class="n">nDims</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-23"></a><span class="k">    </span><span class="n">iSub</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">iG</span>
+<a name="ln-24"></a>    <span class="k">return</span>
+<a name="ln-25"></a><span class="k">  end if</span>
+<a name="ln-26"></a>
+<a name="ln-27"></a><span class="k">  </span><span class="n">prod</span> <span class="o">=</span> <span class="nb">product</span><span class="p">(</span><span class="n">nSub</span><span class="p">)</span>
+<a name="ln-28"></a>  <span class="n">iGtmp</span> <span class="o">=</span> <span class="n">iG</span>
+<a name="ln-29"></a>  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="n">nDims</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span>
+<a name="ln-30"></a>    <span class="n">prod</span> <span class="o">=</span> <span class="n">prod</span> <span class="o">/</span> <span class="n">nSub</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-31"></a>    <span class="n">iTmp</span> <span class="o">=</span> <span class="nb">mod</span><span class="p">(</span><span class="n">iGtmp</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">prod</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span>
+<a name="ln-32"></a>    <span class="n">iSub</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">iGtmp</span> <span class="o">-</span> <span class="n">iTmp</span><span class="p">)</span><span class="o">/</span><span class="n">prod</span> <span class="o">+</span> <span class="mi">1</span>
+<a name="ln-33"></a>    <span class="n">iGtmp</span> <span class="o">=</span> <span class="n">iTmp</span>
+<a name="ln-34"></a>  <span class="k">end do</span>
+<a name="ln-35"></a>
+<a name="ln-36"></a><span class="k">  end function</span>
+<a name="ln-37"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-38"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-39"></a>  <span class="k">function </span><span class="n">sub2ind</span><span class="p">(</span><span class="n">iSub</span><span class="p">,</span><span class="n">nSub</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">iG</span><span class="p">)</span>
+<a name="ln-40"></a>    <span class="c">!! Given component indices, get the global vector location.</span>
+<a name="ln-41"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-42"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iSub</span><span class="p">(:)</span> <span class="c">!! Indices in each dimension. The first entry in iL is the left most index</span>
+<a name="ln-43"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nSub</span><span class="p">(:)</span> <span class="c">!! Size in each dimension</span>
+<a name="ln-44"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iG</span> <span class="c">!! Index in the global vector</span>
+<a name="ln-45"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
+<a name="ln-46"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nDims</span>
+<a name="ln-47"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">prod</span>
+<a name="ln-48"></a>  <span class="n">nDims</span><span class="o">=</span><span class="n">size</span><span class="p">(</span><span class="n">iSub</span><span class="p">)</span>
+<a name="ln-49"></a>
+<a name="ln-50"></a>  <span class="n">prod</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="ln-51"></a>  <span class="n">iG</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="ln-52"></a>  <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span><span class="n">nDims</span>
+<a name="ln-53"></a>    <span class="n">iG</span> <span class="o">=</span> <span class="n">iG</span> <span class="o">+</span> <span class="p">(</span><span class="n">iSub</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">*</span><span class="n">prod</span>
+<a name="ln-54"></a>    <span class="n">prod</span> <span class="o">=</span> <span class="n">prod</span> <span class="o">*</span> <span class="n">nSub</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-55"></a>  <span class="k">end do</span>
+<a name="ln-56"></a>
+<a name="ln-57"></a><span class="k">  end function</span>
+<a name="ln-58"></a>  <span class="c">!====================================================================!</span>
 <a name="ln-59"></a>  <span class="c">!====================================================================!</span>
-<a name="ln-60"></a>  <span class="c">! Given a real number this, that is assumed to lie between 1 and N</span>
-<a name="ln-61"></a>  <span class="c">! Round the real number and if it is outside 1 or N, limit the output to</span>
-<a name="ln-62"></a>  <span class="c">! either of those values</span>
-<a name="ln-63"></a>  <span class="c">! Automatically limits the output between 1 and N, unless bound is .false.</span>
-<a name="ln-64"></a>  <span class="c">! TODO: This is not an integer bin, its the integer Nearest.</span>
-<a name="ln-65"></a>  <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
-<a name="ln-66"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">n</span>
-<a name="ln-67"></a>  <span class="kt">logical</span> <span class="kd">::</span> <span class="n">bound</span>
-<a name="ln-68"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
-<a name="ln-69"></a>  <span class="n">i</span><span class="o">=</span><span class="nb">idnint</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
-<a name="ln-70"></a>  <span class="k">if</span> <span class="p">(</span><span class="n">bound</span><span class="p">)</span> <span class="k">then</span>
-<a name="ln-71"></a><span class="k">    if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span>
-<a name="ln-72"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="n">i</span><span class="o">=</span><span class="n">n</span>
-<a name="ln-73"></a>  <span class="n">endif</span>
-<a name="ln-74"></a>  <span class="k">end function</span>
-<a name="ln-75"></a>  <span class="c">!====================================================================!</span>
-<a name="ln-76"></a>  <span class="k">end module</span>
+<a name="ln-60"></a>  <span class="k">function </span><span class="n">integerBin</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">n</span><span class="p">,</span><span class="n">bound</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-61"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-62"></a>  <span class="c">! Given a real number this, that is assumed to lie between 1 and N</span>
+<a name="ln-63"></a>  <span class="c">! Round the real number and if it is outside 1 or N, limit the output to</span>
+<a name="ln-64"></a>  <span class="c">! either of those values</span>
+<a name="ln-65"></a>  <span class="c">! Automatically limits the output between 1 and N, unless bound is .false.</span>
+<a name="ln-66"></a>  <span class="c">! TODO: This is not an integer bin, its the integer Nearest.</span>
+<a name="ln-67"></a>  <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-68"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">n</span>
+<a name="ln-69"></a>  <span class="kt">logical</span> <span class="kd">::</span> <span class="n">bound</span>
+<a name="ln-70"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
+<a name="ln-71"></a>  <span class="n">i</span><span class="o">=</span><span class="nb">idnint</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-72"></a>  <span class="k">if</span> <span class="p">(</span><span class="n">bound</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-73"></a><span class="k">    if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">)</span> <span class="n">i</span><span class="o">=</span><span class="mi">1</span>
+<a name="ln-74"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&gt;</span> <span class="n">n</span><span class="p">)</span> <span class="n">i</span><span class="o">=</span><span class="n">n</span>
+<a name="ln-75"></a>  <span class="n">endif</span>
+<a name="ln-76"></a>  <span class="k">end function</span>
+<a name="ln-77"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-78"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-79"></a>  <span class="k">subroutine </span><span class="n">indexing_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-80"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-81"></a>  <span class="k">class</span><span class="p">(</span><span class="n">tester</span><span class="p">)</span> <span class="kd">::</span> <span class="n">test</span>
+<a name="ln-82"></a>
+<a name="ln-83"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ia1D</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">ic1D</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a name="ln-84"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ia</span>
+<a name="ln-85"></a>
+<a name="ln-86"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-87"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Testing : Indexing&#39;</span><span class="p">)</span>
+<a name="ln-88"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-89"></a>
+<a name="ln-90"></a>  <span class="n">ia1D</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">7</span><span class="p">]</span>
+<a name="ln-91"></a>  <span class="n">ic1D</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">9</span><span class="p">]</span>
+<a name="ln-92"></a>  <span class="n">ia</span> <span class="o">=</span> <span class="o">-</span> <span class="mi">1</span>
+<a name="ln-93"></a>  <span class="n">ia</span> <span class="o">=</span> <span class="n">sub2ind</span><span class="p">(</span><span class="n">ia1D</span><span class="p">,</span><span class="n">ic1D</span><span class="p">)</span>
+<a name="ln-94"></a>  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="s1">&#39;sub2ind([3,4,7],[3,5,9]) = 102&#39;</span>
+<a name="ln-95"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">ia</span> <span class="o">==</span> <span class="mi">102</span><span class="p">,</span><span class="s1">&#39;sub2ind&#39;</span><span class="p">)</span>
+<a name="ln-96"></a>  <span class="n">ia</span><span class="o">=</span><span class="mi">99</span>
+<a name="ln-97"></a>  <span class="n">ia1D</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="ln-98"></a>  <span class="n">ia1D</span> <span class="o">=</span> <span class="n">ind2sub</span><span class="p">(</span><span class="n">ia</span><span class="p">,</span><span class="n">ic1D</span><span class="p">)</span>
+<a name="ln-99"></a>  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="s1">&#39;ind2sub(99,[3,5,9]) = [3,3,7]&#39;</span>
+<a name="ln-100"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="k">all</span><span class="p">(</span><span class="n">ia1D</span> <span class="o">==</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">]),</span><span class="s1">&#39;ind2sub&#39;</span><span class="p">)</span>
+<a name="ln-101"></a>  <span class="mi">1</span> <span class="k">format</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a name="ln-102"></a>  <span class="k">end subroutine</span>
+<a name="ln-103"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-104"></a>  <span class="k">end module</span>
 </pre></div>
 
     </section>
@@ -414,8 +454,6 @@
       
       <a class="list-group-item" href="../sourcefile/m_array1d.f90.html">m_array1D.f90</a>
       
-      <a class="list-group-item" href="../sourcefile/m_binarysearch.f90.html">m_BinarySearch.f90</a>
-      
       <a class="list-group-item" href="../sourcefile/m_compare.f90.html">m_compare.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_copy.f90.html">m_copy.f90</a>
@@ -424,9 +462,13 @@
       
       <a class="list-group-item" href="../sourcefile/m_debugging.f90.html">m_debugging.f90</a>
       
+      <a class="list-group-item" href="../sourcefile/m_dynamicarray.f90.html">m_dynamicArray.f90</a>
+      
       <a class="list-group-item" href="../sourcefile/m_errors.f90.html">m_errors.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_fileio.f90.html">m_fileIO.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_fixedarray.f90.html">m_fixedArray.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_format.f90.html">m_format.f90</a>
       
@@ -450,9 +492,11 @@
       
       <a class="list-group-item" href="../sourcefile/m_reallocate.f90.html">m_reallocate.f90</a>
       
-      <a class="list-group-item" href="../sourcefile/m_select.f90.html">m_select.f90</a>
+      <a class="list-group-item" href="../sourcefile/m_rnglib.f90.html">m_rnglib.f90</a>
       
-      <a class="list-group-item" href="../sourcefile/m_simplesearch.f90.html">m_SimpleSearch.f90</a>
+      <a class="list-group-item" href="../sourcefile/m_searching.f90.html">m_searching.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_select.f90.html">m_select.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_sort.f90.html">m_sort.f90</a>
       
@@ -462,11 +506,19 @@
       
       <a class="list-group-item" href="../sourcefile/m_time.f90.html">m_time.f90</a>
       
+      <a class="list-group-item" href="../sourcefile/m_unittester.f90.html">m_unitTester.f90</a>
+      
       <a class="list-group-item" href="../sourcefile/m_variablekind.f90.html">m_variableKind.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_write.f90.html">m_write.f90</a>
       
       <a class="list-group-item" href="../sourcefile/progressbar_class.f90.html">ProgressBar_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/sm_binarysearch.f90.html">sm_binarySearch.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/sm_intervalsearch.f90.html">sm_intervalSearch.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/sm_simplesearch.f90.html">sm_simpleSearch.f90</a>
       
       <a class="list-group-item" href="../sourcefile/stopwatch_class.f90.html">Stopwatch_Class.f90</a>
       

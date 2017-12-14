@@ -126,7 +126,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p>17.4% of total for derived types.</p>Including implementation: 12 statements,  4.3% of total for derived types.">12 statements</a>
+	  title="<p>12.2% of total for derived types.</p>Including implementation: 10 statements,  2.7% of total for derived types.">10 statements</a>
      </li> 
      
      
@@ -161,6 +161,15 @@
 
 
 
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#cons-0">Constructor</a></h3></div>
+  <div id="cons-0" class="panel-collapse collapse">
+    <div class="list-group">
+      <a class="list-group-item" href="../type/kdtree.html#interface-kdtree">KdTree</a>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -180,9 +189,7 @@
   <div id="boundprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/kdtree.html#boundprocedure-init">init</a>
-      
-      <a class="list-group-item" href="../type/kdtree.html#boundprocedure-deallocate">deallocate</a>
+      <a class="list-group-item" href="../type/kdtree.html#boundprocedure-deallocate%7E5">deallocate</a>
       
     </div>
   </div>
@@ -201,13 +208,23 @@
       
       <a class="list-group-item" href="../type/c_printoptions.html">c_printOptions</a>
       
+      <a class="list-group-item" href="../type/ddynamicarray.html">dDynamicArray</a>
+      
+      <a class="list-group-item" href="../type/iddynamicarray.html">idDynamicArray</a>
+      
+      <a class="list-group-item" href="../type/idynamicarray.html">iDynamicArray</a>
+      
       <a class="list-group-item" href="../type/kdtree.html">KdTree</a>
       
       <a class="list-group-item" href="../type/kdtreesearch.html">KdTreeSearch</a>
       
       <a class="list-group-item" href="../type/progressbar.html">ProgressBar</a>
       
+      <a class="list-group-item" href="../type/rdynamicarray.html">rDynamicArray</a>
+      
       <a class="list-group-item" href="../type/stopwatch.html">Stopwatch</a>
+      
+      <a class="list-group-item" href="../type/tester.html">tester</a>
       
     </div>
   </div>
@@ -231,6 +248,15 @@
 
 
 
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#cons-1">Constructor</a></h3></div>
+  <div id="cons-1" class="panel-collapse collapse">
+    <div class="list-group">
+      <a class="list-group-item" href="../type/kdtree.html#interface-kdtree">KdTree</a>
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -250,9 +276,7 @@
   <div id="boundprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../type/kdtree.html#boundprocedure-init">init</a>
-      
-      <a class="list-group-item" href="../type/kdtree.html#boundprocedure-deallocate">deallocate</a>
+      <a class="list-group-item" href="../type/kdtree.html#boundprocedure-deallocate%7E5">deallocate</a>
       
     </div>
   </div>
@@ -267,6 +291,260 @@
     
     
     
+	 <section>
+	 <h2>Constructor</h2>
+	   
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-kdtree"></span><h3>public interface <a href='../interface/kdtree.html'>KdTree</a>
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+    <p>Overloaded Initializer for a KdTree.</p>
+  </div>
+  
+  <ul class="list-group">
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public function init2D_KdTree(x, y) result(this)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Overloaded by interface <a href="../type/kdtree.html">KdTree</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x</strong>(:)</td><td><p>x-coordinates of the points</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>y</strong>(:)</td><td><p>y-coordinates of the points</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>type(<a href='../type/kdtree.html'>KdTree</a>)
+  </small></h4>
+  <p>KdTree Class</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public function init3D_KdTree(x, y, z) result(this)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Overloaded by interface <a href="../type/kdtree.html">KdTree</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x</strong>(:)</td><td><p>x-coordinates of the points</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>y</strong>(:)</td><td><p>y-coordinates of the points</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>z</strong>(:)</td><td><p>z-coordinates of the points</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>type(<a href='../type/kdtree.html'>KdTree</a>)
+  </small></h4>
+  <p>KdTree Class</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public function initKD_KdTree(D) result(this)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Overloaded by interface <a href="../type/kdtree.html">KdTree</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>D</strong>(:,:)</td><td><p>Coordinates of the points, the k columns contain the k dimensional values.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>type(<a href='../type/kdtree.html'>KdTree</a>)
+  </small></h4>
+  <p>KdTree Class</p>
+    
+
+    </li>
+  
+  
+  
+  </ul>
+</div>
+
+	   
+	 </section>
+	 <br>
+    
     
     
     
@@ -276,49 +554,7 @@
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-init"></span><h3>generic, public :: <strong>init</strong>  => ikdt2 
-    
-  </h3></div>
-  
-  <div class="panel-body">
-    
-
-
-    <p>KdTree%init() - Initialize the class</p>
-  </div>
-  
-  <ul class="list-group">
-    
-      <li class="list-group-item">
-      
-         
-            
-    
-    <h3>
-private interface init2D_KdTree()
-    
-    
-	 
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      <em>None</em>
-    
-    
-
-         
-      
-      </li>
-    
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-deallocate"></span><h3>procedure, public :: <strong>deallocate</strong>  => deallocate_KdTree 
+  <div class="panel-heading codesum"><span class="anchor" id="boundprocedure-deallocate%7E5"></span><h3>procedure, public :: <strong>deallocate</strong>  => deallocate_KdTree 
     
   </h3></div>
   
@@ -375,13 +611,23 @@ private interface deallocate_KdTree()
       
       <a class="list-group-item" href="../type/c_printoptions.html">c_printOptions</a>
       
+      <a class="list-group-item" href="../type/ddynamicarray.html">dDynamicArray</a>
+      
+      <a class="list-group-item" href="../type/iddynamicarray.html">idDynamicArray</a>
+      
+      <a class="list-group-item" href="../type/idynamicarray.html">iDynamicArray</a>
+      
       <a class="list-group-item" href="../type/kdtree.html">KdTree</a>
       
       <a class="list-group-item" href="../type/kdtreesearch.html">KdTreeSearch</a>
       
       <a class="list-group-item" href="../type/progressbar.html">ProgressBar</a>
       
+      <a class="list-group-item" href="../type/rdynamicarray.html">rDynamicArray</a>
+      
       <a class="list-group-item" href="../type/stopwatch.html">Stopwatch</a>
+      
+      <a class="list-group-item" href="../type/tester.html">tester</a>
       
     </div>
   </div>

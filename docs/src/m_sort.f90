@@ -13,10 +13,17 @@
     !!
     !! See [[sort]] and [[argSort]] for more information.
   use variableKind
+  use m_errors, only: msg
+  use m_allocate, only: allocate
+  use m_array1D, only: arange, isSorted
+  use m_random, only: rngNormal, rngInteger
+  use m_unitTester, only: tester
 
   implicit none
 
   private
+
+  public :: sorting_test
 
   public  :: sort
 
@@ -333,5 +340,97 @@
       integer(i32) :: indx(0:) !! Sort this integer key
     end subroutine
   end interface
+
+  contains
+
+  !====================================================================!
+  subroutine sorting_test(test, N)
+  !====================================================================!
+  class(tester) :: test
+  integer(i32) :: N
+
+  real(r32), allocatable :: ar1D(:), br1D(:)
+  real(r64), allocatable :: a1D(:), b1D(:)
+  integer(i32), allocatable :: ia1D(:), ib1D(:), ic1D(:)
+  integer(i64), allocatable :: iad1D(:), ibd1D(:)
+
+  call Msg('==========================')
+  call Msg('Testing : Sorting')
+  call Msg('==========================')
+
+!   Initial setup for testing
+  call allocate(ar1D, N)
+  call allocate(br1D, N)
+
+  call allocate(a1D, N)
+  call allocate(b1D, N)
+
+  call allocate(ia1D, N)
+  call allocate(ib1D, N)
+  call allocate(ic1D, N)
+
+  call allocate(iad1D, N)
+  call allocate(ibd1D, N)
+
+  call rngNormal(a1D)
+  ar1D = real(a1D)
+
+  br1D = ar1D
+  call sort(br1D)
+  call test%test(isSorted(br1D),'Introsort_r1D')
+
+  br1D = ar1D
+  call arange(ia1D, 1, N)
+  call argsort(br1D, ia1D)
+  call test%test(isSorted(br1D,ia1D),'argIntrosort_r1D')
+
+  br1D = ar1D
+  call Sort(br1D,.true.)
+  call test%test(isSorted(br1D),'Mergesort_r1D')
+
+  br1D = ar1D
+  call arange(ia1D, 1, N)
+  call argsort(br1D, ia1D,.true.)
+  call test%test(isSorted(br1D,ia1D),'argMergesort_r1D')
+
+  b1D = a1D
+  call sort(b1D)
+  call test%test(isSorted(b1D),'Introsort_d1D on Sorted array')
+
+  b1D = a1D
+  call arange(ia1D, 1, N)
+  call argsort(b1D, ia1D)
+  call test%test(isSorted(b1D,ia1D),'argIntrosort_d1D')
+
+  b1D = a1D
+  call Sort(b1D,.true.)
+  call test%test(isSorted(b1D),'Mergesort_d1D')
+
+  b1D = a1D
+  call arange(ia1D, 1, N)
+  call argsort(b1D, ia1D,.true.)
+  call test%test(isSorted(b1D,ia1D),'argMergesort_d1D')
+
+  call rngInteger(ia1D,1, N)
+  ib1D = ia1D
+  call sort(ib1D)
+  call test%test(isSorted(ib1D),'Introsort_i1D')
+
+  ib1D = ia1D
+  call arange(ic1D, 1, N)
+  call argsort(ib1D,ic1D)
+  call test%test(isSorted(ib1D,ic1D),'argIntrosort_i1D')
+
+  ib1D = ia1D
+  call sort(ib1D,.true.)
+  call test%test(isSorted(ib1D),'Mergesort_i1D')
+
+  ib1D = ia1D
+  call arange(ic1D, 1, N)
+  call argsort(ib1D,ic1D,.true.)
+  call test%test(isSorted(ib1D,ic1D),'argMergesort_i1D')
+
+  end subroutine
+  !====================================================================!
 
   end module

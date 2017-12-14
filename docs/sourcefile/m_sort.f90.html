@@ -126,7 +126,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 4.4% of total for source files.">201 statements</a>
+	  title=" 4.1% of total for source files.">273 statements</a>
      </li> 
      
      
@@ -203,8 +203,6 @@
       
       <a class="list-group-item" href="../sourcefile/m_array1d.f90.html">m_array1D.f90</a>
       
-      <a class="list-group-item" href="../sourcefile/m_binarysearch.f90.html">m_BinarySearch.f90</a>
-      
       <a class="list-group-item" href="../sourcefile/m_compare.f90.html">m_compare.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_copy.f90.html">m_copy.f90</a>
@@ -213,9 +211,13 @@
       
       <a class="list-group-item" href="../sourcefile/m_debugging.f90.html">m_debugging.f90</a>
       
+      <a class="list-group-item" href="../sourcefile/m_dynamicarray.f90.html">m_dynamicArray.f90</a>
+      
       <a class="list-group-item" href="../sourcefile/m_errors.f90.html">m_errors.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_fileio.f90.html">m_fileIO.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_fixedarray.f90.html">m_fixedArray.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_format.f90.html">m_format.f90</a>
       
@@ -239,9 +241,11 @@
       
       <a class="list-group-item" href="../sourcefile/m_reallocate.f90.html">m_reallocate.f90</a>
       
-      <a class="list-group-item" href="../sourcefile/m_select.f90.html">m_select.f90</a>
+      <a class="list-group-item" href="../sourcefile/m_rnglib.f90.html">m_rnglib.f90</a>
       
-      <a class="list-group-item" href="../sourcefile/m_simplesearch.f90.html">m_SimpleSearch.f90</a>
+      <a class="list-group-item" href="../sourcefile/m_searching.f90.html">m_searching.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_select.f90.html">m_select.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_sort.f90.html">m_sort.f90</a>
       
@@ -251,11 +255,19 @@
       
       <a class="list-group-item" href="../sourcefile/m_time.f90.html">m_time.f90</a>
       
+      <a class="list-group-item" href="../sourcefile/m_unittester.f90.html">m_unitTester.f90</a>
+      
       <a class="list-group-item" href="../sourcefile/m_variablekind.f90.html">m_variableKind.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_write.f90.html">m_write.f90</a>
       
       <a class="list-group-item" href="../sourcefile/progressbar_class.f90.html">ProgressBar_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/sm_binarysearch.f90.html">sm_binarySearch.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/sm_intervalsearch.f90.html">sm_intervalSearch.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/sm_simplesearch.f90.html">sm_simpleSearch.f90</a>
       
       <a class="list-group-item" href="../sourcefile/stopwatch_class.f90.html">Stopwatch_Class.f90</a>
       
@@ -334,328 +346,427 @@
 <a name="ln-13"></a>    <span class="c">!!</span>
 <a name="ln-14"></a>    <span class="c">!! See [[sort]] and [[argSort]] for more information.</span>
 <a name="ln-15"></a>  <span class="k">use </span><span class="n">variableKind</span>
-<a name="ln-16"></a>
-<a name="ln-17"></a>  <span class="k">implicit none</span>
-<a name="ln-18"></a>
-<a name="ln-19"></a><span class="k">  private</span>
-<a name="ln-20"></a>
-<a name="ln-21"></a><span class="k">  public</span>  <span class="kd">::</span> <span class="n">sort</span>
-<a name="ln-22"></a>
-<a name="ln-23"></a>  <span class="k">interface </span><span class="n">sort</span>
-<a name="ln-24"></a>    <span class="c">!!Use an in-place introspection sort on an array of numbers</span>
-<a name="ln-25"></a>    <span class="c">!!</span>
-<a name="ln-26"></a>    <span class="c">!!Example usage</span>
-<a name="ln-27"></a>    <span class="c">!!```fortran</span>
-<a name="ln-28"></a>    <span class="c">!!program sortTest</span>
-<a name="ln-29"></a>    <span class="c">!!use variableKind, only: i32, r64</span>
-<a name="ln-30"></a>    <span class="c">!!use m_strings, only: str</span>
-<a name="ln-31"></a>    <span class="c">!!use m_allocate, only: allocate</span>
-<a name="ln-32"></a>    <span class="c">!!use m_random, only: rngInteger, rngNormal</span>
-<a name="ln-33"></a>    <span class="c">!!use m_arrays, only: arange, isSorted</span>
-<a name="ln-34"></a>    <span class="c">!!use m_sort, only: sort</span>
-<a name="ln-35"></a>    <span class="c">!!real(r64),allocatable :: d1D(:)</span>
-<a name="ln-36"></a>    <span class="c">!!integer(i32),allocatable :: i1D(:)</span>
-<a name="ln-37"></a>    <span class="c">!!integer(i32) :: N</span>
-<a name="ln-38"></a>    <span class="c">!!</span>
-<a name="ln-39"></a>    <span class="c">!!N = 10000</span>
-<a name="ln-40"></a>    <span class="c">!!write(*,&#39;(a)&#39;) &#39;In-place sort a 10000 length array of random double precision numbers&#39;</span>
-<a name="ln-41"></a>    <span class="c">!!call allocate(d1D,N)</span>
-<a name="ln-42"></a>    <span class="c">!!call rngNormal(d1D)</span>
-<a name="ln-43"></a>    <span class="c">!!call sort(d1D)</span>
-<a name="ln-44"></a>    <span class="c">!!write(*,&#39;(a)&#39;) &#39;Double array is sorted? &#39;//str(isSorted(d1D))</span>
-<a name="ln-45"></a>    <span class="c">!!write(*,&#39;(a)&#39;) &#39;In-place sort a 10000 length array of random integers&#39;&#39;</span>
-<a name="ln-46"></a>    <span class="c">!!call allocate(i1D,N)</span>
-<a name="ln-47"></a>    <span class="c">!!call rngInteger(i1D)</span>
-<a name="ln-48"></a>    <span class="c">!!call sort(i1D)</span>
-<a name="ln-49"></a>    <span class="c">!!write(*,&#39;(a)&#39;) &#39;Integer array is sorted? &#39;//str(isSorted(i1D))</span>
-<a name="ln-50"></a>    <span class="c">!!end program</span>
-<a name="ln-51"></a>    <span class="c">!!```</span>
-<a name="ln-52"></a>    <span class="k">module subroutine </span><span class="n">sort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
-<a name="ln-53"></a>      <span class="c">!! Interfaced with [[sort]]</span>
-<a name="ln-54"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span>
-<a name="ln-55"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span>
-<a name="ln-56"></a>    <span class="k">end subroutine</span>
-<a name="ln-57"></a><span class="k">    module subroutine </span><span class="n">sort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
-<a name="ln-58"></a>      <span class="c">!! Interfaced with [[sort]]</span>
-<a name="ln-59"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span>
-<a name="ln-60"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span>
-<a name="ln-61"></a>    <span class="k">end subroutine</span>
-<a name="ln-62"></a><span class="k">    module subroutine </span><span class="n">sort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
-<a name="ln-63"></a>      <span class="c">!! Interfaced with [[sort]]</span>
-<a name="ln-64"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span>
-<a name="ln-65"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span>
-<a name="ln-66"></a>    <span class="k">end subroutine</span>
-<a name="ln-67"></a><span class="k">    module subroutine </span><span class="n">sort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
-<a name="ln-68"></a>      <span class="c">!! Interfaced with [[sort]]</span>
-<a name="ln-69"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span>
-<a name="ln-70"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span>
-<a name="ln-71"></a>    <span class="k">end subroutine</span>
-<a name="ln-72"></a><span class="k">  end interface</span>
-<a name="ln-73"></a><span class="k">  private</span> <span class="kd">::</span> <span class="n">sort_i1D</span><span class="p">,</span> <span class="n">sort_id1D</span><span class="p">,</span> <span class="n">sort_r1D</span><span class="p">,</span> <span class="n">sort_d1D</span>
-<a name="ln-74"></a>
-<a name="ln-75"></a>  <span class="k">public</span> <span class="kd">::</span> <span class="n">argSort</span>
-<a name="ln-76"></a>
-<a name="ln-77"></a>  <span class="k">interface </span><span class="n">argSort</span>
-<a name="ln-78"></a>    <span class="c">!!Use an indirect introspection sort on an array of numbers</span>
-<a name="ln-79"></a>    <span class="c">!!</span>
-<a name="ln-80"></a>    <span class="c">!!Example usage</span>
-<a name="ln-81"></a>    <span class="c">!!```fortran</span>
-<a name="ln-82"></a>    <span class="c">!!program argSortTest</span>
-<a name="ln-83"></a>    <span class="c">!!use variableKind</span>
-<a name="ln-84"></a>    <span class="c">!!use m_strings, only: str</span>
-<a name="ln-85"></a>    <span class="c">!!use m_random, only: rngInteger, rngNormal</span>
-<a name="ln-86"></a>    <span class="c">!!use m_arrays, only: arange, isSorted</span>
-<a name="ln-87"></a>    <span class="c">!!use m_Sort, only: argSort</span>
-<a name="ln-88"></a>    <span class="c">!!real(r64),allocatable :: d1D(:)</span>
-<a name="ln-89"></a>    <span class="c">!!integer(i32),allocatable :: i1D(:)</span>
-<a name="ln-90"></a>    <span class="c">!!integer(i32),allocatable :: indx(:)</span>
-<a name="ln-91"></a>    <span class="c">!!integer(i32) :: i, N</span>
-<a name="ln-92"></a>    <span class="c">!!</span>
-<a name="ln-93"></a>    <span class="c">!!N=10000</span>
-<a name="ln-94"></a>    <span class="c">!!call allocate(indx, N)</span>
-<a name="ln-95"></a>    <span class="c">!!call arange(indx, 1, N)</span>
-<a name="ln-96"></a>    <span class="c">!!call allocate(d1D, N)</span>
-<a name="ln-97"></a>    <span class="c">!!call rngNormal(d1D)</span>
-<a name="ln-98"></a>    <span class="c">!!call argSort(d1D, indx)</span>
-<a name="ln-99"></a>    <span class="c">!!write(*,&#39;(a)&#39;) &#39;Double array is indirectly sorted? &#39;//str(isSorted(d1D(indx)))</span>
-<a name="ln-100"></a>    <span class="c">!!</span>
-<a name="ln-101"></a>    <span class="c">!!call arange(indx, 1, N)</span>
-<a name="ln-102"></a>    <span class="c">!!call allocate(i1D,N)</span>
-<a name="ln-103"></a>    <span class="c">!!call rngInteger(i1D)</span>
-<a name="ln-104"></a>    <span class="c">!!call argSort(i1D, indx)</span>
-<a name="ln-105"></a>    <span class="c">!!write(*,&#39;(a)&#39;) &#39;Integer array is indirectly sorted? &#39;//str(isSorted(i1D(indx)))</span>
-<a name="ln-106"></a>    <span class="c">!!end program</span>
-<a name="ln-107"></a>    <span class="c">!!```</span>
-<a name="ln-108"></a>    <span class="k">module subroutine </span><span class="n">argSort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
-<a name="ln-109"></a>      <span class="c">!! Interfaced with [[argSort]]</span>
-<a name="ln-110"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-111"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Index to sort</span>
-<a name="ln-112"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span> <span class="c">!! Stable sort?</span>
-<a name="ln-113"></a>    <span class="k">end subroutine</span>
-<a name="ln-114"></a><span class="k">    module subroutine </span><span class="n">argSort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
-<a name="ln-115"></a>      <span class="c">!! Interfaced with [[argSort]]</span>
-<a name="ln-116"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-117"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Index to sort</span>
-<a name="ln-118"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span> <span class="c">!! Stable sort?</span>
-<a name="ln-119"></a>    <span class="k">end subroutine</span>
-<a name="ln-120"></a><span class="k">    module subroutine </span><span class="n">argSort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
-<a name="ln-121"></a>      <span class="c">!! Interfaced with [[argSort]]</span>
-<a name="ln-122"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-123"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Index to sort</span>
-<a name="ln-124"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span> <span class="c">!! Stable sort?</span>
-<a name="ln-125"></a>    <span class="k">end subroutine</span>
-<a name="ln-126"></a><span class="k">    module subroutine </span><span class="n">argSort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
-<a name="ln-127"></a>      <span class="c">!! Interfaced with [[argSort]]</span>
-<a name="ln-128"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-129"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Index to sort</span>
-<a name="ln-130"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span> <span class="c">!! Stable sort?</span>
-<a name="ln-131"></a>    <span class="k">end subroutine</span>
-<a name="ln-132"></a><span class="k">  end interface</span>
-<a name="ln-133"></a><span class="k">  private</span> <span class="kd">::</span> <span class="n">argSort_i1D</span><span class="p">,</span> <span class="n">argSort_id1D</span><span class="p">,</span> <span class="n">argSort_r1D</span><span class="p">,</span> <span class="n">argSort_d1D</span>
-<a name="ln-134"></a>
-<a name="ln-135"></a>  <span class="k">private</span> <span class="kd">::</span> <span class="n">introsort</span>
-<a name="ln-136"></a>  <span class="k">interface </span><span class="n">introsort</span>
-<a name="ln-137"></a>    <span class="c">!! Perform an in-place introspective sort on an array</span>
-<a name="ln-138"></a>    <span class="k">module subroutine </span><span class="n">introsort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
-<a name="ln-139"></a>      <span class="c">!! Interfaced with [[introsort]]</span>
-<a name="ln-140"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-141"></a>    <span class="k">end subroutine</span>
-<a name="ln-142"></a><span class="k">    module subroutine </span><span class="n">introsort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
-<a name="ln-143"></a>      <span class="c">!! Interfaced with [[introsort]]</span>
-<a name="ln-144"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-145"></a>    <span class="k">end subroutine</span>
-<a name="ln-146"></a><span class="k">    module subroutine </span><span class="n">introsort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
-<a name="ln-147"></a>      <span class="c">!! Interfaced with [[introsort]]</span>
-<a name="ln-148"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-149"></a>    <span class="k">end subroutine</span>
-<a name="ln-150"></a><span class="k">    module subroutine </span><span class="n">introsort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
-<a name="ln-151"></a>      <span class="c">!! Interfaced with [[introsort]]</span>
-<a name="ln-152"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-153"></a>    <span class="k">end subroutine</span>
-<a name="ln-154"></a><span class="k">  end interface</span>
-<a name="ln-155"></a>
-<a name="ln-156"></a><span class="k">  private</span> <span class="kd">::</span> <span class="n">argIntrosort</span>
-<a name="ln-157"></a>  <span class="k">interface </span><span class="n">argintrosort</span>
-<a name="ln-158"></a>    <span class="c">!! Perform an indirect introsort on an array</span>
-<a name="ln-159"></a>    <span class="k">module subroutine </span><span class="n">argintrosort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-<a name="ln-160"></a>      <span class="c">!! Interfaced with [[argIntrosort]]</span>
-<a name="ln-161"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-162"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
-<a name="ln-163"></a>    <span class="k">end subroutine</span>
-<a name="ln-164"></a><span class="k">    module subroutine </span><span class="n">argintrosort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-<a name="ln-165"></a>      <span class="c">!! Interfaced with [[argIntrosort]]</span>
-<a name="ln-166"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-167"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
-<a name="ln-168"></a>    <span class="k">end subroutine</span>
-<a name="ln-169"></a><span class="k">    module subroutine </span><span class="n">argintrosort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-<a name="ln-170"></a>      <span class="c">!! Interfaced with [[argIntrosort]]</span>
-<a name="ln-171"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-172"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
-<a name="ln-173"></a>    <span class="k">end subroutine</span>
-<a name="ln-174"></a><span class="k">    module subroutine </span><span class="n">argintrosort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-<a name="ln-175"></a>      <span class="c">!! Interfaced with [[argIntrosort]]</span>
-<a name="ln-176"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-177"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
-<a name="ln-178"></a>    <span class="k">end subroutine</span>
-<a name="ln-179"></a><span class="k">  end interface</span>
-<a name="ln-180"></a>
-<a name="ln-181"></a><span class="k">  interface </span><span class="n">MergeSort</span>
-<a name="ln-182"></a>    <span class="c">!! Perform an in-place stable merge sort on an array</span>
-<a name="ln-183"></a>    <span class="k">module subroutine </span><span class="n">mergesort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
-<a name="ln-184"></a>      <span class="c">!! Interf aced with [[mergesort]]</span>
-<a name="ln-185"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span><span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-186"></a>    <span class="k">end subroutine</span>
-<a name="ln-187"></a><span class="k">    module subroutine </span><span class="n">mergesort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
-<a name="ln-188"></a>      <span class="c">!! Interfaced with [[mergesort]]</span>
-<a name="ln-189"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-190"></a>    <span class="k">end subroutine</span>
-<a name="ln-191"></a><span class="k">    module subroutine </span><span class="n">mergesort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
-<a name="ln-192"></a>      <span class="c">!! Interfaced with [[mergesort]]</span>
-<a name="ln-193"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-194"></a>    <span class="k">end subroutine</span>
-<a name="ln-195"></a><span class="k">    module subroutine </span><span class="n">mergesort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
-<a name="ln-196"></a>      <span class="c">!! Interfaced with [[mergesort]]</span>
-<a name="ln-197"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-198"></a>    <span class="k">end subroutine</span>
-<a name="ln-199"></a><span class="k">  end interface</span>
-<a name="ln-200"></a>
-<a name="ln-201"></a><span class="k">  interface </span><span class="n">argMergeSort</span>
-<a name="ln-202"></a>    <span class="c">!! Perform an indirect stable merge sort on an array</span>
-<a name="ln-203"></a>    <span class="k">module subroutine </span><span class="n">argmergesort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-<a name="ln-204"></a>      <span class="c">!! Interfaced with [[argmergesort]]</span>
-<a name="ln-205"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-206"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
-<a name="ln-207"></a>    <span class="k">end subroutine</span>
-<a name="ln-208"></a><span class="k">    module subroutine </span><span class="n">argmergesort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-<a name="ln-209"></a>      <span class="c">!! Interfaced with [[argmergesort]]</span>
-<a name="ln-210"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-211"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
-<a name="ln-212"></a>    <span class="k">end subroutine</span>
-<a name="ln-213"></a><span class="k">    module subroutine </span><span class="n">argmergesort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-<a name="ln-214"></a>      <span class="c">!! Interfaced with [[argmergesort]]</span>
-<a name="ln-215"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-216"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
-<a name="ln-217"></a>    <span class="k">end subroutine</span>
-<a name="ln-218"></a><span class="k">    module subroutine </span><span class="n">argmergesort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
-<a name="ln-219"></a>      <span class="c">!! Interfaced with [[argmergesort]]</span>
-<a name="ln-220"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-221"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
-<a name="ln-222"></a>    <span class="k">end subroutine</span>
-<a name="ln-223"></a><span class="k">  end interface</span>
-<a name="ln-224"></a>
-<a name="ln-225"></a><span class="k">  public</span> <span class="kd">::</span> <span class="n">insertionSort</span>
-<a name="ln-226"></a>
-<a name="ln-227"></a>  <span class="k">interface </span><span class="n">insertionsort</span>
-<a name="ln-228"></a>    <span class="c">!! Perform an in-place insertion sort on an array</span>
-<a name="ln-229"></a>    <span class="k">module subroutine </span><span class="n">insertionsort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
-<a name="ln-230"></a>      <span class="c">!! Interfaced with [[insertionsort]]</span>
-<a name="ln-231"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-232"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iLeft</span> <span class="c">!! Left index</span>
-<a name="ln-233"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iRight</span> <span class="c">!! Right index</span>
-<a name="ln-234"></a>    <span class="k">end subroutine</span>
-<a name="ln-235"></a><span class="k">    module subroutine </span><span class="n">insertionsort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
-<a name="ln-236"></a>      <span class="c">!! Interfaced with [[insertionsort]]</span>
-<a name="ln-237"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-238"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iLeft</span> <span class="c">!! Left index</span>
-<a name="ln-239"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iRight</span> <span class="c">!! Right index</span>
-<a name="ln-240"></a>    <span class="k">end subroutine</span>
-<a name="ln-241"></a><span class="k">    module subroutine </span><span class="n">insertionsort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
-<a name="ln-242"></a>      <span class="c">!! Interfaced with [[insertionsort]]</span>
-<a name="ln-243"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-244"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iLeft</span> <span class="c">!! Left index</span>
-<a name="ln-245"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iRight</span> <span class="c">!! Right index</span>
-<a name="ln-246"></a>    <span class="k">end subroutine</span>
-<a name="ln-247"></a><span class="k">    module subroutine </span><span class="n">insertionsort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
-<a name="ln-248"></a>      <span class="c">!! Interfaced with [[insertionsort]]</span>
-<a name="ln-249"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-250"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iLeft</span> <span class="c">!! Left index</span>
-<a name="ln-251"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iRight</span> <span class="c">!! Right index</span>
-<a name="ln-252"></a>    <span class="k">end subroutine</span>
-<a name="ln-253"></a><span class="k">  end interface</span>
-<a name="ln-254"></a><span class="k">  private</span> <span class="kd">::</span> <span class="n">insertionsort_r1D</span><span class="p">,</span> <span class="n">insertionsort_d1D</span><span class="p">,</span> <span class="n">insertionsort_i1D</span><span class="p">,</span> <span class="n">insertionsort_id1D</span>
-<a name="ln-255"></a>
-<a name="ln-256"></a>  <span class="k">public</span> <span class="kd">::</span> <span class="n">argInsertionsort</span>
-<a name="ln-257"></a>
-<a name="ln-258"></a>  <span class="k">interface </span><span class="n">argInsertionsort</span>
-<a name="ln-259"></a>    <span class="c">!! Perform an indirect insertion sort on an array</span>
-<a name="ln-260"></a>    <span class="k">module subroutine </span><span class="n">argInsertionsort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
-<a name="ln-261"></a>      <span class="c">!! Interfaced with [[arginsertionsort]]</span>
-<a name="ln-262"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-263"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indx</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
-<a name="ln-264"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iLeft</span> <span class="c">!! Left index</span>
-<a name="ln-265"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iRight</span> <span class="c">!! Right index</span>
-<a name="ln-266"></a>    <span class="k">end subroutine</span>
-<a name="ln-267"></a><span class="k">    module subroutine </span><span class="n">argInsertionsort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
+<a name="ln-16"></a>  <span class="k">use </span><span class="n">m_errors</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">msg</span>
+<a name="ln-17"></a>  <span class="k">use </span><span class="n">m_allocate</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="k">allocate</span>
+<a name="ln-18"></a><span class="k">  use </span><span class="n">m_array1D</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">arange</span><span class="p">,</span> <span class="n">isSorted</span>
+<a name="ln-19"></a>  <span class="k">use </span><span class="n">m_random</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">rngNormal</span><span class="p">,</span> <span class="n">rngInteger</span>
+<a name="ln-20"></a>  <span class="k">use </span><span class="n">m_unitTester</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">tester</span>
+<a name="ln-21"></a>
+<a name="ln-22"></a>  <span class="k">implicit none</span>
+<a name="ln-23"></a>
+<a name="ln-24"></a><span class="k">  private</span>
+<a name="ln-25"></a>
+<a name="ln-26"></a><span class="k">  public</span> <span class="kd">::</span> <span class="n">sorting_test</span>
+<a name="ln-27"></a>
+<a name="ln-28"></a>  <span class="k">public</span>  <span class="kd">::</span> <span class="n">sort</span>
+<a name="ln-29"></a>
+<a name="ln-30"></a>  <span class="k">interface </span><span class="n">sort</span>
+<a name="ln-31"></a>    <span class="c">!!Use an in-place introspection sort on an array of numbers</span>
+<a name="ln-32"></a>    <span class="c">!!</span>
+<a name="ln-33"></a>    <span class="c">!!Example usage</span>
+<a name="ln-34"></a>    <span class="c">!!```fortran</span>
+<a name="ln-35"></a>    <span class="c">!!program sortTest</span>
+<a name="ln-36"></a>    <span class="c">!!use variableKind, only: i32, r64</span>
+<a name="ln-37"></a>    <span class="c">!!use m_strings, only: str</span>
+<a name="ln-38"></a>    <span class="c">!!use m_allocate, only: allocate</span>
+<a name="ln-39"></a>    <span class="c">!!use m_random, only: rngInteger, rngNormal</span>
+<a name="ln-40"></a>    <span class="c">!!use m_arrays, only: arange, isSorted</span>
+<a name="ln-41"></a>    <span class="c">!!use m_sort, only: sort</span>
+<a name="ln-42"></a>    <span class="c">!!real(r64),allocatable :: d1D(:)</span>
+<a name="ln-43"></a>    <span class="c">!!integer(i32),allocatable :: i1D(:)</span>
+<a name="ln-44"></a>    <span class="c">!!integer(i32) :: N</span>
+<a name="ln-45"></a>    <span class="c">!!</span>
+<a name="ln-46"></a>    <span class="c">!!N = 10000</span>
+<a name="ln-47"></a>    <span class="c">!!write(*,&#39;(a)&#39;) &#39;In-place sort a 10000 length array of random double precision numbers&#39;</span>
+<a name="ln-48"></a>    <span class="c">!!call allocate(d1D,N)</span>
+<a name="ln-49"></a>    <span class="c">!!call rngNormal(d1D)</span>
+<a name="ln-50"></a>    <span class="c">!!call sort(d1D)</span>
+<a name="ln-51"></a>    <span class="c">!!write(*,&#39;(a)&#39;) &#39;Double array is sorted? &#39;//str(isSorted(d1D))</span>
+<a name="ln-52"></a>    <span class="c">!!write(*,&#39;(a)&#39;) &#39;In-place sort a 10000 length array of random integers&#39;&#39;</span>
+<a name="ln-53"></a>    <span class="c">!!call allocate(i1D,N)</span>
+<a name="ln-54"></a>    <span class="c">!!call rngInteger(i1D)</span>
+<a name="ln-55"></a>    <span class="c">!!call sort(i1D)</span>
+<a name="ln-56"></a>    <span class="c">!!write(*,&#39;(a)&#39;) &#39;Integer array is sorted? &#39;//str(isSorted(i1D))</span>
+<a name="ln-57"></a>    <span class="c">!!end program</span>
+<a name="ln-58"></a>    <span class="c">!!```</span>
+<a name="ln-59"></a>    <span class="k">module subroutine </span><span class="n">sort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
+<a name="ln-60"></a>      <span class="c">!! Interfaced with [[sort]]</span>
+<a name="ln-61"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span>
+<a name="ln-62"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span>
+<a name="ln-63"></a>    <span class="k">end subroutine</span>
+<a name="ln-64"></a><span class="k">    module subroutine </span><span class="n">sort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
+<a name="ln-65"></a>      <span class="c">!! Interfaced with [[sort]]</span>
+<a name="ln-66"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span>
+<a name="ln-67"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span>
+<a name="ln-68"></a>    <span class="k">end subroutine</span>
+<a name="ln-69"></a><span class="k">    module subroutine </span><span class="n">sort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
+<a name="ln-70"></a>      <span class="c">!! Interfaced with [[sort]]</span>
+<a name="ln-71"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span>
+<a name="ln-72"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span>
+<a name="ln-73"></a>    <span class="k">end subroutine</span>
+<a name="ln-74"></a><span class="k">    module subroutine </span><span class="n">sort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
+<a name="ln-75"></a>      <span class="c">!! Interfaced with [[sort]]</span>
+<a name="ln-76"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span>
+<a name="ln-77"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span>
+<a name="ln-78"></a>    <span class="k">end subroutine</span>
+<a name="ln-79"></a><span class="k">  end interface</span>
+<a name="ln-80"></a><span class="k">  private</span> <span class="kd">::</span> <span class="n">sort_i1D</span><span class="p">,</span> <span class="n">sort_id1D</span><span class="p">,</span> <span class="n">sort_r1D</span><span class="p">,</span> <span class="n">sort_d1D</span>
+<a name="ln-81"></a>
+<a name="ln-82"></a>  <span class="k">public</span> <span class="kd">::</span> <span class="n">argSort</span>
+<a name="ln-83"></a>
+<a name="ln-84"></a>  <span class="k">interface </span><span class="n">argSort</span>
+<a name="ln-85"></a>    <span class="c">!!Use an indirect introspection sort on an array of numbers</span>
+<a name="ln-86"></a>    <span class="c">!!</span>
+<a name="ln-87"></a>    <span class="c">!!Example usage</span>
+<a name="ln-88"></a>    <span class="c">!!```fortran</span>
+<a name="ln-89"></a>    <span class="c">!!program argSortTest</span>
+<a name="ln-90"></a>    <span class="c">!!use variableKind</span>
+<a name="ln-91"></a>    <span class="c">!!use m_strings, only: str</span>
+<a name="ln-92"></a>    <span class="c">!!use m_random, only: rngInteger, rngNormal</span>
+<a name="ln-93"></a>    <span class="c">!!use m_arrays, only: arange, isSorted</span>
+<a name="ln-94"></a>    <span class="c">!!use m_Sort, only: argSort</span>
+<a name="ln-95"></a>    <span class="c">!!real(r64),allocatable :: d1D(:)</span>
+<a name="ln-96"></a>    <span class="c">!!integer(i32),allocatable :: i1D(:)</span>
+<a name="ln-97"></a>    <span class="c">!!integer(i32),allocatable :: indx(:)</span>
+<a name="ln-98"></a>    <span class="c">!!integer(i32) :: i, N</span>
+<a name="ln-99"></a>    <span class="c">!!</span>
+<a name="ln-100"></a>    <span class="c">!!N=10000</span>
+<a name="ln-101"></a>    <span class="c">!!call allocate(indx, N)</span>
+<a name="ln-102"></a>    <span class="c">!!call arange(indx, 1, N)</span>
+<a name="ln-103"></a>    <span class="c">!!call allocate(d1D, N)</span>
+<a name="ln-104"></a>    <span class="c">!!call rngNormal(d1D)</span>
+<a name="ln-105"></a>    <span class="c">!!call argSort(d1D, indx)</span>
+<a name="ln-106"></a>    <span class="c">!!write(*,&#39;(a)&#39;) &#39;Double array is indirectly sorted? &#39;//str(isSorted(d1D(indx)))</span>
+<a name="ln-107"></a>    <span class="c">!!</span>
+<a name="ln-108"></a>    <span class="c">!!call arange(indx, 1, N)</span>
+<a name="ln-109"></a>    <span class="c">!!call allocate(i1D,N)</span>
+<a name="ln-110"></a>    <span class="c">!!call rngInteger(i1D)</span>
+<a name="ln-111"></a>    <span class="c">!!call argSort(i1D, indx)</span>
+<a name="ln-112"></a>    <span class="c">!!write(*,&#39;(a)&#39;) &#39;Integer array is indirectly sorted? &#39;//str(isSorted(i1D(indx)))</span>
+<a name="ln-113"></a>    <span class="c">!!end program</span>
+<a name="ln-114"></a>    <span class="c">!!```</span>
+<a name="ln-115"></a>    <span class="k">module subroutine </span><span class="n">argSort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
+<a name="ln-116"></a>      <span class="c">!! Interfaced with [[argSort]]</span>
+<a name="ln-117"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-118"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Index to sort</span>
+<a name="ln-119"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span> <span class="c">!! Stable sort?</span>
+<a name="ln-120"></a>    <span class="k">end subroutine</span>
+<a name="ln-121"></a><span class="k">    module subroutine </span><span class="n">argSort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
+<a name="ln-122"></a>      <span class="c">!! Interfaced with [[argSort]]</span>
+<a name="ln-123"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-124"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Index to sort</span>
+<a name="ln-125"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span> <span class="c">!! Stable sort?</span>
+<a name="ln-126"></a>    <span class="k">end subroutine</span>
+<a name="ln-127"></a><span class="k">    module subroutine </span><span class="n">argSort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
+<a name="ln-128"></a>      <span class="c">!! Interfaced with [[argSort]]</span>
+<a name="ln-129"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-130"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Index to sort</span>
+<a name="ln-131"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span> <span class="c">!! Stable sort?</span>
+<a name="ln-132"></a>    <span class="k">end subroutine</span>
+<a name="ln-133"></a><span class="k">    module subroutine </span><span class="n">argSort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">stable</span><span class="p">)</span>
+<a name="ln-134"></a>      <span class="c">!! Interfaced with [[argSort]]</span>
+<a name="ln-135"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-136"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Index to sort</span>
+<a name="ln-137"></a>      <span class="kt">logical</span><span class="p">,</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">stable</span> <span class="c">!! Stable sort?</span>
+<a name="ln-138"></a>    <span class="k">end subroutine</span>
+<a name="ln-139"></a><span class="k">  end interface</span>
+<a name="ln-140"></a><span class="k">  private</span> <span class="kd">::</span> <span class="n">argSort_i1D</span><span class="p">,</span> <span class="n">argSort_id1D</span><span class="p">,</span> <span class="n">argSort_r1D</span><span class="p">,</span> <span class="n">argSort_d1D</span>
+<a name="ln-141"></a>
+<a name="ln-142"></a>  <span class="k">private</span> <span class="kd">::</span> <span class="n">introsort</span>
+<a name="ln-143"></a>  <span class="k">interface </span><span class="n">introsort</span>
+<a name="ln-144"></a>    <span class="c">!! Perform an in-place introspective sort on an array</span>
+<a name="ln-145"></a>    <span class="k">module subroutine </span><span class="n">introsort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-146"></a>      <span class="c">!! Interfaced with [[introsort]]</span>
+<a name="ln-147"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-148"></a>    <span class="k">end subroutine</span>
+<a name="ln-149"></a><span class="k">    module subroutine </span><span class="n">introsort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-150"></a>      <span class="c">!! Interfaced with [[introsort]]</span>
+<a name="ln-151"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-152"></a>    <span class="k">end subroutine</span>
+<a name="ln-153"></a><span class="k">    module subroutine </span><span class="n">introsort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-154"></a>      <span class="c">!! Interfaced with [[introsort]]</span>
+<a name="ln-155"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-156"></a>    <span class="k">end subroutine</span>
+<a name="ln-157"></a><span class="k">    module subroutine </span><span class="n">introsort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-158"></a>      <span class="c">!! Interfaced with [[introsort]]</span>
+<a name="ln-159"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-160"></a>    <span class="k">end subroutine</span>
+<a name="ln-161"></a><span class="k">  end interface</span>
+<a name="ln-162"></a>
+<a name="ln-163"></a><span class="k">  private</span> <span class="kd">::</span> <span class="n">argIntrosort</span>
+<a name="ln-164"></a>  <span class="k">interface </span><span class="n">argintrosort</span>
+<a name="ln-165"></a>    <span class="c">!! Perform an indirect introsort on an array</span>
+<a name="ln-166"></a>    <span class="k">module subroutine </span><span class="n">argintrosort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-167"></a>      <span class="c">!! Interfaced with [[argIntrosort]]</span>
+<a name="ln-168"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-169"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
+<a name="ln-170"></a>    <span class="k">end subroutine</span>
+<a name="ln-171"></a><span class="k">    module subroutine </span><span class="n">argintrosort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-172"></a>      <span class="c">!! Interfaced with [[argIntrosort]]</span>
+<a name="ln-173"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-174"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
+<a name="ln-175"></a>    <span class="k">end subroutine</span>
+<a name="ln-176"></a><span class="k">    module subroutine </span><span class="n">argintrosort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-177"></a>      <span class="c">!! Interfaced with [[argIntrosort]]</span>
+<a name="ln-178"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-179"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
+<a name="ln-180"></a>    <span class="k">end subroutine</span>
+<a name="ln-181"></a><span class="k">    module subroutine </span><span class="n">argintrosort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-182"></a>      <span class="c">!! Interfaced with [[argIntrosort]]</span>
+<a name="ln-183"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-184"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
+<a name="ln-185"></a>    <span class="k">end subroutine</span>
+<a name="ln-186"></a><span class="k">  end interface</span>
+<a name="ln-187"></a>
+<a name="ln-188"></a><span class="k">  interface </span><span class="n">MergeSort</span>
+<a name="ln-189"></a>    <span class="c">!! Perform an in-place stable merge sort on an array</span>
+<a name="ln-190"></a>    <span class="k">module subroutine </span><span class="n">mergesort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-191"></a>      <span class="c">!! Interf aced with [[mergesort]]</span>
+<a name="ln-192"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span><span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-193"></a>    <span class="k">end subroutine</span>
+<a name="ln-194"></a><span class="k">    module subroutine </span><span class="n">mergesort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-195"></a>      <span class="c">!! Interfaced with [[mergesort]]</span>
+<a name="ln-196"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-197"></a>    <span class="k">end subroutine</span>
+<a name="ln-198"></a><span class="k">    module subroutine </span><span class="n">mergesort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-199"></a>      <span class="c">!! Interfaced with [[mergesort]]</span>
+<a name="ln-200"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-201"></a>    <span class="k">end subroutine</span>
+<a name="ln-202"></a><span class="k">    module subroutine </span><span class="n">mergesort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-203"></a>      <span class="c">!! Interfaced with [[mergesort]]</span>
+<a name="ln-204"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-205"></a>    <span class="k">end subroutine</span>
+<a name="ln-206"></a><span class="k">  end interface</span>
+<a name="ln-207"></a>
+<a name="ln-208"></a><span class="k">  interface </span><span class="n">argMergeSort</span>
+<a name="ln-209"></a>    <span class="c">!! Perform an indirect stable merge sort on an array</span>
+<a name="ln-210"></a>    <span class="k">module subroutine </span><span class="n">argmergesort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-211"></a>      <span class="c">!! Interfaced with [[argmergesort]]</span>
+<a name="ln-212"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-213"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
+<a name="ln-214"></a>    <span class="k">end subroutine</span>
+<a name="ln-215"></a><span class="k">    module subroutine </span><span class="n">argmergesort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-216"></a>      <span class="c">!! Interfaced with [[argmergesort]]</span>
+<a name="ln-217"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-218"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
+<a name="ln-219"></a>    <span class="k">end subroutine</span>
+<a name="ln-220"></a><span class="k">    module subroutine </span><span class="n">argmergesort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-221"></a>      <span class="c">!! Interfaced with [[argmergesort]]</span>
+<a name="ln-222"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-223"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
+<a name="ln-224"></a>    <span class="k">end subroutine</span>
+<a name="ln-225"></a><span class="k">    module subroutine </span><span class="n">argmergesort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-226"></a>      <span class="c">!! Interfaced with [[argmergesort]]</span>
+<a name="ln-227"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-228"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
+<a name="ln-229"></a>    <span class="k">end subroutine</span>
+<a name="ln-230"></a><span class="k">  end interface</span>
+<a name="ln-231"></a>
+<a name="ln-232"></a><span class="k">  public</span> <span class="kd">::</span> <span class="n">insertionSort</span>
+<a name="ln-233"></a>
+<a name="ln-234"></a>  <span class="k">interface </span><span class="n">insertionsort</span>
+<a name="ln-235"></a>    <span class="c">!! Perform an in-place insertion sort on an array</span>
+<a name="ln-236"></a>    <span class="k">module subroutine </span><span class="n">insertionsort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
+<a name="ln-237"></a>      <span class="c">!! Interfaced with [[insertionsort]]</span>
+<a name="ln-238"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-239"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iLeft</span> <span class="c">!! Left index</span>
+<a name="ln-240"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iRight</span> <span class="c">!! Right index</span>
+<a name="ln-241"></a>    <span class="k">end subroutine</span>
+<a name="ln-242"></a><span class="k">    module subroutine </span><span class="n">insertionsort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
+<a name="ln-243"></a>      <span class="c">!! Interfaced with [[insertionsort]]</span>
+<a name="ln-244"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-245"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iLeft</span> <span class="c">!! Left index</span>
+<a name="ln-246"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iRight</span> <span class="c">!! Right index</span>
+<a name="ln-247"></a>    <span class="k">end subroutine</span>
+<a name="ln-248"></a><span class="k">    module subroutine </span><span class="n">insertionsort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
+<a name="ln-249"></a>      <span class="c">!! Interfaced with [[insertionsort]]</span>
+<a name="ln-250"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-251"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iLeft</span> <span class="c">!! Left index</span>
+<a name="ln-252"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iRight</span> <span class="c">!! Right index</span>
+<a name="ln-253"></a>    <span class="k">end subroutine</span>
+<a name="ln-254"></a><span class="k">    module subroutine </span><span class="n">insertionsort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
+<a name="ln-255"></a>      <span class="c">!! Interfaced with [[insertionsort]]</span>
+<a name="ln-256"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-257"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iLeft</span> <span class="c">!! Left index</span>
+<a name="ln-258"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iRight</span> <span class="c">!! Right index</span>
+<a name="ln-259"></a>    <span class="k">end subroutine</span>
+<a name="ln-260"></a><span class="k">  end interface</span>
+<a name="ln-261"></a><span class="k">  private</span> <span class="kd">::</span> <span class="n">insertionsort_r1D</span><span class="p">,</span> <span class="n">insertionsort_d1D</span><span class="p">,</span> <span class="n">insertionsort_i1D</span><span class="p">,</span> <span class="n">insertionsort_id1D</span>
+<a name="ln-262"></a>
+<a name="ln-263"></a>  <span class="k">public</span> <span class="kd">::</span> <span class="n">argInsertionsort</span>
+<a name="ln-264"></a>
+<a name="ln-265"></a>  <span class="k">interface </span><span class="n">argInsertionsort</span>
+<a name="ln-266"></a>    <span class="c">!! Perform an indirect insertion sort on an array</span>
+<a name="ln-267"></a>    <span class="k">module subroutine </span><span class="n">argInsertionsort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
 <a name="ln-268"></a>      <span class="c">!! Interfaced with [[arginsertionsort]]</span>
-<a name="ln-269"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-269"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
 <a name="ln-270"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indx</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
 <a name="ln-271"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iLeft</span> <span class="c">!! Left index</span>
 <a name="ln-272"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iRight</span> <span class="c">!! Right index</span>
 <a name="ln-273"></a>    <span class="k">end subroutine</span>
-<a name="ln-274"></a><span class="k">    module subroutine </span><span class="n">argInsertionsort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
+<a name="ln-274"></a><span class="k">    module subroutine </span><span class="n">argInsertionsort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
 <a name="ln-275"></a>      <span class="c">!! Interfaced with [[arginsertionsort]]</span>
-<a name="ln-276"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-276"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
 <a name="ln-277"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indx</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
 <a name="ln-278"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iLeft</span> <span class="c">!! Left index</span>
 <a name="ln-279"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iRight</span> <span class="c">!! Right index</span>
 <a name="ln-280"></a>    <span class="k">end subroutine</span>
-<a name="ln-281"></a><span class="k">    module subroutine </span><span class="n">argInsertionsort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
+<a name="ln-281"></a><span class="k">    module subroutine </span><span class="n">argInsertionsort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
 <a name="ln-282"></a>      <span class="c">!! Interfaced with [[arginsertionsort]]</span>
-<a name="ln-283"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-283"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
 <a name="ln-284"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indx</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
 <a name="ln-285"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iLeft</span> <span class="c">!! Left index</span>
 <a name="ln-286"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iRight</span> <span class="c">!! Right index</span>
 <a name="ln-287"></a>    <span class="k">end subroutine</span>
-<a name="ln-288"></a><span class="k">  end interface</span>
-<a name="ln-289"></a><span class="k">  private</span> <span class="kd">::</span> <span class="n">argInsertionsort_r1D</span><span class="p">,</span> <span class="n">argInsertionsort_d1D</span><span class="p">,</span> <span class="n">argInsertionsort_i1D</span><span class="p">,</span> <span class="n">argInsertionsort_id1D</span>
-<a name="ln-290"></a>
-<a name="ln-291"></a>  <span class="k">private</span> <span class="kd">::</span> <span class="n">heapsort</span>
-<a name="ln-292"></a>  <span class="k">interface </span><span class="n">heapsort</span>
-<a name="ln-293"></a>    <span class="c">!! Perform an in-place heapsort on an array</span>
-<a name="ln-294"></a>    <span class="k">module subroutine </span><span class="n">heapsort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
-<a name="ln-295"></a>      <span class="c">!! Interfaced with heapsort()</span>
-<a name="ln-296"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! 1D array</span>
-<a name="ln-297"></a>    <span class="k">end subroutine</span>
-<a name="ln-298"></a><span class="k">    module subroutine </span><span class="n">heapsort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
-<a name="ln-299"></a>      <span class="c">!! Interfaced with heapsort()</span>
-<a name="ln-300"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span><span class="kd">::</span> <span class="n">this</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! 1D array</span>
-<a name="ln-301"></a>    <span class="k">end subroutine</span>
-<a name="ln-302"></a><span class="k">    module subroutine </span><span class="n">heapsort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
-<a name="ln-303"></a>      <span class="c">!! Interfaced with heapsort()</span>
-<a name="ln-304"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span><span class="kd">::</span> <span class="n">this</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! 1D array</span>
-<a name="ln-305"></a>    <span class="k">end subroutine</span>
-<a name="ln-306"></a><span class="k">    module subroutine </span><span class="n">heapsort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
-<a name="ln-307"></a>      <span class="c">!! Interfaced with heapsort()</span>
-<a name="ln-308"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span><span class="kd">::</span> <span class="n">this</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! 1D array</span>
-<a name="ln-309"></a>    <span class="k">end subroutine</span>
-<a name="ln-310"></a><span class="k">  end interface</span>
-<a name="ln-311"></a>
-<a name="ln-312"></a><span class="k">  private</span> <span class="kd">::</span> <span class="n">argHeapsort</span>
-<a name="ln-313"></a>  <span class="k">interface </span><span class="n">argHeapsort</span>
-<a name="ln-314"></a>    <span class="c">!! Perform an indirect heapsort on an array</span>
-<a name="ln-315"></a>    <span class="k">module subroutine </span><span class="n">argHeapsort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">)</span>
-<a name="ln-316"></a>      <span class="c">!! Interfaced with argHeapsort()</span>
-<a name="ln-317"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-318"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indx</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! Sort this integer key</span>
-<a name="ln-319"></a>    <span class="k">end subroutine</span>
-<a name="ln-320"></a><span class="k">    module subroutine </span><span class="n">argHeapsort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">)</span>
-<a name="ln-321"></a>      <span class="c">!! Interfaced with argHeapsort()</span>
-<a name="ln-322"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span><span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-323"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indx</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! Sort this integer key</span>
-<a name="ln-324"></a>    <span class="k">end subroutine</span>
-<a name="ln-325"></a><span class="k">    module subroutine </span><span class="n">argHeapsort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">)</span>
-<a name="ln-326"></a>      <span class="c">!! Interfaced with argHeapsort()</span>
-<a name="ln-327"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span><span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-328"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indx</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! Sort this integer key</span>
-<a name="ln-329"></a>    <span class="k">end subroutine</span>
-<a name="ln-330"></a><span class="k">    module subroutine </span><span class="n">argHeapsort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">)</span>
-<a name="ln-331"></a>      <span class="c">!! Interfaced with argHeapsort()</span>
-<a name="ln-332"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span><span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
-<a name="ln-333"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indx</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! Sort this integer key</span>
-<a name="ln-334"></a>    <span class="k">end subroutine</span>
-<a name="ln-335"></a><span class="k">  end interface</span>
-<a name="ln-336"></a>
-<a name="ln-337"></a><span class="k">  end module</span>
+<a name="ln-288"></a><span class="k">    module subroutine </span><span class="n">argInsertionsort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">,</span><span class="n">iLeft</span><span class="p">,</span><span class="n">iRight</span><span class="p">)</span>
+<a name="ln-289"></a>      <span class="c">!! Interfaced with [[arginsertionsort]]</span>
+<a name="ln-290"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-291"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indx</span><span class="p">(:)</span> <span class="c">!! Sort this integer key</span>
+<a name="ln-292"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iLeft</span> <span class="c">!! Left index</span>
+<a name="ln-293"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iRight</span> <span class="c">!! Right index</span>
+<a name="ln-294"></a>    <span class="k">end subroutine</span>
+<a name="ln-295"></a><span class="k">  end interface</span>
+<a name="ln-296"></a><span class="k">  private</span> <span class="kd">::</span> <span class="n">argInsertionsort_r1D</span><span class="p">,</span> <span class="n">argInsertionsort_d1D</span><span class="p">,</span> <span class="n">argInsertionsort_i1D</span><span class="p">,</span> <span class="n">argInsertionsort_id1D</span>
+<a name="ln-297"></a>
+<a name="ln-298"></a>  <span class="k">private</span> <span class="kd">::</span> <span class="n">heapsort</span>
+<a name="ln-299"></a>  <span class="k">interface </span><span class="n">heapsort</span>
+<a name="ln-300"></a>    <span class="c">!! Perform an in-place heapsort on an array</span>
+<a name="ln-301"></a>    <span class="k">module subroutine </span><span class="n">heapsort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-302"></a>      <span class="c">!! Interfaced with heapsort()</span>
+<a name="ln-303"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! 1D array</span>
+<a name="ln-304"></a>    <span class="k">end subroutine</span>
+<a name="ln-305"></a><span class="k">    module subroutine </span><span class="n">heapsort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-306"></a>      <span class="c">!! Interfaced with heapsort()</span>
+<a name="ln-307"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span><span class="kd">::</span> <span class="n">this</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! 1D array</span>
+<a name="ln-308"></a>    <span class="k">end subroutine</span>
+<a name="ln-309"></a><span class="k">    module subroutine </span><span class="n">heapsort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-310"></a>      <span class="c">!! Interfaced with heapsort()</span>
+<a name="ln-311"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span><span class="kd">::</span> <span class="n">this</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! 1D array</span>
+<a name="ln-312"></a>    <span class="k">end subroutine</span>
+<a name="ln-313"></a><span class="k">    module subroutine </span><span class="n">heapsort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-314"></a>      <span class="c">!! Interfaced with heapsort()</span>
+<a name="ln-315"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span><span class="kd">::</span> <span class="n">this</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! 1D array</span>
+<a name="ln-316"></a>    <span class="k">end subroutine</span>
+<a name="ln-317"></a><span class="k">  end interface</span>
+<a name="ln-318"></a>
+<a name="ln-319"></a><span class="k">  private</span> <span class="kd">::</span> <span class="n">argHeapsort</span>
+<a name="ln-320"></a>  <span class="k">interface </span><span class="n">argHeapsort</span>
+<a name="ln-321"></a>    <span class="c">!! Perform an indirect heapsort on an array</span>
+<a name="ln-322"></a>    <span class="k">module subroutine </span><span class="n">argHeapsort_r1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">)</span>
+<a name="ln-323"></a>      <span class="c">!! Interfaced with argHeapsort()</span>
+<a name="ln-324"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-325"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indx</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! Sort this integer key</span>
+<a name="ln-326"></a>    <span class="k">end subroutine</span>
+<a name="ln-327"></a><span class="k">    module subroutine </span><span class="n">argHeapsort_d1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">)</span>
+<a name="ln-328"></a>      <span class="c">!! Interfaced with argHeapsort()</span>
+<a name="ln-329"></a>      <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span><span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-330"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indx</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! Sort this integer key</span>
+<a name="ln-331"></a>    <span class="k">end subroutine</span>
+<a name="ln-332"></a><span class="k">    module subroutine </span><span class="n">argHeapsort_i1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">)</span>
+<a name="ln-333"></a>      <span class="c">!! Interfaced with argHeapsort()</span>
+<a name="ln-334"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span><span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-335"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indx</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! Sort this integer key</span>
+<a name="ln-336"></a>    <span class="k">end subroutine</span>
+<a name="ln-337"></a><span class="k">    module subroutine </span><span class="n">argHeapsort_id1D</span><span class="p">(</span><span class="n">this</span><span class="p">,</span><span class="n">indx</span><span class="p">)</span>
+<a name="ln-338"></a>      <span class="c">!! Interfaced with argHeapsort()</span>
+<a name="ln-339"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span><span class="kd">::</span> <span class="n">this</span><span class="p">(:)</span> <span class="c">!! 1D array</span>
+<a name="ln-340"></a>      <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">indx</span><span class="p">(</span><span class="mi">0</span><span class="p">:)</span> <span class="c">!! Sort this integer key</span>
+<a name="ln-341"></a>    <span class="k">end subroutine</span>
+<a name="ln-342"></a><span class="k">  end interface</span>
+<a name="ln-343"></a>
+<a name="ln-344"></a><span class="k">  contains</span>
+<a name="ln-345"></a>
+<a name="ln-346"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-347"></a>  <span class="k">subroutine </span><span class="n">sorting_test</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-348"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-349"></a>  <span class="k">class</span><span class="p">(</span><span class="n">tester</span><span class="p">)</span> <span class="kd">::</span> <span class="n">test</span>
+<a name="ln-350"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">N</span>
+<a name="ln-351"></a>
+<a name="ln-352"></a>  <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">ar1D</span><span class="p">(:),</span> <span class="n">br1D</span><span class="p">(:)</span>
+<a name="ln-353"></a>  <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">a1D</span><span class="p">(:),</span> <span class="n">b1D</span><span class="p">(:)</span>
+<a name="ln-354"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">ia1D</span><span class="p">(:),</span> <span class="n">ib1D</span><span class="p">(:),</span> <span class="n">ic1D</span><span class="p">(:)</span>
+<a name="ln-355"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">iad1D</span><span class="p">(:),</span> <span class="n">ibd1D</span><span class="p">(:)</span>
+<a name="ln-356"></a>
+<a name="ln-357"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-358"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Testing : Sorting&#39;</span><span class="p">)</span>
+<a name="ln-359"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-360"></a>
+<a name="ln-361"></a><span class="c">!   Initial setup for testing</span>
+<a name="ln-362"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">ar1D</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-363"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">br1D</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-364"></a>
+<a name="ln-365"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">a1D</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-366"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">b1D</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-367"></a>
+<a name="ln-368"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">ia1D</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-369"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">ib1D</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-370"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">ic1D</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-371"></a>
+<a name="ln-372"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">iad1D</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-373"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">ibd1D</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-374"></a>
+<a name="ln-375"></a>  <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">a1D</span><span class="p">)</span>
+<a name="ln-376"></a>  <span class="n">ar1D</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">a1D</span><span class="p">)</span>
+<a name="ln-377"></a>
+<a name="ln-378"></a>  <span class="n">br1D</span> <span class="o">=</span> <span class="n">ar1D</span>
+<a name="ln-379"></a>  <span class="k">call </span><span class="n">sort</span><span class="p">(</span><span class="n">br1D</span><span class="p">)</span>
+<a name="ln-380"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">br1D</span><span class="p">),</span><span class="s1">&#39;Introsort_r1D&#39;</span><span class="p">)</span>
+<a name="ln-381"></a>
+<a name="ln-382"></a>  <span class="n">br1D</span> <span class="o">=</span> <span class="n">ar1D</span>
+<a name="ln-383"></a>  <span class="k">call </span><span class="n">arange</span><span class="p">(</span><span class="n">ia1D</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-384"></a>  <span class="k">call </span><span class="n">argsort</span><span class="p">(</span><span class="n">br1D</span><span class="p">,</span> <span class="n">ia1D</span><span class="p">)</span>
+<a name="ln-385"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">br1D</span><span class="p">,</span><span class="n">ia1D</span><span class="p">),</span><span class="s1">&#39;argIntrosort_r1D&#39;</span><span class="p">)</span>
+<a name="ln-386"></a>
+<a name="ln-387"></a>  <span class="n">br1D</span> <span class="o">=</span> <span class="n">ar1D</span>
+<a name="ln-388"></a>  <span class="k">call </span><span class="n">Sort</span><span class="p">(</span><span class="n">br1D</span><span class="p">,.</span><span class="n">true</span><span class="p">.)</span>
+<a name="ln-389"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">br1D</span><span class="p">),</span><span class="s1">&#39;Mergesort_r1D&#39;</span><span class="p">)</span>
+<a name="ln-390"></a>
+<a name="ln-391"></a>  <span class="n">br1D</span> <span class="o">=</span> <span class="n">ar1D</span>
+<a name="ln-392"></a>  <span class="k">call </span><span class="n">arange</span><span class="p">(</span><span class="n">ia1D</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-393"></a>  <span class="k">call </span><span class="n">argsort</span><span class="p">(</span><span class="n">br1D</span><span class="p">,</span> <span class="n">ia1D</span><span class="p">,.</span><span class="n">true</span><span class="p">.)</span>
+<a name="ln-394"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">br1D</span><span class="p">,</span><span class="n">ia1D</span><span class="p">),</span><span class="s1">&#39;argMergesort_r1D&#39;</span><span class="p">)</span>
+<a name="ln-395"></a>
+<a name="ln-396"></a>  <span class="n">b1D</span> <span class="o">=</span> <span class="n">a1D</span>
+<a name="ln-397"></a>  <span class="k">call </span><span class="n">sort</span><span class="p">(</span><span class="n">b1D</span><span class="p">)</span>
+<a name="ln-398"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">b1D</span><span class="p">),</span><span class="s1">&#39;Introsort_d1D on Sorted array&#39;</span><span class="p">)</span>
+<a name="ln-399"></a>
+<a name="ln-400"></a>  <span class="n">b1D</span> <span class="o">=</span> <span class="n">a1D</span>
+<a name="ln-401"></a>  <span class="k">call </span><span class="n">arange</span><span class="p">(</span><span class="n">ia1D</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-402"></a>  <span class="k">call </span><span class="n">argsort</span><span class="p">(</span><span class="n">b1D</span><span class="p">,</span> <span class="n">ia1D</span><span class="p">)</span>
+<a name="ln-403"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">b1D</span><span class="p">,</span><span class="n">ia1D</span><span class="p">),</span><span class="s1">&#39;argIntrosort_d1D&#39;</span><span class="p">)</span>
+<a name="ln-404"></a>
+<a name="ln-405"></a>  <span class="n">b1D</span> <span class="o">=</span> <span class="n">a1D</span>
+<a name="ln-406"></a>  <span class="k">call </span><span class="n">Sort</span><span class="p">(</span><span class="n">b1D</span><span class="p">,.</span><span class="n">true</span><span class="p">.)</span>
+<a name="ln-407"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">b1D</span><span class="p">),</span><span class="s1">&#39;Mergesort_d1D&#39;</span><span class="p">)</span>
+<a name="ln-408"></a>
+<a name="ln-409"></a>  <span class="n">b1D</span> <span class="o">=</span> <span class="n">a1D</span>
+<a name="ln-410"></a>  <span class="k">call </span><span class="n">arange</span><span class="p">(</span><span class="n">ia1D</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-411"></a>  <span class="k">call </span><span class="n">argsort</span><span class="p">(</span><span class="n">b1D</span><span class="p">,</span> <span class="n">ia1D</span><span class="p">,.</span><span class="n">true</span><span class="p">.)</span>
+<a name="ln-412"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">b1D</span><span class="p">,</span><span class="n">ia1D</span><span class="p">),</span><span class="s1">&#39;argMergesort_d1D&#39;</span><span class="p">)</span>
+<a name="ln-413"></a>
+<a name="ln-414"></a>  <span class="k">call </span><span class="n">rngInteger</span><span class="p">(</span><span class="n">ia1D</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-415"></a>  <span class="n">ib1D</span> <span class="o">=</span> <span class="n">ia1D</span>
+<a name="ln-416"></a>  <span class="k">call </span><span class="n">sort</span><span class="p">(</span><span class="n">ib1D</span><span class="p">)</span>
+<a name="ln-417"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">ib1D</span><span class="p">),</span><span class="s1">&#39;Introsort_i1D&#39;</span><span class="p">)</span>
+<a name="ln-418"></a>
+<a name="ln-419"></a>  <span class="n">ib1D</span> <span class="o">=</span> <span class="n">ia1D</span>
+<a name="ln-420"></a>  <span class="k">call </span><span class="n">arange</span><span class="p">(</span><span class="n">ic1D</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-421"></a>  <span class="k">call </span><span class="n">argsort</span><span class="p">(</span><span class="n">ib1D</span><span class="p">,</span><span class="n">ic1D</span><span class="p">)</span>
+<a name="ln-422"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">ib1D</span><span class="p">,</span><span class="n">ic1D</span><span class="p">),</span><span class="s1">&#39;argIntrosort_i1D&#39;</span><span class="p">)</span>
+<a name="ln-423"></a>
+<a name="ln-424"></a>  <span class="n">ib1D</span> <span class="o">=</span> <span class="n">ia1D</span>
+<a name="ln-425"></a>  <span class="k">call </span><span class="n">sort</span><span class="p">(</span><span class="n">ib1D</span><span class="p">,.</span><span class="n">true</span><span class="p">.)</span>
+<a name="ln-426"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">ib1D</span><span class="p">),</span><span class="s1">&#39;Mergesort_i1D&#39;</span><span class="p">)</span>
+<a name="ln-427"></a>
+<a name="ln-428"></a>  <span class="n">ib1D</span> <span class="o">=</span> <span class="n">ia1D</span>
+<a name="ln-429"></a>  <span class="k">call </span><span class="n">arange</span><span class="p">(</span><span class="n">ic1D</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-430"></a>  <span class="k">call </span><span class="n">argsort</span><span class="p">(</span><span class="n">ib1D</span><span class="p">,</span><span class="n">ic1D</span><span class="p">,.</span><span class="n">true</span><span class="p">.)</span>
+<a name="ln-431"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">isSorted</span><span class="p">(</span><span class="n">ib1D</span><span class="p">,</span><span class="n">ic1D</span><span class="p">),</span><span class="s1">&#39;argMergesort_i1D&#39;</span><span class="p">)</span>
+<a name="ln-432"></a>
+<a name="ln-433"></a>  <span class="k">end subroutine</span>
+<a name="ln-434"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-435"></a>
+<a name="ln-436"></a>  <span class="k">end module</span>
 </pre></div>
 
     </section>
@@ -675,8 +786,6 @@
       
       <a class="list-group-item" href="../sourcefile/m_array1d.f90.html">m_array1D.f90</a>
       
-      <a class="list-group-item" href="../sourcefile/m_binarysearch.f90.html">m_BinarySearch.f90</a>
-      
       <a class="list-group-item" href="../sourcefile/m_compare.f90.html">m_compare.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_copy.f90.html">m_copy.f90</a>
@@ -685,9 +794,13 @@
       
       <a class="list-group-item" href="../sourcefile/m_debugging.f90.html">m_debugging.f90</a>
       
+      <a class="list-group-item" href="../sourcefile/m_dynamicarray.f90.html">m_dynamicArray.f90</a>
+      
       <a class="list-group-item" href="../sourcefile/m_errors.f90.html">m_errors.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_fileio.f90.html">m_fileIO.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_fixedarray.f90.html">m_fixedArray.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_format.f90.html">m_format.f90</a>
       
@@ -711,9 +824,11 @@
       
       <a class="list-group-item" href="../sourcefile/m_reallocate.f90.html">m_reallocate.f90</a>
       
-      <a class="list-group-item" href="../sourcefile/m_select.f90.html">m_select.f90</a>
+      <a class="list-group-item" href="../sourcefile/m_rnglib.f90.html">m_rnglib.f90</a>
       
-      <a class="list-group-item" href="../sourcefile/m_simplesearch.f90.html">m_SimpleSearch.f90</a>
+      <a class="list-group-item" href="../sourcefile/m_searching.f90.html">m_searching.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_select.f90.html">m_select.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_sort.f90.html">m_sort.f90</a>
       
@@ -723,11 +838,19 @@
       
       <a class="list-group-item" href="../sourcefile/m_time.f90.html">m_time.f90</a>
       
+      <a class="list-group-item" href="../sourcefile/m_unittester.f90.html">m_unitTester.f90</a>
+      
       <a class="list-group-item" href="../sourcefile/m_variablekind.f90.html">m_variableKind.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_write.f90.html">m_write.f90</a>
       
       <a class="list-group-item" href="../sourcefile/progressbar_class.f90.html">ProgressBar_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/sm_binarysearch.f90.html">sm_binarySearch.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/sm_intervalsearch.f90.html">sm_intervalSearch.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/sm_simplesearch.f90.html">sm_simpleSearch.f90</a>
       
       <a class="list-group-item" href="../sourcefile/stopwatch_class.f90.html">Stopwatch_Class.f90</a>
       

@@ -117,8 +117,18 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../proc/abstimetohms.html'>absTimetoHMS</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Function</td><td><p>Convert an absolute time to HH:MM:SS.MSEC</p></td></tr>
 			 
+			   <tr><td><a href='../proc/advance_state.html'>advance_state</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>ADVANCE_STATE advances the state of the current generator.</p></td></tr>
+			 
 			   <tr><td><a href='../interface/allocate.html'>allocate</a></td><td><a href='../module/m_allocate.html'>m_allocate</a></td><td>Interface</td><td><p>Allocate an allocatable array. If the array is already allocated, memory is reallocated to the given size, unless no size change will occur.
  The allocated memory is NOT initialized to any value, so be sure to do so afterwards if you call allocate.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/allocate_test.html'>allocate_test</a></td><td><a href='../module/m_allocate.html'>m_allocate</a></td><td>Subroutine</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/antithetic_get.html'>antithetic_get</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Function</td><td><p>ANTITHETIC_GET queries the antithetic value for a given generator.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/antithetic_memory.html'>antithetic_memory</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>ANTITHETIC_MEMORY stores the antithetic value for all generators.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/antithetic_set.html'>antithetic_set</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>ANTITHETIC_SET sets the antithetic value for a given generator.</p></td></tr>
 			 
 			   <tr><td><a href='../proc/appendstring.html'>appendString</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Function</td><td><p>Append a string</p></td></tr>
 			 
@@ -134,10 +144,21 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../interface/argsort.html'>argSort</a></td><td><a href='../module/m_sort.html'>m_sort</a></td><td>Interface</td><td><p>Use an indirect introspection sort on an array of numbers</p></td></tr>
 			 
-			   <tr><td><a href='../interface/binarysearch.html'>binarySearch</a></td><td><a href='../module/m_binarysearch.html'>m_BinarySearch</a></td><td>Interface</td><td><p>Perform a binary search</p></td></tr>
+			   <tr><td><a href='../proc/array1d_test.html'>array1D_test</a></td><td><a href='../module/m_array1d.html'>m_array1D</a></td><td>Subroutine</td><td></td></tr>
 			 
-			   <tr><td><a href='../interface/binarysearch_wneighbours.html'>binarySearch_wNeighbours</a></td><td><a href='../module/m_binarysearch.html'>m_BinarySearch</a></td><td>Interface</td><td><p>Perform a binary search but also return the neighbours.
- This is useful if you need to find a number that is not contained in the array and you want the interval</p></td></tr>
+			   <tr><td><a href='../interface/binarysearch.html'>binarySearch</a></td><td><a href='../module/m_searching.html'>m_searching</a></td><td>Interface</td><td><p>Perform a binary search.  See <a href="../module/m_searching.html">m_searching</a> for more information on how to use this interface</p></td></tr>
+			 
+			   <tr><td><a href='../proc/cg_get.html'>cg_get</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>CG_GET queries the CG values for a given generator.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/cg_memory.html'>cg_memory</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>CG_MEMORY stores the CG values for all generators.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/cg_set.html'>cg_set</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>CG_SET sets the CG values for a given generator.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/cgn_get.html'>cgn_get</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Function</td><td><p>CGN_GET gets the current generator index.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/cgn_memory.html'>cgn_memory</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>CGN_MEMORY stores the current generator index.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/cgn_set.html'>cgn_set</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>CGN_SET sets the current generator index.</p></td></tr>
 			 
 			   <tr><td><a href='../proc/checkisopen.html'>checkIsOpen</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Subroutine</td><td><p>Checks whether a file is open with an error message if not</p></td></tr>
 			 
@@ -152,6 +173,8 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../interface/copy.html'>copy</a></td><td><a href='../module/m_copy.html'>m_copy</a></td><td>Interface</td><td><p>Copies an array to new memory (no pointers), The output array size will be changed to match the copy.</p></td></tr>
 			 
+			   <tr><td><a href='../proc/copy_test.html'>copy_test</a></td><td><a href='../module/m_copy.html'>m_copy</a></td><td>Subroutine</td><td></td></tr>
+			 
 			   <tr><td><a href='../proc/countentries.html'>countEntries</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Function</td><td><p>Count the number of entries in a string</p></td></tr>
 			 
 			   <tr><td><a href='../interface/crossproduct.html'>crossproduct</a></td><td><a href='../module/m_maths.html'>m_maths</a></td><td>Interface</td><td><p>Compute the cross product between two arrays of length 2 or 3</p></td></tr>
@@ -164,6 +187,8 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../proc/daysinyear.html'>daysinYear</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Function</td><td><p>Get the number of days in a year, accounts for leap years</p></td></tr>
 			 
+			   <tr><td><a href='../interface/ddynamicarray.html'>dDynamicArray</a></td><td><a href='../module/m_dynamicarray.html'>m_dynamicArray</a></td><td>Interface</td><td></td></tr>
+			 
 			   <tr><td><a href='../interface/deallocate.html'>deallocate</a></td><td><a href='../module/m_deallocate.html'>m_deallocate</a></td><td>Interface</td><td><p>Deallocate an allocatable array.</p></td></tr>
 			 
 			   <tr><td><a href='../interface/debug.html'>debug</a></td><td><a href='../module/m_debugging.html'>m_debugging</a></td><td>Interface</td><td><p>Interface for printing primitives with a name for debug purposes
@@ -174,6 +199,8 @@ All Procedures &ndash; Fortran Program
 			   <tr><td><a href='../proc/deletefile.html'>deleteFile</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Subroutine</td><td><p>Deletes a file on disk</p></td></tr>
 			 
 			   <tr><td><a href='../interface/diff.html'>diff</a></td><td><a href='../module/m_array1d.html'>m_array1D</a></td><td>Interface</td><td><p>Compute the difference along an array</p></td></tr>
+			 
+			   <tr><td><a href='../proc/dynamicarray_test.html'>dynamicArray_test</a></td><td><a href='../module/m_dynamicarray.html'>m_dynamicArray</a></td><td>Subroutine</td><td></td></tr>
 			 
 			   <tr><td><a href='../proc/emsg.html'>eMsg</a></td><td><a href='../module/m_errors.html'>m_errors</a></td><td>Subroutine</td><td><p>Write an Error message. Stops the code</p></td></tr>
 			 
@@ -187,7 +214,11 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../proc/fileexists.html'>fileExists</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Function</td><td><p>Checks whether the file with name fName exists on disk</p></td></tr>
 			 
+			   <tr><td><a href='../proc/fileio_test.html'>fileIO_test</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Subroutine</td><td></td></tr>
+			 
 			   <tr><td><a href='../interface/geometricmean.html'>geometricMean</a></td><td><a href='../module/m_maths.html'>m_maths</a></td><td>Interface</td><td><p>Compute the geometric mean of a vector</p></td></tr>
+			 
+			   <tr><td><a href='../proc/get_state.html'>get_state</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>GET_STATE returns the state of the current generator.</p></td></tr>
 			 
 			   <tr><td><a href='../proc/getextension.html'>getExtension</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Function</td><td><p>Get the extension of a file</p></td></tr>
 			 
@@ -199,13 +230,42 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../proc/hasnentries.html'>hasNentries</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Function</td><td><p>Check that a string has N entries</p></td></tr>
 			 
+			   <tr><td><a href='../proc/i4_uni.html'>i4_uni</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Function</td><td><p>I4_UNI generates a random positive integer.</p></td></tr>
+			 
 			   <tr><td><a href='../proc/iachar1d.html'>iachar1D</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Function</td><td><p>Use iachar on a full string</p></td></tr>
 			 
+			   <tr><td><a href='../interface/iddynamicarray.html'>idDynamicArray</a></td><td><a href='../module/m_dynamicarray.html'>m_dynamicArray</a></td><td>Interface</td><td></td></tr>
+			 
+			   <tr><td><a href='../interface/idynamicarray.html'>iDynamicArray</a></td><td><a href='../module/m_dynamicarray.html'>m_dynamicArray</a></td><td>Interface</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/ig_get.html'>ig_get</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>IG_GET queries the IG values for a given generator.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/ig_memory.html'>ig_memory</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>IG_MEMORY stores the IG values for all generators.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/ig_set.html'>ig_set</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>IG_SET sets the IG values for a given generator.</p></td></tr>
+			 
 			   <tr><td><a href='../proc/ind2sub.html'>ind2sub</a></td><td><a href='../module/m_indexing.html'>m_indexing</a></td><td>Function</td><td><p>Compute the indices in each dimension from the global index</p></td></tr>
+			 
+			   <tr><td><a href='../proc/indexing_test.html'>indexing_test</a></td><td><a href='../module/m_indexing.html'>m_indexing</a></td><td>Subroutine</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/init_generator.html'>init_generator</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>INIT_GENERATOR sets the current generator to initial, last or new seed.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/initialize.html'>initialize</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>INITIALIZE initializes the random number generator library.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/initialized_get.html'>initialized_get</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Function</td><td><p>INITIALIZED_GET queries the INITIALIZED value.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/initialized_memory.html'>initialized_memory</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>INITIALIZED_MEMORY stores the INITIALIZED value for the package.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/initialized_set.html'>initialized_set</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>INITIALIZED_SET sets the INITIALIZED value true.</p></td></tr>
 			 
 			   <tr><td><a href='../interface/insertionsort.html'>insertionsort</a></td><td><a href='../module/m_sort.html'>m_sort</a></td><td>Interface</td><td><p>Perform an in-place insertion sort on an array</p></td></tr>
 			 
 			   <tr><td><a href='../proc/integerbin.html'>integerBin</a></td><td><a href='../module/m_indexing.html'>m_indexing</a></td><td>Function</td><td></td></tr>
+			 
+			   <tr><td><a href='../interface/intervalsearch.html'>intervalSearch</a></td><td><a href='../module/m_searching.html'>m_searching</a></td><td>Interface</td><td><p>Perform an interval search on an array
+ Returns a length 3 integer(i32) array where the last two entries are the left and right neighbours
+ The first entry of iout is -1 if the value is not present in the vector
+ Assumes this is sorted!See <a href="../module/m_searching.html">m_searching</a> for more information on how to use this interface</p></td></tr>
 			 
 			   <tr><td><a href='../proc/isleapyear.html'>isLeapYear</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Function</td><td><p>Determine whether the year is a leap year</p></td></tr>
 			 
@@ -215,7 +275,17 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../proc/isstring.html'>isString</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Function</td><td><p>Match two string together</p></td></tr>
 			 
+			   <tr><td><a href='../interface/kdtree.html'>KdTree</a></td><td><a href='../module/m_kdtree.html'>m_KdTree</a></td><td>Interface</td><td><p>Overloaded Initializer for a KdTree.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/lg_get.html'>lg_get</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>LG_GET queries the LG values for a given generator.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/lg_memory.html'>lg_memory</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>LG_MEMORY stores the LG values for all generators.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/lg_set.html'>lg_set</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>LG_SET sets the LG values for a given generator.</p></td></tr>
+			 
 			   <tr><td><a href='../proc/lowercase.html'>lowerCase</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Function</td><td><p>Convert a string to lowercase</p></td></tr>
+			 
+			   <tr><td><a href='../proc/maths_test.html'>maths_test</a></td><td><a href='../module/m_maths.html'>m_maths</a></td><td>Subroutine</td><td></td></tr>
 			 
 			   <tr><td><a href='../interface/mean.html'>mean</a></td><td><a href='../module/m_maths.html'>m_maths</a></td><td>Interface</td><td><p>Compute the mean</p></td></tr>
 			 
@@ -226,6 +296,8 @@ All Procedures &ndash; Fortran Program
 			   <tr><td><a href='../proc/merr.html'>mErr</a></td><td><a href='../module/m_errors.html'>m_errors</a></td><td>Subroutine</td><td><p>Checks for successful (de)allocation.  Stops the code.</p></td></tr>
 			 
 			   <tr><td><a href='../proc/msg.html'>msg</a></td><td><a href='../module/m_errors.html'>m_errors</a></td><td>Subroutine</td><td><p>Write a message</p></td></tr>
+			 
+			   <tr><td><a href='../proc/multmod.html'>multmod</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Function</td><td><p>MULTMOD carries out modular multiplication.</p></td></tr>
 			 
 			   <tr><td><a href='../interface/norm1.html'>norm1</a></td><td><a href='../module/m_maths.html'>m_maths</a></td><td>Interface</td><td><p>Compute the L1 norm of a set of numbers</p></td></tr>
 			 
@@ -249,6 +321,14 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../interface/project.html'>project</a></td><td><a href='../module/m_maths.html'>m_maths</a></td><td>Interface</td><td><p>Project a vector a onto vector b</p></td></tr>
 			 
+			   <tr><td><a href='../proc/r4_uni_01.html'>r4_uni_01</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Function</td><td><p>R4_UNI_01 returns a uniform random real number in [0,1].</p></td></tr>
+			 
+			   <tr><td><a href='../proc/r8_uni_01.html'>r8_uni_01</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Function</td><td><p>R8_UNI_01 returns a uniform random double precision number in [0,1].</p></td></tr>
+			 
+			   <tr><td><a href='../proc/random_test.html'>random_test</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td></td></tr>
+			 
+			   <tr><td><a href='../interface/rdynamicarray.html'>rDynamicArray</a></td><td><a href='../module/m_dynamicarray.html'>m_dynamicArray</a></td><td>Interface</td><td></td></tr>
+			 
 			   <tr><td><a href='../proc/read1dble.html'>read1Dble</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Subroutine</td><td></td></tr>
 			 
 			   <tr><td><a href='../proc/read1integer.html'>read1Integer</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Subroutine</td><td><p>Get a single integer from a line, returns an error code if there is more than one entry</p></td></tr>
@@ -257,19 +337,21 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../interface/reallocate.html'>reallocate</a></td><td><a href='../module/m_reallocate.html'>m_reallocate</a></td><td>Interface</td><td><p>Reallocate an allocatable array</p></td></tr>
 			 
+			   <tr><td><a href='../proc/reallocate_test.html'>reallocate_test</a></td><td><a href='../module/m_reallocate.html'>m_reallocate</a></td><td>Subroutine</td><td></td></tr>
+			 
 			   <tr><td><a href='../proc/removecomments.html'>removeComments</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Subroutine</td><td><p>Removes the text after the ! mark in a string</p></td></tr>
 			 
 			   <tr><td><a href='../interface/repeat.html'>repeat</a></td><td><a href='../module/m_array1d.html'>m_array1D</a></td><td>Interface</td><td><p>Repeat each element nRepeat times</p></td></tr>
 			 
 			   <tr><td><a href='../proc/replacedelim.html'>replacedelim</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Subroutine</td><td><p>Replace a single character length delimiter in a string</p></td></tr>
 			 
-			   <tr><td><a href='../interface/rngchisq.html'>rngChisq</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td></td></tr>
+			   <tr><td><a href='../interface/rngchisq.html'>rngChisq</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td><p>Pull from a Chi Ssquared distribution</p></td></tr>
 			 
 			   <tr><td><a href='../interface/rngexponential.html'>rngExponential</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td></td></tr>
 			 
 			   <tr><td><a href='../interface/rnggamma.html'>rngGamma</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td></td></tr>
 			 
-			   <tr><td><a href='../interface/rnginteger.html'>rngInteger</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td></td></tr>
+			   <tr><td><a href='../interface/rnginteger.html'>rngInteger</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td><p>Generate size(this) random integers starting from imin</p></td></tr>
 			 
 			   <tr><td><a href='../interface/rngnormal.html'>rngNormal</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td></td></tr>
 			 
@@ -279,26 +361,42 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../interface/select.html'>select</a></td><td><a href='../module/m_select.html'>m_select</a></td><td>Interface</td><td><p>Use an in-place quick select on an array of numbers</p></td></tr>
 			 
+			   <tr><td><a href='../proc/select_test.html'>select_test</a></td><td><a href='../module/m_select.html'>m_select</a></td><td>Subroutine</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/set_initial_seed.html'>set_initial_seed</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>SET_INITIAL_SEED resets the initial seed and state for all generators.</p></td></tr>
+			 
+			   <tr><td><a href='../proc/set_seed.html'>set_seed</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>SET_SEED resets the initial seed and state of the current generator.</p></td></tr>
+			 
 			   <tr><td><a href='../interface/setrng.html'>setRNG</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td><p>Sets the random number with or without a seed</p></td></tr>
 			 
 			   <tr><td><a href='../interface/shuffle.html'>shuffle</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td><p>Perform Knuth shuffling on an array</p></td></tr>
 			 
-			   <tr><td><a href='../interface/simplesearch.html'>simpleSearch</a></td><td><a href='../module/m_simplesearch.html'>m_simpleSearch</a></td><td>Interface</td><td></td></tr>
+			   <tr><td><a href='../interface/simplesearch.html'>simpleSearch</a></td><td><a href='../module/m_searching.html'>m_searching</a></td><td>Interface</td><td><p>Carry out a brute force search on an array for a given number. Returns -1 if the value is not found.</p></td></tr>
 			 
 			   <tr><td><a href='../proc/skipfilelines.html'>skipFileLines</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Subroutine</td><td><p>Skip N lines in a file</p></td></tr>
 			 
 			   <tr><td><a href='../interface/sort.html'>sort</a></td><td><a href='../module/m_sort.html'>m_sort</a></td><td>Interface</td><td><p>Use an in-place introspection sort on an array of numbers</p></td></tr>
+			 
+			   <tr><td><a href='../proc/sorting_test.html'>sorting_test</a></td><td><a href='../module/m_sort.html'>m_sort</a></td><td>Subroutine</td><td></td></tr>
 			 
 			   <tr><td><a href='../interface/std.html'>std</a></td><td><a href='../module/m_maths.html'>m_maths</a></td><td>Interface</td><td><p>Compute the standard deviation of an array</p></td></tr>
 			 
 			   <tr><td><a href='../interface/str.html'>str</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Interface</td><td><p>Interface to print a string representation of a number
  The output format options can be set using the printOptions class</p></td></tr>
 			 
+			   <tr><td><a href='../proc/strings_test.html'>strings_test</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Subroutine</td><td></td></tr>
+			 
 			   <tr><td><a href='../proc/sub2ind.html'>sub2ind</a></td><td><a href='../module/m_indexing.html'>m_indexing</a></td><td>Function</td><td><p>Given component indices, get the global vector location.</p></td></tr>
 			 
 			   <tr><td><a href='../interface/swap.html'>swap</a></td><td><a href='../module/m_swap.html'>m_swap</a></td><td>Interface</td><td><p>Swap the values of two variables</p></td></tr>
 			 
+			   <tr><td><a href='../interface/tester.html'>tester</a></td><td><a href='../module/m_unittester.html'>m_unitTester</a></td><td>Interface</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/time_test.html'>time_test</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Subroutine</td><td></td></tr>
+			 
 			   <tr><td><a href='../proc/timeinseconds.html'>timeinseconds</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Function</td><td><p>Convert hours minutes seconds etc. to seconds</p></td></tr>
+			 
+			   <tr><td><a href='../proc/timestamp.html'>timestamp</a></td><td><a href='../module/m_rnglib.html'>m_rngLib</a></td><td>Subroutine</td><td><p>TIMESTAMP prints the current YMDHMS date as a time stamp.</p></td></tr>
 			 
 			   <tr><td><a href='../proc/trimextension.html'>trimExtension</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Function</td><td><p>Trims the extension of a filename</p></td></tr>
 			 

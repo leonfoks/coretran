@@ -10,7 +10,7 @@
     <meta name="author" content="Leon Foks" >
     <link rel="icon" href="../favicon.png">
 
-    <title>m_BinarySearch &ndash; Fortran Program</title>
+    <title>m_searching &ndash; Fortran Program</title>
 
     <link href="../css/bootstrap.min.css" rel="stylesheet">
     <link href="../css/pygments.css" rel="stylesheet">
@@ -108,7 +108,7 @@
     
   
   <div class="row">
-    <h1>m_BinarySearch 
+    <h1>m_searching 
     <small>Module</small>
     
     </h1>
@@ -126,18 +126,18 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 4.7% of total for modules and submodules.">214 statements</a>
+	  title=" 1.4% of total for modules and submodules.">90 statements</a>
      </li> 
      
      
-    <li><i class="fa fa-code"></i><a href="../src/m_BinarySearch.f90"> Source File</a></li>
+    <li><i class="fa fa-code"></i><a href="../src/m_searching.f90"> Source File</a></li>
      
   </ul>
   <ol class="breadcrumb in-well text-right">
   
-     <li><a href='../sourcefile/m_binarysearch.f90.html'>m_BinarySearch.f90</a></li>
+     <li><a href='../sourcefile/m_searching.f90.html'>m_searching.f90</a></li>
   
-     <li class="active">m_BinarySearch</li>
+     <li class="active">m_searching</li>
   </ol>
 </div>
 </div>
@@ -169,9 +169,11 @@
   <div id="inters-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../module/m_binarysearch.html#interface-binarysearch">binarySearch</a>
+      <a class="list-group-item" href="../module/m_searching.html#interface-binarysearch">binarySearch</a>
       
-      <a class="list-group-item" href="../module/m_binarysearch.html#interface-binarysearch_wneighbours">binarySearch_wNeighbours</a>
+      <a class="list-group-item" href="../module/m_searching.html#interface-intervalsearch">intervalSearch</a>
+      
+      <a class="list-group-item" href="../module/m_searching.html#interface-simplesearch">simpleSearch</a>
       
     </div>
   </div>
@@ -203,8 +205,6 @@
       
       <a class="list-group-item" href="../module/m_array1d.html">m_array1D</a>
       
-      <a class="list-group-item" href="../module/m_binarysearch.html">m_BinarySearch</a>
-      
       <a class="list-group-item" href="../module/m_compare.html">m_compare</a>
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
@@ -213,9 +213,13 @@
       
       <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
       
+      <a class="list-group-item" href="../module/m_dynamicarray.html">m_dynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_fixedarrays.html">m_fixedArrays</a>
       
       <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
       
@@ -237,9 +241,11 @@
       
       <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
       
-      <a class="list-group-item" href="../module/m_select.html">m_select</a>
+      <a class="list-group-item" href="../module/m_rnglib.html">m_rngLib</a>
       
-      <a class="list-group-item" href="../module/m_simplesearch.html">m_simpleSearch</a>
+      <a class="list-group-item" href="../module/m_searching.html">m_searching</a>
+      
+      <a class="list-group-item" href="../module/m_select.html">m_select</a>
       
       <a class="list-group-item" href="../module/m_sort.html">m_sort</a>
       
@@ -248,6 +254,8 @@
       <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
       
       <a class="list-group-item" href="../module/m_time.html">m_time</a>
+      
+      <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
       
       <a class="list-group-item" href="../module/m_writeline.html">m_writeline</a>
       
@@ -280,7 +288,50 @@
     
 
     
+  
+    <ul class="list-inline">
+      <li><h4>Descendants:</h4></li>
+      
+      <li><a href='../module/sm_binarysearch.html'>sm_BinarySearch</a></li>
+      
+      <li><a href='../module/sm_intervalsearch.html'>sm_intervalSearch</a></li>
+      
+      <li><a href='../module/sm_simplesearch.html'>sm_simpleSearch</a></li>
+      
+    </ul>
+  
+
     <p>Contains routines to perform a simple binary search on a vector</p>
+<p>Example usage</p>
+<div class="codehilite"><pre><span></span><span class="k">program </span><span class="n">binarySearch_test</span>
+<span class="k">use </span><span class="n">variableKind</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">i32</span><span class="p">,</span> <span class="n">r64</span>
+<span class="k">use </span><span class="n">m_BinarySearch</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">binarySearch</span>
+
+<span class="k">implicit none</span>
+
+<span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">arr</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">j</span>
+<span class="n">arr</span><span class="o">=</span><span class="p">[(</span><span class="nb">dble</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">binarySearch</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">1</span><span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Location of 10.0 in arr is 10? &#39;</span><span class="p">,</span><span class="n">j</span> <span class="o">==</span> <span class="mi">10</span>
+<span class="k">end program</span>
+</pre></div>
+
+
+<p>Perform a binary search but also return the neighbouring interval if the actual value is not found.
+ This is useful if you need to find a number that is not contained in the array and you want the interval</p>
+<p>Example usage</p>
+<div class="codehilite"><pre><span></span><span class="k">use </span><span class="n">variableKind</span>
+<span class="k">use </span><span class="n">m_BinarySearch</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">intervalSearch</span>
+<span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">arr</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">j</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">arr</span><span class="o">=</span><span class="p">[(</span><span class="nb">dble</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)]</span>
+<span class="n">j</span> <span class="o">=</span> <span class="n">intervalSearch</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span> <span class="mi">1</span><span class="mf">0.5</span><span class="n">d0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;Location of 10.5 in arr is -1? &#39;</span><span class="p">,</span><span class="n">j</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="s1">&#39;The interval containing 10.5 is [10,11]? &#39;</span><span class="p">,</span><span class="n">j</span><span class="p">(</span><span class="mi">2</span><span class="p">:</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">]</span>
+</pre></div>
     <br>
     
 
@@ -300,9 +351,11 @@
   <div id="inters-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../module/m_binarysearch.html#interface-binarysearch">binarySearch</a>
+      <a class="list-group-item" href="../module/m_searching.html#interface-binarysearch">binarySearch</a>
       
-      <a class="list-group-item" href="../module/m_binarysearch.html#interface-binarysearch_wneighbours">binarySearch_wNeighbours</a>
+      <a class="list-group-item" href="../module/m_searching.html#interface-intervalsearch">intervalSearch</a>
+      
+      <a class="list-group-item" href="../module/m_searching.html#interface-simplesearch">simpleSearch</a>
       
     </div>
   </div>
@@ -341,18 +394,231 @@
   
   <div class="panel-body">
     
-    <p>Perform a binary search</p>
+    <p>Perform a binary search.  See <a href="../module/m_searching.html">m_searching</a> for more information on how to use this interface</p>
   </div>
   
   <ul class="list-group">
   
   
+    <li class="list-group-item">
+    
+    
+    <h3>
+public recursive function binarySearch_i1D(this, v, imin, imax) result(iout)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Search for the value i in an integer vector
+ Assumes this is sorted!</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Vector to search within</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>v</strong></td><td><p>Number to find in the vector</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imin</strong></td><td><p>Left integer</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imax</strong></td><td><p>Right integer</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=i32)
+  </small></h4>
+  <p>Location of i in this. Returns -1 if not present</p>
+    
+
+    </li>
   
     <li class="list-group-item">
     
     
     <h3>
-private recursive function binarySearch_r1D(this, v, imin, imax) result(iout)
+public recursive function binarySearch_id1D(this, v, imin, imax) result(iout)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Search for the value i in an integer vector
+ Assumes this is sorted!</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Vector to search within</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>v</strong></td><td><p>Number to find in the vector</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imin</strong></td><td><p>Left integer</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imax</strong></td><td><p>Right integer</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=i32)
+  </small></h4>
+  <p>Location of i in this. Returns -1 if not present</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public recursive function binarySearch_r1D(this, v, imin, imax) result(iout)
     
     
 	 
@@ -459,7 +725,7 @@ private recursive function binarySearch_r1D(this, v, imin, imax) result(iout)
     
     
     <h3>
-private recursive function binarySearch_d1D(this, v, imin, imax) result(iout)
+public recursive function binarySearch_d1D(this, v, imin, imax) result(iout)
     
     
 	 
@@ -562,219 +828,6 @@ private recursive function binarySearch_d1D(this, v, imin, imax) result(iout)
 
     </li>
   
-    <li class="list-group-item">
-    
-    
-    <h3>
-private recursive function binarySearch_i1D(this, v, imin, imax) result(iout)
-    
-    
-	 
-</h3>
-    
-
-
-
-<p>Search for the value i in an integer vector
- Assumes this is sorted!</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td><p>Vector to search within</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>v</strong></td><td><p>Number to find in the vector</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>imin</strong></td><td><p>Left integer</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>imax</strong></td><td><p>Right integer</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=i32)
-  </small></h4>
-  <p>Location of i in this. Returns -1 if not present</p>
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private recursive function binarySearch_id1D(this, v, imin, imax) result(iout)
-    
-    
-	 
-</h3>
-    
-
-
-
-<p>Search for the value i in an integer vector
- Assumes this is sorted!</p>
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td><p>Vector to search within</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i64)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>v</strong></td><td><p>Number to find in the vector</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>imin</strong></td><td><p>Left integer</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>imax</strong></td><td><p>Right integer</p></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  
-  
-  
-  
-     <h4>Return Value <small>integer(kind=i32)
-  </small></h4>
-  <p>Location of i in this. Returns -1 if not present</p>
-    
-
-    </li>
   
   
   </ul>
@@ -783,25 +836,26 @@ private recursive function binarySearch_id1D(this, v, imin, imax) result(iout)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-binarysearch_wneighbours"></span><h3>public interface <a href='../interface/binarysearch_wneighbours.html'>binarySearch_wNeighbours</a>
+  <div class="panel-heading codesum"><span class="anchor" id="interface-intervalsearch"></span><h3>public interface <a href='../interface/intervalsearch.html'>intervalSearch</a>
     
   </h3></div>
   
   <div class="panel-body">
     
-    <p>Perform a binary search but also return the neighbours.
- This is useful if you need to find a number that is not contained in the array and you want the interval</p>
+    <p>Perform an interval search on an array
+ Returns a length 3 integer(i32) array where the last two entries are the left and right neighbours
+ The first entry of iout is -1 if the value is not present in the vector
+ Assumes this is sorted!See <a href="../module/m_searching.html">m_searching</a> for more information on how to use this interface</p>
   </div>
   
   <ul class="list-group">
   
   
-  
     <li class="list-group-item">
     
     
     <h3>
-private recursive function binarySearch_wNeighbours_r1D(this, v, imin, imax) result(iout)
+public recursive function intervalSearch_i1D(this, v, imin, imax) result(iout)
     
     
 	 
@@ -810,10 +864,219 @@ private recursive function binarySearch_wNeighbours_r1D(this, v, imin, imax) res
 
 
 
-<p>Perform a binary search on a double precision vector
- Returns a length 3 integer(i32) vector where the last two entries are the left and right neighbours
- The first entry of iout is -1 if the value is not present in the vector
- Assumes this is sorted!</p>
+<p>interfaced with <a href="../interface/intervalsearch.html">intervalSearch</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Vector to search within</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>v</strong></td><td><p>Number to find in the vector</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imin</strong></td><td><p>Left integer</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imax</strong></td><td><p>Right integer</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=i32)
+  (3)</small></h4>
+  <p>Location of i in this. iout(1) = -1 if not present with iout(2-3) as the interval</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public recursive function intervalSearch_id1D(this, v, imin, imax) result(iout)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>interfaced with <a href="../interface/intervalsearch.html">intervalSearch</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Vector to search within</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>v</strong></td><td><p>Number to find in the vector</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imin</strong></td><td><p>Left integer</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imax</strong></td><td><p>Right integer</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=i32)
+  (3)</small></h4>
+  <p>Location of i in this. iout(1) = -1 if not present with iout(2-3) as the interval</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public recursive function intervalSearch_r1D(this, v, imin, imax) result(iout)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>interfaced with <a href="../interface/intervalsearch.html">intervalSearch</a></p>
     
     <h4>Arguments</h4>
     
@@ -910,7 +1173,7 @@ private recursive function binarySearch_wNeighbours_r1D(this, v, imin, imax) res
     
     
     <h3>
-private recursive function binarySearch_wNeighbours_d1D(this, v, imin, imax) result(iout)
+public recursive function intervalSearch_d1D(this, v, imin, imax) result(iout)
     
     
 	 
@@ -919,10 +1182,7 @@ private recursive function binarySearch_wNeighbours_d1D(this, v, imin, imax) res
 
 
 
-<p>Perform a binary search on a double precision vector
- Returns a length 3 integer(i32) vector where the last two entries are the left and right neighbours
- The first entry of iout is -1 if the value is not present in the vector
- Assumes this is sorted!</p>
+<p>interfaced with <a href="../interface/intervalsearch.html">intervalSearch</a></p>
     
     <h4>Arguments</h4>
     
@@ -1015,11 +1275,31 @@ private recursive function binarySearch_wNeighbours_d1D(this, v, imin, imax) res
 
     </li>
   
+  
+  
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-simplesearch"></span><h3>public interface <a href='../interface/simplesearch.html'>simpleSearch</a>
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+    <p>Carry out a brute force search on an array for a given number. Returns -1 if the value is not found.</p>
+  </div>
+  
+  <ul class="list-group">
+  
+  
     <li class="list-group-item">
     
     
     <h3>
-private recursive function binarySearch_wNeighbours_i1D(this, v, imin, imax) result(iout)
+public function simpleSearch_i1D(this, val) result(iout)
     
     
 	 
@@ -1028,10 +1308,7 @@ private recursive function binarySearch_wNeighbours_i1D(this, v, imin, imax) res
 
 
 
-<p>Perform a binary search on an integer vector
- Returns a length 3 integer(i32) vector where the last two entries are the left and right neighbours
- The first entry of iout is -1 if the value is not present in the vector
- Assumes this is sorted!</p>
+<p>Interfaced with <a href="../interface/simplesearch.html">simpleSearch</a></p>
     
     <h4>Arguments</h4>
     
@@ -1057,7 +1334,7 @@ private recursive function binarySearch_wNeighbours_i1D(this, v, imin, imax) res
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td><p>Vector to search within</p></td>
+  <td><strong>this</strong>(:)</td><td><p>Search this vector</p></td>
   
 </tr>
 
@@ -1072,37 +1349,7 @@ private recursive function binarySearch_wNeighbours_i1D(this, v, imin, imax) res
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>v</strong></td><td><p>Number to find in the vector</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>imin</strong></td><td><p>Left integer</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>imax</strong></td><td><p>Right integer</p></td>
+  <td><strong>val</strong></td><td><p>Number to find in the vector</p></td>
   
 </tr>
 
@@ -1118,8 +1365,8 @@ private recursive function binarySearch_wNeighbours_i1D(this, v, imin, imax) res
   
   
      <h4>Return Value <small>integer(kind=i32)
-  (3)</small></h4>
-  <p>Location of i in this. iout(1) = -1 if not present with iout(2-3) as the interval</p>
+  </small></h4>
+  <p>Location of i in this</p>
     
 
     </li>
@@ -1128,7 +1375,7 @@ private recursive function binarySearch_wNeighbours_i1D(this, v, imin, imax) res
     
     
     <h3>
-private recursive function binarySearch_wNeighbours_id1D(this, v, imin, imax) result(iout)
+public function simpleSearch_id1D(this, val) result(iout)
     
     
 	 
@@ -1137,10 +1384,7 @@ private recursive function binarySearch_wNeighbours_id1D(this, v, imin, imax) re
 
 
 
-<p>Perform a binary search on an integer vector
- Returns a length 3 integer(i32) vector where the last two entries are the left and right neighbours
- The first entry of iout is -1 if the value is not present in the vector
- Assumes this is sorted!</p>
+<p>Interfaced with <a href="../interface/simplesearch.html">simpleSearch</a></p>
     
     <h4>Arguments</h4>
     
@@ -1166,7 +1410,7 @@ private recursive function binarySearch_wNeighbours_id1D(this, v, imin, imax) re
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td><p>Vector to search within</p></td>
+  <td><strong>this</strong>(:)</td><td><p>Search this vector</p></td>
   
 </tr>
 
@@ -1181,37 +1425,7 @@ private recursive function binarySearch_wNeighbours_id1D(this, v, imin, imax) re
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>v</strong></td><td><p>Number to find in the vector</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>imin</strong></td><td><p>Left integer</p></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>imax</strong></td><td><p>Right integer</p></td>
+  <td><strong>val</strong></td><td><p>Number to find in the vector</p></td>
   
 </tr>
 
@@ -1227,11 +1441,164 @@ private recursive function binarySearch_wNeighbours_id1D(this, v, imin, imax) re
   
   
      <h4>Return Value <small>integer(kind=i32)
-  (3)</small></h4>
-  <p>Location of i in this. iout(1) = -1 if not present with iout(2-3) as the interval</p>
+  </small></h4>
+  <p>Location of i in this</p>
     
 
     </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public function simpleSearch_r1D(this, val) result(iout)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/simplesearch.html">simpleSearch</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Search this vector</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>val</strong></td><td><p>Number to find in the vector</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=i32)
+  </small></h4>
+  <p>Location of i in this</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public function simpleSearch_d1D(this, val) result(iout)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/simplesearch.html">simpleSearch</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Search this vector</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>val</strong></td><td><p>Number to find in the vector</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>integer(kind=i32)
+  </small></h4>
+  <p>Location of i in this</p>
+    
+
+    </li>
+  
   
   
   </ul>
@@ -1269,8 +1636,6 @@ private recursive function binarySearch_wNeighbours_id1D(this, v, imin, imax) re
       
       <a class="list-group-item" href="../module/m_array1d.html">m_array1D</a>
       
-      <a class="list-group-item" href="../module/m_binarysearch.html">m_BinarySearch</a>
-      
       <a class="list-group-item" href="../module/m_compare.html">m_compare</a>
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
@@ -1279,9 +1644,13 @@ private recursive function binarySearch_wNeighbours_id1D(this, v, imin, imax) re
       
       <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
       
+      <a class="list-group-item" href="../module/m_dynamicarray.html">m_dynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_fixedarrays.html">m_fixedArrays</a>
       
       <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
       
@@ -1303,9 +1672,11 @@ private recursive function binarySearch_wNeighbours_id1D(this, v, imin, imax) re
       
       <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
       
-      <a class="list-group-item" href="../module/m_select.html">m_select</a>
+      <a class="list-group-item" href="../module/m_rnglib.html">m_rngLib</a>
       
-      <a class="list-group-item" href="../module/m_simplesearch.html">m_simpleSearch</a>
+      <a class="list-group-item" href="../module/m_searching.html">m_searching</a>
+      
+      <a class="list-group-item" href="../module/m_select.html">m_select</a>
       
       <a class="list-group-item" href="../module/m_sort.html">m_sort</a>
       
@@ -1314,6 +1685,8 @@ private recursive function binarySearch_wNeighbours_id1D(this, v, imin, imax) re
       <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
       
       <a class="list-group-item" href="../module/m_time.html">m_time</a>
+      
+      <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
       
       <a class="list-group-item" href="../module/m_writeline.html">m_writeline</a>
       

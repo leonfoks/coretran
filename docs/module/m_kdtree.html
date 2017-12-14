@@ -126,7 +126,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 1.8% of total for modules and submodules.">83 statements</a>
+	  title=" 1.6% of total for modules and submodules.">106 statements</a>
      </li> 
      
      
@@ -163,6 +163,17 @@
 
 
 
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-0">Interfaces</a></h3></div>
+  <div id="inters-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/m_kdtree.html#interface-kdtree">KdTree</a>
+      
+    </div>
+  </div>
+</div>
 
 
 
@@ -203,8 +214,6 @@
       
       <a class="list-group-item" href="../module/m_array1d.html">m_array1D</a>
       
-      <a class="list-group-item" href="../module/m_binarysearch.html">m_BinarySearch</a>
-      
       <a class="list-group-item" href="../module/m_compare.html">m_compare</a>
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
@@ -213,9 +222,13 @@
       
       <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
       
+      <a class="list-group-item" href="../module/m_dynamicarray.html">m_dynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_fixedarrays.html">m_fixedArrays</a>
       
       <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
       
@@ -237,9 +250,11 @@
       
       <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
       
-      <a class="list-group-item" href="../module/m_select.html">m_select</a>
+      <a class="list-group-item" href="../module/m_rnglib.html">m_rngLib</a>
       
-      <a class="list-group-item" href="../module/m_simplesearch.html">m_simpleSearch</a>
+      <a class="list-group-item" href="../module/m_searching.html">m_searching</a>
+      
+      <a class="list-group-item" href="../module/m_select.html">m_select</a>
       
       <a class="list-group-item" href="../module/m_sort.html">m_sort</a>
       
@@ -248,6 +263,8 @@
       <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
       
       <a class="list-group-item" href="../module/m_time.html">m_time</a>
+      
+      <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
       
       <a class="list-group-item" href="../module/m_writeline.html">m_writeline</a>
       
@@ -309,7 +326,7 @@ The searches are thread safe and can be used in a parallel region if multiple ar
 <span class="k">use </span><span class="n">m_KdTree</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">KdTree</span><span class="p">,</span> <span class="n">KdTreeSearch</span>
 <span class="k">use </span><span class="n">m_string</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">str</span>
 <span class="k">implicit none</span>
-<span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(:),</span> <span class="n">y</span><span class="p">(:)</span>
+<span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(:),</span> <span class="n">y</span><span class="p">(:),</span> <span class="n">z</span><span class="p">(:)</span>
 <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">N</span>
 <span class="k">type</span><span class="p">(</span><span class="n">KdTree</span><span class="p">)</span> <span class="kd">::</span> <span class="n">tree</span>
 <span class="k">type</span><span class="p">(</span><span class="n">KdSearch</span><span class="p">)</span> <span class="kd">::</span> <span class="n">search</span>
@@ -319,12 +336,20 @@ The searches are thread safe and can be used in a parallel region if multiple ar
 <span class="k">call allocate</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
 <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-<span class="k">call </span><span class="n">tree</span><span class="p">%</span><span class="n">init</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">KdTree</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="n">ia</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xQuery</span><span class="o">=</span><span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">yQuery</span><span class="o">=</span><span class="mf">0.</span><span class="n">d0</span><span class="p">)</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(3a)&#39;</span><span class="p">)</span><span class="s1">&#39;Nearest point to the query location: &#39;</span><span class="p">,</span> <span class="n">str</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">ia</span><span class="p">)),</span> <span class="n">str</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span>
 <span class="k">call </span><span class="n">tree</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
+
+<span class="k">call allocate</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">KdTree</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
+<span class="n">ia</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">xQuery</span><span class="o">=</span><span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">yQuery</span><span class="o">=</span><span class="mf">0.</span><span class="n">d0</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;Nearest point to the query location: &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">z</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span>
+<span class="k">call </span><span class="n">tree</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
 <span class="k">call deallocate</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">call deallocate</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="k">call deallocate</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
 <span class="k">end program</span>
 </pre></div>
     <br>
@@ -340,6 +365,17 @@ The searches are thread safe and can be used in a parallel region if multiple ar
 
 
 
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-1">Interfaces</a></h3></div>
+  <div id="inters-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/m_kdtree.html#interface-kdtree">KdTree</a>
+      
+    </div>
+  </div>
+</div>
 
 
 
@@ -376,6 +412,260 @@ The searches are thread safe and can be used in a parallel region if multiple ar
     
     
     
+    <section>
+	 <h2>Interfaces</h2>
+	 
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-kdtree"></span><h3>public interface <a href='../interface/kdtree.html'>KdTree</a>
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+    <p>Overloaded Initializer for a KdTree.</p>
+  </div>
+  
+  <ul class="list-group">
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public function init2D_KdTree(x, y) result(this)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Overloaded by interface <a href="../type/kdtree.html">KdTree</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x</strong>(:)</td><td><p>x-coordinates of the points</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>y</strong>(:)</td><td><p>y-coordinates of the points</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>type(<a href='../type/kdtree.html'>KdTree</a>)
+  </small></h4>
+  <p>KdTree Class</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public function init3D_KdTree(x, y, z) result(this)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Overloaded by interface <a href="../type/kdtree.html">KdTree</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>x</strong>(:)</td><td><p>x-coordinates of the points</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>y</strong>(:)</td><td><p>y-coordinates of the points</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>z</strong>(:)</td><td><p>z-coordinates of the points</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>type(<a href='../type/kdtree.html'>KdTree</a>)
+  </small></h4>
+  <p>KdTree Class</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public function initKD_KdTree(D) result(this)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Overloaded by interface <a href="../type/kdtree.html">KdTree</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>D</strong>(:,:)</td><td><p>Coordinates of the points, the k columns contain the k dimensional values.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>type(<a href='../type/kdtree.html'>KdTree</a>)
+  </small></h4>
+  <p>KdTree Class</p>
+    
+
+    </li>
+  
+  
+  
+  </ul>
+</div>
+
+    
+    </section>
+	<br>
+    
 
     
     
@@ -395,16 +685,32 @@ The searches are thread safe and can be used in a parallel region if multiple ar
     
      
      
+     <h4>Constructor</h4>
+       
+         <p>Overloaded Initializer for a KdTree.</p>
+       
+       <table class="table table-striped varlist">
+      <tbody>
+        
+             
+             <tr><td>public  function <strong>init2D_KdTree</strong>(x, y)</td><td><p>Overloaded by interface <a href="../type/kdtree.html">KdTree</a></p></td></tr>
+             
+             <tr><td>public  function <strong>init3D_KdTree</strong>(x, y, z)</td><td><p>Overloaded by interface <a href="../type/kdtree.html">KdTree</a></p></td></tr>
+             
+             <tr><td>public  function <strong>initKD_KdTree</strong>(D)</td><td><p>Overloaded by interface <a href="../type/kdtree.html">KdTree</a></p></td></tr>
+             
+             
+        
+       </tbody>
+       </table>
+     
           
      
      <h4>Type-Bound Procedures</h4>
       <table class="table table-striped varlist">
       <tbody>
       
-       <tr><td>generic, public :: <strong><a href='../type/kdtree.html#boundprocedure-init'>init</a></strong>  => ikdt2 </td>
-       <td><p>KdTree%init() - Initialize the class</p></td></tr>
-      
-       <tr><td>procedure, public :: <strong><a href='../type/kdtree.html#boundprocedure-deallocate'>deallocate</a></strong>  => deallocate_KdTree </td>
+       <tr><td>procedure, public :: <strong><a href='../type/kdtree.html#boundprocedure-deallocate%7E5'>deallocate</a></strong>  => deallocate_KdTree </td>
        <td><p>kdTree%deallocate() - deallocate the recursive pointers</p></td></tr>
       
        </tbody>
@@ -432,11 +738,8 @@ The searches are thread safe and can be used in a parallel region if multiple ar
       <table class="table table-striped varlist">
       <tbody>
       
-       <tr><td>procedure, public :: <strong><a href='../type/kdtreesearch.html#boundprocedure-init%7E2'>init</a></strong>  => init_KdTreeSearch </td>
-       <td><p>Initialize the class</p></td></tr>
-      
-       <tr><td>generic, public :: <strong><a href='../type/kdtreesearch.html#boundprocedure-knearest'>kNearest</a></strong>  => kNearest2D </td>
-       <td><p>Perform a k nearest neighbour search</p></td></tr>
+       <tr><td>generic, public :: <strong><a href='../type/kdtreesearch.html#boundprocedure-knearest'>kNearest</a></strong>  => kNearest2D, kNearest3D, kNearestKD </td>
+       <td><p>KdTreeSearch%kNearest() - Perform a k nearest neighbour search</p></td></tr>
       
        </tbody>
        </table>
@@ -472,8 +775,6 @@ The searches are thread safe and can be used in a parallel region if multiple ar
       
       <a class="list-group-item" href="../module/m_array1d.html">m_array1D</a>
       
-      <a class="list-group-item" href="../module/m_binarysearch.html">m_BinarySearch</a>
-      
       <a class="list-group-item" href="../module/m_compare.html">m_compare</a>
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
@@ -482,9 +783,13 @@ The searches are thread safe and can be used in a parallel region if multiple ar
       
       <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
       
+      <a class="list-group-item" href="../module/m_dynamicarray.html">m_dynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_fixedarrays.html">m_fixedArrays</a>
       
       <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
       
@@ -506,9 +811,11 @@ The searches are thread safe and can be used in a parallel region if multiple ar
       
       <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
       
-      <a class="list-group-item" href="../module/m_select.html">m_select</a>
+      <a class="list-group-item" href="../module/m_rnglib.html">m_rngLib</a>
       
-      <a class="list-group-item" href="../module/m_simplesearch.html">m_simpleSearch</a>
+      <a class="list-group-item" href="../module/m_searching.html">m_searching</a>
+      
+      <a class="list-group-item" href="../module/m_select.html">m_select</a>
       
       <a class="list-group-item" href="../module/m_sort.html">m_sort</a>
       
@@ -517,6 +824,8 @@ The searches are thread safe and can be used in a parallel region if multiple ar
       <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
       
       <a class="list-group-item" href="../module/m_time.html">m_time</a>
+      
+      <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
       
       <a class="list-group-item" href="../module/m_writeline.html">m_writeline</a>
       

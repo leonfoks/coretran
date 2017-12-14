@@ -126,7 +126,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 8.1% of total for modules and submodules.">368 statements</a>
+	  title=" 3.2% of total for modules and submodules.">210 statements</a>
      </li> 
      
      
@@ -164,18 +164,6 @@
       
       <a class="list-group-item" href="../module/m_random.html#variable-isinitialized">isInitialized</a>
       
-      <a class="list-group-item" href="../module/m_random.html#variable-zero">zero</a>
-      
-      <a class="list-group-item" href="../module/m_random.html#variable-half">half</a>
-      
-      <a class="list-group-item" href="../module/m_random.html#variable-one">one</a>
-      
-      <a class="list-group-item" href="../module/m_random.html#variable-two">two</a>
-      
-      <a class="list-group-item" href="../module/m_random.html#variable-vsmall">vsmall</a>
-      
-      <a class="list-group-item" href="../module/m_random.html#variable-vlarge">vlarge</a>
-      
     </div>
   </div>
 </div>
@@ -194,21 +182,21 @@
       
       <a class="list-group-item" href="../module/m_random.html#interface-setrng">setRNG</a>
       
-      <a class="list-group-item" href="../module/m_random.html#interface-shuffle">shuffle</a>
-      
-      <a class="list-group-item" href="../module/m_random.html#interface-rnginteger">rngInteger</a>
-      
-      <a class="list-group-item" href="../module/m_random.html#interface-rngweibull">rngWeibull</a>
+      <a class="list-group-item" href="../module/m_random.html#interface-rngchisq">rngChisq</a>
       
       <a class="list-group-item" href="../module/m_random.html#interface-rngexponential">rngExponential</a>
       
-      <a class="list-group-item" href="../module/m_random.html#interface-rngchisq">rngChisq</a>
-      
       <a class="list-group-item" href="../module/m_random.html#interface-rnggamma">rngGamma</a>
+      
+      <a class="list-group-item" href="../module/m_random.html#interface-rnginteger">rngInteger</a>
       
       <a class="list-group-item" href="../module/m_random.html#interface-rngnormal">rngNormal</a>
       
+      <a class="list-group-item" href="../module/m_random.html#interface-shuffle">shuffle</a>
+      
       <a class="list-group-item" href="../module/m_random.html#interface-rnguniform">rngUniform</a>
+      
+      <a class="list-group-item" href="../module/m_random.html#interface-rngweibull">rngWeibull</a>
       
     </div>
   </div>
@@ -217,6 +205,17 @@
 
 
 
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-0" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/m_random.html#proc-random_test">random_test</a>
+      
+    </div>
+  </div>
+</div>
 
 
 
@@ -240,8 +239,6 @@
       
       <a class="list-group-item" href="../module/m_array1d.html">m_array1D</a>
       
-      <a class="list-group-item" href="../module/m_binarysearch.html">m_BinarySearch</a>
-      
       <a class="list-group-item" href="../module/m_compare.html">m_compare</a>
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
@@ -250,9 +247,13 @@
       
       <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
       
+      <a class="list-group-item" href="../module/m_dynamicarray.html">m_dynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_fixedarrays.html">m_fixedArrays</a>
       
       <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
       
@@ -274,9 +275,11 @@
       
       <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
       
-      <a class="list-group-item" href="../module/m_select.html">m_select</a>
+      <a class="list-group-item" href="../module/m_rnglib.html">m_rngLib</a>
       
-      <a class="list-group-item" href="../module/m_simplesearch.html">m_simpleSearch</a>
+      <a class="list-group-item" href="../module/m_searching.html">m_searching</a>
+      
+      <a class="list-group-item" href="../module/m_select.html">m_select</a>
       
       <a class="list-group-item" href="../module/m_sort.html">m_sort</a>
       
@@ -285,6 +288,8 @@
       <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
       
       <a class="list-group-item" href="../module/m_time.html">m_time</a>
+      
+      <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
       
       <a class="list-group-item" href="../module/m_writeline.html">m_writeline</a>
       
@@ -310,23 +315,29 @@
     <ul class="list-inline">
       <li><h4>Uses:</h4></li>
       
-      <li><a href="https://software.intel.com/en-us/node/511041">iso_fortran_env</a></li>
-      
       <li><a href='../module/variablekind.html'>variableKind</a></li>
+      
+      <li><a href='../module/m_allocate.html'>m_allocate</a></li>
+      
+      <li><a href='../module/m_deallocate.html'>m_deallocate</a></li>
       
       <li><a href='../module/m_errors.html'>m_errors</a></li>
       
       <li><a href='../module/m_strings.html'>m_strings</a></li>
       
-      <li><a href='../module/m_indexing.html'>m_indexing</a></li>
+      <li><a href="https://software.intel.com/en-us/node/511041">iso_fortran_env</a></li>
+      
+      <li><a href='../module/m_array1d.html'>m_array1D</a></li>
+      
+      <li><a href='../module/m_unittester.html'>m_unitTester</a></li>
       
     </ul>
     
     
 
     
-    <p>Routines for random number generation.  The original code is provided via Netlib at http://www.netlib.org/random/random.f90
- Adapted from Fortran 77 code from the book:
+    <p>Routines for random number generation.  The original code is provided via Netlib at http://www.netlib.org/random/random.f90</p>
+<p>Adapted from Fortran 77 code from the book:
      Dagpunar, J. 'Principles of random variate generation'
      Clarendon Press, Oxford, 1988.   ISBN 0-19-852202-9</p>
 <p>FUNCTION GENERATES A RANDOM VARIATE IN [0,1]
@@ -1086,18 +1097,6 @@ P = BERNOULLI SUCCESS PROBABILITY
       
       <a class="list-group-item" href="../module/m_random.html#variable-isinitialized">isInitialized</a>
       
-      <a class="list-group-item" href="../module/m_random.html#variable-zero">zero</a>
-      
-      <a class="list-group-item" href="../module/m_random.html#variable-half">half</a>
-      
-      <a class="list-group-item" href="../module/m_random.html#variable-one">one</a>
-      
-      <a class="list-group-item" href="../module/m_random.html#variable-two">two</a>
-      
-      <a class="list-group-item" href="../module/m_random.html#variable-vsmall">vsmall</a>
-      
-      <a class="list-group-item" href="../module/m_random.html#variable-vlarge">vlarge</a>
-      
     </div>
   </div>
 </div>
@@ -1116,21 +1115,21 @@ P = BERNOULLI SUCCESS PROBABILITY
       
       <a class="list-group-item" href="../module/m_random.html#interface-setrng">setRNG</a>
       
-      <a class="list-group-item" href="../module/m_random.html#interface-shuffle">shuffle</a>
-      
-      <a class="list-group-item" href="../module/m_random.html#interface-rnginteger">rngInteger</a>
-      
-      <a class="list-group-item" href="../module/m_random.html#interface-rngweibull">rngWeibull</a>
+      <a class="list-group-item" href="../module/m_random.html#interface-rngchisq">rngChisq</a>
       
       <a class="list-group-item" href="../module/m_random.html#interface-rngexponential">rngExponential</a>
       
-      <a class="list-group-item" href="../module/m_random.html#interface-rngchisq">rngChisq</a>
-      
       <a class="list-group-item" href="../module/m_random.html#interface-rnggamma">rngGamma</a>
+      
+      <a class="list-group-item" href="../module/m_random.html#interface-rnginteger">rngInteger</a>
       
       <a class="list-group-item" href="../module/m_random.html#interface-rngnormal">rngNormal</a>
       
+      <a class="list-group-item" href="../module/m_random.html#interface-shuffle">shuffle</a>
+      
       <a class="list-group-item" href="../module/m_random.html#interface-rnguniform">rngUniform</a>
+      
+      <a class="list-group-item" href="../module/m_random.html#interface-rngweibull">rngWeibull</a>
       
     </div>
   </div>
@@ -1139,6 +1138,17 @@ P = BERNOULLI SUCCESS PROBABILITY
 
 
 
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-1" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/m_random.html#proc-random_test">random_test</a>
+      
+    </div>
+  </div>
+</div>
 
 
 
@@ -1177,90 +1187,6 @@ P = BERNOULLI SUCCESS PROBABILITY
   <td>protected</td>
   <td></td><td>::</td>
   <td><strong>isInitialized</strong></td><td> =</td><td>.false.</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-zero"></span>real(kind=r64),</td>
-  
-  <td>protected</td>
-  <td></td><td>::</td>
-  <td><strong>zero</strong></td><td> =</td><td>0.d0</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-half"></span>real(kind=r64),</td>
-  
-  <td>protected</td>
-  <td></td><td>::</td>
-  <td><strong>half</strong></td><td> =</td><td>0.5d0</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-one"></span>real(kind=r64),</td>
-  
-  <td>protected</td>
-  <td></td><td>::</td>
-  <td><strong>one</strong></td><td> =</td><td>1.d0</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-two"></span>real(kind=r64),</td>
-  
-  <td>protected</td>
-  <td></td><td>::</td>
-  <td><strong>two</strong></td><td> =</td><td>2.d0</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-vsmall"></span>real(kind=r64),</td>
-  
-  <td>protected</td>
-  <td></td><td>::</td>
-  <td><strong>vsmall</strong></td><td> =</td><td>TINY(1.d0)</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" id="variable-vlarge"></span>real(kind=r64),</td>
-  
-  <td>protected</td>
-  <td></td><td>::</td>
-  <td><strong>vlarge</strong></td><td> =</td><td>HUGE(1.d0)</td><td></td>
   
 </tr>
 
@@ -1405,6 +1331,1246 @@ private subroutine setRNG_WOseed(display)
     
 	   
 <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-rngchisq"></span><h3>public interface <a href='../interface/rngchisq.html'>rngChisq</a>
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+    <p>Pull from a Chi Ssquared distribution</p>
+  </div>
+  
+  <ul class="list-group">
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngChisq_d1(this, ndf, first)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rngchisq.html">rngChisq</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>ndf</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>first</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngChisq_d1D(this, ndf, first)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rngchisq.html">rngChisq</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>ndf</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>first</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+  
+  
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-rngexponential"></span><h3>public interface <a href='../interface/rngexponential.html'>rngExponential</a>
+    
+  </h3></div>
+  
+  <ul class="list-group">
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngExponential_d1(this)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rngexponential.html">rngExponential</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>Random number</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngExponential_d1D(this)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rngexponential.html">rngExponential</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Random numbers</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+  
+  
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-rnggamma"></span><h3>public interface <a href='../interface/rnggamma.html'>rngGamma</a>
+    
+  </h3></div>
+  
+  <ul class="list-group">
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngGamma_d1D(this, s, first)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rnggamma.html">rngGamma</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>s</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>first</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngGamma_d1(this, s, first)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rnggamma.html">rngGamma</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>s</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>first</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+  
+  
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-rnginteger"></span><h3>public interface <a href='../interface/rnginteger.html'>rngInteger</a>
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+    <p>Generate size(this) random integers starting from imin</p>
+  </div>
+  
+  <ul class="list-group">
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngInteger_i1(this, imin, imax)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rnginteger.html">rngInteger</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imin</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imax</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngInteger_i1D(this, imin, imax)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rnginteger.html">rngInteger</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imin</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imax</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngInteger_i2D(this, imin, imax)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rnginteger.html">rngInteger</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:,:)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imin</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imax</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngInteger_i3D(this, imin, imax)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rnginteger.html">rngInteger</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:,:,:)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imin</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imax</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngInteger_i1D_i1(this, imin)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rnginteger.html">rngInteger</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>imin</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+  
+  
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-rngnormal"></span><h3>public interface <a href='../interface/rngnormal.html'>rngNormal</a>
+    
+  </h3></div>
+  
+  <ul class="list-group">
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngNormal_d1(this, mean, std)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rngnormal.html">rngNormal</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>mean</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>std</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngNormal_d1D(this, mean, std)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rngnormal.html">rngNormal</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>mean</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>std</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngNormal_d2D(this, mean, std)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rngnormal.html">rngNormal</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:,:)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>mean</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>std</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngNormal_d3D(this, mean, std)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rngnormal.html">rngNormal</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:,:,:)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>mean</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>std</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+  
+  
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="interface-shuffle"></span><h3>public interface <a href='../interface/shuffle.html'>shuffle</a>
     
   </h3></div>
@@ -1430,7 +2596,7 @@ public subroutine shuffle_r1D(this)
 
 
 
-<p>Interfaced with shuffle()</p>
+<p>Interfaced with <a href="../interface/shuffle.html">shuffle</a></p>
     
     <h4>Arguments</h4>
     
@@ -1451,8 +2617,8 @@ public subroutine shuffle_r1D(this)
   
 <tr>
   
-  <td><span class="anchor" ></span>real(kind=r32)</td>
-  <td></td>
+  <td><span class="anchor" ></span>real(kind=r32),</td>
+  <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
@@ -1482,7 +2648,7 @@ public subroutine shuffle_d1D(this)
 
 
 
-<p>Interfaced with shuffle()</p>
+<p>Interfaced with <a href="../interface/shuffle.html">shuffle</a></p>
     
     <h4>Arguments</h4>
     
@@ -1503,8 +2669,8 @@ public subroutine shuffle_d1D(this)
   
 <tr>
   
-  <td><span class="anchor" ></span>real(kind=r64)</td>
-  <td></td>
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
@@ -1534,7 +2700,7 @@ public subroutine shuffle_i1D(this)
 
 
 
-<p>Interfaced with shuffle()</p>
+<p>Interfaced with <a href="../interface/shuffle.html">shuffle</a></p>
     
     <h4>Arguments</h4>
     
@@ -1555,8 +2721,8 @@ public subroutine shuffle_i1D(this)
   
 <tr>
   
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
@@ -1586,7 +2752,7 @@ public subroutine shuffle_id1D(this)
 
 
 
-<p>Interfaced with shuffle()</p>
+<p>Interfaced with <a href="../interface/shuffle.html">shuffle</a></p>
     
     <h4>Arguments</h4>
     
@@ -1607,8 +2773,8 @@ public subroutine shuffle_id1D(this)
   
 <tr>
   
-  <td><span class="anchor" ></span>integer(kind=i64)</td>
-  <td></td>
+  <td><span class="anchor" ></span>integer(kind=i64),</td>
+  <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
@@ -1633,19 +2799,18 @@ public subroutine shuffle_id1D(this)
     
 	   
 <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-rnginteger"></span><h3>public interface <a href='../interface/rnginteger.html'>rngInteger</a>
+  <div class="panel-heading codesum"><span class="anchor" id="interface-rnguniform"></span><h3>public interface <a href='../interface/rnguniform.html'>rngUniform</a>
     
   </h3></div>
   
   <ul class="list-group">
   
   
-  
     <li class="list-group-item">
     
     
     <h3>
-private subroutine rngInteger_i1(this, imin, imax)
+public subroutine rngUniform_d1(this, rmin, rmax)
     
     
 	 
@@ -1654,7 +2819,7 @@ private subroutine rngInteger_i1(this, imin, imax)
 
 
 
-<p>Generate a random integer from imin to imax</p>
+<p>Interfaced with <a href="../interface/rnguniform.html">rngUniform</a></p>
     
     <h4>Arguments</h4>
     
@@ -1675,8 +2840,8 @@ private subroutine rngInteger_i1(this, imin, imax)
   
 <tr>
   
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
@@ -1690,12 +2855,12 @@ private subroutine rngInteger_i1(this, imin, imax)
   
 <tr>
   
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>imin</strong></td><td></td>
+  <td><strong>rmin</strong></td><td></td>
   
 </tr>
 
@@ -1705,12 +2870,12 @@ private subroutine rngInteger_i1(this, imin, imax)
   
 <tr>
   
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>imax</strong></td><td></td>
+  <td><strong>rmax</strong></td><td></td>
   
 </tr>
 
@@ -1727,7 +2892,7 @@ private subroutine rngInteger_i1(this, imin, imax)
     
     
     <h3>
-private subroutine rngInteger_i1D(this, imin)
+public subroutine rngUniform_d1D(this, rmin, rmax)
     
     
 	 
@@ -1736,7 +2901,7 @@ private subroutine rngInteger_i1D(this, imin)
 
 
 
-<p>Generate size(this) random integers starting from imin</p>
+<p>Interfaced with <a href="../interface/rnguniform.html">rngUniform</a></p>
     
     <h4>Arguments</h4>
     
@@ -1757,8 +2922,8 @@ private subroutine rngInteger_i1D(this, imin)
   
 <tr>
   
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(inout)</td>
   <td></td>
   
   <td></td><td>::</td>
@@ -1772,12 +2937,27 @@ private subroutine rngInteger_i1D(this, imin)
   
 <tr>
   
-  <td><span class="anchor" ></span>integer(kind=i32)</td>
-  <td></td>
-  <td></td>
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
   
   <td></td><td>::</td>
-  <td><strong>imin</strong></td><td></td>
+  <td><strong>rmin</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>rmax</strong></td><td></td>
   
 </tr>
 
@@ -1789,6 +2969,171 @@ private subroutine rngInteger_i1D(this, imin)
     
 
     </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngUniform_d2D(this, rmin, rmax)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rnguniform.html">rngUniform</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:,:)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>rmin</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>rmax</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine rngUniform_d3D(this, rmin, rmax)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Interfaced with <a href="../interface/rnguniform.html">rngUniform</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong>(:,:,:)</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>rmin</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>rmax</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
   
   
   </ul>
@@ -1804,17 +3149,20 @@ private subroutine rngInteger_i1D(this, imin)
   <ul class="list-group">
   
   
-  
     <li class="list-group-item">
     
     
     <h3>
-private subroutine rngWeibull_d1(this, den)
+public subroutine rngWeibull_d1(this, den)
     
     
 	 
 </h3>
     
+
+
+
+<p>Interfaced with <a href="../interface/rngweibull.html">rngWeibull</a></p>
     
     <h4>Arguments</h4>
     
@@ -1840,7 +3188,7 @@ private subroutine rngWeibull_d1(this, den)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
+  <td><strong>this</strong></td><td><p>Random number</p></td>
   
 </tr>
 
@@ -1855,7 +3203,7 @@ private subroutine rngWeibull_d1(this, den)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>den</strong></td><td></td>
+  <td><strong>den</strong></td><td><p>Weibull probability density</p></td>
   
 </tr>
 
@@ -1872,12 +3220,16 @@ private subroutine rngWeibull_d1(this, den)
     
     
     <h3>
-private subroutine rngWeibull_d1D(this, den)
+public subroutine rngWeibull_d1D(this, den)
     
     
 	 
 </h3>
     
+
+
+
+<p>Interfaced with <a href="../interface/rngweibull.html">rngWeibull</a></p>
     
     <h4>Arguments</h4>
     
@@ -1903,7 +3255,7 @@ private subroutine rngWeibull_d1D(this, den)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td></td>
+  <td><strong>this</strong>(:)</td><td><p>Random numbers</p></td>
   
 </tr>
 
@@ -1918,7 +3270,7 @@ private subroutine rngWeibull_d1D(this, den)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>den</strong></td><td></td>
+  <td><strong>den</strong></td><td><p>Weibull probability density</p></td>
   
 </tr>
 
@@ -1931,1034 +3283,6 @@ private subroutine rngWeibull_d1D(this, den)
 
     </li>
   
-  
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-rngexponential"></span><h3>public interface <a href='../interface/rngexponential.html'>rngExponential</a>
-    
-  </h3></div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine rngExponential_d1(this)
-    
-    
-	 
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine rngExponential_d1D(this)
-    
-    
-	 
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-  
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-rngchisq"></span><h3>public interface <a href='../interface/rngchisq.html'>rngChisq</a>
-    
-  </h3></div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine rngChisq_d1(this, ndf, first)
-    
-    
-	 
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer,</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>ndf</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>first</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine rngChisq_d1D(this, ndf, first)
-    
-    
-	 
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>integer,</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>ndf</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>first</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-  
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-rnggamma"></span><h3>public interface <a href='../interface/rnggamma.html'>rngGamma</a>
-    
-  </h3></div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine rngGamma_d1(this, s, first)
-    
-    
-	 
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>s</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>first</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine rngGamma_d1D(this, s, first)
-    
-    
-	 
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>s</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>logical,</td>
-  <td>intent(in)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>first</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-  
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-rngnormal"></span><h3>public interface <a href='../interface/rngnormal.html'>rngNormal</a>
-    
-  </h3></div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine rngNormal_d1(this, mean, std)
-    
-    
-	 
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td>intent(inout)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>mean</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>std</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine rngNormal_d1D(this, mean, std)
-    
-    
-	 
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td></td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>mean</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td></td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>std</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine rngNormal_d2D(this, mean, std)
-    
-    
-	 
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:,:)</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td></td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>mean</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td></td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>std</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine rngNormal_d3D(this, mean, std)
-    
-    
-	 
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:,:,:)</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td></td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>mean</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td></td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>std</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-  
-  </ul>
-</div>
-
-    
-	   
-<div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="interface-rnguniform"></span><h3>public interface <a href='../interface/rnguniform.html'>rngUniform</a>
-    
-  </h3></div>
-  
-  <ul class="list-group">
-  
-  
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine rngUniform_d1(this, rmin, rmax)
-    
-    
-	 
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td>intent(inout)</td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>rmin</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td>intent(in),</td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>rmax</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine rngUniform_d1D(this, rmin, rmax)
-    
-    
-	 
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:)</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td></td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>rmin</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td></td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>rmax</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
-  
-    <li class="list-group-item">
-    
-    
-    <h3>
-private subroutine rngUniform_d2D(this, rmin, rmax)
-    
-    
-	 
-</h3>
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>this</strong>(:,:)</td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td></td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>rmin</strong></td><td></td>
-  
-</tr>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>real(kind=r64),</td>
-  <td></td>
-  <td>optional</td>
-  
-  <td></td><td>::</td>
-  <td><strong>rmax</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-    </li>
   
   
   </ul>
@@ -2975,6 +3299,63 @@ private subroutine rngUniform_d2D(this, rmin, rmax)
     
     
 
+    
+    <section>
+    <h2>Subroutines</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-random_test"></span><h3>
+public subroutine <a href='../proc/random_test.html'>random_test</a>(test)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/tester.html'>tester</a>)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>test</strong></td><td><p>write(*,1) 'Setting the random seed'</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+    
+    </section>    
+    <br>
     
     
     
@@ -2996,8 +3377,6 @@ private subroutine rngUniform_d2D(this, rmin, rmax)
       
       <a class="list-group-item" href="../module/m_array1d.html">m_array1D</a>
       
-      <a class="list-group-item" href="../module/m_binarysearch.html">m_BinarySearch</a>
-      
       <a class="list-group-item" href="../module/m_compare.html">m_compare</a>
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
@@ -3006,9 +3385,13 @@ private subroutine rngUniform_d2D(this, rmin, rmax)
       
       <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
       
+      <a class="list-group-item" href="../module/m_dynamicarray.html">m_dynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_fixedarrays.html">m_fixedArrays</a>
       
       <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
       
@@ -3030,9 +3413,11 @@ private subroutine rngUniform_d2D(this, rmin, rmax)
       
       <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
       
-      <a class="list-group-item" href="../module/m_select.html">m_select</a>
+      <a class="list-group-item" href="../module/m_rnglib.html">m_rngLib</a>
       
-      <a class="list-group-item" href="../module/m_simplesearch.html">m_simpleSearch</a>
+      <a class="list-group-item" href="../module/m_searching.html">m_searching</a>
+      
+      <a class="list-group-item" href="../module/m_select.html">m_select</a>
       
       <a class="list-group-item" href="../module/m_sort.html">m_sort</a>
       
@@ -3041,6 +3426,8 @@ private subroutine rngUniform_d2D(this, rmin, rmax)
       <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
       
       <a class="list-group-item" href="../module/m_time.html">m_time</a>
+      
+      <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
       
       <a class="list-group-item" href="../module/m_writeline.html">m_writeline</a>
       

@@ -1,6 +1,8 @@
 module m_time
   !! Contains functions that handle time
 use variableKind
+use m_errors, only: msg
+use m_unitTester, only: tester
 implicit none
 contains
   !=====================================================================!
@@ -82,5 +84,25 @@ contains
   write(res,10) hrs,min,sec,msec
 10 format(i0,':',i2,':',i2,'.',i3,' (h:m:s)')
   end function
+  !=====================================================================!
+  !=====================================================================!
+  subroutine time_test(test)
+  !=====================================================================!
+  class(tester) :: test
+  call Msg('==========================')
+  call Msg('Testing : time')
+  call Msg('==========================')
+  call test%test(timeinseconds([0,0,0,0,0,0,0,8]) == 8.d-3,'timeinseconds')
+  call test%test(timeinseconds([0,0,0,0,0,0,1,0]) == 1.d0 ,'timeinseconds')
+  call test%test(timeinseconds([0,0,0,0,0,1,0,0]) == 60.d0,'timeinseconds')
+  call test%test(timeinseconds([0,0,0,0,1,0,0,0]) == 3600.d0,'timeinseconds')
+  call test%test(timeinseconds([0,0,1,0,0,0,0,0]) == 86400.d0,'timeinseconds')
+  call test%test(timeinseconds([0,0,1,0,1,1,1,8]) == 90061.008d0,'timeinseconds')
+  call test%test(daysinMonth(2,2012) == 29,'daysinMonth')
+  call test%test(daysinMonth(2,2014) == 28,'daysinMonth')
+  call test%test(daysinYear(2012) == 366,'daysinYear')
+  call test%test(isLeapYear(2012).eqv. .true.,'isLeapYear')
+  call test%test(absTimetoHMS(90031.008d0) == '25: 0:31.  8 (h:m:s)','absTimetoHMS')
+  end subroutine
   !=====================================================================!
 end module

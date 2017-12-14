@@ -1,6 +1,8 @@
   module m_indexing
     !! Contains routines to obtain packed and unpacked indices into arrays
   use variableKind
+  use m_errors, only: msg
+  use m_unitTester, only: tester
   implicit none
 
   contains
@@ -72,5 +74,31 @@
     if (i > n) i=n
   endif
   end function
+  !====================================================================!
+  !====================================================================!
+  subroutine indexing_test(test)
+  !====================================================================!
+  class(tester) :: test
+
+  integer(i32) :: ia1D(3), ic1D(3)
+  integer(i32) :: ia
+
+  call Msg('==========================')
+  call Msg('Testing : Indexing')
+  call Msg('==========================')
+
+  ia1D = [3,4,7]
+  ic1D = [3,5,9]
+  ia = - 1
+  ia = sub2ind(ia1D,ic1D)
+  write(*,1) 'sub2ind([3,4,7],[3,5,9]) = 102'
+  call test%test(ia == 102,'sub2ind')
+  ia=99
+  ia1D = 0
+  ia1D = ind2sub(ia,ic1D)
+  write(*,1) 'ind2sub(99,[3,5,9]) = [3,3,7]'
+  call test%test(all(ia1D == [3,3,7]),'ind2sub')
+  1 format(a)
+  end subroutine
   !====================================================================!
   end module
