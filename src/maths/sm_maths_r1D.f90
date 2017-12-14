@@ -1,13 +1,5 @@
-submodule (m_maths) sm_maths_d1d
+submodule (m_maths) sm_maths_r1d
   !! Implement math routines for double precision arrays
-use variableKind
-use m_allocate, only: allocate
-use m_deallocate, only: deallocate
-use m_errors, only:eMsg
-use m_sort, only: argsort
-use m_select, only: argSelect
-use m_array1D, only: arange
-
 implicit none
 
 contains
