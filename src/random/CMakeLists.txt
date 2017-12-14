@@ -2,4 +2,10 @@ target_sources(${libName}
     PUBLIC
         "${CMAKE_CURRENT_LIST_DIR}/m_random.f90"
         "${CMAKE_CURRENT_LIST_DIR}/sm_shuffle.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/sm_rngInteger.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/sm_rngNormal.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/sm_rngUniform.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/sm_rngGamma.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/sm_rngChiSq.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/sm_rngExponential.f90"
 )

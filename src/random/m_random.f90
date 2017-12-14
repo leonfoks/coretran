@@ -12,15 +12,19 @@ module m_random
     !     Author: Leon Foks
 
   use variableKind
-  use m_errors, only: eMsg, mErr
+  use m_allocate, only: allocate
+  use m_deallocate, only: deallocate
+  use m_errors, only: eMsg, mErr, msg
   use m_strings, only: printOptions, str
   use iso_fortran_env, only: output_unit
   use m_array1D, only: arange
+  use m_unitTester, only: tester
 
   implicit none
 
   private
 
+  public :: random_test
 
   real(r64), parameter, private :: zero = 0.d0, half = 0.5d0, one = 1.d0, two = 2.d0
   real(r64), parameter, private :: vsmall = TINY(1.d0), vlarge = HUGE(1.d0)
@@ -119,19 +123,47 @@ module m_random
   interface rngInteger
     !! Generate size(this) random integers starting from imin
     !====================================================================!
-    module subroutine rngInteger_i1D(this,imin)
+    module subroutine rngInteger_i1(this,imin, imax)
+      !! Interfaced with [[rngInteger]]
+    !====================================================================!
+    integer(i32), intent(inout) :: this
+    integer(i32), intent(in) :: imin
+    integer(i32), intent(in) :: imax
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine rngInteger_i1D(this,imin, imax)
       !! Interfaced with [[rngInteger]]
     !====================================================================!
     integer(i32), intent(inout) :: this(:)
     integer(i32), intent(in) :: imin
+    integer(i32), intent(in) :: imax
     end subroutine
     !====================================================================!
     !====================================================================!
-    module subroutine rngInteger_i1(this,imin,imax)
+    module subroutine rngInteger_i2D(this,imin, imax)
       !! Interfaced with [[rngInteger]]
     !====================================================================!
-    integer(i32), intent(inout) :: this
-    integer(i32), intent(in) :: imin,imax
+    integer(i32), intent(inout) :: this(:,:)
+    integer(i32), intent(in) :: imin
+    integer(i32), intent(in) :: imax
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine rngInteger_i3D(this,imin, imax)
+      !! Interfaced with [[rngInteger]]
+    !====================================================================!
+    integer(i32), intent(inout) :: this(:,:,:)
+    integer(i32), intent(in) :: imin
+    integer(i32), intent(in) :: imax
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine rngInteger_i1D_i1(this,imin)
+      !! Interfaced with [[rngInteger]]
+    !====================================================================!
+    integer(i32), intent(inout) :: this(:)
+    integer(i32), intent(in) :: imin
     end subroutine
     !====================================================================!
   end interface
@@ -325,56 +357,99 @@ module m_random
   subroutine randomizeSeed(seed)
     !! Randomizes the seed for the random number generator
   !====================================================================!
-  integer(i32) :: seed(:)
-  integer(i32) :: i, n, un, istat,dt(8)
-  integer(i64) :: t
+    integer(i32) :: seed(:)
+    integer(i32) :: i, n, un, istat,dt(8)
+    integer(i64) :: t
 
-  n=size(seed)
-  if (size(seed)/=n) call Emsg('setRNG : Seed muse be size '//str(n))
-  ! First try if the OS provides a random number generator
-  open(newunit=un, file="/dev/urandom", access="stream", &
-    form="unformatted", action="read", status="old", iostat=istat)
-  if (istat == 0) then
-    read(un) seed
-    close(un)
-  else
-    ! Fallback to XOR:ing the current time and pid. The PID is
-    ! useful in case one launches multiple instances of the same
-    ! program in parallel.
-    call system_clock(t)
-    if (t == 0) then
-      call date_and_time(values=dt)
-      t = (dt(1) - 1970) * 365_i64 * 86400000 &
-        + dt(2) * 31_i64 * 86400000 &
-        + dt(3) * 86400000 &
-        + dt(5) * 3600000 &
-        + dt(6) * 60000 + dt(7) * 1000 &
-        + dt(8)
+    n=size(seed)
+    if (size(seed)/=n) call Emsg('setRNG : Seed muse be size '//str(n))
+    ! First try if the OS provides a random number generator
+    open(newunit=un, file="/dev/urandom", access="stream", &
+      form="unformatted", action="read", status="old", iostat=istat)
+    if (istat == 0) then
+      read(un) seed
+      close(un)
+    else
+      ! Fallback to XOR:ing the current time and pid. The PID is
+      ! useful in case one launches multiple instances of the same
+      ! program in parallel.
+      call system_clock(t)
+      if (t == 0) then
+        call date_and_time(values=dt)
+        t = (dt(1) - 1970) * 365_i64 * 86400000 &
+          + dt(2) * 31_i64 * 86400000 &
+          + dt(3) * 86400000 &
+          + dt(5) * 3600000 &
+          + dt(6) * 60000 + dt(7) * 1000 &
+          + dt(8)
+      end if
+      ! Getpid is a Gnu function.  Intel must use ifport, but the integer is only int*4 :(
+      !pid = getpid()
+      !t = ieor(t, int(pid, kind(t)))
+      do i = 1, n
+        seed(i) = lcg(t)
+      end do
     end if
-    ! Getpid is a Gnu function.  Intel must use ifport, but the integer is only int*4 :(
-    !pid = getpid()
-    !t = ieor(t, int(pid, kind(t)))
-    do i = 1, n
-      seed(i) = lcg(t)
-    end do
-  end if
   contains
+    !====================================================================!
+    !====================================================================!
+    function lcg(s) result(res)
+      !! This simple PRNG might not be good enough for real work, but is
+      !! sufficient for seeding a better PRNG.
+    !====================================================================!
+    integer(i32) :: res
+    integer(i64) :: s
+    if (s == 0) then
+      s = 104729
+    else
+      s = mod(s, 4294967296_i64)
+    end if
+    s = mod(s * 279470273_i64, 4294967291_i64)
+    res = int(mod(s, int(huge(0), i64)), kind(0))
+    end function
+  end subroutine
   !====================================================================!
   !====================================================================!
-  function lcg(s) result(res)
-    !! This simple PRNG might not be good enough for real work, but is
-    !! sufficient for seeding a better PRNG.
+  subroutine random_test(test)
   !====================================================================!
-  integer(i32) :: res
-  integer(i64) :: s
-  if (s == 0) then
-    s = 104729
-  else
-    s = mod(s, 4294967296_i64)
-  end if
-  s = mod(s * 279470273_i64, 4294967291_i64)
-  res = int(mod(s, int(huge(0), i64)), kind(0))
-  end function
+  class(tester) :: test
+!  integer(i32) :: ia
+!  integer(i32), allocatable :: ia1D(:)
+!  real(r64) :: a, a1D(10), a2D(10, 10)
+!  character(len=:), allocatable :: cTest
+!
+!  call Msg('==========================')
+!  call Msg('Testing : Random')
+!  call Msg('==========================')
+!!
+!!  write(*,1) 'Setting the random seed'
+!!
+!!  !call setRNG(.true.)
+!!  !call setRNG([546420601, 1302718556, 802583095, 136684118, 1163051410, 592779069, 660876855, 767615536, 1788597594, 775517554, 657867655, 1334969129])
+!  call random_seed(size = ia)
+!  call allocate(ia1D, ia)
+!  ia1D = 546420601
+!  call setRNG(ia1D)
+!  call allocate(ia1D, 3)
+!  ia=1
+!  call rngInteger(ia1D,ia)
+!  write(*,1) 'Random integers'
+!  write(*,1) str(ia1D)
+!  call rngNormal(a)
+!  write(*,1) 'Dble random number'
+!  write(*,1) str(a)
+!  call rngNormal(a1D)
+!  write(*,1) '~N(mean=0.0,std=1.0)'
+!  write(*,1) str(a1D)
+!  call rngNormal(a1D, 1.d0, 5.d0)
+!  write(*,1) '~N(mean=1.0,std=5.0) 1D array'
+!  write(*,1) str(a1D)
+!  a2D = 0.d0
+!  call rngNormal(a2D,50.d0,10.d0)
+!  write(*,1) '~N(mean=50.0,std=10.0) 2D array reduced output'
+!  cTest = str(a2D)
+!  write(*,1) cTest
+!  1 format(a)
   end subroutine
   !====================================================================!
 
