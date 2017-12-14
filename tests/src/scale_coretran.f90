@@ -5,7 +5,7 @@ program scaleTest_coretran
   use variableKind
   use m_array1D
   use m_errors
-  use m_fileIO
+  use m_fileIO, only: openFile, closeFile
   use m_indexing
   use m_random
   use m_readLine
@@ -19,10 +19,9 @@ program scaleTest_coretran
   use m_Sort
   !use m_PartialQuicksort
   use m_Select
-  !use m_medianOfMedians
-  !use m_Select_FloydRivest
-  !use m_heapSelect
   use m_maths
+
+  use m_searching, only: binarySearch
 
   use Stopwatch_Class
   use ProgressBar_Class
@@ -43,7 +42,7 @@ program scaleTest_coretran
   real(r64),allocatable :: a1D(:),b1D(:),c1D(:)
   real(r64),allocatable :: a2D(:,:),b2D(:,:)
   real(r64),allocatable :: a3D(:,:,:),b3D(:,:,:)
-  integer(i32) :: ia,ib,ic,id
+  integer(i32) :: ia,ib,ic,id,ie
   integer(i32), allocatable :: ia1D(:),ib1D(:),ic1D(:)
   integer(i32), allocatable :: ia2D(:,:),ib2D(:,:)
   integer(i32), allocatable :: ia3D(:,:,:),ib3D(:,:,:)
@@ -69,19 +68,33 @@ program scaleTest_coretran
   type(KdTree) :: tree
   type(KdTreeSearch) :: search
 
-  N=2**24
+  integer(i32) :: iunit
+  integer(i32) :: maxSize = 24
+  integer(i32), parameter :: nSizes = 6
+  integer(i32) :: sizes(nSizes)
+  real(r64) :: times(nSizes)
+
+  ! Open a file for python plotting
+  call openFile('scale_results.txt', iunit, 'unknown', istat)
+
+  ! Set the max length of the tests
+  N = 2**maxSize
+  ! Set a repetition for very quick algorithms
+  ic = 1e6
+
+  ! Set the sizes
+  do ia = 0, nSizes-1
+    sizes(ia+1) = 2**(maxSize-ia)
+  enddo
+
+  write(iunit, '(a)') str(sizes)
 
   ! Set a fixed seed
   call allocate(ia1D, 33)
   ia1D = 546420601
   call setRNG(ia1D)
 
-
-  call Msg('==========================')
-  call Msg('Testing : Sorting')
-  call Msg('==========================')
-
-  ! Initial setup for testing
+    ! Initial setup for testing
   call allocate(ar1D, N)
   call allocate(br1D, N)
   call allocate(a1D, N)
@@ -93,21 +106,30 @@ program scaleTest_coretran
   call rngNormal(a1D)
   ar1D = real(a1D)
 
-  call Msg('Size  Time(s)')
-  call Msg('---  Timing the double precision introspection sort ---')
+  call Msg('==========================')
+  call Msg('Testing : Sorting')
+  call Msg('==========================')
 
-  do ia = 0, 5
-    ib = 2**(24-ia)
+  call Msg('Size  Time(s)')
+  call Msg('Double precision introspection sort', iunit)
+
+  do ia = 0, nSizes-1
+    ib = sizes(ia+1)
     b1D(1:ib) = a1D(1:ib)
 
     call clk%restart()
     call sort(b1D(1:ib))
     call clk%stop()
-    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+    times(ia+1) = clk%elapsedInSeconds()
+    call msg(str(ib)//' '//str(times(ia+1)))
+
     if (ia == 0) c1D=b1D
   enddo
 
-  call Msg('---  Timing the already sorted double precision introspection sort ---')
+  ! Write the times
+  write(iunit, '(a)') str(times)
+
+  call Msg('Already sorted double precision introspection sort', iunit)
 
   b1D = c1D
 
@@ -116,10 +138,14 @@ program scaleTest_coretran
     call clk%restart()
     call sort(b1D(1:ib))
     call clk%stop()
-    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+    times(ia+1) = clk%elapsedInSeconds()
+    call msg(str(ib)//' '//str(times(ia+1)))
   enddo
 
-  call Msg('---  Timing the double precision merge sort ---')
+  ! Write the times
+  write(iunit, '(a)') str(times)
+
+  call Msg('Double precision merge sort', iunit)
   do ia = 0, 5
     ib = 2**(24-ia)
     b1D(1:ib) = a1D(1:ib)
@@ -127,10 +153,14 @@ program scaleTest_coretran
     call clk%restart()
     call sort(b1D(1:ib), stable=.true.)
     call clk%stop()
-    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+    times(ia+1) = clk%elapsedInSeconds()
+    call msg(str(ib)//' '//str(times(ia+1)))
   enddo
 
-  call Msg('---  Timing the already sorted double precision merge sort ---')
+  ! Write the times
+  write(iunit, '(a)') str(times)
+
+  call Msg('Already sorted double precision merge sort', iunit)
   b1D = c1D
   do ia = 0, 5
     ib = 2**(24-ia)
@@ -138,27 +168,65 @@ program scaleTest_coretran
     call clk%restart()
     call sort(b1D(1:ib), stable=.true.)
     call clk%stop()
-    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+    times(ia+1) = clk%elapsedInSeconds()
+    call msg(str(ib)//' '//str(times(ia+1)))
   enddo
+
+  ! Write the times
+  write(iunit, '(a)') str(times)
+
+  call Msg('==========================')
+  call Msg('Testing : Binary Search')
+  call Msg('==========================')
+
+  call allocate(ia1D, ic)
+  b1D = c1D
+
+  call Msg('Double precision binary search', iunit)
+  do ia = 0, 5
+    ib = sizes(ia+1)
+    call rngInteger(ia1D, 1, ib)
+
+    call clk%restart()
+    do id = 1, ic
+      a = b1D(ia1D(id))
+      ie = binarySearch(b1D(1:ib), a, 1, ib)
+    enddo
+    call clk%stop()
+    times(ia+1) = clk%elapsedInSeconds()/dble(ic)
+    call msg(str(ib)//' '//str(times(ia+1)))
+
+  enddo
+
+  write(iunit,'(a)') str(times)
+
+  call allocate(ia1D,N)
+
 
   call Msg('==========================')
   call Msg('Testing : Selection')
   call Msg('==========================')
 
-  call Msg('---  Timing the double precision quick select ---')
+  call Msg('Double precision quick select', iunit)
+
+  ic = 1
   do ia = 0, 5
     ib = 2**(24-ia)
-    b1D(1:ib) = a1D(1:ib)
 
-    ic = (ib+1)/2
+    ie = (ib+1)/2
 
     call clk%restart()
-    call select(b1D(1:ib), ic, a)
+    do id = 1, ic
+      b1D(1:ib) = a1D(1:ib)
+      call select(b1D(1:ib), ie, a)
+    enddo
     call clk%stop()
-    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+    times(ia+1) = clk%elapsedInSeconds()/dble(ic)
+    call msg(str(ib)//' '//str(times(ia+1)))
   enddo
+  write(iunit,'(a)') str(times)
 
-  call Msg('---  Timing the already sorted double precision quick select ---')
+  call Msg('Already sorted double precision quick select', iunit)
   b1D = c1D
   do ia = 0, 5
     ib = 2**(24-ia)
@@ -168,51 +236,54 @@ program scaleTest_coretran
     call clk%restart()
     call select(b1D(1:ib), ic, a)
     call clk%stop()
-    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+    times(ia+1) = clk%elapsedInSeconds()/dble(ic)
+    call msg(str(ib)//' '//str(times(ia+1)))
   enddo
+  write(iunit,'(a)') str(times)
 
 
-  call Msg('==========================')
-  call Msg('Testing : Spatial')
-  call Msg('==========================')
-  call Msg('---  Timing the 2D KdTree ---')
-  call rngNormal(a1D)
-  call rngNormal(b1D)
-  do ia = 0, 5
-    ib = 2**(24-ia)
+!  call Msg('==========================')
+!  call Msg('Testing : Spatial')
+!  call Msg('==========================')
+!  call Msg('---  Timing the 2D KdTree ---')
+!  call rngNormal(a1D)
+!  call rngNormal(b1D)
+!  do ia = 0, 5
+!    ib = 2**(24-ia)
+!
+!    call clk%restart()
+!    call tree%init(a1D(1:ib), b1D(1:ib))
+!    call clk%stop()
+!    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+!  enddo
+!  call tree%deallocate()
+!
+!  call Msg('---  Timing the 3D KdTree ---')
+!  call rngNormal(c1D)
+!  do ia = 0, 5
+!    ib = 2**(24-ia)
+!
+!    call clk%restart()
+!    call tree%init(a1D(1:ib), b1D(1:ib), c1D(1:ib))
+!    call clk%stop()
+!    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+!  enddo
+!  call tree%deallocate()
+!
+!  call allocate(a2D, [N, 5])
+!  call Msg('---  Timing the ND KdTree ---')
+!  call rngNormal(a2D)
+!  do ia = 0, 5
+!    ib = 2**(24-ia)
+!
+!    call clk%restart()
+!    call tree%init(a2D(1:ib,:))
+!    call clk%stop()
+!    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+!  enddo
+!  call tree%deallocate()
 
-    call clk%restart()
-    call tree%init(a1D(1:ib), b1D(1:ib))
-    call clk%stop()
-    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
-  enddo
-  call tree%deallocate()
-
-  call Msg('---  Timing the 3D KdTree ---')
-  call rngNormal(c1D)
-  do ia = 0, 5
-    ib = 2**(24-ia)
-
-    call clk%restart()
-    call tree%init(a1D(1:ib), b1D(1:ib), c1D(1:ib))
-    call clk%stop()
-    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
-  enddo
-  call tree%deallocate()
-
-  call allocate(a2D, [N, 5])
-  call Msg('---  Timing the ND KdTree ---')
-  call rngNormal(a2D)
-  do ia = 0, 5
-    ib = 2**(24-ia)
-
-    call clk%restart()
-    call tree%init(a2D(1:ib,:))
-    call clk%stop()
-    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
-  enddo
-  call tree%deallocate()
-
+  call closeFile('scale_results.txt',iunit,'',istat)
 
   stop
 1 format(a)
