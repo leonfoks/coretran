@@ -16,4 +16,5 @@ target_sources(${libName}
         "${CMAKE_CURRENT_LIST_DIR}/m_copy.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_partition.f90"
         "${CMAKE_CURRENT_LIST_DIR}/sm_partition.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_unitTester.f90"
 )
