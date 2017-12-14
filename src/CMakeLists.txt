@@ -29,5 +29,6 @@ include(sorting/CMakeLists.txt)
 include(spatial/CMakeLists.txt)
 # Maths
 include(maths/CMakeLists.txt)
-
+# Dynamic Arrays
+include(dynamicArrays/CMakeLists.txt)
 # Thats it! Simple!
