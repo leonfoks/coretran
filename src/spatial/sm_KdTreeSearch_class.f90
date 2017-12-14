@@ -5,15 +5,15 @@ implicit none
 
 contains
 
-  !====================================================================!
-  module procedure init_KdTreeSearch
-    !! Overloaded Type bound procedure KdTreeSearch%init()
-  !====================================================================!
-  !class(KdTreeSearch) :: this
-  this%currentNearest = 0
-  this%distance = huge(0.d0)
-  end procedure
-  !====================================================================!
+!  !====================================================================!
+!  module procedure init_KdTreeSearch
+!    !! Overloaded Type bound procedure KdTreeSearch%init()
+!  !====================================================================!
+!  !class(KdTreeSearch) :: this
+!  this%currentNearest = 0
+!  this%distance = huge(0.d0)
+!  end procedure
+!  !====================================================================!
   !====================================================================!
   module procedure kNearest_2D ! (search, tree, x, y, xQuery, yQuery) result(nearest)
     !! Overloaded Type bound procedure KdTreeSearch%kNearest()

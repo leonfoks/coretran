@@ -30,15 +30,16 @@ module m_KdTree
   !!call allocate(y, N)
   !!call rngNormal(x)
   !!call rngNormal(y)
-  !!call tree%init(x, y)
+  !!tree = KdTree(x, y)
   !!ia = search%kNearest(tree, x, y, xQuery=0.d0, yQuery=0.d0)
   !!write(*,'(3a)')'Nearest point to the query location: ', str(x(ia)), str(y(ia))
   !!call tree%deallocate()
   !!
   !!call allocate(z, N)
-  !!call tree%init(x, y, z)
+  !!call rngNormal(z)
+  !!tree = KdTree(x, y, z)
   !!ia = search%kNearest(tree, x, y, z, xQuery=0.d0, yQuery=0.d0)
-  !!write(*,'4(a,1x)')'Nearest point to the query location:', str(x(ia)), str(y(ia)), srt(z(ia))
+  !!write(*,'(a)')'Nearest point to the query location: '//str(x(ia))//str(y(ia))//str(z(ia))
   !!call tree%deallocate()
   !!call deallocate(x)
   !!call deallocate(y)
@@ -70,7 +71,9 @@ module m_KdTree
     type(KdTreeBranch), pointer :: buds(:) => null()
   contains
     procedure :: init => init_branch
+      !! KdTreeBranch%init() - Initialize the class
     procedure :: deallocate => deallocate_branch
+      !! KdTreeBranch%deallocate() - deallocate the branch
   end type
   !====================================================================!
   !====================================================================!
@@ -83,11 +86,6 @@ module m_KdTree
     integer(i32) :: N
     logical(i32) :: set =.false.
   contains
-    generic, public :: init => ikdt2D, ikdt3D,ikdtKD
-      !! KdTree%init() - Initialize the class
-    procedure, private :: ikdt2D => init2D_KdTree
-    procedure, private :: ikdt3D => init3D_KdTree
-    procedure, private :: ikdtKD => initKD_KdTree
     procedure, public :: deallocate => deallocate_KdTree
       !! kdTree%deallocate() - deallocate the recursive pointers
   end type
@@ -95,15 +93,15 @@ module m_KdTree
   !====================================================================!
   type, public :: KdTreeSearch
     !!Class to search a KdTree.  See [[m_KdTree]] for more information on how to use this class.
-    private
-    integer(i32) :: currentNearest
-    real(r64) :: distance
   contains
-    procedure, public :: init => init_KdTreeSearch !! Initialize the class
-    generic, public :: kNearest => kNearest2D, kNearest3D, kNearestKD !! Perform a k nearest neighbour search
+    generic, public :: kNearest => kNearest2D, kNearest3D, kNearestKD
+      !! KdTreeSearch%kNearest() - Perform a k nearest neighbour search
     procedure, private :: kNearest2D => kNearest_2D
+      !! Overloaded typebound procedure with KdTreeSearch%kNearest()
     procedure, private :: kNearest3D => kNearest_3D
+      !! Overloaded typebound procedure with KdTreeSearch%kNearest()
     procedure, private :: kNearestKD => kNearest_KD
+      !! Overloaded typebound procedure with KdTreeSearch%kNearest()
   end type
   !====================================================================!
 
@@ -135,26 +133,29 @@ module m_KdTree
   end interface
 
 
-  interface
+  interface KdTree
+    !!Overloaded Initializer for a KdTree.
+    !!
+    !!Can be used to create a 2D, 3D, or ND, KdTree class.
+    !!
+    !!See [[m_KdTree]] for more information on how to use this class
     !====================================================================!
-    module subroutine init2D_KdTree(this, x, y)
-      !! Overloaded Type bound procedure KdTree%init()
+    module function init2D_KdTree(x, y) result(this)
+      !! Overloaded by interface [[KdTree(type)]]
     !====================================================================!
-    class(kdTree) :: this
+    type(kdTree) :: this
       !! KdTree Class
     real(r64),intent(in) :: x(:)
       !! x-coordinates of the points
     real(r64),intent(in) :: y(:)
       !! y-coordinates of the points
-    end subroutine
+    end function
     !====================================================================!
-  end interface
-  interface
     !====================================================================!
-    module subroutine init3D_KdTree(this, x, y, z)
-      !! Overloaded Type bound procedure KdTree%init()
+    module function init3D_KdTree(x, y, z) result(this)
+      !! Overloaded by interface [[KdTree(type)]]
     !====================================================================!
-    class(kdTree) :: this
+    type(kdTree) :: this
       !! KdTree Class
     real(r64),intent(in) :: x(:)
       !! x-coordinates of the points
@@ -162,19 +163,17 @@ module m_KdTree
       !! y-coordinates of the points
     real(r64),intent(in) :: z(:)
       !! z-coordinates of the points
-    end subroutine
+    end function
     !====================================================================!
-  end interface
-  interface
     !====================================================================!
-    module subroutine initKD_KdTree(this, D)
-      !! Overloaded Type bound procedure KdTree%init()
+    module function initKD_KdTree(D) result(this)
+      !! Overloaded by interface [[KdTree(type)]]
     !====================================================================!
-    class(kdTree) :: this
+    type(kdTree) :: this
       !! KdTree Class
     real(r64),intent(in) :: D(:,:)
       !! Coordinates of the points, the k columns contain the k dimensional values.
-    end subroutine
+    end function
     !====================================================================!
   end interface
   interface
@@ -189,16 +188,16 @@ module m_KdTree
   end interface
 
 
-  interface
-    !====================================================================!
-    module subroutine init_KdTreeSearch(this)
-      !! Overloaded Type bound procedure KdTreeSearch%init()
-    !====================================================================!
-    class(KdTreeSearch) :: this
-      !! KdTreeSearch class
-    end subroutine
-    !====================================================================!
-  end interface
+!  interface
+!    !====================================================================!
+!    module subroutine init_KdTreeSearch(this)
+!      !! Overloaded Type bound procedure KdTreeSearch%init()
+!    !====================================================================!
+!    class(KdTreeSearch) :: this
+!      !! KdTreeSearch class
+!    end subroutine
+!    !====================================================================!
+!  end interface
   interface
     !====================================================================!
     module function kNearest_2D(search, tree, x, y, xQuery, yQuery) result(nearest)

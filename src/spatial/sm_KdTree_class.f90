@@ -32,6 +32,7 @@ contains
 
   ! Allocate the auxiliary space
   call allocate(aux, this%N)
+  aux = 0.d0
 
   ! Grow the KD tree
   call growKdTree_2D(this%trunk, x, y, this%indx, aux)
@@ -48,7 +49,7 @@ contains
   integer(i32), intent(inout) :: indx(:)
   real(r64), intent(inout) :: aux(:)
 
-  integer(i32) :: splitAlong, iMedian, iMid, istat, N
+  integer(i32) :: i,i1,splitAlong, iMedian, iMid, istat, N
   real(r64) :: maxVariance
 
   N = trunk%right - trunk%left + 1
@@ -59,11 +60,17 @@ contains
   ! Arrays of size 5 or less are the leaves at the end of the branch
   if (N > 5) then
     ! Assign first dimension as split along to begin with
-    aux(1:N) = x(indx(trunk%left:trunk%right))
+    do i = 0, N-1
+        i1 = indx(trunk%left+i)
+        aux(i+1) = x(i1)
+    enddo
     maxVariance = variance(aux(1:N))
     splitAlong = 1
     ! Test the second dimension
-    aux(1:N) = y(indx(trunk%left:trunk%right))
+    do i = 0, N-1
+        i1 = indx(trunk%left+i)
+        aux(i+1) = y(i1)
+    enddo
     if (variance(aux(1:N)) > maxVariance) then
       splitAlong = 2
     end if
