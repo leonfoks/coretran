@@ -24,7 +24,15 @@
   if (present(step)) step_ = step
   N=int((stp-start)/step_)+1
   if (size(res) /= N) call eMsg('arange_r1D:1D Array must be size '//str(N))
-  res=[(start+real(i-1)*step_,i=1,N)]
+  if (step_ == 1.0) then
+      do i = 1, N
+          res(i) = start + real(i-1, kind=r32)
+      enddo
+  else
+      do i = 1, N
+          res(i) = start + real(i-1, kind=r32)*step_
+      enddo
+  endif
   end procedure
   !====================================================================!
   !====================================================================!
@@ -54,6 +62,25 @@
   yes=.true.
   do i=2,N
     if (this(i) < this(i-1)) then
+      yes=.false.
+      return
+    end if
+  end do
+  end procedure
+  !====================================================================!
+  !====================================================================!
+  module procedure isSorted_r1Di1D
+    !! Interfaced with [[isSorted]]
+  !====================================================================!
+  !module function isSorted_d1D(this) result(yes)
+  !real(r64):: this(:) !! 1D array
+  !integer(i32) :: indx(:)
+  !logical :: yes !! isSorted
+  integer :: i,N
+  N=size(this)
+  yes=.true.
+  do i=2,N
+    if (this(indx(i)) < this(indx(i-1))) then
       yes=.false.
       return
     end if
