@@ -56,8 +56,8 @@ elseif (${F90tag} MATCHES "ifort")
   endif ()
   
   if (APPLE)
-    set (CMAKE_Fortran_FLAGS_RELEASE "-O3 -qopenmp -axCORE-AVX2,CORE-AVX-I,AVX,SSE4.2,SSSE3 -ipo -no-prec-div -fp-model fast=2 -mkl")
-    set (CMAKE_Fortran_FLAGS_DEBUG "-Od -openmp -traceback -CB -fp-stack-check -gen-interfaces -warn interfaces -mkl")
+    set (CMAKE_Fortran_FLAGS_RELEASE "-O3 -qopenmp -axCORE-AVX2,CORE-AVX-I,AVX,SSE4.2,SSSE3 -no-prec-div -fp-model fast=2")
+    set (CMAKE_Fortran_FLAGS_DEBUG "-O0 -qopenmp -traceback -CB -fp-stack-check -gen-interfaces -warn interfaces")
   endif ()
 endif()
 
