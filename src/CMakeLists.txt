@@ -1,12 +1,12 @@
 cmake_minimum_required (VERSION 3.8)
-project (libFortran)
+project (coretran)
 enable_language (Fortran)
 
 # Setup the Fortran cmake environment
 include(../myCMakeFiles/FortranEnvironment.cmake)
 
 # Initialize the library with no files added yet
-set(libName Fortran)
+set(libName coretran)
 
 # Create the library
 add_library(${libName} ${libType} "")
