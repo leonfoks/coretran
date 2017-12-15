@@ -223,8 +223,8 @@ Here is a small example of how this library makes Fortran easier to use (especia
 ### Fortran code to allocate an array, create some numbers, and compute their mean.
 
 ```fortran
-program theMean
-use, intrisic :: iso_fortran_env, only: real64, int32
+program theMean_test
+use, intrinsic :: iso_fortran_env, only: real64, int32
 implicit none
 real(real64), allocatable :: a(:)
 real(real64) :: theMean
