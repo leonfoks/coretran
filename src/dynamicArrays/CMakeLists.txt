@@ -1,0 +1,8 @@
+target_sources(${libName}
+	PUBLIC
+        "${CMAKE_CURRENT_LIST_DIR}/m_rDynamicArray.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_dDynamicArray.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_iDynamicArray.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_idDynamicArray.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_rArgDynamicArray.f90"
+)
