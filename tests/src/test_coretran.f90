@@ -24,7 +24,7 @@ program test_coretran
 
   use Stopwatch_Class
   use ProgressBar_Class
-  use m_dynamicArray
+  !use m_dynamicArray
   implicit none
 
   type(tester) :: test
@@ -192,7 +192,7 @@ program test_coretran
   call tree%deallocate()
 
 
-  call dynamicArray_test(test)
+  !call rDynamicArray_test(test)
 
 
   call test%summary()
