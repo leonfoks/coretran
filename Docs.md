@@ -20,7 +20,7 @@ source: false
 sort: order
 graph: false
 coloured_edges: false
-search: true
+search: false
 macro: TEST
        LOGIC=.true.
 exclude: sm_array_r1D.f90
@@ -49,7 +49,6 @@ exclude: sm_array_r1D.f90
 	 sm_KdTreeBranch_class.f90  
 	 sm_KdTreeSearch_class.f90  
 	 sm_KdTree_class.f90
-         sm_dDynamicArray.f90
-         sm_idDynamicArray.f90
-         sm_iDynamicArray.f90
-         sm_rDynamicArray.f90
+         sm_binarySearch.f90
+         sm_intervalSearch.f90
+         sm_simpleSearch.f90
