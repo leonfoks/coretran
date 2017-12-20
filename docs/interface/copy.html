@@ -1,0 +1,2463 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	 <meta name="description" content="Modern well documented core Fortran routines for cleaner, smarter code.">
+    
+    <meta name="author" content="Leon Foks" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>copy &ndash; Fortran Program</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">Fortran Program </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>copy
+	 <small>Interface</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title="<p> 2.8% of total for procedures.</p>Including implementation: 86 statements,  2.8% of total for procedures.">86 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/m_copy.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/m_copy.f90.html'>m_copy.f90</a></li>
+  
+     <li><a href='../module/m_copy.html'>m_copy</a></li>
+  
+     <li class="active">copy</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+      
+<div id="sidebar">
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-0" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_r1d">copy_r1D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_r2d">copy_r2D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_r3d">copy_r3D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_d1d">copy_d1D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_d2d">copy_d2D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_d3d">copy_d3D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_i1d">copy_i1D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_i2d">copy_i2D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_i3d">copy_i3D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_id1d">copy_id1D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_id2d">copy_id2D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_id3d">copy_id3D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_c1d">copy_c1D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_c2d">copy_c2D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_c3d">copy_c3D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_z1d">copy_z1D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_z2d">copy_z2D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_z3d">copy_z3D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_l1d">copy_l1D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_l2d">copy_l2D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_l3d">copy_l3D</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprocs-0">All Procedures</a></h3></div>
+  <div id="allprocs-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/abstimetohms.html">absTimetoHMS</a>
+      
+      <a class="list-group-item" href="../proc/advance_state.html">advance_state</a>
+      
+      <a class="list-group-item" href="../interface/allocate.html">allocate</a>
+      
+      <a class="list-group-item" href="../proc/allocate_test.html">allocate_test</a>
+      
+      <a class="list-group-item" href="../proc/antithetic_get.html">antithetic_get</a>
+      
+      <a class="list-group-item" href="../proc/antithetic_memory.html">antithetic_memory</a>
+      
+      <a class="list-group-item" href="../proc/antithetic_set.html">antithetic_set</a>
+      
+      <a class="list-group-item" href="../proc/appendstring.html">appendString</a>
+      
+      <a class="list-group-item" href="../interface/arange.html">arange</a>
+      
+      <a class="list-group-item" href="../interface/arginsertionsort.html">argInsertionsort</a>
+      
+      <a class="list-group-item" href="../interface/argmedianof3.html">argMedianOf3</a>
+      
+      <a class="list-group-item" href="../interface/argpartition.html">argPartition</a>
+      
+      <a class="list-group-item" href="../interface/argselect.html">argSelect</a>
+      
+      <a class="list-group-item" href="../interface/argsort.html">argSort</a>
+      
+      <a class="list-group-item" href="../proc/array1d_test.html">array1D_test</a>
+      
+      <a class="list-group-item" href="../interface/binarysearch.html">binarySearch</a>
+      
+      <a class="list-group-item" href="../proc/cg_get.html">cg_get</a>
+      
+      <a class="list-group-item" href="../proc/cg_memory.html">cg_memory</a>
+      
+      <a class="list-group-item" href="../proc/cg_set.html">cg_set</a>
+      
+      <a class="list-group-item" href="../proc/cgn_get.html">cgn_get</a>
+      
+      <a class="list-group-item" href="../proc/cgn_memory.html">cgn_memory</a>
+      
+      <a class="list-group-item" href="../proc/cgn_set.html">cgn_set</a>
+      
+      <a class="list-group-item" href="../proc/checkisopen.html">checkIsOpen</a>
+      
+      <a class="list-group-item" href="../proc/closefile.html">closeFile</a>
+      
+      <a class="list-group-item" href="../proc/compact.html">compact</a>
+      
+      <a class="list-group-item" href="../interface/compare.html">compare</a>
+      
+      <a class="list-group-item" href="../proc/compare_d1.html">compare_d1</a>
+      
+      <a class="list-group-item" href="../interface/copy.html">copy</a>
+      
+      <a class="list-group-item" href="../proc/copy_test.html">copy_test</a>
+      
+      <a class="list-group-item" href="../proc/countentries.html">countEntries</a>
+      
+      <a class="list-group-item" href="../interface/crossproduct.html">crossproduct</a>
+      
+      <a class="list-group-item" href="../interface/cumprod.html">cumprod</a>
+      
+      <a class="list-group-item" href="../interface/cumsum.html">cumsum</a>
+      
+      <a class="list-group-item" href="../proc/daysinmonth.html">daysinMonth</a>
+      
+      <a class="list-group-item" href="../proc/daysinyear.html">daysinYear</a>
+      
+      <a class="list-group-item" href="../interface/ddynamicarray.html">dDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/deallocate.html">deallocate</a>
+      
+      <a class="list-group-item" href="../interface/debug.html">debug</a>
+      
+      <a class="list-group-item" href="../proc/debug_s.html">debug_s</a>
+      
+      <a class="list-group-item" href="../proc/deletefile.html">deleteFile</a>
+      
+      <a class="list-group-item" href="../interface/diff.html">diff</a>
+      
+      <a class="list-group-item" href="../proc/emsg.html">eMsg</a>
+      
+      <a class="list-group-item" href="../interface/fasttwodiff.html">fastTwoDiff</a>
+      
+      <a class="list-group-item" href="../interface/fasttwosum.html">fastTwoSum</a>
+      
+      <a class="list-group-item" href="../proc/ferr.html">fErr</a>
+      
+      <a class="list-group-item" href="../proc/fileexists.html">fileExists</a>
+      
+      <a class="list-group-item" href="../proc/fileio_test.html">fileIO_test</a>
+      
+      <a class="list-group-item" href="../interface/geometricmean.html">geometricMean</a>
+      
+      <a class="list-group-item" href="../proc/get_state.html">get_state</a>
+      
+      <a class="list-group-item" href="../proc/getextension.html">getExtension</a>
+      
+      <a class="list-group-item" href="../proc/getfilesize.html">getFileSize</a>
+      
+      <a class="list-group-item" href="../proc/getnfilelines.html">getNFileLines</a>
+      
+      <a class="list-group-item" href="../proc/hasextension.html">hasExtension</a>
+      
+      <a class="list-group-item" href="../proc/hasnentries.html">hasNentries</a>
+      
+      <a class="list-group-item" href="../proc/i4_uni.html">i4_uni</a>
+      
+      <a class="list-group-item" href="../proc/iachar1d.html">iachar1D</a>
+      
+      <a class="list-group-item" href="../interface/iddynamicarray.html">idDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/idynamicarray.html">iDynamicArray</a>
+      
+      <a class="list-group-item" href="../proc/ig_get.html">ig_get</a>
+      
+      <a class="list-group-item" href="../proc/ig_memory.html">ig_memory</a>
+      
+      <a class="list-group-item" href="../proc/ig_set.html">ig_set</a>
+      
+      <a class="list-group-item" href="../proc/ind2sub.html">ind2sub</a>
+      
+      <a class="list-group-item" href="../proc/indexing_test.html">indexing_test</a>
+      
+      <a class="list-group-item" href="../proc/init_generator.html">init_generator</a>
+      
+      <a class="list-group-item" href="../proc/initialize.html">initialize</a>
+      
+      <a class="list-group-item" href="../proc/initialized_get.html">initialized_get</a>
+      
+      <a class="list-group-item" href="../proc/initialized_memory.html">initialized_memory</a>
+      
+      <a class="list-group-item" href="../proc/initialized_set.html">initialized_set</a>
+      
+      <a class="list-group-item" href="../interface/insertionsort.html">insertionsort</a>
+      
+      <a class="list-group-item" href="../proc/integerbin.html">integerBin</a>
+      
+      <a class="list-group-item" href="../interface/intervalsearch.html">intervalSearch</a>
+      
+      <a class="list-group-item" href="../proc/isleapyear.html">isLeapYear</a>
+      
+      <a class="list-group-item" href="../proc/isopen.html">isOpen</a>
+      
+      <a class="list-group-item" href="../interface/issorted.html">isSorted</a>
+      
+      <a class="list-group-item" href="../proc/isstring.html">isString</a>
+      
+      <a class="list-group-item" href="../interface/kdtree.html">KdTree</a>
+      
+      <a class="list-group-item" href="../proc/lg_get.html">lg_get</a>
+      
+      <a class="list-group-item" href="../proc/lg_memory.html">lg_memory</a>
+      
+      <a class="list-group-item" href="../proc/lg_set.html">lg_set</a>
+      
+      <a class="list-group-item" href="../proc/lowercase.html">lowerCase</a>
+      
+      <a class="list-group-item" href="../proc/maths_test.html">maths_test</a>
+      
+      <a class="list-group-item" href="../interface/mean.html">mean</a>
+      
+      <a class="list-group-item" href="../interface/median.html">median</a>
+      
+      <a class="list-group-item" href="../interface/medianof3.html">medianOf3</a>
+      
+      <a class="list-group-item" href="../proc/merr.html">mErr</a>
+      
+      <a class="list-group-item" href="../proc/msg.html">msg</a>
+      
+      <a class="list-group-item" href="../proc/multmod.html">multmod</a>
+      
+      <a class="list-group-item" href="../interface/norm1.html">norm1</a>
+      
+      <a class="list-group-item" href="../interface/normi.html">normI</a>
+      
+      <a class="list-group-item" href="../proc/openbinaryfile.html">openBinaryFile</a>
+      
+      <a class="list-group-item" href="../proc/openfile.html">openFile</a>
+      
+      <a class="list-group-item" href="../interface/partition.html">partition</a>
+      
+      <a class="list-group-item" href="../interface/partition3way.html">partition3way</a>
+      
+      <a class="list-group-item" href="../proc/partition3way_d1d.html">partition3way_d1D</a>
+      
+      <a class="list-group-item" href="../proc/prependstring.html">prependString</a>
+      
+      <a class="list-group-item" href="../interface/progressbar.html">ProgressBar</a>
+      
+      <a class="list-group-item" href="../interface/project.html">project</a>
+      
+      <a class="list-group-item" href="../proc/r4_uni_01.html">r4_uni_01</a>
+      
+      <a class="list-group-item" href="../proc/r8_uni_01.html">r8_uni_01</a>
+      
+      <a class="list-group-item" href="../proc/random_test.html">random_test</a>
+      
+      <a class="list-group-item" href="../interface/rargdynamicarray.html">rArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/rdynamicarray.html">rDynamicArray</a>
+      
+      <a class="list-group-item" href="../proc/read1dble.html">read1Dble</a>
+      
+      <a class="list-group-item" href="../proc/read1integer.html">read1Integer</a>
+      
+      <a class="list-group-item" href="../interface/readline.html">readline</a>
+      
+      <a class="list-group-item" href="../interface/reallocate.html">reallocate</a>
+      
+      <a class="list-group-item" href="../proc/reallocate_test.html">reallocate_test</a>
+      
+      <a class="list-group-item" href="../proc/removecomments.html">removeComments</a>
+      
+      <a class="list-group-item" href="../interface/repeat.html">repeat</a>
+      
+      <a class="list-group-item" href="../proc/replacedelim.html">replacedelim</a>
+      
+      <a class="list-group-item" href="../interface/rngchisq.html">rngChisq</a>
+      
+      <a class="list-group-item" href="../interface/rngexponential.html">rngExponential</a>
+      
+      <a class="list-group-item" href="../interface/rnggamma.html">rngGamma</a>
+      
+      <a class="list-group-item" href="../interface/rnginteger.html">rngInteger</a>
+      
+      <a class="list-group-item" href="../interface/rngnormal.html">rngNormal</a>
+      
+      <a class="list-group-item" href="../interface/rnguniform.html">rngUniform</a>
+      
+      <a class="list-group-item" href="../interface/rngweibull.html">rngWeibull</a>
+      
+      <a class="list-group-item" href="../interface/select.html">select</a>
+      
+      <a class="list-group-item" href="../proc/select_test.html">select_test</a>
+      
+      <a class="list-group-item" href="../proc/set_initial_seed.html">set_initial_seed</a>
+      
+      <a class="list-group-item" href="../proc/set_seed.html">set_seed</a>
+      
+      <a class="list-group-item" href="../interface/setrng.html">setRNG</a>
+      
+      <a class="list-group-item" href="../interface/shuffle.html">shuffle</a>
+      
+      <a class="list-group-item" href="../interface/simplesearch.html">simpleSearch</a>
+      
+      <a class="list-group-item" href="../proc/skipfilelines.html">skipFileLines</a>
+      
+      <a class="list-group-item" href="../interface/sort.html">sort</a>
+      
+      <a class="list-group-item" href="../proc/sorting_test.html">sorting_test</a>
+      
+      <a class="list-group-item" href="../interface/std.html">std</a>
+      
+      <a class="list-group-item" href="../interface/str.html">str</a>
+      
+      <a class="list-group-item" href="../proc/strings_test.html">strings_test</a>
+      
+      <a class="list-group-item" href="../proc/sub2ind.html">sub2ind</a>
+      
+      <a class="list-group-item" href="../interface/swap.html">swap</a>
+      
+      <a class="list-group-item" href="../interface/tester.html">tester</a>
+      
+      <a class="list-group-item" href="../proc/time_test.html">time_test</a>
+      
+      <a class="list-group-item" href="../proc/timeinseconds.html">timeinseconds</a>
+      
+      <a class="list-group-item" href="../proc/timestamp.html">timestamp</a>
+      
+      <a class="list-group-item" href="../proc/trimextension.html">trimExtension</a>
+      
+      <a class="list-group-item" href="../interface/trimmedmean.html">trimmedmean</a>
+      
+      <a class="list-group-item" href="../interface/twodiff.html">twoDiff</a>
+      
+      <a class="list-group-item" href="../interface/twosum.html">twoSum</a>
+      
+      <a class="list-group-item" href="../proc/uppercase.html">upperCase</a>
+      
+      <a class="list-group-item" href="../interface/variance.html">variance</a>
+      
+      <a class="list-group-item" href="../proc/wmsg.html">wMsg</a>
+      
+      <a class="list-group-item" href="../interface/writeline.html">writeline</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+      <h2>public interface copy</h2>
+	 <p>Copies an array to new memory (no pointers), The output array size will be changed to match the copy.</p>
+<p>Example usage</p>
+<div class="codehilite"><pre><span></span><span class="k">use </span><span class="n">variableKind</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">r64</span>
+<span class="k">use </span><span class="n">m_allocate</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="k">allocate</span>
+<span class="k">use </span><span class="n">m_copy</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">copy</span>
+
+<span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">a1D</span><span class="p">(:),</span> <span class="n">a2D</span><span class="p">(:,:),</span> <span class="n">a3D</span><span class="p">(:,:,:)</span>
+<span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">b1D</span><span class="p">(:),</span> <span class="n">b2D</span><span class="p">(:,:),</span> <span class="n">b3D</span><span class="p">(:,:,:)</span>
+<span class="k">call allocate</span><span class="p">(</span><span class="n">a1D</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span>
+<span class="k">call allocate</span><span class="p">(</span><span class="n">a2D</span><span class="p">,</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
+<span class="k">call allocate</span><span class="p">(</span><span class="n">a3D</span><span class="p">,</span> <span class="p">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">20</span><span class="p">])</span>
+<span class="n">a1D</span> <span class="o">=</span> <span class="mf">1.d0</span>
+<span class="n">a2D</span> <span class="o">=</span> <span class="mf">2.d0</span>
+<span class="n">a3D</span> <span class="o">=</span> <span class="mf">3.d0</span>
+<span class="k">call </span><span class="n">copy</span><span class="p">(</span><span class="n">a1D</span><span class="p">,</span> <span class="n">b1D</span><span class="p">)</span>
+<span class="k">call </span><span class="n">copy</span><span class="p">(</span><span class="n">a2D</span><span class="p">,</span> <span class="n">b2D</span><span class="p">)</span>
+<span class="k">call </span><span class="n">copy</span><span class="p">(</span><span class="n">a3D</span><span class="p">,</span> <span class="n">b3D</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;a1D equals b1D: &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="k">all</span><span class="p">(</span><span class="n">a1D</span> <span class="o">==</span> <span class="n">b1D</span><span class="p">))</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;a2D equals b2D: &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="k">all</span><span class="p">(</span><span class="n">a2D</span> <span class="o">==</span> <span class="n">b2D</span><span class="p">))</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;a3D equals b3D: &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="k">all</span><span class="p">(</span><span class="n">a3D</span> <span class="o">==</span> <span class="n">b3D</span><span class="p">))</span>
+<span class="k">call deallocate</span><span class="p">(</span><span class="n">a1D</span><span class="p">)</span>
+<span class="k">call deallocate</span><span class="p">(</span><span class="n">a2D</span><span class="p">)</span>
+<span class="k">call deallocate</span><span class="p">(</span><span class="n">a3D</span><span class="p">)</span>
+<span class="k">call deallocate</span><span class="p">(</span><span class="n">b1D</span><span class="p">)</span>
+<span class="k">call deallocate</span><span class="p">(</span><span class="n">b2D</span><span class="p">)</span>
+<span class="k">call deallocate</span><span class="p">(</span><span class="n">b3D</span><span class="p">)</span>
+</pre></div>
+     
+     
+    <br>
+
+     <section class="visible-xs visible-sm hidden-md">
+       
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-1" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_r1d">copy_r1D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_r2d">copy_r2D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_r3d">copy_r3D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_d1d">copy_d1D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_d2d">copy_d2D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_d3d">copy_d3D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_i1d">copy_i1D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_i2d">copy_i2D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_i3d">copy_i3D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_id1d">copy_id1D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_id2d">copy_id2D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_id3d">copy_id3D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_c1d">copy_c1D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_c2d">copy_c2D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_c3d">copy_c3D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_z1d">copy_z1D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_z2d">copy_z2D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_z3d">copy_z3D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_l1d">copy_l1D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_l2d">copy_l2D</a>
+      
+      <a class="list-group-item" href="../interface/copy.html#proc-copy_l3d">copy_l3D</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+     </section>
+     <br class="visible-xs visible-sm hidden-md">
+     
+	
+
+	
+	 <h2>Subroutines</h2>
+	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_r1d"></span><h3>
+public subroutine copy_r1D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r32),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r32),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_r2d"></span><h3>
+public subroutine copy_r2D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r32),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:,:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r32),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:,:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_r3d"></span><h3>
+public subroutine copy_r3D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r32),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:,:,:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r32),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:,:,:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_d1d"></span><h3>
+public subroutine copy_d1D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_d2d"></span><h3>
+public subroutine copy_d2D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:,:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:,:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_d3d"></span><h3>
+public subroutine copy_d3D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:,:,:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:,:,:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_i1d"></span><h3>
+public subroutine copy_i1D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_i2d"></span><h3>
+public subroutine copy_i2D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:,:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:,:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_i3d"></span><h3>
+public subroutine copy_i3D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:,:,:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:,:,:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_id1d"></span><h3>
+public subroutine copy_id1D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i64),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i64),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_id2d"></span><h3>
+public subroutine copy_id2D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i64),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:,:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i64),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:,:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_id3d"></span><h3>
+public subroutine copy_id3D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i64),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:,:,:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i64),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:,:,:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_c1d"></span><h3>
+public subroutine copy_c1D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>complex(kind=r32),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>complex(kind=r32),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_c2d"></span><h3>
+public subroutine copy_c2D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>complex(kind=r32),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:,:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>complex(kind=r32),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:,:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_c3d"></span><h3>
+public subroutine copy_c3D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>complex(kind=r32),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:,:,:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>complex(kind=r32),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:,:,:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_z1d"></span><h3>
+public subroutine copy_z1D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>complex(kind=r64),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>complex(kind=r64),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_z2d"></span><h3>
+public subroutine copy_z2D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>complex(kind=r64),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:,:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>complex(kind=r64),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:,:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_z3d"></span><h3>
+public subroutine copy_z3D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>complex(kind=r64),</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:,:,:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>complex(kind=r64),</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:,:,:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_l1d"></span><h3>
+public subroutine copy_l1D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_l2d"></span><h3>
+public subroutine copy_l2D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:,:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:,:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-copy_l3d"></span><h3>
+public subroutine copy_l3D(this, that)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+<p>Interfaced with <a href="../interface/copy.html">copy</a></p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>this</strong>(:,:,:)</td><td><p>Copy this array</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(inout),</td>
+  <td></td>
+  
+  <td>allocatable</td><td>::</td>
+  <td><strong>that</strong>(:,:,:)</td><td><p>Copy of this</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+ 	 
+  	 
+
+	
+
+ </div>
+</div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprocs-1">All Procedures</a></h3></div>
+  <div id="allprocs-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../proc/abstimetohms.html">absTimetoHMS</a>
+      
+      <a class="list-group-item" href="../proc/advance_state.html">advance_state</a>
+      
+      <a class="list-group-item" href="../interface/allocate.html">allocate</a>
+      
+      <a class="list-group-item" href="../proc/allocate_test.html">allocate_test</a>
+      
+      <a class="list-group-item" href="../proc/antithetic_get.html">antithetic_get</a>
+      
+      <a class="list-group-item" href="../proc/antithetic_memory.html">antithetic_memory</a>
+      
+      <a class="list-group-item" href="../proc/antithetic_set.html">antithetic_set</a>
+      
+      <a class="list-group-item" href="../proc/appendstring.html">appendString</a>
+      
+      <a class="list-group-item" href="../interface/arange.html">arange</a>
+      
+      <a class="list-group-item" href="../interface/arginsertionsort.html">argInsertionsort</a>
+      
+      <a class="list-group-item" href="../interface/argmedianof3.html">argMedianOf3</a>
+      
+      <a class="list-group-item" href="../interface/argpartition.html">argPartition</a>
+      
+      <a class="list-group-item" href="../interface/argselect.html">argSelect</a>
+      
+      <a class="list-group-item" href="../interface/argsort.html">argSort</a>
+      
+      <a class="list-group-item" href="../proc/array1d_test.html">array1D_test</a>
+      
+      <a class="list-group-item" href="../interface/binarysearch.html">binarySearch</a>
+      
+      <a class="list-group-item" href="../proc/cg_get.html">cg_get</a>
+      
+      <a class="list-group-item" href="../proc/cg_memory.html">cg_memory</a>
+      
+      <a class="list-group-item" href="../proc/cg_set.html">cg_set</a>
+      
+      <a class="list-group-item" href="../proc/cgn_get.html">cgn_get</a>
+      
+      <a class="list-group-item" href="../proc/cgn_memory.html">cgn_memory</a>
+      
+      <a class="list-group-item" href="../proc/cgn_set.html">cgn_set</a>
+      
+      <a class="list-group-item" href="../proc/checkisopen.html">checkIsOpen</a>
+      
+      <a class="list-group-item" href="../proc/closefile.html">closeFile</a>
+      
+      <a class="list-group-item" href="../proc/compact.html">compact</a>
+      
+      <a class="list-group-item" href="../interface/compare.html">compare</a>
+      
+      <a class="list-group-item" href="../proc/compare_d1.html">compare_d1</a>
+      
+      <a class="list-group-item" href="../interface/copy.html">copy</a>
+      
+      <a class="list-group-item" href="../proc/copy_test.html">copy_test</a>
+      
+      <a class="list-group-item" href="../proc/countentries.html">countEntries</a>
+      
+      <a class="list-group-item" href="../interface/crossproduct.html">crossproduct</a>
+      
+      <a class="list-group-item" href="../interface/cumprod.html">cumprod</a>
+      
+      <a class="list-group-item" href="../interface/cumsum.html">cumsum</a>
+      
+      <a class="list-group-item" href="../proc/daysinmonth.html">daysinMonth</a>
+      
+      <a class="list-group-item" href="../proc/daysinyear.html">daysinYear</a>
+      
+      <a class="list-group-item" href="../interface/ddynamicarray.html">dDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/deallocate.html">deallocate</a>
+      
+      <a class="list-group-item" href="../interface/debug.html">debug</a>
+      
+      <a class="list-group-item" href="../proc/debug_s.html">debug_s</a>
+      
+      <a class="list-group-item" href="../proc/deletefile.html">deleteFile</a>
+      
+      <a class="list-group-item" href="../interface/diff.html">diff</a>
+      
+      <a class="list-group-item" href="../proc/emsg.html">eMsg</a>
+      
+      <a class="list-group-item" href="../interface/fasttwodiff.html">fastTwoDiff</a>
+      
+      <a class="list-group-item" href="../interface/fasttwosum.html">fastTwoSum</a>
+      
+      <a class="list-group-item" href="../proc/ferr.html">fErr</a>
+      
+      <a class="list-group-item" href="../proc/fileexists.html">fileExists</a>
+      
+      <a class="list-group-item" href="../proc/fileio_test.html">fileIO_test</a>
+      
+      <a class="list-group-item" href="../interface/geometricmean.html">geometricMean</a>
+      
+      <a class="list-group-item" href="../proc/get_state.html">get_state</a>
+      
+      <a class="list-group-item" href="../proc/getextension.html">getExtension</a>
+      
+      <a class="list-group-item" href="../proc/getfilesize.html">getFileSize</a>
+      
+      <a class="list-group-item" href="../proc/getnfilelines.html">getNFileLines</a>
+      
+      <a class="list-group-item" href="../proc/hasextension.html">hasExtension</a>
+      
+      <a class="list-group-item" href="../proc/hasnentries.html">hasNentries</a>
+      
+      <a class="list-group-item" href="../proc/i4_uni.html">i4_uni</a>
+      
+      <a class="list-group-item" href="../proc/iachar1d.html">iachar1D</a>
+      
+      <a class="list-group-item" href="../interface/iddynamicarray.html">idDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/idynamicarray.html">iDynamicArray</a>
+      
+      <a class="list-group-item" href="../proc/ig_get.html">ig_get</a>
+      
+      <a class="list-group-item" href="../proc/ig_memory.html">ig_memory</a>
+      
+      <a class="list-group-item" href="../proc/ig_set.html">ig_set</a>
+      
+      <a class="list-group-item" href="../proc/ind2sub.html">ind2sub</a>
+      
+      <a class="list-group-item" href="../proc/indexing_test.html">indexing_test</a>
+      
+      <a class="list-group-item" href="../proc/init_generator.html">init_generator</a>
+      
+      <a class="list-group-item" href="../proc/initialize.html">initialize</a>
+      
+      <a class="list-group-item" href="../proc/initialized_get.html">initialized_get</a>
+      
+      <a class="list-group-item" href="../proc/initialized_memory.html">initialized_memory</a>
+      
+      <a class="list-group-item" href="../proc/initialized_set.html">initialized_set</a>
+      
+      <a class="list-group-item" href="../interface/insertionsort.html">insertionsort</a>
+      
+      <a class="list-group-item" href="../proc/integerbin.html">integerBin</a>
+      
+      <a class="list-group-item" href="../interface/intervalsearch.html">intervalSearch</a>
+      
+      <a class="list-group-item" href="../proc/isleapyear.html">isLeapYear</a>
+      
+      <a class="list-group-item" href="../proc/isopen.html">isOpen</a>
+      
+      <a class="list-group-item" href="../interface/issorted.html">isSorted</a>
+      
+      <a class="list-group-item" href="../proc/isstring.html">isString</a>
+      
+      <a class="list-group-item" href="../interface/kdtree.html">KdTree</a>
+      
+      <a class="list-group-item" href="../proc/lg_get.html">lg_get</a>
+      
+      <a class="list-group-item" href="../proc/lg_memory.html">lg_memory</a>
+      
+      <a class="list-group-item" href="../proc/lg_set.html">lg_set</a>
+      
+      <a class="list-group-item" href="../proc/lowercase.html">lowerCase</a>
+      
+      <a class="list-group-item" href="../proc/maths_test.html">maths_test</a>
+      
+      <a class="list-group-item" href="../interface/mean.html">mean</a>
+      
+      <a class="list-group-item" href="../interface/median.html">median</a>
+      
+      <a class="list-group-item" href="../interface/medianof3.html">medianOf3</a>
+      
+      <a class="list-group-item" href="../proc/merr.html">mErr</a>
+      
+      <a class="list-group-item" href="../proc/msg.html">msg</a>
+      
+      <a class="list-group-item" href="../proc/multmod.html">multmod</a>
+      
+      <a class="list-group-item" href="../interface/norm1.html">norm1</a>
+      
+      <a class="list-group-item" href="../interface/normi.html">normI</a>
+      
+      <a class="list-group-item" href="../proc/openbinaryfile.html">openBinaryFile</a>
+      
+      <a class="list-group-item" href="../proc/openfile.html">openFile</a>
+      
+      <a class="list-group-item" href="../interface/partition.html">partition</a>
+      
+      <a class="list-group-item" href="../interface/partition3way.html">partition3way</a>
+      
+      <a class="list-group-item" href="../proc/partition3way_d1d.html">partition3way_d1D</a>
+      
+      <a class="list-group-item" href="../proc/prependstring.html">prependString</a>
+      
+      <a class="list-group-item" href="../interface/progressbar.html">ProgressBar</a>
+      
+      <a class="list-group-item" href="../interface/project.html">project</a>
+      
+      <a class="list-group-item" href="../proc/r4_uni_01.html">r4_uni_01</a>
+      
+      <a class="list-group-item" href="../proc/r8_uni_01.html">r8_uni_01</a>
+      
+      <a class="list-group-item" href="../proc/random_test.html">random_test</a>
+      
+      <a class="list-group-item" href="../interface/rargdynamicarray.html">rArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/rdynamicarray.html">rDynamicArray</a>
+      
+      <a class="list-group-item" href="../proc/read1dble.html">read1Dble</a>
+      
+      <a class="list-group-item" href="../proc/read1integer.html">read1Integer</a>
+      
+      <a class="list-group-item" href="../interface/readline.html">readline</a>
+      
+      <a class="list-group-item" href="../interface/reallocate.html">reallocate</a>
+      
+      <a class="list-group-item" href="../proc/reallocate_test.html">reallocate_test</a>
+      
+      <a class="list-group-item" href="../proc/removecomments.html">removeComments</a>
+      
+      <a class="list-group-item" href="../interface/repeat.html">repeat</a>
+      
+      <a class="list-group-item" href="../proc/replacedelim.html">replacedelim</a>
+      
+      <a class="list-group-item" href="../interface/rngchisq.html">rngChisq</a>
+      
+      <a class="list-group-item" href="../interface/rngexponential.html">rngExponential</a>
+      
+      <a class="list-group-item" href="../interface/rnggamma.html">rngGamma</a>
+      
+      <a class="list-group-item" href="../interface/rnginteger.html">rngInteger</a>
+      
+      <a class="list-group-item" href="../interface/rngnormal.html">rngNormal</a>
+      
+      <a class="list-group-item" href="../interface/rnguniform.html">rngUniform</a>
+      
+      <a class="list-group-item" href="../interface/rngweibull.html">rngWeibull</a>
+      
+      <a class="list-group-item" href="../interface/select.html">select</a>
+      
+      <a class="list-group-item" href="../proc/select_test.html">select_test</a>
+      
+      <a class="list-group-item" href="../proc/set_initial_seed.html">set_initial_seed</a>
+      
+      <a class="list-group-item" href="../proc/set_seed.html">set_seed</a>
+      
+      <a class="list-group-item" href="../interface/setrng.html">setRNG</a>
+      
+      <a class="list-group-item" href="../interface/shuffle.html">shuffle</a>
+      
+      <a class="list-group-item" href="../interface/simplesearch.html">simpleSearch</a>
+      
+      <a class="list-group-item" href="../proc/skipfilelines.html">skipFileLines</a>
+      
+      <a class="list-group-item" href="../interface/sort.html">sort</a>
+      
+      <a class="list-group-item" href="../proc/sorting_test.html">sorting_test</a>
+      
+      <a class="list-group-item" href="../interface/std.html">std</a>
+      
+      <a class="list-group-item" href="../interface/str.html">str</a>
+      
+      <a class="list-group-item" href="../proc/strings_test.html">strings_test</a>
+      
+      <a class="list-group-item" href="../proc/sub2ind.html">sub2ind</a>
+      
+      <a class="list-group-item" href="../interface/swap.html">swap</a>
+      
+      <a class="list-group-item" href="../interface/tester.html">tester</a>
+      
+      <a class="list-group-item" href="../proc/time_test.html">time_test</a>
+      
+      <a class="list-group-item" href="../proc/timeinseconds.html">timeinseconds</a>
+      
+      <a class="list-group-item" href="../proc/timestamp.html">timestamp</a>
+      
+      <a class="list-group-item" href="../proc/trimextension.html">trimExtension</a>
+      
+      <a class="list-group-item" href="../interface/trimmedmean.html">trimmedmean</a>
+      
+      <a class="list-group-item" href="../interface/twodiff.html">twoDiff</a>
+      
+      <a class="list-group-item" href="../interface/twosum.html">twoSum</a>
+      
+      <a class="list-group-item" href="../proc/uppercase.html">upperCase</a>
+      
+      <a class="list-group-item" href="../interface/variance.html">variance</a>
+      
+      <a class="list-group-item" href="../proc/wmsg.html">wMsg</a>
+      
+      <a class="list-group-item" href="../interface/writeline.html">writeline</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2017 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> Fortran Program was developed by Leon Foks</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>
