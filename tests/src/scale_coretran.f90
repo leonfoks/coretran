@@ -90,7 +90,8 @@ program scaleTest_coretran
   write(iunit, '(a)') str(sizes)
 
   ! Set a fixed seed
-  call allocate(ia1D, 33)
+  call random_seed(size = ia)
+  call allocate(ia1D, ia)
   ia1D = 546420601
   call setRNG(ia1D)
 
@@ -242,46 +243,46 @@ program scaleTest_coretran
   write(iunit,'(a)') str(times)
 
 
-!  call Msg('==========================')
-!  call Msg('Testing : Spatial')
-!  call Msg('==========================')
-!  call Msg('---  Timing the 2D KdTree ---')
-!  call rngNormal(a1D)
-!  call rngNormal(b1D)
-!  do ia = 0, 5
-!    ib = 2**(24-ia)
-!
-!    call clk%restart()
-!    call tree%init(a1D(1:ib), b1D(1:ib))
-!    call clk%stop()
-!    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
-!  enddo
-!  call tree%deallocate()
-!
-!  call Msg('---  Timing the 3D KdTree ---')
-!  call rngNormal(c1D)
-!  do ia = 0, 5
-!    ib = 2**(24-ia)
-!
-!    call clk%restart()
-!    call tree%init(a1D(1:ib), b1D(1:ib), c1D(1:ib))
-!    call clk%stop()
-!    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
-!  enddo
-!  call tree%deallocate()
-!
-!  call allocate(a2D, [N, 5])
-!  call Msg('---  Timing the ND KdTree ---')
-!  call rngNormal(a2D)
-!  do ia = 0, 5
-!    ib = 2**(24-ia)
-!
-!    call clk%restart()
-!    call tree%init(a2D(1:ib,:))
-!    call clk%stop()
-!    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
-!  enddo
-!  call tree%deallocate()
+  call Msg('==========================')
+  call Msg('Testing : Spatial')
+  call Msg('==========================')
+  call Msg('---  Timing the 2D KdTree ---')
+  call rngNormal(a1D)
+  call rngNormal(b1D)
+  do ia = 0, 5
+    ib = 2**(24-ia)
+
+    call clk%restart()
+    tree = KdTree(a1D(1:ib), b1D(1:ib))
+    call clk%stop()
+    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+  enddo
+  call tree%deallocate()
+
+  call Msg('---  Timing the 3D KdTree ---')
+  call rngNormal(c1D)
+  do ia = 0, 5
+    ib = 2**(24-ia)
+
+    call clk%restart()
+    tree = KdTree(a1D(1:ib), b1D(1:ib), c1D(1:ib))
+    call clk%stop()
+    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+  enddo
+  call tree%deallocate()
+
+  call allocate(a2D, [N, 5])
+  call Msg('---  Timing the ND KdTree ---')
+  call rngNormal(a2D)
+  do ia = 0, 5
+    ib = 2**(24-ia)
+
+    call clk%restart()
+    tree = KdTree(a2D(1:ib,:))
+    call clk%stop()
+    write(*,'(i10,1x,f0.3)') ib,clk%elapsedInSeconds()
+  enddo
+  call tree%deallocate()
 
   call closeFile('scale_results.txt',iunit,'',istat)
 
