@@ -24,7 +24,16 @@ program test_coretran
 
   use Stopwatch_Class
   use ProgressBar_Class
-  !use m_dynamicArray
+  use m_rDynamicArray
+  use m_dDynamicArray
+  use m_iDynamicArray
+  use m_idDynamicArray
+
+  use m_rArgDynamicArray
+  use m_dArgDynamicArray
+  use m_iArgDynamicArray
+  use m_idArgDynamicArray
+
   implicit none
 
   type(tester) :: test
@@ -39,7 +48,7 @@ program test_coretran
   real(r32),allocatable :: ar2D(:,:),br2D(:,:)
   real(r32),allocatable :: ar3D(:,:,:),br3D(:,:,:)
   real(r64) :: a,b,c
-  real(r64),allocatable :: a1D(:),b1D(:),c1D(:)
+  real(r64),allocatable :: a1D(:),b1D(:),c1D(:), d1D(:)
   real(r64),allocatable :: a2D(:,:),b2D(:,:)
   real(r64),allocatable :: a3D(:,:,:),b3D(:,:,:)
   integer(i32) :: ia,ib,ic,id
@@ -68,7 +77,7 @@ program test_coretran
   type(KdTree) :: tree
   type(KdTreeSearch) :: search
 
-  type(dDynamicArray) :: dad, dad2
+  type(dArgDynamicArray) :: da
 
 ! Get an integer from command line argument
   ib = command_argument_count()
@@ -109,9 +118,9 @@ program test_coretran
 
   call copy_test(test)
 
-!  call sorting_test(test, N)
-!
-!  call select_test(test, N)
+  call sorting_test(test, N)
+
+  call select_test(test, N)
 
   call array1D_test(test)
 
@@ -154,46 +163,86 @@ program test_coretran
 
   call allocate(a1D, N)
   call allocate(b1D, N)
+  call allocate(c1D, N)
+  call allocate(d1D, N)
+  call allocate(ia1D, N)
 
-  a1D = 0.d0; b1D = 0.d0
+  a1D = 0.d0; b1D = 0.d0; c1D = 0.d0
 
+  ! 2D KdTree
   call rngNormal(a1D)
   call rngNormal(b1D)
 
   tree = KdTree(a1D, b1D)
 
-  ia = search%kNearest(tree, a1D, b1D, 0.d0, 0.d0)
+  ia = search%nearest(tree, a1D, b1D, 0.d0, 0.d0)
+  call search%kNearest(tree, a1D, b1D, 0.d0, 0.d0, 10, da)
 
-  call test%test(ia == minloc(a1D**2.d0+b1D**2.d0, 1), 'KdTree_2D')
+  c1D = a1D**2.d0
+  c1D = c1D + b1D**2.d0
+  call arange(ia1D, 1, N)  
+  call argSort(c1D, ia1D)
 
-  call allocate(c1D, N)
-  c1D = 0.d0
+  call test%test(ia == ia1D(1), '2D - KdTreeSearch%nearest')
+  call test%test(all(da%i%values == ia1D(1:10)) .and. all(da%v%values == sqrt(c1D(ia1D(1:10)))), '2D - KdTreeSearch%kNearest')
+
+  call tree%deallocate()
+
+  ! 3D KdTree
   call rngNormal(c1D)
 
   tree = KdTree(a1D, b1D, c1D)
 
-  ia = search%kNearest(tree, a1D, b1D, c1D, 0.d0, 0.d0, 0.d0)
+  ia = search%nearest(tree, a1D, b1D, c1D, 0.d0, 0.d0, 0.d0)
+  call search%kNearest(tree, a1D, b1D, c1D, 0.d0, 0.d0, 0.d0, 10, da)
 
-  call test%test(ia == minloc(a1D**2.d0+b1D**2.d0+c1D**2.d0, 1), 'KdTree_3D')
+  d1D = a1D**2.d0
+  d1D = d1D + b1D**2.d0
+  d1D = d1D + c1D**2.d0
+  call arange(ia1D, 1, N)
+  call argSort(d1D, ia1D)
+
+  call test%test(ia == ia1D(1), '3D - KdTreeSearch%nearest')
+  call test%test(all(da%i%values == ia1D(1:10)) .and. all(da%v%values == sqrt(d1D(ia1D(1:10)))), '3D - KdTreeSearch%kNearest')
 
   call tree%deallocate()
 
+  ! KD KdTree
   call allocate(a2D, [N, 2])
   a2D(:,1) = a1D
   a2D(:,2) = b1D
+
   tree = KdTree(a2D)
 
-  ia = search%kNearest(tree, a2D, [0.d0, 0.d0])
+  ia = search%nearest(tree, a2D, [0.d0, 0.d0])
+  call search%kNearest(tree, a2D, [0.d0, 0.d0], 10, da)
 
-  a2D = a2D ** 2.d0
-  a1D = a2D(:,1) + a2D(:,2)
-  call test%test(ia == minloc(a1D,1), 'KdTree_ND')
+  c1D = a1D**2.d0
+  c1D = c1D + b1D**2.d0
+
+  call arange(ia1D, 1, N)  
+  call argSort(c1D, ia1D)
+
+  call test%test(ia == ia1d(1), 'KD - KdTreeSearch%nearest')
+  call test%test(all(da%i%values == ia1D(1:10)) .and. all(da%v%values == sqrt(c1D(ia1D(1:10)))), 'KD - KdTreeSearch%kNearest')
 
   call tree%deallocate()
 
+  call Msg('==========================')
+  call Msg('Testing : Dynamic Arrays')
+  call Msg('==========================')
+  call rDynamicArray_test(test)
+  call dDynamicArray_test(test)
+  call iDynamicArray_test(test)
+  call idDynamicArray_test(test)
 
-  !call rDynamicArray_test(test)
-
+  call Msg('==========================')
+  call Msg('Testing : ArgDynamic Arrays')
+  call Msg('==========================')
+  call rArgDynamicArray_test(test)
+  call dArgDynamicArray_test(test)
+  call iArgDynamicArray_test(test)
+  call idArgDynamicArray_test(test)
 
   call test%summary()
 
