@@ -288,11 +288,8 @@ contains
   real(r64) :: val
     !! Value to get the argument of.
   integer(i32) :: i
-    !! Argument of the value.
-
-  integer(i32) :: iSearch
-
-  iSearch = this%v%locationOf(val)
+    !! Index of the value.
+  i = this%v%locationOf(val)
   end function
   !====================================================================!
 
