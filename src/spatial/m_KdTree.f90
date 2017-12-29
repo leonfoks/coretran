@@ -47,13 +47,14 @@ module m_KdTree
   !!end program
   !!```
   use variableKind, only: i32, r64
-  use m_errors, only: mErr
+  use m_errors, only: eMsg, mErr
   use m_allocate, only: allocate
   use m_deallocate, only: deallocate
   use m_array1D, only: arange
   use m_random, only: rngNormal
   use m_select, only: argSelect
   use m_maths, only: variance
+  use m_dArgDynamicArray, only: dArgDynamicArray
 
   implicit none
 
@@ -94,6 +95,14 @@ module m_KdTree
   type, public :: KdTreeSearch
     !!Class to search a KdTree.  See [[m_KdTree]] for more information on how to use this class.
   contains
+    generic, public :: nearest => nearest2D, nearest3D, nearestKD
+      !! KdTreeSearch%nearest() - Perform a nearest neighbour search
+    procedure, private :: nearest2D => nearest_2D
+      !! Overloaded typebound procedure with KdTreeSearch%nearest()
+    procedure, private :: nearest3D => nearest_3D
+      !! Overloaded typebound procedure with KdTreeSearch%nearest()
+    procedure, private :: nearestKD => nearest_KD
+      !! Overloaded typebound procedure with KdTreeSearch%nearest()
     generic, public :: kNearest => kNearest2D, kNearest3D, kNearestKD
       !! KdTreeSearch%kNearest() - Perform a k nearest neighbour search
     procedure, private :: kNearest2D => kNearest_2D
@@ -121,8 +130,6 @@ module m_KdTree
       !! Right index, first call normally = size of coordinates
     end subroutine
     !====================================================================!
-  end interface
-  interface
     !====================================================================!
     module recursive subroutine deallocate_branch(this)
     !====================================================================!
@@ -188,20 +195,10 @@ module m_KdTree
   end interface
 
 
-!  interface
-!    !====================================================================!
-!    module subroutine init_KdTreeSearch(this)
-!      !! Overloaded Type bound procedure KdTreeSearch%init()
-!    !====================================================================!
-!    class(KdTreeSearch) :: this
-!      !! KdTreeSearch class
-!    end subroutine
-!    !====================================================================!
-!  end interface
-  interface
+interface
     !====================================================================!
-    module function kNearest_2D(search, tree, x, y, xQuery, yQuery) result(nearest)
-      !! Overloaded Type bound procedure KdTreeSearch%kNearest()
+    module function nearest_2D(search, tree, x, y, xQuery, yQuery) result(nearest)
+      !! Overloaded Type bound procedure KdTreeSearch%nearest()
     !====================================================================!
     class(KdTreeSearch), intent(inout) :: search
       !! KdTreeSearch class
@@ -219,11 +216,9 @@ module m_KdTree
       !! Index of the nearest point to the query location
     end function
     !====================================================================!
-  end interface
-  interface
     !====================================================================!
-    module function kNearest_3D(search, tree, x, y, z, xQuery, yQuery, zQuery) result(nearest)
-      !! Overloaded Type bound procedure KdTreeSearch%kNearest()
+    module function nearest_3D(search, tree, x, y, z, xQuery, yQuery, zQuery) result(nearest)
+      !! Overloaded Type bound procedure KdTreeSearch%nearest()
     !====================================================================!
     class(KdTreeSearch), intent(inout) :: search
       !! KdTreeSearch class
@@ -245,11 +240,9 @@ module m_KdTree
       !! Index of the nearest point to the query location
     end function
     !====================================================================!
-  end interface
-  interface
     !====================================================================!
-    module function kNearest_KD(search, tree, D, query) result(nearest)
-      !! Overloaded Type bound procedure KdTreeSearch%kNearest()
+    module function nearest_KD(search, tree, D, query) result(nearest)
+      !! Overloaded Type bound procedure KdTreeSearch%nearest()
     !====================================================================!
     class(KdTreeSearch), intent(inout) :: search
       !! KdTreeSearch class
@@ -265,5 +258,74 @@ module m_KdTree
     !====================================================================!
   end interface
 
+
+  interface
+    !====================================================================!
+    module subroutine kNearest_2D(search, tree, x, y, xQuery, yQuery, k, kNearest)
+      !! Overloaded Type bound procedure KdTreeSearch%kNearest()
+    !====================================================================!
+    class(KdTreeSearch), intent(inout) :: search
+      !! KdTreeSearch class
+    class(kdTree),intent(in) :: tree
+      !! KdTree class
+    real(r64),intent(in) :: x(:)
+      !! x co-ordinates of the points
+    real(r64),intent(in) :: y(:)
+      !! y co-ordinates of the points
+    real(r64),intent(in) :: xQuery
+      !! x co-ordinate of the query location
+    real(r64),intent(in) :: yQuery
+      !! y co-ordinate of the query location
+    integer(i32), intent(in) :: k
+      !! Number of points to find that are closest to the query
+    type(dArgDynamicArray) :: kNearest
+      !! Indices of the nearest points to the query location
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine kNearest_3D(search, tree, x, y, z, xQuery, yQuery, zQuery, k, kNearest)
+      !! Overloaded Type bound procedure KdTreeSearch%kNearest()
+    !====================================================================!
+    class(KdTreeSearch), intent(inout) :: search
+      !! KdTreeSearch class
+    class(kdTree),intent(in) :: tree
+      !! KdTree class
+    real(r64),intent(in) :: x(:)
+      !! x co-ordinates of the points
+    real(r64),intent(in) :: y(:)
+      !! y co-ordinates of the points
+    real(r64),intent(in) :: z(:)
+      !! z co-ordinates of the points
+    real(r64),intent(in) :: xQuery
+      !! x co-ordinate of the query location
+    real(r64),intent(in) :: yQuery
+      !! y co-ordinate of the query location
+    real(r64),intent(in) :: zQuery
+      !! z co-ordinate of the query location
+    integer(i32), intent(in) :: k
+      !! Number of points to find that are closest to the query
+    type(dArgDynamicArray) :: kNearest
+      !! Indices of the nearest points to the query location
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine kNearest_KD(search, tree, D, query, k, kNearest)
+      !! Overloaded Type bound procedure KdTreeSearch%kNearest()
+    !====================================================================!
+    class(KdTreeSearch), intent(inout) :: search
+      !! KdTreeSearch class
+    class(kdTree),intent(in) :: tree
+      !! KdTree class
+    real(r64),intent(in) :: D(:,:)
+      !! Co-ordinates of the points, the k columns contain the k dimensional values.
+    real(r64),intent(in) :: query(:)
+      !! Co-ordinate of the query location
+    integer(i32), intent(in) :: k
+      !! Number of points to find that are closest to the query
+    type(dArgDynamicArray) :: kNearest
+      !! Indices of the nearest points to the query location
+    end subroutine
+    !====================================================================!
+  end interface
 end module
 

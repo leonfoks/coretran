@@ -1,5 +1,7 @@
 submodule (m_KdTree) sm_KdTree_class
   !! Contains the implementations of overloaded KdTree class type bound procedures
+  use m_parameters, only: nan
+  use m_sort, only: argSort
 implicit none
 
 contains
@@ -94,8 +96,8 @@ contains
     call trunk%buds(1)%init(trunk%left, iMid)
     call trunk%buds(2)%init(iMid+1, trunk%right)
     ! Grow the tree through the new branches
-    call growKdTree_2D(trunk%buds(1),x,y,indx, aux)
-    call growKdTree_2D(trunk%buds(2),x,y,indx, aux)
+    call growKdTree_2D(trunk%buds(1), x, y, indx, aux)
+    call growKdTree_2D(trunk%buds(2), x, y, indx, aux)
   end if
   end subroutine
   !====================================================================!
