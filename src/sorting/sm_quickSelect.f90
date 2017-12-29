@@ -110,6 +110,7 @@ submodule (m_Select) sm_quickselect
     mid = (hi+lo)/2
     call medianOf3(this, lo, mid, hi)
     call swap(this(lo), this(mid))
+    j = mid
     call partition(this, lo, hi, j)
     ! Found the kth value, exit
     if (j == k) then
@@ -180,7 +181,9 @@ submodule (m_Select) sm_quickselect
   if (present(left)) lo = left
   if (present(right)) hi = right
 
-  do while (hi > lo)
+  res = -1
+
+  do while (hi >= lo)
     if (hi - lo < 16) then
       call argInsertionSort(this, indx, lo, hi)
       res = indx(k)
@@ -221,7 +224,9 @@ submodule (m_Select) sm_quickselect
   if (present(left)) lo = left
   if (present(right)) hi = right
 
-  do while (hi > lo)
+  res = -1
+
+  do while (hi >= lo)
     if (hi - lo < 16) then
       call argInsertionSort(this, indx, lo, hi)
       res = indx(k)
@@ -231,6 +236,7 @@ submodule (m_Select) sm_quickselect
     call argMedianOf3(this, indx, lo, mid, hi)
     call swap(indx(lo), indx(mid))
     call argPartition(this, indx, lo, hi, j)
+
     ! Found the kth value, exit
     if (j == k) then
       res = indx(k)
@@ -262,7 +268,9 @@ submodule (m_Select) sm_quickselect
   if (present(left)) lo = left
   if (present(right)) hi = right
 
-  do while (hi > lo)
+  res = -1
+
+  do while (hi >= lo)
     if (hi - lo < 16) then
       call argInsertionSort(this, indx, lo, hi)
       res = indx(k)
@@ -303,7 +311,9 @@ submodule (m_Select) sm_quickselect
   if (present(left)) lo = left
   if (present(right)) hi = right
 
-  do while (hi > lo)
+  res = -1
+
+  do while (hi >= lo)
     if (hi - lo < 16) then
       call argInsertionSort(this, indx, lo, hi)
       res = indx(k)
