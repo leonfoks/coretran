@@ -75,7 +75,8 @@ contains
   integer(i32) :: lo,hi
   integer(i32) :: pivot
   pivot=this(left)
-  lo=left;hi=right
+  lo=left
+  hi=right
   do while (lo <= hi)
     do while (this(hi) > pivot)
       hi=hi-1
@@ -104,7 +105,8 @@ contains
   integer(i32) :: lo,hi
   integer(i64) :: pivot
   pivot=this(left)
-  lo=left;hi=right
+  lo=left
+  hi=right
   do while (lo <= hi)
     do while (this(hi) > pivot)
       hi=hi-1
