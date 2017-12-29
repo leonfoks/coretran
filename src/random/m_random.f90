@@ -413,43 +413,43 @@ module m_random
   subroutine random_test(test)
   !====================================================================!
   class(tester) :: test
-!  integer(i32) :: ia
-!  integer(i32), allocatable :: ia1D(:)
-!  real(r64) :: a, a1D(10), a2D(10, 10)
-!  character(len=:), allocatable :: cTest
+  integer(i32) :: ia
+  integer(i32), allocatable :: ia1D(:)
+  real(r64) :: a, a1D(10), a2D(10, 10)
+  character(len=:), allocatable :: cTest
+
+  call Msg('==========================')
+  call Msg('Testing : Random')
+  call Msg('==========================')
 !
-!  call Msg('==========================')
-!  call Msg('Testing : Random')
-!  call Msg('==========================')
-!!
-!!  write(*,1) 'Setting the random seed'
-!!
-!!  !call setRNG(.true.)
-!!  !call setRNG([546420601, 1302718556, 802583095, 136684118, 1163051410, 592779069, 660876855, 767615536, 1788597594, 775517554, 657867655, 1334969129])
-!  call random_seed(size = ia)
-!  call allocate(ia1D, ia)
-!  ia1D = 546420601
-!  call setRNG(ia1D)
-!  call allocate(ia1D, 3)
-!  ia=1
-!  call rngInteger(ia1D,ia)
-!  write(*,1) 'Random integers'
-!  write(*,1) str(ia1D)
-!  call rngNormal(a)
-!  write(*,1) 'Dble random number'
-!  write(*,1) str(a)
-!  call rngNormal(a1D)
-!  write(*,1) '~N(mean=0.0,std=1.0)'
-!  write(*,1) str(a1D)
-!  call rngNormal(a1D, 1.d0, 5.d0)
-!  write(*,1) '~N(mean=1.0,std=5.0) 1D array'
-!  write(*,1) str(a1D)
-!  a2D = 0.d0
-!  call rngNormal(a2D,50.d0,10.d0)
-!  write(*,1) '~N(mean=50.0,std=10.0) 2D array reduced output'
-!  cTest = str(a2D)
-!  write(*,1) cTest
-!  1 format(a)
+!  write(*,1) 'Setting the random seed'
+!
+!  !call setRNG(.true.)
+!  !call setRNG([546420601, 1302718556, 802583095, 136684118, 1163051410, 592779069, 660876855, 767615536, 1788597594, 775517554, 657867655, 1334969129])
+  call random_seed(size = ia)
+  call allocate(ia1D, ia)
+  ia1D = 546420601
+  call setRNG(ia1D)
+  call allocate(ia1D, 3)
+  ia=1
+  call rngInteger(ia1D,ia)
+  write(*,1) 'Random integers'
+  write(*,1) str(ia1D)
+  call rngNormal(a)
+  write(*,1) 'Dble random number'
+  write(*,1) str(a)
+  call rngNormal(a1D)
+  write(*,1) '~N(mean=0.0,std=1.0)'
+  write(*,1) str(a1D)
+  call rngNormal(a1D, 1.d0, 5.d0)
+  write(*,1) '~N(mean=1.0,std=5.0) 1D array'
+  write(*,1) str(a1D)
+  a2D = 0.d0
+  call rngNormal(a2D,50.d0,10.d0)
+  write(*,1) '~N(mean=50.0,std=10.0) 2D array reduced output'
+  cTest = str(a2D)
+  write(*,1) cTest
+  1 format(a)
   end subroutine
   !====================================================================!
 
