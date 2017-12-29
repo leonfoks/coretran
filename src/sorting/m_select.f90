@@ -6,7 +6,7 @@
   use m_allocate, only: allocate
   use m_array1D, only: arange
   use m_deallocate, only: deallocate
-  use m_random, only: rngNormal
+  use m_random, only: rngNormal, rngInteger
   use m_sort, only: sort
   use m_unitTester, only: tester
 
@@ -154,13 +154,13 @@
   integer(i32) :: N
 
   real(r32) :: ar
-  real(r32), allocatable :: ar1D(:), br1D(:)
+  real(r32), allocatable :: ar1D(:), br1D(:), cr1D(:)
   real(r64) :: a
-  real(r64), allocatable :: a1D(:), b1D(:)
-  integer(i32) :: ia, ib, ic
-  integer(i32), allocatable :: ia1D(:), ib1D(:), ic1D(:)
+  real(r64), allocatable :: a1D(:), b1D(:), c1D(:)
+  integer(i32) :: i,ia, ib, ic
+  integer(i32), allocatable :: ia1D(:), ib1D(:), ic1D(:), id1D(:)
   integer(i64) :: iad
-  integer(i64), allocatable :: iad1D(:), ibd1D(:)
+  integer(i64), allocatable :: iad1D(:), ibd1D(:), icd1D(:)
   logical :: la, lb
 
   call Msg('==========================')
@@ -169,19 +169,16 @@
 
   call allocate(ar1D, N)
   call allocate(br1D, N)
+  call allocate(cr1D, N)
 
   call allocate(a1D, N)
-  call allocate(b1D, N)
 
   call allocate(ia1D, N)
-  call allocate(ib1D, N)
   call allocate(ic1D, N)
-
-  call allocate(iad1D, N)
-  call allocate(ibd1D, N)
 
   call rngNormal(a1D)
   ar1D = real(a1D)
+  call rngInteger(ia1D, 1, N)
 
   br1D = ar1D
   ic = (size(br1D+1))/2 ! Get the median
@@ -202,11 +199,21 @@
   br1D = ar1D
   call arange(ic1D, 1, N)
   call argSelect(br1D,ic1D, ic, ia)
-  la = all(br1D((ic1D(1:ic-1))) <= br1D(ia)) .and. all(br1D(ic1D(ic+1:ib)) >= br1D(ia))
+  do i = 1, N
+    cr1D(i) = br1D(ic1D(i))
+  enddo
+  la = all(cr1D(1:ic-1) <= cr1D(ia)) .and. all(cr1D(ic+1:ib) >= cr1D(ia))
   call test%test(la,'argQuickSelect_r1D')
 
+  call deallocate(ar1D)
+  call deallocate(br1D)
+  call deallocate(cr1D)
+
+  call allocate(b1D, N)
+  call allocate(c1D, N)
+
   b1D = a1D
-  ic = (size(b1D+1))/2 ! Get the median
+  ic = (size(b1D)+1)/2 ! Get the median
   call select(b1D, ic, a)
 
   la = all(b1D(1:ic-1) <= b1D(ic)) .and. all(b1D(ic+1:ib) >= b1D(ic))
@@ -214,14 +221,24 @@
   call test%test(a == b1D(ic) .and. la, 'quickselect_d1D')
 
   b1D = a1D
-  ic = (size(b1D+1))/2 ! Get the median
+  ic = (size(b1D)+1)/2 ! Get the median
   call arange(ic1D, 1, N)
   call argSelect(b1D, ic1D, ic, ia)
-  lb = all(b1D(ic1D(1:ia-1)) < b1D(ic1D(ia))) .and. all(b1D(ic1D(ia+1:ib)) > b1D(ic1D(ia)))
+  do i = 1, N
+    c1D(i) = b1D(ic1D(i))
+  enddo
+  lb = all(c1D(1:ia-1) < c1D(ia)) .and. all(c1D(ia+1:ib) > c1D(ia))
   call test%test(la, 'argQuickselect_d1D')
 
+  call deallocate(a1D)
+  call deallocate(b1D)
+  call deallocate(c1D)
+
+  call allocate(ib1D, N)
+  call allocate(id1D, N)
+
   ib1D = ia1D
-  ic = (size(ib1D+1))/2 ! Get the median
+  ic = (size(ib1D)+1)/2 ! Get the median
   call select(ib1D, ic, ia)
 
   la = all(ib1D(1:ic-1) <= ib1D(ic)) .and. all(ib1D(ic+1:ib) >= ib1D(ic))
@@ -229,11 +246,18 @@
   call test%test(ia == ib1D(ic) .and. la, 'quickselect_i1D')
 
   ib1D = ia1D
-  ic = (size(ib1D+1))/2 ! Get the median
+  ic = (size(ib1D) + 1)/2 ! Get the median
   call arange(ic1D, 1, N)
   call argSelect(ib1D, ic1D, ic, ia)
-  lb = all(ib1D(ic1D(1:ic-1)) < ib1D(ic1D(ic))) .and. all(ib1D(ic1D(ic+1:ib)) > ib1D(ic1D(ic)))
+  do i = 1, N
+    id1D(i) = ib1D(ic1D(i))
+  enddo
+  lb = all(id1D(1:ic-1) < id1D(ic)) .and. all(id1D(ic+1:ib) > id1D(ic))
   call test%test(la, 'argQuickselect_i1D')
+
+  call allocate(iad1D, N)
+  call allocate(ibd1D, N)
+  call allocate(icd1D, N)
 
   ibd1D = ia1D
   ic = (size(ibd1D+1))/2 ! Get the median
@@ -247,7 +271,10 @@
   ic = (size(ibd1D+1))/2 ! Get the median
   call arange(ic1D, 1, N)
   call argSelect(ibd1D, ic1D, ic, ia)
-  lb = all(ibd1D(ic1D(1:ic-1)) < ibd1D(ic1D(ic))) .and. all(ibd1D(ic1D(ic+1:ib)) > ibd1D(ic1D(ic)))
+  do i = 1, N
+    icd1D(i) = ibd1D(ic1D(i))
+  enddo
+  lb = all(icd1D(1:ic-1) < icd1D(ic)) .and. all(icd1D(ic+1:ib) > icd1D(ic))
   call test%test(la, 'argQuickselect_id1D')
 
   end subroutine
