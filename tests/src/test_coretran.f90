@@ -184,7 +184,7 @@ program test_coretran
   call argSort(c1D, ia1D)
 
   call test%test(ia == ia1D(1), '2D - KdTreeSearch%nearest')
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(da%v%values == sqrt(c1D(ia1D(1:10)))), '2D - KdTreeSearch%kNearest')
+  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - sqrt(c1D(ia1D(1:10)))) <= 1.d-15), '2D - KdTreeSearch%kNearest')
 
   call tree%deallocate()
 
@@ -203,7 +203,7 @@ program test_coretran
   call argSort(d1D, ia1D)
 
   call test%test(ia == ia1D(1), '3D - KdTreeSearch%nearest')
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(da%v%values == sqrt(d1D(ia1D(1:10)))), '3D - KdTreeSearch%kNearest')
+  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - sqrt(d1D(ia1D(1:10)))) <= 1.d-15), '3D - KdTreeSearch%kNearest')
 
   call tree%deallocate()
 
@@ -224,7 +224,7 @@ program test_coretran
   call argSort(c1D, ia1D)
 
   call test%test(ia == ia1d(1), 'KD - KdTreeSearch%nearest')
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(da%v%values == sqrt(c1D(ia1D(1:10)))), 'KD - KdTreeSearch%kNearest')
+  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - sqrt(c1D(ia1D(1:10)))) <= 1.d-15), 'KD - KdTreeSearch%kNearest')
 
   call tree%deallocate()
 
