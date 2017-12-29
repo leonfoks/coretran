@@ -41,14 +41,14 @@ if (${F90tag} MATCHES "gfortran")
   MESSAGE(STATUS "Getting gfortran flags")
   
   set (CMAKE_Fortran_FLAGS_RELEASE "-O3 -fopenmp -std=f2008ts -funroll-all-loops  -finline-functions -static-libgfortran -static-libgcc -ffree-line-length-none -fall-intrinsics")
-  set (CMAKE_Fortran_FLAGS_DEBUG   "-O0 -fopenmp -std=f2008ts -fbacktrace -fbounds-check -Waliasing -Wampersand -Wconversion -Wsurprising -Wc-binding-type -Wintrinsics-std -Wtabs -Wintrinsic-shadow -Wline-truncation -Wtarget-lifetime -Wreal-q-constant -static-libgfortran -static-libgcc -ffree-line-length-none -fall-intrinsics")
+  set (CMAKE_Fortran_FLAGS_DEBUG   "-O0 -g -fopenmp -std=f2008ts -fbacktrace -fbounds-check -Waliasing -Wampersand -Wconversion -Wsurprising -Wc-binding-type -Wintrinsics-std -Wtabs -Wintrinsic-shadow -Wline-truncation -Wtarget-lifetime -Wreal-q-constant -static-libgfortran -static-libgcc -ffree-line-length-none -fall-intrinsics")
 
 elseif (${F90tag} MATCHES "ifort") 
   MESSAGE(STATUS "Getting ifort flags")
 
   if (WIN32)
     set (CMAKE_Fortran_FLAGS_RELEASE "-nologo -fpp -O3 -openmp -heap-arrays1024 -QaxCORE-AVX2,CORE-AVX-I,AVX,SSE4.2,SSSE3 -Qipo -fp:fast=2 -Qdiag-disable:remark -Qmkl")
-    set (CMAKE_Fortran_FLAGS_DEBUG "-nologo -fpp -Od -openmp -heap-arrays1024 -traceback -CB -Qfp-stack-check -Qmkl -warn:all -warn:nounused")
+    set (CMAKE_Fortran_FLAGS_DEBUG "-nologo -fpp -g -Od -openmp -heap-arrays1024 -traceback -CB -Qfp-stack-check -Qmkl -warn:all -warn:nounused")
   endif ()
   
   if (${LINIX})
@@ -57,7 +57,7 @@ elseif (${F90tag} MATCHES "ifort")
   
   if (APPLE)
     set (CMAKE_Fortran_FLAGS_RELEASE "-O3 -qopenmp -axCORE-AVX2,CORE-AVX-I,AVX,SSE4.2,SSSE3 -no-prec-div -fp-model fast=2")
-    set (CMAKE_Fortran_FLAGS_DEBUG "-O0 -qopenmp -traceback -CB -fp-stack-check -gen-interfaces -warn interfaces")
+    set (CMAKE_Fortran_FLAGS_DEBUG "-O0 -g -qopenmp -traceback -CB -fp-stack-check -gen-interfaces -warn interfaces")
   endif ()
 endif()
 
