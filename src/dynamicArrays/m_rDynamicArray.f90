@@ -8,34 +8,42 @@ module m_rDynamicArray
 !!```fortran
 !!program dynamicArray_test
 !!use variableKind, only: i32
-!!use m_dynamicArray, only: rDynamicArray
+!!use m_rDynamicArray, only: rDynamicArray
 !!
 !!implicit none
 !!
-!!type(rDynamicArray) :: rda, rda2
+!!type(rDynamicArray) :: da, da2
 !!integer(i32) :: ia
 !!
-!!rda = rDynamicArray(10) ! array is empty but with memory allocated for 10 numbers
-!!call rda%insert(1, 10.d0) ! array is [10.d0]
-!!call rda%insert(1, 20.d0) ! array is [20.d0, 10.d0]
-!!call rda%prepend(30.d0) ! array is [30.d0, 20.d0, 10.d0]
-!!call rda%append(40.d0) ! array is [30.d0, 20.d0, 10.d0, 40.d0]
-!!call rda%remove(2) ! array is [30.d0, 10.d0, 40.d0]
-!!call rda%tighten() ! array memory changed to match, i.e. 3.
-!!rda2 = rda ! non-pointer copy of dynamic array
-!!call rda%deallocate() ! deallocate memory in the dynamic array
-!!call rda2%deallocate() ! deallocate memory in the dynamic array
-!!rda = rDynamicArray(3) ! Initialized 3 space dynamic array
-!!call rda%insertSorted(20.d0) ! Sorted insertion
-!!call rda%insertSorted(30.d0) ! Sorted insertion [20.d0, 30.d0]
-!!call rda%insertSorted(10.d0) ! Sorted insertion [10.d0, 20.d0, 30.d0]
-!!ia = rda%locationOf(20.d0) ! Only use locat
-!!call test%test(ia == 2, 'rDynamicArray%locationOf')
-!!call rda%insertSortedUnique(10.d0)
-!!call test%test(all(rda%values==[10.d0, 20.d0, 30.d0]), 'rDynamicArray%insertSortedUnique')
-!!call rda%insertSortedUnique(15.d0)
-!!call test%test(all(rda%values==[10.d0, 15.d0, 20.d0, 30.d0]), 'rDynamicArray%insertSortedUnique')
-!!call test%test(size(rda%values) == 6, 'rDynamicArray%insert')
+!!da = rDynamicArray(10)
+!!call da%insertAt(1, 10.0)
+!!call da%insertAt(1, 20.0)
+!!call da%prepend(30.0)
+!!call da%append(40.0)
+!!call da%remove(2)
+!!call da%tighten()
+!!da2 = da
+!!da2%values(2) = 50.0
+!!call da%deallocate()
+!!call da2%deallocate()
+!!
+!!da = rDynamicArray(3, sorted=.true.)
+!!call da%insertSorted(20.0)
+!!call da%insertSorted(30.0)
+!!call da%insertSorted(10.0)
+!!ia = da%locationOf(20.0)
+!!call da%insertSortedUnique(10.0)
+!!call da%insertSortedUnique(15.0)
+!!call da%deallocate()
+!!
+!!da = rDynamicArray(3, sorted=.true., fixed=.true.)
+!!call da%insertSorted(20.0)
+!!call da%insertSorted(30.0)
+!!call da%insertSorted(10.0)
+!!ia = da%locationOf(20.0)
+!!call da%insertSortedUnique(10.0)
+!!call da%insertSortedUnique(15.0)
+!!call da%deallocate()
 !!end program
 !!```
 
@@ -43,14 +51,17 @@ use variableKind, only: r32, i32
 use m_allocate, only: allocate
 use m_searching, only: binarySearch, intervalSearch
 use m_deallocate, only: deallocate
-use m_errors, only: eMsg
+use m_errors, only: eMsg, msg
 use m_reallocate, only: reallocate
 use m_sort, only: sort
 use m_strings, only: str
+use m_unitTester, only: tester
 
 implicit none
 
 private
+
+public :: rDynamicArray_test
 
 public :: rDynamicArray
 
@@ -87,6 +98,8 @@ contains
     !! rDynamicArray%tighten() - Removes excess buffer memory and trims it to the current length.
 end type
 
+public :: insertAt__rDynamicArray
+
 
 interface rDynamicArray
   procedure :: init_rDynamicArray_i1, init_rDynamicArray_d1D
@@ -106,7 +119,7 @@ contains
   real(r32) :: val
     !! Value to append.
   if (this%fixed .or. this%sorted) call eMsg('rDynamicArray%append: Cannot use append with fixed/sorted array.')
-  call this%insertAt(this%N + 1, val) ! Append at last location
+  call insertAt__rDynamicArray(this, this%N + 1, val) ! Append at last location.
   end subroutine
   !====================================================================!
   !====================================================================!
@@ -207,13 +220,28 @@ contains
     !! Insert value at this location.
   real(r32) :: val
     !! Insert this value.
+  if (this%sorted) call eMsg('rDynamicArray%insertAt: Cannot use insertAt with sorted array')
+
+  call insertAt__rDynamicArray(this, i, val)
+
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine insertAt__rDynamicArray(this,i,val)
+    !! Private insert into array without checking for sorted flag.
+  !====================================================================!
+  class(rDynamicArray) :: this
+  integer(i32) :: i
+    !! Insert value at this location.
+  real(r32) :: val
+    !! Insert this value.
   integer :: j, N
-  if (i < 1 .or. i > this%N + 1) call Emsg('rDynamicArray%insert: 1 <= i <= '//str(this%N + 1))
+  if (i < 1 .or. i > this%N + 1) call Emsg('rDynamicArray%insertAt: 1 <= i <= '//str(this%N + 1))
 
   N = size(this%values)
 
   if (this%fixed) then
-    if (i > N) call Emsg('rDynamicArray%insert: For fixed array, 1 <= i <= '//str(N))
+    if (i > N) call Emsg('rDynamicArray%insertAt: For fixed array, 1 <= i <= '//str(N))
 
     if (this%N < N) this%N = this%N + 1
 
@@ -242,7 +270,7 @@ contains
   integer(i32) :: iSearch(3) ! location and interval of new value
   if (.not. this%sorted) call eMsg('rDynamicArray%insertSorted: Cannot use insertSorted with unsorted dynamic array')
   iSearch=intervalSearch(this%values, val, 1, this%N)
-  call this%insertAt(iSearch(3), val)
+  call insertAt__rDynamicArray(this,iSearch(3),val)
   end subroutine
   !====================================================================!
   !====================================================================!
@@ -256,8 +284,7 @@ contains
   if (.not. this%sorted) call eMsg('rDynamicArray%insertSortedUnique: Cannot use insertSortedUnique with unsorted dynamic array')
   iSearch=intervalSearch(this%values, val, 1, this%N)
   if (iSearch(1) == -1) then
-    call this%insertAt(iSearch(3), val)
-    this%sorted = .true.
+    call insertAt__rDynamicArray(this,iSearch(3),val)
   endif
   end subroutine
   !====================================================================!
@@ -282,7 +309,7 @@ contains
   real(r32) :: val
     !! Value to prepend.
   if (this%fixed .or. this%sorted) call eMsg('rDynamicArray%prepend: Cannot use prepend with fixed/sorted array.')
-  call this%insertAt(1, val) ! Prepend at first location
+  call insertAt__rDynamicArray(this, 1, val)
   end subroutine
   !====================================================================!
   !====================================================================!
@@ -322,4 +349,69 @@ contains
   call this%reallocate(this%N)
   end subroutine
   !====================================================================!
+
+  !====================================================================!
+  subroutine rDynamicArray_test(test)
+  !====================================================================!
+  class(tester) :: test
+
+  type(rDynamicArray) :: da, da2
+
+  integer(i32) :: ia
+
+  call Msg('==========================')
+  call Msg('Testing : Dynamic Arrays')
+  call Msg('==========================')
+
+  da = rDynamicArray(10)
+  call test%test(size(da%values)==10, 'rDynamicArray')
+  call test%test(da%N==0, 'rDynamicArray')
+  call da%insertAt(1, 10.0)
+  call test%test(da%values(1) == 10, 'rDynamicArray%insert')
+  call da%insertAt(1, 20.0)
+  call test%test(all(da%values(1:2) == [20.0, 10.0]), 'rDynamicArray%insert')
+  call da%prepend(30.0)
+  call test%test(all(da%values(1:3) == [30.0, 20.0, 10.0]), 'rDynamicArray%prepend')
+  call da%append(40.0)
+  call test%test(all(da%values(1:4) == [30.0, 20.0, 10.0, 40.0]), 'rDynamicArray%append')
+  call da%remove(2)
+  call test%test(all(da%values(1:3) == [30.0, 10.0, 40.0]), 'rDynamicArray%remove')
+  call da%tighten()
+  call test%test(size(da%values) == 3, 'rDynamicArray%tighten')
+  da2 = da
+  call test%test(all(da2%values == da%values), 'rDynamicArray%copy')
+  da2%values(2) = 50.0
+  call test%test(da2%values(2) /= da%values(2), 'rDynamicArray%copy')
+  call da%deallocate()
+  call test%test(.not. allocated(da%values), 'rDynamicArray%deallocate')
+  call da2%deallocate()
+
+  da = rDynamicArray(3, sorted=.true.)
+  call da%insertSorted(20.0)
+  call da%insertSorted(30.0)
+  call da%insertSorted(10.0)
+  call test%test(all(da%values==[10.0, 20.0, 30.0]), 'rDynamicArray%insertSorted')
+  ia = da%locationOf(20.0)
+  call test%test(ia == 2, 'rDynamicArray%locationOf')
+  call da%insertSortedUnique(10.0)
+  call test%test(all(da%values==[10.0, 20.0, 30.0]), 'rDynamicArray%insertSortedUnique')
+  call da%insertSortedUnique(15.0)
+  call test%test(all(da%values(1:da%N)==[10.0, 15.0, 20.0, 30.0]), 'rDynamicArray%insertSortedUnique')
+  call test%test(size(da%values) == 6, 'rDynamicArray%insert')
+  call da%deallocate()
+
+  da = rDynamicArray(3, sorted=.true., fixed=.true.)
+  call da%insertSorted(20.0)
+  call da%insertSorted(30.0)
+  call da%insertSorted(10.0)
+  call test%test(all(da%values(1:da%N)==[10.0, 20.0, 30.0]), 'rDynamicArray%insertSorted')
+  ia = da%locationOf(20.0)
+  call test%test(ia == 2, 'rDynamicArray%locationOf')
+  call da%insertSortedUnique(10.0)
+  call test%test(all(da%values(1:da%N)==[10.0, 20.0, 30.0]), 'rDynamicArray%insertSortedUnique')
+  call da%insertSortedUnique(15.0)
+  call test%test(all(da%values(1:da%N)==[10.0, 15.0, 20.0]), 'rDynamicArray%insertSortedUnique')
+  call test%test(size(da%values) == 3, 'rDynamicArray%insert')
+  call da%deallocate()
+end subroutine
 end module

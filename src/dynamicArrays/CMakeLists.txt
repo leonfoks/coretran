@@ -5,4 +5,7 @@ target_sources(${libName}
         "${CMAKE_CURRENT_LIST_DIR}/m_iDynamicArray.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_idDynamicArray.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_rArgDynamicArray.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_dArgDynamicArray.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_iArgDynamicArray.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/m_idArgDynamicArray.f90"
 )

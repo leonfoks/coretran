@@ -12,30 +12,38 @@ module m_idDynamicArray
 !!
 !!implicit none
 !!
-!!type(idDynamicArray) :: idda, idda2
+!!type(idDynamicArray) :: da, da2
 !!integer(i32) :: ia
 !!
-!!idda = idDynamicArray(10) ! array is empty but with memory allocated for 10 numbers
-!!call idda%insert(1, 10.d0) ! array is [10.d0]
-!!call idda%insert(1, 20.d0) ! array is [20.d0, 10.d0]
-!!call idda%prepend(30.d0) ! array is [30.d0, 20.d0, 10.d0]
-!!call idda%append(40.d0) ! array is [30.d0, 20.d0, 10.d0, 40.d0]
-!!call idda%remove(2) ! array is [30.d0, 10.d0, 40.d0]
-!!call idda%tighten() ! array memory changed to match, i.e. 3.
-!!idda2 = idda ! non-pointer copy of dynamic array
-!!call idda%deallocate() ! deallocate memory in the dynamic array
-!!call idda2%deallocate() ! deallocate memory in the dynamic array
-!!idda = idDynamicArray(3) ! Initialized 3 space dynamic array
-!!call idda%insertSorted(20.d0) ! Sorted insertion
-!!call idda%insertSorted(30.d0) ! Sorted insertion [20.d0, 30.d0]
-!!call idda%insertSorted(10.d0) ! Sorted insertion [10.d0, 20.d0, 30.d0]
-!!ia = idda%locationOf(20.d0) ! Only use locat
-!!call test%test(ia == 2, 'idDynamicArray%locationOf')
-!!call idda%insertSortedUnique(10.d0)
-!!call test%test(all(idda%values==[10.d0, 20.d0, 30.d0]), 'idDynamicArray%insertSortedUnique')
-!!call idda%insertSortedUnique(15.d0)
-!!call test%test(all(idda%values==[10.d0, 15.d0, 20.d0, 30.d0]), 'idDynamicArray%insertSortedUnique')
-!!call test%test(size(idda%values) == 6, 'idDynamicArray%insert')
+!!da = idDynamicArray(10)
+!!call da%insertAt(1, 10_i64)
+!!call da%insertAt(1, 20_i64)
+!!call da%prepend(30_i64)
+!!call da%append(40_i64)
+!!call da%remove(2)
+!!call da%tighten()
+!!da2 = da
+!!da2%values(2) = 50_i64
+!!call da%deallocate()
+!!call da2%deallocate()
+!!
+!!da = idDynamicArray(3, sorted=.true.)
+!!call da%insertSorted(20_i64)
+!!call da%insertSorted(30_i64)
+!!call da%insertSorted(10_i64)
+!!ia = da%locationOf(20_i64)
+!!call da%insertSortedUnique(10_i64)
+!!call da%insertSortedUnique(15_i64)
+!!call da%deallocate()
+!!
+!!da = idDynamicArray(3, sorted=.true., fixed=.true.)
+!!call da%insertSorted(20_i64)
+!!call da%insertSorted(30_i64)
+!!call da%insertSorted(10_i64)
+!!ia = da%locationOf(20_i64)
+!!call da%insertSortedUnique(10_i64)
+!!call da%insertSortedUnique(15_i64)
+!!call da%deallocate()
 !!end program
 !!```
 
@@ -43,14 +51,19 @@ use variableKind, only: i32, i64
 use m_allocate, only: allocate
 use m_searching, only: binarySearch, intervalSearch
 use m_deallocate, only: deallocate
-use m_errors, only: eMsg
+use m_errors, only: eMsg, msg
 use m_reallocate, only: reallocate
 use m_sort, only: sort
 use m_strings, only: str
+use m_unitTester, only: tester
 
 implicit none
 
 private
+
+public :: idDynamicArray_test
+
+public :: insertAt__idDynamicArray
 
 public :: idDynamicArray
 
@@ -106,7 +119,7 @@ contains
   integer(i64) :: val
     !! Value to append.
   if (this%fixed) call eMsg('idDynamicArray%append: Cannot use append with fixed array.')
-  call this%insertAt(this%N + 1, val) ! Append at last location
+  call insertAt__idDynamicArray(this, this%N + 1, val) ! Append at last location
   end subroutine
   !====================================================================!
   !====================================================================!
@@ -200,7 +213,20 @@ contains
   !====================================================================!
   !====================================================================!
   subroutine insertAt_idDynamicArray(this,i,val)
-    !! Overloaded type bound procedure idDynamicArray%insertAt()
+    !! Overloaded type bound procedure rDynamicArray%insertAt()
+  !====================================================================!
+  class(idDynamicArray) :: this
+  integer(i32) :: i
+    !! Insert value at this location.
+  integer(i64) :: val
+    !! Insert this value.
+  if (this%sorted) call eMsg('idDynamicArray%insertAt: Cannot use insertAt with sorted array')
+  call insertAt__idDynamicArray(this, i, val)
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine insertAt__idDynamicArray(this,i,val)
+    !! Private insert into array without checking for sorted flag.
   !====================================================================!
   class(idDynamicArray) :: this
   integer(i32) :: i
@@ -208,12 +234,12 @@ contains
   integer(i64) :: val
     !! Insert this value.
   integer :: j, N
-  if (i < 1 .or. i > this%N + 1) call Emsg('idDynamicArray%insert: 1 <= i <= '//str(this%N + 1))
+  if (i < 1 .or. i > this%N + 1) call Emsg('idDynamicArray%insertAt: 1 <= i <= '//str(this%N + 1))
 
   N = size(this%values)
 
   if (this%fixed) then
-    if (i > N) call Emsg('idDynamicArray%insert: For fixed array, 1 <= i <= '//str(N))
+    if (i > N) call Emsg('idDynamicArray%insertAt: For fixed array, 1 <= i <= '//str(N))
 
     if (this%N < N) this%N = this%N + 1
 
@@ -230,7 +256,6 @@ contains
   endif
 
   this%values(i) = val
-  this%sorted = .false.
   end subroutine
   !====================================================================!
   !====================================================================!
@@ -243,8 +268,7 @@ contains
   integer(i32) :: iSearch(3) ! location and interval of new value
   if (.not. this%sorted) call eMsg('idDynamicArray%insertSorted: Cannot use insertSorted with unsorted dynamic array')
   iSearch=intervalSearch(this%values, val, 1, this%N)
-  call this%insertAt(iSearch(3), val)
-  this%sorted = .true.
+  call insertAt__idDynamicArray(this, iSearch(3), val)
   end subroutine
   !====================================================================!
   !====================================================================!
@@ -258,8 +282,7 @@ contains
   if (.not. this%sorted) call eMsg('idDynamicArray%insertSortedUnique: Cannot use insertSortedUnique with unsorted dynamic array')
   iSearch=intervalSearch(this%values, val, 1, this%N)
   if (iSearch(1) == -1) then
-    call this%insertAt(iSearch(3), val)
-    this%sorted = .true.
+    call insertAt__idDynamicArray(this, iSearch(3), val)
   endif
   end subroutine
   !====================================================================!
@@ -284,7 +307,7 @@ contains
   integer(i64) :: val
     !! Value to prepend.
   if (this%fixed) call eMsg('idDynamicArray%prepend: Cannot use prepend with fixed array.')
-  call this%insertAt(1, val) ! Prepend at first location
+  call insertAt__idDynamicArray(this, 1, val) ! Prepend at first location
   end subroutine
   !====================================================================!
   !====================================================================!
@@ -324,4 +347,64 @@ contains
   call this%reallocate(this%N)
   end subroutine
   !====================================================================!
+
+  !====================================================================!
+  subroutine idDynamicArray_test(test)
+  !====================================================================!
+  class(tester) :: test
+
+  type(idDynamicArray) :: idda, idda2
+
+  integer(i32) :: ia
+  idda = idDynamicArray(10)
+  call test%test(size(idda%values)==10, 'idDynamicArray')
+  call test%test(idda%N==0, 'idDynamicArray')
+  call idda%insertAt(1, 10_i64)
+  call test%test(idda%values(1) == 10, 'idDynamicArray%insert')
+  call idda%insertAt(1, 20_i64)
+  call test%test(all(idda%values(1:2) == [20_i64, 10_i64]), 'idDynamicArray%insert')
+  call idda%prepend(30_i64)
+  call test%test(all(idda%values(1:3) == [30_i64, 20_i64, 10_i64]), 'idDynamicArray%prepend')
+  call idda%append(40_i64)
+  call test%test(all(idda%values(1:4) == [30_i64, 20_i64, 10_i64, 40_i64]), 'idDynamicArray%append')
+  call idda%remove(2)
+  call test%test(all(idda%values(1:3) == [30_i64, 10_i64, 40_i64]), 'idDynamicArray%remove')
+  call idda%tighten()
+  call test%test(size(idda%values) == 3, 'idDynamicArray%tighten')
+  idda2 = idda
+  call test%test(all(idda2%values == idda%values), 'idDynamicArray%copy')
+  idda2%values(2) = 50_i64
+  call test%test(idda2%values(2) /= idda%values(2), 'idDynamicArray%copy')
+  call idda%deallocate()
+  call test%test(.not. allocated(idda%values), 'idDynamicArray%deallocate')
+  call idda2%deallocate()
+
+  idda = idDynamicArray(3, sorted=.true.)
+  call idda%insertSorted(20_i64)
+  call idda%insertSorted(30_i64)
+  call idda%insertSorted(10_i64)
+  call test%test(all(idda%values==[10_i64, 20_i64, 30_i64]), 'idDynamicArray%insertSorted')
+  ia = idda%locationOf(20_i64)
+  call test%test(ia == 2, 'idDynamicArray%locationOf')
+  call idda%insertSortedUnique(10_i64)
+  call test%test(all(idda%values==[10_i64, 20_i64, 30_i64]), 'idDynamicArray%insertSortedUnique')
+  call idda%insertSortedUnique(15_i64)
+  call test%test(all(idda%values(1:idda%N)==[10_i64, 15_i64, 20_i64, 30_i64]), 'idDynamicArray%insertSortedUnique')
+  call test%test(size(idda%values) == 6, 'idDynamicArray%insert')
+  call idda%deallocate()
+
+  idda = idDynamicArray(3, sorted=.true., fixed=.true.)
+  call idda%insertSorted(20_i64)
+  call idda%insertSorted(30_i64)
+  call idda%insertSorted(10_i64)
+  call test%test(all(idda%values(1:idda%N)==[10_i64, 20_i64, 30_i64]), 'idDynamicArray%insertSorted')
+  ia = idda%locationOf(20_i64)
+  call test%test(ia == 2, 'idDynamicArray%locationOf')
+  call idda%insertSortedUnique(10_i64)
+  call test%test(all(idda%values(1:idda%N)==[10_i64, 20_i64, 30_i64]), 'idDynamicArray%insertSortedUnique')
+  call idda%insertSortedUnique(15_i64)
+  call test%test(all(idda%values(1:idda%N)==[10_i64, 15_i64, 20_i64]), 'idDynamicArray%insertSortedUnique')
+  call test%test(size(idda%values) == 3, 'idDynamicArray%insert')
+  call idda%deallocate()
+end subroutine
 end module
