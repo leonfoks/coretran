@@ -1,49 +1,149 @@
 module m_KdTree
-  !!Module contains classes to create K-dimensional trees in 2, 3, and N dimensions.
+  !!# KdTree
+  !!Build and search k-dimensional trees in 2, 3, and K dimensions.
+  !!This KdTree is balanced, in that splits are made along the dimension with the largest variance. 
+  !!A quickselect is used to quickly find the median in each splitting dimension as the splitting value.
+  !!The ends of each branch contain multiple leaves to prevent tail recursion.
+  !!An in-depth example is given below on how to use all the aspects of the KdTree and KdTreeSearch classes.
   !!
-  !!This KdTree is balanced, in that splits are made along the dimension with the largest variance. A quickselect is used to find the median in that split dimension as the splitting value.
+  !!Important: Once a tree has been built with a set, do not change their values.  The KdTree does NOT make
+  !!a copy of the input values used to build it.
+  !!Important: Generating the tree does not modify the values used to build it.
   !!
-  !!After the tree is initialized, for a given set of points, a search class can be used to perform nearest neighbour, range search, k nearest neighbours etc.
-  !!The searches are thread safe and can be used in a parallel region if multiple are needed.
+  !!## Building the KdTree
+  !!The KdTree object can be initialized on assignment by entering point co-ordinates.
+  !!To build a 2-D tree, you can use two 1-D arrays as the x, y, co-ordinates, and optionally a third 1-D array
+  !!to build a 3-D tree.
+  !!```fortran
+  !!use m_KdTree
+  !!type(KdTree) :: tree
+  !!tree = KdTree(x, y, [z])
+  !!```
+  !!Or you can build a k-dimensional tree using a 2-D array, where the first dimension is the number of items,
+  !!and the second is the number of dimensions, k.
+  !!```fortran
+  !!use m_KdTree
+  !!type(KdTree) :: tree
+  !!tree = KdTree(D)
+  !!```
   !!
-  !!Once a tree is generated, the point coordinates should not be changed, otherwise the tree will no longer be correct.
+  !!## Querying the KdTree
+  !!After the tree is initialized, a search class can be used to perform search for the nearest neighbour, 
+  !!the k nearest neighbours, all neighbours within a radius, k nearest within a radius, and items within 
+  !!upper and lower bounds in each dimension.
+  !!The searches are thread safe and can be used in a parallel region.
   !!
-  !!Generating the tree does not modify the incoming point coordinates.
+  !!After the KdTree is built, various queries can be carried out.  Searches that return multiple values
+  !!are called using the argDynamicArray within coretran. The [[m_dArgDynamicArray]] contains an integer index
+  !!containing the indices into the co-ordinates that are closest, and a double precision that contains the
+  !!distance from the query point to those points.
   !!
-  !!Example
+  !!```fortran
+  !!use m_dArgDynamicArray
+  !!use m_KdTree
+  !!type(KdTreeSearch) :: search
+  !!integer(i32) :: i
+  !!type(dArgDynamicArray) :: da
+  !!! Nearest Neighbour to (0, 0), for 3D add z, and zQuery
+  !!i = search%nearest(tree, x, y, [z], xQuery = 0.d0, yQuery = 0.d0, [zQuery = 0.d0])
+  !!! K-Nearest to (0, 0), for 3D add z, and zQuery
+  !!da = search%kNearest(tree, x, y, [z], xQuery = 0.d0, yQuery = 0.d0, [zQuery = 0.d0], k = 10)
+  !!! Search for all points within a given distance
+  !!da = search%kNearest(tree, x, y, [z], xQuery = 0.d0, yQuery = 0.d0, [zQuery = 0.d0], radius = 10.d0)
+  !!! Search for all k points within a given distance
+  !!da = search%kNearest(tree, x, y, [z], xQuery = 0.d0, yQuery = 0.d0, [zQuery = 0.d0], k = 10, radius = 10.d0)
+  !!```
+  !!
+  !!## Full Example
   !!```fortran
   !!program kdTree_test
-  !!use variableKind, only: r64
+  !!use variableKind, only: i32, r64
   !!use m_allocate, only: allocate
   !!use m_deallocate, only: deallocate
   !!use m_random, only: rngNormal
   !!use m_KdTree, only: KdTree, KdTreeSearch
+  !!use m_dArgDynamicArray, only: dArgDynamicArray
   !!use m_string, only: str
   !!implicit none
-  !!real(r64), allocatable :: x(:), y(:), z(:)
-  !!integer(i32) :: N
+  !!real(r64), allocatable :: x(:), y(:), z(:), D(:,:)
+  !!integer(i32) :: ia, N
   !!type(KdTree) :: tree
   !!type(KdSearch) :: search
+  !!type(dArgDynamicArray) :: da
   !!
+  !!!====================================================================!
+  !!! 2D KdTree example
+  !!!====================================================================!
+  !!! Create some random points in space
   !!N = 1d6
   !!call allocate(x, N)
   !!call allocate(y, N)
   !!call rngNormal(x)
   !!call rngNormal(y)
+  !!! Build the tree
   !!tree = KdTree(x, y)
-  !!ia = search%kNearest(tree, x, y, xQuery=0.d0, yQuery=0.d0)
-  !!write(*,'(3a)')'Nearest point to the query location: ', str(x(ia)), str(y(ia))
+  !!! Get the nearest neighbour to (0, 0)
+  !!ia = search%kNearest(tree, x, y, xQuery = 0.d0, yQuery = 0.d0)
+  !!write(*,'(a)') 'Nearest point to the query location: '//str(x(ia))//str(y(ia))
+  !!! Get the 10 nearest neighbours to the query
+  !!da = search%kNearest(tree, x, y, xQuery = 0.d0, yQuery = 0.d0, k = 10)
+  !!write(*,'(a)') 'The 10 nearest neighbour indices and distances:'
+  !!call da%print()
+  !!! Find all the points within a 1.d0
+  !!da = search%kNearest(tree, x, y, xQuery = 0.d0, yQuery = 0.d0, radius = 1.d0)
+  !!write(*,'(a)') 'The points within a distance of 1.d0'
+  !!call da%print()
+  !!Deallocate any tree memory
   !!call tree%deallocate()
   !!
+  !!!====================================================================!
+  !!! 3D KdTree example
+  !!!====================================================================!
+  !!! Create the third dimension
   !!call allocate(z, N)
   !!call rngNormal(z)
+  !!! Build the tree
   !!tree = KdTree(x, y, z)
-  !!ia = search%kNearest(tree, x, y, z, xQuery=0.d0, yQuery=0.d0)
+  !!! Get the nearest neighbour to (0, 0, 0)
+  !!ia = search%kNearest(tree, x, y, z, xQuery = 0.d0, yQuery = 0.d0, zQuery = 0.d0)
   !!write(*,'(a)')'Nearest point to the query location: '//str(x(ia))//str(y(ia))//str(z(ia))
+  !!! Get the 10 nearest neighbours to the query
+  !!da = search%kNearest(tree, x, y, z, xQuery = 0.d0, yQuery = 0.d0, zQuery = 0.d0, k = 10)
+  !!write(*,'(a)') 'The 10 nearest neighbour indices and distances:'
+  !!call da%print()
+  !!! Find all the points within a 1.d0
+  !!da = search%kNearest(tree, x, y, z, xQuery = 0.d0, yQuery = 0.d0, zQuery = 0.d0, radius = 1.d0)
+  !!write(*,'(a)') 'The points within a distance of 1.d0'
+  !!call da%print()
+  !!Deallocate any tree memory
+  !!call tree%deallocate()
+  !!
+  !!!====================================================================!
+  !!! KD KdTree example
+  !!!====================================================================!
+  !!call allocate(D, [N, 3])
+  !!D(:,1) = x
+  !!D(:,2) = y
+  !!D(:,3) = z
+  !!! Build the tree
+  !!tree = KdTree(D)
+  !!! Get the nearest neighbour to (0, 0, 0)
+  !!ia = search%kNearest(tree, D, query = [0.d0, 0.d0, 0.d0])
+  !!write(*,'(a)')'Nearest point to the query location: '//str(D(ia, 1))//str(D(ia, 2))//str(D(ia, 3))
+  !!! Get the 10 nearest neighbours to the query
+  !!da = search%kNearest(tree, D, query = [0.d0, 0.d0, 0.d0], k = 10)
+  !!write(*,'(a)') 'The 10 nearest neighbour indices and distances:'
+  !!call da%print()
+  !!! Find all the points within a 1.d0
+  !!da = search%kNearest(tree, D,  query = [0.d0, 0.d0, 0.d0], radius = 1.d0)
+  !!write(*,'(a)') 'The points within a distance of 1.d0'
+  !!call da%print()
+  !!Deallocate any tree memory
   !!call tree%deallocate()
   !!call deallocate(x)
   !!call deallocate(y)
   !!call deallocate(z)
+  !!call deallocate(D)
   !!end program
   !!```
   use variableKind, only: i32, r64
@@ -55,6 +155,7 @@ module m_KdTree
   use m_select, only: argSelect
   use m_maths, only: variance
   use m_dArgDynamicArray, only: dArgDynamicArray
+  use m_strings, only: str
 
   implicit none
 
@@ -104,7 +205,7 @@ module m_KdTree
     procedure, private :: nearestKD => nearest_KD
       !! Overloaded typebound procedure with KdTreeSearch%nearest()
     generic, public :: kNearest => kNearest2D, kNearest3D, kNearestKD
-      !! KdTreeSearch%kNearest() - Perform a k nearest neighbour search
+      !! KdTreeSearch%kNearest() - Perform a k nearest neighbour search or a radius search.
     procedure, private :: kNearest2D => kNearest_2D
       !! Overloaded typebound procedure with KdTreeSearch%kNearest()
     procedure, private :: kNearest3D => kNearest_3D
@@ -261,7 +362,7 @@ interface
 
   interface
     !====================================================================!
-    module subroutine kNearest_2D(search, tree, x, y, xQuery, yQuery, k, kNearest)
+    module function kNearest_2D(search, tree, x, y, xQuery, yQuery, k, radius) result(kNearest)
       !! Overloaded Type bound procedure KdTreeSearch%kNearest()
     !====================================================================!
     class(KdTreeSearch), intent(inout) :: search
@@ -276,14 +377,16 @@ interface
       !! x co-ordinate of the query location
     real(r64),intent(in) :: yQuery
       !! y co-ordinate of the query location
-    integer(i32), intent(in) :: k
+    integer(i32), intent(in), optional :: k
       !! Number of points to find that are closest to the query
+    real(r64), intent(in), optional :: radius
+      !! Only find neighbours within this distance from the query
     type(dArgDynamicArray) :: kNearest
       !! Indices of the nearest points to the query location
-    end subroutine
+    end function
     !====================================================================!
     !====================================================================!
-    module subroutine kNearest_3D(search, tree, x, y, z, xQuery, yQuery, zQuery, k, kNearest)
+    module function kNearest_3D(search, tree, x, y, z, xQuery, yQuery, zQuery, k, radius) result(kNearest)
       !! Overloaded Type bound procedure KdTreeSearch%kNearest()
     !====================================================================!
     class(KdTreeSearch), intent(inout) :: search
@@ -302,14 +405,16 @@ interface
       !! y co-ordinate of the query location
     real(r64),intent(in) :: zQuery
       !! z co-ordinate of the query location
-    integer(i32), intent(in) :: k
+    integer(i32), intent(in), optional :: k
       !! Number of points to find that are closest to the query
+    real(r64), intent(in), optional :: radius
+      !! Only find neighbours within this distance from the query
     type(dArgDynamicArray) :: kNearest
       !! Indices of the nearest points to the query location
-    end subroutine
+    end function
     !====================================================================!
     !====================================================================!
-    module subroutine kNearest_KD(search, tree, D, query, k, kNearest)
+    module function kNearest_KD(search, tree, D, query, k, radius) result(kNearest)
       !! Overloaded Type bound procedure KdTreeSearch%kNearest()
     !====================================================================!
     class(KdTreeSearch), intent(inout) :: search
@@ -320,11 +425,13 @@ interface
       !! Co-ordinates of the points, the k columns contain the k dimensional values.
     real(r64),intent(in) :: query(:)
       !! Co-ordinate of the query location
-    integer(i32), intent(in) :: k
+    integer(i32), intent(in), optional :: k
       !! Number of points to find that are closest to the query
+    real(r64), intent(in), optional :: radius
+      !! Only find neighbours within this distance from the query
     type(dArgDynamicArray) :: kNearest
       !! Indices of the nearest points to the query location
-    end subroutine
+    end function
     !====================================================================!
   end interface
 end module
