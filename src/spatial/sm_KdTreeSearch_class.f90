@@ -320,7 +320,7 @@ contains
 
 
   !====================================================================!
-  module procedure kNearest_2D ! (search, tree, x, y, xQuery, yQuery, k, kNearest)
+  module procedure kNearest_2D ! (search, tree, x, y, xQuery, yQuery, k, radius) result(kNearest)
     !! Overloaded Type bound procedure KdTreeSearch%nearest()
   !====================================================================!
   !class(KdTreeSearch), intent(inout) :: search
@@ -329,20 +329,44 @@ contains
   !real(r64),intent(in) :: y(:)
   !real(r64),intent(in) :: xQuery
   !real(r64),intent(in) :: yQuery
-  !integer(i32), intent(in) :: k
+  !integer(i32), intent(in), optional :: k
+  !real(r64), intent(in), optional :: radius
   !class(dArgDynamicArray) :: kNearest
 
-  if (k <= 1) call eMsg('KdTreeSearch%kNearest: k must be >= 1')
+  integer(i32) :: k_
+  logical :: fixedArray
 
-  kNearest = dArgDynamicArray(k, .true., .true.)
+  if (.not. present(k) .and. .not. present(radius)) call eMsg('KdTreeSearch%kNearest: Must use either k or radius, or both.')
 
-  call kNearestBranch_2D(tree%trunk, x, y, tree%indx, xQuery, yQuery, kNearest)
+  ! Set an initial value for the memory allocated if k nearest is not specified
+  k_ = 16
+  ! Set the fixed array as false unless k is specified
+  fixedArray = .false.
+  if (present(k)) then
+    if (k <= 1) call eMsg('KdTreeSearch%kNearest: k must be >= 1')
+    k_ = k
+    fixedArray = .true.
+  endif
+
+  if (present(radius)) then
+    if (radius <= 0.d0) call eMsg('KdTreeSearch%kNearest: radius: '//str(radius)//'must be > 0')
+  endif
+
+  kNearest = dArgDynamicArray(k, .true., fixedArray)
+  kNearest%v%values = huge(0.d0)
+
+  if (present(radius)) then ! Perform a radius search
+    call kRadiusBranch_2D(tree%trunk, x, y, tree%indx, xQuery, yQuery, radius**2.d0, kNearest)
+  else ! Perform straight k nearest neighbours.
+    call kNearestBranch_2D(tree%trunk, x, y, tree%indx, xQuery, yQuery, kNearest)
+  endif
   kNearest%v%values = sqrt(kNearest%v%values)
+  if (.not. fixedArray) call kNearest%tighten()
   end procedure
   !====================================================================!
   !====================================================================!
   recursive subroutine kNearestBranch_2D(trunk, x, y, indx, xQuery, yQuery, kNearest)
-    !! Recurse through the tree branches to find the nearest branches to the query location
+    !! Find the k nearest neighbours to the query location
   !====================================================================!
   class(KdTreebranch),intent(in) :: trunk
   real(r64),intent(in) :: x(:)
@@ -353,12 +377,12 @@ contains
   class(dArgDynamicArray) :: kNearest
 
   real(r64) :: query, distance
-  integer(i32) :: iNear, iTmp
-
+  integer(i32) :: i, iTmp
 
   ! If the node is not associated, we are at final search block.
-  if (.not. associated(trunk%buds)) then
+   if (.not. associated(trunk%buds)) then
     call kNearestLeaf_2D(x, y, indx, trunk%left, trunk%right, xQuery, yQuery, kNearest)
+
   else ! Otherwise, keep searching through the branches
 
     select case(trunk%splitAlong)
@@ -368,18 +392,17 @@ contains
       query = yQuery
     end select
 
-
     if (query <= trunk%median) then ! If the query is to the left of the current median
       call kNearestBranch_2D(trunk%buds(1), x, y, indx, xQuery, yQuery, kNearest)
       distance = query + sqrt(kNearest%v%values(kNearest%v%N))
       ! If the query point plus the current biggest distance is past the median value.
-      if (distance >= trunk%median) then ! Need to still check the other half if its on the other side of the median
+      if (distance >= trunk%median  .or. .not. kNearest%isFilled()) then ! Need to still check the other half if its on the other side of the median
         call kNearestBranch_2D(trunk%buds(2), x, y, indx, xQuery, yQuery, kNearest)
       end if
     else ! The query is to the right of the current median
       call kNearestBranch_2D(trunk%buds(2), x, y, indx, xQuery, yQuery, kNearest)
       distance = query - sqrt(kNearest%v%values(kNearest%v%N))
-      if (distance <= trunk%median) then ! Need to still check the other half if its on the other side of the median
+      if (distance <= trunk%median .or. .not. kNearest%isFilled()) then ! Need to still check the other half if its on the other side of the median
         call kNearestBranch_2D(trunk%buds(1), x, y, indx, xQuery, yQuery, kNearest)
       end if
     end if
@@ -400,26 +423,135 @@ contains
   real(r64), intent(in) :: yQuery
   class(dArgDynamicArray), intent(inout) :: kNearest
 
-  integer(i32) :: i, iTmp, iLeft
-  real(r64) ::  distance, minDistance
-
-  ! If there are no points in the queue, we went straight to a leaf
-  iLeft = left
-  if (kNearest%isEmpty()) then
-    i = left
-    iLeft = i + 1
-    iTmp = indx(i)
-    distance = (xQuery - x(iTmp))**2.d0 + (yQuery-y(iTmp))**2.d0
-    call kNearest%insertSorted(iTmp, distance)
-  endif
+  integer(i32) :: i, iTmp
+  real(r64) ::  distance
 
   ! Check the rest of the leaves and insert as appropriate
-  do i = iLeft, right
+  do i = left, right
     iTmp = indx(i)
     distance = (xQuery - x(iTmp))**2.d0 + (yQuery - y(iTmp))**2.d0
-    if (distance < kNearest%v%values(kNearest%v%N) .or. kNearest%v%N < size(kNearest%v%values)) then
+    if (kNearest%isEmpty()) then
       call kNearest%insertSorted(iTmp, distance)
+    else
+      if (distance < kNearest%v%values(kNearest%v%N)  .or. .not. kNearest%isFilled()) then
+        call kNearest%insertSorted(iTmp, distance)
+      end if
+    endif
+  end do
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  recursive subroutine kRadiusBranch_2D(trunk, x, y, indx, xQuery, yQuery, radiusSquared, kNearest)
+    !! Recurse through the tree branches to find the nearest branches to the query location
+  !====================================================================!
+  class(KdTreebranch),intent(in) :: trunk
+  real(r64),intent(in) :: x(:)
+  real(r64),intent(in) :: y(:)
+  integer,intent(in) :: indx(:)
+  real(r64),intent(in) :: xQuery
+  real(r64),intent(in) :: yQuery
+  real(r64), intent(in) :: radiusSquared
+  class(dArgDynamicArray) :: kNearest
+
+  real(r64) :: query, distance
+  integer(i32) :: i, iTmp
+
+
+  ! If the node is not associated, we are at final search block.
+  if (.not. associated(trunk%buds)) then
+    if (kNearest%v%fixed) then
+      call kRadiusLeaf_2D (x, y, indx, trunk%left, trunk%right, xQuery, yQuery, radiusSquared, kNearest)
+    else
+      call radiusLeaf_2D (x, y, indx, trunk%left, trunk%right, xQuery, yQuery, radiusSquared, kNearest)
+    endif
+  else ! Otherwise, keep searching through the branches
+
+    select case(trunk%splitAlong)
+    case(1)
+      query = xQuery
+    case(2)
+      query = yQuery
+    end select
+
+    if (query <= trunk%median) then ! If the query is to the left of the current median
+      call kRadiusBranch_2D(trunk%buds(1), x, y, indx, xQuery, yQuery, radiusSquared, kNearest)
+      distance = query + sqrt(radiusSquared)
+      ! If the query point plus the current biggest distance is past the median value.
+      if (distance >= trunk%median) then ! Need to still check the other half if its on the other side of the median
+        call kRadiusBranch_2D(trunk%buds(2), x, y, indx, xQuery, yQuery, radiusSquared, kNearest)
+      end if
+    else ! The query is to the right of the current median
+      call kRadiusBranch_2D(trunk%buds(2), x, y, indx, xQuery, yQuery, radiusSquared, kNearest)
+      distance = query - sqrt(radiusSquared)
+      if (distance <= trunk%median) then ! Need to still check the other half if its on the other side of the median
+        call kRadiusBranch_2D(trunk%buds(1), x, y, indx, xQuery, yQuery, radiusSquared, kNearest)
+      end if
     end if
+  end if
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine kRadiusLeaf_2D (x, y, indx, left, right, xQuery, yQuery, radiusSquared, kNearest)
+    !! For a branch with leaves, perform a brute force minimum distance search over the leaves. 
+    !! The number of leaves should be small for efficiency!
+  !====================================================================!
+  real(r64), intent(in) :: x(:)
+  real(r64), intent(in) :: y(:)
+  integer(i32), intent(in) :: indx(:)
+  integer(i32), intent(in) :: left
+  integer(i32), intent(in) :: right
+  real(r64), intent(in) :: xQuery
+  real(r64), intent(in) :: yQuery
+  real(r64), intent(in) :: radiusSquared
+  class(dArgDynamicArray), intent(inout) :: kNearest
+
+  integer(i32) :: i, iTmp
+  real(r64) :: distance
+
+  ! Check the rest of the leaves and insert as appropriate
+  do i = left, right
+    iTmp = indx(i)
+    distance = (xQuery - x(iTmp))**2.d0 + (yQuery - y(iTmp))**2.d0
+    ! If the distance is less than the search radius
+    if (distance <= radiusSquared) then
+      if (kNearest%isEmpty()) then ! Insert the point if the list is empty
+        call kNearest%insertSorted(iTmp, distance)
+      else
+        ! Since this is a k Nearest within a search radius, even if the point is within
+        ! the search, it may be closer than any previous in the heap.
+        if (distance < kNearest%v%values(kNearest%v%N) .or. .not. kNearest%isFilled()) then
+          call kNearest%insertSorted(iTmp, distance)
+        endif
+      endif
+    endif
+  end do
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine radiusLeaf_2D (x, y, indx, left, right, xQuery, yQuery, radiusSquared, kNearest)
+    !! For a branch with leaves, perform a brute force minimum distance search over the leaves. 
+    !! The number of leaves should be small for efficiency!
+  !====================================================================!
+  real(r64), intent(in) :: x(:)
+  real(r64), intent(in) :: y(:)
+  integer(i32), intent(in) :: indx(:)
+  integer(i32), intent(in) :: left
+  integer(i32), intent(in) :: right
+  real(r64), intent(in) :: xQuery
+  real(r64), intent(in) :: yQuery
+  real(r64), intent(in) :: radiusSquared
+  class(dArgDynamicArray), intent(inout) :: kNearest
+
+  integer(i32) :: i, iTmp
+  real(r64) ::  distance, minDistance
+
+  ! Easy one this, since the array is dynamic, just insert any point inside the hypersphere.
+  do i = left, right
+    iTmp = indx(i)
+    distance = (xQuery - x(iTmp))**2.d0 + (yQuery - y(iTmp))**2.d0
+    if (distance <= radiusSquared) then
+      call kNearest%insertSorted(iTmp, distance)
+    endif
   end do
   end subroutine
   !====================================================================!
@@ -437,15 +569,38 @@ contains
   !real(r64),intent(in) :: xQuery
   !real(r64),intent(in) :: yQuery
   !real(r64),intent(in) :: zQuery
-  !integer(i32), intent(in) :: k
-  !type(dArgDynamicArray) :: kNearest
+  !integer(i32), intent(in), optional :: k
+  !real(r64), intent(in), optional :: radius
+  !class(dArgDynamicArray) :: kNearest
 
-  if (k <= 1) call eMsg('KdTreeSearch%kNearest: k must be >= 1')
+  integer(i32) :: k_
+  logical :: fixedArray
 
-  kNearest = dArgDynamicArray(k, .true., .true.)
+  if (.not. present(k) .and. .not. present(radius)) call eMsg('KdTreeSearch%kNearest: Must use either k or radius, or both.')
 
-  call kNearestBranch_3D(tree%trunk, x, y, z, tree%indx, xQuery, yQuery, zQuery, kNearest)
+  ! Set an initial value for the memory allocated if k nearest is not specified
+  k_ = 16
+  ! Set the fixed array as false unless k is specified
+  fixedArray = .false.
+  if (present(k)) then
+    if (k <= 1) call eMsg('KdTreeSearch%kNearest: k must be >= 1')
+    k_ = k
+    fixedArray = .true.
+  endif
+
+  if (present(radius)) then
+    if (radius <= 0.d0) call eMsg('KdTreeSearch%kNearest: radius must be > 0')
+  endif
+
+  kNearest = dArgDynamicArray(k, .true., fixedArray)
+
+  if (present(radius)) then ! Perform a radius search
+    call kRadiusBranch_3D(tree%trunk, x, y, z, tree%indx, xQuery, yQuery, zQuery, radius**2.d0, kNearest)
+  else ! Perform straight k nearest neighbours.
+    call kNearestBranch_3D(tree%trunk, x, y, z, tree%indx, xQuery, yQuery, zQuery, kNearest)
+  endif
   kNearest%v%values = sqrt(kNearest%v%values)
+  if (.not. fixedArray) call kNearest%tighten()
   end procedure
   !====================================================================!
   !====================================================================!
@@ -463,12 +618,23 @@ contains
   class(dArgDynamicArray) :: kNearest
 
   real(r64) :: query, distance
-  integer(i32) :: iNear, iTmp
-
+  integer(i32) :: i, iTmp
 
   ! If the node is not associated, we are at final search block.
   if (.not. associated(trunk%buds)) then
-    call kNearestLeaf_3D(x, y, z, indx, trunk%left, trunk%right, xQuery, yQuery, zQuery, kNearest)
+    ! Check the leaves and insert as appropriate
+    do i = trunk%left, trunk%right
+      iTmp = indx(i)
+      distance = (xQuery - x(iTmp))**2.d0 + (yQuery - y(iTmp))**2.d0 + (zQuery-z(iTmp))**2.d0
+      if (kNearest%isEmpty()) then
+        call kNearest%insertSorted(iTmp, distance)
+      else
+        if (distance < kNearest%v%values(kNearest%v%N) .or. .not. kNearest%isFilled()) then
+          call kNearest%insertSorted(iTmp, distance)
+        end if
+      endif
+    end do
+
   else ! Otherwise, keep searching through the branches
 
     select case(trunk%splitAlong)
@@ -484,13 +650,13 @@ contains
       call kNearestBranch_3D(trunk%buds(1), x, y, z, indx, xQuery, yQuery, zQuery, kNearest)
       distance = query + sqrt(kNearest%v%values(kNearest%v%N))
       ! If the query point plus the current biggest distance is past the median value.
-      if (distance >= trunk%median) then ! Need to still check the other half if its on the other side of the median
+      if (distance >= trunk%median .or. .not. kNearest%isFilled()) then ! Need to still check the other half if its on the other side of the median
         call kNearestBranch_3D(trunk%buds(2), x, y, z, indx, xQuery, yQuery, zQuery, kNearest)
       end if
     else ! The query is to the right of the current median
       call kNearestBranch_3D(trunk%buds(2), x, y, z, indx, xQuery, yQuery, zQuery, kNearest)
       distance = query - sqrt(kNearest%v%values(kNearest%v%N))
-      if (distance <= trunk%median) then ! Need to still check the other half if its on the other side of the median
+      if (distance <= trunk%median .or. .not. kNearest%isFilled()) then ! Need to still check the other half if its on the other side of the median
         call kNearestBranch_3D(trunk%buds(1), x, y, z, indx, xQuery, yQuery, zQuery, kNearest)
       end if
     end if
@@ -498,7 +664,61 @@ contains
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine kNearestLeaf_3D (x, y, z, indx, left, right, xQuery, yQuery, zQuery, kNearest)
+  recursive subroutine kRadiusBranch_3D(trunk, x, y, z, indx, xQuery, yQuery, zQuery, radiusSquared, kNearest)
+    !! Recurse through the tree branches to find the nearest branches to the query location
+  !====================================================================!
+  class(KdTreebranch),intent(in) :: trunk
+  real(r64),intent(in) :: x(:)
+  real(r64),intent(in) :: y(:)
+  real(r64),intent(in) :: z(:)
+  integer,intent(in) :: indx(:)
+  real(r64),intent(in) :: xQuery
+  real(r64),intent(in) :: yQuery
+  real(r64),intent(in) :: zQuery
+  real(r64), intent(in) :: radiusSquared
+  class(dArgDynamicArray) :: kNearest
+
+  real(r64) :: query, distance
+  integer(i32) :: i, iTmp
+
+
+  ! If the node is not associated, we are at final search block.
+  if (.not. associated(trunk%buds)) then
+    if (kNearest%v%fixed) then
+      call kRadiusLeaf_3D(x, y, z, indx, trunk%left, trunk%right, xQuery, yQuery, zQuery, radiusSquared, kNearest)
+    else
+      call radiusLeaf_3D(x, y, z, indx, trunk%left, trunk%right, xQuery, yQuery, zQuery, radiusSquared, kNearest)
+    endif
+  else ! Otherwise, keep searching through the branches
+
+    select case(trunk%splitAlong)
+    case(1)
+      query = xQuery
+    case(2)
+      query = yQuery
+    case(3)
+      query = zQuery
+    end select
+
+    if (query <= trunk%median) then ! If the query is to the left of the current median
+      call kRadiusBranch_3D(trunk%buds(1), x, y, z, indx, xQuery, yQuery, zQuery, radiusSquared, kNearest)
+      distance = query + sqrt(radiusSquared)
+      ! If the query point plus the current biggest distance is past the median value.
+      if (distance >= trunk%median) then ! Need to still check the other half if its on the other side of the median
+        call kRadiusBranch_3D(trunk%buds(2), x, y, z, indx, xQuery, yQuery, zQuery, radiusSquared, kNearest)
+      end if
+    else ! The query is to the right of the current median
+      call kRadiusBranch_3D(trunk%buds(2), x, y, z, indx, xQuery, yQuery, zQuery, radiusSquared, kNearest)
+      distance = query - sqrt(radiusSquared)
+      if (distance <= trunk%median) then ! Need to still check the other half if its on the other side of the median
+        call kRadiusBranch_3D(trunk%buds(1), x, y, z, indx, xQuery, yQuery, zQuery, radiusSquared, kNearest)
+      end if
+    end if
+  end if
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine kRadiusLeaf_3D(x, y, z, indx, left, right, xQuery, yQuery, zQuery, radiusSquared, kNearest)
     !! For a branch with leaves, perform a brute force minimum distance search over the leaves. 
     !! The number of leaves should be small for efficiency!
   !====================================================================!
@@ -511,31 +731,62 @@ contains
   real(r64), intent(in) :: xQuery
   real(r64), intent(in) :: yQuery
   real(r64), intent(in) :: zQuery
+  real(r64), intent(in) :: radiusSquared
   class(dArgDynamicArray), intent(inout) :: kNearest
 
-  integer(i32) :: i, iTmp, iLeft
-  real(r64) ::  distance
-
-  ! If there are no points in the queue, we went straight to a leaf
-  iLeft = left
-  if (kNearest%isEmpty()) then
-    i = left
-    iLeft = i + 1
-    iTmp = indx(i)
-    distance = (xQuery - x(iTmp))**2.d0 + (yQuery-y(iTmp))**2.d0 + (zQuery-z(iTmp))**2.d0
-    call kNearest%insertSorted(iTmp, distance)
-  endif
+  integer(i32) :: i, iTmp
+  real(r64) :: distance
 
   ! Check the rest of the leaves and insert as appropriate
-  do i = iLeft, right
+  do i = left, right
     iTmp = indx(i)
     distance = (xQuery - x(iTmp))**2.d0 + (yQuery - y(iTmp))**2.d0 + (zQuery-z(iTmp))**2.d0
-    if (distance < kNearest%v%values(kNearest%v%N) .or. kNearest%v%N < size(kNearest%v%values)) then
-      call kNearest%insertSorted(iTmp, distance)
-    end if
+    ! If the distance is less than the search radius
+    if (distance <= radiusSquared) then
+      if (kNearest%isEmpty()) then ! Insert the point if the list is empty
+        call kNearest%insertSorted(iTmp, distance)
+      else
+        ! Since this is a k Nearest within a search radius, even if the point is within
+        ! the search, it may be closer than any previous in the heap.
+        if (distance < kNearest%v%values(kNearest%v%N) .or. .not. kNearest%isFilled()) then
+          call kNearest%insertSorted(iTmp, distance)
+        endif
+      endif
+    endif
   end do
   end subroutine
   !====================================================================!
+  !====================================================================!
+  subroutine radiusLeaf_3D (x, y, z, indx, left, right, xQuery, yQuery, zQuery, radiusSquared, kNearest)
+    !! For a branch with leaves, perform a brute force minimum distance search over the leaves. 
+    !! The number of leaves should be small for efficiency!
+  !====================================================================!
+  real(r64), intent(in) :: x(:)
+  real(r64), intent(in) :: y(:)
+  real(r64), intent(in) :: z(:)
+  integer(i32), intent(in) :: indx(:)
+  integer(i32), intent(in) :: left
+  integer(i32), intent(in) :: right
+  real(r64), intent(in) :: xQuery
+  real(r64), intent(in) :: yQuery
+  real(r64), intent(in) :: zQuery
+  real(r64), intent(in) :: radiusSquared
+  class(dArgDynamicArray), intent(inout) :: kNearest
+
+  integer(i32) :: i, iTmp
+  real(r64) ::  distance, minDistance
+
+  ! Easy one this, since the array is dynamic, just insert any point inside the hypersphere.
+  do i = left, right
+    iTmp = indx(i)
+    distance = (xQuery - x(iTmp))**2.d0 + (yQuery - y(iTmp))**2.d0 + (zQuery-z(iTmp))**2.d0
+    if (distance <= radiusSquared) then
+      call kNearest%insertSorted(iTmp, distance)
+    endif
+  end do
+  end subroutine
+  !====================================================================!
+
 
   !====================================================================!
   module procedure kNearest_KD ! (search, tree, D, query, k, kNearest)
@@ -566,14 +817,26 @@ contains
   real(r64),intent(in) :: query(:)
   class(dArgDynamicArray), intent(inout) :: kNearest
 
-  real(r64) :: distance
-  real(r64) :: queryTmp
+  real(r64) :: distance, queryTmp
+  integer(i32) :: i, iTmp
   real(r64) :: test(size(query)) ! Small allocation on stack
   
 
   ! If the node is not associated, we are at final search block.
   if (.not. associated(trunk%buds)) then
-    call kNearestLeaf_KD(D, indx, trunk%left, trunk%right, query, kNearest)
+    ! Check the rest of the leaves and insert as appropriate
+    do i = trunk%left, trunk%right
+      iTmp = indx(i)
+      test = D(iTmp, :)
+      distance = sum((query - test)**2.d0)
+      if (kNearest%isEmpty()) then
+        call kNearest%insertSorted(iTmp, distance)
+      else
+        if (distance < kNearest%v%values(kNearest%v%N) .or. .not. kNearest%isFilled()) then
+          call kNearest%insertSorted(iTmp, distance)
+        end if
+      endif
+    end do
     
   else ! Otherwise, keep searching through the branches
     queryTmp = query(trunk%splitAlong)
@@ -581,13 +844,13 @@ contains
     if (queryTmp <= trunk%median) then ! If the query is to the left of the current median
       call kNearestBranch_KD(trunk%buds(1), D, indx, query, kNearest)
       distance = queryTmp + sqrt(kNearest%v%values(kNearest%v%N))
-      if (distance >= trunk%median) then ! Need to still check the other half if its on the other side of the median
+      if (distance >= trunk%median .or. .not. kNearest%isFilled()) then ! Need to still check the other half if its on the other side of the median
         call kNearestBranch_KD(trunk%buds(2), D, indx, query, kNearest)
       end if
     else ! The query is to the right of the current median
       call kNearestBranch_KD(trunk%buds(2), D, indx, query, kNearest)
       distance = queryTmp - sqrt(kNearest%v%values(kNearest%v%N))
-      if (distance <= trunk%median) then ! Need to still check the other half if its on the other side of the median
+      if (distance <= trunk%median .or. .not. kNearest%isFilled()) then ! Need to still check the other half if its on the other side of the median
         call kNearestBranch_KD(trunk%buds(1), D, indx, query, kNearest)
       end if
     end if
@@ -595,39 +858,112 @@ contains
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine kNearestLeaf_KD (D, indx, left, right, query, kNearest)
-    !! For a branch with leaves, perform a brute force minimum distance search over the leaves. The number of leaves should be small for efficiency!
+  recursive subroutine kRadiusBranch_KD(trunk, D, indx, query, radiusSquared, kNearest)
+    !! Recurse through the tree branches to find the nearest branches to the query location
+  !====================================================================!
+  class(KdTreebranch),intent(in) :: trunk
+  real(r64),intent(in) :: D(:,:)
+  integer,intent(in) :: indx(:)
+  real(r64),intent(in) ::query(:)
+  real(r64), intent(in) :: radiusSquared
+  class(dArgDynamicArray) :: kNearest
+
+  real(r64) :: queryTmp, distance
+  integer(i32) :: i, iTmp
+  real(r64) :: test(size(query)) ! Small allocation on stack
+
+
+  ! If the node is not associated, we are at final search block.
+  if (.not. associated(trunk%buds)) then
+    if (kNearest%v%fixed) then
+      call kRadiusLeaf_KD(D, indx, trunk%left, trunk%right, query, radiusSquared, kNearest)
+    else
+      call radiusLeaf_KD(D, indx, trunk%left, trunk%right, query, radiusSquared, kNearest)
+    endif
+  else ! Otherwise, keep searching through the branches
+
+    queryTmp = query(trunk%splitAlong)
+
+    if (queryTmp <= trunk%median) then ! If the query is to the left of the current median
+      call kRadiusBranch_KD(trunk%buds(1), D, indx, query, radiusSquared, kNearest)
+      distance = queryTmp + sqrt(radiusSquared)
+      ! If the query point plus the current biggest distance is past the median value.
+      if (distance >= trunk%median) then ! Need to still check the other half if its on the other side of the median
+        call kRadiusBranch_KD(trunk%buds(2), D, indx, query, radiusSquared, kNearest)
+      end if
+    else ! The query is to the right of the current median
+      call kRadiusBranch_KD(trunk%buds(2), D, indx, query, radiusSquared, kNearest)
+      distance = queryTmp - sqrt(radiusSquared)
+      if (distance <= trunk%median) then ! Need to still check the other half if its on the other side of the median
+        call kRadiusBranch_KD(trunk%buds(1), D, indx, query, radiusSquared, kNearest)
+      end if
+    end if
+  end if
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine kRadiusLeaf_KD(D, indx, left, right, query, radiusSquared, kNearest)
+    !! For a branch with leaves, perform a brute force minimum distance search over the leaves. 
+    !! The number of leaves should be small for efficiency!
   !====================================================================!
   real(r64), intent(in) :: D(:,:)
   integer(i32), intent(in) :: indx(:)
-  integer(i32), intent(in) :: left, right
+  integer(i32), intent(in) :: left
+  integer(i32), intent(in) :: right
   real(r64), intent(in) :: query(:)
+  real(r64), intent(in) :: radiusSquared
   class(dArgDynamicArray), intent(inout) :: kNearest
 
-  integer(i32) :: i, iTmp, iLeft
-  real(r64) :: test(size(query)) ! Small allocation on stack
-  real(r64) :: distance
-
-  ! If there are no points in the queue, we went straight to a leaf
-  iLeft = left
-  if (kNearest%isEmpty()) then
-    i = left
-    iLeft = i + 1
-    iTmp = indx(i)
-    test = D(iTmp, :)
-    distance = sum((query - test)**2.d0)
-    call kNearest%insertSorted(iTmp, distance)
-  endif
+  integer(i32) :: i, iTmp
+  real(r64) :: distance, test(size(query))
 
   ! Check the rest of the leaves and insert as appropriate
-  do i = iLeft, right
+  do i = left, right
     iTmp = indx(i)
     test = D(iTmp, :)
     distance = sum((query - test)**2.d0)
-    if (distance < kNearest%v%values(kNearest%v%N) .or. kNearest%v%N < size(kNearest%v%values)) then
-      call kNearest%insertSorted(iTmp, distance)
-    end if
+    ! If the distance is less than the search radius
+    if (distance <= radiusSquared) then
+      if (kNearest%isEmpty()) then ! Insert the point if the list is empty
+        call kNearest%insertSorted(iTmp, distance)
+      else
+        ! Since this is a k Nearest within a search radius, even if the point is within
+        ! the search, it may be closer than any previous in the heap.
+        if (distance < kNearest%v%values(kNearest%v%N) .or. .not. kNearest%isFilled()) then
+          call kNearest%insertSorted(iTmp, distance)
+        endif
+      endif
+    endif
   end do
   end subroutine
   !====================================================================!
+  !====================================================================!
+  subroutine radiusLeaf_KD (D, indx, left, right, query, radiusSquared, kNearest)
+    !! For a branch with leaves, perform a brute force minimum distance search over the leaves. 
+    !! The number of leaves should be small for efficiency!
+  !====================================================================!
+  real(r64), intent(in) :: D(:,:)
+  integer(i32), intent(in) :: indx(:)
+  integer(i32), intent(in) :: left
+  integer(i32), intent(in) :: right
+  real(r64), intent(in) :: query(:)
+  real(r64), intent(in) :: radiusSquared
+  class(dArgDynamicArray), intent(inout) :: kNearest
+
+  integer(i32) :: i, iTmp
+  real(r64) ::  distance, test(size(query))
+
+  ! Easy one this, since the array is dynamic, just insert any point inside the hypersphere.
+  do i = left, right
+    iTmp = indx(i)
+    test = D(iTmp, :)
+    distance = sum((query - test)**2.d0)
+    if (distance <= radiusSquared) then
+      call kNearest%insertSorted(iTmp, distance)
+    endif
+  end do
+  end subroutine
+  !====================================================================!
+
+
 end submodule
