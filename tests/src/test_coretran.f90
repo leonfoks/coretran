@@ -19,6 +19,7 @@ program test_coretran
   ! Sorting routines
   use m_Sort
   use m_Select
+  use m_Searching
   use m_maths
   use m_KdTree
 
@@ -78,6 +79,7 @@ program test_coretran
   type(KdTreeSearch) :: search
 
   type(dArgDynamicArray) :: da
+  integer(i32) :: iSearch(3) ! Used for testing kNearest.
 
 ! Get an integer from command line argument
   ib = command_argument_count()
@@ -91,6 +93,8 @@ program test_coretran
   call get_command_argument(1, sa)
   read(sa,*) N
 
+  !if (N < 100) call eMsg('Please use size >= 100')
+
   call get_command_argument(2, sa)
   read(sa,*) nIterations
 
@@ -103,27 +107,27 @@ program test_coretran
   call Msg('==========================')
 
   call strings_test(test)
-
+  
   call fileIO_test(test)
-
-  call random_test(test)
-
+  
+  call random_test(test, .false.)
+  
   call time_test(test)
-
+  
   call indexing_test(test)
-
+  
   call allocate_test(test)
-
+  
   call reallocate_test(test)
-
+  
   call copy_test(test)
-
+  
   call sorting_test(test, N)
-
+  
   call select_test(test, N)
-
+  
   call array1D_test(test)
-
+  
   call maths_test(test)
 
 
@@ -175,16 +179,30 @@ program test_coretran
 
   tree = KdTree(a1D, b1D)
 
-  ia = search%nearest(tree, a1D, b1D, 0.d0, 0.d0)
-  call search%kNearest(tree, a1D, b1D, 0.d0, 0.d0, 10, da)
-
   c1D = a1D**2.d0
   c1D = c1D + b1D**2.d0
   call arange(ia1D, 1, N)  
   call argSort(c1D, ia1D)
 
+  ia = search%nearest(tree, a1D, b1D, 0.d0, 0.d0)
+
   call test%test(ia == ia1D(1), '2D - KdTreeSearch%nearest')
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - sqrt(c1D(ia1D(1:10)))) <= 1.d-15), '2D - KdTreeSearch%kNearest')
+
+  da = search%kNearest(tree, a1D, b1D, 0.d0, 0.d0, k = 10)
+
+  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - sqrt(c1D(ia1D(1:10)))) <= 1.d-15), '2D - KdTreeSearch%kNearest, k nearest')
+
+  c1D = sqrt(c1D(ia1D))
+  a = c1D(15)
+
+  call da%deallocate()
+  da = search%kNearest(tree, a1D, b1D, 0.d0, 0.d0, radius = a)
+
+  call test%test(all(da%i%values == ia1D(1:15)) .and. all(abs(da%v%values - (c1D(1:15))) <= 1.d-12), '2D - KdTreeSearch%kNearest, radius search')
+
+  call da%deallocate()
+  da = search%kNearest(tree, a1D, b1D, 0.d0, 0.d0, k=10, radius = a)
+  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - (c1D(1:10))) <= 1.d-15), '2D - KdTreeSearch%kNearest, k radius search')
 
   call tree%deallocate()
 
@@ -194,7 +212,7 @@ program test_coretran
   tree = KdTree(a1D, b1D, c1D)
 
   ia = search%nearest(tree, a1D, b1D, c1D, 0.d0, 0.d0, 0.d0)
-  call search%kNearest(tree, a1D, b1D, c1D, 0.d0, 0.d0, 0.d0, 10, da)
+  da = search%kNearest(tree, a1D, b1D, c1D, 0.d0, 0.d0, 0.d0, 10)
 
   d1D = a1D**2.d0
   d1D = d1D + b1D**2.d0
@@ -215,7 +233,7 @@ program test_coretran
   tree = KdTree(a2D)
 
   ia = search%nearest(tree, a2D, [0.d0, 0.d0])
-  call search%kNearest(tree, a2D, [0.d0, 0.d0], 10, da)
+  da = search%kNearest(tree, a2D, [0.d0, 0.d0], 10)
 
   c1D = a1D**2.d0
   c1D = c1D + b1D**2.d0
