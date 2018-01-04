@@ -1,24 +1,23 @@
 module m_searching
-    !! Contains routines to perform a simple binary search on a vector
-    !!
-    !! Example usage
-    !!```fortran
-    !!program binarySearch_test
-    !!use variableKind, only: i32, r64
-    !!use m_BinarySearch, only: binarySearch
-    !!
-    !!implicit none
-    !!
-    !!real(r64) :: arr(20)
-    !!integer(i32) :: i
-    !!integer(i32) :: j
-    !!arr=[(dble(i), i = 1, 20)]
-    !!j = binarySearch(arr, 10.d0, 1, 20)
-    !!write(*,*) 'Location of 10.0 in arr is 10? ',j == 10
-    !!end program
-    !!```
-
-!! Perform a binary search but also return the neighbouring interval if the actual value is not found.
+  !! Contains routines to perform a simple binary search on a vector
+  !!
+  !! Example usage
+  !!```fortran
+  !!program binarySearch_test
+  !!use variableKind, only: i32, r64
+  !!use m_BinarySearch, only: binarySearch
+  !!
+  !!implicit none
+  !!
+  !!real(r64) :: arr(20)
+  !!integer(i32) :: i
+  !!integer(i32) :: j
+  !!arr=[(dble(i), i = 1, 20)]
+  !!j = binarySearch(arr, 10.d0, 1, 20)
+  !!write(*,*) 'Location of 10.0 in arr is 10? ',j == 10
+  !!end program
+  !!```
+  !! Perform a binary search but also return the neighbouring interval if the actual value is not found.
   !! This is useful if you need to find a number that is not contained in the array and you want the interval
   !!
   !! Example usage
