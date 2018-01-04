@@ -21,12 +21,13 @@ submodule (m_Select) sm_quickselect
   integer(i32) :: j
   integer(i32) :: lo
   integer(i32) :: mid
+  integer(i32) :: N
 
   lo = 1
   hi = size(this)
 
-  do while (hi > lo)
-    if (hi - lo < 16) then
+  do while (hi >= lo)
+    if (hi - lo < 17) then
       call insertionSort(this, lo, hi)
       res = this(k)
       return
@@ -63,8 +64,8 @@ submodule (m_Select) sm_quickselect
   lo = 1
   hi = size(this)
 
-  do while (hi > lo)
-    if (hi - lo < 16) then
+  do while (hi >= lo)
+    if (hi - lo < 17) then
       call insertionSort(this, lo, hi)
       res = this(k)
       return
@@ -101,8 +102,8 @@ submodule (m_Select) sm_quickselect
   lo = 1
   hi = size(this)
 
-  do while (hi > lo)
-    if (hi - lo < 16) then
+  do while (hi >= lo)
+    if (hi - lo < 17) then
       call insertionSort(this, lo, hi)
       res = this(k)
       return
@@ -140,8 +141,8 @@ submodule (m_Select) sm_quickselect
   lo = 1
   hi = size(this)
 
-  do while (hi > lo)
-    if (hi - lo < 16) then
+  do while (hi >= lo)
+    if (hi - lo < 17) then
       call insertionSort(this, lo, hi)
       res = this(k)
       return
@@ -184,7 +185,7 @@ submodule (m_Select) sm_quickselect
   res = -1
 
   do while (hi >= lo)
-    if (hi - lo < 16) then
+    if (hi - lo < 17) then
       call argInsertionSort(this, indx, lo, hi)
       res = indx(k)
       return
@@ -227,7 +228,7 @@ submodule (m_Select) sm_quickselect
   res = -1
 
   do while (hi >= lo)
-    if (hi - lo < 16) then
+    if (hi - lo < 17) then
       call argInsertionSort(this, indx, lo, hi)
       res = indx(k)
       return
@@ -271,7 +272,7 @@ submodule (m_Select) sm_quickselect
   res = -1
 
   do while (hi >= lo)
-    if (hi - lo < 16) then
+    if (hi - lo < 17) then
       call argInsertionSort(this, indx, lo, hi)
       res = indx(k)
       return
@@ -314,7 +315,7 @@ submodule (m_Select) sm_quickselect
   res = -1
 
   do while (hi >= lo)
-    if (hi - lo < 16) then
+    if (hi - lo < 17) then
       call argInsertionSort(this, indx, lo, hi)
       res = indx(k)
       return
