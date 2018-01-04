@@ -17,6 +17,7 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -26,8 +27,6 @@
     
     <script src="../js/jquery-2.1.3.min.js"></script>
     <script src="../js/svg-pan-zoom.min.js"></script>
-
-    
 
   </head>
 
@@ -112,7 +111,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 2.6% of total for modules and submodules.">177 statements</a>
+	  title=" 3.1% of total for modules and submodules.">242 statements</a>
      </li> 
      
      
@@ -176,6 +175,19 @@
 
 
 
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-0" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/m_rdynamicarray.html#proc-insertat__rdynamicarray">insertAt__rDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_rdynamicarray.html#proc-rdynamicarray_test">rDynamicArray_test</a>
+      
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -202,6 +214,8 @@
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
       
+      <a class="list-group-item" href="../module/m_dargdynamicarray.html">m_dArgDynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_ddynamicarray.html">m_dDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_deallocate.html">m_deallocate</a>
@@ -211,6 +225,10 @@
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_iargdynamicarray.html">m_iArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_idargdynamicarray.html">m_idArgDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_iddynamicarray.html">m_idDynamicArray</a>
       
@@ -274,33 +292,6 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      
-    
-  
-    <ul class="list-inline">
-      <li><h4>Uses:</h4></li>
-      
-      <li><a href='../module/variablekind.html'>variableKind</a></li>
-      
-      <li><a href='../module/m_allocate.html'>m_allocate</a></li>
-      
-      <li><a href='../module/m_searching.html'>m_searching</a></li>
-      
-      <li><a href='../module/m_deallocate.html'>m_deallocate</a></li>
-      
-      <li><a href='../module/m_errors.html'>m_errors</a></li>
-      
-      <li><a href='../module/m_reallocate.html'>m_reallocate</a></li>
-      
-      <li><a href='../module/m_sort.html'>m_sort</a></li>
-      
-      <li><a href='../module/m_strings.html'>m_strings</a></li>
-      
-    </ul>
-    
-    
-
-    
     <p>Class that act as stacks, queues, and priority queues.
  These classes use dynamically allocated contiguous blocks of memory to store a list of numbers.
  The queues can be sorted to become priority queues and use binary searches to quickly insert new numbers.
@@ -308,38 +299,87 @@
  Memory is only reallocated to a smaller size, if the utilization is a quarter of that allocated.</p>
 <div class="codehilite"><pre><span></span><span class="k">program </span><span class="n">dynamicArray_test</span>
 <span class="k">use </span><span class="n">variableKind</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">i32</span>
-<span class="k">use </span><span class="n">m_dynamicArray</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">rDynamicArray</span>
+<span class="k">use </span><span class="n">m_rDynamicArray</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">rDynamicArray</span>
 
 <span class="k">implicit none</span>
 
-<span class="k">type</span><span class="p">(</span><span class="n">rDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">rda</span><span class="p">,</span> <span class="n">rda2</span>
+<span class="k">type</span><span class="p">(</span><span class="n">rDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">da</span><span class="p">,</span> <span class="n">da2</span>
 <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ia</span>
 
-<span class="n">rda</span> <span class="o">=</span> <span class="n">rDynamicArray</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c">! array is empty but with memory allocated for 10 numbers</span>
-<span class="k">call </span><span class="n">rda</span><span class="p">%</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="mf">0.d0</span><span class="p">)</span> <span class="c">! array is [10.d0]</span>
-<span class="k">call </span><span class="n">rda</span><span class="p">%</span><span class="n">insert</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="mf">0.d0</span><span class="p">)</span> <span class="c">! array is [20.d0, 10.d0]</span>
-<span class="k">call </span><span class="n">rda</span><span class="p">%</span><span class="n">prepend</span><span class="p">(</span><span class="mi">3</span><span class="mf">0.d0</span><span class="p">)</span> <span class="c">! array is [30.d0, 20.d0, 10.d0]</span>
-<span class="k">call </span><span class="n">rda</span><span class="p">%</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="mf">0.d0</span><span class="p">)</span> <span class="c">! array is [30.d0, 20.d0, 10.d0, 40.d0]</span>
-<span class="k">call </span><span class="n">rda</span><span class="p">%</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="c">! array is [30.d0, 10.d0, 40.d0]</span>
-<span class="k">call </span><span class="n">rda</span><span class="p">%</span><span class="n">tighten</span><span class="p">()</span> <span class="c">! array memory changed to match, i.e. 3.</span>
-<span class="n">rda2</span> <span class="o">=</span> <span class="n">rda</span> <span class="c">! non-pointer copy of dynamic array</span>
-<span class="k">call </span><span class="n">rda</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span> <span class="c">! deallocate memory in the dynamic array</span>
-<span class="k">call </span><span class="n">rda2</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span> <span class="c">! deallocate memory in the dynamic array</span>
-<span class="n">rda</span> <span class="o">=</span> <span class="n">rDynamicArray</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c">! Initialized 3 space dynamic array</span>
-<span class="k">call </span><span class="n">rda</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">2</span><span class="mf">0.d0</span><span class="p">)</span> <span class="c">! Sorted insertion</span>
-<span class="k">call </span><span class="n">rda</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">3</span><span class="mf">0.d0</span><span class="p">)</span> <span class="c">! Sorted insertion [20.d0, 30.d0]</span>
-<span class="k">call </span><span class="n">rda</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">1</span><span class="mf">0.d0</span><span class="p">)</span> <span class="c">! Sorted insertion [10.d0, 20.d0, 30.d0]</span>
-<span class="n">ia</span> <span class="o">=</span> <span class="n">rda</span><span class="p">%</span><span class="n">locationOf</span><span class="p">(</span><span class="mi">2</span><span class="mf">0.d0</span><span class="p">)</span> <span class="c">! Only use locat</span>
-<span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">ia</span> <span class="o">==</span> <span class="mi">2</span><span class="p">,</span> <span class="s1">&#39;rDynamicArray%locationOf&#39;</span><span class="p">)</span>
-<span class="k">call </span><span class="n">rda</span><span class="p">%</span><span class="n">insertSortedUnique</span><span class="p">(</span><span class="mi">1</span><span class="mf">0.d0</span><span class="p">)</span>
-<span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="k">all</span><span class="p">(</span><span class="n">rda</span><span class="p">%</span><span class="n">values</span><span class="o">==</span><span class="p">[</span><span class="mi">1</span><span class="mf">0.d0</span><span class="p">,</span> <span class="mi">2</span><span class="mf">0.d0</span><span class="p">,</span> <span class="mi">3</span><span class="mf">0.d0</span><span class="p">]),</span> <span class="s1">&#39;rDynamicArray%insertSortedUnique&#39;</span><span class="p">)</span>
-<span class="k">call </span><span class="n">rda</span><span class="p">%</span><span class="n">insertSortedUnique</span><span class="p">(</span><span class="mi">1</span><span class="mf">5.d0</span><span class="p">)</span>
-<span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="k">all</span><span class="p">(</span><span class="n">rda</span><span class="p">%</span><span class="n">values</span><span class="o">==</span><span class="p">[</span><span class="mi">1</span><span class="mf">0.d0</span><span class="p">,</span> <span class="mi">1</span><span class="mf">5.d0</span><span class="p">,</span> <span class="mi">2</span><span class="mf">0.d0</span><span class="p">,</span> <span class="mi">3</span><span class="mf">0.d0</span><span class="p">]),</span> <span class="s1">&#39;rDynamicArray%insertSortedUnique&#39;</span><span class="p">)</span>
-<span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">test</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">rda</span><span class="p">%</span><span class="n">values</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">,</span> <span class="s1">&#39;rDynamicArray%insert&#39;</span><span class="p">)</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">rDynamicArray</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertAt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertAt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">prepend</span><span class="p">(</span><span class="mi">3</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">tighten</span><span class="p">()</span>
+<span class="n">da2</span> <span class="o">=</span> <span class="n">da</span>
+<span class="n">da2</span><span class="p">%</span><span class="n">values</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">5</span><span class="mf">0.0</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
+<span class="k">call </span><span class="n">da2</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
+
+<span class="n">da</span> <span class="o">=</span> <span class="n">rDynamicArray</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">sorted</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">2</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">3</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">1</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">ia</span> <span class="o">=</span> <span class="n">da</span><span class="p">%</span><span class="n">locationOf</span><span class="p">(</span><span class="mi">2</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSortedUnique</span><span class="p">(</span><span class="mi">1</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSortedUnique</span><span class="p">(</span><span class="mi">1</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
+
+<span class="n">da</span> <span class="o">=</span> <span class="n">rDynamicArray</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">sorted</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.,</span> <span class="n">fixed</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">2</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">3</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">1</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="n">ia</span> <span class="o">=</span> <span class="n">da</span><span class="p">%</span><span class="n">locationOf</span><span class="p">(</span><span class="mi">2</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSortedUnique</span><span class="p">(</span><span class="mi">1</span><span class="mf">0.0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSortedUnique</span><span class="p">(</span><span class="mi">1</span><span class="mf">5.0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
 <span class="k">end program</span>
 </pre></div>
-    <br>
+      <br>
     
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+	<h3 class="panel-title">Uses</h3>
+      </div>
+      <ul class="list-group">
+      
+      <li class="list-group-item">
+	<ul class="list-inline">
+	  
+	  <li><a href='../module/variablekind.html'>variableKind</a></li>
+	  
+	  <li><a href='../module/m_allocate.html'>m_allocate</a></li>
+	  
+	  <li><a href='../module/m_searching.html'>m_searching</a></li>
+	  
+	  <li><a href='../module/m_deallocate.html'>m_deallocate</a></li>
+	  
+	  <li><a href='../module/m_errors.html'>m_errors</a></li>
+	  
+	  <li><a href='../module/m_reallocate.html'>m_reallocate</a></li>
+	  
+	  <li><a href='../module/m_sort.html'>m_sort</a></li>
+	  
+	  <li><a href='../module/m_strings.html'>m_strings</a></li>
+	  
+	  <li><a href='../module/m_unittester.html'>m_unitTester</a></li>
+	  
+	</ul>
+      </li>
+      
+      
+      
+      </ul>
+    </div>
+    
+
+    
+    
+
+    <br>
 
     <section class="visible-xs visible-sm hidden-md">
       
@@ -377,6 +417,19 @@
 </div>
 
 
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-1" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/m_rdynamicarray.html#proc-insertat__rdynamicarray">insertAt__rDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_rdynamicarray.html#proc-rdynamicarray_test">rDynamicArray_test</a>
+      
+    </div>
+  </div>
+</div>
 
 
 
@@ -729,34 +782,34 @@ private function init_rDynamicArray_d1D(values, M, sorted, fixed) result(this)
       <table class="table table-striped varlist">
       <tbody>
       
-       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-append%7E5'>append</a></strong>  => append_rDynamicArray </td>
+       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-append%7E8'>append</a></strong>  => append_rDynamicArray </td>
        <td><p>rDynamicArray%append() - Append a value to the end of the dynamic array.  Will change a sorted dynamic array to unsorted.</p></td></tr>
       
-       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-deallocate%7E5'>deallocate</a></strong>  => deallocate_rDynamicArray </td>
+       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-deallocate%7E8'>deallocate</a></strong>  => deallocate_rDynamicArray </td>
        <td><p>rDynamicArray%deallocate() - Deallocate a dynamic array.</p></td></tr>
       
-       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-insertat%7E5'>insertAt</a></strong>  => insertAt_rDynamicArray </td>
+       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-insertat%7E8'>insertAt</a></strong>  => insertAt_rDynamicArray </td>
        <td><p>rDynamicArray%insertAt() - Insert a value at a given index.</p></td></tr>
       
-       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-insertsorted%7E5'>insertSorted</a></strong>  => insertSorted_rDynamicArray </td>
+       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-insertsorted%7E8'>insertSorted</a></strong>  => insertSorted_rDynamicArray </td>
        <td><p>rDynamicArray%insertSorted() - Insert a value into a sorted dynamic array.</p></td></tr>
       
-       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-insertsortedunique%7E5'>insertSortedUnique</a></strong>  => insertSortedUnique_rDynamicArray </td>
+       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-insertsortedunique%7E8'>insertSortedUnique</a></strong>  => insertSortedUnique_rDynamicArray </td>
        <td><p>rDynamicArray%insertSortedUnique() - Inserts only unique numbers into a dynamic array.</p></td></tr>
       
-       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-locationof%7E5'>locationOf</a></strong>  => locationOf_rDynamicArray </td>
+       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-locationof%7E8'>locationOf</a></strong>  => locationOf_rDynamicArray </td>
        <td><p>rDynamicArray%locationOf() - Get the location of a value in a sorted dynamic array.</p></td></tr>
       
-       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-prepend%7E5'>prepend</a></strong>  => prepend_rDynamicArray </td>
+       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-prepend%7E8'>prepend</a></strong>  => prepend_rDynamicArray </td>
        <td><p>rDynamicArray%prepend() - Prepend a value to the start of the dynamic array. Only for unsorted dynamic arrays</p></td></tr>
       
        <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-reallocate%7E4'>reallocate</a></strong>  => reallocate_rDynamicArray </td>
        <td><p>rDynamicArray%reallocate() - Create new contiguous memory to match the needs of the expanding or shrinking array.</p></td></tr>
       
-       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-remove%7E5'>remove</a></strong>  => remove_rDynamicArray </td>
+       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-remove%7E8'>remove</a></strong>  => remove_rDynamicArray </td>
        <td><p>rDynamicArray%remove() - Remove an element from the array.</p></td></tr>
       
-       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-tighten%7E5'>tighten</a></strong>  => tighten_rDynamicArray </td>
+       <tr><td>procedure, public :: <strong><a href='../type/rdynamicarray.html#boundprocedure-tighten%7E8'>tighten</a></strong>  => tighten_rDynamicArray </td>
        <td><p>rDynamicArray%tighten() - Removes excess buffer memory and trims it to the current length.</p></td></tr>
       
        </tbody>
@@ -772,6 +825,152 @@ private function init_rDynamicArray_d1D(values, M, sorted, fixed) result(this)
     
     
 
+    
+    <section>
+    <h2>Subroutines</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-insertat__rdynamicarray"></span><h3>
+public subroutine <a href='../proc/insertat__rdynamicarray.html'>insertAt__rDynamicArray</a>(this, i, val)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Private insert into array without checking for sorted flag.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/rdynamicarray.html'>rDynamicArray</a>)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>i</strong></td><td><p>Insert value at this location.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r32)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>val</strong></td><td><p>Insert this value.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-rdynamicarray_test"></span><h3>
+public subroutine <a href='../proc/rdynamicarray_test.html'>rDynamicArray_test</a>(test)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/tester.html'>tester</a>)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>test</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+    
+    </section>    
+    <br>
     
     
     
@@ -797,6 +996,8 @@ private function init_rDynamicArray_d1D(values, M, sorted, fixed) result(this)
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
       
+      <a class="list-group-item" href="../module/m_dargdynamicarray.html">m_dArgDynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_ddynamicarray.html">m_dDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_deallocate.html">m_deallocate</a>
@@ -806,6 +1007,10 @@ private function init_rDynamicArray_d1D(values, M, sorted, fixed) result(this)
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_iargdynamicarray.html">m_iArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_idargdynamicarray.html">m_idArgDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_iddynamicarray.html">m_idDynamicArray</a>
       
@@ -871,7 +1076,8 @@ private function init_rDynamicArray_d1D(values, M, sorted, fixed) result(this)
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2017 </p></div>
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 
+                                          </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
@@ -902,12 +1108,13 @@ private function init_rDynamicArray_d1D(values, M, sorted, fixed) result(this)
       MathJax.Hub.Config({
         TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
         jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
-        'HTML-CSS': { 
-           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
-        }
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
       });
     </script>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    
   </body>
 </html>

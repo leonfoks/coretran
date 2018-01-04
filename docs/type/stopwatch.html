@@ -17,6 +17,7 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -26,8 +27,6 @@
     
     <script src="../js/jquery-2.1.3.min.js"></script>
     <script src="../js/svg-pan-zoom.min.js"></script>
-
-    
 
   </head>
 
@@ -112,7 +111,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p>10.0% of total for derived types.</p>Including implementation: 128 statements, 15.8% of total for derived types.">19 statements</a>
+	  title="<p> 7.5% of total for derived types.</p>Including implementation: 128 statements, 11.9% of total for derived types.">19 statements</a>
      </li> 
      
      
@@ -205,7 +204,13 @@
       
       <a class="list-group-item" href="../type/c_printoptions.html">c_printOptions</a>
       
+      <a class="list-group-item" href="../type/dargdynamicarray.html">dArgDynamicArray</a>
+      
       <a class="list-group-item" href="../type/ddynamicarray.html">dDynamicArray</a>
+      
+      <a class="list-group-item" href="../type/iargdynamicarray.html">iArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../type/idargdynamicarray.html">idArgDynamicArray</a>
       
       <a class="list-group-item" href="../type/iddynamicarray.html">idDynamicArray</a>
       
@@ -236,10 +241,11 @@
     
     <div class="col-md-9" id='text'>
       <h2>type, public :: Stopwatch</h2>
-    
     <p>Class for timing sections of code, See the Stopwatch_Class module documentation for usage.</p>
-    <br>
     
+    
+    
+    <br>
 
     <section class="visible-xs visible-sm hidden-md">
       
@@ -325,7 +331,8 @@
     
       <li class="list-group-item">
       
-         
+        
+          
     
     <h3>
 private subroutine start_Stopwatch(this, title, iunit)
@@ -404,6 +411,7 @@ private subroutine start_Stopwatch(this, title, iunit)
     
     
 
+        
       
       </li>
     
@@ -428,7 +436,8 @@ private subroutine start_Stopwatch(this, title, iunit)
     
       <li class="list-group-item">
       
-         
+        
+          
     
     <h3>
 private subroutine stop_Stopwatch(this, title, iunit)
@@ -507,6 +516,7 @@ private subroutine stop_Stopwatch(this, title, iunit)
     
     
 
+        
       
       </li>
     
@@ -531,7 +541,8 @@ private subroutine stop_Stopwatch(this, title, iunit)
     
       <li class="list-group-item">
       
-         
+        
+          
     
     <h3>
 private subroutine reset_Stopwatch(this)
@@ -580,6 +591,7 @@ private subroutine reset_Stopwatch(this)
     
     
 
+        
       
       </li>
     
@@ -604,7 +616,8 @@ private subroutine reset_Stopwatch(this)
     
       <li class="list-group-item">
       
-         
+        
+          
     
     <h3>
 private subroutine restart_Stopwatch(this)
@@ -653,6 +666,7 @@ private subroutine restart_Stopwatch(this)
     
     
 
+        
       
       </li>
     
@@ -677,7 +691,8 @@ private subroutine restart_Stopwatch(this)
     
       <li class="list-group-item">
       
-         
+        
+          
     
     <h3>
 private function time_Stopwatch(this) result(res)
@@ -735,6 +750,7 @@ private function time_Stopwatch(this) result(res)
   <p>Time in format HH:MM:SS.MSEC</p>
     
 
+        
       
       </li>
     
@@ -759,7 +775,8 @@ private function time_Stopwatch(this) result(res)
     
       <li class="list-group-item">
       
-         
+        
+          
     
     <h3>
 private function lap_Stopwatch(this) result(res)
@@ -817,6 +834,7 @@ private function lap_Stopwatch(this) result(res)
   <p>Lap time in format HH:MM:SS.MSEC</p>
     
 
+        
       
       </li>
     
@@ -841,7 +859,8 @@ private function lap_Stopwatch(this) result(res)
     
       <li class="list-group-item">
       
-         
+        
+          
     
     <h3>
 private function lapInSeconds_Stopwatch(this) result(res)
@@ -899,6 +918,7 @@ private function lapInSeconds_Stopwatch(this) result(res)
   <p>Laptime in seconds</p>
     
 
+        
       
       </li>
     
@@ -923,7 +943,8 @@ private function lapInSeconds_Stopwatch(this) result(res)
     
       <li class="list-group-item">
       
-         
+        
+          
     
     <h3>
 private function elapsed_Stopwatch(this) result(res)
@@ -981,6 +1002,7 @@ private function elapsed_Stopwatch(this) result(res)
   <p>Elapsed time in format HH:MM:SS.MSEC</p>
     
 
+        
       
       </li>
     
@@ -1005,7 +1027,8 @@ private function elapsed_Stopwatch(this) result(res)
     
       <li class="list-group-item">
       
-         
+        
+          
     
     <h3>
 private function elapsedInSeconds_Stopwatch(this) result(res)
@@ -1063,6 +1086,7 @@ private function elapsedInSeconds_Stopwatch(this) result(res)
   <p>Elapsed time in seconds</p>
     
 
+        
       
       </li>
     
@@ -1087,7 +1111,8 @@ private function elapsedInSeconds_Stopwatch(this) result(res)
     
       <li class="list-group-item">
       
-         
+        
+          
     
     <h3>
 private function date_Stopwatch(this) result(res)
@@ -1145,6 +1170,7 @@ private function date_Stopwatch(this) result(res)
   <p>Date in format DD/MM/YYYY</p>
     
 
+        
       
       </li>
     
@@ -1169,7 +1195,8 @@ private function date_Stopwatch(this) result(res)
     
       <li class="list-group-item">
       
-         
+        
+          
     
     <h3>
 private function dateAndTime_Stopwatch(this) result(res)
@@ -1227,6 +1254,7 @@ private function dateAndTime_Stopwatch(this) result(res)
   <p>Date and time in format DD/MM/YYYY HH:MM:SS.MSEC</p>
     
 
+        
       
       </li>
     
@@ -1253,7 +1281,13 @@ private function dateAndTime_Stopwatch(this) result(res)
       
       <a class="list-group-item" href="../type/c_printoptions.html">c_printOptions</a>
       
+      <a class="list-group-item" href="../type/dargdynamicarray.html">dArgDynamicArray</a>
+      
       <a class="list-group-item" href="../type/ddynamicarray.html">dDynamicArray</a>
+      
+      <a class="list-group-item" href="../type/iargdynamicarray.html">iArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../type/idargdynamicarray.html">idArgDynamicArray</a>
       
       <a class="list-group-item" href="../type/iddynamicarray.html">idDynamicArray</a>
       
@@ -1285,7 +1319,8 @@ private function dateAndTime_Stopwatch(this) result(res)
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2017 </p></div>
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 
+                                          </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
@@ -1316,12 +1351,13 @@ private function dateAndTime_Stopwatch(this) result(res)
       MathJax.Hub.Config({
         TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
         jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
-        'HTML-CSS': { 
-           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
-        }
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
       });
     </script>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    
   </body>
 </html>

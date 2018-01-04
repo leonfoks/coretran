@@ -17,6 +17,7 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -26,8 +27,6 @@
     
     <script src="../js/jquery-2.1.3.min.js"></script>
     <script src="../js/svg-pan-zoom.min.js"></script>
-
-    
 
   </head>
 
@@ -112,7 +111,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 3.1% of total for modules and submodules.">210 statements</a>
+	  title=" 3.2% of total for modules and submodules.">246 statements</a>
      </li> 
      
      
@@ -229,6 +228,8 @@
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
       
+      <a class="list-group-item" href="../module/m_dargdynamicarray.html">m_dArgDynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_ddynamicarray.html">m_dDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_deallocate.html">m_deallocate</a>
@@ -238,6 +239,10 @@
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_iargdynamicarray.html">m_iArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_idargdynamicarray.html">m_idArgDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_iddynamicarray.html">m_idDynamicArray</a>
       
@@ -301,33 +306,6 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      
-    
-  
-    <ul class="list-inline">
-      <li><h4>Uses:</h4></li>
-      
-      <li><a href='../module/variablekind.html'>variableKind</a></li>
-      
-      <li><a href='../module/m_allocate.html'>m_allocate</a></li>
-      
-      <li><a href='../module/m_deallocate.html'>m_deallocate</a></li>
-      
-      <li><a href='../module/m_errors.html'>m_errors</a></li>
-      
-      <li><a href='../module/m_strings.html'>m_strings</a></li>
-      
-      <li><a href="https://software.intel.com/en-us/node/511041">iso_fortran_env</a></li>
-      
-      <li><a href='../module/m_array1d.html'>m_array1D</a></li>
-      
-      <li><a href='../module/m_unittester.html'>m_unitTester</a></li>
-      
-    </ul>
-    
-    
-
-    
     <p>Routines for random number generation.  The original code is provided via Netlib at http://www.netlib.org/random/random.f90</p>
 <p>Adapted from Fortran 77 code from the book:
      Dagpunar, J. 'Principles of random variate generation'
@@ -1075,8 +1053,47 @@ P = BERNOULLI SUCCESS PROBABILITY
 
  Local variables
 </pre></div>
-    <br>
+      <br>
     
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+	<h3 class="panel-title">Uses</h3>
+      </div>
+      <ul class="list-group">
+      
+      <li class="list-group-item">
+	<ul class="list-inline">
+	  
+	  <li><a href='../module/variablekind.html'>variableKind</a></li>
+	  
+	  <li><a href='../module/m_allocate.html'>m_allocate</a></li>
+	  
+	  <li><a href='../module/m_deallocate.html'>m_deallocate</a></li>
+	  
+	  <li><a href='../module/m_errors.html'>m_errors</a></li>
+	  
+	  <li><a href='../module/m_strings.html'>m_strings</a></li>
+	  
+	  <li><a href="http://fortranwiki.org/fortran/show/ISO_FORTRAN_ENV">iso_fortran_env</a></li>
+	  
+	  <li><a href='../module/m_array1d.html'>m_array1D</a></li>
+	  
+	  <li><a href='../module/m_unittester.html'>m_unitTester</a></li>
+	  
+	</ul>
+      </li>
+      
+      
+      
+      </ul>
+    </div>
+    
+
+    
+    
+
+    <br>
 
     <section class="visible-xs visible-sm hidden-md">
       
@@ -3298,7 +3315,7 @@ public subroutine rngWeibull_d1D(this, den)
     
   <div class="panel panel-default">
   <div class="panel-heading codesum"><span class="anchor" id="proc-random_test"></span><h3>
-public subroutine <a href='../proc/random_test.html'>random_test</a>(test)
+public subroutine <a href='../proc/random_test.html'>random_test</a>(test, fixedSeed)
     
     
 	 
@@ -3331,7 +3348,22 @@ public subroutine <a href='../proc/random_test.html'>random_test</a>(test)
   <td></td>
   
   <td></td><td>::</td>
-  <td><strong>test</strong></td><td><p>write(*,1) 'Setting the random seed'</p></td>
+  <td><strong>test</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>fixedSeed</strong></td><td></td>
   
 </tr>
 
@@ -3373,6 +3405,8 @@ public subroutine <a href='../proc/random_test.html'>random_test</a>(test)
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
       
+      <a class="list-group-item" href="../module/m_dargdynamicarray.html">m_dArgDynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_ddynamicarray.html">m_dDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_deallocate.html">m_deallocate</a>
@@ -3382,6 +3416,10 @@ public subroutine <a href='../proc/random_test.html'>random_test</a>(test)
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_iargdynamicarray.html">m_iArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_idargdynamicarray.html">m_idArgDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_iddynamicarray.html">m_idDynamicArray</a>
       
@@ -3447,7 +3485,8 @@ public subroutine <a href='../proc/random_test.html'>random_test</a>(test)
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2017 </p></div>
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 
+                                          </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
@@ -3478,12 +3517,13 @@ public subroutine <a href='../proc/random_test.html'>random_test</a>(test)
       MathJax.Hub.Config({
         TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
         jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
-        'HTML-CSS': { 
-           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
-        }
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
       });
     </script>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    
   </body>
 </html>

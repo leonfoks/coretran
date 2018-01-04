@@ -17,6 +17,7 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -26,8 +27,6 @@
     
     <script src="../js/jquery-2.1.3.min.js"></script>
     <script src="../js/svg-pan-zoom.min.js"></script>
-
-    
 
   </head>
 
@@ -112,7 +111,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 3.1% of total for source files.">210 statements</a>
+	  title=" 3.2% of total for source files.">246 statements</a>
      </li> 
      
      
@@ -186,8 +185,6 @@
     <div class="list-group">
       
       <a class="list-group-item" href="../sourcefile/m_allocate.f90.html">m_allocate.f90</a>
-      
-      <a class="list-group-item" href="../sourcefile/m_argdynamicarray.f90.html">m_argDynamicArray.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_array1d.f90.html">m_array1D.f90</a>
       
@@ -274,7 +271,8 @@
 
     </div>
     <div class="col-md-9" id='text'>
-    
+      
+      <br>
     
       
       
@@ -737,1221 +735,1228 @@
 <a name="ln-410"></a><span class="k">  end subroutine</span>
 <a name="ln-411"></a>  <span class="c">!====================================================================!</span>
 <a name="ln-412"></a>  <span class="c">!====================================================================!</span>
-<a name="ln-413"></a>  <span class="k">subroutine </span><span class="n">random_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-413"></a>  <span class="k">subroutine </span><span class="n">random_test</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">fixedSeed</span><span class="p">)</span>
 <a name="ln-414"></a>  <span class="c">!====================================================================!</span>
 <a name="ln-415"></a>  <span class="k">class</span><span class="p">(</span><span class="n">tester</span><span class="p">)</span> <span class="kd">::</span> <span class="n">test</span>
-<a name="ln-416"></a><span class="c">!  integer(i32) :: ia</span>
-<a name="ln-417"></a><span class="c">!  integer(i32), allocatable :: ia1D(:)</span>
-<a name="ln-418"></a><span class="c">!  real(r64) :: a, a1D(10), a2D(10, 10)</span>
-<a name="ln-419"></a><span class="c">!  character(len=:), allocatable :: cTest</span>
-<a name="ln-420"></a><span class="c">!</span>
-<a name="ln-421"></a><span class="c">!  call Msg(&#39;==========================&#39;)</span>
-<a name="ln-422"></a><span class="c">!  call Msg(&#39;Testing : Random&#39;)</span>
-<a name="ln-423"></a><span class="c">!  call Msg(&#39;==========================&#39;)</span>
-<a name="ln-424"></a><span class="c">!!</span>
-<a name="ln-425"></a><span class="c">!!  write(*,1) &#39;Setting the random seed&#39;</span>
-<a name="ln-426"></a><span class="c">!!</span>
-<a name="ln-427"></a><span class="c">!!  !call setRNG(.true.)</span>
-<a name="ln-428"></a><span class="c">!!  !call setRNG([546420601, 1302718556, 802583095, 136684118, 1163051410, 592779069, 660876855, 767615536, 1788597594, 775517554, 657867655, 1334969129])</span>
-<a name="ln-429"></a><span class="c">!  call random_seed(size = ia)</span>
-<a name="ln-430"></a><span class="c">!  call allocate(ia1D, ia)</span>
-<a name="ln-431"></a><span class="c">!  ia1D = 546420601</span>
-<a name="ln-432"></a><span class="c">!  call setRNG(ia1D)</span>
-<a name="ln-433"></a><span class="c">!  call allocate(ia1D, 3)</span>
-<a name="ln-434"></a><span class="c">!  ia=1</span>
-<a name="ln-435"></a><span class="c">!  call rngInteger(ia1D,ia)</span>
-<a name="ln-436"></a><span class="c">!  write(*,1) &#39;Random integers&#39;</span>
-<a name="ln-437"></a><span class="c">!  write(*,1) str(ia1D)</span>
-<a name="ln-438"></a><span class="c">!  call rngNormal(a)</span>
-<a name="ln-439"></a><span class="c">!  write(*,1) &#39;Dble random number&#39;</span>
-<a name="ln-440"></a><span class="c">!  write(*,1) str(a)</span>
-<a name="ln-441"></a><span class="c">!  call rngNormal(a1D)</span>
-<a name="ln-442"></a><span class="c">!  write(*,1) &#39;~N(mean=0.0,std=1.0)&#39;</span>
-<a name="ln-443"></a><span class="c">!  write(*,1) str(a1D)</span>
-<a name="ln-444"></a><span class="c">!  call rngNormal(a1D, 1.d0, 5.d0)</span>
-<a name="ln-445"></a><span class="c">!  write(*,1) &#39;~N(mean=1.0,std=5.0) 1D array&#39;</span>
-<a name="ln-446"></a><span class="c">!  write(*,1) str(a1D)</span>
-<a name="ln-447"></a><span class="c">!  a2D = 0.d0</span>
-<a name="ln-448"></a><span class="c">!  call rngNormal(a2D,50.d0,10.d0)</span>
-<a name="ln-449"></a><span class="c">!  write(*,1) &#39;~N(mean=50.0,std=10.0) 2D array reduced output&#39;</span>
-<a name="ln-450"></a><span class="c">!  cTest = str(a2D)</span>
-<a name="ln-451"></a><span class="c">!  write(*,1) cTest</span>
-<a name="ln-452"></a><span class="c">!  1 format(a)</span>
-<a name="ln-453"></a>  <span class="k">end subroutine</span>
-<a name="ln-454"></a>  <span class="c">!====================================================================!</span>
-<a name="ln-455"></a>
-<a name="ln-456"></a>  <span class="c">!====================================================================!</span>
-<a name="ln-457"></a>  <span class="c">! EXTRA CODES TO BE TRANSLATED LATER!!!</span>
-<a name="ln-458"></a>  <span class="c">!====================================================================!</span>
-<a name="ln-459"></a>  <span class="c">!</span>
-<a name="ln-460"></a>  <span class="c">!</span>
-<a name="ln-461"></a>  <span class="c">!  FUNCTION random_beta(aa, bb, first) RESULT(fn_val)</span>
-<a name="ln-462"></a>  <span class="c">!</span>
-<a name="ln-463"></a>  <span class="c">!! Adapted from Fortran 77 code from the book:</span>
-<a name="ln-464"></a>  <span class="c">!!     Dagpunar, J. &#39;Principles of random variate generation&#39;</span>
-<a name="ln-465"></a>  <span class="c">!!     Clarendon Press, Oxford, 1988.   ISBN 0-19-852202-9</span>
+<a name="ln-416"></a>  <span class="kt">logical</span> <span class="kd">::</span> <span class="n">fixedSeed</span>
+<a name="ln-417"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ia</span>
+<a name="ln-418"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">ia1D</span><span class="p">(:)</span>
+<a name="ln-419"></a>  <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">,</span> <span class="n">a1D</span><span class="p">(</span><span class="mi">10</span><span class="p">),</span> <span class="n">a2D</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<a name="ln-420"></a>  <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">cTest</span>
+<a name="ln-421"></a>
+<a name="ln-422"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-423"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Testing : Random&#39;</span><span class="p">)</span>
+<a name="ln-424"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-425"></a><span class="c">!</span>
+<a name="ln-426"></a><span class="c">!  write(*,1) &#39;Setting the random seed&#39;</span>
+<a name="ln-427"></a><span class="c">!</span>
+<a name="ln-428"></a>  <span class="k">if</span> <span class="p">(</span><span class="n">fixedSeed</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-429"></a><span class="k">    call </span><span class="nb">random_seed</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="n">ia</span><span class="p">)</span>
+<a name="ln-430"></a>    <span class="k">call allocate</span><span class="p">(</span><span class="n">ia1D</span><span class="p">,</span> <span class="n">ia</span><span class="p">)</span>
+<a name="ln-431"></a>    <span class="c">!ia1D = [-370590921, -2121812073]</span>
+<a name="ln-432"></a>    <span class="n">ia1D</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mi">330169315</span><span class="p">,</span> <span class="o">-</span><span class="mi">420956545</span><span class="p">]</span>
+<a name="ln-433"></a>    <span class="k">call </span><span class="n">setRNG</span><span class="p">(</span><span class="n">ia1D</span><span class="p">)</span>
+<a name="ln-434"></a>  <span class="k">else</span>
+<a name="ln-435"></a><span class="k">    call </span><span class="n">setRNG</span><span class="p">(.</span><span class="n">true</span><span class="p">.)</span>
+<a name="ln-436"></a>  <span class="n">endif</span>
+<a name="ln-437"></a>  
+<a name="ln-438"></a><span class="c">!  !call setRNG([546420601, 1302718556, 802583095, 136684118, 1163051410, 592779069, 660876855, 767615536, 1788597594, 775517554, 657867655, 1334969129])</span>
+<a name="ln-439"></a>  
+<a name="ln-440"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">ia1D</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<a name="ln-441"></a>  <span class="n">ia</span><span class="o">=</span><span class="mi">1</span>
+<a name="ln-442"></a>  <span class="k">call </span><span class="n">rngInteger</span><span class="p">(</span><span class="n">ia1D</span><span class="p">,</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-443"></a>  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="s1">&#39;Random integers&#39;</span>
+<a name="ln-444"></a>  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="n">str</span><span class="p">(</span><span class="n">ia1D</span><span class="p">)</span>
+<a name="ln-445"></a>  <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a name="ln-446"></a>  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="s1">&#39;Dble random number&#39;</span>
+<a name="ln-447"></a>  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="n">str</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a name="ln-448"></a>  <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">a1D</span><span class="p">)</span>
+<a name="ln-449"></a>  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="s1">&#39;~N(mean=0.0,std=1.0)&#39;</span>
+<a name="ln-450"></a>  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="n">str</span><span class="p">(</span><span class="n">a1D</span><span class="p">)</span>
+<a name="ln-451"></a>  <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">a1D</span><span class="p">,</span> <span class="mf">1.d0</span><span class="p">,</span> <span class="mf">5.d0</span><span class="p">)</span>
+<a name="ln-452"></a>  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="s1">&#39;~N(mean=1.0,std=5.0) 1D array&#39;</span>
+<a name="ln-453"></a>  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="n">str</span><span class="p">(</span><span class="n">a1D</span><span class="p">)</span>
+<a name="ln-454"></a>  <span class="n">a2D</span> <span class="o">=</span> <span class="mf">0.d0</span>
+<a name="ln-455"></a>  <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">a2D</span><span class="p">,</span><span class="mi">5</span><span class="mf">0.d0</span><span class="p">,</span><span class="mi">1</span><span class="mf">0.d0</span><span class="p">)</span>
+<a name="ln-456"></a>  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="s1">&#39;~N(mean=50.0,std=10.0) 2D array reduced output&#39;</span>
+<a name="ln-457"></a>  <span class="n">cTest</span> <span class="o">=</span> <span class="n">str</span><span class="p">(</span><span class="n">a2D</span><span class="p">)</span>
+<a name="ln-458"></a>  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="n">cTest</span>
+<a name="ln-459"></a>  <span class="mi">1</span> <span class="k">format</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a name="ln-460"></a>  <span class="k">end subroutine</span>
+<a name="ln-461"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-462"></a>
+<a name="ln-463"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-464"></a>  <span class="c">! EXTRA CODES TO BE TRANSLATED LATER!!!</span>
+<a name="ln-465"></a>  <span class="c">!====================================================================!</span>
 <a name="ln-466"></a>  <span class="c">!</span>
-<a name="ln-467"></a>  <span class="c">!! FUNCTION GENERATES A RANDOM VARIATE IN [0,1]</span>
-<a name="ln-468"></a>  <span class="c">!! FROM A BETA DISTRIBUTION WITH DENSITY</span>
-<a name="ln-469"></a>  <span class="c">!! PROPORTIONAL TO BETA**(AA-1) * (1-BETA)**(BB-1).</span>
-<a name="ln-470"></a>  <span class="c">!! USING CHENG&#39;S LOG LOGISTIC METHOD.</span>
-<a name="ln-471"></a>  <span class="c">!</span>
-<a name="ln-472"></a>  <span class="c">!!     AA = SHAPE PARAMETER FROM DISTRIBUTION (0 &lt; REAL)</span>
-<a name="ln-473"></a>  <span class="c">!!     BB = SHAPE PARAMETER FROM DISTRIBUTION (0 &lt; REAL)</span>
-<a name="ln-474"></a>  <span class="c">!</span>
-<a name="ln-475"></a>  <span class="c">!REAL, INTENT(IN)    :: aa, bb</span>
-<a name="ln-476"></a>  <span class="c">!LOGICAL, INTENT(IN) :: first</span>
-<a name="ln-477"></a>  <span class="c">!REAL                :: fn_val</span>
+<a name="ln-467"></a>  <span class="c">!</span>
+<a name="ln-468"></a>  <span class="c">!  FUNCTION random_beta(aa, bb, first) RESULT(fn_val)</span>
+<a name="ln-469"></a>  <span class="c">!</span>
+<a name="ln-470"></a>  <span class="c">!! Adapted from Fortran 77 code from the book:</span>
+<a name="ln-471"></a>  <span class="c">!!     Dagpunar, J. &#39;Principles of random variate generation&#39;</span>
+<a name="ln-472"></a>  <span class="c">!!     Clarendon Press, Oxford, 1988.   ISBN 0-19-852202-9</span>
+<a name="ln-473"></a>  <span class="c">!</span>
+<a name="ln-474"></a>  <span class="c">!! FUNCTION GENERATES A RANDOM VARIATE IN [0,1]</span>
+<a name="ln-475"></a>  <span class="c">!! FROM A BETA DISTRIBUTION WITH DENSITY</span>
+<a name="ln-476"></a>  <span class="c">!! PROPORTIONAL TO BETA**(AA-1) * (1-BETA)**(BB-1).</span>
+<a name="ln-477"></a>  <span class="c">!! USING CHENG&#39;S LOG LOGISTIC METHOD.</span>
 <a name="ln-478"></a>  <span class="c">!</span>
-<a name="ln-479"></a>  <span class="c">!!     Local variables</span>
-<a name="ln-480"></a>  <span class="c">!REAL, PARAMETER  :: aln4 = 1.3862944</span>
-<a name="ln-481"></a>  <span class="c">!REAL             :: a, b, g, r, s, x, y, z</span>
-<a name="ln-482"></a>  <span class="c">!REAL, SAVE       :: d, f, h, t, c</span>
-<a name="ln-483"></a>  <span class="c">!LOGICAL, SAVE    :: swap</span>
-<a name="ln-484"></a>  <span class="c">!</span>
-<a name="ln-485"></a>  <span class="c">!IF (aa &lt;= zero .OR. bb &lt;= zero) THEN</span>
-<a name="ln-486"></a>  <span class="c">!  WRITE(*, *) &#39;IMPERMISSIBLE SHAPE PARAMETER VALUE(S)&#39;</span>
-<a name="ln-487"></a>  <span class="c">!  STOP</span>
-<a name="ln-488"></a>  <span class="c">!END IF</span>
-<a name="ln-489"></a>  <span class="c">!</span>
-<a name="ln-490"></a>  <span class="c">!IF (first) THEN                        ! Initialization, if necessary</span>
-<a name="ln-491"></a>  <span class="c">!  a = aa</span>
-<a name="ln-492"></a>  <span class="c">!  b = bb</span>
-<a name="ln-493"></a>  <span class="c">!  swap = b &gt; a</span>
-<a name="ln-494"></a>  <span class="c">!  IF (swap) THEN</span>
-<a name="ln-495"></a>  <span class="c">!    g = b</span>
-<a name="ln-496"></a>  <span class="c">!    b = a</span>
-<a name="ln-497"></a>  <span class="c">!    a = g</span>
-<a name="ln-498"></a>  <span class="c">!  END IF</span>
-<a name="ln-499"></a>  <span class="c">!  d = a/b</span>
-<a name="ln-500"></a>  <span class="c">!  f = a+b</span>
-<a name="ln-501"></a>  <span class="c">!  IF (b &gt; one) THEN</span>
-<a name="ln-502"></a>  <span class="c">!    h = SQRT((two*a*b - f)/(f - two))</span>
-<a name="ln-503"></a>  <span class="c">!    t = one</span>
-<a name="ln-504"></a>  <span class="c">!  ELSE</span>
-<a name="ln-505"></a>  <span class="c">!    h = b</span>
-<a name="ln-506"></a>  <span class="c">!    t = one/(one + (a/(vlarge*b))**b)</span>
-<a name="ln-507"></a>  <span class="c">!  END IF</span>
-<a name="ln-508"></a>  <span class="c">!  c = a+h</span>
-<a name="ln-509"></a>  <span class="c">!END IF</span>
-<a name="ln-510"></a>  <span class="c">!</span>
-<a name="ln-511"></a>  <span class="c">!DO</span>
-<a name="ln-512"></a>  <span class="c">!  CALL RANDOM_NUMBER(r)</span>
-<a name="ln-513"></a>  <span class="c">!  CALL RANDOM_NUMBER(x)</span>
-<a name="ln-514"></a>  <span class="c">!  s = r*r*x</span>
-<a name="ln-515"></a>  <span class="c">!  IF (r &lt; vsmall .OR. s &lt;= zero) CYCLE</span>
-<a name="ln-516"></a>  <span class="c">!  IF (r &lt; t) THEN</span>
-<a name="ln-517"></a>  <span class="c">!    x = LOG(r/(one - r))/h</span>
-<a name="ln-518"></a>  <span class="c">!    y = d*EXP(x)</span>
-<a name="ln-519"></a>  <span class="c">!    z = c*x + f*LOG((one + d)/(one + y)) - aln4</span>
-<a name="ln-520"></a>  <span class="c">!    IF (s - one &gt; z) THEN</span>
-<a name="ln-521"></a>  <span class="c">!      IF (s - s*z &gt; one) CYCLE</span>
-<a name="ln-522"></a>  <span class="c">!      IF (LOG(s) &gt; z) CYCLE</span>
-<a name="ln-523"></a>  <span class="c">!    END IF</span>
-<a name="ln-524"></a>  <span class="c">!    fn_val = y/(one + y)</span>
-<a name="ln-525"></a>  <span class="c">!  ELSE</span>
-<a name="ln-526"></a>  <span class="c">!    IF (4.0*s &gt; (one + one/d)**f) CYCLE</span>
-<a name="ln-527"></a>  <span class="c">!    fn_val = one</span>
-<a name="ln-528"></a>  <span class="c">!  END IF</span>
-<a name="ln-529"></a>  <span class="c">!  EXIT</span>
-<a name="ln-530"></a>  <span class="c">!END DO</span>
-<a name="ln-531"></a>  <span class="c">!</span>
-<a name="ln-532"></a>  <span class="c">!IF (swap) fn_val = one - fn_val</span>
-<a name="ln-533"></a>  <span class="c">!RETURN</span>
-<a name="ln-534"></a>  <span class="c">!END FUNCTION random_beta</span>
-<a name="ln-535"></a>  <span class="c">!</span>
-<a name="ln-536"></a>  <span class="c">!</span>
-<a name="ln-537"></a>  <span class="c">!</span>
-<a name="ln-538"></a>  <span class="c">!FUNCTION random_t(m) RESULT(fn_val)</span>
-<a name="ln-539"></a>  <span class="c">!</span>
-<a name="ln-540"></a>  <span class="c">!! Adapted from Fortran 77 code from the book:</span>
-<a name="ln-541"></a>  <span class="c">!!     Dagpunar, J. &#39;Principles of random variate generation&#39;</span>
-<a name="ln-542"></a>  <span class="c">!!     Clarendon Press, Oxford, 1988.   ISBN 0-19-852202-9</span>
+<a name="ln-479"></a>  <span class="c">!!     AA = SHAPE PARAMETER FROM DISTRIBUTION (0 &lt; REAL)</span>
+<a name="ln-480"></a>  <span class="c">!!     BB = SHAPE PARAMETER FROM DISTRIBUTION (0 &lt; REAL)</span>
+<a name="ln-481"></a>  <span class="c">!</span>
+<a name="ln-482"></a>  <span class="c">!REAL, INTENT(IN)    :: aa, bb</span>
+<a name="ln-483"></a>  <span class="c">!LOGICAL, INTENT(IN) :: first</span>
+<a name="ln-484"></a>  <span class="c">!REAL                :: fn_val</span>
+<a name="ln-485"></a>  <span class="c">!</span>
+<a name="ln-486"></a>  <span class="c">!!     Local variables</span>
+<a name="ln-487"></a>  <span class="c">!REAL, PARAMETER  :: aln4 = 1.3862944</span>
+<a name="ln-488"></a>  <span class="c">!REAL             :: a, b, g, r, s, x, y, z</span>
+<a name="ln-489"></a>  <span class="c">!REAL, SAVE       :: d, f, h, t, c</span>
+<a name="ln-490"></a>  <span class="c">!LOGICAL, SAVE    :: swap</span>
+<a name="ln-491"></a>  <span class="c">!</span>
+<a name="ln-492"></a>  <span class="c">!IF (aa &lt;= zero .OR. bb &lt;= zero) THEN</span>
+<a name="ln-493"></a>  <span class="c">!  WRITE(*, *) &#39;IMPERMISSIBLE SHAPE PARAMETER VALUE(S)&#39;</span>
+<a name="ln-494"></a>  <span class="c">!  STOP</span>
+<a name="ln-495"></a>  <span class="c">!END IF</span>
+<a name="ln-496"></a>  <span class="c">!</span>
+<a name="ln-497"></a>  <span class="c">!IF (first) THEN                        ! Initialization, if necessary</span>
+<a name="ln-498"></a>  <span class="c">!  a = aa</span>
+<a name="ln-499"></a>  <span class="c">!  b = bb</span>
+<a name="ln-500"></a>  <span class="c">!  swap = b &gt; a</span>
+<a name="ln-501"></a>  <span class="c">!  IF (swap) THEN</span>
+<a name="ln-502"></a>  <span class="c">!    g = b</span>
+<a name="ln-503"></a>  <span class="c">!    b = a</span>
+<a name="ln-504"></a>  <span class="c">!    a = g</span>
+<a name="ln-505"></a>  <span class="c">!  END IF</span>
+<a name="ln-506"></a>  <span class="c">!  d = a/b</span>
+<a name="ln-507"></a>  <span class="c">!  f = a+b</span>
+<a name="ln-508"></a>  <span class="c">!  IF (b &gt; one) THEN</span>
+<a name="ln-509"></a>  <span class="c">!    h = SQRT((two*a*b - f)/(f - two))</span>
+<a name="ln-510"></a>  <span class="c">!    t = one</span>
+<a name="ln-511"></a>  <span class="c">!  ELSE</span>
+<a name="ln-512"></a>  <span class="c">!    h = b</span>
+<a name="ln-513"></a>  <span class="c">!    t = one/(one + (a/(vlarge*b))**b)</span>
+<a name="ln-514"></a>  <span class="c">!  END IF</span>
+<a name="ln-515"></a>  <span class="c">!  c = a+h</span>
+<a name="ln-516"></a>  <span class="c">!END IF</span>
+<a name="ln-517"></a>  <span class="c">!</span>
+<a name="ln-518"></a>  <span class="c">!DO</span>
+<a name="ln-519"></a>  <span class="c">!  CALL RANDOM_NUMBER(r)</span>
+<a name="ln-520"></a>  <span class="c">!  CALL RANDOM_NUMBER(x)</span>
+<a name="ln-521"></a>  <span class="c">!  s = r*r*x</span>
+<a name="ln-522"></a>  <span class="c">!  IF (r &lt; vsmall .OR. s &lt;= zero) CYCLE</span>
+<a name="ln-523"></a>  <span class="c">!  IF (r &lt; t) THEN</span>
+<a name="ln-524"></a>  <span class="c">!    x = LOG(r/(one - r))/h</span>
+<a name="ln-525"></a>  <span class="c">!    y = d*EXP(x)</span>
+<a name="ln-526"></a>  <span class="c">!    z = c*x + f*LOG((one + d)/(one + y)) - aln4</span>
+<a name="ln-527"></a>  <span class="c">!    IF (s - one &gt; z) THEN</span>
+<a name="ln-528"></a>  <span class="c">!      IF (s - s*z &gt; one) CYCLE</span>
+<a name="ln-529"></a>  <span class="c">!      IF (LOG(s) &gt; z) CYCLE</span>
+<a name="ln-530"></a>  <span class="c">!    END IF</span>
+<a name="ln-531"></a>  <span class="c">!    fn_val = y/(one + y)</span>
+<a name="ln-532"></a>  <span class="c">!  ELSE</span>
+<a name="ln-533"></a>  <span class="c">!    IF (4.0*s &gt; (one + one/d)**f) CYCLE</span>
+<a name="ln-534"></a>  <span class="c">!    fn_val = one</span>
+<a name="ln-535"></a>  <span class="c">!  END IF</span>
+<a name="ln-536"></a>  <span class="c">!  EXIT</span>
+<a name="ln-537"></a>  <span class="c">!END DO</span>
+<a name="ln-538"></a>  <span class="c">!</span>
+<a name="ln-539"></a>  <span class="c">!IF (swap) fn_val = one - fn_val</span>
+<a name="ln-540"></a>  <span class="c">!RETURN</span>
+<a name="ln-541"></a>  <span class="c">!END FUNCTION random_beta</span>
+<a name="ln-542"></a>  <span class="c">!</span>
 <a name="ln-543"></a>  <span class="c">!</span>
-<a name="ln-544"></a>  <span class="c">!! FUNCTION GENERATES A RANDOM VARIATE FROM A</span>
-<a name="ln-545"></a>  <span class="c">!! T DISTRIBUTION USING KINDERMAN AND MONAHAN&#39;S RATIO METHOD.</span>
+<a name="ln-544"></a>  <span class="c">!</span>
+<a name="ln-545"></a>  <span class="c">!FUNCTION random_t(m) RESULT(fn_val)</span>
 <a name="ln-546"></a>  <span class="c">!</span>
-<a name="ln-547"></a>  <span class="c">!!     M = DEGREES OF FREEDOM OF DISTRIBUTION</span>
-<a name="ln-548"></a>  <span class="c">!!           (1 &lt;= 1NTEGER)</span>
-<a name="ln-549"></a>  <span class="c">!</span>
-<a name="ln-550"></a>  <span class="c">!INTEGER, INTENT(IN) :: m</span>
-<a name="ln-551"></a>  <span class="c">!REAL                :: fn_val</span>
-<a name="ln-552"></a>  <span class="c">!</span>
-<a name="ln-553"></a>  <span class="c">!!     Local variables</span>
-<a name="ln-554"></a>  <span class="c">!REAL, SAVE      :: s, c, a, f, g</span>
-<a name="ln-555"></a>  <span class="c">!REAL            :: r, x, v</span>
+<a name="ln-547"></a>  <span class="c">!! Adapted from Fortran 77 code from the book:</span>
+<a name="ln-548"></a>  <span class="c">!!     Dagpunar, J. &#39;Principles of random variate generation&#39;</span>
+<a name="ln-549"></a>  <span class="c">!!     Clarendon Press, Oxford, 1988.   ISBN 0-19-852202-9</span>
+<a name="ln-550"></a>  <span class="c">!</span>
+<a name="ln-551"></a>  <span class="c">!! FUNCTION GENERATES A RANDOM VARIATE FROM A</span>
+<a name="ln-552"></a>  <span class="c">!! T DISTRIBUTION USING KINDERMAN AND MONAHAN&#39;S RATIO METHOD.</span>
+<a name="ln-553"></a>  <span class="c">!</span>
+<a name="ln-554"></a>  <span class="c">!!     M = DEGREES OF FREEDOM OF DISTRIBUTION</span>
+<a name="ln-555"></a>  <span class="c">!!           (1 &lt;= 1NTEGER)</span>
 <a name="ln-556"></a>  <span class="c">!</span>
-<a name="ln-557"></a>  <span class="c">!REAL, PARAMETER :: three = 3.0, four = 4.0, quart = 0.25,   &amp;</span>
-<a name="ln-558"></a>    <span class="c">!                   five = 5.0, sixteen = 16.0</span>
-<a name="ln-559"></a>    <span class="c">!INTEGER         :: mm = 0</span>
-<a name="ln-560"></a>    <span class="c">!</span>
-<a name="ln-561"></a>    <span class="c">!IF (m &lt; 1) THEN</span>
-<a name="ln-562"></a>    <span class="c">!  WRITE(*, *) &#39;IMPERMISSIBLE DEGREES OF FREEDOM&#39;</span>
-<a name="ln-563"></a>    <span class="c">!  STOP</span>
-<a name="ln-564"></a>    <span class="c">!END IF</span>
-<a name="ln-565"></a>    <span class="c">!</span>
-<a name="ln-566"></a>    <span class="c">!IF (m /= mm) THEN                    ! Initialization, if necessary</span>
-<a name="ln-567"></a>    <span class="c">!  s = m</span>
-<a name="ln-568"></a>    <span class="c">!  c = -quart*(s + one)</span>
-<a name="ln-569"></a>    <span class="c">!  a = four/(one + one/s)**c</span>
-<a name="ln-570"></a>    <span class="c">!  f = sixteen/a</span>
-<a name="ln-571"></a>    <span class="c">!  IF (m &gt; 1) THEN</span>
-<a name="ln-572"></a>    <span class="c">!    g = s - one</span>
-<a name="ln-573"></a>    <span class="c">!    g = ((s + one)/g)**c*SQRT((s+s)/g)</span>
-<a name="ln-574"></a>    <span class="c">!  ELSE</span>
-<a name="ln-575"></a>    <span class="c">!    g = one</span>
-<a name="ln-576"></a>    <span class="c">!  END IF</span>
-<a name="ln-577"></a>    <span class="c">!  mm = m</span>
-<a name="ln-578"></a>    <span class="c">!END IF</span>
-<a name="ln-579"></a>    <span class="c">!</span>
-<a name="ln-580"></a>    <span class="c">!DO</span>
-<a name="ln-581"></a>    <span class="c">!  CALL RANDOM_NUMBER(r)</span>
-<a name="ln-582"></a>    <span class="c">!  IF (r &lt;= zero) CYCLE</span>
-<a name="ln-583"></a>    <span class="c">!  CALL RANDOM_NUMBER(v)</span>
-<a name="ln-584"></a>    <span class="c">!  x = (two*v - one)*g/r</span>
-<a name="ln-585"></a>    <span class="c">!  v = x*x</span>
-<a name="ln-586"></a>    <span class="c">!  IF (v &gt; five - a*r) THEN</span>
-<a name="ln-587"></a>    <span class="c">!    IF (m &gt;= 1 .AND. r*(v + three) &gt; f) CYCLE</span>
-<a name="ln-588"></a>    <span class="c">!    IF (r &gt; (one + v/s)**c) CYCLE</span>
-<a name="ln-589"></a>    <span class="c">!  END IF</span>
-<a name="ln-590"></a>    <span class="c">!  EXIT</span>
-<a name="ln-591"></a>    <span class="c">!END DO</span>
-<a name="ln-592"></a>    <span class="c">!</span>
-<a name="ln-593"></a>    <span class="c">!fn_val = x</span>
-<a name="ln-594"></a>    <span class="c">!RETURN</span>
-<a name="ln-595"></a>    <span class="c">!END FUNCTION random_t</span>
-<a name="ln-596"></a>    <span class="c">!</span>
-<a name="ln-597"></a>    <span class="c">!</span>
-<a name="ln-598"></a>    <span class="c">!</span>
-<a name="ln-599"></a>    <span class="c">!SUBROUTINE random_mvnorm(n, h, d, f, first, x, ier)</span>
-<a name="ln-600"></a>    <span class="c">!</span>
-<a name="ln-601"></a>    <span class="c">!! Adapted from Fortran 77 code from the book:</span>
-<a name="ln-602"></a>    <span class="c">!!     Dagpunar, J. &#39;Principles of random variate generation&#39;</span>
-<a name="ln-603"></a>    <span class="c">!!     Clarendon Press, Oxford, 1988.   ISBN 0-19-852202-9</span>
+<a name="ln-557"></a>  <span class="c">!INTEGER, INTENT(IN) :: m</span>
+<a name="ln-558"></a>  <span class="c">!REAL                :: fn_val</span>
+<a name="ln-559"></a>  <span class="c">!</span>
+<a name="ln-560"></a>  <span class="c">!!     Local variables</span>
+<a name="ln-561"></a>  <span class="c">!REAL, SAVE      :: s, c, a, f, g</span>
+<a name="ln-562"></a>  <span class="c">!REAL            :: r, x, v</span>
+<a name="ln-563"></a>  <span class="c">!</span>
+<a name="ln-564"></a>  <span class="c">!REAL, PARAMETER :: three = 3.0, four = 4.0, quart = 0.25,   &amp;</span>
+<a name="ln-565"></a>    <span class="c">!                   five = 5.0, sixteen = 16.0</span>
+<a name="ln-566"></a>    <span class="c">!INTEGER         :: mm = 0</span>
+<a name="ln-567"></a>    <span class="c">!</span>
+<a name="ln-568"></a>    <span class="c">!IF (m &lt; 1) THEN</span>
+<a name="ln-569"></a>    <span class="c">!  WRITE(*, *) &#39;IMPERMISSIBLE DEGREES OF FREEDOM&#39;</span>
+<a name="ln-570"></a>    <span class="c">!  STOP</span>
+<a name="ln-571"></a>    <span class="c">!END IF</span>
+<a name="ln-572"></a>    <span class="c">!</span>
+<a name="ln-573"></a>    <span class="c">!IF (m /= mm) THEN                    ! Initialization, if necessary</span>
+<a name="ln-574"></a>    <span class="c">!  s = m</span>
+<a name="ln-575"></a>    <span class="c">!  c = -quart*(s + one)</span>
+<a name="ln-576"></a>    <span class="c">!  a = four/(one + one/s)**c</span>
+<a name="ln-577"></a>    <span class="c">!  f = sixteen/a</span>
+<a name="ln-578"></a>    <span class="c">!  IF (m &gt; 1) THEN</span>
+<a name="ln-579"></a>    <span class="c">!    g = s - one</span>
+<a name="ln-580"></a>    <span class="c">!    g = ((s + one)/g)**c*SQRT((s+s)/g)</span>
+<a name="ln-581"></a>    <span class="c">!  ELSE</span>
+<a name="ln-582"></a>    <span class="c">!    g = one</span>
+<a name="ln-583"></a>    <span class="c">!  END IF</span>
+<a name="ln-584"></a>    <span class="c">!  mm = m</span>
+<a name="ln-585"></a>    <span class="c">!END IF</span>
+<a name="ln-586"></a>    <span class="c">!</span>
+<a name="ln-587"></a>    <span class="c">!DO</span>
+<a name="ln-588"></a>    <span class="c">!  CALL RANDOM_NUMBER(r)</span>
+<a name="ln-589"></a>    <span class="c">!  IF (r &lt;= zero) CYCLE</span>
+<a name="ln-590"></a>    <span class="c">!  CALL RANDOM_NUMBER(v)</span>
+<a name="ln-591"></a>    <span class="c">!  x = (two*v - one)*g/r</span>
+<a name="ln-592"></a>    <span class="c">!  v = x*x</span>
+<a name="ln-593"></a>    <span class="c">!  IF (v &gt; five - a*r) THEN</span>
+<a name="ln-594"></a>    <span class="c">!    IF (m &gt;= 1 .AND. r*(v + three) &gt; f) CYCLE</span>
+<a name="ln-595"></a>    <span class="c">!    IF (r &gt; (one + v/s)**c) CYCLE</span>
+<a name="ln-596"></a>    <span class="c">!  END IF</span>
+<a name="ln-597"></a>    <span class="c">!  EXIT</span>
+<a name="ln-598"></a>    <span class="c">!END DO</span>
+<a name="ln-599"></a>    <span class="c">!</span>
+<a name="ln-600"></a>    <span class="c">!fn_val = x</span>
+<a name="ln-601"></a>    <span class="c">!RETURN</span>
+<a name="ln-602"></a>    <span class="c">!END FUNCTION random_t</span>
+<a name="ln-603"></a>    <span class="c">!</span>
 <a name="ln-604"></a>    <span class="c">!</span>
-<a name="ln-605"></a>    <span class="c">!! N.B. An extra argument, ier, has been added to Dagpunar&#39;s routine</span>
-<a name="ln-606"></a>    <span class="c">!</span>
-<a name="ln-607"></a>    <span class="c">!!     SUBROUTINE GENERATES AN N VARIATE RANDOM NORMAL</span>
-<a name="ln-608"></a>    <span class="c">!!     VECTOR USING A CHOLESKY DECOMPOSITION.</span>
-<a name="ln-609"></a>    <span class="c">!</span>
-<a name="ln-610"></a>    <span class="c">!! ARGUMENTS:</span>
-<a name="ln-611"></a>    <span class="c">!!        N = NUMBER OF VARIATES IN VECTOR</span>
-<a name="ln-612"></a>    <span class="c">!!           (INPUT,INTEGER &gt;= 1)</span>
-<a name="ln-613"></a>    <span class="c">!!     H(J) = J&#39;TH ELEMENT OF VECTOR OF MEANS</span>
-<a name="ln-614"></a>    <span class="c">!!           (INPUT,REAL)</span>
-<a name="ln-615"></a>    <span class="c">!!     X(J) = J&#39;TH ELEMENT OF DELIVERED VECTOR</span>
-<a name="ln-616"></a>    <span class="c">!!           (OUTPUT,REAL)</span>
-<a name="ln-617"></a>    <span class="c">!!</span>
-<a name="ln-618"></a>    <span class="c">!!    D(J*(J-1)/2+I) = (I,J)&#39;TH ELEMENT OF VARIANCE MATRIX (J&gt; = I)</span>
-<a name="ln-619"></a>    <span class="c">!!            (INPUT,REAL)</span>
-<a name="ln-620"></a>    <span class="c">!!    F((J-1)*(2*N-J)/2+I) = (I,J)&#39;TH ELEMENT OF LOWER TRIANGULAR</span>
-<a name="ln-621"></a>    <span class="c">!!           DECOMPOSITION OF VARIANCE MATRIX (J &lt;= I)</span>
-<a name="ln-622"></a>    <span class="c">!!            (OUTPUT,REAL)</span>
-<a name="ln-623"></a>    <span class="c">!</span>
-<a name="ln-624"></a>    <span class="c">!!    FIRST = .TRUE. IF THIS IS THE FIRST CALL OF THE ROUTINE</span>
-<a name="ln-625"></a>    <span class="c">!!    OR IF THE DISTRIBUTION HAS CHANGED SINCE THE LAST CALL OF THE ROUTINE.</span>
-<a name="ln-626"></a>    <span class="c">!!    OTHERWISE SET TO .FALSE.</span>
-<a name="ln-627"></a>    <span class="c">!!            (INPUT,LOGICAL)</span>
-<a name="ln-628"></a>    <span class="c">!</span>
-<a name="ln-629"></a>    <span class="c">!!    ier = 1 if the input covariance matrix is not +ve definite</span>
-<a name="ln-630"></a>    <span class="c">!!        = 0 otherwise</span>
-<a name="ln-631"></a>    <span class="c">!</span>
-<a name="ln-632"></a>    <span class="c">!INTEGER, INTENT(IN)   :: n</span>
-<a name="ln-633"></a>    <span class="c">!REAL, INTENT(IN)      :: h(:), d(:)   ! d(n*(n+1)/2)</span>
-<a name="ln-634"></a>    <span class="c">!REAL, INTENT(IN OUT)  :: f(:)         ! f(n*(n+1)/2)</span>
-<a name="ln-635"></a>    <span class="c">!REAL, INTENT(OUT)     :: x(:)</span>
-<a name="ln-636"></a>    <span class="c">!LOGICAL, INTENT(IN)   :: first</span>
-<a name="ln-637"></a>    <span class="c">!INTEGER, INTENT(OUT)  :: ier</span>
+<a name="ln-605"></a>    <span class="c">!</span>
+<a name="ln-606"></a>    <span class="c">!SUBROUTINE random_mvnorm(n, h, d, f, first, x, ier)</span>
+<a name="ln-607"></a>    <span class="c">!</span>
+<a name="ln-608"></a>    <span class="c">!! Adapted from Fortran 77 code from the book:</span>
+<a name="ln-609"></a>    <span class="c">!!     Dagpunar, J. &#39;Principles of random variate generation&#39;</span>
+<a name="ln-610"></a>    <span class="c">!!     Clarendon Press, Oxford, 1988.   ISBN 0-19-852202-9</span>
+<a name="ln-611"></a>    <span class="c">!</span>
+<a name="ln-612"></a>    <span class="c">!! N.B. An extra argument, ier, has been added to Dagpunar&#39;s routine</span>
+<a name="ln-613"></a>    <span class="c">!</span>
+<a name="ln-614"></a>    <span class="c">!!     SUBROUTINE GENERATES AN N VARIATE RANDOM NORMAL</span>
+<a name="ln-615"></a>    <span class="c">!!     VECTOR USING A CHOLESKY DECOMPOSITION.</span>
+<a name="ln-616"></a>    <span class="c">!</span>
+<a name="ln-617"></a>    <span class="c">!! ARGUMENTS:</span>
+<a name="ln-618"></a>    <span class="c">!!        N = NUMBER OF VARIATES IN VECTOR</span>
+<a name="ln-619"></a>    <span class="c">!!           (INPUT,INTEGER &gt;= 1)</span>
+<a name="ln-620"></a>    <span class="c">!!     H(J) = J&#39;TH ELEMENT OF VECTOR OF MEANS</span>
+<a name="ln-621"></a>    <span class="c">!!           (INPUT,REAL)</span>
+<a name="ln-622"></a>    <span class="c">!!     X(J) = J&#39;TH ELEMENT OF DELIVERED VECTOR</span>
+<a name="ln-623"></a>    <span class="c">!!           (OUTPUT,REAL)</span>
+<a name="ln-624"></a>    <span class="c">!!</span>
+<a name="ln-625"></a>    <span class="c">!!    D(J*(J-1)/2+I) = (I,J)&#39;TH ELEMENT OF VARIANCE MATRIX (J&gt; = I)</span>
+<a name="ln-626"></a>    <span class="c">!!            (INPUT,REAL)</span>
+<a name="ln-627"></a>    <span class="c">!!    F((J-1)*(2*N-J)/2+I) = (I,J)&#39;TH ELEMENT OF LOWER TRIANGULAR</span>
+<a name="ln-628"></a>    <span class="c">!!           DECOMPOSITION OF VARIANCE MATRIX (J &lt;= I)</span>
+<a name="ln-629"></a>    <span class="c">!!            (OUTPUT,REAL)</span>
+<a name="ln-630"></a>    <span class="c">!</span>
+<a name="ln-631"></a>    <span class="c">!!    FIRST = .TRUE. IF THIS IS THE FIRST CALL OF THE ROUTINE</span>
+<a name="ln-632"></a>    <span class="c">!!    OR IF THE DISTRIBUTION HAS CHANGED SINCE THE LAST CALL OF THE ROUTINE.</span>
+<a name="ln-633"></a>    <span class="c">!!    OTHERWISE SET TO .FALSE.</span>
+<a name="ln-634"></a>    <span class="c">!!            (INPUT,LOGICAL)</span>
+<a name="ln-635"></a>    <span class="c">!</span>
+<a name="ln-636"></a>    <span class="c">!!    ier = 1 if the input covariance matrix is not +ve definite</span>
+<a name="ln-637"></a>    <span class="c">!!        = 0 otherwise</span>
 <a name="ln-638"></a>    <span class="c">!</span>
-<a name="ln-639"></a>    <span class="c">!!     Local variables</span>
-<a name="ln-640"></a>    <span class="c">!INTEGER       :: j, i, m</span>
-<a name="ln-641"></a>    <span class="c">!REAL          :: y, v</span>
-<a name="ln-642"></a>    <span class="c">!INTEGER, SAVE :: n2</span>
-<a name="ln-643"></a>    <span class="c">!</span>
-<a name="ln-644"></a>    <span class="c">!IF (n &lt; 1) THEN</span>
-<a name="ln-645"></a>    <span class="c">!  WRITE(*, *) &#39;SIZE OF VECTOR IS NON POSITIVE&#39;</span>
-<a name="ln-646"></a>    <span class="c">!  STOP</span>
-<a name="ln-647"></a>    <span class="c">!END IF</span>
-<a name="ln-648"></a>    <span class="c">!</span>
-<a name="ln-649"></a>    <span class="c">!ier = 0</span>
-<a name="ln-650"></a>    <span class="c">!IF (first) THEN                        ! Initialization, if necessary</span>
-<a name="ln-651"></a>    <span class="c">!  n2 = 2*n</span>
-<a name="ln-652"></a>    <span class="c">!  IF (d(1) &lt; zero) THEN</span>
-<a name="ln-653"></a>    <span class="c">!    ier = 1</span>
-<a name="ln-654"></a>    <span class="c">!    RETURN</span>
-<a name="ln-655"></a>    <span class="c">!  END IF</span>
-<a name="ln-656"></a>    <span class="c">!</span>
-<a name="ln-657"></a>    <span class="c">!  f(1) = SQRT(d(1))</span>
-<a name="ln-658"></a>    <span class="c">!  y = one/f(1)</span>
-<a name="ln-659"></a>    <span class="c">!  DO j = 2,n</span>
-<a name="ln-660"></a>    <span class="c">!    f(j) = d(1+j*(j-1)/2) * y</span>
-<a name="ln-661"></a>    <span class="c">!  END DO</span>
-<a name="ln-662"></a>    <span class="c">!</span>
-<a name="ln-663"></a>    <span class="c">!  DO i = 2,n</span>
-<a name="ln-664"></a>    <span class="c">!    v = d(i*(i-1)/2+i)</span>
-<a name="ln-665"></a>    <span class="c">!    DO m = 1,i-1</span>
-<a name="ln-666"></a>    <span class="c">!      v = v - f((m-1)*(n2-m)/2+i)**2</span>
-<a name="ln-667"></a>    <span class="c">!    END DO</span>
-<a name="ln-668"></a>    <span class="c">!</span>
-<a name="ln-669"></a>    <span class="c">!    IF (v &lt; zero) THEN</span>
-<a name="ln-670"></a>    <span class="c">!      ier = 1</span>
-<a name="ln-671"></a>    <span class="c">!      RETURN</span>
-<a name="ln-672"></a>    <span class="c">!    END IF</span>
-<a name="ln-673"></a>    <span class="c">!</span>
-<a name="ln-674"></a>    <span class="c">!    v = SQRT(v)</span>
-<a name="ln-675"></a>    <span class="c">!    y = one/v</span>
-<a name="ln-676"></a>    <span class="c">!    f((i-1)*(n2-i)/2+i) = v</span>
-<a name="ln-677"></a>    <span class="c">!    DO j = i+1,n</span>
-<a name="ln-678"></a>    <span class="c">!      v = d(j*(j-1)/2+i)</span>
-<a name="ln-679"></a>    <span class="c">!      DO m = 1,i-1</span>
-<a name="ln-680"></a>    <span class="c">!        v = v - f((m-1)*(n2-m)/2+i)*f((m-1)*(n2-m)/2 + j)</span>
-<a name="ln-681"></a>    <span class="c">!      END DO ! m = 1,i-1</span>
-<a name="ln-682"></a>    <span class="c">!      f((i-1)*(n2-i)/2 + j) = v*y</span>
-<a name="ln-683"></a>    <span class="c">!    END DO ! j = i+1,n</span>
-<a name="ln-684"></a>    <span class="c">!  END DO ! i = 2,n</span>
-<a name="ln-685"></a>    <span class="c">!END IF</span>
-<a name="ln-686"></a>    <span class="c">!</span>
-<a name="ln-687"></a>    <span class="c">!x(1:n) = h(1:n)</span>
-<a name="ln-688"></a>    <span class="c">!DO j = 1,n</span>
-<a name="ln-689"></a>    <span class="c">!  y = random_normal()</span>
-<a name="ln-690"></a>    <span class="c">!  DO i = j,n</span>
-<a name="ln-691"></a>    <span class="c">!    x(i) = x(i) + f((j-1)*(n2-j)/2 + i) * y</span>
-<a name="ln-692"></a>    <span class="c">!  END DO ! i = j,n</span>
-<a name="ln-693"></a>    <span class="c">!END DO ! j = 1,n</span>
-<a name="ln-694"></a>    <span class="c">!</span>
-<a name="ln-695"></a>    <span class="c">!RETURN</span>
-<a name="ln-696"></a>    <span class="c">!END SUBROUTINE random_mvnorm</span>
-<a name="ln-697"></a>    <span class="c">!</span>
-<a name="ln-698"></a>    <span class="c">!</span>
-<a name="ln-699"></a>    <span class="c">!</span>
-<a name="ln-700"></a>    <span class="c">!FUNCTION random_inv_gauss(h, b, first) RESULT(fn_val)</span>
+<a name="ln-639"></a>    <span class="c">!INTEGER, INTENT(IN)   :: n</span>
+<a name="ln-640"></a>    <span class="c">!REAL, INTENT(IN)      :: h(:), d(:)   ! d(n*(n+1)/2)</span>
+<a name="ln-641"></a>    <span class="c">!REAL, INTENT(IN OUT)  :: f(:)         ! f(n*(n+1)/2)</span>
+<a name="ln-642"></a>    <span class="c">!REAL, INTENT(OUT)     :: x(:)</span>
+<a name="ln-643"></a>    <span class="c">!LOGICAL, INTENT(IN)   :: first</span>
+<a name="ln-644"></a>    <span class="c">!INTEGER, INTENT(OUT)  :: ier</span>
+<a name="ln-645"></a>    <span class="c">!</span>
+<a name="ln-646"></a>    <span class="c">!!     Local variables</span>
+<a name="ln-647"></a>    <span class="c">!INTEGER       :: j, i, m</span>
+<a name="ln-648"></a>    <span class="c">!REAL          :: y, v</span>
+<a name="ln-649"></a>    <span class="c">!INTEGER, SAVE :: n2</span>
+<a name="ln-650"></a>    <span class="c">!</span>
+<a name="ln-651"></a>    <span class="c">!IF (n &lt; 1) THEN</span>
+<a name="ln-652"></a>    <span class="c">!  WRITE(*, *) &#39;SIZE OF VECTOR IS NON POSITIVE&#39;</span>
+<a name="ln-653"></a>    <span class="c">!  STOP</span>
+<a name="ln-654"></a>    <span class="c">!END IF</span>
+<a name="ln-655"></a>    <span class="c">!</span>
+<a name="ln-656"></a>    <span class="c">!ier = 0</span>
+<a name="ln-657"></a>    <span class="c">!IF (first) THEN                        ! Initialization, if necessary</span>
+<a name="ln-658"></a>    <span class="c">!  n2 = 2*n</span>
+<a name="ln-659"></a>    <span class="c">!  IF (d(1) &lt; zero) THEN</span>
+<a name="ln-660"></a>    <span class="c">!    ier = 1</span>
+<a name="ln-661"></a>    <span class="c">!    RETURN</span>
+<a name="ln-662"></a>    <span class="c">!  END IF</span>
+<a name="ln-663"></a>    <span class="c">!</span>
+<a name="ln-664"></a>    <span class="c">!  f(1) = SQRT(d(1))</span>
+<a name="ln-665"></a>    <span class="c">!  y = one/f(1)</span>
+<a name="ln-666"></a>    <span class="c">!  DO j = 2,n</span>
+<a name="ln-667"></a>    <span class="c">!    f(j) = d(1+j*(j-1)/2) * y</span>
+<a name="ln-668"></a>    <span class="c">!  END DO</span>
+<a name="ln-669"></a>    <span class="c">!</span>
+<a name="ln-670"></a>    <span class="c">!  DO i = 2,n</span>
+<a name="ln-671"></a>    <span class="c">!    v = d(i*(i-1)/2+i)</span>
+<a name="ln-672"></a>    <span class="c">!    DO m = 1,i-1</span>
+<a name="ln-673"></a>    <span class="c">!      v = v - f((m-1)*(n2-m)/2+i)**2</span>
+<a name="ln-674"></a>    <span class="c">!    END DO</span>
+<a name="ln-675"></a>    <span class="c">!</span>
+<a name="ln-676"></a>    <span class="c">!    IF (v &lt; zero) THEN</span>
+<a name="ln-677"></a>    <span class="c">!      ier = 1</span>
+<a name="ln-678"></a>    <span class="c">!      RETURN</span>
+<a name="ln-679"></a>    <span class="c">!    END IF</span>
+<a name="ln-680"></a>    <span class="c">!</span>
+<a name="ln-681"></a>    <span class="c">!    v = SQRT(v)</span>
+<a name="ln-682"></a>    <span class="c">!    y = one/v</span>
+<a name="ln-683"></a>    <span class="c">!    f((i-1)*(n2-i)/2+i) = v</span>
+<a name="ln-684"></a>    <span class="c">!    DO j = i+1,n</span>
+<a name="ln-685"></a>    <span class="c">!      v = d(j*(j-1)/2+i)</span>
+<a name="ln-686"></a>    <span class="c">!      DO m = 1,i-1</span>
+<a name="ln-687"></a>    <span class="c">!        v = v - f((m-1)*(n2-m)/2+i)*f((m-1)*(n2-m)/2 + j)</span>
+<a name="ln-688"></a>    <span class="c">!      END DO ! m = 1,i-1</span>
+<a name="ln-689"></a>    <span class="c">!      f((i-1)*(n2-i)/2 + j) = v*y</span>
+<a name="ln-690"></a>    <span class="c">!    END DO ! j = i+1,n</span>
+<a name="ln-691"></a>    <span class="c">!  END DO ! i = 2,n</span>
+<a name="ln-692"></a>    <span class="c">!END IF</span>
+<a name="ln-693"></a>    <span class="c">!</span>
+<a name="ln-694"></a>    <span class="c">!x(1:n) = h(1:n)</span>
+<a name="ln-695"></a>    <span class="c">!DO j = 1,n</span>
+<a name="ln-696"></a>    <span class="c">!  y = random_normal()</span>
+<a name="ln-697"></a>    <span class="c">!  DO i = j,n</span>
+<a name="ln-698"></a>    <span class="c">!    x(i) = x(i) + f((j-1)*(n2-j)/2 + i) * y</span>
+<a name="ln-699"></a>    <span class="c">!  END DO ! i = j,n</span>
+<a name="ln-700"></a>    <span class="c">!END DO ! j = 1,n</span>
 <a name="ln-701"></a>    <span class="c">!</span>
-<a name="ln-702"></a>    <span class="c">!! Adapted from Fortran 77 code from the book:</span>
-<a name="ln-703"></a>    <span class="c">!!     Dagpunar, J. &#39;Principles of random variate generation&#39;</span>
-<a name="ln-704"></a>    <span class="c">!!     Clarendon Press, Oxford, 1988.   ISBN 0-19-852202-9</span>
+<a name="ln-702"></a>    <span class="c">!RETURN</span>
+<a name="ln-703"></a>    <span class="c">!END SUBROUTINE random_mvnorm</span>
+<a name="ln-704"></a>    <span class="c">!</span>
 <a name="ln-705"></a>    <span class="c">!</span>
-<a name="ln-706"></a>    <span class="c">!! FUNCTION GENERATES A RANDOM VARIATE IN [0,INFINITY] FROM</span>
-<a name="ln-707"></a>    <span class="c">!! A REPARAMETERISED GENERALISED INVERSE GAUSSIAN (GIG) DISTRIBUTION</span>
-<a name="ln-708"></a>    <span class="c">!! WITH DENSITY PROPORTIONAL TO  GIG**(H-1) * EXP(-0.5*B*(GIG+1/GIG))</span>
-<a name="ln-709"></a>    <span class="c">!! USING A RATIO METHOD.</span>
-<a name="ln-710"></a>    <span class="c">!</span>
-<a name="ln-711"></a>    <span class="c">!!     H = PARAMETER OF DISTRIBUTION (0 &lt;= REAL)</span>
-<a name="ln-712"></a>    <span class="c">!!     B = PARAMETER OF DISTRIBUTION (0 &lt; REAL)</span>
-<a name="ln-713"></a>    <span class="c">!</span>
-<a name="ln-714"></a>    <span class="c">!REAL, INTENT(IN)    :: h, b</span>
-<a name="ln-715"></a>    <span class="c">!LOGICAL, INTENT(IN) :: first</span>
-<a name="ln-716"></a>    <span class="c">!REAL                :: fn_val</span>
+<a name="ln-706"></a>    <span class="c">!</span>
+<a name="ln-707"></a>    <span class="c">!FUNCTION random_inv_gauss(h, b, first) RESULT(fn_val)</span>
+<a name="ln-708"></a>    <span class="c">!</span>
+<a name="ln-709"></a>    <span class="c">!! Adapted from Fortran 77 code from the book:</span>
+<a name="ln-710"></a>    <span class="c">!!     Dagpunar, J. &#39;Principles of random variate generation&#39;</span>
+<a name="ln-711"></a>    <span class="c">!!     Clarendon Press, Oxford, 1988.   ISBN 0-19-852202-9</span>
+<a name="ln-712"></a>    <span class="c">!</span>
+<a name="ln-713"></a>    <span class="c">!! FUNCTION GENERATES A RANDOM VARIATE IN [0,INFINITY] FROM</span>
+<a name="ln-714"></a>    <span class="c">!! A REPARAMETERISED GENERALISED INVERSE GAUSSIAN (GIG) DISTRIBUTION</span>
+<a name="ln-715"></a>    <span class="c">!! WITH DENSITY PROPORTIONAL TO  GIG**(H-1) * EXP(-0.5*B*(GIG+1/GIG))</span>
+<a name="ln-716"></a>    <span class="c">!! USING A RATIO METHOD.</span>
 <a name="ln-717"></a>    <span class="c">!</span>
-<a name="ln-718"></a>    <span class="c">!!     Local variables</span>
-<a name="ln-719"></a>    <span class="c">!REAL            :: ym, xm, r, w, r1, r2, x</span>
-<a name="ln-720"></a>    <span class="c">!REAL, SAVE      :: a, c, d, e</span>
-<a name="ln-721"></a>    <span class="c">!REAL, PARAMETER :: quart = 0.25</span>
-<a name="ln-722"></a>    <span class="c">!</span>
-<a name="ln-723"></a>    <span class="c">!IF (h &lt; zero .OR. b &lt;= zero) THEN</span>
-<a name="ln-724"></a>    <span class="c">!  WRITE(*, *) &#39;IMPERMISSIBLE DISTRIBUTION PARAMETER VALUES&#39;</span>
-<a name="ln-725"></a>    <span class="c">!  STOP</span>
-<a name="ln-726"></a>    <span class="c">!END IF</span>
-<a name="ln-727"></a>    <span class="c">!</span>
-<a name="ln-728"></a>    <span class="c">!IF (first) THEN                        ! Initialization, if necessary</span>
-<a name="ln-729"></a>    <span class="c">!  IF (h &gt; quart*b*SQRT(vlarge)) THEN</span>
-<a name="ln-730"></a>    <span class="c">!    WRITE(*, *) &#39;THE RATIO H:B IS TOO SMALL&#39;</span>
-<a name="ln-731"></a>    <span class="c">!    STOP</span>
-<a name="ln-732"></a>    <span class="c">!  END IF</span>
-<a name="ln-733"></a>    <span class="c">!  e = b*b</span>
-<a name="ln-734"></a>    <span class="c">!  d = h + one</span>
-<a name="ln-735"></a>    <span class="c">!  ym = (-d + SQRT(d*d + e))/b</span>
-<a name="ln-736"></a>    <span class="c">!  IF (ym &lt; vsmall) THEN</span>
-<a name="ln-737"></a>    <span class="c">!    WRITE(*, *) &#39;THE VALUE OF B IS TOO SMALL&#39;</span>
+<a name="ln-718"></a>    <span class="c">!!     H = PARAMETER OF DISTRIBUTION (0 &lt;= REAL)</span>
+<a name="ln-719"></a>    <span class="c">!!     B = PARAMETER OF DISTRIBUTION (0 &lt; REAL)</span>
+<a name="ln-720"></a>    <span class="c">!</span>
+<a name="ln-721"></a>    <span class="c">!REAL, INTENT(IN)    :: h, b</span>
+<a name="ln-722"></a>    <span class="c">!LOGICAL, INTENT(IN) :: first</span>
+<a name="ln-723"></a>    <span class="c">!REAL                :: fn_val</span>
+<a name="ln-724"></a>    <span class="c">!</span>
+<a name="ln-725"></a>    <span class="c">!!     Local variables</span>
+<a name="ln-726"></a>    <span class="c">!REAL            :: ym, xm, r, w, r1, r2, x</span>
+<a name="ln-727"></a>    <span class="c">!REAL, SAVE      :: a, c, d, e</span>
+<a name="ln-728"></a>    <span class="c">!REAL, PARAMETER :: quart = 0.25</span>
+<a name="ln-729"></a>    <span class="c">!</span>
+<a name="ln-730"></a>    <span class="c">!IF (h &lt; zero .OR. b &lt;= zero) THEN</span>
+<a name="ln-731"></a>    <span class="c">!  WRITE(*, *) &#39;IMPERMISSIBLE DISTRIBUTION PARAMETER VALUES&#39;</span>
+<a name="ln-732"></a>    <span class="c">!  STOP</span>
+<a name="ln-733"></a>    <span class="c">!END IF</span>
+<a name="ln-734"></a>    <span class="c">!</span>
+<a name="ln-735"></a>    <span class="c">!IF (first) THEN                        ! Initialization, if necessary</span>
+<a name="ln-736"></a>    <span class="c">!  IF (h &gt; quart*b*SQRT(vlarge)) THEN</span>
+<a name="ln-737"></a>    <span class="c">!    WRITE(*, *) &#39;THE RATIO H:B IS TOO SMALL&#39;</span>
 <a name="ln-738"></a>    <span class="c">!    STOP</span>
 <a name="ln-739"></a>    <span class="c">!  END IF</span>
-<a name="ln-740"></a>    <span class="c">!</span>
-<a name="ln-741"></a>    <span class="c">!  d = h - one</span>
-<a name="ln-742"></a>    <span class="c">!  xm = (d + SQRT(d*d + e))/b</span>
-<a name="ln-743"></a>    <span class="c">!  d = half*d</span>
-<a name="ln-744"></a>    <span class="c">!  e = -quart*b</span>
-<a name="ln-745"></a>    <span class="c">!  r = xm + one/xm</span>
-<a name="ln-746"></a>    <span class="c">!  w = xm*ym</span>
-<a name="ln-747"></a>    <span class="c">!  a = w**(-half*h) * SQRT(xm/ym) * EXP(-e*(r - ym - one/ym))</span>
-<a name="ln-748"></a>    <span class="c">!  IF (a &lt; vsmall) THEN</span>
-<a name="ln-749"></a>    <span class="c">!    WRITE(*, *) &#39;THE VALUE OF H IS TOO LARGE&#39;</span>
-<a name="ln-750"></a>    <span class="c">!    STOP</span>
-<a name="ln-751"></a>    <span class="c">!  END IF</span>
-<a name="ln-752"></a>    <span class="c">!  c = -d*LOG(xm) - e*r</span>
-<a name="ln-753"></a>    <span class="c">!END IF</span>
-<a name="ln-754"></a>    <span class="c">!</span>
-<a name="ln-755"></a>    <span class="c">!DO</span>
-<a name="ln-756"></a>    <span class="c">!  CALL RANDOM_NUMBER(r1)</span>
-<a name="ln-757"></a>    <span class="c">!  IF (r1 &lt;= zero) CYCLE</span>
-<a name="ln-758"></a>    <span class="c">!  CALL RANDOM_NUMBER(r2)</span>
-<a name="ln-759"></a>    <span class="c">!  x = a*r2/r1</span>
-<a name="ln-760"></a>    <span class="c">!  IF (x &lt;= zero) CYCLE</span>
-<a name="ln-761"></a>    <span class="c">!  IF (LOG(r1) &lt; d*LOG(x) + e*(x + one/x) + c) EXIT</span>
-<a name="ln-762"></a>    <span class="c">!END DO</span>
-<a name="ln-763"></a>    <span class="c">!</span>
-<a name="ln-764"></a>    <span class="c">!fn_val = x</span>
-<a name="ln-765"></a>    <span class="c">!</span>
-<a name="ln-766"></a>    <span class="c">!RETURN</span>
-<a name="ln-767"></a>    <span class="c">!END FUNCTION random_inv_gauss</span>
-<a name="ln-768"></a>    <span class="c">!</span>
-<a name="ln-769"></a>    <span class="c">!</span>
+<a name="ln-740"></a>    <span class="c">!  e = b*b</span>
+<a name="ln-741"></a>    <span class="c">!  d = h + one</span>
+<a name="ln-742"></a>    <span class="c">!  ym = (-d + SQRT(d*d + e))/b</span>
+<a name="ln-743"></a>    <span class="c">!  IF (ym &lt; vsmall) THEN</span>
+<a name="ln-744"></a>    <span class="c">!    WRITE(*, *) &#39;THE VALUE OF B IS TOO SMALL&#39;</span>
+<a name="ln-745"></a>    <span class="c">!    STOP</span>
+<a name="ln-746"></a>    <span class="c">!  END IF</span>
+<a name="ln-747"></a>    <span class="c">!</span>
+<a name="ln-748"></a>    <span class="c">!  d = h - one</span>
+<a name="ln-749"></a>    <span class="c">!  xm = (d + SQRT(d*d + e))/b</span>
+<a name="ln-750"></a>    <span class="c">!  d = half*d</span>
+<a name="ln-751"></a>    <span class="c">!  e = -quart*b</span>
+<a name="ln-752"></a>    <span class="c">!  r = xm + one/xm</span>
+<a name="ln-753"></a>    <span class="c">!  w = xm*ym</span>
+<a name="ln-754"></a>    <span class="c">!  a = w**(-half*h) * SQRT(xm/ym) * EXP(-e*(r - ym - one/ym))</span>
+<a name="ln-755"></a>    <span class="c">!  IF (a &lt; vsmall) THEN</span>
+<a name="ln-756"></a>    <span class="c">!    WRITE(*, *) &#39;THE VALUE OF H IS TOO LARGE&#39;</span>
+<a name="ln-757"></a>    <span class="c">!    STOP</span>
+<a name="ln-758"></a>    <span class="c">!  END IF</span>
+<a name="ln-759"></a>    <span class="c">!  c = -d*LOG(xm) - e*r</span>
+<a name="ln-760"></a>    <span class="c">!END IF</span>
+<a name="ln-761"></a>    <span class="c">!</span>
+<a name="ln-762"></a>    <span class="c">!DO</span>
+<a name="ln-763"></a>    <span class="c">!  CALL RANDOM_NUMBER(r1)</span>
+<a name="ln-764"></a>    <span class="c">!  IF (r1 &lt;= zero) CYCLE</span>
+<a name="ln-765"></a>    <span class="c">!  CALL RANDOM_NUMBER(r2)</span>
+<a name="ln-766"></a>    <span class="c">!  x = a*r2/r1</span>
+<a name="ln-767"></a>    <span class="c">!  IF (x &lt;= zero) CYCLE</span>
+<a name="ln-768"></a>    <span class="c">!  IF (LOG(r1) &lt; d*LOG(x) + e*(x + one/x) + c) EXIT</span>
+<a name="ln-769"></a>    <span class="c">!END DO</span>
 <a name="ln-770"></a>    <span class="c">!</span>
-<a name="ln-771"></a>    <span class="c">!FUNCTION random_Poisson(mu, first) RESULT(ival)</span>
-<a name="ln-772"></a>    <span class="c">!!**********************************************************************</span>
-<a name="ln-773"></a>    <span class="c">!!     Translated to Fortran 90 by Alan Miller from:</span>
-<a name="ln-774"></a>    <span class="c">!!                           RANLIB</span>
-<a name="ln-775"></a>    <span class="c">!!</span>
-<a name="ln-776"></a>    <span class="c">!!     Library of Fortran Routines for Random Number Generation</span>
-<a name="ln-777"></a>    <span class="c">!!</span>
-<a name="ln-778"></a>    <span class="c">!!                    Compiled and Written by:</span>
-<a name="ln-779"></a>    <span class="c">!!</span>
-<a name="ln-780"></a>    <span class="c">!!                         Barry W. Brown</span>
-<a name="ln-781"></a>    <span class="c">!!                          James Lovato</span>
+<a name="ln-771"></a>    <span class="c">!fn_val = x</span>
+<a name="ln-772"></a>    <span class="c">!</span>
+<a name="ln-773"></a>    <span class="c">!RETURN</span>
+<a name="ln-774"></a>    <span class="c">!END FUNCTION random_inv_gauss</span>
+<a name="ln-775"></a>    <span class="c">!</span>
+<a name="ln-776"></a>    <span class="c">!</span>
+<a name="ln-777"></a>    <span class="c">!</span>
+<a name="ln-778"></a>    <span class="c">!FUNCTION random_Poisson(mu, first) RESULT(ival)</span>
+<a name="ln-779"></a>    <span class="c">!!**********************************************************************</span>
+<a name="ln-780"></a>    <span class="c">!!     Translated to Fortran 90 by Alan Miller from:</span>
+<a name="ln-781"></a>    <span class="c">!!                           RANLIB</span>
 <a name="ln-782"></a>    <span class="c">!!</span>
-<a name="ln-783"></a>    <span class="c">!!             Department of Biomathematics, Box 237</span>
-<a name="ln-784"></a>    <span class="c">!!             The University of Texas, M.D. Anderson Cancer Center</span>
-<a name="ln-785"></a>    <span class="c">!!             1515 Holcombe Boulevard</span>
-<a name="ln-786"></a>    <span class="c">!!             Houston, TX      77030</span>
-<a name="ln-787"></a>    <span class="c">!!</span>
-<a name="ln-788"></a>    <span class="c">!! This work was supported by grant CA-16672 from the National Cancer Institute.</span>
-<a name="ln-789"></a>    <span class="c">!</span>
-<a name="ln-790"></a>    <span class="c">!!                    GENerate POIsson random deviate</span>
-<a name="ln-791"></a>    <span class="c">!</span>
-<a name="ln-792"></a>    <span class="c">!!                            Function</span>
-<a name="ln-793"></a>    <span class="c">!</span>
-<a name="ln-794"></a>    <span class="c">!! Generates a single random deviate from a Poisson distribution with mean mu.</span>
-<a name="ln-795"></a>    <span class="c">!</span>
-<a name="ln-796"></a>    <span class="c">!!                            Arguments</span>
-<a name="ln-797"></a>    <span class="c">!</span>
-<a name="ln-798"></a>    <span class="c">!!     mu --&gt; The mean of the Poisson distribution from which</span>
-<a name="ln-799"></a>    <span class="c">!!            a random deviate is to be generated.</span>
-<a name="ln-800"></a>    <span class="c">!!                              REAL mu</span>
-<a name="ln-801"></a>    <span class="c">!</span>
-<a name="ln-802"></a>    <span class="c">!!                              Method</span>
-<a name="ln-803"></a>    <span class="c">!</span>
-<a name="ln-804"></a>    <span class="c">!!     For details see:</span>
-<a name="ln-805"></a>    <span class="c">!</span>
-<a name="ln-806"></a>    <span class="c">!!               Ahrens, J.H. and Dieter, U.</span>
-<a name="ln-807"></a>    <span class="c">!!               Computer Generation of Poisson Deviates</span>
-<a name="ln-808"></a>    <span class="c">!!               From Modified Normal Distributions.</span>
-<a name="ln-809"></a>    <span class="c">!!               ACM Trans. Math. Software, 8, 2</span>
-<a name="ln-810"></a>    <span class="c">!!               (June 1982),163-179</span>
-<a name="ln-811"></a>    <span class="c">!</span>
-<a name="ln-812"></a>    <span class="c">!!     TABLES: COEFFICIENTS A0-A7 FOR STEP F. FACTORIALS FACT</span>
-<a name="ln-813"></a>    <span class="c">!!     COEFFICIENTS A(K) - FOR PX = FK*V*V*SUM(A(K)*V**K)-DEL</span>
-<a name="ln-814"></a>    <span class="c">!</span>
-<a name="ln-815"></a>    <span class="c">!!     SEPARATION OF CASES A AND B</span>
-<a name="ln-816"></a>    <span class="c">!</span>
-<a name="ln-817"></a>    <span class="c">!!     .. Scalar Arguments ..</span>
-<a name="ln-818"></a>    <span class="c">!REAL, INTENT(IN)    :: mu</span>
-<a name="ln-819"></a>    <span class="c">!LOGICAL, INTENT(IN) :: first</span>
-<a name="ln-820"></a>    <span class="c">!INTEGER             :: ival</span>
-<a name="ln-821"></a>    <span class="c">!!     ..</span>
-<a name="ln-822"></a>    <span class="c">!!     .. Local Scalars ..</span>
-<a name="ln-823"></a>    <span class="c">!REAL          :: b1, b2, c, c0, c1, c2, c3, del, difmuk, e, fk, fx, fy, g,  &amp;</span>
-<a name="ln-824"></a>    <span class="c">!                 omega, px, py, t, u, v, x, xx</span>
-<a name="ln-825"></a>    <span class="c">!REAL, SAVE    :: s, d, p, q, p0</span>
-<a name="ln-826"></a>    <span class="c">!INTEGER       :: j, k, kflag</span>
-<a name="ln-827"></a>    <span class="c">!LOGICAL, SAVE :: full_init</span>
-<a name="ln-828"></a>    <span class="c">!INTEGER, SAVE :: l, m</span>
-<a name="ln-829"></a>    <span class="c">!!     ..</span>
-<a name="ln-830"></a>    <span class="c">!!     .. Local Arrays ..</span>
-<a name="ln-831"></a>    <span class="c">!REAL, SAVE    :: pp(35)</span>
-<a name="ln-832"></a>    <span class="c">!!     ..</span>
-<a name="ln-833"></a>    <span class="c">!!     .. Data statements ..</span>
-<a name="ln-834"></a>    <span class="c">!REAL, PARAMETER :: a0 = -.5, a1 = .3333333, a2 = -.2500068, a3 = .2000118,  &amp;</span>
-<a name="ln-835"></a>    <span class="c">!                   a4 = -.1661269, a5 = .1421878, a6 = -.1384794,   &amp;</span>
-<a name="ln-836"></a>    <span class="c">!                   a7 = .1250060</span>
-<a name="ln-837"></a>    <span class="c">!</span>
-<a name="ln-838"></a>    <span class="c">!REAL, PARAMETER :: fact(10) = (/ 1., 1., 2., 6., 24., 120., 720., 5040.,  &amp;</span>
-<a name="ln-839"></a>    <span class="c">!                                 40320., 362880. /)</span>
-<a name="ln-840"></a>    <span class="c">!</span>
-<a name="ln-841"></a>    <span class="c">!!     ..</span>
-<a name="ln-842"></a>    <span class="c">!!     .. Executable Statements ..</span>
-<a name="ln-843"></a>    <span class="c">!IF (mu &gt; 10.0) THEN</span>
-<a name="ln-844"></a>    <span class="c">!!     C A S E  A. (RECALCULATION OF S, D, L IF MU HAS CHANGED)</span>
-<a name="ln-845"></a>    <span class="c">!</span>
-<a name="ln-846"></a>    <span class="c">!  IF (first) THEN</span>
-<a name="ln-847"></a>    <span class="c">!    s = SQRT(mu)</span>
-<a name="ln-848"></a>    <span class="c">!    d = 6.0*mu*mu</span>
-<a name="ln-849"></a>    <span class="c">!</span>
-<a name="ln-850"></a>    <span class="c">!!             THE POISSON PROBABILITIES PK EXCEED THE DISCRETE NORMAL</span>
-<a name="ln-851"></a>    <span class="c">!!             PROBABILITIES FK WHENEVER K &gt;= M(MU). L=IFIX(MU-1.1484)</span>
-<a name="ln-852"></a>    <span class="c">!!             IS AN UPPER BOUND TO M(MU) FOR ALL MU &gt;= 10 .</span>
-<a name="ln-853"></a>    <span class="c">!</span>
-<a name="ln-854"></a>    <span class="c">!    l = mu - 1.1484</span>
-<a name="ln-855"></a>    <span class="c">!    full_init = .false.</span>
-<a name="ln-856"></a>    <span class="c">!  END IF</span>
-<a name="ln-857"></a>    <span class="c">!</span>
-<a name="ln-858"></a>    <span class="c">!</span>
-<a name="ln-859"></a>    <span class="c">!!     STEP N. NORMAL SAMPLE - random_normal() FOR STANDARD NORMAL DEVIATE</span>
+<a name="ln-783"></a>    <span class="c">!!     Library of Fortran Routines for Random Number Generation</span>
+<a name="ln-784"></a>    <span class="c">!!</span>
+<a name="ln-785"></a>    <span class="c">!!                    Compiled and Written by:</span>
+<a name="ln-786"></a>    <span class="c">!!</span>
+<a name="ln-787"></a>    <span class="c">!!                         Barry W. Brown</span>
+<a name="ln-788"></a>    <span class="c">!!                          James Lovato</span>
+<a name="ln-789"></a>    <span class="c">!!</span>
+<a name="ln-790"></a>    <span class="c">!!             Department of Biomathematics, Box 237</span>
+<a name="ln-791"></a>    <span class="c">!!             The University of Texas, M.D. Anderson Cancer Center</span>
+<a name="ln-792"></a>    <span class="c">!!             1515 Holcombe Boulevard</span>
+<a name="ln-793"></a>    <span class="c">!!             Houston, TX      77030</span>
+<a name="ln-794"></a>    <span class="c">!!</span>
+<a name="ln-795"></a>    <span class="c">!! This work was supported by grant CA-16672 from the National Cancer Institute.</span>
+<a name="ln-796"></a>    <span class="c">!</span>
+<a name="ln-797"></a>    <span class="c">!!                    GENerate POIsson random deviate</span>
+<a name="ln-798"></a>    <span class="c">!</span>
+<a name="ln-799"></a>    <span class="c">!!                            Function</span>
+<a name="ln-800"></a>    <span class="c">!</span>
+<a name="ln-801"></a>    <span class="c">!! Generates a single random deviate from a Poisson distribution with mean mu.</span>
+<a name="ln-802"></a>    <span class="c">!</span>
+<a name="ln-803"></a>    <span class="c">!!                            Arguments</span>
+<a name="ln-804"></a>    <span class="c">!</span>
+<a name="ln-805"></a>    <span class="c">!!     mu --&gt; The mean of the Poisson distribution from which</span>
+<a name="ln-806"></a>    <span class="c">!!            a random deviate is to be generated.</span>
+<a name="ln-807"></a>    <span class="c">!!                              REAL mu</span>
+<a name="ln-808"></a>    <span class="c">!</span>
+<a name="ln-809"></a>    <span class="c">!!                              Method</span>
+<a name="ln-810"></a>    <span class="c">!</span>
+<a name="ln-811"></a>    <span class="c">!!     For details see:</span>
+<a name="ln-812"></a>    <span class="c">!</span>
+<a name="ln-813"></a>    <span class="c">!!               Ahrens, J.H. and Dieter, U.</span>
+<a name="ln-814"></a>    <span class="c">!!               Computer Generation of Poisson Deviates</span>
+<a name="ln-815"></a>    <span class="c">!!               From Modified Normal Distributions.</span>
+<a name="ln-816"></a>    <span class="c">!!               ACM Trans. Math. Software, 8, 2</span>
+<a name="ln-817"></a>    <span class="c">!!               (June 1982),163-179</span>
+<a name="ln-818"></a>    <span class="c">!</span>
+<a name="ln-819"></a>    <span class="c">!!     TABLES: COEFFICIENTS A0-A7 FOR STEP F. FACTORIALS FACT</span>
+<a name="ln-820"></a>    <span class="c">!!     COEFFICIENTS A(K) - FOR PX = FK*V*V*SUM(A(K)*V**K)-DEL</span>
+<a name="ln-821"></a>    <span class="c">!</span>
+<a name="ln-822"></a>    <span class="c">!!     SEPARATION OF CASES A AND B</span>
+<a name="ln-823"></a>    <span class="c">!</span>
+<a name="ln-824"></a>    <span class="c">!!     .. Scalar Arguments ..</span>
+<a name="ln-825"></a>    <span class="c">!REAL, INTENT(IN)    :: mu</span>
+<a name="ln-826"></a>    <span class="c">!LOGICAL, INTENT(IN) :: first</span>
+<a name="ln-827"></a>    <span class="c">!INTEGER             :: ival</span>
+<a name="ln-828"></a>    <span class="c">!!     ..</span>
+<a name="ln-829"></a>    <span class="c">!!     .. Local Scalars ..</span>
+<a name="ln-830"></a>    <span class="c">!REAL          :: b1, b2, c, c0, c1, c2, c3, del, difmuk, e, fk, fx, fy, g,  &amp;</span>
+<a name="ln-831"></a>    <span class="c">!                 omega, px, py, t, u, v, x, xx</span>
+<a name="ln-832"></a>    <span class="c">!REAL, SAVE    :: s, d, p, q, p0</span>
+<a name="ln-833"></a>    <span class="c">!INTEGER       :: j, k, kflag</span>
+<a name="ln-834"></a>    <span class="c">!LOGICAL, SAVE :: full_init</span>
+<a name="ln-835"></a>    <span class="c">!INTEGER, SAVE :: l, m</span>
+<a name="ln-836"></a>    <span class="c">!!     ..</span>
+<a name="ln-837"></a>    <span class="c">!!     .. Local Arrays ..</span>
+<a name="ln-838"></a>    <span class="c">!REAL, SAVE    :: pp(35)</span>
+<a name="ln-839"></a>    <span class="c">!!     ..</span>
+<a name="ln-840"></a>    <span class="c">!!     .. Data statements ..</span>
+<a name="ln-841"></a>    <span class="c">!REAL, PARAMETER :: a0 = -.5, a1 = .3333333, a2 = -.2500068, a3 = .2000118,  &amp;</span>
+<a name="ln-842"></a>    <span class="c">!                   a4 = -.1661269, a5 = .1421878, a6 = -.1384794,   &amp;</span>
+<a name="ln-843"></a>    <span class="c">!                   a7 = .1250060</span>
+<a name="ln-844"></a>    <span class="c">!</span>
+<a name="ln-845"></a>    <span class="c">!REAL, PARAMETER :: fact(10) = (/ 1., 1., 2., 6., 24., 120., 720., 5040.,  &amp;</span>
+<a name="ln-846"></a>    <span class="c">!                                 40320., 362880. /)</span>
+<a name="ln-847"></a>    <span class="c">!</span>
+<a name="ln-848"></a>    <span class="c">!!     ..</span>
+<a name="ln-849"></a>    <span class="c">!!     .. Executable Statements ..</span>
+<a name="ln-850"></a>    <span class="c">!IF (mu &gt; 10.0) THEN</span>
+<a name="ln-851"></a>    <span class="c">!!     C A S E  A. (RECALCULATION OF S, D, L IF MU HAS CHANGED)</span>
+<a name="ln-852"></a>    <span class="c">!</span>
+<a name="ln-853"></a>    <span class="c">!  IF (first) THEN</span>
+<a name="ln-854"></a>    <span class="c">!    s = SQRT(mu)</span>
+<a name="ln-855"></a>    <span class="c">!    d = 6.0*mu*mu</span>
+<a name="ln-856"></a>    <span class="c">!</span>
+<a name="ln-857"></a>    <span class="c">!!             THE POISSON PROBABILITIES PK EXCEED THE DISCRETE NORMAL</span>
+<a name="ln-858"></a>    <span class="c">!!             PROBABILITIES FK WHENEVER K &gt;= M(MU). L=IFIX(MU-1.1484)</span>
+<a name="ln-859"></a>    <span class="c">!!             IS AN UPPER BOUND TO M(MU) FOR ALL MU &gt;= 10 .</span>
 <a name="ln-860"></a>    <span class="c">!</span>
-<a name="ln-861"></a>    <span class="c">!  g = mu + s*random_normal()</span>
-<a name="ln-862"></a>    <span class="c">!  IF (g &gt; 0.0) THEN</span>
-<a name="ln-863"></a>    <span class="c">!    ival = g</span>
+<a name="ln-861"></a>    <span class="c">!    l = mu - 1.1484</span>
+<a name="ln-862"></a>    <span class="c">!    full_init = .false.</span>
+<a name="ln-863"></a>    <span class="c">!  END IF</span>
 <a name="ln-864"></a>    <span class="c">!</span>
-<a name="ln-865"></a>    <span class="c">!!     STEP I. IMMEDIATE ACCEPTANCE IF ival IS LARGE ENOUGH</span>
-<a name="ln-866"></a>    <span class="c">!</span>
-<a name="ln-867"></a>    <span class="c">!    IF (ival&gt;=l) RETURN</span>
-<a name="ln-868"></a>    <span class="c">!</span>
-<a name="ln-869"></a>    <span class="c">!!     STEP S. SQUEEZE ACCEPTANCE - SAMPLE U</span>
-<a name="ln-870"></a>    <span class="c">!</span>
-<a name="ln-871"></a>    <span class="c">!    fk = ival</span>
-<a name="ln-872"></a>    <span class="c">!    difmuk = mu - fk</span>
-<a name="ln-873"></a>    <span class="c">!    CALL RANDOM_NUMBER(u)</span>
-<a name="ln-874"></a>    <span class="c">!    IF (d*u &gt;= difmuk*difmuk*difmuk) RETURN</span>
-<a name="ln-875"></a>    <span class="c">!  END IF</span>
-<a name="ln-876"></a>    <span class="c">!</span>
-<a name="ln-877"></a>    <span class="c">!!     STEP P. PREPARATIONS FOR STEPS Q AND H.</span>
-<a name="ln-878"></a>    <span class="c">!!             (RECALCULATIONS OF PARAMETERS IF NECESSARY)</span>
-<a name="ln-879"></a>    <span class="c">!!             .3989423=(2*PI)**(-.5)  .416667E-1=1./24.  .1428571=1./7.</span>
-<a name="ln-880"></a>    <span class="c">!!             THE QUANTITIES B1, B2, C3, C2, C1, C0 ARE FOR THE HERMITE</span>
-<a name="ln-881"></a>    <span class="c">!!             APPROXIMATIONS TO THE DISCRETE NORMAL PROBABILITIES FK.</span>
-<a name="ln-882"></a>    <span class="c">!!             C=.1069/MU GUARANTEES MAJORIZATION BY THE &#39;HAT&#39;-FUNCTION.</span>
+<a name="ln-865"></a>    <span class="c">!</span>
+<a name="ln-866"></a>    <span class="c">!!     STEP N. NORMAL SAMPLE - random_normal() FOR STANDARD NORMAL DEVIATE</span>
+<a name="ln-867"></a>    <span class="c">!</span>
+<a name="ln-868"></a>    <span class="c">!  g = mu + s*random_normal()</span>
+<a name="ln-869"></a>    <span class="c">!  IF (g &gt; 0.0) THEN</span>
+<a name="ln-870"></a>    <span class="c">!    ival = g</span>
+<a name="ln-871"></a>    <span class="c">!</span>
+<a name="ln-872"></a>    <span class="c">!!     STEP I. IMMEDIATE ACCEPTANCE IF ival IS LARGE ENOUGH</span>
+<a name="ln-873"></a>    <span class="c">!</span>
+<a name="ln-874"></a>    <span class="c">!    IF (ival&gt;=l) RETURN</span>
+<a name="ln-875"></a>    <span class="c">!</span>
+<a name="ln-876"></a>    <span class="c">!!     STEP S. SQUEEZE ACCEPTANCE - SAMPLE U</span>
+<a name="ln-877"></a>    <span class="c">!</span>
+<a name="ln-878"></a>    <span class="c">!    fk = ival</span>
+<a name="ln-879"></a>    <span class="c">!    difmuk = mu - fk</span>
+<a name="ln-880"></a>    <span class="c">!    CALL RANDOM_NUMBER(u)</span>
+<a name="ln-881"></a>    <span class="c">!    IF (d*u &gt;= difmuk*difmuk*difmuk) RETURN</span>
+<a name="ln-882"></a>    <span class="c">!  END IF</span>
 <a name="ln-883"></a>    <span class="c">!</span>
-<a name="ln-884"></a>    <span class="c">!  IF (.NOT. full_init) THEN</span>
-<a name="ln-885"></a>    <span class="c">!    omega = .3989423/s</span>
-<a name="ln-886"></a>    <span class="c">!    b1 = .4166667E-1/mu</span>
-<a name="ln-887"></a>    <span class="c">!    b2 = .3*b1*b1</span>
-<a name="ln-888"></a>    <span class="c">!    c3 = .1428571*b1*b2</span>
-<a name="ln-889"></a>    <span class="c">!    c2 = b2 - 15.*c3</span>
-<a name="ln-890"></a>    <span class="c">!    c1 = b1 - 6.*b2 + 45.*c3</span>
-<a name="ln-891"></a>    <span class="c">!    c0 = 1. - b1 + 3.*b2 - 15.*c3</span>
-<a name="ln-892"></a>    <span class="c">!    c = .1069/mu</span>
-<a name="ln-893"></a>    <span class="c">!    full_init = .true.</span>
-<a name="ln-894"></a>    <span class="c">!  END IF</span>
-<a name="ln-895"></a>    <span class="c">!</span>
-<a name="ln-896"></a>    <span class="c">!  IF (g &lt; 0.0) GO TO 50</span>
-<a name="ln-897"></a>    <span class="c">!</span>
-<a name="ln-898"></a>    <span class="c">!!             &#39;SUBROUTINE&#39; F IS CALLED (KFLAG=0 FOR CORRECT RETURN)</span>
-<a name="ln-899"></a>    <span class="c">!</span>
-<a name="ln-900"></a>    <span class="c">!  kflag = 0</span>
-<a name="ln-901"></a>    <span class="c">!  GO TO 70</span>
+<a name="ln-884"></a>    <span class="c">!!     STEP P. PREPARATIONS FOR STEPS Q AND H.</span>
+<a name="ln-885"></a>    <span class="c">!!             (RECALCULATIONS OF PARAMETERS IF NECESSARY)</span>
+<a name="ln-886"></a>    <span class="c">!!             .3989423=(2*PI)**(-.5)  .416667E-1=1./24.  .1428571=1./7.</span>
+<a name="ln-887"></a>    <span class="c">!!             THE QUANTITIES B1, B2, C3, C2, C1, C0 ARE FOR THE HERMITE</span>
+<a name="ln-888"></a>    <span class="c">!!             APPROXIMATIONS TO THE DISCRETE NORMAL PROBABILITIES FK.</span>
+<a name="ln-889"></a>    <span class="c">!!             C=.1069/MU GUARANTEES MAJORIZATION BY THE &#39;HAT&#39;-FUNCTION.</span>
+<a name="ln-890"></a>    <span class="c">!</span>
+<a name="ln-891"></a>    <span class="c">!  IF (.NOT. full_init) THEN</span>
+<a name="ln-892"></a>    <span class="c">!    omega = .3989423/s</span>
+<a name="ln-893"></a>    <span class="c">!    b1 = .4166667E-1/mu</span>
+<a name="ln-894"></a>    <span class="c">!    b2 = .3*b1*b1</span>
+<a name="ln-895"></a>    <span class="c">!    c3 = .1428571*b1*b2</span>
+<a name="ln-896"></a>    <span class="c">!    c2 = b2 - 15.*c3</span>
+<a name="ln-897"></a>    <span class="c">!    c1 = b1 - 6.*b2 + 45.*c3</span>
+<a name="ln-898"></a>    <span class="c">!    c0 = 1. - b1 + 3.*b2 - 15.*c3</span>
+<a name="ln-899"></a>    <span class="c">!    c = .1069/mu</span>
+<a name="ln-900"></a>    <span class="c">!    full_init = .true.</span>
+<a name="ln-901"></a>    <span class="c">!  END IF</span>
 <a name="ln-902"></a>    <span class="c">!</span>
-<a name="ln-903"></a>    <span class="c">!!     STEP Q. QUOTIENT ACCEPTANCE (RARE CASE)</span>
+<a name="ln-903"></a>    <span class="c">!  IF (g &lt; 0.0) GO TO 50</span>
 <a name="ln-904"></a>    <span class="c">!</span>
-<a name="ln-905"></a>    <span class="c">!  40 IF (fy-u*fy &lt;= py*EXP(px-fx)) RETURN</span>
+<a name="ln-905"></a>    <span class="c">!!             &#39;SUBROUTINE&#39; F IS CALLED (KFLAG=0 FOR CORRECT RETURN)</span>
 <a name="ln-906"></a>    <span class="c">!</span>
-<a name="ln-907"></a>    <span class="c">!!     STEP E. EXPONENTIAL SAMPLE - random_exponential() FOR STANDARD EXPONENTIAL</span>
-<a name="ln-908"></a>    <span class="c">!!             DEVIATE E AND SAMPLE T FROM THE LAPLACE &#39;HAT&#39;</span>
-<a name="ln-909"></a>    <span class="c">!!             (IF T &lt;= -.6744 THEN PK &lt; FK FOR ALL MU &gt;= 10.)</span>
-<a name="ln-910"></a>    <span class="c">!</span>
-<a name="ln-911"></a>    <span class="c">!  50 e = random_exponential()</span>
-<a name="ln-912"></a>    <span class="c">!  CALL RANDOM_NUMBER(u)</span>
-<a name="ln-913"></a>    <span class="c">!  u = u + u - one</span>
-<a name="ln-914"></a>    <span class="c">!  t = 1.8 + SIGN(e, u)</span>
-<a name="ln-915"></a>    <span class="c">!  IF (t &lt;= (-.6744)) GO TO 50</span>
-<a name="ln-916"></a>    <span class="c">!  ival = mu + s*t</span>
-<a name="ln-917"></a>    <span class="c">!  fk = ival</span>
-<a name="ln-918"></a>    <span class="c">!  difmuk = mu - fk</span>
-<a name="ln-919"></a>    <span class="c">!</span>
-<a name="ln-920"></a>    <span class="c">!!             &#39;SUBROUTINE&#39; F IS CALLED (KFLAG=1 FOR CORRECT RETURN)</span>
-<a name="ln-921"></a>    <span class="c">!</span>
-<a name="ln-922"></a>    <span class="c">!  kflag = 1</span>
-<a name="ln-923"></a>    <span class="c">!  GO TO 70</span>
-<a name="ln-924"></a>    <span class="c">!</span>
-<a name="ln-925"></a>    <span class="c">!!     STEP H. HAT ACCEPTANCE (E IS REPEATED ON REJECTION)</span>
+<a name="ln-907"></a>    <span class="c">!  kflag = 0</span>
+<a name="ln-908"></a>    <span class="c">!  GO TO 70</span>
+<a name="ln-909"></a>    <span class="c">!</span>
+<a name="ln-910"></a>    <span class="c">!!     STEP Q. QUOTIENT ACCEPTANCE (RARE CASE)</span>
+<a name="ln-911"></a>    <span class="c">!</span>
+<a name="ln-912"></a>    <span class="c">!  40 IF (fy-u*fy &lt;= py*EXP(px-fx)) RETURN</span>
+<a name="ln-913"></a>    <span class="c">!</span>
+<a name="ln-914"></a>    <span class="c">!!     STEP E. EXPONENTIAL SAMPLE - random_exponential() FOR STANDARD EXPONENTIAL</span>
+<a name="ln-915"></a>    <span class="c">!!             DEVIATE E AND SAMPLE T FROM THE LAPLACE &#39;HAT&#39;</span>
+<a name="ln-916"></a>    <span class="c">!!             (IF T &lt;= -.6744 THEN PK &lt; FK FOR ALL MU &gt;= 10.)</span>
+<a name="ln-917"></a>    <span class="c">!</span>
+<a name="ln-918"></a>    <span class="c">!  50 e = random_exponential()</span>
+<a name="ln-919"></a>    <span class="c">!  CALL RANDOM_NUMBER(u)</span>
+<a name="ln-920"></a>    <span class="c">!  u = u + u - one</span>
+<a name="ln-921"></a>    <span class="c">!  t = 1.8 + SIGN(e, u)</span>
+<a name="ln-922"></a>    <span class="c">!  IF (t &lt;= (-.6744)) GO TO 50</span>
+<a name="ln-923"></a>    <span class="c">!  ival = mu + s*t</span>
+<a name="ln-924"></a>    <span class="c">!  fk = ival</span>
+<a name="ln-925"></a>    <span class="c">!  difmuk = mu - fk</span>
 <a name="ln-926"></a>    <span class="c">!</span>
-<a name="ln-927"></a>    <span class="c">!  60 IF (c*ABS(u) &gt; py*EXP(px+e) - fy*EXP(fx+e)) GO TO 50</span>
-<a name="ln-928"></a>    <span class="c">!  RETURN</span>
-<a name="ln-929"></a>    <span class="c">!</span>
-<a name="ln-930"></a>    <span class="c">!!     STEP F. &#39;SUBROUTINE&#39; F. CALCULATION OF PX, PY, FX, FY.</span>
-<a name="ln-931"></a>    <span class="c">!!             CASE ival &lt; 10 USES FACTORIALS FROM TABLE FACT</span>
-<a name="ln-932"></a>    <span class="c">!</span>
-<a name="ln-933"></a>    <span class="c">!  70 IF (ival&gt;=10) GO TO 80</span>
-<a name="ln-934"></a>    <span class="c">!  px = -mu</span>
-<a name="ln-935"></a>    <span class="c">!  py = mu**ival/fact(ival+1)</span>
-<a name="ln-936"></a>    <span class="c">!  GO TO 110</span>
-<a name="ln-937"></a>    <span class="c">!</span>
-<a name="ln-938"></a>    <span class="c">!!             CASE ival &gt;= 10 USES POLYNOMIAL APPROXIMATION</span>
-<a name="ln-939"></a>    <span class="c">!!             A0-A7 FOR ACCURACY WHEN ADVISABLE</span>
-<a name="ln-940"></a>    <span class="c">!!             .8333333E-1=1./12.  .3989423=(2*PI)**(-.5)</span>
-<a name="ln-941"></a>    <span class="c">!</span>
-<a name="ln-942"></a>    <span class="c">!  80 del = .8333333E-1/fk</span>
-<a name="ln-943"></a>    <span class="c">!  del = del - 4.8*del*del*del</span>
-<a name="ln-944"></a>    <span class="c">!  v = difmuk/fk</span>
-<a name="ln-945"></a>    <span class="c">!  IF (ABS(v)&gt;0.25) THEN</span>
-<a name="ln-946"></a>    <span class="c">!    px = fk*LOG(one + v) - difmuk - del</span>
-<a name="ln-947"></a>    <span class="c">!  ELSE</span>
-<a name="ln-948"></a>    <span class="c">!    px = fk*v*v* (((((((a7*v+a6)*v+a5)*v+a4)*v+a3)*v+a2)*v+a1)*v+a0) - del</span>
-<a name="ln-949"></a>    <span class="c">!  END IF</span>
-<a name="ln-950"></a>    <span class="c">!  py = .3989423/SQRT(fk)</span>
-<a name="ln-951"></a>    <span class="c">!  110 x = (half - difmuk)/s</span>
-<a name="ln-952"></a>    <span class="c">!  xx = x*x</span>
-<a name="ln-953"></a>    <span class="c">!  fx = -half*xx</span>
-<a name="ln-954"></a>    <span class="c">!  fy = omega* (((c3*xx + c2)*xx + c1)*xx + c0)</span>
-<a name="ln-955"></a>    <span class="c">!  IF (kflag &lt;= 0) GO TO 40</span>
-<a name="ln-956"></a>    <span class="c">!  GO TO 60</span>
-<a name="ln-957"></a>    <span class="c">!</span>
-<a name="ln-958"></a>    <span class="c">!!---------------------------------------------------------------------------</span>
-<a name="ln-959"></a>    <span class="c">!!     C A S E  B.    mu &lt; 10</span>
-<a name="ln-960"></a>    <span class="c">!!     START NEW TABLE AND CALCULATE P0 IF NECESSARY</span>
-<a name="ln-961"></a>    <span class="c">!</span>
-<a name="ln-962"></a>    <span class="c">!ELSE</span>
-<a name="ln-963"></a>    <span class="c">!  IF (first) THEN</span>
-<a name="ln-964"></a>    <span class="c">!    m = MAX(1, INT(mu))</span>
-<a name="ln-965"></a>    <span class="c">!    l = 0</span>
-<a name="ln-966"></a>    <span class="c">!    p = EXP(-mu)</span>
-<a name="ln-967"></a>    <span class="c">!    q = p</span>
-<a name="ln-968"></a>    <span class="c">!    p0 = p</span>
-<a name="ln-969"></a>    <span class="c">!  END IF</span>
-<a name="ln-970"></a>    <span class="c">!</span>
-<a name="ln-971"></a>    <span class="c">!!     STEP U. UNIFORM SAMPLE FOR INVERSION METHOD</span>
-<a name="ln-972"></a>    <span class="c">!</span>
-<a name="ln-973"></a>    <span class="c">!  DO</span>
-<a name="ln-974"></a>    <span class="c">!    CALL RANDOM_NUMBER(u)</span>
-<a name="ln-975"></a>    <span class="c">!    ival = 0</span>
-<a name="ln-976"></a>    <span class="c">!    IF (u &lt;= p0) RETURN</span>
+<a name="ln-927"></a>    <span class="c">!!             &#39;SUBROUTINE&#39; F IS CALLED (KFLAG=1 FOR CORRECT RETURN)</span>
+<a name="ln-928"></a>    <span class="c">!</span>
+<a name="ln-929"></a>    <span class="c">!  kflag = 1</span>
+<a name="ln-930"></a>    <span class="c">!  GO TO 70</span>
+<a name="ln-931"></a>    <span class="c">!</span>
+<a name="ln-932"></a>    <span class="c">!!     STEP H. HAT ACCEPTANCE (E IS REPEATED ON REJECTION)</span>
+<a name="ln-933"></a>    <span class="c">!</span>
+<a name="ln-934"></a>    <span class="c">!  60 IF (c*ABS(u) &gt; py*EXP(px+e) - fy*EXP(fx+e)) GO TO 50</span>
+<a name="ln-935"></a>    <span class="c">!  RETURN</span>
+<a name="ln-936"></a>    <span class="c">!</span>
+<a name="ln-937"></a>    <span class="c">!!     STEP F. &#39;SUBROUTINE&#39; F. CALCULATION OF PX, PY, FX, FY.</span>
+<a name="ln-938"></a>    <span class="c">!!             CASE ival &lt; 10 USES FACTORIALS FROM TABLE FACT</span>
+<a name="ln-939"></a>    <span class="c">!</span>
+<a name="ln-940"></a>    <span class="c">!  70 IF (ival&gt;=10) GO TO 80</span>
+<a name="ln-941"></a>    <span class="c">!  px = -mu</span>
+<a name="ln-942"></a>    <span class="c">!  py = mu**ival/fact(ival+1)</span>
+<a name="ln-943"></a>    <span class="c">!  GO TO 110</span>
+<a name="ln-944"></a>    <span class="c">!</span>
+<a name="ln-945"></a>    <span class="c">!!             CASE ival &gt;= 10 USES POLYNOMIAL APPROXIMATION</span>
+<a name="ln-946"></a>    <span class="c">!!             A0-A7 FOR ACCURACY WHEN ADVISABLE</span>
+<a name="ln-947"></a>    <span class="c">!!             .8333333E-1=1./12.  .3989423=(2*PI)**(-.5)</span>
+<a name="ln-948"></a>    <span class="c">!</span>
+<a name="ln-949"></a>    <span class="c">!  80 del = .8333333E-1/fk</span>
+<a name="ln-950"></a>    <span class="c">!  del = del - 4.8*del*del*del</span>
+<a name="ln-951"></a>    <span class="c">!  v = difmuk/fk</span>
+<a name="ln-952"></a>    <span class="c">!  IF (ABS(v)&gt;0.25) THEN</span>
+<a name="ln-953"></a>    <span class="c">!    px = fk*LOG(one + v) - difmuk - del</span>
+<a name="ln-954"></a>    <span class="c">!  ELSE</span>
+<a name="ln-955"></a>    <span class="c">!    px = fk*v*v* (((((((a7*v+a6)*v+a5)*v+a4)*v+a3)*v+a2)*v+a1)*v+a0) - del</span>
+<a name="ln-956"></a>    <span class="c">!  END IF</span>
+<a name="ln-957"></a>    <span class="c">!  py = .3989423/SQRT(fk)</span>
+<a name="ln-958"></a>    <span class="c">!  110 x = (half - difmuk)/s</span>
+<a name="ln-959"></a>    <span class="c">!  xx = x*x</span>
+<a name="ln-960"></a>    <span class="c">!  fx = -half*xx</span>
+<a name="ln-961"></a>    <span class="c">!  fy = omega* (((c3*xx + c2)*xx + c1)*xx + c0)</span>
+<a name="ln-962"></a>    <span class="c">!  IF (kflag &lt;= 0) GO TO 40</span>
+<a name="ln-963"></a>    <span class="c">!  GO TO 60</span>
+<a name="ln-964"></a>    <span class="c">!</span>
+<a name="ln-965"></a>    <span class="c">!!---------------------------------------------------------------------------</span>
+<a name="ln-966"></a>    <span class="c">!!     C A S E  B.    mu &lt; 10</span>
+<a name="ln-967"></a>    <span class="c">!!     START NEW TABLE AND CALCULATE P0 IF NECESSARY</span>
+<a name="ln-968"></a>    <span class="c">!</span>
+<a name="ln-969"></a>    <span class="c">!ELSE</span>
+<a name="ln-970"></a>    <span class="c">!  IF (first) THEN</span>
+<a name="ln-971"></a>    <span class="c">!    m = MAX(1, INT(mu))</span>
+<a name="ln-972"></a>    <span class="c">!    l = 0</span>
+<a name="ln-973"></a>    <span class="c">!    p = EXP(-mu)</span>
+<a name="ln-974"></a>    <span class="c">!    q = p</span>
+<a name="ln-975"></a>    <span class="c">!    p0 = p</span>
+<a name="ln-976"></a>    <span class="c">!  END IF</span>
 <a name="ln-977"></a>    <span class="c">!</span>
-<a name="ln-978"></a>    <span class="c">!!     STEP T. TABLE COMPARISON UNTIL THE END PP(L) OF THE</span>
-<a name="ln-979"></a>    <span class="c">!!             PP-TABLE OF CUMULATIVE POISSON PROBABILITIES</span>
-<a name="ln-980"></a>    <span class="c">!!             (0.458=PP(9) FOR MU=10)</span>
-<a name="ln-981"></a>    <span class="c">!</span>
-<a name="ln-982"></a>    <span class="c">!    IF (l == 0) GO TO 150</span>
-<a name="ln-983"></a>    <span class="c">!    j = 1</span>
-<a name="ln-984"></a>    <span class="c">!    IF (u &gt; 0.458) j = MIN(l, m)</span>
-<a name="ln-985"></a>    <span class="c">!    DO k = j, l</span>
-<a name="ln-986"></a>    <span class="c">!      IF (u &lt;= pp(k)) GO TO 180</span>
-<a name="ln-987"></a>    <span class="c">!    END DO</span>
-<a name="ln-988"></a>    <span class="c">!    IF (l == 35) CYCLE</span>
-<a name="ln-989"></a>    <span class="c">!</span>
-<a name="ln-990"></a>    <span class="c">!!     STEP C. CREATION OF NEW POISSON PROBABILITIES P</span>
-<a name="ln-991"></a>    <span class="c">!!             AND THEIR CUMULATIVES Q=PP(K)</span>
-<a name="ln-992"></a>    <span class="c">!</span>
-<a name="ln-993"></a>    <span class="c">!    150 l = l + 1</span>
-<a name="ln-994"></a>    <span class="c">!    DO k = l, 35</span>
-<a name="ln-995"></a>    <span class="c">!      p = p*mu / k</span>
-<a name="ln-996"></a>    <span class="c">!      q = q + p</span>
-<a name="ln-997"></a>    <span class="c">!      pp(k) = q</span>
-<a name="ln-998"></a>    <span class="c">!      IF (u &lt;= q) GO TO 170</span>
-<a name="ln-999"></a>    <span class="c">!    END DO</span>
-<a name="ln-1000"></a>    <span class="c">!    l = 35</span>
-<a name="ln-1001"></a>    <span class="c">!  END DO</span>
-<a name="ln-1002"></a>    <span class="c">!</span>
-<a name="ln-1003"></a>    <span class="c">!  170 l = k</span>
-<a name="ln-1004"></a>    <span class="c">!  180 ival = k</span>
-<a name="ln-1005"></a>    <span class="c">!  RETURN</span>
-<a name="ln-1006"></a>    <span class="c">!END IF</span>
-<a name="ln-1007"></a>    <span class="c">!</span>
-<a name="ln-1008"></a>    <span class="c">!RETURN</span>
-<a name="ln-1009"></a>    <span class="c">!END FUNCTION random_Poisson</span>
-<a name="ln-1010"></a>    <span class="c">!</span>
-<a name="ln-1011"></a>    <span class="c">!</span>
-<a name="ln-1012"></a>    <span class="c">!</span>
-<a name="ln-1013"></a>    <span class="c">!FUNCTION random_binomial1(n, p, first) RESULT(ival)</span>
+<a name="ln-978"></a>    <span class="c">!!     STEP U. UNIFORM SAMPLE FOR INVERSION METHOD</span>
+<a name="ln-979"></a>    <span class="c">!</span>
+<a name="ln-980"></a>    <span class="c">!  DO</span>
+<a name="ln-981"></a>    <span class="c">!    CALL RANDOM_NUMBER(u)</span>
+<a name="ln-982"></a>    <span class="c">!    ival = 0</span>
+<a name="ln-983"></a>    <span class="c">!    IF (u &lt;= p0) RETURN</span>
+<a name="ln-984"></a>    <span class="c">!</span>
+<a name="ln-985"></a>    <span class="c">!!     STEP T. TABLE COMPARISON UNTIL THE END PP(L) OF THE</span>
+<a name="ln-986"></a>    <span class="c">!!             PP-TABLE OF CUMULATIVE POISSON PROBABILITIES</span>
+<a name="ln-987"></a>    <span class="c">!!             (0.458=PP(9) FOR MU=10)</span>
+<a name="ln-988"></a>    <span class="c">!</span>
+<a name="ln-989"></a>    <span class="c">!    IF (l == 0) GO TO 150</span>
+<a name="ln-990"></a>    <span class="c">!    j = 1</span>
+<a name="ln-991"></a>    <span class="c">!    IF (u &gt; 0.458) j = MIN(l, m)</span>
+<a name="ln-992"></a>    <span class="c">!    DO k = j, l</span>
+<a name="ln-993"></a>    <span class="c">!      IF (u &lt;= pp(k)) GO TO 180</span>
+<a name="ln-994"></a>    <span class="c">!    END DO</span>
+<a name="ln-995"></a>    <span class="c">!    IF (l == 35) CYCLE</span>
+<a name="ln-996"></a>    <span class="c">!</span>
+<a name="ln-997"></a>    <span class="c">!!     STEP C. CREATION OF NEW POISSON PROBABILITIES P</span>
+<a name="ln-998"></a>    <span class="c">!!             AND THEIR CUMULATIVES Q=PP(K)</span>
+<a name="ln-999"></a>    <span class="c">!</span>
+<a name="ln-1000"></a>    <span class="c">!    150 l = l + 1</span>
+<a name="ln-1001"></a>    <span class="c">!    DO k = l, 35</span>
+<a name="ln-1002"></a>    <span class="c">!      p = p*mu / k</span>
+<a name="ln-1003"></a>    <span class="c">!      q = q + p</span>
+<a name="ln-1004"></a>    <span class="c">!      pp(k) = q</span>
+<a name="ln-1005"></a>    <span class="c">!      IF (u &lt;= q) GO TO 170</span>
+<a name="ln-1006"></a>    <span class="c">!    END DO</span>
+<a name="ln-1007"></a>    <span class="c">!    l = 35</span>
+<a name="ln-1008"></a>    <span class="c">!  END DO</span>
+<a name="ln-1009"></a>    <span class="c">!</span>
+<a name="ln-1010"></a>    <span class="c">!  170 l = k</span>
+<a name="ln-1011"></a>    <span class="c">!  180 ival = k</span>
+<a name="ln-1012"></a>    <span class="c">!  RETURN</span>
+<a name="ln-1013"></a>    <span class="c">!END IF</span>
 <a name="ln-1014"></a>    <span class="c">!</span>
-<a name="ln-1015"></a>    <span class="c">!! FUNCTION GENERATES A RANDOM BINOMIAL VARIATE USING C.D.Kemp&#39;s method.</span>
-<a name="ln-1016"></a>    <span class="c">!! This algorithm is suitable when many random variates are required</span>
-<a name="ln-1017"></a>    <span class="c">!! with the SAME parameter values for n &amp; p.</span>
+<a name="ln-1015"></a>    <span class="c">!RETURN</span>
+<a name="ln-1016"></a>    <span class="c">!END FUNCTION random_Poisson</span>
+<a name="ln-1017"></a>    <span class="c">!</span>
 <a name="ln-1018"></a>    <span class="c">!</span>
-<a name="ln-1019"></a>    <span class="c">!!    P = BERNOULLI SUCCESS PROBABILITY</span>
-<a name="ln-1020"></a>    <span class="c">!!           (0 &lt;= REAL &lt;= 1)</span>
-<a name="ln-1021"></a>    <span class="c">!!    N = NUMBER OF BERNOULLI TRIALS</span>
-<a name="ln-1022"></a>    <span class="c">!!           (1 &lt;= INTEGER)</span>
-<a name="ln-1023"></a>    <span class="c">!!    FIRST = .TRUE. for the first call using the current parameter values</span>
-<a name="ln-1024"></a>    <span class="c">!!          = .FALSE. if the values of (n,p) are unchanged from last call</span>
+<a name="ln-1019"></a>    <span class="c">!</span>
+<a name="ln-1020"></a>    <span class="c">!FUNCTION random_binomial1(n, p, first) RESULT(ival)</span>
+<a name="ln-1021"></a>    <span class="c">!</span>
+<a name="ln-1022"></a>    <span class="c">!! FUNCTION GENERATES A RANDOM BINOMIAL VARIATE USING C.D.Kemp&#39;s method.</span>
+<a name="ln-1023"></a>    <span class="c">!! This algorithm is suitable when many random variates are required</span>
+<a name="ln-1024"></a>    <span class="c">!! with the SAME parameter values for n &amp; p.</span>
 <a name="ln-1025"></a>    <span class="c">!</span>
-<a name="ln-1026"></a>    <span class="c">!! Reference: Kemp, C.D. (1986). `A modal method for generating binomial</span>
-<a name="ln-1027"></a>    <span class="c">!!            variables&#39;, Commun. Statist. - Theor. Meth. 15(3), 805-813.</span>
-<a name="ln-1028"></a>    <span class="c">!</span>
-<a name="ln-1029"></a>    <span class="c">!INTEGER, INTENT(IN) :: n</span>
-<a name="ln-1030"></a>    <span class="c">!REAL, INTENT(IN)    :: p</span>
-<a name="ln-1031"></a>    <span class="c">!LOGICAL, INTENT(IN) :: first</span>
-<a name="ln-1032"></a>    <span class="c">!INTEGER             :: ival</span>
-<a name="ln-1033"></a>    <span class="c">!</span>
-<a name="ln-1034"></a>    <span class="c">!!     Local variables</span>
+<a name="ln-1026"></a>    <span class="c">!!    P = BERNOULLI SUCCESS PROBABILITY</span>
+<a name="ln-1027"></a>    <span class="c">!!           (0 &lt;= REAL &lt;= 1)</span>
+<a name="ln-1028"></a>    <span class="c">!!    N = NUMBER OF BERNOULLI TRIALS</span>
+<a name="ln-1029"></a>    <span class="c">!!           (1 &lt;= INTEGER)</span>
+<a name="ln-1030"></a>    <span class="c">!!    FIRST = .TRUE. for the first call using the current parameter values</span>
+<a name="ln-1031"></a>    <span class="c">!!          = .FALSE. if the values of (n,p) are unchanged from last call</span>
+<a name="ln-1032"></a>    <span class="c">!</span>
+<a name="ln-1033"></a>    <span class="c">!! Reference: Kemp, C.D. (1986). `A modal method for generating binomial</span>
+<a name="ln-1034"></a>    <span class="c">!!            variables&#39;, Commun. Statist. - Theor. Meth. 15(3), 805-813.</span>
 <a name="ln-1035"></a>    <span class="c">!</span>
-<a name="ln-1036"></a>    <span class="c">!INTEGER         :: ru, rd</span>
-<a name="ln-1037"></a>    <span class="c">!INTEGER, SAVE   :: r0</span>
-<a name="ln-1038"></a>    <span class="c">!REAL            :: u, pd, pu</span>
-<a name="ln-1039"></a>    <span class="c">!REAL, SAVE      :: odds_ratio, p_r</span>
-<a name="ln-1040"></a>    <span class="c">!REAL, PARAMETER :: zero = 0.0, one = 1.0</span>
-<a name="ln-1041"></a>    <span class="c">!</span>
-<a name="ln-1042"></a>    <span class="c">!IF (first) THEN</span>
-<a name="ln-1043"></a>    <span class="c">!  r0 = (n+1)*p</span>
-<a name="ln-1044"></a>    <span class="c">!  p_r = bin_prob(n, p, r0)</span>
-<a name="ln-1045"></a>    <span class="c">!  odds_ratio = p / (one - p)</span>
-<a name="ln-1046"></a>    <span class="c">!END IF</span>
-<a name="ln-1047"></a>    <span class="c">!</span>
-<a name="ln-1048"></a>    <span class="c">!CALL RANDOM_NUMBER(u)</span>
-<a name="ln-1049"></a>    <span class="c">!u = u - p_r</span>
-<a name="ln-1050"></a>    <span class="c">!IF (u &lt; zero) THEN</span>
-<a name="ln-1051"></a>    <span class="c">!  ival = r0</span>
-<a name="ln-1052"></a>    <span class="c">!  RETURN</span>
+<a name="ln-1036"></a>    <span class="c">!INTEGER, INTENT(IN) :: n</span>
+<a name="ln-1037"></a>    <span class="c">!REAL, INTENT(IN)    :: p</span>
+<a name="ln-1038"></a>    <span class="c">!LOGICAL, INTENT(IN) :: first</span>
+<a name="ln-1039"></a>    <span class="c">!INTEGER             :: ival</span>
+<a name="ln-1040"></a>    <span class="c">!</span>
+<a name="ln-1041"></a>    <span class="c">!!     Local variables</span>
+<a name="ln-1042"></a>    <span class="c">!</span>
+<a name="ln-1043"></a>    <span class="c">!INTEGER         :: ru, rd</span>
+<a name="ln-1044"></a>    <span class="c">!INTEGER, SAVE   :: r0</span>
+<a name="ln-1045"></a>    <span class="c">!REAL            :: u, pd, pu</span>
+<a name="ln-1046"></a>    <span class="c">!REAL, SAVE      :: odds_ratio, p_r</span>
+<a name="ln-1047"></a>    <span class="c">!REAL, PARAMETER :: zero = 0.0, one = 1.0</span>
+<a name="ln-1048"></a>    <span class="c">!</span>
+<a name="ln-1049"></a>    <span class="c">!IF (first) THEN</span>
+<a name="ln-1050"></a>    <span class="c">!  r0 = (n+1)*p</span>
+<a name="ln-1051"></a>    <span class="c">!  p_r = bin_prob(n, p, r0)</span>
+<a name="ln-1052"></a>    <span class="c">!  odds_ratio = p / (one - p)</span>
 <a name="ln-1053"></a>    <span class="c">!END IF</span>
 <a name="ln-1054"></a>    <span class="c">!</span>
-<a name="ln-1055"></a>    <span class="c">!pu = p_r</span>
-<a name="ln-1056"></a>    <span class="c">!ru = r0</span>
-<a name="ln-1057"></a>    <span class="c">!pd = p_r</span>
-<a name="ln-1058"></a>    <span class="c">!rd = r0</span>
-<a name="ln-1059"></a>    <span class="c">!DO</span>
-<a name="ln-1060"></a>    <span class="c">!  rd = rd - 1</span>
-<a name="ln-1061"></a>    <span class="c">!  IF (rd &gt;= 0) THEN</span>
-<a name="ln-1062"></a>    <span class="c">!    pd = pd * (rd+1) / (odds_ratio * (n-rd))</span>
-<a name="ln-1063"></a>    <span class="c">!    u = u - pd</span>
-<a name="ln-1064"></a>    <span class="c">!    IF (u &lt; zero) THEN</span>
-<a name="ln-1065"></a>    <span class="c">!      ival = rd</span>
-<a name="ln-1066"></a>    <span class="c">!      RETURN</span>
-<a name="ln-1067"></a>    <span class="c">!    END IF</span>
-<a name="ln-1068"></a>    <span class="c">!  END IF</span>
-<a name="ln-1069"></a>    <span class="c">!</span>
-<a name="ln-1070"></a>    <span class="c">!  ru = ru + 1</span>
-<a name="ln-1071"></a>    <span class="c">!  IF (ru &lt;= n) THEN</span>
-<a name="ln-1072"></a>    <span class="c">!    pu = pu * (n-ru+1) * odds_ratio / ru</span>
-<a name="ln-1073"></a>    <span class="c">!    u = u - pu</span>
-<a name="ln-1074"></a>    <span class="c">!    IF (u &lt; zero) THEN</span>
-<a name="ln-1075"></a>    <span class="c">!      ival = ru</span>
-<a name="ln-1076"></a>    <span class="c">!      RETURN</span>
-<a name="ln-1077"></a>    <span class="c">!    END IF</span>
-<a name="ln-1078"></a>    <span class="c">!  END IF</span>
-<a name="ln-1079"></a>    <span class="c">!END DO</span>
-<a name="ln-1080"></a>    <span class="c">!</span>
-<a name="ln-1081"></a>    <span class="c">!!     This point should not be reached, but just in case:</span>
-<a name="ln-1082"></a>    <span class="c">!</span>
-<a name="ln-1083"></a>    <span class="c">!ival = r0</span>
-<a name="ln-1084"></a>    <span class="c">!RETURN</span>
-<a name="ln-1085"></a>    <span class="c">!</span>
-<a name="ln-1086"></a>    <span class="c">!END FUNCTION random_binomial1</span>
+<a name="ln-1055"></a>    <span class="c">!CALL RANDOM_NUMBER(u)</span>
+<a name="ln-1056"></a>    <span class="c">!u = u - p_r</span>
+<a name="ln-1057"></a>    <span class="c">!IF (u &lt; zero) THEN</span>
+<a name="ln-1058"></a>    <span class="c">!  ival = r0</span>
+<a name="ln-1059"></a>    <span class="c">!  RETURN</span>
+<a name="ln-1060"></a>    <span class="c">!END IF</span>
+<a name="ln-1061"></a>    <span class="c">!</span>
+<a name="ln-1062"></a>    <span class="c">!pu = p_r</span>
+<a name="ln-1063"></a>    <span class="c">!ru = r0</span>
+<a name="ln-1064"></a>    <span class="c">!pd = p_r</span>
+<a name="ln-1065"></a>    <span class="c">!rd = r0</span>
+<a name="ln-1066"></a>    <span class="c">!DO</span>
+<a name="ln-1067"></a>    <span class="c">!  rd = rd - 1</span>
+<a name="ln-1068"></a>    <span class="c">!  IF (rd &gt;= 0) THEN</span>
+<a name="ln-1069"></a>    <span class="c">!    pd = pd * (rd+1) / (odds_ratio * (n-rd))</span>
+<a name="ln-1070"></a>    <span class="c">!    u = u - pd</span>
+<a name="ln-1071"></a>    <span class="c">!    IF (u &lt; zero) THEN</span>
+<a name="ln-1072"></a>    <span class="c">!      ival = rd</span>
+<a name="ln-1073"></a>    <span class="c">!      RETURN</span>
+<a name="ln-1074"></a>    <span class="c">!    END IF</span>
+<a name="ln-1075"></a>    <span class="c">!  END IF</span>
+<a name="ln-1076"></a>    <span class="c">!</span>
+<a name="ln-1077"></a>    <span class="c">!  ru = ru + 1</span>
+<a name="ln-1078"></a>    <span class="c">!  IF (ru &lt;= n) THEN</span>
+<a name="ln-1079"></a>    <span class="c">!    pu = pu * (n-ru+1) * odds_ratio / ru</span>
+<a name="ln-1080"></a>    <span class="c">!    u = u - pu</span>
+<a name="ln-1081"></a>    <span class="c">!    IF (u &lt; zero) THEN</span>
+<a name="ln-1082"></a>    <span class="c">!      ival = ru</span>
+<a name="ln-1083"></a>    <span class="c">!      RETURN</span>
+<a name="ln-1084"></a>    <span class="c">!    END IF</span>
+<a name="ln-1085"></a>    <span class="c">!  END IF</span>
+<a name="ln-1086"></a>    <span class="c">!END DO</span>
 <a name="ln-1087"></a>    <span class="c">!</span>
-<a name="ln-1088"></a>    <span class="c">!</span>
+<a name="ln-1088"></a>    <span class="c">!!     This point should not be reached, but just in case:</span>
 <a name="ln-1089"></a>    <span class="c">!</span>
-<a name="ln-1090"></a>    <span class="c">!FUNCTION bin_prob(n, p, r) RESULT(fn_val)</span>
-<a name="ln-1091"></a>    <span class="c">!!     Calculate a binomial probability</span>
+<a name="ln-1090"></a>    <span class="c">!ival = r0</span>
+<a name="ln-1091"></a>    <span class="c">!RETURN</span>
 <a name="ln-1092"></a>    <span class="c">!</span>
-<a name="ln-1093"></a>    <span class="c">!INTEGER, INTENT(IN) :: n, r</span>
-<a name="ln-1094"></a>    <span class="c">!REAL, INTENT(IN)    :: p</span>
-<a name="ln-1095"></a>    <span class="c">!REAL                :: fn_val</span>
+<a name="ln-1093"></a>    <span class="c">!END FUNCTION random_binomial1</span>
+<a name="ln-1094"></a>    <span class="c">!</span>
+<a name="ln-1095"></a>    <span class="c">!</span>
 <a name="ln-1096"></a>    <span class="c">!</span>
-<a name="ln-1097"></a>    <span class="c">!!     Local variable</span>
-<a name="ln-1098"></a>    <span class="c">!REAL                :: one = 1.0</span>
+<a name="ln-1097"></a>    <span class="c">!FUNCTION bin_prob(n, p, r) RESULT(fn_val)</span>
+<a name="ln-1098"></a>    <span class="c">!!     Calculate a binomial probability</span>
 <a name="ln-1099"></a>    <span class="c">!</span>
-<a name="ln-1100"></a>    <span class="c">!fn_val = EXP( lngamma(DBLE(n+1)) - lngamma(DBLE(r+1)) - lngamma(DBLE(n-r+1)) &amp;</span>
-<a name="ln-1101"></a>    <span class="c">!              + r*LOG(p) + (n-r)*LOG(one - p) )</span>
-<a name="ln-1102"></a>    <span class="c">!RETURN</span>
+<a name="ln-1100"></a>    <span class="c">!INTEGER, INTENT(IN) :: n, r</span>
+<a name="ln-1101"></a>    <span class="c">!REAL, INTENT(IN)    :: p</span>
+<a name="ln-1102"></a>    <span class="c">!REAL                :: fn_val</span>
 <a name="ln-1103"></a>    <span class="c">!</span>
-<a name="ln-1104"></a>    <span class="c">!END FUNCTION bin_prob</span>
-<a name="ln-1105"></a>    <span class="c">!</span>
+<a name="ln-1104"></a>    <span class="c">!!     Local variable</span>
+<a name="ln-1105"></a>    <span class="c">!REAL                :: one = 1.0</span>
 <a name="ln-1106"></a>    <span class="c">!</span>
-<a name="ln-1107"></a>    <span class="c">!</span>
-<a name="ln-1108"></a>    <span class="c">!FUNCTION lngamma(x) RESULT(fn_val)</span>
-<a name="ln-1109"></a>    <span class="c">!</span>
-<a name="ln-1110"></a>    <span class="c">!! Logarithm to base e of the gamma function.</span>
-<a name="ln-1111"></a>    <span class="c">!!</span>
-<a name="ln-1112"></a>    <span class="c">!! Accurate to about 1.e-14.</span>
-<a name="ln-1113"></a>    <span class="c">!! Programmer: Alan Miller</span>
+<a name="ln-1107"></a>    <span class="c">!fn_val = EXP( lngamma(DBLE(n+1)) - lngamma(DBLE(r+1)) - lngamma(DBLE(n-r+1)) &amp;</span>
+<a name="ln-1108"></a>    <span class="c">!              + r*LOG(p) + (n-r)*LOG(one - p) )</span>
+<a name="ln-1109"></a>    <span class="c">!RETURN</span>
+<a name="ln-1110"></a>    <span class="c">!</span>
+<a name="ln-1111"></a>    <span class="c">!END FUNCTION bin_prob</span>
+<a name="ln-1112"></a>    <span class="c">!</span>
+<a name="ln-1113"></a>    <span class="c">!</span>
 <a name="ln-1114"></a>    <span class="c">!</span>
-<a name="ln-1115"></a>    <span class="c">!! Latest revision of Fortran 77 version - 28 February 1988</span>
+<a name="ln-1115"></a>    <span class="c">!FUNCTION lngamma(x) RESULT(fn_val)</span>
 <a name="ln-1116"></a>    <span class="c">!</span>
-<a name="ln-1117"></a>    <span class="c">!REAL (dp), INTENT(IN) :: x</span>
-<a name="ln-1118"></a>    <span class="c">!REAL (dp)             :: fn_val</span>
-<a name="ln-1119"></a>    <span class="c">!</span>
-<a name="ln-1120"></a>    <span class="c">!!       Local variables</span>
+<a name="ln-1117"></a>    <span class="c">!! Logarithm to base e of the gamma function.</span>
+<a name="ln-1118"></a>    <span class="c">!!</span>
+<a name="ln-1119"></a>    <span class="c">!! Accurate to about 1.e-14.</span>
+<a name="ln-1120"></a>    <span class="c">!! Programmer: Alan Miller</span>
 <a name="ln-1121"></a>    <span class="c">!</span>
-<a name="ln-1122"></a>    <span class="c">!REAL (dp) :: a1 = -4.166666666554424D-02, a2 = 2.430554511376954D-03,  &amp;</span>
-<a name="ln-1123"></a>    <span class="c">!             a3 = -7.685928044064347D-04, a4 = 5.660478426014386D-04,  &amp;</span>
-<a name="ln-1124"></a>    <span class="c">!             temp, arg, product, lnrt2pi = 9.189385332046727D-1,       &amp;</span>
-<a name="ln-1125"></a>    <span class="c">!             pi = 3.141592653589793D0</span>
-<a name="ln-1126"></a>    <span class="c">!LOGICAL   :: reflect</span>
-<a name="ln-1127"></a>    <span class="c">!</span>
-<a name="ln-1128"></a>    <span class="c">!!       lngamma is not defined if x = 0 or a negative integer.</span>
-<a name="ln-1129"></a>    <span class="c">!</span>
-<a name="ln-1130"></a>    <span class="c">!IF (x &gt; 0.d0) GO TO 10</span>
-<a name="ln-1131"></a>    <span class="c">!IF (x /= INT(x)) GO TO 10</span>
-<a name="ln-1132"></a>    <span class="c">!fn_val = 0.d0</span>
-<a name="ln-1133"></a>    <span class="c">!RETURN</span>
+<a name="ln-1122"></a>    <span class="c">!! Latest revision of Fortran 77 version - 28 February 1988</span>
+<a name="ln-1123"></a>    <span class="c">!</span>
+<a name="ln-1124"></a>    <span class="c">!REAL (dp), INTENT(IN) :: x</span>
+<a name="ln-1125"></a>    <span class="c">!REAL (dp)             :: fn_val</span>
+<a name="ln-1126"></a>    <span class="c">!</span>
+<a name="ln-1127"></a>    <span class="c">!!       Local variables</span>
+<a name="ln-1128"></a>    <span class="c">!</span>
+<a name="ln-1129"></a>    <span class="c">!REAL (dp) :: a1 = -4.166666666554424D-02, a2 = 2.430554511376954D-03,  &amp;</span>
+<a name="ln-1130"></a>    <span class="c">!             a3 = -7.685928044064347D-04, a4 = 5.660478426014386D-04,  &amp;</span>
+<a name="ln-1131"></a>    <span class="c">!             temp, arg, product, lnrt2pi = 9.189385332046727D-1,       &amp;</span>
+<a name="ln-1132"></a>    <span class="c">!             pi = 3.141592653589793D0</span>
+<a name="ln-1133"></a>    <span class="c">!LOGICAL   :: reflect</span>
 <a name="ln-1134"></a>    <span class="c">!</span>
-<a name="ln-1135"></a>    <span class="c">!!       If x &lt; 0, use the reflection formula:</span>
-<a name="ln-1136"></a>    <span class="c">!!               gamma(x) * gamma(1-x) = pi * cosec(pi.x)</span>
-<a name="ln-1137"></a>    <span class="c">!</span>
-<a name="ln-1138"></a>    <span class="c">!10 reflect = (x &lt; 0.d0)</span>
-<a name="ln-1139"></a>    <span class="c">!IF (reflect) THEN</span>
-<a name="ln-1140"></a>    <span class="c">!  arg = 1.d0 - x</span>
-<a name="ln-1141"></a>    <span class="c">!ELSE</span>
-<a name="ln-1142"></a>    <span class="c">!  arg = x</span>
-<a name="ln-1143"></a>    <span class="c">!END IF</span>
+<a name="ln-1135"></a>    <span class="c">!!       lngamma is not defined if x = 0 or a negative integer.</span>
+<a name="ln-1136"></a>    <span class="c">!</span>
+<a name="ln-1137"></a>    <span class="c">!IF (x &gt; 0.d0) GO TO 10</span>
+<a name="ln-1138"></a>    <span class="c">!IF (x /= INT(x)) GO TO 10</span>
+<a name="ln-1139"></a>    <span class="c">!fn_val = 0.d0</span>
+<a name="ln-1140"></a>    <span class="c">!RETURN</span>
+<a name="ln-1141"></a>    <span class="c">!</span>
+<a name="ln-1142"></a>    <span class="c">!!       If x &lt; 0, use the reflection formula:</span>
+<a name="ln-1143"></a>    <span class="c">!!               gamma(x) * gamma(1-x) = pi * cosec(pi.x)</span>
 <a name="ln-1144"></a>    <span class="c">!</span>
-<a name="ln-1145"></a>    <span class="c">!!       Increase the argument, if necessary, to make it &gt; 10.</span>
-<a name="ln-1146"></a>    <span class="c">!</span>
-<a name="ln-1147"></a>    <span class="c">!product = 1.d0</span>
-<a name="ln-1148"></a>    <span class="c">!20 IF (arg &lt;= 10.d0) THEN</span>
-<a name="ln-1149"></a>    <span class="c">!  product = product * arg</span>
-<a name="ln-1150"></a>    <span class="c">!  arg = arg + 1.d0</span>
-<a name="ln-1151"></a>    <span class="c">!  GO TO 20</span>
-<a name="ln-1152"></a>    <span class="c">!END IF</span>
+<a name="ln-1145"></a>    <span class="c">!10 reflect = (x &lt; 0.d0)</span>
+<a name="ln-1146"></a>    <span class="c">!IF (reflect) THEN</span>
+<a name="ln-1147"></a>    <span class="c">!  arg = 1.d0 - x</span>
+<a name="ln-1148"></a>    <span class="c">!ELSE</span>
+<a name="ln-1149"></a>    <span class="c">!  arg = x</span>
+<a name="ln-1150"></a>    <span class="c">!END IF</span>
+<a name="ln-1151"></a>    <span class="c">!</span>
+<a name="ln-1152"></a>    <span class="c">!!       Increase the argument, if necessary, to make it &gt; 10.</span>
 <a name="ln-1153"></a>    <span class="c">!</span>
-<a name="ln-1154"></a>    <span class="c">!!  Use a polynomial approximation to Stirling&#39;s formula.</span>
-<a name="ln-1155"></a>    <span class="c">!!  N.B. The real Stirling&#39;s formula is used here, not the simpler, but less</span>
-<a name="ln-1156"></a>    <span class="c">!!       accurate formula given by De Moivre in a letter to Stirling, which</span>
-<a name="ln-1157"></a>    <span class="c">!!       is the one usually quoted.</span>
-<a name="ln-1158"></a>    <span class="c">!</span>
-<a name="ln-1159"></a>    <span class="c">!arg = arg - 0.5D0</span>
-<a name="ln-1160"></a>    <span class="c">!temp = 1.d0/arg**2</span>
-<a name="ln-1161"></a>    <span class="c">!fn_val = lnrt2pi + arg * (LOG(arg) - 1.d0 + &amp;</span>
-<a name="ln-1162"></a>    <span class="c">!                  (((a4*temp + a3)*temp + a2)*temp + a1)*temp) - LOG(product)</span>
-<a name="ln-1163"></a>    <span class="c">!IF (reflect) THEN</span>
-<a name="ln-1164"></a>    <span class="c">!  temp = SIN(pi * x)</span>
-<a name="ln-1165"></a>    <span class="c">!  fn_val = LOG(pi/temp) - fn_val</span>
-<a name="ln-1166"></a>    <span class="c">!END IF</span>
-<a name="ln-1167"></a>    <span class="c">!RETURN</span>
-<a name="ln-1168"></a>    <span class="c">!END FUNCTION lngamma</span>
-<a name="ln-1169"></a>    <span class="c">!</span>
-<a name="ln-1170"></a>    <span class="c">!</span>
-<a name="ln-1171"></a>    <span class="c">!</span>
-<a name="ln-1172"></a>    <span class="c">!FUNCTION random_binomial2(n, pp, first) RESULT(ival)</span>
-<a name="ln-1173"></a>    <span class="c">!!**********************************************************************</span>
-<a name="ln-1174"></a>    <span class="c">!!     Translated to Fortran 90 by Alan Miller from:</span>
-<a name="ln-1175"></a>    <span class="c">!!                              RANLIB</span>
-<a name="ln-1176"></a>    <span class="c">!!</span>
-<a name="ln-1177"></a>    <span class="c">!!     Library of Fortran Routines for Random Number Generation</span>
-<a name="ln-1178"></a>    <span class="c">!!</span>
-<a name="ln-1179"></a>    <span class="c">!!                      Compiled and Written by:</span>
-<a name="ln-1180"></a>    <span class="c">!!</span>
-<a name="ln-1181"></a>    <span class="c">!!                           Barry W. Brown</span>
-<a name="ln-1182"></a>    <span class="c">!!                            James Lovato</span>
+<a name="ln-1154"></a>    <span class="c">!product = 1.d0</span>
+<a name="ln-1155"></a>    <span class="c">!20 IF (arg &lt;= 10.d0) THEN</span>
+<a name="ln-1156"></a>    <span class="c">!  product = product * arg</span>
+<a name="ln-1157"></a>    <span class="c">!  arg = arg + 1.d0</span>
+<a name="ln-1158"></a>    <span class="c">!  GO TO 20</span>
+<a name="ln-1159"></a>    <span class="c">!END IF</span>
+<a name="ln-1160"></a>    <span class="c">!</span>
+<a name="ln-1161"></a>    <span class="c">!!  Use a polynomial approximation to Stirling&#39;s formula.</span>
+<a name="ln-1162"></a>    <span class="c">!!  N.B. The real Stirling&#39;s formula is used here, not the simpler, but less</span>
+<a name="ln-1163"></a>    <span class="c">!!       accurate formula given by De Moivre in a letter to Stirling, which</span>
+<a name="ln-1164"></a>    <span class="c">!!       is the one usually quoted.</span>
+<a name="ln-1165"></a>    <span class="c">!</span>
+<a name="ln-1166"></a>    <span class="c">!arg = arg - 0.5D0</span>
+<a name="ln-1167"></a>    <span class="c">!temp = 1.d0/arg**2</span>
+<a name="ln-1168"></a>    <span class="c">!fn_val = lnrt2pi + arg * (LOG(arg) - 1.d0 + &amp;</span>
+<a name="ln-1169"></a>    <span class="c">!                  (((a4*temp + a3)*temp + a2)*temp + a1)*temp) - LOG(product)</span>
+<a name="ln-1170"></a>    <span class="c">!IF (reflect) THEN</span>
+<a name="ln-1171"></a>    <span class="c">!  temp = SIN(pi * x)</span>
+<a name="ln-1172"></a>    <span class="c">!  fn_val = LOG(pi/temp) - fn_val</span>
+<a name="ln-1173"></a>    <span class="c">!END IF</span>
+<a name="ln-1174"></a>    <span class="c">!RETURN</span>
+<a name="ln-1175"></a>    <span class="c">!END FUNCTION lngamma</span>
+<a name="ln-1176"></a>    <span class="c">!</span>
+<a name="ln-1177"></a>    <span class="c">!</span>
+<a name="ln-1178"></a>    <span class="c">!</span>
+<a name="ln-1179"></a>    <span class="c">!FUNCTION random_binomial2(n, pp, first) RESULT(ival)</span>
+<a name="ln-1180"></a>    <span class="c">!!**********************************************************************</span>
+<a name="ln-1181"></a>    <span class="c">!!     Translated to Fortran 90 by Alan Miller from:</span>
+<a name="ln-1182"></a>    <span class="c">!!                              RANLIB</span>
 <a name="ln-1183"></a>    <span class="c">!!</span>
-<a name="ln-1184"></a>    <span class="c">!!               Department of Biomathematics, Box 237</span>
-<a name="ln-1185"></a>    <span class="c">!!               The University of Texas, M.D. Anderson Cancer Center</span>
-<a name="ln-1186"></a>    <span class="c">!!               1515 Holcombe Boulevard</span>
-<a name="ln-1187"></a>    <span class="c">!!               Houston, TX      77030</span>
-<a name="ln-1188"></a>    <span class="c">!!</span>
-<a name="ln-1189"></a>    <span class="c">!! This work was supported by grant CA-16672 from the National Cancer Institute.</span>
-<a name="ln-1190"></a>    <span class="c">!</span>
-<a name="ln-1191"></a>    <span class="c">!!                    GENerate BINomial random deviate</span>
-<a name="ln-1192"></a>    <span class="c">!</span>
-<a name="ln-1193"></a>    <span class="c">!!                              Function</span>
-<a name="ln-1194"></a>    <span class="c">!</span>
-<a name="ln-1195"></a>    <span class="c">!!     Generates a single random deviate from a binomial</span>
-<a name="ln-1196"></a>    <span class="c">!!     distribution whose number of trials is N and whose</span>
-<a name="ln-1197"></a>    <span class="c">!!     probability of an event in each trial is P.</span>
-<a name="ln-1198"></a>    <span class="c">!</span>
-<a name="ln-1199"></a>    <span class="c">!!                              Arguments</span>
-<a name="ln-1200"></a>    <span class="c">!</span>
-<a name="ln-1201"></a>    <span class="c">!!     N  --&gt; The number of trials in the binomial distribution</span>
-<a name="ln-1202"></a>    <span class="c">!!            from which a random deviate is to be generated.</span>
-<a name="ln-1203"></a>    <span class="c">!!                              INTEGER N</span>
-<a name="ln-1204"></a>    <span class="c">!</span>
-<a name="ln-1205"></a>    <span class="c">!!     P  --&gt; The probability of an event in each trial of the</span>
-<a name="ln-1206"></a>    <span class="c">!!            binomial distribution from which a random deviate</span>
-<a name="ln-1207"></a>    <span class="c">!!            is to be generated.</span>
-<a name="ln-1208"></a>    <span class="c">!!                              REAL P</span>
-<a name="ln-1209"></a>    <span class="c">!</span>
-<a name="ln-1210"></a>    <span class="c">!!     FIRST --&gt; Set FIRST = .TRUE. for the first call to perform initialization</span>
-<a name="ln-1211"></a>    <span class="c">!!               the set FIRST = .FALSE. for further calls using the same pair</span>
-<a name="ln-1212"></a>    <span class="c">!!               of parameter values (N, P).</span>
-<a name="ln-1213"></a>    <span class="c">!!                              LOGICAL FIRST</span>
-<a name="ln-1214"></a>    <span class="c">!</span>
-<a name="ln-1215"></a>    <span class="c">!!     random_binomial2 &lt;-- A random deviate yielding the number of events</span>
-<a name="ln-1216"></a>    <span class="c">!!                from N independent trials, each of which has</span>
-<a name="ln-1217"></a>    <span class="c">!!                a probability of event P.</span>
-<a name="ln-1218"></a>    <span class="c">!!                              INTEGER random_binomial</span>
-<a name="ln-1219"></a>    <span class="c">!</span>
-<a name="ln-1220"></a>    <span class="c">!!                              Method</span>
+<a name="ln-1184"></a>    <span class="c">!!     Library of Fortran Routines for Random Number Generation</span>
+<a name="ln-1185"></a>    <span class="c">!!</span>
+<a name="ln-1186"></a>    <span class="c">!!                      Compiled and Written by:</span>
+<a name="ln-1187"></a>    <span class="c">!!</span>
+<a name="ln-1188"></a>    <span class="c">!!                           Barry W. Brown</span>
+<a name="ln-1189"></a>    <span class="c">!!                            James Lovato</span>
+<a name="ln-1190"></a>    <span class="c">!!</span>
+<a name="ln-1191"></a>    <span class="c">!!               Department of Biomathematics, Box 237</span>
+<a name="ln-1192"></a>    <span class="c">!!               The University of Texas, M.D. Anderson Cancer Center</span>
+<a name="ln-1193"></a>    <span class="c">!!               1515 Holcombe Boulevard</span>
+<a name="ln-1194"></a>    <span class="c">!!               Houston, TX      77030</span>
+<a name="ln-1195"></a>    <span class="c">!!</span>
+<a name="ln-1196"></a>    <span class="c">!! This work was supported by grant CA-16672 from the National Cancer Institute.</span>
+<a name="ln-1197"></a>    <span class="c">!</span>
+<a name="ln-1198"></a>    <span class="c">!!                    GENerate BINomial random deviate</span>
+<a name="ln-1199"></a>    <span class="c">!</span>
+<a name="ln-1200"></a>    <span class="c">!!                              Function</span>
+<a name="ln-1201"></a>    <span class="c">!</span>
+<a name="ln-1202"></a>    <span class="c">!!     Generates a single random deviate from a binomial</span>
+<a name="ln-1203"></a>    <span class="c">!!     distribution whose number of trials is N and whose</span>
+<a name="ln-1204"></a>    <span class="c">!!     probability of an event in each trial is P.</span>
+<a name="ln-1205"></a>    <span class="c">!</span>
+<a name="ln-1206"></a>    <span class="c">!!                              Arguments</span>
+<a name="ln-1207"></a>    <span class="c">!</span>
+<a name="ln-1208"></a>    <span class="c">!!     N  --&gt; The number of trials in the binomial distribution</span>
+<a name="ln-1209"></a>    <span class="c">!!            from which a random deviate is to be generated.</span>
+<a name="ln-1210"></a>    <span class="c">!!                              INTEGER N</span>
+<a name="ln-1211"></a>    <span class="c">!</span>
+<a name="ln-1212"></a>    <span class="c">!!     P  --&gt; The probability of an event in each trial of the</span>
+<a name="ln-1213"></a>    <span class="c">!!            binomial distribution from which a random deviate</span>
+<a name="ln-1214"></a>    <span class="c">!!            is to be generated.</span>
+<a name="ln-1215"></a>    <span class="c">!!                              REAL P</span>
+<a name="ln-1216"></a>    <span class="c">!</span>
+<a name="ln-1217"></a>    <span class="c">!!     FIRST --&gt; Set FIRST = .TRUE. for the first call to perform initialization</span>
+<a name="ln-1218"></a>    <span class="c">!!               the set FIRST = .FALSE. for further calls using the same pair</span>
+<a name="ln-1219"></a>    <span class="c">!!               of parameter values (N, P).</span>
+<a name="ln-1220"></a>    <span class="c">!!                              LOGICAL FIRST</span>
 <a name="ln-1221"></a>    <span class="c">!</span>
-<a name="ln-1222"></a>    <span class="c">!!     This is algorithm BTPE from:</span>
-<a name="ln-1223"></a>    <span class="c">!</span>
-<a name="ln-1224"></a>    <span class="c">!!         Kachitvichyanukul, V. and Schmeiser, B. W.</span>
-<a name="ln-1225"></a>    <span class="c">!!         Binomial Random Variate Generation.</span>
-<a name="ln-1226"></a>    <span class="c">!!         Communications of the ACM, 31, 2 (February, 1988) 216.</span>
-<a name="ln-1227"></a>    <span class="c">!</span>
-<a name="ln-1228"></a>    <span class="c">!!**********************************************************************</span>
-<a name="ln-1229"></a>    <span class="c">!</span>
-<a name="ln-1230"></a>    <span class="c">!!*****DETERMINE APPROPRIATE ALGORITHM AND WHETHER SETUP IS NECESSARY</span>
-<a name="ln-1231"></a>    <span class="c">!</span>
-<a name="ln-1232"></a>    <span class="c">!!     ..</span>
-<a name="ln-1233"></a>    <span class="c">!!     .. Scalar Arguments ..</span>
-<a name="ln-1234"></a>    <span class="c">!REAL, INTENT(IN)    :: pp</span>
-<a name="ln-1235"></a>    <span class="c">!INTEGER, INTENT(IN) :: n</span>
-<a name="ln-1236"></a>    <span class="c">!LOGICAL, INTENT(IN) :: first</span>
-<a name="ln-1237"></a>    <span class="c">!INTEGER             :: ival</span>
-<a name="ln-1238"></a>    <span class="c">!!     ..</span>
-<a name="ln-1239"></a>    <span class="c">!!     .. Local Scalars ..</span>
-<a name="ln-1240"></a>    <span class="c">!REAL            :: alv, amaxp, f, f1, f2, u, v, w, w2, x, x1, x2, ynorm, z, z2</span>
-<a name="ln-1241"></a>    <span class="c">!REAL, PARAMETER :: zero = 0.0, half = 0.5, one = 1.0</span>
-<a name="ln-1242"></a>    <span class="c">!INTEGER         :: i, ix, ix1, k, mp</span>
-<a name="ln-1243"></a>    <span class="c">!INTEGER, SAVE   :: m</span>
-<a name="ln-1244"></a>    <span class="c">!REAL, SAVE      :: p, q, xnp, ffm, fm, xnpq, p1, xm, xl, xr, c, al, xll,  &amp;</span>
-<a name="ln-1245"></a>    <span class="c">!                   xlr, p2, p3, p4, qn, r, g</span>
-<a name="ln-1246"></a>    <span class="c">!</span>
-<a name="ln-1247"></a>    <span class="c">!!     ..</span>
-<a name="ln-1248"></a>    <span class="c">!!     .. Executable Statements ..</span>
-<a name="ln-1249"></a>    <span class="c">!</span>
-<a name="ln-1250"></a>    <span class="c">!!*****SETUP, PERFORM ONLY WHEN PARAMETERS CHANGE</span>
-<a name="ln-1251"></a>    <span class="c">!</span>
-<a name="ln-1252"></a>    <span class="c">!IF (first) THEN</span>
-<a name="ln-1253"></a>    <span class="c">!  p = MIN(pp, one-pp)</span>
-<a name="ln-1254"></a>    <span class="c">!  q = one - p</span>
-<a name="ln-1255"></a>    <span class="c">!  xnp = n * p</span>
-<a name="ln-1256"></a>    <span class="c">!END IF</span>
-<a name="ln-1257"></a>    <span class="c">!</span>
-<a name="ln-1258"></a>    <span class="c">!IF (xnp &gt; 30.) THEN</span>
-<a name="ln-1259"></a>    <span class="c">!  IF (first) THEN</span>
-<a name="ln-1260"></a>    <span class="c">!    ffm = xnp + p</span>
-<a name="ln-1261"></a>    <span class="c">!    m = ffm</span>
-<a name="ln-1262"></a>    <span class="c">!    fm = m</span>
-<a name="ln-1263"></a>    <span class="c">!    xnpq = xnp * q</span>
-<a name="ln-1264"></a>    <span class="c">!    p1 = INT(2.195*SQRT(xnpq) - 4.6*q) + half</span>
-<a name="ln-1265"></a>    <span class="c">!    xm = fm + half</span>
-<a name="ln-1266"></a>    <span class="c">!    xl = xm - p1</span>
-<a name="ln-1267"></a>    <span class="c">!    xr = xm + p1</span>
-<a name="ln-1268"></a>    <span class="c">!    c = 0.134 + 20.5 / (15.3 + fm)</span>
-<a name="ln-1269"></a>    <span class="c">!    al = (ffm-xl) / (ffm - xl*p)</span>
-<a name="ln-1270"></a>    <span class="c">!    xll = al * (one + half*al)</span>
-<a name="ln-1271"></a>    <span class="c">!    al = (xr - ffm) / (xr*q)</span>
-<a name="ln-1272"></a>    <span class="c">!    xlr = al * (one + half*al)</span>
-<a name="ln-1273"></a>    <span class="c">!    p2 = p1 * (one + c + c)</span>
-<a name="ln-1274"></a>    <span class="c">!    p3 = p2 + c / xll</span>
-<a name="ln-1275"></a>    <span class="c">!    p4 = p3 + c / xlr</span>
-<a name="ln-1276"></a>    <span class="c">!  END IF</span>
-<a name="ln-1277"></a>    <span class="c">!</span>
-<a name="ln-1278"></a>    <span class="c">!!*****GENERATE VARIATE, Binomial mean at least 30.</span>
-<a name="ln-1279"></a>    <span class="c">!</span>
-<a name="ln-1280"></a>    <span class="c">!  20 CALL RANDOM_NUMBER(u)</span>
-<a name="ln-1281"></a>    <span class="c">!  u = u * p4</span>
-<a name="ln-1282"></a>    <span class="c">!  CALL RANDOM_NUMBER(v)</span>
-<a name="ln-1283"></a>    <span class="c">!</span>
-<a name="ln-1284"></a>    <span class="c">!!     TRIANGULAR REGION</span>
-<a name="ln-1285"></a>    <span class="c">!</span>
-<a name="ln-1286"></a>    <span class="c">!  IF (u &lt;= p1) THEN</span>
-<a name="ln-1287"></a>    <span class="c">!    ix = xm - p1 * v + u</span>
-<a name="ln-1288"></a>    <span class="c">!    GO TO 110</span>
-<a name="ln-1289"></a>    <span class="c">!  END IF</span>
+<a name="ln-1222"></a>    <span class="c">!!     random_binomial2 &lt;-- A random deviate yielding the number of events</span>
+<a name="ln-1223"></a>    <span class="c">!!                from N independent trials, each of which has</span>
+<a name="ln-1224"></a>    <span class="c">!!                a probability of event P.</span>
+<a name="ln-1225"></a>    <span class="c">!!                              INTEGER random_binomial</span>
+<a name="ln-1226"></a>    <span class="c">!</span>
+<a name="ln-1227"></a>    <span class="c">!!                              Method</span>
+<a name="ln-1228"></a>    <span class="c">!</span>
+<a name="ln-1229"></a>    <span class="c">!!     This is algorithm BTPE from:</span>
+<a name="ln-1230"></a>    <span class="c">!</span>
+<a name="ln-1231"></a>    <span class="c">!!         Kachitvichyanukul, V. and Schmeiser, B. W.</span>
+<a name="ln-1232"></a>    <span class="c">!!         Binomial Random Variate Generation.</span>
+<a name="ln-1233"></a>    <span class="c">!!         Communications of the ACM, 31, 2 (February, 1988) 216.</span>
+<a name="ln-1234"></a>    <span class="c">!</span>
+<a name="ln-1235"></a>    <span class="c">!!**********************************************************************</span>
+<a name="ln-1236"></a>    <span class="c">!</span>
+<a name="ln-1237"></a>    <span class="c">!!*****DETERMINE APPROPRIATE ALGORITHM AND WHETHER SETUP IS NECESSARY</span>
+<a name="ln-1238"></a>    <span class="c">!</span>
+<a name="ln-1239"></a>    <span class="c">!!     ..</span>
+<a name="ln-1240"></a>    <span class="c">!!     .. Scalar Arguments ..</span>
+<a name="ln-1241"></a>    <span class="c">!REAL, INTENT(IN)    :: pp</span>
+<a name="ln-1242"></a>    <span class="c">!INTEGER, INTENT(IN) :: n</span>
+<a name="ln-1243"></a>    <span class="c">!LOGICAL, INTENT(IN) :: first</span>
+<a name="ln-1244"></a>    <span class="c">!INTEGER             :: ival</span>
+<a name="ln-1245"></a>    <span class="c">!!     ..</span>
+<a name="ln-1246"></a>    <span class="c">!!     .. Local Scalars ..</span>
+<a name="ln-1247"></a>    <span class="c">!REAL            :: alv, amaxp, f, f1, f2, u, v, w, w2, x, x1, x2, ynorm, z, z2</span>
+<a name="ln-1248"></a>    <span class="c">!REAL, PARAMETER :: zero = 0.0, half = 0.5, one = 1.0</span>
+<a name="ln-1249"></a>    <span class="c">!INTEGER         :: i, ix, ix1, k, mp</span>
+<a name="ln-1250"></a>    <span class="c">!INTEGER, SAVE   :: m</span>
+<a name="ln-1251"></a>    <span class="c">!REAL, SAVE      :: p, q, xnp, ffm, fm, xnpq, p1, xm, xl, xr, c, al, xll,  &amp;</span>
+<a name="ln-1252"></a>    <span class="c">!                   xlr, p2, p3, p4, qn, r, g</span>
+<a name="ln-1253"></a>    <span class="c">!</span>
+<a name="ln-1254"></a>    <span class="c">!!     ..</span>
+<a name="ln-1255"></a>    <span class="c">!!     .. Executable Statements ..</span>
+<a name="ln-1256"></a>    <span class="c">!</span>
+<a name="ln-1257"></a>    <span class="c">!!*****SETUP, PERFORM ONLY WHEN PARAMETERS CHANGE</span>
+<a name="ln-1258"></a>    <span class="c">!</span>
+<a name="ln-1259"></a>    <span class="c">!IF (first) THEN</span>
+<a name="ln-1260"></a>    <span class="c">!  p = MIN(pp, one-pp)</span>
+<a name="ln-1261"></a>    <span class="c">!  q = one - p</span>
+<a name="ln-1262"></a>    <span class="c">!  xnp = n * p</span>
+<a name="ln-1263"></a>    <span class="c">!END IF</span>
+<a name="ln-1264"></a>    <span class="c">!</span>
+<a name="ln-1265"></a>    <span class="c">!IF (xnp &gt; 30.) THEN</span>
+<a name="ln-1266"></a>    <span class="c">!  IF (first) THEN</span>
+<a name="ln-1267"></a>    <span class="c">!    ffm = xnp + p</span>
+<a name="ln-1268"></a>    <span class="c">!    m = ffm</span>
+<a name="ln-1269"></a>    <span class="c">!    fm = m</span>
+<a name="ln-1270"></a>    <span class="c">!    xnpq = xnp * q</span>
+<a name="ln-1271"></a>    <span class="c">!    p1 = INT(2.195*SQRT(xnpq) - 4.6*q) + half</span>
+<a name="ln-1272"></a>    <span class="c">!    xm = fm + half</span>
+<a name="ln-1273"></a>    <span class="c">!    xl = xm - p1</span>
+<a name="ln-1274"></a>    <span class="c">!    xr = xm + p1</span>
+<a name="ln-1275"></a>    <span class="c">!    c = 0.134 + 20.5 / (15.3 + fm)</span>
+<a name="ln-1276"></a>    <span class="c">!    al = (ffm-xl) / (ffm - xl*p)</span>
+<a name="ln-1277"></a>    <span class="c">!    xll = al * (one + half*al)</span>
+<a name="ln-1278"></a>    <span class="c">!    al = (xr - ffm) / (xr*q)</span>
+<a name="ln-1279"></a>    <span class="c">!    xlr = al * (one + half*al)</span>
+<a name="ln-1280"></a>    <span class="c">!    p2 = p1 * (one + c + c)</span>
+<a name="ln-1281"></a>    <span class="c">!    p3 = p2 + c / xll</span>
+<a name="ln-1282"></a>    <span class="c">!    p4 = p3 + c / xlr</span>
+<a name="ln-1283"></a>    <span class="c">!  END IF</span>
+<a name="ln-1284"></a>    <span class="c">!</span>
+<a name="ln-1285"></a>    <span class="c">!!*****GENERATE VARIATE, Binomial mean at least 30.</span>
+<a name="ln-1286"></a>    <span class="c">!</span>
+<a name="ln-1287"></a>    <span class="c">!  20 CALL RANDOM_NUMBER(u)</span>
+<a name="ln-1288"></a>    <span class="c">!  u = u * p4</span>
+<a name="ln-1289"></a>    <span class="c">!  CALL RANDOM_NUMBER(v)</span>
 <a name="ln-1290"></a>    <span class="c">!</span>
-<a name="ln-1291"></a>    <span class="c">!!     PARALLELOGRAM REGION</span>
+<a name="ln-1291"></a>    <span class="c">!!     TRIANGULAR REGION</span>
 <a name="ln-1292"></a>    <span class="c">!</span>
-<a name="ln-1293"></a>    <span class="c">!  IF (u &lt;= p2) THEN</span>
-<a name="ln-1294"></a>    <span class="c">!    x = xl + (u-p1) / c</span>
-<a name="ln-1295"></a>    <span class="c">!    v = v * c + one - ABS(xm-x) / p1</span>
-<a name="ln-1296"></a>    <span class="c">!    IF (v &gt; one .OR. v &lt;= zero) GO TO 20</span>
-<a name="ln-1297"></a>    <span class="c">!    ix = x</span>
-<a name="ln-1298"></a>    <span class="c">!  ELSE</span>
+<a name="ln-1293"></a>    <span class="c">!  IF (u &lt;= p1) THEN</span>
+<a name="ln-1294"></a>    <span class="c">!    ix = xm - p1 * v + u</span>
+<a name="ln-1295"></a>    <span class="c">!    GO TO 110</span>
+<a name="ln-1296"></a>    <span class="c">!  END IF</span>
+<a name="ln-1297"></a>    <span class="c">!</span>
+<a name="ln-1298"></a>    <span class="c">!!     PARALLELOGRAM REGION</span>
 <a name="ln-1299"></a>    <span class="c">!</span>
-<a name="ln-1300"></a>    <span class="c">!!     LEFT TAIL</span>
-<a name="ln-1301"></a>    <span class="c">!</span>
-<a name="ln-1302"></a>    <span class="c">!    IF (u &lt;= p3) THEN</span>
-<a name="ln-1303"></a>    <span class="c">!      ix = xl + LOG(v) / xll</span>
-<a name="ln-1304"></a>    <span class="c">!      IF (ix &lt; 0) GO TO 20</span>
-<a name="ln-1305"></a>    <span class="c">!      v = v * (u-p2) * xll</span>
-<a name="ln-1306"></a>    <span class="c">!    ELSE</span>
-<a name="ln-1307"></a>    <span class="c">!</span>
-<a name="ln-1308"></a>    <span class="c">!!     RIGHT TAIL</span>
-<a name="ln-1309"></a>    <span class="c">!</span>
-<a name="ln-1310"></a>    <span class="c">!      ix = xr - LOG(v) / xlr</span>
-<a name="ln-1311"></a>    <span class="c">!      IF (ix &gt; n) GO TO 20</span>
-<a name="ln-1312"></a>    <span class="c">!      v = v * (u-p3) * xlr</span>
-<a name="ln-1313"></a>    <span class="c">!    END IF</span>
-<a name="ln-1314"></a>    <span class="c">!  END IF</span>
-<a name="ln-1315"></a>    <span class="c">!</span>
-<a name="ln-1316"></a>    <span class="c">!!*****DETERMINE APPROPRIATE WAY TO PERFORM ACCEPT/REJECT TEST</span>
-<a name="ln-1317"></a>    <span class="c">!</span>
-<a name="ln-1318"></a>    <span class="c">!  k = ABS(ix-m)</span>
-<a name="ln-1319"></a>    <span class="c">!  IF (k &lt;= 20 .OR. k &gt;= xnpq/2-1) THEN</span>
-<a name="ln-1320"></a>    <span class="c">!</span>
-<a name="ln-1321"></a>    <span class="c">!!     EXPLICIT EVALUATION</span>
+<a name="ln-1300"></a>    <span class="c">!  IF (u &lt;= p2) THEN</span>
+<a name="ln-1301"></a>    <span class="c">!    x = xl + (u-p1) / c</span>
+<a name="ln-1302"></a>    <span class="c">!    v = v * c + one - ABS(xm-x) / p1</span>
+<a name="ln-1303"></a>    <span class="c">!    IF (v &gt; one .OR. v &lt;= zero) GO TO 20</span>
+<a name="ln-1304"></a>    <span class="c">!    ix = x</span>
+<a name="ln-1305"></a>    <span class="c">!  ELSE</span>
+<a name="ln-1306"></a>    <span class="c">!</span>
+<a name="ln-1307"></a>    <span class="c">!!     LEFT TAIL</span>
+<a name="ln-1308"></a>    <span class="c">!</span>
+<a name="ln-1309"></a>    <span class="c">!    IF (u &lt;= p3) THEN</span>
+<a name="ln-1310"></a>    <span class="c">!      ix = xl + LOG(v) / xll</span>
+<a name="ln-1311"></a>    <span class="c">!      IF (ix &lt; 0) GO TO 20</span>
+<a name="ln-1312"></a>    <span class="c">!      v = v * (u-p2) * xll</span>
+<a name="ln-1313"></a>    <span class="c">!    ELSE</span>
+<a name="ln-1314"></a>    <span class="c">!</span>
+<a name="ln-1315"></a>    <span class="c">!!     RIGHT TAIL</span>
+<a name="ln-1316"></a>    <span class="c">!</span>
+<a name="ln-1317"></a>    <span class="c">!      ix = xr - LOG(v) / xlr</span>
+<a name="ln-1318"></a>    <span class="c">!      IF (ix &gt; n) GO TO 20</span>
+<a name="ln-1319"></a>    <span class="c">!      v = v * (u-p3) * xlr</span>
+<a name="ln-1320"></a>    <span class="c">!    END IF</span>
+<a name="ln-1321"></a>    <span class="c">!  END IF</span>
 <a name="ln-1322"></a>    <span class="c">!</span>
-<a name="ln-1323"></a>    <span class="c">!    f = one</span>
-<a name="ln-1324"></a>    <span class="c">!    r = p / q</span>
-<a name="ln-1325"></a>    <span class="c">!    g = (n+1) * r</span>
-<a name="ln-1326"></a>    <span class="c">!    IF (m &lt; ix) THEN</span>
-<a name="ln-1327"></a>    <span class="c">!      mp = m + 1</span>
-<a name="ln-1328"></a>    <span class="c">!      DO i = mp, ix</span>
-<a name="ln-1329"></a>    <span class="c">!        f = f * (g/i-r)</span>
-<a name="ln-1330"></a>    <span class="c">!      END DO</span>
-<a name="ln-1331"></a>    <span class="c">!</span>
-<a name="ln-1332"></a>    <span class="c">!    ELSE IF (m &gt; ix) THEN</span>
-<a name="ln-1333"></a>    <span class="c">!      ix1 = ix + 1</span>
-<a name="ln-1334"></a>    <span class="c">!      DO i = ix1, m</span>
-<a name="ln-1335"></a>    <span class="c">!        f = f / (g/i-r)</span>
-<a name="ln-1336"></a>    <span class="c">!      END DO</span>
-<a name="ln-1337"></a>    <span class="c">!    END IF</span>
+<a name="ln-1323"></a>    <span class="c">!!*****DETERMINE APPROPRIATE WAY TO PERFORM ACCEPT/REJECT TEST</span>
+<a name="ln-1324"></a>    <span class="c">!</span>
+<a name="ln-1325"></a>    <span class="c">!  k = ABS(ix-m)</span>
+<a name="ln-1326"></a>    <span class="c">!  IF (k &lt;= 20 .OR. k &gt;= xnpq/2-1) THEN</span>
+<a name="ln-1327"></a>    <span class="c">!</span>
+<a name="ln-1328"></a>    <span class="c">!!     EXPLICIT EVALUATION</span>
+<a name="ln-1329"></a>    <span class="c">!</span>
+<a name="ln-1330"></a>    <span class="c">!    f = one</span>
+<a name="ln-1331"></a>    <span class="c">!    r = p / q</span>
+<a name="ln-1332"></a>    <span class="c">!    g = (n+1) * r</span>
+<a name="ln-1333"></a>    <span class="c">!    IF (m &lt; ix) THEN</span>
+<a name="ln-1334"></a>    <span class="c">!      mp = m + 1</span>
+<a name="ln-1335"></a>    <span class="c">!      DO i = mp, ix</span>
+<a name="ln-1336"></a>    <span class="c">!        f = f * (g/i-r)</span>
+<a name="ln-1337"></a>    <span class="c">!      END DO</span>
 <a name="ln-1338"></a>    <span class="c">!</span>
-<a name="ln-1339"></a>    <span class="c">!    IF (v &gt; f) THEN</span>
-<a name="ln-1340"></a>    <span class="c">!      GO TO 20</span>
-<a name="ln-1341"></a>    <span class="c">!    ELSE</span>
-<a name="ln-1342"></a>    <span class="c">!      GO TO 110</span>
-<a name="ln-1343"></a>    <span class="c">!    END IF</span>
-<a name="ln-1344"></a>    <span class="c">!  END IF</span>
+<a name="ln-1339"></a>    <span class="c">!    ELSE IF (m &gt; ix) THEN</span>
+<a name="ln-1340"></a>    <span class="c">!      ix1 = ix + 1</span>
+<a name="ln-1341"></a>    <span class="c">!      DO i = ix1, m</span>
+<a name="ln-1342"></a>    <span class="c">!        f = f / (g/i-r)</span>
+<a name="ln-1343"></a>    <span class="c">!      END DO</span>
+<a name="ln-1344"></a>    <span class="c">!    END IF</span>
 <a name="ln-1345"></a>    <span class="c">!</span>
-<a name="ln-1346"></a>    <span class="c">!!     SQUEEZING USING UPPER AND LOWER BOUNDS ON LOG(F(X))</span>
-<a name="ln-1347"></a>    <span class="c">!</span>
-<a name="ln-1348"></a>    <span class="c">!  amaxp = (k/xnpq) * ((k*(k/3. + .625) + .1666666666666)/xnpq + half)</span>
-<a name="ln-1349"></a>    <span class="c">!  ynorm = -k * k / (2.*xnpq)</span>
-<a name="ln-1350"></a>    <span class="c">!  alv = LOG(v)</span>
-<a name="ln-1351"></a>    <span class="c">!  IF (alv&lt;ynorm - amaxp) GO TO 110</span>
-<a name="ln-1352"></a>    <span class="c">!  IF (alv&gt;ynorm + amaxp) GO TO 20</span>
-<a name="ln-1353"></a>    <span class="c">!</span>
-<a name="ln-1354"></a>    <span class="c">!!     STIRLING&#39;S (actually de Moivre&#39;s) FORMULA TO MACHINE ACCURACY FOR</span>
-<a name="ln-1355"></a>    <span class="c">!!     THE FINAL ACCEPTANCE/REJECTION TEST</span>
-<a name="ln-1356"></a>    <span class="c">!</span>
-<a name="ln-1357"></a>    <span class="c">!  x1 = ix + 1</span>
-<a name="ln-1358"></a>    <span class="c">!  f1 = fm + one</span>
-<a name="ln-1359"></a>    <span class="c">!  z = n + 1 - fm</span>
-<a name="ln-1360"></a>    <span class="c">!  w = n - ix + one</span>
-<a name="ln-1361"></a>    <span class="c">!  z2 = z * z</span>
-<a name="ln-1362"></a>    <span class="c">!  x2 = x1 * x1</span>
-<a name="ln-1363"></a>    <span class="c">!  f2 = f1 * f1</span>
-<a name="ln-1364"></a>    <span class="c">!  w2 = w * w</span>
-<a name="ln-1365"></a>    <span class="c">!  IF (alv - (xm*LOG(f1/x1) + (n-m+half)*LOG(z/w) + (ix-m)*LOG(w*p/(x1*q)) +    &amp;</span>
-<a name="ln-1366"></a>    <span class="c">!      (13860.-(462.-(132.-(99.-140./f2)/f2)/f2)/f2)/f1/166320. +               &amp;</span>
-<a name="ln-1367"></a>    <span class="c">!      (13860.-(462.-(132.-(99.-140./z2)/z2)/z2)/z2)/z/166320. +                &amp;</span>
-<a name="ln-1368"></a>    <span class="c">!      (13860.-(462.-(132.-(99.-140./x2)/x2)/x2)/x2)/x1/166320. +               &amp;</span>
-<a name="ln-1369"></a>    <span class="c">!      (13860.-(462.-(132.-(99.-140./w2)/w2)/w2)/w2)/w/166320.) &gt; zero) THEN</span>
-<a name="ln-1370"></a>    <span class="c">!    GO TO 20</span>
-<a name="ln-1371"></a>    <span class="c">!  ELSE</span>
-<a name="ln-1372"></a>    <span class="c">!    GO TO 110</span>
-<a name="ln-1373"></a>    <span class="c">!  END IF</span>
-<a name="ln-1374"></a>    <span class="c">!</span>
-<a name="ln-1375"></a>    <span class="c">!ELSE</span>
-<a name="ln-1376"></a>    <span class="c">!!     INVERSE CDF LOGIC FOR MEAN LESS THAN 30</span>
-<a name="ln-1377"></a>    <span class="c">!  IF (first) THEN</span>
-<a name="ln-1378"></a>    <span class="c">!    qn = q ** n</span>
-<a name="ln-1379"></a>    <span class="c">!    r = p / q</span>
-<a name="ln-1380"></a>    <span class="c">!    g = r * (n+1)</span>
-<a name="ln-1381"></a>    <span class="c">!  END IF</span>
-<a name="ln-1382"></a>    <span class="c">!</span>
-<a name="ln-1383"></a>    <span class="c">!  90 ix = 0</span>
-<a name="ln-1384"></a>    <span class="c">!  f = qn</span>
-<a name="ln-1385"></a>    <span class="c">!  CALL RANDOM_NUMBER(u)</span>
-<a name="ln-1386"></a>    <span class="c">!  100 IF (u &gt;= f) THEN</span>
-<a name="ln-1387"></a>    <span class="c">!    IF (ix &gt; 110) GO TO 90</span>
-<a name="ln-1388"></a>    <span class="c">!    u = u - f</span>
-<a name="ln-1389"></a>    <span class="c">!    ix = ix + 1</span>
-<a name="ln-1390"></a>    <span class="c">!    f = f * (g/ix - r)</span>
-<a name="ln-1391"></a>    <span class="c">!    GO TO 100</span>
-<a name="ln-1392"></a>    <span class="c">!  END IF</span>
-<a name="ln-1393"></a>    <span class="c">!END IF</span>
-<a name="ln-1394"></a>    <span class="c">!</span>
-<a name="ln-1395"></a>    <span class="c">!110 IF (pp &gt; half) ix = n - ix</span>
-<a name="ln-1396"></a>    <span class="c">!ival = ix</span>
-<a name="ln-1397"></a>    <span class="c">!RETURN</span>
-<a name="ln-1398"></a>    <span class="c">!</span>
-<a name="ln-1399"></a>    <span class="c">!END FUNCTION random_binomial2</span>
-<a name="ln-1400"></a>    <span class="c">!</span>
+<a name="ln-1346"></a>    <span class="c">!    IF (v &gt; f) THEN</span>
+<a name="ln-1347"></a>    <span class="c">!      GO TO 20</span>
+<a name="ln-1348"></a>    <span class="c">!    ELSE</span>
+<a name="ln-1349"></a>    <span class="c">!      GO TO 110</span>
+<a name="ln-1350"></a>    <span class="c">!    END IF</span>
+<a name="ln-1351"></a>    <span class="c">!  END IF</span>
+<a name="ln-1352"></a>    <span class="c">!</span>
+<a name="ln-1353"></a>    <span class="c">!!     SQUEEZING USING UPPER AND LOWER BOUNDS ON LOG(F(X))</span>
+<a name="ln-1354"></a>    <span class="c">!</span>
+<a name="ln-1355"></a>    <span class="c">!  amaxp = (k/xnpq) * ((k*(k/3. + .625) + .1666666666666)/xnpq + half)</span>
+<a name="ln-1356"></a>    <span class="c">!  ynorm = -k * k / (2.*xnpq)</span>
+<a name="ln-1357"></a>    <span class="c">!  alv = LOG(v)</span>
+<a name="ln-1358"></a>    <span class="c">!  IF (alv&lt;ynorm - amaxp) GO TO 110</span>
+<a name="ln-1359"></a>    <span class="c">!  IF (alv&gt;ynorm + amaxp) GO TO 20</span>
+<a name="ln-1360"></a>    <span class="c">!</span>
+<a name="ln-1361"></a>    <span class="c">!!     STIRLING&#39;S (actually de Moivre&#39;s) FORMULA TO MACHINE ACCURACY FOR</span>
+<a name="ln-1362"></a>    <span class="c">!!     THE FINAL ACCEPTANCE/REJECTION TEST</span>
+<a name="ln-1363"></a>    <span class="c">!</span>
+<a name="ln-1364"></a>    <span class="c">!  x1 = ix + 1</span>
+<a name="ln-1365"></a>    <span class="c">!  f1 = fm + one</span>
+<a name="ln-1366"></a>    <span class="c">!  z = n + 1 - fm</span>
+<a name="ln-1367"></a>    <span class="c">!  w = n - ix + one</span>
+<a name="ln-1368"></a>    <span class="c">!  z2 = z * z</span>
+<a name="ln-1369"></a>    <span class="c">!  x2 = x1 * x1</span>
+<a name="ln-1370"></a>    <span class="c">!  f2 = f1 * f1</span>
+<a name="ln-1371"></a>    <span class="c">!  w2 = w * w</span>
+<a name="ln-1372"></a>    <span class="c">!  IF (alv - (xm*LOG(f1/x1) + (n-m+half)*LOG(z/w) + (ix-m)*LOG(w*p/(x1*q)) +    &amp;</span>
+<a name="ln-1373"></a>    <span class="c">!      (13860.-(462.-(132.-(99.-140./f2)/f2)/f2)/f2)/f1/166320. +               &amp;</span>
+<a name="ln-1374"></a>    <span class="c">!      (13860.-(462.-(132.-(99.-140./z2)/z2)/z2)/z2)/z/166320. +                &amp;</span>
+<a name="ln-1375"></a>    <span class="c">!      (13860.-(462.-(132.-(99.-140./x2)/x2)/x2)/x2)/x1/166320. +               &amp;</span>
+<a name="ln-1376"></a>    <span class="c">!      (13860.-(462.-(132.-(99.-140./w2)/w2)/w2)/w2)/w/166320.) &gt; zero) THEN</span>
+<a name="ln-1377"></a>    <span class="c">!    GO TO 20</span>
+<a name="ln-1378"></a>    <span class="c">!  ELSE</span>
+<a name="ln-1379"></a>    <span class="c">!    GO TO 110</span>
+<a name="ln-1380"></a>    <span class="c">!  END IF</span>
+<a name="ln-1381"></a>    <span class="c">!</span>
+<a name="ln-1382"></a>    <span class="c">!ELSE</span>
+<a name="ln-1383"></a>    <span class="c">!!     INVERSE CDF LOGIC FOR MEAN LESS THAN 30</span>
+<a name="ln-1384"></a>    <span class="c">!  IF (first) THEN</span>
+<a name="ln-1385"></a>    <span class="c">!    qn = q ** n</span>
+<a name="ln-1386"></a>    <span class="c">!    r = p / q</span>
+<a name="ln-1387"></a>    <span class="c">!    g = r * (n+1)</span>
+<a name="ln-1388"></a>    <span class="c">!  END IF</span>
+<a name="ln-1389"></a>    <span class="c">!</span>
+<a name="ln-1390"></a>    <span class="c">!  90 ix = 0</span>
+<a name="ln-1391"></a>    <span class="c">!  f = qn</span>
+<a name="ln-1392"></a>    <span class="c">!  CALL RANDOM_NUMBER(u)</span>
+<a name="ln-1393"></a>    <span class="c">!  100 IF (u &gt;= f) THEN</span>
+<a name="ln-1394"></a>    <span class="c">!    IF (ix &gt; 110) GO TO 90</span>
+<a name="ln-1395"></a>    <span class="c">!    u = u - f</span>
+<a name="ln-1396"></a>    <span class="c">!    ix = ix + 1</span>
+<a name="ln-1397"></a>    <span class="c">!    f = f * (g/ix - r)</span>
+<a name="ln-1398"></a>    <span class="c">!    GO TO 100</span>
+<a name="ln-1399"></a>    <span class="c">!  END IF</span>
+<a name="ln-1400"></a>    <span class="c">!END IF</span>
 <a name="ln-1401"></a>    <span class="c">!</span>
-<a name="ln-1402"></a>    <span class="c">!</span>
-<a name="ln-1403"></a>    <span class="c">!</span>
-<a name="ln-1404"></a>    <span class="c">!FUNCTION random_neg_binomial(sk, p) RESULT(ival)</span>
+<a name="ln-1402"></a>    <span class="c">!110 IF (pp &gt; half) ix = n - ix</span>
+<a name="ln-1403"></a>    <span class="c">!ival = ix</span>
+<a name="ln-1404"></a>    <span class="c">!RETURN</span>
 <a name="ln-1405"></a>    <span class="c">!</span>
-<a name="ln-1406"></a>    <span class="c">!! Adapted from Fortran 77 code from the book:</span>
-<a name="ln-1407"></a>    <span class="c">!!     Dagpunar, J. &#39;Principles of random variate generation&#39;</span>
-<a name="ln-1408"></a>    <span class="c">!!     Clarendon Press, Oxford, 1988.   ISBN 0-19-852202-9</span>
+<a name="ln-1406"></a>    <span class="c">!END FUNCTION random_binomial2</span>
+<a name="ln-1407"></a>    <span class="c">!</span>
+<a name="ln-1408"></a>    <span class="c">!</span>
 <a name="ln-1409"></a>    <span class="c">!</span>
-<a name="ln-1410"></a>    <span class="c">!! FUNCTION GENERATES A RANDOM NEGATIVE BINOMIAL VARIATE USING UNSTORED</span>
-<a name="ln-1411"></a>    <span class="c">!! INVERSION AND/OR THE REPRODUCTIVE PROPERTY.</span>
+<a name="ln-1410"></a>    <span class="c">!</span>
+<a name="ln-1411"></a>    <span class="c">!FUNCTION random_neg_binomial(sk, p) RESULT(ival)</span>
 <a name="ln-1412"></a>    <span class="c">!</span>
-<a name="ln-1413"></a>    <span class="c">!!    SK = NUMBER OF FAILURES REQUIRED (Dagpunar&#39;s words!)</span>
-<a name="ln-1414"></a>    <span class="c">!!       = the `power&#39; parameter of the negative binomial</span>
-<a name="ln-1415"></a>    <span class="c">!!           (0 &lt; REAL)</span>
-<a name="ln-1416"></a>    <span class="c">!!    P = BERNOULLI SUCCESS PROBABILITY</span>
-<a name="ln-1417"></a>    <span class="c">!!           (0 &lt; REAL &lt; 1)</span>
-<a name="ln-1418"></a>    <span class="c">!</span>
-<a name="ln-1419"></a>    <span class="c">!! THE PARAMETER H IS SET SO THAT UNSTORED INVERSION ONLY IS USED WHEN P &lt;= H,</span>
-<a name="ln-1420"></a>    <span class="c">!! OTHERWISE A COMBINATION OF UNSTORED INVERSION AND</span>
-<a name="ln-1421"></a>    <span class="c">!! THE REPRODUCTIVE PROPERTY IS USED.</span>
-<a name="ln-1422"></a>    <span class="c">!</span>
-<a name="ln-1423"></a>    <span class="c">!REAL, INTENT(IN)   :: sk, p</span>
-<a name="ln-1424"></a>    <span class="c">!INTEGER            :: ival</span>
+<a name="ln-1413"></a>    <span class="c">!! Adapted from Fortran 77 code from the book:</span>
+<a name="ln-1414"></a>    <span class="c">!!     Dagpunar, J. &#39;Principles of random variate generation&#39;</span>
+<a name="ln-1415"></a>    <span class="c">!!     Clarendon Press, Oxford, 1988.   ISBN 0-19-852202-9</span>
+<a name="ln-1416"></a>    <span class="c">!</span>
+<a name="ln-1417"></a>    <span class="c">!! FUNCTION GENERATES A RANDOM NEGATIVE BINOMIAL VARIATE USING UNSTORED</span>
+<a name="ln-1418"></a>    <span class="c">!! INVERSION AND/OR THE REPRODUCTIVE PROPERTY.</span>
+<a name="ln-1419"></a>    <span class="c">!</span>
+<a name="ln-1420"></a>    <span class="c">!!    SK = NUMBER OF FAILURES REQUIRED (Dagpunar&#39;s words!)</span>
+<a name="ln-1421"></a>    <span class="c">!!       = the `power&#39; parameter of the negative binomial</span>
+<a name="ln-1422"></a>    <span class="c">!!           (0 &lt; REAL)</span>
+<a name="ln-1423"></a>    <span class="c">!!    P = BERNOULLI SUCCESS PROBABILITY</span>
+<a name="ln-1424"></a>    <span class="c">!!           (0 &lt; REAL &lt; 1)</span>
 <a name="ln-1425"></a>    <span class="c">!</span>
-<a name="ln-1426"></a>    <span class="c">!!     Local variables</span>
-<a name="ln-1427"></a>    <span class="c">!! THE PARAMETER ULN = -LOG(MACHINE&#39;S SMALLEST REAL NUMBER).</span>
-<a name="ln-1428"></a>    <span class="c">!</span>
-<a name="ln-1429"></a>    <span class="c">!REAL, PARAMETER    :: h = 0.7</span>
-<a name="ln-1430"></a>    <span class="c">!REAL               :: q, x, st, uln, v, r, s, y, g</span>
-<a name="ln-1431"></a>    <span class="c">!INTEGER            :: k, i, n</span>
+<a name="ln-1426"></a>    <span class="c">!! THE PARAMETER H IS SET SO THAT UNSTORED INVERSION ONLY IS USED WHEN P &lt;= H,</span>
+<a name="ln-1427"></a>    <span class="c">!! OTHERWISE A COMBINATION OF UNSTORED INVERSION AND</span>
+<a name="ln-1428"></a>    <span class="c">!! THE REPRODUCTIVE PROPERTY IS USED.</span>
+<a name="ln-1429"></a>    <span class="c">!</span>
+<a name="ln-1430"></a>    <span class="c">!REAL, INTENT(IN)   :: sk, p</span>
+<a name="ln-1431"></a>    <span class="c">!INTEGER            :: ival</span>
 <a name="ln-1432"></a>    <span class="c">!</span>
-<a name="ln-1433"></a>    <span class="c">!IF (sk &lt;= zero .OR. p &lt;= zero .OR. p &gt;= one) THEN</span>
-<a name="ln-1434"></a>    <span class="c">!  WRITE(*, *) &#39;IMPERMISSIBLE DISTRIBUTION PARAMETER VALUES&#39;</span>
-<a name="ln-1435"></a>    <span class="c">!  STOP</span>
-<a name="ln-1436"></a>    <span class="c">!END IF</span>
-<a name="ln-1437"></a>    <span class="c">!</span>
-<a name="ln-1438"></a>    <span class="c">!q = one - p</span>
-<a name="ln-1439"></a>    <span class="c">!x = zero</span>
-<a name="ln-1440"></a>    <span class="c">!st = sk</span>
-<a name="ln-1441"></a>    <span class="c">!IF (p &gt; h) THEN</span>
-<a name="ln-1442"></a>    <span class="c">!  v = one/LOG(p)</span>
-<a name="ln-1443"></a>    <span class="c">!  k = st</span>
-<a name="ln-1444"></a>    <span class="c">!  DO i = 1,k</span>
-<a name="ln-1445"></a>    <span class="c">!    DO</span>
-<a name="ln-1446"></a>    <span class="c">!      CALL RANDOM_NUMBER(r)</span>
-<a name="ln-1447"></a>    <span class="c">!      IF (r &gt; zero) EXIT</span>
-<a name="ln-1448"></a>    <span class="c">!    END DO</span>
-<a name="ln-1449"></a>    <span class="c">!    n = v*LOG(r)</span>
-<a name="ln-1450"></a>    <span class="c">!    x = x + n</span>
-<a name="ln-1451"></a>    <span class="c">!  END DO</span>
-<a name="ln-1452"></a>    <span class="c">!  st = st - k</span>
-<a name="ln-1453"></a>    <span class="c">!END IF</span>
-<a name="ln-1454"></a>    <span class="c">!</span>
-<a name="ln-1455"></a>    <span class="c">!s = zero</span>
-<a name="ln-1456"></a>    <span class="c">!uln = -LOG(vsmall)</span>
-<a name="ln-1457"></a>    <span class="c">!IF (st &gt; -uln/LOG(q)) THEN</span>
-<a name="ln-1458"></a>    <span class="c">!  WRITE(*, *) &#39; P IS TOO LARGE FOR THIS VALUE OF SK&#39;</span>
-<a name="ln-1459"></a>    <span class="c">!  STOP</span>
+<a name="ln-1433"></a>    <span class="c">!!     Local variables</span>
+<a name="ln-1434"></a>    <span class="c">!! THE PARAMETER ULN = -LOG(MACHINE&#39;S SMALLEST REAL NUMBER).</span>
+<a name="ln-1435"></a>    <span class="c">!</span>
+<a name="ln-1436"></a>    <span class="c">!REAL, PARAMETER    :: h = 0.7</span>
+<a name="ln-1437"></a>    <span class="c">!REAL               :: q, x, st, uln, v, r, s, y, g</span>
+<a name="ln-1438"></a>    <span class="c">!INTEGER            :: k, i, n</span>
+<a name="ln-1439"></a>    <span class="c">!</span>
+<a name="ln-1440"></a>    <span class="c">!IF (sk &lt;= zero .OR. p &lt;= zero .OR. p &gt;= one) THEN</span>
+<a name="ln-1441"></a>    <span class="c">!  WRITE(*, *) &#39;IMPERMISSIBLE DISTRIBUTION PARAMETER VALUES&#39;</span>
+<a name="ln-1442"></a>    <span class="c">!  STOP</span>
+<a name="ln-1443"></a>    <span class="c">!END IF</span>
+<a name="ln-1444"></a>    <span class="c">!</span>
+<a name="ln-1445"></a>    <span class="c">!q = one - p</span>
+<a name="ln-1446"></a>    <span class="c">!x = zero</span>
+<a name="ln-1447"></a>    <span class="c">!st = sk</span>
+<a name="ln-1448"></a>    <span class="c">!IF (p &gt; h) THEN</span>
+<a name="ln-1449"></a>    <span class="c">!  v = one/LOG(p)</span>
+<a name="ln-1450"></a>    <span class="c">!  k = st</span>
+<a name="ln-1451"></a>    <span class="c">!  DO i = 1,k</span>
+<a name="ln-1452"></a>    <span class="c">!    DO</span>
+<a name="ln-1453"></a>    <span class="c">!      CALL RANDOM_NUMBER(r)</span>
+<a name="ln-1454"></a>    <span class="c">!      IF (r &gt; zero) EXIT</span>
+<a name="ln-1455"></a>    <span class="c">!    END DO</span>
+<a name="ln-1456"></a>    <span class="c">!    n = v*LOG(r)</span>
+<a name="ln-1457"></a>    <span class="c">!    x = x + n</span>
+<a name="ln-1458"></a>    <span class="c">!  END DO</span>
+<a name="ln-1459"></a>    <span class="c">!  st = st - k</span>
 <a name="ln-1460"></a>    <span class="c">!END IF</span>
 <a name="ln-1461"></a>    <span class="c">!</span>
-<a name="ln-1462"></a>    <span class="c">!y = q**st</span>
-<a name="ln-1463"></a>    <span class="c">!g = st</span>
-<a name="ln-1464"></a>    <span class="c">!CALL RANDOM_NUMBER(r)</span>
-<a name="ln-1465"></a>    <span class="c">!DO</span>
-<a name="ln-1466"></a>    <span class="c">!  IF (y &gt; r) EXIT</span>
-<a name="ln-1467"></a>    <span class="c">!  r = r - y</span>
-<a name="ln-1468"></a>    <span class="c">!  s = s + one</span>
-<a name="ln-1469"></a>    <span class="c">!  y = y*p*g/s</span>
-<a name="ln-1470"></a>    <span class="c">!  g = g + one</span>
-<a name="ln-1471"></a>    <span class="c">!END DO</span>
-<a name="ln-1472"></a>    <span class="c">!</span>
-<a name="ln-1473"></a>    <span class="c">!ival = x + s + half</span>
-<a name="ln-1474"></a>    <span class="c">!RETURN</span>
-<a name="ln-1475"></a>    <span class="c">!END FUNCTION random_neg_binomial</span>
-<a name="ln-1476"></a>    <span class="c">!</span>
-<a name="ln-1477"></a>    <span class="c">!</span>
-<a name="ln-1478"></a>    <span class="c">!</span>
-<a name="ln-1479"></a>    <span class="c">!FUNCTION random_von_Mises(k, first) RESULT(fn_val)</span>
-<a name="ln-1480"></a>    <span class="c">!</span>
-<a name="ln-1481"></a>    <span class="c">!!     Algorithm VMD from:</span>
-<a name="ln-1482"></a>    <span class="c">!!     Dagpunar, J.S. (1990) `Sampling from the von Mises distribution via a</span>
-<a name="ln-1483"></a>    <span class="c">!!     comparison of random numbers&#39;, J. of Appl. Statist., 17, 165-168.</span>
+<a name="ln-1462"></a>    <span class="c">!s = zero</span>
+<a name="ln-1463"></a>    <span class="c">!uln = -LOG(vsmall)</span>
+<a name="ln-1464"></a>    <span class="c">!IF (st &gt; -uln/LOG(q)) THEN</span>
+<a name="ln-1465"></a>    <span class="c">!  WRITE(*, *) &#39; P IS TOO LARGE FOR THIS VALUE OF SK&#39;</span>
+<a name="ln-1466"></a>    <span class="c">!  STOP</span>
+<a name="ln-1467"></a>    <span class="c">!END IF</span>
+<a name="ln-1468"></a>    <span class="c">!</span>
+<a name="ln-1469"></a>    <span class="c">!y = q**st</span>
+<a name="ln-1470"></a>    <span class="c">!g = st</span>
+<a name="ln-1471"></a>    <span class="c">!CALL RANDOM_NUMBER(r)</span>
+<a name="ln-1472"></a>    <span class="c">!DO</span>
+<a name="ln-1473"></a>    <span class="c">!  IF (y &gt; r) EXIT</span>
+<a name="ln-1474"></a>    <span class="c">!  r = r - y</span>
+<a name="ln-1475"></a>    <span class="c">!  s = s + one</span>
+<a name="ln-1476"></a>    <span class="c">!  y = y*p*g/s</span>
+<a name="ln-1477"></a>    <span class="c">!  g = g + one</span>
+<a name="ln-1478"></a>    <span class="c">!END DO</span>
+<a name="ln-1479"></a>    <span class="c">!</span>
+<a name="ln-1480"></a>    <span class="c">!ival = x + s + half</span>
+<a name="ln-1481"></a>    <span class="c">!RETURN</span>
+<a name="ln-1482"></a>    <span class="c">!END FUNCTION random_neg_binomial</span>
+<a name="ln-1483"></a>    <span class="c">!</span>
 <a name="ln-1484"></a>    <span class="c">!</span>
-<a name="ln-1485"></a>    <span class="c">!!     Fortran 90 code by Alan Miller</span>
-<a name="ln-1486"></a>    <span class="c">!!     CSIRO Division of Mathematical &amp; Information Sciences</span>
+<a name="ln-1485"></a>    <span class="c">!</span>
+<a name="ln-1486"></a>    <span class="c">!FUNCTION random_von_Mises(k, first) RESULT(fn_val)</span>
 <a name="ln-1487"></a>    <span class="c">!</span>
-<a name="ln-1488"></a>    <span class="c">!!     Arguments:</span>
-<a name="ln-1489"></a>    <span class="c">!!     k (real)        parameter of the von Mises distribution.</span>
-<a name="ln-1490"></a>    <span class="c">!!     first (logical) set to .TRUE. the first time that the function</span>
-<a name="ln-1491"></a>    <span class="c">!!                     is called, or the first time with a new value</span>
-<a name="ln-1492"></a>    <span class="c">!!                     for k.   When first = .TRUE., the function sets</span>
-<a name="ln-1493"></a>    <span class="c">!!                     up starting values and may be very much slower.</span>
+<a name="ln-1488"></a>    <span class="c">!!     Algorithm VMD from:</span>
+<a name="ln-1489"></a>    <span class="c">!!     Dagpunar, J.S. (1990) `Sampling from the von Mises distribution via a</span>
+<a name="ln-1490"></a>    <span class="c">!!     comparison of random numbers&#39;, J. of Appl. Statist., 17, 165-168.</span>
+<a name="ln-1491"></a>    <span class="c">!</span>
+<a name="ln-1492"></a>    <span class="c">!!     Fortran 90 code by Alan Miller</span>
+<a name="ln-1493"></a>    <span class="c">!!     CSIRO Division of Mathematical &amp; Information Sciences</span>
 <a name="ln-1494"></a>    <span class="c">!</span>
-<a name="ln-1495"></a>    <span class="c">!REAL, INTENT(IN)     :: k</span>
-<a name="ln-1496"></a>    <span class="c">!LOGICAL, INTENT(IN)  :: first</span>
-<a name="ln-1497"></a>    <span class="c">!REAL                 :: fn_val</span>
-<a name="ln-1498"></a>    <span class="c">!</span>
-<a name="ln-1499"></a>    <span class="c">!!     Local variables</span>
-<a name="ln-1500"></a>    <span class="c">!</span>
-<a name="ln-1501"></a>    <span class="c">!INTEGER          :: j, n</span>
-<a name="ln-1502"></a>    <span class="c">!INTEGER, SAVE    :: nk</span>
-<a name="ln-1503"></a>    <span class="c">!REAL, PARAMETER  :: pi = 3.14159265</span>
-<a name="ln-1504"></a>    <span class="c">!REAL, SAVE       :: p(20), theta(0:20)</span>
-<a name="ln-1505"></a>    <span class="c">!REAL             :: sump, r, th, lambda, rlast</span>
-<a name="ln-1506"></a>    <span class="c">!REAL (dp)        :: dk</span>
+<a name="ln-1495"></a>    <span class="c">!!     Arguments:</span>
+<a name="ln-1496"></a>    <span class="c">!!     k (real)        parameter of the von Mises distribution.</span>
+<a name="ln-1497"></a>    <span class="c">!!     first (logical) set to .TRUE. the first time that the function</span>
+<a name="ln-1498"></a>    <span class="c">!!                     is called, or the first time with a new value</span>
+<a name="ln-1499"></a>    <span class="c">!!                     for k.   When first = .TRUE., the function sets</span>
+<a name="ln-1500"></a>    <span class="c">!!                     up starting values and may be very much slower.</span>
+<a name="ln-1501"></a>    <span class="c">!</span>
+<a name="ln-1502"></a>    <span class="c">!REAL, INTENT(IN)     :: k</span>
+<a name="ln-1503"></a>    <span class="c">!LOGICAL, INTENT(IN)  :: first</span>
+<a name="ln-1504"></a>    <span class="c">!REAL                 :: fn_val</span>
+<a name="ln-1505"></a>    <span class="c">!</span>
+<a name="ln-1506"></a>    <span class="c">!!     Local variables</span>
 <a name="ln-1507"></a>    <span class="c">!</span>
-<a name="ln-1508"></a>    <span class="c">!IF (first) THEN                        ! Initialization, if necessary</span>
-<a name="ln-1509"></a>    <span class="c">!  IF (k &lt; zero) THEN</span>
-<a name="ln-1510"></a>    <span class="c">!    WRITE(*, *) &#39;** Error: argument k for random_von_Mises = &#39;, k</span>
-<a name="ln-1511"></a>    <span class="c">!    RETURN</span>
-<a name="ln-1512"></a>    <span class="c">!  END IF</span>
-<a name="ln-1513"></a>    <span class="c">!</span>
-<a name="ln-1514"></a>    <span class="c">!  nk = k + k + one</span>
-<a name="ln-1515"></a>    <span class="c">!  IF (nk &gt; 20) THEN</span>
-<a name="ln-1516"></a>    <span class="c">!    WRITE(*, *) &#39;** Error: argument k for random_von_Mises = &#39;, k</span>
-<a name="ln-1517"></a>    <span class="c">!    RETURN</span>
-<a name="ln-1518"></a>    <span class="c">!  END IF</span>
-<a name="ln-1519"></a>    <span class="c">!</span>
-<a name="ln-1520"></a>    <span class="c">!  dk = k</span>
-<a name="ln-1521"></a>    <span class="c">!  theta(0) = zero</span>
-<a name="ln-1522"></a>    <span class="c">!  IF (k &gt; half) THEN</span>
-<a name="ln-1523"></a>    <span class="c">!</span>
-<a name="ln-1524"></a>    <span class="c">!!     Set up array p of probabilities.</span>
-<a name="ln-1525"></a>    <span class="c">!</span>
-<a name="ln-1526"></a>    <span class="c">!    sump = zero</span>
-<a name="ln-1527"></a>    <span class="c">!    DO j = 1, nk</span>
-<a name="ln-1528"></a>    <span class="c">!      IF (j &lt; nk) THEN</span>
-<a name="ln-1529"></a>    <span class="c">!        theta(j) = ACOS(one - j/k)</span>
-<a name="ln-1530"></a>    <span class="c">!      ELSE</span>
-<a name="ln-1531"></a>    <span class="c">!        theta(nk) = pi</span>
-<a name="ln-1532"></a>    <span class="c">!      END IF</span>
-<a name="ln-1533"></a>    <span class="c">!</span>
-<a name="ln-1534"></a>    <span class="c">!!     Numerical integration of e^[k.cos(x)] from theta(j-1) to theta(j)</span>
-<a name="ln-1535"></a>    <span class="c">!</span>
-<a name="ln-1536"></a>    <span class="c">!      CALL integral(theta(j-1), theta(j), p(j), dk)</span>
-<a name="ln-1537"></a>    <span class="c">!      sump = sump + p(j)</span>
-<a name="ln-1538"></a>    <span class="c">!    END DO</span>
-<a name="ln-1539"></a>    <span class="c">!    p(1:nk) = p(1:nk) / sump</span>
-<a name="ln-1540"></a>    <span class="c">!  ELSE</span>
-<a name="ln-1541"></a>    <span class="c">!    p(1) = one</span>
-<a name="ln-1542"></a>    <span class="c">!    theta(1) = pi</span>
-<a name="ln-1543"></a>    <span class="c">!  END IF                         ! if k &gt; 0.5</span>
-<a name="ln-1544"></a>    <span class="c">!END IF                           ! if first</span>
-<a name="ln-1545"></a>    <span class="c">!</span>
-<a name="ln-1546"></a>    <span class="c">!CALL RANDOM_NUMBER(r)</span>
-<a name="ln-1547"></a>    <span class="c">!DO j = 1, nk</span>
-<a name="ln-1548"></a>    <span class="c">!  r = r - p(j)</span>
-<a name="ln-1549"></a>    <span class="c">!  IF (r &lt; zero) EXIT</span>
-<a name="ln-1550"></a>    <span class="c">!END DO</span>
-<a name="ln-1551"></a>    <span class="c">!r = -r/p(j)</span>
+<a name="ln-1508"></a>    <span class="c">!INTEGER          :: j, n</span>
+<a name="ln-1509"></a>    <span class="c">!INTEGER, SAVE    :: nk</span>
+<a name="ln-1510"></a>    <span class="c">!REAL, PARAMETER  :: pi = 3.14159265</span>
+<a name="ln-1511"></a>    <span class="c">!REAL, SAVE       :: p(20), theta(0:20)</span>
+<a name="ln-1512"></a>    <span class="c">!REAL             :: sump, r, th, lambda, rlast</span>
+<a name="ln-1513"></a>    <span class="c">!REAL (dp)        :: dk</span>
+<a name="ln-1514"></a>    <span class="c">!</span>
+<a name="ln-1515"></a>    <span class="c">!IF (first) THEN                        ! Initialization, if necessary</span>
+<a name="ln-1516"></a>    <span class="c">!  IF (k &lt; zero) THEN</span>
+<a name="ln-1517"></a>    <span class="c">!    WRITE(*, *) &#39;** Error: argument k for random_von_Mises = &#39;, k</span>
+<a name="ln-1518"></a>    <span class="c">!    RETURN</span>
+<a name="ln-1519"></a>    <span class="c">!  END IF</span>
+<a name="ln-1520"></a>    <span class="c">!</span>
+<a name="ln-1521"></a>    <span class="c">!  nk = k + k + one</span>
+<a name="ln-1522"></a>    <span class="c">!  IF (nk &gt; 20) THEN</span>
+<a name="ln-1523"></a>    <span class="c">!    WRITE(*, *) &#39;** Error: argument k for random_von_Mises = &#39;, k</span>
+<a name="ln-1524"></a>    <span class="c">!    RETURN</span>
+<a name="ln-1525"></a>    <span class="c">!  END IF</span>
+<a name="ln-1526"></a>    <span class="c">!</span>
+<a name="ln-1527"></a>    <span class="c">!  dk = k</span>
+<a name="ln-1528"></a>    <span class="c">!  theta(0) = zero</span>
+<a name="ln-1529"></a>    <span class="c">!  IF (k &gt; half) THEN</span>
+<a name="ln-1530"></a>    <span class="c">!</span>
+<a name="ln-1531"></a>    <span class="c">!!     Set up array p of probabilities.</span>
+<a name="ln-1532"></a>    <span class="c">!</span>
+<a name="ln-1533"></a>    <span class="c">!    sump = zero</span>
+<a name="ln-1534"></a>    <span class="c">!    DO j = 1, nk</span>
+<a name="ln-1535"></a>    <span class="c">!      IF (j &lt; nk) THEN</span>
+<a name="ln-1536"></a>    <span class="c">!        theta(j) = ACOS(one - j/k)</span>
+<a name="ln-1537"></a>    <span class="c">!      ELSE</span>
+<a name="ln-1538"></a>    <span class="c">!        theta(nk) = pi</span>
+<a name="ln-1539"></a>    <span class="c">!      END IF</span>
+<a name="ln-1540"></a>    <span class="c">!</span>
+<a name="ln-1541"></a>    <span class="c">!!     Numerical integration of e^[k.cos(x)] from theta(j-1) to theta(j)</span>
+<a name="ln-1542"></a>    <span class="c">!</span>
+<a name="ln-1543"></a>    <span class="c">!      CALL integral(theta(j-1), theta(j), p(j), dk)</span>
+<a name="ln-1544"></a>    <span class="c">!      sump = sump + p(j)</span>
+<a name="ln-1545"></a>    <span class="c">!    END DO</span>
+<a name="ln-1546"></a>    <span class="c">!    p(1:nk) = p(1:nk) / sump</span>
+<a name="ln-1547"></a>    <span class="c">!  ELSE</span>
+<a name="ln-1548"></a>    <span class="c">!    p(1) = one</span>
+<a name="ln-1549"></a>    <span class="c">!    theta(1) = pi</span>
+<a name="ln-1550"></a>    <span class="c">!  END IF                         ! if k &gt; 0.5</span>
+<a name="ln-1551"></a>    <span class="c">!END IF                           ! if first</span>
 <a name="ln-1552"></a>    <span class="c">!</span>
-<a name="ln-1553"></a>    <span class="c">!DO</span>
-<a name="ln-1554"></a>    <span class="c">!  th = theta(j-1) + r*(theta(j) - theta(j-1))</span>
-<a name="ln-1555"></a>    <span class="c">!  lambda = k - j + one - k*COS(th)</span>
-<a name="ln-1556"></a>    <span class="c">!  n = 1</span>
-<a name="ln-1557"></a>    <span class="c">!  rlast = lambda</span>
-<a name="ln-1558"></a>    <span class="c">!</span>
-<a name="ln-1559"></a>    <span class="c">!  DO</span>
-<a name="ln-1560"></a>    <span class="c">!    CALL RANDOM_NUMBER(r)</span>
-<a name="ln-1561"></a>    <span class="c">!    IF (r &gt; rlast) EXIT</span>
-<a name="ln-1562"></a>    <span class="c">!    n = n + 1</span>
-<a name="ln-1563"></a>    <span class="c">!    rlast = r</span>
-<a name="ln-1564"></a>    <span class="c">!  END DO</span>
+<a name="ln-1553"></a>    <span class="c">!CALL RANDOM_NUMBER(r)</span>
+<a name="ln-1554"></a>    <span class="c">!DO j = 1, nk</span>
+<a name="ln-1555"></a>    <span class="c">!  r = r - p(j)</span>
+<a name="ln-1556"></a>    <span class="c">!  IF (r &lt; zero) EXIT</span>
+<a name="ln-1557"></a>    <span class="c">!END DO</span>
+<a name="ln-1558"></a>    <span class="c">!r = -r/p(j)</span>
+<a name="ln-1559"></a>    <span class="c">!</span>
+<a name="ln-1560"></a>    <span class="c">!DO</span>
+<a name="ln-1561"></a>    <span class="c">!  th = theta(j-1) + r*(theta(j) - theta(j-1))</span>
+<a name="ln-1562"></a>    <span class="c">!  lambda = k - j + one - k*COS(th)</span>
+<a name="ln-1563"></a>    <span class="c">!  n = 1</span>
+<a name="ln-1564"></a>    <span class="c">!  rlast = lambda</span>
 <a name="ln-1565"></a>    <span class="c">!</span>
-<a name="ln-1566"></a>    <span class="c">!  IF (n .NE. 2*(n/2)) EXIT         ! is n even?</span>
-<a name="ln-1567"></a>    <span class="c">!  CALL RANDOM_NUMBER(r)</span>
-<a name="ln-1568"></a>    <span class="c">!END DO</span>
-<a name="ln-1569"></a>    <span class="c">!</span>
-<a name="ln-1570"></a>    <span class="c">!fn_val = SIGN(th, (r - rlast)/(one - rlast) - half)</span>
-<a name="ln-1571"></a>    <span class="c">!RETURN</span>
-<a name="ln-1572"></a>    <span class="c">!END FUNCTION random_von_Mises</span>
-<a name="ln-1573"></a>    <span class="c">!</span>
-<a name="ln-1574"></a>    <span class="c">!</span>
-<a name="ln-1575"></a>    <span class="c">!</span>
-<a name="ln-1576"></a>    <span class="c">!SUBROUTINE integral(a, b, result, dk)</span>
-<a name="ln-1577"></a>    <span class="c">!</span>
-<a name="ln-1578"></a>    <span class="c">!!     Gaussian integration of exp(k.cosx) from a to b.</span>
-<a name="ln-1579"></a>    <span class="c">!</span>
-<a name="ln-1580"></a>    <span class="c">!REAL (dp), INTENT(IN) :: dk</span>
-<a name="ln-1581"></a>    <span class="c">!REAL, INTENT(IN)      :: a, b</span>
-<a name="ln-1582"></a>    <span class="c">!REAL, INTENT(OUT)     :: result</span>
-<a name="ln-1583"></a>    <span class="c">!</span>
-<a name="ln-1584"></a>    <span class="c">!!     Local variables</span>
-<a name="ln-1585"></a>    <span class="c">!</span>
-<a name="ln-1586"></a>    <span class="c">!REAL (dp)  :: xmid, range, x1, x2,                                    &amp;</span>
-<a name="ln-1587"></a>    <span class="c">!  x(3) = (/0.238619186083197_dp, 0.661209386466265_dp, 0.932469514203152_dp/), &amp;</span>
-<a name="ln-1588"></a>    <span class="c">!  w(3) = (/0.467913934572691_dp, 0.360761573048139_dp, 0.171324492379170_dp/)</span>
-<a name="ln-1589"></a>    <span class="c">!INTEGER    :: i</span>
+<a name="ln-1566"></a>    <span class="c">!  DO</span>
+<a name="ln-1567"></a>    <span class="c">!    CALL RANDOM_NUMBER(r)</span>
+<a name="ln-1568"></a>    <span class="c">!    IF (r &gt; rlast) EXIT</span>
+<a name="ln-1569"></a>    <span class="c">!    n = n + 1</span>
+<a name="ln-1570"></a>    <span class="c">!    rlast = r</span>
+<a name="ln-1571"></a>    <span class="c">!  END DO</span>
+<a name="ln-1572"></a>    <span class="c">!</span>
+<a name="ln-1573"></a>    <span class="c">!  IF (n .NE. 2*(n/2)) EXIT         ! is n even?</span>
+<a name="ln-1574"></a>    <span class="c">!  CALL RANDOM_NUMBER(r)</span>
+<a name="ln-1575"></a>    <span class="c">!END DO</span>
+<a name="ln-1576"></a>    <span class="c">!</span>
+<a name="ln-1577"></a>    <span class="c">!fn_val = SIGN(th, (r - rlast)/(one - rlast) - half)</span>
+<a name="ln-1578"></a>    <span class="c">!RETURN</span>
+<a name="ln-1579"></a>    <span class="c">!END FUNCTION random_von_Mises</span>
+<a name="ln-1580"></a>    <span class="c">!</span>
+<a name="ln-1581"></a>    <span class="c">!</span>
+<a name="ln-1582"></a>    <span class="c">!</span>
+<a name="ln-1583"></a>    <span class="c">!SUBROUTINE integral(a, b, result, dk)</span>
+<a name="ln-1584"></a>    <span class="c">!</span>
+<a name="ln-1585"></a>    <span class="c">!!     Gaussian integration of exp(k.cosx) from a to b.</span>
+<a name="ln-1586"></a>    <span class="c">!</span>
+<a name="ln-1587"></a>    <span class="c">!REAL (dp), INTENT(IN) :: dk</span>
+<a name="ln-1588"></a>    <span class="c">!REAL, INTENT(IN)      :: a, b</span>
+<a name="ln-1589"></a>    <span class="c">!REAL, INTENT(OUT)     :: result</span>
 <a name="ln-1590"></a>    <span class="c">!</span>
-<a name="ln-1591"></a>    <span class="c">!xmid = (a + b)/2._dp</span>
-<a name="ln-1592"></a>    <span class="c">!range = (b - a)/2._dp</span>
-<a name="ln-1593"></a>    <span class="c">!</span>
-<a name="ln-1594"></a>    <span class="c">!result = 0._dp</span>
-<a name="ln-1595"></a>    <span class="c">!DO i = 1, 3</span>
-<a name="ln-1596"></a>    <span class="c">!  x1 = xmid + x(i)*range</span>
-<a name="ln-1597"></a>    <span class="c">!  x2 = xmid - x(i)*range</span>
-<a name="ln-1598"></a>    <span class="c">!  result = result + w(i)*(EXP(dk*COS(x1)) + EXP(dk*COS(x2)))</span>
-<a name="ln-1599"></a>    <span class="c">!END DO</span>
+<a name="ln-1591"></a>    <span class="c">!!     Local variables</span>
+<a name="ln-1592"></a>    <span class="c">!</span>
+<a name="ln-1593"></a>    <span class="c">!REAL (dp)  :: xmid, range, x1, x2,                                    &amp;</span>
+<a name="ln-1594"></a>    <span class="c">!  x(3) = (/0.238619186083197_dp, 0.661209386466265_dp, 0.932469514203152_dp/), &amp;</span>
+<a name="ln-1595"></a>    <span class="c">!  w(3) = (/0.467913934572691_dp, 0.360761573048139_dp, 0.171324492379170_dp/)</span>
+<a name="ln-1596"></a>    <span class="c">!INTEGER    :: i</span>
+<a name="ln-1597"></a>    <span class="c">!</span>
+<a name="ln-1598"></a>    <span class="c">!xmid = (a + b)/2._dp</span>
+<a name="ln-1599"></a>    <span class="c">!range = (b - a)/2._dp</span>
 <a name="ln-1600"></a>    <span class="c">!</span>
-<a name="ln-1601"></a>    <span class="c">!result = result * range</span>
-<a name="ln-1602"></a>    <span class="c">!RETURN</span>
-<a name="ln-1603"></a>    <span class="c">!END SUBROUTINE integral</span>
-<a name="ln-1604"></a>    <span class="c">!</span>
-<a name="ln-1605"></a>    <span class="c">!</span>
-<a name="ln-1606"></a>    <span class="c">!</span>
-<a name="ln-1607"></a>    <span class="c">!FUNCTION random_Cauchy() RESULT(fn_val)</span>
-<a name="ln-1608"></a>    <span class="c">!</span>
-<a name="ln-1609"></a>    <span class="c">!!     Generate a random deviate from the standard Cauchy distribution</span>
-<a name="ln-1610"></a>    <span class="c">!</span>
-<a name="ln-1611"></a>    <span class="c">!REAL     :: fn_val</span>
+<a name="ln-1601"></a>    <span class="c">!result = 0._dp</span>
+<a name="ln-1602"></a>    <span class="c">!DO i = 1, 3</span>
+<a name="ln-1603"></a>    <span class="c">!  x1 = xmid + x(i)*range</span>
+<a name="ln-1604"></a>    <span class="c">!  x2 = xmid - x(i)*range</span>
+<a name="ln-1605"></a>    <span class="c">!  result = result + w(i)*(EXP(dk*COS(x1)) + EXP(dk*COS(x2)))</span>
+<a name="ln-1606"></a>    <span class="c">!END DO</span>
+<a name="ln-1607"></a>    <span class="c">!</span>
+<a name="ln-1608"></a>    <span class="c">!result = result * range</span>
+<a name="ln-1609"></a>    <span class="c">!RETURN</span>
+<a name="ln-1610"></a>    <span class="c">!END SUBROUTINE integral</span>
+<a name="ln-1611"></a>    <span class="c">!</span>
 <a name="ln-1612"></a>    <span class="c">!</span>
-<a name="ln-1613"></a>    <span class="c">!!     Local variables</span>
-<a name="ln-1614"></a>    <span class="c">!REAL     :: v(2)</span>
+<a name="ln-1613"></a>    <span class="c">!</span>
+<a name="ln-1614"></a>    <span class="c">!FUNCTION random_Cauchy() RESULT(fn_val)</span>
 <a name="ln-1615"></a>    <span class="c">!</span>
-<a name="ln-1616"></a>    <span class="c">!DO</span>
-<a name="ln-1617"></a>    <span class="c">!  CALL RANDOM_NUMBER(v)</span>
-<a name="ln-1618"></a>    <span class="c">!  v = two*(v - half)</span>
-<a name="ln-1619"></a>    <span class="c">!  IF (ABS(v(2)) &lt; vsmall) CYCLE               ! Test for zero</span>
-<a name="ln-1620"></a>    <span class="c">!  IF (v(1)**2 + v(2)**2 &lt; one) EXIT</span>
-<a name="ln-1621"></a>    <span class="c">!END DO</span>
-<a name="ln-1622"></a>    <span class="c">!fn_val = v(1) / v(2)</span>
-<a name="ln-1623"></a>    <span class="c">!</span>
-<a name="ln-1624"></a>    <span class="c">!RETURN</span>
-<a name="ln-1625"></a>    <span class="c">!END FUNCTION random_Cauchy</span>
-<a name="ln-1626"></a>
-<a name="ln-1627"></a>      <span class="k">end module</span>
+<a name="ln-1616"></a>    <span class="c">!!     Generate a random deviate from the standard Cauchy distribution</span>
+<a name="ln-1617"></a>    <span class="c">!</span>
+<a name="ln-1618"></a>    <span class="c">!REAL     :: fn_val</span>
+<a name="ln-1619"></a>    <span class="c">!</span>
+<a name="ln-1620"></a>    <span class="c">!!     Local variables</span>
+<a name="ln-1621"></a>    <span class="c">!REAL     :: v(2)</span>
+<a name="ln-1622"></a>    <span class="c">!</span>
+<a name="ln-1623"></a>    <span class="c">!DO</span>
+<a name="ln-1624"></a>    <span class="c">!  CALL RANDOM_NUMBER(v)</span>
+<a name="ln-1625"></a>    <span class="c">!  v = two*(v - half)</span>
+<a name="ln-1626"></a>    <span class="c">!  IF (ABS(v(2)) &lt; vsmall) CYCLE               ! Test for zero</span>
+<a name="ln-1627"></a>    <span class="c">!  IF (v(1)**2 + v(2)**2 &lt; one) EXIT</span>
+<a name="ln-1628"></a>    <span class="c">!END DO</span>
+<a name="ln-1629"></a>    <span class="c">!fn_val = v(1) / v(2)</span>
+<a name="ln-1630"></a>    <span class="c">!</span>
+<a name="ln-1631"></a>    <span class="c">!RETURN</span>
+<a name="ln-1632"></a>    <span class="c">!END FUNCTION random_Cauchy</span>
+<a name="ln-1633"></a>
+<a name="ln-1634"></a>      <span class="k">end module</span>
 </pre></div>
 
     </section>
@@ -1968,8 +1973,6 @@
     <div class="list-group">
       
       <a class="list-group-item" href="../sourcefile/m_allocate.f90.html">m_allocate.f90</a>
-      
-      <a class="list-group-item" href="../sourcefile/m_argdynamicarray.f90.html">m_argDynamicArray.f90</a>
       
       <a class="list-group-item" href="../sourcefile/m_array1d.f90.html">m_array1D.f90</a>
       
@@ -2059,7 +2062,8 @@
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2017 </p></div>
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 
+                                          </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
@@ -2090,12 +2094,13 @@
       MathJax.Hub.Config({
         TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
         jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
-        'HTML-CSS': { 
-           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
-        }
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
       });
     </script>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    
   </body>
 </html>

@@ -17,6 +17,7 @@
     <link href="../css/font-awesome.min.css" rel="stylesheet">
     <link href="../css/local.css" rel="stylesheet">
     
+    
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -26,8 +27,6 @@
     
     <script src="../js/jquery-2.1.3.min.js"></script>
     <script src="../js/svg-pan-zoom.min.js"></script>
-
-    
 
   </head>
 
@@ -112,7 +111,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 1.6% of total for modules and submodules.">106 statements</a>
+	  title=" 1.8% of total for modules and submodules.">143 statements</a>
      </li> 
      
      
@@ -204,6 +203,8 @@
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
       
+      <a class="list-group-item" href="../module/m_dargdynamicarray.html">m_dArgDynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_ddynamicarray.html">m_dDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_deallocate.html">m_deallocate</a>
@@ -213,6 +214,10 @@
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_iargdynamicarray.html">m_iArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_idargdynamicarray.html">m_idArgDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_iddynamicarray.html">m_idDynamicArray</a>
       
@@ -276,76 +281,194 @@
     </div>
     
     <div class="col-md-9" id='text'>
-      
-    
-  
-    <ul class="list-inline">
-      <li><h4>Uses:</h4></li>
-      
-      <li><a href='../module/variablekind.html'>variableKind</a></li>
-      
-      <li><a href='../module/m_errors.html'>m_errors</a></li>
-      
-      <li><a href='../module/m_allocate.html'>m_allocate</a></li>
-      
-      <li><a href='../module/m_deallocate.html'>m_deallocate</a></li>
-      
-      <li><a href='../module/m_array1d.html'>m_array1D</a></li>
-      
-      <li><a href='../module/m_random.html'>m_random</a></li>
-      
-      <li><a href='../module/m_select.html'>m_select</a></li>
-      
-      <li><a href='../module/m_maths.html'>m_maths</a></li>
-      
-    </ul>
-    
-    
+    <h1>KdTree</h1>
+<p>Build and search k-dimensional trees in 2, 3, and K dimensions.
+This KdTree is balanced, in that splits are made along the dimension with the largest variance. 
+A quickselect is used to quickly find the median in each splitting dimension as the splitting value.
+The ends of each branch contain multiple leaves to prevent tail recursion.
+An in-depth example is given below on how to use all the aspects of the KdTree and KdTreeSearch classes.</p>
+<p>Important: Once a tree has been built with a set, do not change their values.  The KdTree does NOT make
+a copy of the input values used to build it.
+Important: Generating the tree does not modify the values used to build it.</p>
+<h2>Building the KdTree</h2>
+<p>The KdTree object can be initialized on assignment by entering point co-ordinates.
+To build a 2-D tree, you can use two 1-D arrays as the x, y, co-ordinates, and optionally a third 1-D array
+to build a 3-D tree.</p>
+<div class="codehilite"><pre><span></span><span class="k">use </span><span class="n">m_KdTree</span>
+<span class="k">type</span><span class="p">(</span><span class="n">KdTree</span><span class="p">)</span> <span class="kd">::</span> <span class="n">tree</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">KdTree</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">z</span><span class="p">])</span>
+</pre></div>
 
-    
-    <p>Module contains classes to create K-dimensional trees in 2, 3, and N dimensions.</p>
-<p>This KdTree is balanced, in that splits are made along the dimension with the largest variance. A quickselect is used to find the median in that split dimension as the splitting value.</p>
-<p>After the tree is initialized, for a given set of points, a search class can be used to perform nearest neighbour, range search, k nearest neighbours etc.
-The searches are thread safe and can be used in a parallel region if multiple are needed.</p>
-<p>Once a tree is generated, the point coordinates should not be changed, otherwise the tree will no longer be correct.</p>
-<p>Generating the tree does not modify the incoming point coordinates.</p>
-<p>Example</p>
+
+<p>Or you can build a k-dimensional tree using a 2-D array, where the first dimension is the number of items,
+and the second is the number of dimensions, k.</p>
+<div class="codehilite"><pre><span></span><span class="k">use </span><span class="n">m_KdTree</span>
+<span class="k">type</span><span class="p">(</span><span class="n">KdTree</span><span class="p">)</span> <span class="kd">::</span> <span class="n">tree</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">KdTree</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>Querying the KdTree</h2>
+<p>After the tree is initialized, a search class can be used to perform search for the nearest neighbour, 
+the k nearest neighbours, all neighbours within a radius, k nearest within a radius, and items within 
+upper and lower bounds in each dimension.
+The searches are thread safe and can be used in a parallel region.</p>
+<p>After the KdTree is built, various queries can be carried out.  Searches that return multiple values
+are called using the argDynamicArray within coretran. The <a href="../module/m_dargdynamicarray.html">m_dArgDynamicArray</a> contains an integer index
+containing the indices into the co-ordinates that are closest, and a double precision that contains the
+distance from the query point to those points.</p>
+<div class="codehilite"><pre><span></span><span class="k">use </span><span class="n">m_dArgDynamicArray</span>
+<span class="k">use </span><span class="n">m_KdTree</span>
+<span class="k">type</span><span class="p">(</span><span class="n">KdTreeSearch</span><span class="p">)</span> <span class="kd">::</span> <span class="n">search</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
+<span class="k">type</span><span class="p">(</span><span class="n">dArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">da</span>
+<span class="c">! Nearest Neighbour to (0, 0), for 3D add z, and zQuery</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="nb">nearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="p">[</span><span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">])</span>
+<span class="c">! K-Nearest to (0, 0), for 3D add z, and zQuery</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="p">[</span><span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">],</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="c">! Search for all points within a given distance</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="p">[</span><span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">],</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">1</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="c">! Search for all k points within a given distance</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="p">[</span><span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">],</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">1</span><span class="mf">0.d0</span><span class="p">)</span>
+</pre></div>
+
+
+<h2>Full Example</h2>
 <div class="codehilite"><pre><span></span><span class="k">program </span><span class="n">kdTree_test</span>
-<span class="k">use </span><span class="n">variableKind</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">r64</span>
+<span class="k">use </span><span class="n">variableKind</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">i32</span><span class="p">,</span> <span class="n">r64</span>
 <span class="k">use </span><span class="n">m_allocate</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="k">allocate</span>
 <span class="k">use </span><span class="n">m_deallocate</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="k">deallocate</span>
 <span class="k">use </span><span class="n">m_random</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">rngNormal</span>
 <span class="k">use </span><span class="n">m_KdTree</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">KdTree</span><span class="p">,</span> <span class="n">KdTreeSearch</span>
+<span class="k">use </span><span class="n">m_dArgDynamicArray</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">dArgDynamicArray</span>
 <span class="k">use </span><span class="n">m_string</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">str</span>
 <span class="k">implicit none</span>
-<span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(:),</span> <span class="n">y</span><span class="p">(:),</span> <span class="n">z</span><span class="p">(:)</span>
-<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">N</span>
+<span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">x</span><span class="p">(:),</span> <span class="n">y</span><span class="p">(:),</span> <span class="n">z</span><span class="p">(:),</span> <span class="n">D</span><span class="p">(:,:)</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ia</span><span class="p">,</span> <span class="n">N</span>
 <span class="k">type</span><span class="p">(</span><span class="n">KdTree</span><span class="p">)</span> <span class="kd">::</span> <span class="n">tree</span>
 <span class="k">type</span><span class="p">(</span><span class="n">KdSearch</span><span class="p">)</span> <span class="kd">::</span> <span class="n">search</span>
+<span class="k">type</span><span class="p">(</span><span class="n">dArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">da</span>
 
+<span class="c">!====================================================================!</span>
+<span class="c">! 2D KdTree example</span>
+<span class="c">!====================================================================!</span>
+<span class="c">! Create some random points in space</span>
 <span class="n">N</span> <span class="o">=</span> <span class="mi">1</span><span class="n">d6</span>
 <span class="k">call allocate</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
 <span class="k">call allocate</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
 <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<span class="c">! Build the tree</span>
 <span class="n">tree</span> <span class="o">=</span> <span class="n">KdTree</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
-<span class="n">ia</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xQuery</span><span class="o">=</span><span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span><span class="o">=</span><span class="mf">0.d0</span><span class="p">)</span>
-<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(3a)&#39;</span><span class="p">)</span><span class="s1">&#39;Nearest point to the query location: &#39;</span><span class="p">,</span> <span class="n">str</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">ia</span><span class="p">)),</span> <span class="n">str</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span>
+<span class="c">! Get the nearest neighbour to (0, 0)</span>
+<span class="n">ia</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Nearest point to the query location: &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span>
+<span class="c">! Get the 10 nearest neighbours to the query</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;The 10 nearest neighbour indices and distances:&#39;</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="c">! Find all the points within a 1.d0</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mf">1.d0</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;The points within a distance of 1.d0&#39;</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="k">Deallocate </span><span class="nb">any </span><span class="n">tree</span> <span class="k">memory</span>
 <span class="k">call </span><span class="n">tree</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
 
+<span class="c">!====================================================================!</span>
+<span class="c">! 3D KdTree example</span>
+<span class="c">!====================================================================!</span>
+<span class="c">! Create the third dimension</span>
 <span class="k">call allocate</span><span class="p">(</span><span class="n">z</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
 <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="c">! Build the tree</span>
 <span class="n">tree</span> <span class="o">=</span> <span class="n">KdTree</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
-<span class="n">ia</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">xQuery</span><span class="o">=</span><span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span><span class="o">=</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="c">! Get the nearest neighbour to (0, 0, 0)</span>
+<span class="n">ia</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">)</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;Nearest point to the query location: &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">z</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span>
+<span class="c">! Get the 10 nearest neighbours to the query</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;The 10 nearest neighbour indices and distances:&#39;</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="c">! Find all the points within a 1.d0</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mf">1.d0</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;The points within a distance of 1.d0&#39;</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="k">Deallocate </span><span class="nb">any </span><span class="n">tree</span> <span class="k">memory</span>
+<span class="k">call </span><span class="n">tree</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
+
+<span class="c">!====================================================================!</span>
+<span class="c">! KD KdTree example</span>
+<span class="c">!====================================================================!</span>
+<span class="k">call allocate</span><span class="p">(</span><span class="n">D</span><span class="p">,</span> <span class="p">[</span><span class="n">N</span><span class="p">,</span> <span class="mi">3</span><span class="p">])</span>
+<span class="n">D</span><span class="p">(:,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">x</span>
+<span class="n">D</span><span class="p">(:,</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="n">y</span>
+<span class="n">D</span><span class="p">(:,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="n">z</span>
+<span class="c">! Build the tree</span>
+<span class="n">tree</span> <span class="o">=</span> <span class="n">KdTree</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
+<span class="c">! Get the nearest neighbour to (0, 0, 0)</span>
+<span class="n">ia</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.d0</span><span class="p">,</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="mf">0.d0</span><span class="p">])</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;Nearest point to the query location: &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">D</span><span class="p">(</span><span class="n">ia</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">D</span><span class="p">(</span><span class="n">ia</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">D</span><span class="p">(</span><span class="n">ia</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
+<span class="c">! Get the 10 nearest neighbours to the query</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.d0</span><span class="p">,</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="mf">0.d0</span><span class="p">],</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;The 10 nearest neighbour indices and distances:&#39;</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="c">! Find all the points within a 1.d0</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span>  <span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.d0</span><span class="p">,</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="mf">0.d0</span><span class="p">],</span> <span class="n">radius</span> <span class="o">=</span> <span class="mf">1.d0</span><span class="p">)</span>
+<span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;The points within a distance of 1.d0&#39;</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
+<span class="k">Deallocate </span><span class="nb">any </span><span class="n">tree</span> <span class="k">memory</span>
 <span class="k">call </span><span class="n">tree</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
 <span class="k">call deallocate</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">call deallocate</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
 <span class="k">call deallocate</span><span class="p">(</span><span class="n">z</span><span class="p">)</span>
+<span class="k">call deallocate</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
 <span class="k">end program</span>
 </pre></div>
-    <br>
+      <br>
     
+  
+    <div class="panel panel-default">
+      <div class="panel-heading">
+	<h3 class="panel-title">Uses</h3>
+      </div>
+      <ul class="list-group">
+      
+      <li class="list-group-item">
+	<ul class="list-inline">
+	  
+	  <li><a href='../module/variablekind.html'>variableKind</a></li>
+	  
+	  <li><a href='../module/m_errors.html'>m_errors</a></li>
+	  
+	  <li><a href='../module/m_allocate.html'>m_allocate</a></li>
+	  
+	  <li><a href='../module/m_deallocate.html'>m_deallocate</a></li>
+	  
+	  <li><a href='../module/m_array1d.html'>m_array1D</a></li>
+	  
+	  <li><a href='../module/m_random.html'>m_random</a></li>
+	  
+	  <li><a href='../module/m_select.html'>m_select</a></li>
+	  
+	  <li><a href='../module/m_maths.html'>m_maths</a></li>
+	  
+	  <li><a href='../module/m_dargdynamicarray.html'>m_dArgDynamicArray</a></li>
+	  
+	  <li><a href='../module/m_strings.html'>m_strings</a></li>
+	  
+	</ul>
+      </li>
+      
+      
+      
+      </ul>
+    </div>
+    
+
+    
+    
+
+    <br>
 
     <section class="visible-xs visible-sm hidden-md">
       
@@ -702,7 +825,7 @@ public function initKD_KdTree(D) result(this)
       <table class="table table-striped varlist">
       <tbody>
       
-       <tr><td>procedure, public :: <strong><a href='../type/kdtree.html#boundprocedure-deallocate%7E6'>deallocate</a></strong>  => deallocate_KdTree </td>
+       <tr><td>procedure, public :: <strong><a href='../type/kdtree.html#boundprocedure-deallocate%7E9'>deallocate</a></strong>  => deallocate_KdTree </td>
        <td><p>kdTree%deallocate() - deallocate the recursive pointers</p></td></tr>
       
        </tbody>
@@ -730,8 +853,11 @@ public function initKD_KdTree(D) result(this)
       <table class="table table-striped varlist">
       <tbody>
       
+       <tr><td>generic, public :: <strong><a href='../type/kdtreesearch.html#boundprocedure-nearest'>nearest</a></strong>  => nearest2D, nearest3D, nearestKD </td>
+       <td><p>KdTreeSearch%nearest() - Perform a nearest neighbour search</p></td></tr>
+      
        <tr><td>generic, public :: <strong><a href='../type/kdtreesearch.html#boundprocedure-knearest'>kNearest</a></strong>  => kNearest2D, kNearest3D, kNearestKD </td>
-       <td><p>KdTreeSearch%kNearest() - Perform a k nearest neighbour search</p></td></tr>
+       <td><p>KdTreeSearch%kNearest() - Perform a k nearest neighbour search or a radius search.</p></td></tr>
       
        </tbody>
        </table>
@@ -771,6 +897,8 @@ public function initKD_KdTree(D) result(this)
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
       
+      <a class="list-group-item" href="../module/m_dargdynamicarray.html">m_dArgDynamicArray</a>
+      
       <a class="list-group-item" href="../module/m_ddynamicarray.html">m_dDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_deallocate.html">m_deallocate</a>
@@ -780,6 +908,10 @@ public function initKD_KdTree(D) result(this)
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_iargdynamicarray.html">m_iArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_idargdynamicarray.html">m_idArgDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_iddynamicarray.html">m_idDynamicArray</a>
       
@@ -845,7 +977,8 @@ public function initKD_KdTree(D) result(this)
     <footer>
       <div class="container">
       <div class="row">
-        <div class="col-xs-6 col-md-4"><p>&copy; 2017 </p></div>
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 
+                                          </p></div>
         <div class="col-xs-6 col-md-4 col-md-push-4">
           <p class="text-right">
             Documentation generated by 
@@ -876,12 +1009,13 @@ public function initKD_KdTree(D) result(this)
       MathJax.Hub.Config({
         TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
         jax: ['input/TeX','input/MathML','output/HTML-CSS'],
-        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
-        'HTML-CSS': { 
-           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
-        }
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']
       });
     </script>
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    
+    
+    
   </body>
 </html>
