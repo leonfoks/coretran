@@ -87,6 +87,10 @@ contains
     !! iArgDynamicArray%insertSorted() - Insert a value into a sorted dynamic array.
   procedure, public :: insertSortedUnique => insertSortedUnique_iArgDynamicArray
     !! iArgDynamicArray%insertSortedUnique() - Inserts only unique numbers into a dynamic array.
+  procedure, public :: isEmpty => isEmpty_iArgDynamicArray
+    !! iArgDynamicArray%isEmpty() - True if the array is empty.
+  procedure, public :: isFilled => isFilled_iArgDynamicArray
+    !! iArgDynamicArray%isFilled() - True if the allocated memory has been filled.
   procedure, public :: locationOf => locationOf_iArgDynamicArray
     !! iArgDynamicArray%locationOf() - Get the location of a value in a sorted dynamic array.
   procedure, public :: prepend => prepend_iArgDynamicArray
@@ -253,6 +257,28 @@ contains
 
   end subroutine
   !====================================================================!
+
+  !====================================================================!
+  function isEmpty_iArgDynamicArray(this) result(yes)
+    !! Overloaded type bound procedure iArgDynamicArray%isEmpty()
+  !====================================================================!
+  class(iArgDynamicArray) :: this
+  logical :: yes
+    !! Array is empty
+  yes = this%v%isEmpty()
+  end function
+  !====================================================================!
+
+  !====================================================================!
+  function isFilled_iArgDynamicArray(this) result(yes)
+    !! Overloaded type bound procedure iArgDynamicArray%isFilled()
+  !====================================================================!
+  class(iArgDynamicArray) :: this
+  logical :: yes
+    !! Array is filled
+  yes = this%v%isFilled()
+  end function
+  !====================================================================!  
 
   !====================================================================!
   function locationOf_iArgDynamicArray(this, val) result(i)

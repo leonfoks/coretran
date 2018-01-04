@@ -90,6 +90,8 @@ contains
     !! dDynamicArray%insertSortedUnique() - Inserts only unique numbers into a dynamic array.
   procedure, public :: isEmpty => isEmpty_dDynamicArray
     !! dDynamicArray%isEmpty() - True if the array is empty.
+  procedure, public :: isFilled => isFilled_dDynamicArray
+    !! dDynamicArray%isFilled() - True if the array is filled.
   procedure, public :: locationOf => locationOf_dDynamicArray
     !! dDynamicArray%locationOf() - Get the location of a value in a sorted dynamic array.
   procedure, public :: prepend => prepend_dDynamicArray
@@ -238,7 +240,7 @@ contains
   else
     ! Expand the vector if needed
     if (N < this%N + 1) call this%reallocate(2 * N)
-    do j = this%N + 1, i + 1, -1
+    do j = this%N+1, i+1, -1
       this%values(j) = this%values(j-1)
     enddo
     this%N = this%N + 1
@@ -285,6 +287,16 @@ contains
   logical :: yes
     !! Array is empty
   yes = (this%N == 0)
+  end function
+  !====================================================================!
+  !====================================================================!
+  function isFilled_dDynamicArray(this) result(yes)
+    !! Overloaded type bound procedure dDynamicArray%isFilled()
+  !====================================================================!
+  class(dDynamicArray) :: this
+  logical :: yes
+    !! Array is filled
+  yes = (this%N == size(this%values))
   end function
   !====================================================================!
   !====================================================================!

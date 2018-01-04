@@ -86,6 +86,10 @@ contains
     !! rDynamicArray%insertSorted() - Insert a value into a sorted dynamic array.
   procedure, public :: insertSortedUnique => insertSortedUnique_rDynamicArray
     !! rDynamicArray%insertSortedUnique() - Inserts only unique numbers into a dynamic array.
+  procedure, public :: isEmpty => isEmpty_rDynamicArray
+    !! rDynamicArray%isEmpty() - True if the array is empty.
+  procedure, public :: isFilled => isFilled_rDynamicArray
+    !! rDynamicArray%isFilled() - True if the array is filled.
   procedure, public :: locationOf => locationOf_rDynamicArray
     !! rDynamicArray%locationOf() - Get the location of a value in a sorted dynamic array.
   procedure, public :: prepend => prepend_rDynamicArray
@@ -287,6 +291,26 @@ contains
     call insertAt__rDynamicArray(this,iSearch(3),val)
   endif
   end subroutine
+  !====================================================================!
+  !====================================================================!
+  function isEmpty_rDynamicArray(this) result(yes)
+    !! Overloaded type bound procedure rDynamicArray%isEmpty()
+  !====================================================================!
+  class(rDynamicArray) :: this
+  logical :: yes
+    !! Array is empty
+  yes = (this%N == 0)
+  end function
+  !====================================================================!
+  !====================================================================!
+  function isFilled_rDynamicArray(this) result(yes)
+    !! Overloaded type bound procedure rDynamicArray%isFilled()
+  !====================================================================!
+  class(rDynamicArray) :: this
+  logical :: yes
+    !! Array is filled
+  yes = (this%N == size(this%values))
+  end function
   !====================================================================!
   !====================================================================!
   function locationOf_rDynamicArray(this, val) result(i)

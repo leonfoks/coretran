@@ -91,6 +91,8 @@ contains
     !! dArgDynamicArray%insertSortedUnique() - Inserts only unique numbers into a dynamic array.
   procedure, public :: isEmpty => isEmpty_dArgDynamicArray
     !! dArgDynamicArray%isEmpty() - True if the array is empty.
+  procedure, public :: isFilled => isFilled_dArgDynamicArray
+    !! dArgDynamicArray%isFilled() - True if the allocated memory has been filled.
   procedure, public :: locationOf => locationOf_dArgDynamicArray
     !! dArgDynamicArray%locationOf() - Get the location of a value in a sorted dynamic array.
   procedure, public :: prepend => prepend_dArgDynamicArray
@@ -271,12 +273,23 @@ contains
 
   !====================================================================!
   function isEmpty_dArgDynamicArray(this) result(yes)
-    !! Overloaded type bound procedure dDynamicArray%deallocate()
+    !! Overloaded type bound procedure dArgDynamicArray%isEmpty()
   !====================================================================!
   class(dArgDynamicArray) :: this
   logical :: yes
     !! Array is empty
   yes = this%v%isEmpty()
+  end function
+  !====================================================================!
+
+  !====================================================================!
+  function isFilled_dArgDynamicArray(this) result(yes)
+    !! Overloaded type bound procedure dArgDynamicArray%isFilled()
+  !====================================================================!
+  class(dArgDynamicArray) :: this
+  logical :: yes
+    !! Array is filled
+  yes = this%v%isFilled()
   end function
   !====================================================================!
 

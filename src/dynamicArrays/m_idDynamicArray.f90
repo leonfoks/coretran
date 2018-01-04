@@ -88,6 +88,10 @@ contains
     !! idDynamicArray%insertSorted() - Insert a value into a sorted dynamic array.
   procedure, public :: insertSortedUnique => insertSortedUnique_idDynamicArray
     !! idDynamicArray%insertSortedUnique() - Inserts only unique numbers into a dynamic array.
+  procedure, public :: isEmpty => isEmpty_idDynamicArray
+    !! idDynamicArray%isEmpty() - True if the array is empty.
+  procedure, public :: isFilled => isFilled_idDynamicArray
+    !! idDynamicArray%isFilled() - True if the array is filled.
   procedure, public :: locationOf => locationOf_idDynamicArray
     !! idDynamicArray%locationOf() - Get the location of a value in a sorted dynamic array.
   procedure, public :: prepend => prepend_idDynamicArray
@@ -285,6 +289,26 @@ contains
     call insertAt__idDynamicArray(this, iSearch(3), val)
   endif
   end subroutine
+  !====================================================================!
+  !====================================================================!
+  function isEmpty_idDynamicArray(this) result(yes)
+    !! Overloaded type bound procedure idDynamicArray%isEmpty()
+  !====================================================================!
+  class(idDynamicArray) :: this
+  logical :: yes
+    !! Array is empty
+  yes = (this%N == 0)
+  end function
+  !====================================================================!
+  !====================================================================!
+  function isFilled_idDynamicArray(this) result(yes)
+    !! Overloaded type bound procedure idDynamicArray%isFilled()
+  !====================================================================!
+  class(idDynamicArray) :: this
+  logical :: yes
+    !! Array is filled
+  yes = (this%N == size(this%values))
+  end function
   !====================================================================!
   !====================================================================!
   function locationOf_idDynamicArray(this, val) result(i)
