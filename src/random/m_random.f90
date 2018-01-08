@@ -410,9 +410,10 @@ module m_random
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine random_test(test)
+  subroutine random_test(test, fixedSeed)
   !====================================================================!
   class(tester) :: test
+  logical :: fixedSeed
   integer(i32) :: ia
   integer(i32), allocatable :: ia1D(:)
   real(r64) :: a, a1D(10), a2D(10, 10)
@@ -424,12 +425,18 @@ module m_random
 !
 !  write(*,1) 'Setting the random seed'
 !
-!  !call setRNG(.true.)
+  if (fixedSeed) then
+    call random_seed(size = ia)
+    call allocate(ia1D, ia)
+    !ia1D = [-370590921, -2121812073]
+    ia1D = [-330169315, -420956545]
+    call setRNG(ia1D)
+  else
+    call setRNG(.true.)
+  endif
+  
 !  !call setRNG([546420601, 1302718556, 802583095, 136684118, 1163051410, 592779069, 660876855, 767615536, 1788597594, 775517554, 657867655, 1334969129])
-  call random_seed(size = ia)
-  call allocate(ia1D, ia)
-  ia1D = 546420601
-  call setRNG(ia1D)
+  
   call allocate(ia1D, 3)
   ia=1
   call rngInteger(ia1D,ia)
