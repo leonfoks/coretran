@@ -679,8 +679,6 @@ contains
   class(dArgDynamicArray) :: kNearest
 
   real(r64) :: query, distance
-  integer(i32) :: i, iTmp
-
 
   ! If the node is not associated, we are at final search block.
   if (.not. associated(trunk%buds)) then
@@ -789,22 +787,45 @@ contains
 
 
   !====================================================================!
-  module procedure kNearest_KD ! (search, tree, D, query, k, kNearest)
+  module procedure kNearest_KD ! (search, tree, D, query, k, radius) result(kNearest)
     !! Overloaded Type bound procedure KdTreeSearch%nearest()
   !====================================================================!
   !class(KdTreeSearch), intent(inout) :: search
   !class(kdTree),intent(in) :: tree
   !real(r64),intent(in) :: D(:,:)
   !real(r64),intent(in) :: query(:)
-  !integer(i32) :: k
+  !integer(i32), intent(in), optional :: k
+  !real(r64), intent(in), optional :: radius
   !type(dArgDynamicArray) :: kNearest
 
-  if (k <= 1) call eMsg('KdTreeSearch%kNearest: k must be >= 1')
+  integer(i32) :: k_
+  logical :: fixedArray
 
-  kNearest = dArgDynamicArray(k, .true., .true.)
+  if (.not. present(k) .and. .not. present(radius)) call eMsg('KdTreeSearch%kNearest: Must use either k or radius, or both.')
 
-  call kNearestBranch_KD(tree%trunk, D, tree%indx, query, kNearest)
+  ! Set an initial value for the memory allocated if k nearest is not specified
+  k_ = 16
+  ! Set the fixed array as false unless k is specified
+  fixedArray = .false.
+  if (present(k)) then
+    if (k <= 1) call eMsg('KdTreeSearch%kNearest: k must be >= 1')
+    k_ = k
+    fixedArray = .true.
+  endif
+
+  if (present(radius)) then
+    if (radius <= 0.d0) call eMsg('KdTreeSearch%kNearest: radius must be > 0')
+  endif
+
+  kNearest = dArgDynamicArray(k, .true., fixedArray)
+
+  if (present(radius)) then ! Perform a radius search
+    call kRadiusBranch_KD(tree%trunk, D, tree%indx, query, radius**2.d0, kNearest)
+  else ! Perform straight k nearest neighbours.
+    call kNearestBranch_KD(tree%trunk, D, tree%indx, query, kNearest)
+  endif
   kNearest%v%values = sqrt(kNearest%v%values)
+  if (.not. fixedArray) call kNearest%tighten()
   end procedure
   !====================================================================!
   !====================================================================!
@@ -869,9 +890,6 @@ contains
   class(dArgDynamicArray) :: kNearest
 
   real(r64) :: queryTmp, distance
-  integer(i32) :: i, iTmp
-  real(r64) :: test(size(query)) ! Small allocation on stack
-
 
   ! If the node is not associated, we are at final search block.
   if (.not. associated(trunk%buds)) then
@@ -966,4 +984,230 @@ contains
   !====================================================================!
 
 
+  !====================================================================!
+  module procedure rangeSearch_2D!(search, tree, x, y, lowerBound, upperBound) result(iPoints)
+    !! Overloaded Type bound procedure KdTreeSearch%rangeSearch()
+  !====================================================================!
+  !class(KdTreeSearch), intent(inout) :: search
+  !class(kdTree),intent(in) :: tree
+  !real(r64),intent(in) :: x(:)
+  !real(r64),intent(in) :: y(:)
+  !real(r64),intent(in) :: lowerBound(2)
+  !real(r64),intent(in) :: upperBound(2)
+  !type(iDynamicArray) :: iPoints
+  
+  iPoints = iDynamicArray(16, .true., .false.)
+  iPoints%values = -1
+
+  call rangeSearchBranch_2D(tree%trunk, x, y, tree%indx, lowerBound, upperBound, iPoints)
+
+  call iPoints%tighten()
+  end procedure
+  !====================================================================!
+  !====================================================================!
+  recursive subroutine rangeSearchBranch_2D(trunk, x, y, indx, lowerBound, upperBound, iPoints)
+    !! Recurse through the tree branches to find the points inside the range
+  !====================================================================!
+  class(KdTreebranch),intent(in) :: trunk
+  real(r64),intent(in) :: x(:)
+  real(r64),intent(in) :: y(:)
+  integer,intent(in) :: indx(:)
+  real(r64),intent(in) :: lowerBound(2)
+  real(r64),intent(in) :: upperBound(2)
+  class(iDynamicArray) :: iPoints
+
+  real(r64) :: lower, upper
+  real(r64) :: xTmp, yTmp
+  integer(i32) :: i, iTmp
+
+  ! If the node is not associated, we are at final search block.
+  if (.not. associated(trunk%buds)) then
+    do i = trunk%left, trunk%right
+      iTmp = indx(i)
+      xTmp = x(iTmp)
+      if (xTmp >= lowerBound(1) .and. xTmp <= upperBound(1)) then
+        yTmp = y(iTmp)
+        if (yTmp >= lowerBound(2) .and. yTmp <= upperBound(2)) then
+          call iPoints%insertSorted(iTmp)
+        endif
+      endif 
+    end do
+  else ! Otherwise, keep searching through the branches
+
+    lower = lowerBound(trunk%splitAlong)
+    upper = upperBound(trunk%splitAlong)
+
+    ! If the median is to the right of the box, search the left branch
+    if (trunk%median > lower) then
+      call rangeSearchBranch_2D(trunk%buds(1), x, y, indx, lowerBound, upperBound, iPoints)
+      ! If the median is within the box, search 
+      if (trunk%median < upper) then
+        call rangeSearchBranch_2D(trunk%buds(2), x, y, indx, lowerBound, upperBound, iPoints)
+      endif
+    ! If the median is the the left of the box, search the right branch
+    else
+      call rangeSearchBranch_2D(trunk%buds(2), x, y, indx, lowerBound, upperBound, iPoints)
+      if (trunk%median < upper) then
+        call rangeSearchBranch_2D(trunk%buds(1), x, y, indx, lowerBound, upperBound, iPoints)
+      endif
+    endif
+  endif
+  end subroutine
+  !====================================================================!
+
+  !====================================================================!
+  module procedure rangeSearch_3D!(search, tree, x, y, z, lowerBound, upperBound) result(iPoints)
+    !! Overloaded Type bound procedure KdTreeSearch%rangeSearch()
+  !====================================================================!
+  !class(KdTreeSearch), intent(inout) :: search
+  !class(kdTree),intent(in) :: tree
+  !real(r64),intent(in) :: x(:)
+  !real(r64),intent(in) :: y(:)
+  !real(r64),intent(in) :: z(:)
+  !real(r64),intent(in) :: lowerBound(3)
+  !real(r64),intent(in) :: upperBound(3)
+  !type(iDynamicArray) :: iPoints
+  
+  iPoints = iDynamicArray(16, .true., .false.)
+  iPoints%values = -1
+
+  call rangeSearchBranch_3D(tree%trunk, x, y, z, tree%indx, lowerBound, upperBound, iPoints)
+
+  call iPoints%tighten()
+  end procedure
+  !====================================================================!
+  !====================================================================!
+  recursive subroutine rangeSearchBranch_3D(trunk, x, y, z, indx, lowerBound, upperBound, iPoints)
+    !! Recurse through the tree branches to find the points inside the range
+  !====================================================================!
+  class(KdTreebranch),intent(in) :: trunk
+  real(r64),intent(in) :: x(:)
+  real(r64),intent(in) :: y(:)
+  real(r64),intent(in) :: z(:)
+  integer,intent(in) :: indx(:)
+  real(r64),intent(in) :: lowerBound(3)
+  real(r64),intent(in) :: upperBound(3)
+  class(iDynamicArray) :: iPoints
+
+  real(r64) :: lower, upper
+  real(r64) :: xTmp, yTmp, zTmp
+  integer(i32) :: i, iTmp
+
+  ! If the node is not associated, we are at final search block.
+  if (.not. associated(trunk%buds)) then
+    do i = trunk%left, trunk%right
+      iTmp = indx(i)
+      xTmp = x(iTmp)
+      if (xTmp >= lowerBound(1) .and. xTmp <= upperBound(1)) then
+        yTmp = y(iTmp)
+        if (yTmp >= lowerBound(2) .and. yTmp <= upperBound(2)) then
+          zTmp = z(iTmp)
+          if (zTmp >= lowerBound(3) .and. zTmp <= upperBound(3)) then
+            call iPoints%insertSorted(iTmp)
+          endif
+        endif
+      endif 
+    end do
+  else ! Otherwise, keep searching through the branches
+
+    lower = lowerBound(trunk%splitAlong)
+    upper = upperBound(trunk%splitAlong)
+
+    ! If the median is to the right of the box, search the left branch
+    if (trunk%median > lower) then
+      call rangeSearchBranch_3D(trunk%buds(1), x, y, z, indx, lowerBound, upperBound, iPoints)
+      ! If the median is within the box, search 
+      if (trunk%median < upper) then
+        call rangeSearchBranch_3D(trunk%buds(2), x, y, z, indx, lowerBound, upperBound, iPoints)
+      endif
+    ! If the median is the the left of the box, search the right branch
+    else
+      call rangeSearchBranch_3D(trunk%buds(2), x, y, z, indx, lowerBound, upperBound, iPoints)
+      if (trunk%median < upper) then
+        call rangeSearchBranch_3D(trunk%buds(1), x, y, z, indx, lowerBound, upperBound, iPoints)
+      endif
+    endif
+  endif
+  end subroutine
+  !====================================================================!
+
+  !====================================================================!
+  module procedure rangeSearch_KD!(search, tree, D, lowerBound, upperBound) result(iPoints)
+    !! Overloaded Type bound procedure KdTreeSearch%rangeSearch()
+  !====================================================================!
+  !class(KdTreeSearch), intent(inout) :: search
+  !class(kdTree),intent(in) :: tree
+  !real(r64),intent(in) :: D(:,:)
+  !real(r64),intent(in) :: lowerBound(size(D,2))
+  !real(r64),intent(in) :: upperBound(size(D,2))
+  !type(iDynamicArray) :: iPoints
+  
+  iPoints = iDynamicArray(16, .true., .false.)
+  iPoints%values = -1
+
+  call rangeSearchBranch_KD(tree%trunk, D, tree%indx, lowerBound, upperBound, iPoints)
+
+  call iPoints%tighten()
+  end procedure
+  !====================================================================!
+  !====================================================================!
+  recursive subroutine rangeSearchBranch_KD(trunk, D, indx, lowerBound, upperBound, iPoints)
+    !! Recurse through the tree branches to find the points inside the range
+  !====================================================================!
+  class(KdTreebranch),intent(in) :: trunk
+  real(r64),intent(in) :: D(:,:)
+  integer,intent(in) :: indx(:)
+  real(r64),intent(in) :: lowerBound(size(D,2))
+  real(r64),intent(in) :: upperBound(size(D,2))
+  class(iDynamicArray) :: iPoints
+
+  real(r64) :: lower, upper
+  real(r64) :: test
+  integer(i32) :: i, iTmp, j, k
+  logical :: insert
+
+
+  ! If the node is not associated, we are at final search block.
+  if (.not. associated(trunk%buds)) then
+    ! Get the number of dimensions
+    k = size(D,2)
+    ! For each leaf
+    do i = trunk%left, trunk%right
+      iTmp = indx(i)
+      ! Test the first dimension
+      j = 1
+      test = D(iTmp, j)
+      insert = (test >= lowerBound(j) .and. test <= upperBound(j))
+      ! While loop allows early exit if point is outside any bounds.
+      do while (insert .and. j < k)
+        j = j + 1
+        test = D(iTmp, j)
+        insert = (test >= lowerBound(j) .and. test <= upperBound(j))
+      enddo
+      ! Insert the point if point is within range.
+      if (insert) call iPoints%insertSorted(iTmp)
+    end do
+
+  else ! Otherwise, keep searching through the branches
+
+    lower = lowerBound(trunk%splitAlong)
+    upper = upperBound(trunk%splitAlong)
+
+    ! If the median is to the right of the box, search the left branch
+    if (trunk%median > lower) then
+      call rangeSearchBranch_KD(trunk%buds(1), D, indx, lowerBound, upperBound, iPoints)
+      ! If the median is within the box, search 
+      if (trunk%median < upper) then
+        call rangeSearchBranch_KD(trunk%buds(2), D, indx, lowerBound, upperBound, iPoints)
+      endif
+    ! If the median is the the left of the box, search the right branch
+    else
+      call rangeSearchBranch_KD(trunk%buds(2), D, indx, lowerBound, upperBound, iPoints)
+      if (trunk%median < upper) then
+        call rangeSearchBranch_KD(trunk%buds(1), D, indx, lowerBound, upperBound, iPoints)
+      endif
+    endif
+  endif
+  end subroutine
+  !====================================================================!
 end submodule
