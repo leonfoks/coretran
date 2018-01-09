@@ -24,6 +24,7 @@
   public :: read1Dble
   public :: read1Integer
   public :: removeComments
+  public :: readline
   public :: replacedelim
   public :: str
   public :: uppercase
@@ -898,6 +899,7 @@ end subroutine
   !====================================================================!
   !====================================================================!
   subroutine strings_test(test)
+    !! graph: false
   !====================================================================!
   class(tester) :: test
 

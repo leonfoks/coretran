@@ -90,6 +90,8 @@ contains
     !! iDynamicArray%insertSortedUnique() - Inserts only unique numbers into a dynamic array.
   procedure, public :: isEmpty => isEmpty_iDynamicArray
     !! iDynamicArray%isEmpty() - True if the array is empty.
+  procedure, public :: isFilled => isFilled_iDynamicArray
+    !! iDynamicArray%isFilled() - True if the array is filled.
   procedure, public :: locationOf => locationOf_iDynamicArray
     !! iDynamicArray%locationOf() - Get the location of a value in a sorted dynamic array.
   procedure, public :: prepend => prepend_iDynamicArray
@@ -301,6 +303,16 @@ contains
   end function
   !====================================================================!
   !====================================================================!
+  function isFilled_iDynamicArray(this) result(yes)
+    !! Overloaded type bound procedure iDynamicArray%isFilled()
+  !====================================================================!
+  class(iDynamicArray) :: this
+  logical :: yes
+    !! Array is filled
+  yes = (this%N == size(this%values))
+  end function
+  !====================================================================!
+  !====================================================================!
   function locationOf_iDynamicArray(this, val) result(i)
     !! Overloaded type bound procedure iDynamicArray%locationOf().
   !====================================================================!
@@ -366,6 +378,7 @@ contains
 
   !====================================================================!
   subroutine iDynamicArray_test(test)
+    !! graph: false
   !====================================================================!
   class(tester) :: test
 

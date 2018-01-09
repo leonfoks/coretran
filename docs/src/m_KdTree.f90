@@ -154,6 +154,7 @@ module m_KdTree
   use m_random, only: rngNormal
   use m_select, only: argSelect
   use m_maths, only: variance
+  use m_iDynamicArray, only: iDynamicArray
   use m_dArgDynamicArray, only: dArgDynamicArray
   use m_strings, only: str
 
@@ -199,19 +200,27 @@ module m_KdTree
     generic, public :: nearest => nearest2D, nearest3D, nearestKD
       !! KdTreeSearch%nearest() - Perform a nearest neighbour search
     procedure, private :: nearest2D => nearest_2D
-      !! Overloaded typebound procedure with KdTreeSearch%nearest()
+      !! Overloaded type bound procedure with KdTreeSearch%nearest()
     procedure, private :: nearest3D => nearest_3D
-      !! Overloaded typebound procedure with KdTreeSearch%nearest()
+      !! Overloaded type bound procedure with KdTreeSearch%nearest()
     procedure, private :: nearestKD => nearest_KD
-      !! Overloaded typebound procedure with KdTreeSearch%nearest()
+      !! Overloaded type bound procedure with KdTreeSearch%nearest()
     generic, public :: kNearest => kNearest2D, kNearest3D, kNearestKD
       !! KdTreeSearch%kNearest() - Perform a k nearest neighbour search or a radius search.
     procedure, private :: kNearest2D => kNearest_2D
-      !! Overloaded typebound procedure with KdTreeSearch%kNearest()
+      !! Overloaded type bound procedure with KdTreeSearch%kNearest()
     procedure, private :: kNearest3D => kNearest_3D
-      !! Overloaded typebound procedure with KdTreeSearch%kNearest()
+      !! Overloaded type bound procedure with KdTreeSearch%kNearest()
     procedure, private :: kNearestKD => kNearest_KD
-      !! Overloaded typebound procedure with KdTreeSearch%kNearest()
+      !! Overloaded type bound procedure with KdTreeSearch%kNearest()
+    generic, public :: rangeSearch => rangeSearch2D, rangeSearch3D, rangeSearchKD
+      !! KdTreeSearch%rangeSearch() - Find all points within axis aligned lower and upper bounds
+    procedure, private :: rangeSearch2D => rangeSearch_2D
+      !! Overloaded type bound procedure with KdTreeSearch%rangeSearch()
+    procedure, private :: rangeSearch3D => rangeSearch_3D
+      !! Overloaded type bound procedure with KdTreeSearch%rangeSearch()
+    procedure, private :: rangeSearchKD => rangeSearch_KD
+      !! Overloaded type bound procedure with KdTreeSearch%rangeSearch()
   end type
   !====================================================================!
 
@@ -317,8 +326,6 @@ interface
       !! Index of the nearest point to the query location
     end function
     !====================================================================!
-end interface
-interface
     !====================================================================!
     module function nearest_3D(search, tree, x, y, z, xQuery, yQuery, zQuery) result(nearest)
       !! Overloaded Type bound procedure KdTreeSearch%nearest()
@@ -352,7 +359,7 @@ interface
     class(kdTree),intent(in) :: tree
       !! KdTree class
     real(r64),intent(in) :: D(:,:)
-      !! Co-ordinates of the points, the k columns contain the k dimensional values.
+      !! Co-ordinates of the points, the second dimension contains the k dimensions
     real(r64),intent(in) :: query(:)
       !! C-ordinate of the query location
     integer(i32) :: nearest
@@ -424,7 +431,7 @@ interface
     class(kdTree),intent(in) :: tree
       !! KdTree class
     real(r64),intent(in) :: D(:,:)
-      !! Co-ordinates of the points, the k columns contain the k dimensional values.
+      !! Co-ordinates of the points, the second dimension contains the k dimensions
     real(r64),intent(in) :: query(:)
       !! Co-ordinate of the query location
     integer(i32), intent(in), optional :: k
@@ -433,6 +440,70 @@ interface
       !! Only find neighbours within this distance from the query
     type(dArgDynamicArray) :: kNearest
       !! Indices of the nearest points to the query location
+    end function
+    !====================================================================!
+  end interface
+
+
+  interface
+    !====================================================================!
+    module function rangeSearch_2D(search, tree, x, y, lowerBound, upperBound) result(iPoints)
+      !! Overloaded Type bound procedure KdTreeSearch%rangeSearch()
+    !====================================================================!
+    class(KdTreeSearch), intent(inout) :: search
+      !! KdTreeSearch class
+    class(kdTree),intent(in) :: tree
+      !! KdTree class
+    real(r64),intent(in) :: x(:)
+      !! x co-ordinates of the points.
+    real(r64),intent(in) :: y(:)
+      !! y co-ordinates of the points.
+    real(r64),intent(in) :: lowerBound(2)
+      !! Lower bounds in x and y for the range search [xLow, yLow].
+    real(r64),intent(in) :: upperBound(2)
+      !! Upper bounds in x and y for the range search [xHigh, yHigh].
+    type(iDynamicArray) :: iPoints
+      !! Indices of the points inside the axis aligned range.
+    end function
+    !====================================================================!
+    !====================================================================!
+    module function rangeSearch_3D(search, tree, x, y, z, lowerBound, upperBound) result(iPoints)
+      !! Overloaded Type bound procedure KdTreeSearch%rangeSearch()
+    !====================================================================!
+    class(KdTreeSearch), intent(inout) :: search
+      !! KdTreeSearch class
+    class(kdTree),intent(in) :: tree
+      !! KdTree class
+    real(r64),intent(in) :: x(:)
+      !! x co-ordinates of the points.
+    real(r64),intent(in) :: y(:)
+      !! y co-ordinates of the points.
+    real(r64),intent(in) :: z(:)
+      !! y co-ordinates of the points.
+    real(r64),intent(in) :: lowerBound(3)
+      !! Lower bounds in x and y for the range search [xLow, yLow].
+    real(r64),intent(in) :: upperBound(3)
+      !! Upper bounds in x and y for the range search [xHigh, yHigh].
+    type(iDynamicArray) :: iPoints
+      !! Indices of the points inside the axis aligned range.
+    end function
+    !====================================================================!
+    !====================================================================!
+    module function rangeSearch_KD(search, tree, D, lowerBound, upperBound) result(iPoints)
+      !! Overloaded Type bound procedure KdTreeSearch%rangeSearch()
+    !====================================================================!
+    class(KdTreeSearch), intent(inout) :: search
+      !! KdTreeSearch class
+    class(kdTree),intent(in) :: tree
+      !! KdTree class
+    real(r64),intent(in) :: D(:,:)
+      !! Co-ordinates of the points, the second dimension contains the k dimensions
+    real(r64),intent(in) :: lowerBound(size(D,2))
+      !! Lower bounds in each dimension for the range search [Low1, Low2, ..., LowK].
+    real(r64),intent(in) :: upperBound(size(D,2))
+      !! Upper bounds in each dimension for the range search [High1, High2, ..., HighK].
+    type(iDynamicArray) :: iPoints
+      !! Indices of the points inside the axis aligned range.
     end function
     !====================================================================!
   end interface

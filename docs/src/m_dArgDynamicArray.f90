@@ -273,7 +273,7 @@ contains
 
   !====================================================================!
   function isEmpty_dArgDynamicArray(this) result(yes)
-    !! Overloaded type bound procedure dDynamicArray%isEmpty()
+    !! Overloaded type bound procedure dArgDynamicArray%isEmpty()
   !====================================================================!
   class(dArgDynamicArray) :: this
   logical :: yes
@@ -284,7 +284,7 @@ contains
 
   !====================================================================!
   function isFilled_dArgDynamicArray(this) result(yes)
-    !! Overloaded type bound procedure dDynamicArray%isFilled()
+    !! Overloaded type bound procedure dArgDynamicArray%isFilled()
   !====================================================================!
   class(dArgDynamicArray) :: this
   logical :: yes
@@ -359,6 +359,7 @@ contains
 
   !====================================================================!
   subroutine dArgDynamicArray_test(test)
+    !! graph: false
   !====================================================================!
   class(tester) :: test
 

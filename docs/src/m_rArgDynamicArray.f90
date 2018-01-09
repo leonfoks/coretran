@@ -88,6 +88,10 @@ contains
     !! rArgDynamicArray%insertSorted() - Insert a value into a sorted dynamic array.
   procedure, public :: insertSortedUnique => insertSortedUnique_rArgDynamicArray
     !! rArgDynamicArray%insertSortedUnique() - Inserts only unique numbers into a dynamic array.
+  procedure, public :: isEmpty => isEmpty_rArgDynamicArray
+    !! rArgDynamicArray%isEmpty() - True if the array is empty.
+  procedure, public :: isFilled => isFilled_rArgDynamicArray
+    !! rArgDynamicArray%isFilled() - True if the allocated memory has been filled.
   procedure, public :: locationOf => locationOf_rArgDynamicArray
     !! rArgDynamicArray%locationOf() - Get the location of a value in a sorted dynamic array.
   procedure, public :: prepend => prepend_rArgDynamicArray
@@ -256,6 +260,28 @@ contains
   !====================================================================!
 
   !====================================================================!
+  function isEmpty_rArgDynamicArray(this) result(yes)
+    !! Overloaded type bound procedure rArgDynamicArray%isEmpty()
+  !====================================================================!
+  class(rArgDynamicArray) :: this
+  logical :: yes
+    !! Array is empty
+  yes = this%v%isEmpty()
+  end function
+  !====================================================================!
+
+  !====================================================================!
+  function isFilled_rArgDynamicArray(this) result(yes)
+    !! Overloaded type bound procedure rArgDynamicArray%isFilled()
+  !====================================================================!
+  class(rArgDynamicArray) :: this
+  logical :: yes
+    !! Array is filled
+  yes = this%v%isFilled()
+  end function
+  !====================================================================!
+
+  !====================================================================!
   function locationOf_rArgDynamicArray(this, val) result(i)
     !! Overloaded type bound procedure rArgDynamicArray%locationOf().
   !====================================================================!
@@ -309,6 +335,7 @@ contains
 
   !====================================================================!
   subroutine rArgDynamicArray_test(test)
+    !! graph: false
   !====================================================================!
   class(tester) :: test
 
