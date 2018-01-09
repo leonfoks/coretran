@@ -18,9 +18,9 @@ display: public
          protected
 source: false
 sort: order
-graph: false
+graph: true
 coloured_edges: false
-search: false
+search: true
 macro: TEST
        LOGIC=.true.
 exclude: sm_array_r1D.f90
@@ -52,3 +52,4 @@ exclude: sm_array_r1D.f90
          sm_binarySearch.f90
          sm_intervalSearch.f90
          sm_simpleSearch.f90
+         m_rnglib.f90
