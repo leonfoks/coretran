@@ -167,7 +167,7 @@ contains
   integer(i32) :: M_
   M_ = 1
   if (present(M)) then
-    if (M < 1) call eMsg('M must be > 0')
+    if (M < 1) call eMsg('iDynamicArray: M must be > 0')
     M_ = M
   endif
   call allocate(this%values, M_)
@@ -195,7 +195,7 @@ contains
     !! Return type
 
   if (present(M)) then
-    if (M < size(values)) call eMsg('M must be >= size(values)')
+    if (M < size(values)) call eMsg('iDynamicArray:M must be >= size(values)')
     call allocate(this%values, M)
   else
     call allocate(this%values, size(values))
