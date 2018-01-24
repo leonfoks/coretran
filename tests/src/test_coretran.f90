@@ -8,6 +8,7 @@ program test_coretran
   use m_fileIO
   use m_indexing
   use m_random
+  use Prng_Class
   use m_readLine
   use m_strings
   use m_writeLine
@@ -34,6 +35,8 @@ program test_coretran
   use m_dArgDynamicArray
   use m_iArgDynamicArray
   use m_idArgDynamicArray
+
+  use m_tests
 
   implicit none
 
@@ -75,12 +78,7 @@ program test_coretran
   integer(i32) :: testTotal = 0
   type(Stopwatch) :: clk
   type(ProgressBar) :: P
-  type(KdTree) :: tree
-  type(KdTreeSearch) :: search
-
-  type(iDynamicArray) :: ida, ida2
-  type(dArgDynamicArray) :: da
-  integer(i32) :: iSearch(3) ! Used for testing kNearest.
+  
 
 ! Get an integer from command line argument
   ib = command_argument_count()
@@ -107,12 +105,17 @@ program test_coretran
   call Msg('LibFortran Testing')
   call Msg('==========================')
 
+  call setRNG(big = .true.)
+
   call strings_test(test)
   
-  call fileIO_test(test)
+  !call fileIO_test(test)
   
-  call random_test(test, .false.)
+  !call random_test(test, .false.)
+
+  call Prng_test(test)
   
+
   call time_test(test)
   
   call indexing_test(test)
@@ -161,183 +164,8 @@ program test_coretran
 !  enddo
 
 
-  ! Currently cannot move the kdtree test to the kdtree module because the intel compiler bugs on compilation
-  call Msg('==========================')
-  call Msg('Testing : Spatial')
-  call Msg('==========================')
-
-  call allocate(a1D, N)
-  call allocate(b1D, N)
-  call allocate(c1D, N)
-  call allocate(d1D, N)
-  call allocate(ia1D, N)
-
-  a1D = 0.d0; b1D = 0.d0; c1D = 0.d0
-
-  ! 2D KdTree
-  call rngNormal(a1D)
-  call rngNormal(b1D)
-
-  tree = KdTree(a1D, b1D)
-
-  c1D = a1D**2.d0
-  c1D = c1D + b1D**2.d0
-  call arange(ia1D, 1, N)  
-  call argSort(c1D, ia1D)
-
-  ia = search%nearest(tree, a1D, b1D, 0.d0, 0.d0)
-
-  call test%test(ia == ia1D(1), '2D - KdTreeSearch%nearest')
-
-  da = search%kNearest(tree, a1D, b1D, 0.d0, 0.d0, k = 10)
-
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - sqrt(c1D(ia1D(1:10)))) <= 1.d-15), '2D - KdTreeSearch%kNearest, k nearest')
-
-  c1D = sqrt(c1D(ia1D))
-  a = c1D(15)
-
-  call da%deallocate()
-  da = search%kNearest(tree, a1D, b1D, 0.d0, 0.d0, radius = a)
-
-  call test%test(all(da%i%values == ia1D(1:15)) .and. all(abs(da%v%values - (c1D(1:15))) <= 1.d-15), '2D - KdTreeSearch%kNearest, radius search')
-
-  call da%deallocate()
-  da = search%kNearest(tree, a1D, b1D, 0.d0, 0.d0, k=10, radius = a)
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - (c1D(1:10))) <= 1.d-15), '2D - KdTreeSearch%kNearest, k radius search')
-
-  ida = search%rangeSearch(tree, a1D, b1D, [-0.2d0, -0.2d0], [0.2d0, 0.2d0])
-
-  ida2 = iDynamicArray(16, .true., .false.)
-  do ia = 1, N
-    if (a1D(ia) >= -0.2d0 .and. a1D(ia) <= 0.2d0) then
-      if (b1D(ia) >= -0.2d0 .and. b1D(ia) <= 0.2d0) then
-        call ida2%insertSorted(ia)
-      endif
-    endif
-  enddo
-  call ida2%tighten()
-
-  if (ida%isEmpty()) then
-    call test%test(ida2%isEmpty(), '2D - KdTreeSearch%rangeSearch')
-  else
-    call test%test(all(ida%values == ida2%values), '2D - KdTreeSearch%rangeSearch')
-  endif
- 
-  call ida%deallocate()
-  call ida2%deallocate()
-  call tree%deallocate()
-
-
-
-  ! 3D KdTree
-  call rngNormal(c1D)
-
-  tree = KdTree(a1D, b1D, c1D)
-
-  ia = search%nearest(tree, a1D, b1D, c1D, 0.d0, 0.d0, 0.d0)
-  da = search%kNearest(tree, a1D, b1D, c1D, 0.d0, 0.d0, 0.d0, 10)
-
-  d1D = a1D**2.d0
-  d1D = d1D + b1D**2.d0
-  d1D = d1D + c1D**2.d0
-  call arange(ia1D, 1, N)
-  call argSort(d1D, ia1D)
-
-  call test%test(ia == ia1D(1), '3D - KdTreeSearch%nearest')
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - sqrt(d1D(ia1D(1:10)))) <= 1.d-15), '3D - KdTreeSearch%kNearest')
-
-  d1D = sqrt(d1D(ia1D))
-  a = d1D(15)
-
-  call da%deallocate()
-  da = search%kNearest(tree, a1D, b1D, c1D, 0.d0, 0.d0, 0.d0, radius = a)
-
-  call test%test(all(da%i%values == ia1D(1:15)) .and. all(abs(da%v%values - (d1D(1:15))) <= 1.d-15), '3D - KdTreeSearch%kNearest, radius search')
-
-  call da%deallocate()
-  da = search%kNearest(tree, a1D, b1D, c1D, 0.d0, 0.d0, 0.d0, k=10, radius = a)
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - (d1D(1:10))) <= 1.d-15), '3D - KdTreeSearch%kNearest, k radius search')
-
-  ida = search%rangeSearch(tree, a1D, b1D, c1D, [-0.2d0, -0.2d0, -0.2d0], [0.2d0, 0.2d0, 0.2d0])
-
-  ida2 = iDynamicArray(16, .true., .false.)
-  do ia = 1, N
-    if (a1D(ia) >= -0.2d0 .and. a1D(ia) <= 0.2d0) then
-      if (b1D(ia) >= -0.2d0 .and. b1D(ia) <= 0.2d0) then
-        if (c1D(ia) >= -0.2d0 .and. c1D(ia) <= 0.2d0) then
-          call ida2%insertSorted(ia)
-        endif
-      endif
-    endif
-  enddo
-  call ida2%tighten()
-
-  if (ida%isEmpty()) then
-    call test%test(ida2%isEmpty(), '3D - KdTreeSearch%rangeSearch')
-  else
-    call test%test(all(ida%values == ida2%values), '3D - KdTreeSearch%rangeSearch')
-  endif
- 
-  call ida%deallocate()
-  call ida2%deallocate()
-
-  call tree%deallocate()
-
-  ! KD KdTree
-  call allocate(a2D, [N, 2])
-  a2D(:,1) = a1D
-  a2D(:,2) = b1D
-
-  tree = KdTree(a2D)
-
-  ia = search%nearest(tree, a2D, [0.d0, 0.d0])
-  da = search%kNearest(tree, a2D, [0.d0, 0.d0], 10)
-
-  c1D = a1D**2.d0
-  c1D = c1D + b1D**2.d0
-
-  call arange(ia1D, 1, N)  
-  call argSort(c1D, ia1D)
-
-  call test%test(ia == ia1d(1), 'KD - KdTreeSearch%nearest')
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - sqrt(c1D(ia1D(1:10)))) <= 1.d-15), 'KD - KdTreeSearch%kNearest')
-
-  do ia = 1, N
-    d1D(ia) = sqrt(c1D(ia1D(ia)))
-  enddo
-  a = d1D(15)
-
-  call da%deallocate()
-  da = search%kNearest(tree, a2D, [0.d0, 0.d0], radius = a)
-
-  call test%test(all(da%i%values == ia1D(1:15)) .and. all(abs(da%v%values - (d1D(1:15))) <= 1.d-15), 'KD - KdTreeSearch%kNearest, radius search')
-
-  call da%deallocate()
-  da = search%kNearest(tree, a2D, [0.d0, 0.d0], k=10, radius = a)
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - (d1D(1:10))) <= 1.d-15), 'KD - KdTreeSearch%kNearest, k radius search')
-
-  ida = search%rangeSearch(tree, a2D, [-0.2d0, -0.2d0], [0.2d0, 0.2d0])
-
-  ida2 = iDynamicArray(16, .true., .false.)
-  do ia = 1, N
-    if (a2D(ia,1) >= -0.2d0 .and. a2D(ia,1) <= 0.2d0) then
-      if (a2D(ia,2) >= -0.2d0 .and. a2D(ia,2) <= 0.2d0) then
-        call ida2%insertSorted(ia)
-      endif
-    endif
-  enddo
-  call ida2%tighten()
-
-  if (ida%isEmpty()) then
-    call test%test(ida2%isEmpty(), 'KD - KdTreeSearch%rangeSearch')
-  else
-    call test%test(all(ida%values == ida2%values), 'KD - KdTreeSearch%rangeSearch')
-  endif
- 
-  call ida%deallocate()
-  call ida2%deallocate()
-
-  call tree%deallocate()
+  call KdTree_test(test, N)
+  
 
   call Msg('==========================')
   call Msg('Testing : Dynamic Arrays')

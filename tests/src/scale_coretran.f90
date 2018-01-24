@@ -90,10 +90,10 @@ program scaleTest_coretran
   write(iunit, '(a)') str(sizes)
 
   ! Set a fixed seed
-  call random_seed(size = ia)
-  call allocate(ia1D, ia)
-  ia1D = 546420601
-  call setRNG(ia1D)
+  ! call random_seed(size = ia)
+  ! call allocate(ia1D, ia)
+  ! ia1D = 546420601
+  call setRNG(big = .true.)
 
     ! Initial setup for testing
   call allocate(ar1D, N)

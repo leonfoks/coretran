@@ -15,6 +15,11 @@ add_executable(${programName} test_coretran.f90)
 target_link_libraries(${programName} coretran)
 # Add the include folder that contains the library modules
 target_include_directories(${programName} PUBLIC ../../include)
+target_sources(${programName}
+    PUBLIC
+    "${CMAKE_CURRENT_LIST_DIR}/m_tests.f90"
+)
+
 
 
 # Create the scalability test
