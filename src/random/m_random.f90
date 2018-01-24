@@ -1,465 +1,412 @@
 module m_random
-    !! Routines for random number generation.  The original code is provided via Netlib at http://www.netlib.org/random/random.f90
-
-    ! Original Version
-    ! Author: Alan Miller
-
-    ! Updated version:
-    ! Version 2.00, 11 November 2016
-    ! Increased precision to double
-    ! Added seed setters
-    ! Added overloaded operations for single number, nD arrays
-    !     Author: Leon Foks
+  !!This module has been comprised using different sources. The first was a public domain pseudo-random number
+  !!generator using the xorshift1024* and xorshift128+ methods.  See [[m_xorshift1024star]] and [[m_xorshift128plus]]
+  !!for more details on those methods.
+  !!
+  !!The secound source are the functions inside http://www.netlib.org/random/random.f90.  These are used to generate 
+  !!random numbers from distributions other than a uniform distribution.
+  !!
+  !!
+  !!Original Netlib random.f90
+  !!Author: Alan Miller
+  !!
+  !!Updated coretran version:
+  !!Version 2.00, 11 November 2016
+  !!Increased precision to double
+  !!Added seed setters
+  !!Added overloaded operations for single number, nD arrays
 
   use variableKind
   use m_allocate, only: allocate
   use m_deallocate, only: deallocate
   use m_errors, only: eMsg, mErr, msg
+  use Prng_Class, only: Prng
   use m_strings, only: printOptions, str
   use iso_fortran_env, only: output_unit
-  use m_array1D, only: arange
   use m_unitTester, only: tester
 
   implicit none
 
-  private
-
-  public :: random_test
-
-  real(r64), parameter, private :: zero = 0.d0, half = 0.5d0, one = 1.d0, two = 2.d0
-  real(r64), parameter, private :: vsmall = TINY(1.d0), vlarge = HUGE(1.d0)
-
+  ! Global Prng Class!!  I hate global variables, but here it is necessary to have a 
+  type(Prng) :: globalPrng
 
   public :: setRNG
+
   interface setRNG
-    !! Sets the random number with or without a seed
-  module procedure :: setRNG_Wseed,setRNG_WOseed
+    module procedure :: setRNG_withSeed, setRNG_WOseed
+
+    ! !====================================================================!
+    ! module subroutine setRNG_withSeed(seed, big)
+    !   !! Interfaced to setRNG()
+    !   !! Sets the seed of the random number generator with a specified seed
+    ! !====================================================================!
+    ! integer(i64), intent(in) :: seed(:)
+    ! logical, intent(in), optional :: big
+    ! end subroutine
+    ! !====================================================================!
+    ! !====================================================================!
+    ! module subroutine setRNG_WOseed(big, display)
+    !   !! Interfaced to setRNG()
+    !   !! 'Randomly' sets the seed of the random number generator
+    ! !====================================================================!
+    ! logical, intent(in), optional :: big
+    ! logical, intent(in), optional :: display
+    ! end subroutine
+    ! !====================================================================!
   end interface
 
-  public rngChisq
+  ! public rngChisq
 
-  interface rngChisq
-    !! Pull from a Chi Ssquared distribution
-    !!
-    !! Example
-    !!```fortran
-    !!program Chisq_test
-    !!use variableKind, only: r64
-    !!use m_allocate, only: allocate
-    !!use m_random, only: rngChiSq
-    !!implicit none
-    !!real(r64), allocatable :: a
-    !!call allocate(a, 10000)
-    !!call rngChiSq(a, )
-    !!end program
-    !!```
-    !====================================================================!
-    module subroutine rngChisq_d1(this,ndf,first)
-      !! Interfaced with [[rngChiSq]]
-    !====================================================================!
-    ! Generates a random variate from the chi-squared distribution with
-    ! ndf degrees of freedom
-    real(r64) :: this
-    INTEGER, INTENT(IN) :: ndf
-    LOGICAL, INTENT(IN) :: first
-    END subroutine
-    !====================================================================!
-    !====================================================================!
-    module subroutine rngChisq_d1D(this,ndf,first)
-      !! Interfaced with [[rngChiSq]]
-    !====================================================================!
-    real(r64) :: this(:)
-    INTEGER, INTENT(IN) :: ndf
-    LOGICAL, INTENT(IN) :: first
-    end subroutine
-    !====================================================================!
-  end interface
+  ! interface rngChisq
+  !   !! Pull from a Chi Ssquared distribution
+  !   !!
+  !   !! Example
+  !   !!```fortran
+  !   !!program Chisq_test
+  !   !!use variableKind, only: r64
+  !   !!use m_allocate, only: allocate
+  !   !!use m_random, only: rngChiSq
+  !   !!implicit none
+  !   !!real(r64), allocatable :: a
+  !   !!call allocate(a, 10000)
+  !   !!call rngChiSq(a, )
+  !   !!end program
+  !   !!```
+  !   !====================================================================!
+  !   module subroutine rngChisq_d1(this,ndf,first)
+  !     !! Interfaced with [[rngChiSq]]
+  !   !====================================================================!
+  !   ! Generates a random variate from the chi-squared distribution with
+  !   ! ndf degrees of freedom
+  !   real(r64) :: this
+  !   INTEGER, INTENT(IN) :: ndf
+  !   LOGICAL, INTENT(IN) :: first
+  !   END subroutine
+  !   !====================================================================!
+  !   !====================================================================!
+  !   module subroutine rngChisq_d1D(this,ndf,first)
+  !     !! Interfaced with [[rngChiSq]]
+  !   !====================================================================!
+  !   real(r64) :: this(:)
+  !   INTEGER, INTENT(IN) :: ndf
+  !   LOGICAL, INTENT(IN) :: first
+  !   end subroutine
+  !   !====================================================================!
+  ! end interface
 
   public :: rngExponential
 
   interface rngExponential
-    !====================================================================!
-    module subroutine rngExponential_d1(this)
-      !! Interfaced with [[rngExponential]]
-    !====================================================================!
-    real(r64)  :: this
-      !! Random number
-    end subroutine
-    !====================================================================!
-    !====================================================================!
-    module subroutine rngExponential_d1D(this)
-      !! Interfaced with [[rngExponential]]
-    !====================================================================!
-    real(r64) :: this(:)
-    !! Random numbers
-    end subroutine
-    !====================================================================!
+    module procedure :: rngExponential_d1, rngExponential_d1D, rngExponential_d2D, rngExponential_d3D
   end interface
 
-  public :: rngGamma
+  ! public :: rngGamma
 
-  interface rngGamma
-    !====================================================================!
-    module subroutine rngGamma_d1D(this,s,first)
-      !! Interfaced with [[rngGamma]]
-    !====================================================================!
-    real(r64) :: this(:)
-    real(r64), INTENT(IN) :: s
-    LOGICAL, INTENT(IN) :: first
-    end subroutine
-    !====================================================================!
-    !====================================================================!
-    module subroutine rngGamma_d1(this,s,first)
-      !! Interfaced with [[rngGamma]]
-    !====================================================================!
-    real(r64) :: this
-    real(r64), INTENT(IN)    :: s
-    LOGICAL, INTENT(IN) :: first
-    END subroutine
-    !====================================================================!
-  end interface
+  ! interface rngGamma
+  !   !====================================================================!
+  !   module subroutine rngGamma_d1D(this,s,first)
+  !     !! Interfaced with [[rngGamma]]
+  !   !====================================================================!
+  !   real(r64) :: this(:)
+  !   real(r64), INTENT(IN) :: s
+  !   LOGICAL, INTENT(IN) :: first
+  !   end subroutine
+  !   !====================================================================!
+  !   !====================================================================!
+  !   module subroutine rngGamma_d1(this,s,first)
+  !     !! Interfaced with [[rngGamma]]
+  !   !====================================================================!
+  !   real(r64) :: this
+  !   real(r64), INTENT(IN)    :: s
+  !   LOGICAL, INTENT(IN) :: first
+  !   END subroutine
+  !   !====================================================================!
+  ! end interface
 
   public :: rngInteger
+
   interface rngInteger
     !! Generate size(this) random integers starting from imin
-    !====================================================================!
-    module subroutine rngInteger_i1(this,imin, imax)
-      !! Interfaced with [[rngInteger]]
-    !====================================================================!
-    integer(i32), intent(inout) :: this
-    integer(i32), intent(in) :: imin
-    integer(i32), intent(in) :: imax
-    end subroutine
-    !====================================================================!
-    !====================================================================!
-    module subroutine rngInteger_i1D(this,imin, imax)
-      !! Interfaced with [[rngInteger]]
-    !====================================================================!
-    integer(i32), intent(inout) :: this(:)
-    integer(i32), intent(in) :: imin
-    integer(i32), intent(in) :: imax
-    end subroutine
-    !====================================================================!
-    !====================================================================!
-    module subroutine rngInteger_i2D(this,imin, imax)
-      !! Interfaced with [[rngInteger]]
-    !====================================================================!
-    integer(i32), intent(inout) :: this(:,:)
-    integer(i32), intent(in) :: imin
-    integer(i32), intent(in) :: imax
-    end subroutine
-    !====================================================================!
-    !====================================================================!
-    module subroutine rngInteger_i3D(this,imin, imax)
-      !! Interfaced with [[rngInteger]]
-    !====================================================================!
-    integer(i32), intent(inout) :: this(:,:,:)
-    integer(i32), intent(in) :: imin
-    integer(i32), intent(in) :: imax
-    end subroutine
-    !====================================================================!
-    !====================================================================!
-    module subroutine rngInteger_i1D_i1(this,imin)
-      !! Interfaced with [[rngInteger]]
-    !====================================================================!
-    integer(i32), intent(inout) :: this(:)
-    integer(i32), intent(in) :: imin
-    end subroutine
-    !====================================================================!
+    module procedure :: rngInteger_i1, rngInteger_i1D, rngInteger_i2D, rngInteger_i3D
   end interface
 
 
   public :: rngNormal
 
   interface rngNormal
-  !====================================================================!
-  module subroutine rngNormal_d1(this,mean,std)
-    !! Interfaced with [[rngNormal]]
-  !====================================================================!
-  real(r64), intent(inout) :: this
-  real(r64), intent(in), optional :: mean,std
-  end subroutine
-  !====================================================================!
-  !====================================================================!
-  module subroutine rngNormal_d1D(this,mean,std)
-    !! Interfaced with [[rngNormal]]
-  !====================================================================!
-  real(r64), intent(inout) :: this(:)
-  real(r64),optional, intent(in) :: mean,std
-  end subroutine
-  !====================================================================!
-  !====================================================================!
-  module subroutine rngNormal_d2D(this,mean,std)
-    !! Interfaced with [[rngNormal]]
-  !====================================================================!
-  real(r64), intent(inout) :: this(:,:)
-  real(r64),optional, intent(in) :: mean,std
-  end subroutine
-  !====================================================================!
-  !====================================================================!
-  module subroutine rngNormal_d3D(this,mean,std)
-    !! Interfaced with [[rngNormal]]
-  !====================================================================!
-  real(r64), intent(inout) :: this(:,:,:)
-  real(r64),optional, intent(in) :: mean,std
-  end subroutine
-  !====================================================================!
-  end interface
-
-  public shuffle
-  interface shuffle
-    !! Perform Knuth shuffling on an array
-    !====================================================================!
-    module subroutine shuffle_r1D(this)
-      !! Interfaced with [[shuffle]]
-    !====================================================================!
-      !! Interfaced with shuffle()
-      real(r32), intent(inout) :: this(:) !! 1D array
-    end subroutine
-    !====================================================================!
-    !====================================================================!
-    module subroutine shuffle_d1D(this)
-      !! Interfaced with [[shuffle]]
-    !====================================================================!
-      !! Interfaced with shuffle()
-      real(r64), intent(inout) :: this(:) !! 1D array
-    end subroutine
-    !====================================================================!
-    !====================================================================!
-    module subroutine shuffle_i1D(this)
-      !! Interfaced with [[shuffle]]
-    !====================================================================!
-      !! Interfaced with shuffle()
-      integer(i32), intent(inout) :: this(:) !! 1D array
-    end subroutine
-    !====================================================================!
-    !====================================================================!
-    module subroutine shuffle_id1D(this)
-      !! Interfaced with [[shuffle]]
-    !====================================================================!
-      !! Interfaced with shuffle()
-      integer(i64), intent(inout) :: this(:) !! 1D array
-    end subroutine
-    !====================================================================!
+    module procedure :: rngNormal_d1, rngNormal_d1D, rngNormal_d2D, rngNormal_d3D
   end interface
 
   public :: rngUniform
 
   interface rngUniform
-    !====================================================================!
-    module subroutine rngUniform_d1(this,rmin,rmax)
-      !! Interfaced with [[rngUniform]]
-    !====================================================================!
-    real(r64), intent(inout) :: this
-    real(r64), intent(in), optional :: rmin,rmax
-    end subroutine
-    !====================================================================!
-    !====================================================================!
-    module subroutine rngUniform_d1D(this,rmin,rmax)
-      !! Interfaced with [[rngUniform]]
-    !====================================================================!
-    real(r64), intent(inout) :: this(:)
-    real(r64),optional, intent(in) :: rmin,rmax
-    end subroutine
-    !====================================================================!
-    !====================================================================!
-    module subroutine rngUniform_d2D(this,rmin,rmax)
-      !! Interfaced with [[rngUniform]]
-    !====================================================================!
-    real(r64), intent(inout) :: this(:,:)
-    real(r64),optional, intent(in) :: rmin,rmax
-    end subroutine
-    !====================================================================!
-    !====================================================================!
-    module subroutine rngUniform_d3D(this,rmin,rmax)
-      !! Interfaced with [[rngUniform]]
-    !====================================================================!
-    real(r64), intent(inout) :: this(:,:,:)
-    real(r64),optional, intent(in) :: rmin,rmax
-    end subroutine
-    !====================================================================!
+    module procedure :: rngUniform_d1, rngUniform_d1D, rngUniform_d2D, rngUniform_d3D
   end interface
 
   public :: rngWeibull
 
   interface rngWeibull
-    !====================================================================!
-    module subroutine rngWeibull_d1(this,den)
-      !! Interfaced with [[rngWeibull]]
-    !====================================================================!
-    !     Generates a random variate from the Weibull distribution with
-    !     probability density
-    real(r64) :: this
-      !! Random number
-    real(r64), intent(in) :: den
-      !! Weibull probability density
-    end subroutine
-    !====================================================================!
-    !====================================================================!
-    module subroutine rngWeibull_d1D(this,den)
-      !! Interfaced with [[rngWeibull]]
-    !====================================================================!
-    real(r64) :: this(:)
-      !! Random numbers
-    real(r64), intent(in) :: den
-      !! Weibull probability density
-    end subroutine
-    !====================================================================!
+    module procedure :: rngWeibull_d1, rngWeibull_d1D, rngWeibull_d2D, rngWeibull_d3D
   end interface
 
-  logical, protected :: isInitialized = .false.
 
   contains
 
+
   !====================================================================!
-  subroutine setRNG_Wseed(seed)
+  subroutine setRNG_withSeed(seed, big)
     !! Interfaced to setRNG()
     !! Sets the seed of the random number generator with a specified seed
   !====================================================================!
-  integer :: seed(:)
-  integer :: n
-
-  if (isInitialized) return
-
-  call random_seed(size = n)
-  if (size(seed)/=n) call Emsg('setRNG : Seed muse be size '//str(n))
-
-  call random_seed(put=seed)
-  isInitialized=.true.
+  integer(i64), intent(in) :: seed(:)
+  logical, intent(in), optional :: big
+  
+  globalPrng = Prng(seed, big)
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine setRNG_WOseed(display)
+  subroutine setRNG_WOseed(big, display)
     !! Interfaced to setRNG()
     !! 'Randomly' sets the seed of the random number generator
   !====================================================================!
-  integer, allocatable :: seed(:)
-  integer :: n,istat
-  logical :: display
+  !integer, allocatable :: seed(:)
 
-  if (isInitialized) return
+  logical, intent(in), optional :: big
+!  integer :: n,istat
+  logical, intent(in), optional :: display
 
-  call random_seed(size = n)
-  allocate(seed(n),stat=istat);call Merr(istat,'setRNG : Seed',1)
+  globalPrng = Prng(big)
 
-  call randomizeSeed(seed)
-  call random_seed(put=seed)
-  if (display) then
-    istat = printOptions%threshold
-    printOptions%threshold = 0
-    write(output_unit,'(a)') 'Random Seed: '//str(seed)
-    printOptions%threshold = istat
-  end if
-  isInitialized=.true.
+!  call randomizeSeed(seed)
+!  call random_seed(put=seed)
+!  if (display) then
+!    istat = printOptions%threshold
+!    printOptions%threshold = 0
+!    write(output_unit,'(a)') 'Random Seed: '//str(seed)
+!    printOptions%threshold = istat
+!  end if
+!  isInitialized=.true.
+  end subroutine
+  !====================================================================!
+
+  !====================================================================!
+  subroutine rngExponential_d1(this, lambda)
+    !! Interfaced with [[rngExponential]]
+  !====================================================================!
+  real(r64)  :: this
+    !! Random number
+  real(r64) :: lambda
+    !! Inverse scale > 0
+  call globalPrng%rngExponential(this, lambda)
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine randomizeSeed(seed)
-    !! Randomizes the seed for the random number generator
+  subroutine rngExponential_d1D(this, lambda)
+    !! Interfaced with [[rngExponential]]
   !====================================================================!
-    integer(i32) :: seed(:)
-    integer(i32) :: i, n, un, istat,dt(8)
-    integer(i64) :: t
-
-    n=size(seed)
-    if (size(seed)/=n) call Emsg('setRNG : Seed muse be size '//str(n))
-    ! First try if the OS provides a random number generator
-    open(newunit=un, file="/dev/urandom", access="stream", &
-      form="unformatted", action="read", status="old", iostat=istat)
-    if (istat == 0) then
-      read(un) seed
-      close(un)
-    else
-      ! Fallback to XOR:ing the current time and pid. The PID is
-      ! useful in case one launches multiple instances of the same
-      ! program in parallel.
-      call system_clock(t)
-      if (t == 0) then
-        call date_and_time(values=dt)
-        t = (dt(1) - 1970) * 365_i64 * 86400000 &
-          + dt(2) * 31_i64 * 86400000 &
-          + dt(3) * 86400000 &
-          + dt(5) * 3600000 &
-          + dt(6) * 60000 + dt(7) * 1000 &
-          + dt(8)
-      end if
-      ! Getpid is a Gnu function.  Intel must use ifport, but the integer is only int*4 :(
-      !pid = getpid()
-      !t = ieor(t, int(pid, kind(t)))
-      do i = 1, n
-        seed(i) = lcg(t)
-      end do
-    end if
-  contains
-    !====================================================================!
-    !====================================================================!
-    function lcg(s) result(res)
-      !! This simple PRNG might not be good enough for real work, but is
-      !! sufficient for seeding a better PRNG.
-    !====================================================================!
-    integer(i32) :: res
-    integer(i64) :: s
-    if (s == 0) then
-      s = 104729
-    else
-      s = mod(s, 4294967296_i64)
-    end if
-    s = mod(s * 279470273_i64, 4294967291_i64)
-    res = int(mod(s, int(huge(0), i64)), kind(0))
-    end function
+  real(r64) :: this(:)
+    !! Random numbers
+  real(r64) :: lambda
+    !! Inverse scale > 0
+  call globalPrng%rngExponential(this, lambda)
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine random_test(test, fixedSeed)
-    !! graph: false
+  subroutine rngExponential_d2D(this, lambda)
+    !! Interfaced with [[rngExponential]]
   !====================================================================!
-  class(tester) :: test
-  logical :: fixedSeed
-  integer(i32) :: ia
-  integer(i32), allocatable :: ia1D(:)
-  real(r64) :: a, a1D(10), a2D(10, 10)
-  character(len=:), allocatable :: cTest
-
-  call Msg('==========================')
-  call Msg('Testing : Random')
-  call Msg('==========================')
-!
-!  write(*,1) 'Setting the random seed'
-!
-  if (fixedSeed) then
-    call random_seed(size = ia)
-    call allocate(ia1D, ia)
-    !ia1D = [-370590921, -2121812073]
-    ia1D = [-330169315, -420956545]
-    call setRNG(ia1D)
-  else
-    call setRNG(.true.)
-  endif
-  
-!  !call setRNG([546420601, 1302718556, 802583095, 136684118, 1163051410, 592779069, 660876855, 767615536, 1788597594, 775517554, 657867655, 1334969129])
-  
-  call allocate(ia1D, 3)
-  ia=1
-  call rngInteger(ia1D,ia)
-  write(*,1) 'Random integers'
-  write(*,1) str(ia1D)
-  call rngNormal(a)
-  write(*,1) 'Dble random number'
-  write(*,1) str(a)
-  call rngNormal(a1D)
-  write(*,1) '~N(mean=0.0,std=1.0)'
-  write(*,1) str(a1D)
-  call rngNormal(a1D, 1.d0, 5.d0)
-  write(*,1) '~N(mean=1.0,std=5.0) 1D array'
-  write(*,1) str(a1D)
-  a2D = 0.d0
-  call rngNormal(a2D,50.d0,10.d0)
-  write(*,1) '~N(mean=50.0,std=10.0) 2D array reduced output'
-  cTest = str(a2D)
-  write(*,1) cTest
-  1 format(a)
+  real(r64) :: this(:,:)
+    !! Random numbers
+  real(r64) :: lambda
+    !! Inverse scale > 0
+  call globalPrng%rngExponential(this, lambda)    
   end subroutine
   !====================================================================!
+  !====================================================================!
+  subroutine rngExponential_d3D(this, lambda)
+    !! Interfaced with [[rngExponential]]
+  !====================================================================!
+  real(r64) :: this(:,:,:)
+    !! Random numbers
+  real(r64) :: lambda
+    !! Inverse scale > 0
+  call globalPrng%rngExponential(this, lambda)
+  end subroutine
+  !====================================================================!
+
+  !====================================================================!
+  subroutine rngInteger_i1(this, imin, imax)
+    !! Interfaced with [[rngInteger]]
+  !====================================================================!
+  integer(i32), intent(inout) :: this
+  integer(i32), intent(in) :: imin
+  integer(i32), intent(in) :: imax
+  call globalPrng%rngInteger(this, imin, imax)
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine rngInteger_i1D(this, imin, imax)
+    !! Interfaced with [[rngInteger]]
+  !====================================================================!
+  integer(i32), intent(inout) :: this(:)
+  integer(i32), intent(in) :: imin
+  integer(i32), intent(in) :: imax
+  call globalPrng%rngInteger(this, imin, imax)
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine rngInteger_i2D(this, imin, imax)
+    !! Interfaced with [[rngInteger]]
+  !====================================================================!
+  integer(i32), intent(inout) :: this(:,:)
+  integer(i32), intent(in) :: imin
+  integer(i32), intent(in) :: imax
+  call globalPrng%rngInteger(this, imin, imax)
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine rngInteger_i3D(this, imin, imax)
+    !! Interfaced with [[rngInteger]]
+  !====================================================================!
+  integer(i32), intent(inout) :: this(:,:,:)
+  integer(i32), intent(in) :: imin
+  integer(i32), intent(in) :: imax
+  call globalPrng%rngInteger(this, imin, imax)
+  end subroutine
+  !====================================================================!
+
+  !====================================================================!
+  subroutine rngNormal_d1(this, mean, std)
+    !! Interfaced with [[rngNormal]]
+  !====================================================================!
+  real(r64), intent(inout) :: this
+  real(r64), intent(in), optional :: mean, std
+  call globalPrng%rngNormal(this, mean, std)
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine rngNormal_d1D(this, mean, std)
+    !! Interfaced with [[rngNormal]]
+  !====================================================================!
+  real(r64), intent(inout) :: this(:)
+  real(r64),optional, intent(in) :: mean, std
+  call globalPrng%rngNormal(this, mean, std)
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine rngNormal_d2D(this, mean, std)
+    !! Interfaced with [[rngNormal]]
+  !====================================================================!
+  real(r64), intent(inout) :: this(:,:)
+  real(r64),optional, intent(in) :: mean, std
+  call globalPrng%rngNormal(this, mean, std)
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine rngNormal_d3D(this, mean, std)
+    !! Interfaced with [[rngNormal]]
+  !====================================================================!
+  real(r64), intent(inout) :: this(:,:,:)
+  real(r64),optional, intent(in) :: mean, std
+  call globalPrng%rngNormal(this, mean, std)
+  end subroutine
+  !====================================================================!
+
+  !====================================================================!
+  subroutine rngUniform_d1(this,rmin,rmax)
+    !! Interfaced with [[rngUniform]]
+  !====================================================================!
+  real(r64), intent(inout) :: this
+  real(r64), intent(in), optional :: rmin
+  real(r64), intent(in), optional :: rmax
+  call globalPrng%rngUniform(this, rmin, rmax)
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine rngUniform_d1D(this,rmin,rmax)
+    !! Interfaced with [[rngUniform]]
+  !====================================================================!
+  real(r64), intent(inout) :: this(:)
+  real(r64), intent(in), optional :: rmin
+  real(r64), intent(in), optional :: rmax
+  call globalPrng%rngUniform(this, rmin, rmax)
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine rngUniform_d2D(this,rmin,rmax)
+    !! Interfaced with [[rngUniform]]
+  !====================================================================!
+  real(r64), intent(inout) :: this(:,:)
+  real(r64), intent(in), optional :: rmin
+  real(r64), intent(in), optional :: rmax
+  call globalPrng%rngUniform(this, rmin, rmax)
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine rngUniform_d3D(this,rmin,rmax)
+    !! Interfaced with [[rngUniform]]
+  !====================================================================!
+  real(r64), intent(inout) :: this(:,:,:)
+  real(r64), intent(in), optional :: rmin
+  real(r64), intent(in), optional :: rmax
+  call globalPrng%rngUniform(this, rmin, rmax)
+  end subroutine
+  !====================================================================!
+
+  !====================================================================!
+  subroutine rngWeibull_d1(this, lambda, k)
+    !! Interfaced with [[rngWeibull]]
+  !====================================================================!
+  real(r64), intent(inout) :: this
+    !! Draw from Weibull distribution
+  real(r64), intent(in) :: lambda
+    !! Scale of the distribution
+  real(r64), intent(in) :: k
+    !! Shape of the distribution
+  call globalPrng%rngWeibull(this, lambda, k)
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine rngWeibull_d1D(this, lambda, k)
+    !! Interfaced with [[rngWeibull]]
+  !====================================================================!
+  real(r64), intent(inout) :: this(:)
+    !! Draw from Weibull distribution
+  real(r64), intent(in) :: lambda
+    !! Scale of the distribution
+  real(r64), intent(in) :: k
+    !! Shape of the distribution
+  call globalPrng%rngWeibull(this, lambda, k)
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine rngWeibull_d2D(this, lambda, k)
+    !! Interfaced with [[rngWeibull]]
+  !====================================================================!
+  real(r64), intent(inout) :: this(:,:)
+    !! Draw from Weibull distribution
+  real(r64), intent(in) :: lambda
+    !! Scale of the distribution
+  real(r64), intent(in) :: k
+    !! Shape of the distribution
+  call globalPrng%rngWeibull(this, lambda, k)
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine rngWeibull_d3D(this, lambda, k)
+    !! Interfaced with [[rngWeibull]]
+  !====================================================================!
+  real(r64), intent(inout) :: this(:,:,:)
+    !! Draw from Weibull distribution
+  real(r64), intent(in) :: lambda
+    !! Scale of the distribution
+  real(r64), intent(in) :: k
+    !! Shape of the distribution
+  call globalPrng%rngWeibull(this, lambda, k)
+  end subroutine
+  !====================================================================!
+
+end module
 
   !====================================================================!
   ! EXTRA CODES TO BE TRANSLATED LATER!!!
@@ -1632,4 +1579,4 @@ module m_random
     !RETURN
     !END FUNCTION random_Cauchy
 
-      end module
+

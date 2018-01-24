@@ -1,4 +1,4 @@
-submodule (m_random) sm_rngInteger
+submodule (Prng_Class) sm_rngInteger
   !! Generate random integers.
 
   ! Original Version
@@ -12,79 +12,91 @@ submodule (m_random) sm_rngInteger
   ! Added overloaded operations for single number, nD arrays
   !     Author: Leon Foks
 
-use m_allocate, only: allocate
-use m_array1D, only: arange
-use m_deallocate, only: deallocate
-
 implicit none
 
 contains
 
   !====================================================================!
-  module procedure rngInteger_i1!(this,imin,imax)
-    !! Interfaced with [[rngInteger]]
+  module procedure rngInteger_i1_Prng!(this, res, imin, imax)
+    !! Overloaded Type bound procedure Prng%rngInteger()
   !====================================================================!
-  !integer(i32) :: this
-  !integer(i32) :: imin,imax
+  !class(Prng), intent(inout) :: this
+  !  !! Prng Class
+  !integer(i32), intent(out) :: res
+  !  !! Random integer
+  !integer(i32), intent(in) :: imin
+  !  !! Draw >= imin
+  !integer(i32), intent(in) :: imax
+  !  !! Draw <= imax
+  
   real(r64) :: wk
-  call rngUniform(wk)
-  this=imin+idnint(wk*dble(imax-imin))
+  
+  call this%rngUniform(wk)
+  
+  res = imin + idnint(wk * dble(imax - imin))
   end procedure
   !====================================================================!
   !====================================================================!
-  module procedure rngInteger_i1D!(this,imin,imax)
-    !! Interfaced with [[rngInteger]]
+  module procedure rngInteger_i1D_Prng!(this, res, imin, imax)
+    !! Overloaded Type bound procedure Prng%rngInteger()
   !====================================================================!
-  !integer(i32) :: this(:)
-  !integer(i32) :: imin,imax
-  real(r64), allocatable :: wk(:)
-  call allocate(wk,size(this))
-  call rngUniform(wk)
-  this=imin+idnint(wk*dble(imax-imin))
-  call deallocate(wk)
-  end procedure
-  !====================================================================!
-  !====================================================================!
-  module procedure rngInteger_i2D!(this,imin,imax)
-    !! Interfaced with [[rngInteger]]
-  !====================================================================!
-  !integer(i32) :: this(:,:)
-  !integer(i32) :: imin,imax
-  real(r64), allocatable :: wk(:,:)
-  call allocate(wk, shape(this))
-  call rngUniform(wk)
-  this=imin+idnint(wk*dble(imax-imin))
-  call deallocate(wk)
-  end procedure
-  !====================================================================!
-  !====================================================================!
-  module procedure rngInteger_i3D!(this,imin,imax)
-    !! Interfaced with [[rngInteger]]
-  !====================================================================!
-  !integer(i32) :: this(:,:,:)
-  !integer(i32) :: imin,imax
-  real(r64), allocatable :: wk(:,:,:)
-  call allocate(wk, shape(this))
-  call rngUniform(wk)
-  this=imin+idnint(wk*dble(imax-imin))
-  call deallocate(wk)
-  end procedure
-  !====================================================================!
-  !====================================================================!
-  module procedure rngInteger_i1D_i1!(this,imin)
-    !! Interfaced with [[rngInteger]]
-  !====================================================================!
-!  integer(i32) :: this(:)
-!  integer(i32) :: imin
-  integer(i32) :: i,j,k,N
-  N=size(this)
-  this = [(imin + i, i = 0, N-1)]
-  do i=1,N
-    call rngInteger(j,1,i)
-    k=this(i)
-    this(i)=this(j)
-    this(j)=k
+  !class(Prng), intent(inout) :: this
+  !  !! Prng Class
+  !integer(i32), intent(out) :: res
+  !  !! Random integer
+  !integer(i32), intent(in) :: imin
+  !  !! Draw >= imin
+  !integer(i32), intent(in) :: imax
+  !  !! Draw <= imax
+  integer(i32) :: i, N
+  N = size(res)
+  do i = 1, N
+    call rngInteger_i1_Prng(this, res(i), imin, imax)
   end do
+  end procedure
+  !====================================================================!
+  !====================================================================!
+  module procedure rngInteger_i2D_Prng!(this, res, imin, imax)
+    !! Overloaded Type bound procedure Prng%rngInteger()
+  !====================================================================!
+  !class(Prng), intent(inout) :: this
+  !  !! Prng Class
+  !integer(i32), intent(out) :: res
+  !  !! Random integer
+  !integer(i32), intent(in) :: imin
+  !  !! Draw >= imin
+  !integer(i32), intent(in) :: imax
+    !! Draw <= imax
+  integer(i32) :: i, iSub(2)
+  integer(i32) :: n, nSub(2)
+  nSub = shape(res)
+  n=size(res)
+  do i = 1, n
+    iSub = ind2sub(i, nSub)
+    call rngInteger_i1_Prng(this, res(iSub(1), iSub(2)), imin, imax)
+  enddo
+  end procedure
+  !====================================================================!
+  !====================================================================!
+  module procedure rngInteger_i3D_Prng!(this, res, imin, imax)
+    !! Overloaded Type bound procedure Prng%rngInteger()
+  !====================================================================!
+  !class(Prng), intent(inout) :: this
+  !  !! Prng Class
+  !integer(i32), intent(out) :: res
+  !  !! Random integer
+  !integer(i32), intent(in) :: imin
+  !  !! Draw >= imin
+  !integer(i32), intent(in) :: imax
+    !! Draw <= imax
+  integer(i32) :: i, iSub(3)
+  integer(i32) :: n, nSub(3)
+  nSub = shape(res)
+  n = size(res)
+  do i = 1, n
+    iSub = ind2sub(i, nSub)
+    call rngInteger_i1_Prng(this, res(iSub(1) ,iSub(2) ,iSub(3)), imin, imax)
+  enddo
   end procedure
   !====================================================================!
 end submodule
