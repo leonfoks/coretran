@@ -57,13 +57,10 @@ use m_errors, only: eMsg, msg
 use m_reallocate, only: reallocate
 use m_sort, only: sort
 use m_strings, only: str
-use m_unitTester, only: tester
 
 implicit none
 
 private
-
-public :: dDynamicArray_test
 
 public :: dDynamicArray
 
@@ -360,66 +357,4 @@ contains
   call this%reallocate(this%N)
   end subroutine
   !====================================================================!
-
-  !====================================================================!
-  subroutine dDynamicArray_test(test)
-    !! graph: false
-  !====================================================================!
-  class(tester) :: test
-
-  type(dDynamicArray) :: da, da2
-
-  integer(i32) :: ia
-
-  da = dDynamicArray(10)
-  call test%test(size(da%values)==10, 'dDynamicArray')
-  call test%test(da%N==0, 'dDynamicArray')
-  call da%insertAt(1, 10.d0)
-  call test%test(da%values(1) == 10, 'dDynamicArray%insert')
-  call da%insertAt(1, 20.d0)
-  call test%test(all(da%values(1:2) == [20.d0, 10.d0]), 'dDynamicArray%insert')
-  call da%prepend(30.d0)
-  call test%test(all(da%values(1:3) == [30.d0, 20.d0, 10.d0]), 'dDynamicArray%prepend')
-  call da%append(40.d0)
-  call test%test(all(da%values(1:4) == [30.d0, 20.d0, 10.d0, 40.d0]), 'dDynamicArray%append')
-  call da%remove(2)
-  call test%test(all(da%values(1:3) == [30.d0, 10.d0, 40.d0]), 'dDynamicArray%remove')
-  call da%tighten()
-  call test%test(size(da%values) == 3, 'dDynamicArray%tighten')
-  da2 = da
-  call test%test(all(da2%values == da%values), 'dDynamicArray%copy')
-  da2%values(2) = 50.d0
-  call test%test(da2%values(2) /= da%values(2), 'dDynamicArray%copy')
-  call da%deallocate()
-  call test%test(.not. allocated(da%values), 'dDynamicArray%deallocate')
-  call da2%deallocate()
-
-  da = dDynamicArray(3, sorted=.true.)
-  call da%insertSorted(20.d0)
-  call da%insertSorted(30.d0)
-  call da%insertSorted(10.d0)
-  call test%test(all(da%values==[10.d0, 20.d0, 30.d0]), 'dDynamicArray%insertSorted')
-  ia = da%locationOf(20.d0)
-  call test%test(ia == 2, 'dDynamicArray%locationOf')
-  call da%insertSortedUnique(10.d0)
-  call test%test(all(da%values==[10.d0, 20.d0, 30.d0]), 'dDynamicArray%insertSortedUnique')
-  call da%insertSortedUnique(15.d0)
-  call test%test(all(da%values(1:da%N)==[10.d0, 15.d0, 20.d0, 30.d0]), 'dDynamicArray%insertSortedUnique')
-  call test%test(size(da%values) == 6, 'dDynamicArray%insert')
-  call da%deallocate()
-
-  da = dDynamicArray(3, sorted=.true., fixed=.true.)
-  call da%insertSorted(20.d0)
-  call da%insertSorted(30.d0)
-  call da%insertSorted(10.d0)
-  call test%test(all(da%values(1:da%N)==[10.d0, 20.d0, 30.d0]), 'dDynamicArray%insertSorted')
-  ia = da%locationOf(20.d0)
-  call test%test(ia == 2, 'dDynamicArray%locationOf')
-  call da%insertSortedUnique(10.d0)
-  call test%test(all(da%values(1:da%N)==[10.d0, 20.d0, 30.d0]), 'dDynamicArray%insertSortedUnique')
-  call da%insertSortedUnique(15.d0)
-  call test%test(all(da%values(1:da%N)==[10.d0, 15.d0, 20.d0]), 'dDynamicArray%insertSortedUnique')
-  call test%test(size(da%values) == 3, 'dDynamicArray%insert')
-  call da%deallocate()
-end subroutine
 end module

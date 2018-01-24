@@ -60,13 +60,10 @@ use m_iDynamicArray, only: iDynamicArray
 use m_dDynamicArray, only: dDynamicArray
 use m_searching, only: intervalSearch
 use m_strings, only: str, printOptions
-use m_unitTester, only: tester
 
 implicit none
 
 private
-
-public :: dArgDynamicArray_test
 
 public :: dArgDynamicArray
 
@@ -356,74 +353,4 @@ contains
   call this%v%tighten()
   end subroutine
   !====================================================================!
-
-  !====================================================================!
-  subroutine dArgDynamicArray_test(test)
-    !! graph: false
-  !====================================================================!
-  class(tester) :: test
-
-  type(dArgDynamicArray) :: da, da2
-
-  integer(i32) :: ia
-
-  call Msg('==========================')
-  call Msg('Testing : dArgDynamic Arrays')
-  call Msg('==========================')
-
-  da = dArgDynamicArray(10)
-  call test%test(size(da%v%values)==10 .and. size(da%i%values)==10, 'dArgDynamicArray')
-  call test%test(da%v%N == 0 .and. da%i%N == 0, 'dArgDynamicArray')
-  call da%insertAt(1, 10, 10.d0)
-  call test%test(da%i%values(1) == 10 .and. da%v%values(1) == 10.d0, 'dArgDynamicArray%insert')
-  call da%insertAt(1, 20, 20.d0)
-  call test%test(all(da%i%values(1:2) == [20, 10]) .and. all(da%v%values(1:2) == [20.d0, 10.d0]), 'dArgDynamicArray%insert')
-  call da%prepend(30, 30.d0)
-  call test%test(all(da%i%values(1:3) == [30, 20, 10]) .and. all(da%v%values(1:3) == [30.d0, 20.d0, 10.d0]), 'dArgDynamicArray%prepend')
-  call da%append(40, 40.d0)
-  call test%test(all(da%i%values(1:4) == [30, 20, 10, 40]) .and. all(da%v%values(1:4) == [30.d0, 20.d0, 10.d0, 40.d0]), 'dArgDynamicArray%append')
-  call da%remove(2)
-  call test%test(all(da%i%values(1:3) == [30, 10, 40]) .and. all(da%v%values(1:3) == [30.d0, 10.d0, 40.d0]), 'dArgDynamicArray%remove')
-  call da%tighten()
-  call test%test(size(da%i%values) == 3 .and. size(da%v%values) == 3, 'dArgDynamicArray%tighten')
-  da2 = da
-  call test%test(all(da2%i%values == da%i%values) .and. all(da2%v%values == da%v%values), 'dArgDynamicArray%copy')
-  da2%v%values(2) = 50.d0
-  call test%test(da2%v%values(2) /= da%v%values(2), 'dArgDynamicArray%copy')
-  call da%deallocate()
-  call test%test(.not. allocated(da%i%values) .and. .not. allocated(da%v%values), 'dArgDynamicArray%deallocate')
-  call da2%deallocate()
-
-  da = dArgDynamicArray(3, sorted=.true.)
-  call da%insertSorted(1, 20.d0)
-  call da%insertSorted(2, 30.d0)
-  call da%insertSorted(3, 10.d0)
-  call test%test(all(da%i%values(1:3)==[3, 1, 2]) .and. all(da%v%values(1:3)==[10.d0, 20.d0, 30.d0]), 'dArgDynamicArray%insertSorted')
-  ia = da%locationOf(20.d0)
-  call test%test(ia == 2, 'dArgDynamicArray%locationOf')
-  ia = da%argOf(20.d0)
-  call test%test(ia == 1, 'dArgDynamicArray%argOf')
-  call da%insertSortedUnique(4, 10.d0)
-  call test%test(all(da%i%values(1:3)==[3, 1, 2]) .and. all(da%v%values(1:3)==[10.d0, 20.d0, 30.d0]), 'dArgDynamicArray%insertSortedUnique')
-  call da%insertSortedUnique(4, 15.d0)
-  call test%test(all(da%i%values(1:4)==[3, 4, 1, 2]) .and. all(da%v%values(1:4)==[10.d0, 15.d0, 20.d0, 30.d0]), 'dArgDynamicArray%insertSortedUnique')
-  call test%test(size(da%i%values) == 6 .and. size(da%v%values) == 6, 'dArgDynamicArray%insert')
-  call da%deallocate()
-
-  da = dArgDynamicArray(3, sorted=.true., fixed=.true.)
-  call da%insertSorted(1, 20.d0)
-  call da%insertSorted(2, 30.d0)
-  call da%insertSorted(3, 10.d0)
-  call test%test(all(da%i%values(1:3)==[3, 1, 2]) .and. all(da%v%values(1:3)==[10.d0, 20.d0, 30.d0]), 'dArgDynamicArray%insertSorted')
-  ia = da%locationOf(20.d0)
-  call test%test(ia == 2, 'dArgDynamicArray%locationOf')
-  ia = da%argOf(20.d0)
-  call test%test(ia == 1, 'dArgDynamicArray%argOf')
-  call da%insertSortedUnique(4, 10.d0)
-  call test%test(all(da%i%values(1:3)==[3, 1, 2]) .and. all(da%v%values(1:3)==[10.d0, 20.d0, 30.d0]), 'dArgDynamicArray%insertSortedUnique')
-  call da%insertSortedUnique(4, 15.d0)
-  call test%test(all(da%i%values(1:3)==[3, 4, 1]) .and. all(da%v%values(1:3)==[10.d0, 15.d0, 20.d0]), 'dArgDynamicArray%insertSortedUnique')
-  call test%test(size(da%i%values) == 3 .and. size(da%v%values) == 3, 'dArgDynamicArray%insert')
-  call da%deallocate()
-end subroutine
 end module

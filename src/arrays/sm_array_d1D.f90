@@ -1,9 +1,6 @@
   submodule (m_array1D) m_Array_d1D
     !! Routines for double precision arrays
-  use variableKind
-  use m_errors, only: mErr, eMsg
-  use m_sort, only: argSort
-  use m_strings, only: str
+
   implicit none
 
   contains
@@ -95,13 +92,29 @@
 !  real(r64) :: res(size(this)*nRepeats)
   integer(i32) :: i,k,N,nTmp
   N = size(this)
-  nTmp = N*nRepeats
+  nTmp = N * nRepeats
   call allocate(res, nTmp)
   !if (size(res) /= nTmp) call eMsg('repeat_d1D:Result must be size '//str(nTmp))
-  k=1
+  k = 1
   do i = 1, N
-    res(k:k+nRepeats-1) = this(i) ! Repeat the element
+    res(k:k + nRepeats - 1) = this(i) ! Repeat the element
     k = k + nRepeats
+  end do
+  end procedure
+  !====================================================================!
+  !====================================================================!
+  module procedure shuffle_d1D
+    !! Interfaced with [[shuffle]]
+  !====================================================================!
+  !module subroutine shuffle_d1D(this)
+  !real(r64) :: this(:)
+  integer(i32) :: i
+  integer(i32) :: N
+  integer(i32) :: r
+  N=size(this)
+  do i = 2, N
+    call rngInteger(r, 1, i)
+    call swap(this(i), this(r))
   end do
   end procedure
   !====================================================================!

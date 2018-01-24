@@ -21,7 +21,7 @@
   use iso_fortran_env, only: output_unit
   use variableKind, only: i32,r64
   use m_strings, only: str
-  use m_time, only: absTimetoHMS,timeinseconds
+  use m_time, only: secondsToHMS,timeinseconds
   implicit none
 
   private
@@ -124,7 +124,7 @@
     !! Stopwatch Class
   character(len=:), allocatable :: res
     !! Elapsed time in format HH:MM:SS.MSEC
-  res=absTimetoHMS(this%elapsedInSeconds())
+  res=secondsToHMS(this%elapsedInSeconds())
   end function
   !=====================================================================!
   !=====================================================================!
@@ -135,7 +135,7 @@
     !! Stopwatch Class
   character(len=:), allocatable :: res
     !! Lap time in format HH:MM:SS.MSEC
-  res=absTimetoHMS(this%lapInSeconds())
+  res=secondsToHMS(this%lapInSeconds())
   end function
   !=====================================================================!
   !=====================================================================!

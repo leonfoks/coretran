@@ -1,10 +1,6 @@
   submodule (m_array1D) m_Array_r1D
     !! Routines for single precision arrays
-  use variableKind
-  use m_allocate, only: allocate
-  use m_errors, only: mErr, eMsg
-  use m_sort, only: argSort
-  use m_strings, only: str
+
   implicit none
 
   contains
@@ -106,7 +102,22 @@
   end do
   end procedure
   !====================================================================!
-
+  !====================================================================!
+  module procedure shuffle_r1D
+    !! Interfaced with [[shuffle]]
+  !====================================================================!
+  !module subroutine shuffle_r1D(this)
+  !real(r32) :: this(:)
+  integer(i32) :: i
+  integer(i32) :: N
+  integer(i32) :: r
+  N=size(this)
+  do i = 2, N
+    call rngInteger(r, 1, i)
+    call swap(this(i), this(r))
+  end do
+  end procedure
+  !====================================================================!
 
 
 end submodule

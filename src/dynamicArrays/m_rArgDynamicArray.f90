@@ -59,13 +59,10 @@ use m_iDynamicArray, only: iDynamicArray
 use m_rDynamicArray, only: rDynamicArray, insertAt__rDynamicArray
 use m_searching, only: intervalSearch
 use m_strings, only: str
-use m_unitTester, only: tester
 
 implicit none
 
 private
-
-public :: rArgDynamicArray_test
 
 public :: rArgDynamicArray
 
@@ -332,74 +329,4 @@ contains
   call this%v%tighten()
   end subroutine
   !====================================================================!
-
-  !====================================================================!
-  subroutine rArgDynamicArray_test(test)
-    !! graph: false
-  !====================================================================!
-  class(tester) :: test
-
-  type(rArgDynamicArray) :: rda, rda2
-
-  integer(i32) :: ia
-
-  call Msg('==========================')
-  call Msg('Testing : rArgDynamic Arrays')
-  call Msg('==========================')
-
-  rda = rArgDynamicArray(10)
-  call test%test(size(rda%v%values)==10 .and. size(rda%i%values)==10, 'rArgDynamicArray')
-  call test%test(rda%v%N == 0 .and. rda%i%N == 0, 'rArgDynamicArray')
-  call rda%insertAt(1, 10, 10.0)
-  call test%test(rda%i%values(1) == 10 .and. rda%v%values(1) == 10.0, 'rArgDynamicArray%insert')
-  call rda%insertAt(1, 20, 20.0)
-  call test%test(all(rda%i%values(1:2) == [20, 10]) .and. all(rda%v%values(1:2) == [20.0, 10.0]), 'rArgDynamicArray%insert')
-  call rda%prepend(30, 30.0)
-  call test%test(all(rda%i%values(1:3) == [30, 20, 10]) .and. all(rda%v%values(1:3) == [30.0, 20.0, 10.0]), 'rArgDynamicArray%prepend')
-  call rda%append(40, 40.0)
-  call test%test(all(rda%i%values(1:4) == [30, 20, 10, 40]) .and. all(rda%v%values(1:4) == [30.0, 20.0, 10.0, 40.0]), 'rArgDynamicArray%append')
-  call rda%remove(2)
-  call test%test(all(rda%i%values(1:3) == [30, 10, 40]) .and. all(rda%v%values(1:3) == [30.0, 10.0, 40.0]), 'rArgDynamicArray%remove')
-  call rda%tighten()
-  call test%test(size(rda%i%values) == 3 .and. size(rda%v%values) == 3, 'rArgDynamicArray%tighten')
-  rda2 = rda
-  call test%test(all(rda2%i%values == rda%i%values) .and. all(rda2%v%values == rda%v%values), 'rArgDynamicArray%copy')
-  rda2%v%values(2) = 50.0
-  call test%test(rda2%v%values(2) /= rda%v%values(2), 'rArgDynamicArray%copy')
-  call rda%deallocate()
-  call test%test(.not. allocated(rda%i%values) .and. .not. allocated(rda%v%values), 'rArgDynamicArray%deallocate')
-  call rda2%deallocate()
-
-  rda = rArgDynamicArray(3, sorted=.true.)
-  call rda%insertSorted(1, 20.0)
-  call rda%insertSorted(2, 30.0)
-  call rda%insertSorted(3, 10.0)
-  call test%test(all(rda%i%values(1:3)==[3, 1, 2]) .and. all(rda%v%values(1:3)==[10.0, 20.0, 30.0]), 'rArgDynamicArray%insertSorted')
-  ia = rda%locationOf(20.0)
-  call test%test(ia == 2, 'rArgDynamicArray%locationOf')
-  ia = rda%argOf(20.0)
-  call test%test(ia == 1, 'rArgDynamicArray%argOf')
-  call rda%insertSortedUnique(4, 10.0)
-  call test%test(all(rda%i%values(1:3)==[3, 1, 2]) .and. all(rda%v%values(1:3)==[10.0, 20.0, 30.0]), 'rArgDynamicArray%insertSortedUnique')
-  call rda%insertSortedUnique(4, 15.0)
-  call test%test(all(rda%i%values(1:4)==[3, 4, 1, 2]) .and. all(rda%v%values(1:4)==[10.0, 15.0, 20.0, 30.0]), 'rArgDynamicArray%insertSortedUnique')
-  call test%test(size(rda%i%values) == 6 .and. size(rda%v%values) == 6, 'rArgDynamicArray%insert')
-  call rda%deallocate()
-
-  rda = rArgDynamicArray(3, sorted=.true., fixed=.true.)
-  call rda%insertSorted(1, 20.0)
-  call rda%insertSorted(2, 30.0)
-  call rda%insertSorted(3, 10.0)
-  call test%test(all(rda%i%values(1:3)==[3, 1, 2]) .and. all(rda%v%values(1:3)==[10.0, 20.0, 30.0]), 'rArgDynamicArray%insertSorted')
-  ia = rda%locationOf(20.0)
-  call test%test(ia == 2, 'rArgDynamicArray%locationOf')
-  ia = rda%argOf(20.0)
-  call test%test(ia == 1, 'rArgDynamicArray%argOf')
-  call rda%insertSortedUnique(4, 10.0)
-  call test%test(all(rda%i%values(1:3)==[3, 1, 2]) .and. all(rda%v%values(1:3)==[10.0, 20.0, 30.0]), 'rArgDynamicArray%insertSortedUnique')
-  call rda%insertSortedUnique(4, 15.0)
-  call test%test(all(rda%i%values(1:3)==[3, 4, 1]) .and. all(rda%v%values(1:3)==[10.0, 15.0, 20.0]), 'rArgDynamicArray%insertSortedUnique')
-  call test%test(size(rda%i%values) == 3 .and. size(rda%v%values) == 3, 'rArgDynamicArray%insert')
-  call rda%deallocate()
-end subroutine
 end module

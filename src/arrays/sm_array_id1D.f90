@@ -1,9 +1,6 @@
   submodule (m_array1D) m_Array_id1D
     !! Routines for double precision integer arrays
-  use variableKind
-  use m_errors, only: mErr, eMsg
-  use m_sort, only: argSort
-  use m_strings, only: str
+
   implicit none
 
   contains
@@ -102,6 +99,22 @@
   do i = 1, N
     res(k:k+nRepeats-1) = this(i) ! Repeat the element
     k = k + nRepeats
+  end do
+  end procedure
+  !====================================================================!
+  !====================================================================!
+  module procedure shuffle_id1D
+    !! Interfaced with [[shuffle]]
+  !====================================================================!
+  !module subroutine shuffle_id1D(this)
+  !integer(i64) :: this(:)
+  integer(i32) :: i
+  integer(i32) :: N
+  integer(i32) :: r
+  N=size(this)
+  do i = 2, N
+    call rngInteger(r, 1, i)
+    call swap(this(i), this(r))
   end do
   end procedure
   !====================================================================!

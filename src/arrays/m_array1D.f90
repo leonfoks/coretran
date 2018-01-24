@@ -5,16 +5,15 @@ module m_array1D
   !! [[arange]], [[diff]], [[isSorted]], [[repeat]]
   !! for more information.
 use variableKind, only: r32, r64, i32, i64
-use m_errors, only: msg
 use m_allocate, only: allocate
-use m_deallocate, only: deallocate
-use m_unitTester, only: tester
+use m_errors, only: eMsg
+use m_random, only: rngInteger
+use m_strings, only: str
+use m_swap, only: swap
 
 implicit none
 
 private
-
-public :: array1D_test
 
 public :: arange
 interface arange
@@ -254,6 +253,44 @@ interface repeat
     end subroutine
 end interface
 
+public shuffle
+
+interface shuffle
+  !! Perform Knuth shuffling on an array
+  !====================================================================!
+  module subroutine shuffle_r1D(this)
+    !! Interfaced with [[shuffle]]
+  !====================================================================!
+    !! Interfaced with shuffle()
+    real(r32), intent(inout) :: this(:) !! 1D array
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  module subroutine shuffle_d1D(this)
+    !! Interfaced with [[shuffle]]
+  !====================================================================!
+    !! Interfaced with shuffle()
+    real(r64), intent(inout) :: this(:) !! 1D array
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  module subroutine shuffle_i1D(this)
+    !! Interfaced with [[shuffle]]
+  !====================================================================!
+    !! Interfaced with shuffle()
+    integer(i32), intent(inout) :: this(:) !! 1D array
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  module subroutine shuffle_id1D(this)
+    !! Interfaced with [[shuffle]]
+  !====================================================================!
+    !! Interfaced with shuffle()
+    integer(i64), intent(inout) :: this(:) !! 1D array
+  end subroutine
+  !====================================================================!
+end interface
+
 !  interface isConstant
 !  module procedure :: isConstant_DV
 !  end interface
@@ -293,77 +330,4 @@ end interface
 !  module procedure :: unitize_1D
 !  end interface
 !  private :: unitize_1D
-
-contains
-
-  !====================================================================!
-  subroutine array1D_test(test)
-  !====================================================================!
-  class(tester) :: test
-
-  real(r32) :: ar
-  real(r32), allocatable :: ar1D(:), br1D(:)
-  real(r64) :: a
-  real(r64), allocatable :: a1D(:), b1D(:)
-  integer(i32) :: ia, ib, ic
-  integer(i32), allocatable :: ia1D(:), ib1D(:)
-  integer(i64) :: iad
-  integer(i64), allocatable :: iad1D(:), ibd1D(:)
-
-  call Msg('==========================')
-  call Msg('Testing : Array 1D')
-  call Msg('==========================')
-
-  call allocate(ar1D, 3)
-  call allocate(a1D, 3)
-  call allocate(ia1D, 3)
-  call allocate(iad1D, 3)
-  call allocate(br1D, 2)
-  call allocate(b1D, 2)
-  call allocate(ib1D, 2)
-  call allocate(ibd1D, 2)
-
-  call arange(ar1D,1.0, 3.0, 1.0)
-  call test%test(all(ar1D==[1.0,2.0,3.0]),'arange_r1D')
-  call arange(a1D,1.d0, 3.d0, 1.d0)
-  call test%test(all(a1D==[1.d0,2.d0,3.d0]),'arange_d1D')
-  call arange(ia1D,1, 3, 1)
-  call test%test(all(ia1D==[1,2,3]),'arange_i1D')
-  call arange(iad1D,1_i64, 3_i64, 1_i64)
-  call test%test(all(iad1D==[1,2,3]),'arange_id1D')
-
-  call diff(ar1D, br1D)
-  call test%test(all(br1D==[1.0,1.0]),'diff_r1D')
-  call diff(a1D, b1D)
-  call test%test(all(b1D==[1.d0,1.d0]),'diff_d1D')
-  call diff(ia1d, ib1D)
-  call test%test(all(ib1D==[1,1]),'diff_i1D')
-  call diff(iad1d, ibd1D)
-  call test%test(all(ibd1D==[1,1]),'diff_id1D')
-
-  call allocate(br1D, size(ar1D)*3)
-  call allocate(b1D, size(a1D)*3)
-  call allocate(ib1D, size(ia1D)*3)
-  call allocate(ibd1D, size(iad1D)*3)
-
-  call repeat(ar1D, 3, br1D)
-  call test%test(all(br1D == [1.0,1.0,1.0,2.0,2.0,2.0,3.0,3.0,3.0]), 'repeat_r1D')
-  call repeat(a1D,3, b1D)
-  call test%test(all(b1D == [1.d0,1.d0,1.d0,2.d0,2.d0,2.d0,3.d0,3.d0,3.d0]), 'repeat_d1D')
-  call repeat(ia1D,3, ib1D)
-  call test%test(all(ib1D == [1,1,1,2,2,2,3,3,3]), 'repeat_ib1D')
-  call repeat(iad1D,3, ibd1D)
-  call test%test(all(ibd1D == [1,1,1,2,2,2,3,3,3]), 'repeat_ibd1D')
-
-  call deallocate(ar1D)
-  call deallocate(a1D)
-  call deallocate(ia1D)
-  call deallocate(iad1D)
-  call deallocate(br1D)
-  call deallocate(b1D)
-  call deallocate(ib1D)
-  call deallocate(ibd1D)
-
-  end subroutine
-  !====================================================================!
 end module

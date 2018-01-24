@@ -1,24 +1,14 @@
 module m_time
   !! Contains functions that handle time
-use variableKind
-use m_errors, only: msg
-use m_unitTester, only: tester
+  
+use variableKind, only: i32, i64, r64
+
 implicit none
+
 contains
+
   !=====================================================================!
-  function timeinseconds(values) result(res)
-    !! Convert hours minutes seconds etc. to seconds
-  !=====================================================================!
-  integer(i32) :: values(8)
-    !! values containing amounts of days hours etc.
-  real(r64) :: res
-    !! time in seconds
-  res = dble((86400*values(3))+(3600*values(5)) + (60*values(6)) + values(7))&
-    + (0.001d0 * dble(values(8)))
-  end function
-  !=====================================================================!
-  !=====================================================================!
-  function daysinMonth(month,year) result(days)
+  function daysInMonth(month,year) result(days)
     !! Get the number of days in a month. Accounts for leap years
   !=====================================================================!
   integer(i32) :: month
@@ -43,7 +33,7 @@ contains
   end function
   !=====================================================================!
   !=====================================================================!
-  function daysinYear(year) result(days)
+  function daysInYear(year) result(days)
     !! Get the number of days in a year, accounts for leap years
   !=====================================================================!
   integer(i32) :: year
@@ -67,8 +57,8 @@ contains
   end function
   !=====================================================================!
   !=====================================================================!
-  function absTimetoHMS(t) result(res)
-    !! Convert an absolute time to HH:MM:SS.MSEC
+  function secondsToHMS(t) result(res)
+    !! Convert a time in seconds to HH:MM:SS.MSEC
   !=====================================================================!
   real(r64) :: t
     !! Time in seconds
@@ -76,34 +66,56 @@ contains
     !! Resulting string contains the time
   integer(i32) :: days,hrs,min,sec,msec
   real(r64)  :: tmp
-  days=floor(t/86400.d0);tmp=t-(dble(days*86400))
-  hrs=floor(tmp/3600.d0);tmp=tmp-(dble(hrs*3600))
+  days=floor(t/86400.d0)
+  tmp=t-(dble(days*86400))
+
+  hrs=floor(tmp/3600.d0)
+  tmp=tmp-(dble(hrs*3600))
   hrs=hrs+(24*days)
-  min=floor(tmp/60.d0);  tmp=tmp-(dble(min*60))
-  sec=floor(tmp);        msec=int(1000*(tmp-(dble(sec))))
+
+  min=floor(tmp/60.d0)
+  tmp=tmp-(dble(min*60))
+
+  sec=floor(tmp)
+  msec=int(1000.d0*(tmp-(dble(sec))))
+
   write(res,10) hrs,min,sec,msec
 10 format(i0,':',i2,':',i2,'.',i3,' (h:m:s)')
   end function
   !=====================================================================!
   !=====================================================================!
-  subroutine time_test(test)
-    !! graph: false
+  function timeInSeconds(values) result(res)
+    !! Convert hours minutes seconds etc. to seconds
   !=====================================================================!
-  class(tester) :: test
-  call Msg('==========================')
-  call Msg('Testing : time')
-  call Msg('==========================')
-  call test%test(timeinseconds([0,0,0,0,0,0,0,8]) == 8.d-3,'timeinseconds')
-  call test%test(timeinseconds([0,0,0,0,0,0,1,0]) == 1.d0 ,'timeinseconds')
-  call test%test(timeinseconds([0,0,0,0,0,1,0,0]) == 60.d0,'timeinseconds')
-  call test%test(timeinseconds([0,0,0,0,1,0,0,0]) == 3600.d0,'timeinseconds')
-  call test%test(timeinseconds([0,0,1,0,0,0,0,0]) == 86400.d0,'timeinseconds')
-  call test%test(timeinseconds([0,0,1,0,1,1,1,8]) == 90061.008d0,'timeinseconds')
-  call test%test(daysinMonth(2,2012) == 29,'daysinMonth')
-  call test%test(daysinMonth(2,2014) == 28,'daysinMonth')
-  call test%test(daysinYear(2012) == 366,'daysinYear')
-  call test%test(isLeapYear(2012).eqv. .true.,'isLeapYear')
-  call test%test(absTimetoHMS(90031.008d0) == '25: 0:31.  8 (h:m:s)','absTimetoHMS')
-  end subroutine
+  integer(i32) :: values(8)
+    !! values containing amounts of days hours etc.
+  real(r64) :: res
+    !! time in seconds
+  res = dble((86400*values(3))+(3600*values(5)) + (60*values(6)) + values(7))&
+    + (0.001d0 * dble(values(8)))
+  end function
+  !=====================================================================!
+  !=====================================================================!
+  function timeToInteger(values) result(res)
+    !! Convert hours minutes seconds etc. to an integer.  Use 64bit to prevent the 2038 problem.
+  !=====================================================================!
+  integer(i32) :: values(8)
+    !! Values containing amounts of days hours etc.
+  integer(i64) :: res
+    !! Time as an integer.
+
+  ! Account for leap years
+  values(1) = values(1) * daysInYear(values(1))
+  ! Accounts for different length months
+  values(2) = values(2) * daysInMonth(values(2))
+  
+  res = ( values(1) * 86400000 & ! Years
+      + values(2) * 86400000 & ! Months
+      + values(3) * 86400000 & ! Days
+      + values(5) * 3600000 & ! Hours
+      + values(6) * 60000 & ! Minutes
+      + values(7) * 1000 & ! Seconds
+      + values(8)) ! Milliseconds
+  end function
   !=====================================================================!
 end module

@@ -24,7 +24,7 @@
   use iso_fortran_env, only: output_unit
   use variableKind, only: i32,i64,r32,r64
   use Stopwatch_Class
-  use m_time, only: absTimetoHMS
+  use m_time, only: secondsToHMS
   implicit none
 
   private
@@ -162,7 +162,7 @@
       avgTime=this%cumTime/dble(i)
       ! Estimate time left my multiplying average time by iterations left.
       avgTime=avgTime*dble(this%N-i)
-      if (avgTime > 1.d-7) write(this%bar(65:88),'(a22)') absTimetoHMS(avgTime)
+      if (avgTime > 1.d-7) write(this%bar(65:88),'(a22)') secondsToHMS(avgTime)
       printMe=.true.
     endif
     if (this%iTime > iTmp) this%iTime=0

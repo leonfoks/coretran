@@ -55,13 +55,10 @@ use m_errors, only: eMsg, msg
 use m_reallocate, only: reallocate
 use m_sort, only: sort
 use m_strings, only: str
-use m_unitTester, only: tester
 
 implicit none
 
 private
-
-public :: idDynamicArray_test
 
 public :: insertAt__idDynamicArray
 
@@ -371,65 +368,4 @@ contains
   call this%reallocate(this%N)
   end subroutine
   !====================================================================!
-
-  !====================================================================!
-  subroutine idDynamicArray_test(test)
-    !! graph: false
-  !====================================================================!
-  class(tester) :: test
-
-  type(idDynamicArray) :: idda, idda2
-
-  integer(i32) :: ia
-  idda = idDynamicArray(10)
-  call test%test(size(idda%values)==10, 'idDynamicArray')
-  call test%test(idda%N==0, 'idDynamicArray')
-  call idda%insertAt(1, 10_i64)
-  call test%test(idda%values(1) == 10, 'idDynamicArray%insert')
-  call idda%insertAt(1, 20_i64)
-  call test%test(all(idda%values(1:2) == [20_i64, 10_i64]), 'idDynamicArray%insert')
-  call idda%prepend(30_i64)
-  call test%test(all(idda%values(1:3) == [30_i64, 20_i64, 10_i64]), 'idDynamicArray%prepend')
-  call idda%append(40_i64)
-  call test%test(all(idda%values(1:4) == [30_i64, 20_i64, 10_i64, 40_i64]), 'idDynamicArray%append')
-  call idda%remove(2)
-  call test%test(all(idda%values(1:3) == [30_i64, 10_i64, 40_i64]), 'idDynamicArray%remove')
-  call idda%tighten()
-  call test%test(size(idda%values) == 3, 'idDynamicArray%tighten')
-  idda2 = idda
-  call test%test(all(idda2%values == idda%values), 'idDynamicArray%copy')
-  idda2%values(2) = 50_i64
-  call test%test(idda2%values(2) /= idda%values(2), 'idDynamicArray%copy')
-  call idda%deallocate()
-  call test%test(.not. allocated(idda%values), 'idDynamicArray%deallocate')
-  call idda2%deallocate()
-
-  idda = idDynamicArray(3, sorted=.true.)
-  call idda%insertSorted(20_i64)
-  call idda%insertSorted(30_i64)
-  call idda%insertSorted(10_i64)
-  call test%test(all(idda%values==[10_i64, 20_i64, 30_i64]), 'idDynamicArray%insertSorted')
-  ia = idda%locationOf(20_i64)
-  call test%test(ia == 2, 'idDynamicArray%locationOf')
-  call idda%insertSortedUnique(10_i64)
-  call test%test(all(idda%values==[10_i64, 20_i64, 30_i64]), 'idDynamicArray%insertSortedUnique')
-  call idda%insertSortedUnique(15_i64)
-  call test%test(all(idda%values(1:idda%N)==[10_i64, 15_i64, 20_i64, 30_i64]), 'idDynamicArray%insertSortedUnique')
-  call test%test(size(idda%values) == 6, 'idDynamicArray%insert')
-  call idda%deallocate()
-
-  idda = idDynamicArray(3, sorted=.true., fixed=.true.)
-  call idda%insertSorted(20_i64)
-  call idda%insertSorted(30_i64)
-  call idda%insertSorted(10_i64)
-  call test%test(all(idda%values(1:idda%N)==[10_i64, 20_i64, 30_i64]), 'idDynamicArray%insertSorted')
-  ia = idda%locationOf(20_i64)
-  call test%test(ia == 2, 'idDynamicArray%locationOf')
-  call idda%insertSortedUnique(10_i64)
-  call test%test(all(idda%values(1:idda%N)==[10_i64, 20_i64, 30_i64]), 'idDynamicArray%insertSortedUnique')
-  call idda%insertSortedUnique(15_i64)
-  call test%test(all(idda%values(1:idda%N)==[10_i64, 15_i64, 20_i64]), 'idDynamicArray%insertSortedUnique')
-  call test%test(size(idda%values) == 3, 'idDynamicArray%insert')
-  call idda%deallocate()
-end subroutine
 end module
