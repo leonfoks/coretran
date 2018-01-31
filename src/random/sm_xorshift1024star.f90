@@ -78,4 +78,45 @@ contains
   val = real(ishft(rnd, -11), kind=r64) * multiplier
   end procedure
   !====================================================================!
+  !====================================================================!
+  module procedure jumpState_1024star!(this)
+  !====================================================================!
+  !! Jumps the current prng state by $2^{512}$ pulls from the generator without drawing $2^{512}$ numbers.
+  !class(Prng), intent(inout) :: this
+  integer(i64) :: jump_table(16)
+  integer(i64) :: t(0:15)
+  integer(i64) :: tmp
+  integer :: i, j, b
+  data jump_table / -8924956236279331811_i64,& !0x84242F96ECA9C41D
+                    -6645523562763818923_i64,& !0xA3C65B8776F96855
+                      6572057659653707831_i64,& !0x5B34A39F070B5837
+                      4938671967096216094_i64,& !0x4489AFFCE4F31A1E
+                      3458459993260519232_i64,& !0x2FFEEB0A48316F40
+                    -2581239258607468510_i64,& !0xDC2D9891FE68C022
+                      3916182429352585840_i64,& !0x3659132BB12FEA70
+                    -6142490363719071048_i64,& !0xAAC17D8EFA43CAB8
+                    -4266174017505289453_i64,& !0xC4CB815590989B13
+                      6839126324828817723_i64,& !0x5EE975283D71C93B
+                      7572038374137779520_i64,& !0x691548C86C1BD540
+                      8723688107328792229_i64,& !0x7910C41D10A1E6A5
+                      819591658532496040_i64,& !0x0B5FC64563B3E2A8
+                      324108011427370141_i64,& !0x047F7684E9FC949D
+                    -5075132425047734838_i64,& !0xB99181F2D8F685CA
+                      2902007988922235075_i64/  !0x284600E3F30E38C3
+  
+  t(:) = 0
+
+  do i = 1, 16
+      do b = 0, 63
+        if(btest(jump_table(i), b)) then
+            do j = 0, 15
+              t(j) = ieor(t(j), this%seed(iand(j + this%ptr, 15)))
+            end do
+            call rngInteger_1024star(this, tmp)
+        end if
+      end do
+  end do
+  this%seed = t
+  end procedure
+  !====================================================================!
 end submodule

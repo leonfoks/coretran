@@ -1,4 +1,5 @@
 module m_random
+  !!# Random number generation - Not parallel safe
   !!This module has been comprised using different sources. The first was a public domain pseudo-random number
   !!generator using the xorshift1024* and xorshift128+ methods.  See [[m_xorshift1024star]] and [[m_xorshift128plus]]
   !!for more details on those methods.
@@ -6,7 +7,25 @@ module m_random
   !!The secound source are the functions inside http://www.netlib.org/random/random.f90.  These are used to generate 
   !!random numbers from distributions other than a uniform distribution.
   !!
+  !!This module contains subroutines to generate numbers randomly from different distributions. 
+  !!They do so by instantiating a globally available [[Prng_Class]] and making calls into its type bound procedures.
+  !!Since the Prng for these routines is globally available, you should *not* use it for any random number generation
+  !!in parallel, whether using OpenMP or MPI!  Instead, refer to [[Prng_Class]] to see how to use the Prng in a thread safe manner.
   !!
+  !!
+  !!Example Usage:
+  !!```fortran
+  !!program randomTest
+  !!
+  !!use m_random, only: setPRNG, rngInteger, rngUniform, rngNormal, rngExponential, rngrngWeibull
+  !!
+  !!implicit none
+  !!
+  !!
+  !!
+  !!
+  !!end program
+  !!```
   !!Original Netlib random.f90
   !!Author: Alan Miller
   !!
@@ -27,13 +46,14 @@ module m_random
 
   implicit none
 
-  ! Global Prng Class!!  I hate global variables, but here it is necessary to have a 
+
+  ! Global Prng Class but private to this module!  I hate global variables, but here it is necessary to have a global Prng for serial code.
   type(Prng) :: globalPrng
 
-  public :: setRNG
+  public :: setPrng
 
-  interface setRNG
-    module procedure :: setRNG_withSeed, setRNG_WOseed
+  interface setPrng
+    module procedure :: setPrng_withSeed, setPrng_WOseed
 
     ! !====================================================================!
     ! module subroutine setRNG_withSeed(seed, big)
@@ -154,9 +174,10 @@ module m_random
 
 
   !====================================================================!
-  subroutine setRNG_withSeed(seed, big)
-    !! Interfaced to setRNG()
+  subroutine setPrng_withSeed(seed, big)
+    !! Interfaced to setPrng()
     !! Sets the seed of the random number generator with a specified seed
+    !! 
   !====================================================================!
   integer(i64), intent(in) :: seed(:)
   logical, intent(in), optional :: big
@@ -165,8 +186,8 @@ module m_random
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine setRNG_WOseed(big, display)
-    !! Interfaced to setRNG()
+  subroutine setPrng_WOseed(big, display)
+    !! Interfaced to setPrng()
     !! 'Randomly' sets the seed of the random number generator
   !====================================================================!
   !integer, allocatable :: seed(:)
@@ -175,17 +196,8 @@ module m_random
 !  integer :: n,istat
   logical, intent(in), optional :: display
 
-  globalPrng = Prng(big)
+  globalPrng = Prng(big, display)
 
-!  call randomizeSeed(seed)
-!  call random_seed(put=seed)
-!  if (display) then
-!    istat = printOptions%threshold
-!    printOptions%threshold = 0
-!    write(output_unit,'(a)') 'Random Seed: '//str(seed)
-!    printOptions%threshold = istat
-!  end if
-!  isInitialized=.true.
   end subroutine
   !====================================================================!
 

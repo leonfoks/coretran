@@ -154,43 +154,6 @@
   endif
   end subroutine
   !====================================================================!
-!  !====================================================================!
-!  subroutine parse(str,delims,args,nargs)
-!  !====================================================================!
-!  ! Parses the string 'str' into arguments args(1), ..., args(nargs) based on
-!  ! the delimiters contained in the string 'delims'. Preceding a delimiter in
-!  ! 'str' by a backslash (\) makes this particular instance not a delimiter.
-!  ! The integer output variable nargs contains the number of arguments found.
-!
-!  character(len=*) :: str,delims
-!  character(len=len_trim(str)) :: strsav
-!  character(len=*),dimension(:) :: args
-!  integer(i32) :: i
-!  integer(i32) :: k
-!  integer(i32) :: lenstr
-!  integer(i32) :: na,nargs
-!  strsav=str
-!  call compact(str)
-!  na=size(args)
-!  do i=1,na
-!    args(i)=' '
-!  end do
-!  nargs=0
-!  lenstr=len_trim(str)
-!  if(lenstr==0) return
-!  k=0
-!
-!  do
-!    if(len_trim(str) == 0) exit
-!    nargs=nargs+1
-!    call split(str,delims,args(nargs))
-!    call removebksl(args(nargs))
-!  end do
-!  str=strsav
-!
-!  end subroutine parse
-!
-!  !**********************************************************************
   !====================================================================!
   function hasNentries(this,N) result(yes)
     !! Check that a string has N entries
@@ -331,6 +294,21 @@
   res = trim(s)
   end function
   !====================================================================!
+  !====================================================================!
+  subroutine replacedelim(this,dlim,dlimr)
+  !! Replace a single character length delimiter in a string
+  !====================================================================!
+  character(len=*) :: this  !! Replace delim_miter in this
+  character(len=*) :: dlim  !! Find this delim_miter
+  character(len=*) :: dlimr !! Replace with this delim_miter
+  integer(i32) :: i,it
+  it=len(dlim)
+  if (it /= len(dlimr)) call Emsg('replacedelim_m : un-equal length replacement')
+  do i=1,len_trim(this)
+    if (this(i:(i-1)+it)==dlim) this(i:(i-1)+it)=dlimr
+  enddo
+  end subroutine
+  !====================================================================!
 !  !====================================================================!
 !  subroutine compactReal_d1D(this,res)
 !    !! Use CompactReal on an r64 vector
@@ -347,55 +325,55 @@
 !  end subroutine
 !  !====================================================================!
   !====================================================================!
-  function str_r1(this,delim_) result(res)
+  function str_r1(this,delim) result(res)
     !! Interfaced with str()
   !====================================================================!
   real(r32), intent(in) :: this
-  character(len=*),optional, intent(in) :: delim_
+  character(len=*),optional, intent(in) :: delim
   character(len=:),allocatable :: res
-  character(len=:),allocatable :: deli
-  deli=' '
-  if (present(delim_)) deli=delim_
-  res = compactReal(dble(this))//deli
+  character(len=:),allocatable :: delim_
+  delim_=' '
+  if (present(delim)) delim_=delim
+  res = compactReal(dble(this))//delim_
   end function
   !====================================================================!
   !====================================================================!
-  function str_r1D(this,delim_) result(res)
+  function str_r1D(this,delim) result(res)
     !! Interfaced with str()
   !====================================================================!
   real(r32), intent(in) :: this(:)
-  character(len=*),optional, intent(in) :: delim_
+  character(len=*),optional, intent(in) :: delim
   character(len=:),allocatable :: res
-  character(len=:),allocatable :: deli
+  character(len=:),allocatable :: delim_
   integer(i32) :: i,N
   N=size(this)
   res=''
 
   if (N < printOptions%threshold .or. printOptions%threshold == 0) then
     do i=1,N - 1
-      res=res//str(this(i),delim_)
+      res=res//str(this(i),delim)
     enddo
     res=res//str(this(N))
   else
     do i = 1, printOptions%edgeitems
-      res = res // str(this(i),delim_)
+      res = res // str(this(i),delim)
     end do
-    deli=' '
-    if (present(delim_)) deli=delim_
-    res = res // '...'//deli
+    delim_=' '
+    if (present(delim)) delim_=delim
+    res = res // '...'//delim_
     do i = N - printOptions%edgeitems + 1, N - 1
-      res = res // str(this(i),delim_)
+      res = res // str(this(i),delim)
     end do
     res=res//str(this(N))
   end if
   end function
   !====================================================================!
   !====================================================================!
-  function str_d2D(this,delim_) result(res)
+  function str_d2D(this,delim) result(res)
     !! Interfaced with str()
   !====================================================================!
   real(r64), intent(in) :: this(:,:)
-  character(len=*),optional, intent(in) :: delim_
+  character(len=*),optional, intent(in) :: delim
   character(len=:),allocatable :: res
   integer(i32) :: i,N
   N = size(this,1)
@@ -403,100 +381,100 @@
 
   if (N < printOptions%threshold .or. printOptions%threshold == 0) then
     do i=1,N-1
-      res = res // str_d1D(this(i,:),delim_)//new_line('a')
+      res = res // str_d1D(this(i,:),delim)//new_line('a')
     enddo
   else
     do i = 1, printOptions%edgeitems
-      res = res // str_d1D(this(i,:),delim_)//new_line('a')
+      res = res // str_d1D(this(i,:),delim)//new_line('a')
     end do
     res = res //'...'//new_line('a')
     do i=N - printOptions%edgeitems + 1, N-1
-      res = res // str_d1D(this(i,:),delim_)//new_line('a')
+      res = res // str_d1D(this(i,:),delim)//new_line('a')
     enddo
   endif
-  res = res // str_d1D(this(N,:),delim_)
+  res = res // str_d1D(this(N,:),delim)
   end function
   !====================================================================!
   !====================================================================!
-  function str_d1D(this,delim_) result(res)
+  function str_d1D(this,delim) result(res)
     !! Interfaced with str()
   !====================================================================!
   real(r64), intent(in) :: this(:)
-  character(len=*),optional, intent(in) :: delim_
+  character(len=*),optional, intent(in) :: delim
   character(len=:),allocatable :: res
-  character(len=:),allocatable :: deli
+  character(len=:),allocatable :: delim_
   integer(i32) :: i,N
   N=size(this)
   res=''
 
   if (N < printOptions%threshold .or. printOptions%threshold == 0) then
     do i=1,N - 1
-      res=res//str(this(i),delim_)
+      res=res//str(this(i),delim)
     enddo
     res=res//str(this(N))
   else
     do i = 1, printOptions%edgeitems
-      res = res // str(this(i),delim_)
+      res = res // str(this(i),delim)
     end do
-    deli=' '
-    if (present(delim_)) deli=delim_
-    res = res // '...'//deli
+    delim_=' '
+    if (present(delim)) delim_=delim
+    res = res // '...'//delim_
     do i = N - printOptions%edgeitems + 1, N - 1
-      res = res // str(this(i),delim_)
+      res = res // str(this(i),delim)
     end do
     res=res//str(this(N))
   end if
   end function
   !====================================================================!
   !====================================================================!
-  function str_d1(this,delim_) result(res)
+  function str_d1(this,delim) result(res)
     !! Interfaced with str()
   !====================================================================!
   real(r64), intent(in) :: this
-  character(len=*),optional, intent(in) :: delim_
+  character(len=*),optional, intent(in) :: delim
   character(len=:),allocatable :: res
-  character(len=:),allocatable :: deli
-  deli=' '
-  if (present(delim_)) deli=delim_
-  res = compactReal(this)//deli
+  character(len=:),allocatable :: delim_
+  delim_=' '
+  if (present(delim)) delim_=delim
+  res = compactReal(this)//delim_
   end function
   !====================================================================!
   !====================================================================!
-  function str_i1(this,delim_) result(res)
+  function str_i1(this,delim) result(res)
     !! Interfaced with str()
   !====================================================================!
   integer(i32), intent(in) :: this
-  character(len=*),optional, intent(in) :: delim_
+  character(len=*),optional, intent(in) :: delim
   character(len=cLen) :: tmp
   character(len=:),allocatable :: res
-  character(len=:),allocatable :: deli
+  character(len=:),allocatable :: delim_
   write(tmp,'(i0)') this
-  deli=' '
-  if(present(delim_)) deli=delim_
-  res=trim(tmp)//deli
+  delim_=' '
+  if(present(delim)) delim_=delim
+  res=trim(tmp)//delim_
   end function
   !====================================================================!
   !====================================================================!
-  function str_id1(this,delim_) result(res)
+  function str_id1(this,delim) result(res)
     !! Interfaced with str()
   !====================================================================!
   integer(i64), intent(in) :: this
-  character(len=*),optional, intent(in) :: delim_
+  character(len=*),optional, intent(in) :: delim
   character(len=cLen) :: tmp
   character(len=:),allocatable :: res
-  character(len=:),allocatable :: deli
+  character(len=:),allocatable :: delim_
   write(tmp,'(i0)') this
-  deli=' '
-  if(present(delim_)) deli=delim_
-  res=trim(tmp)//deli
+  delim_=' '
+  if(present(delim)) delim_=delim
+  res=trim(tmp)//delim_
   end function
   !====================================================================!
   !====================================================================!
-  function str_i2D(this,delim_) result(res)
+  function str_i2D(this,delim) result(res)
     !! Interfaced with str()
   !====================================================================!
   integer(i32), intent(in) :: this(:,:)
-  character(len=*),optional, intent(in) :: delim_
+  character(len=*),optional, intent(in) :: delim
   character(len=:),allocatable :: res
   integer(i32) :: i,N
   N = size(this,1)
@@ -504,56 +482,56 @@
 
   if (N < printOptions%threshold .or. printOptions%threshold == 0) then
     do i=1,N-1
-      res = res // str_i1D(this(i,:),delim_)//new_line('a')
+      res = res // str_i1D(this(i,:),delim)//new_line('a')
     enddo
   else
     do i = 1, printOptions%edgeitems
-      res = res // str_i1D(this(i,:),delim_)//new_line('a')
+      res = res // str_i1D(this(i,:),delim)//new_line('a')
     end do
     res = res // '...'//new_line('a')
     do i=N - printOptions%edgeitems + 1, N-1
-      res = res // str_i1D(this(i,:),delim_)//new_line('a')
+      res = res // str_i1D(this(i,:),delim)//new_line('a')
     enddo
   endif
-  res = res // str_i1D(this(N,:),delim_)
+  res = res // str_i1D(this(N,:),delim)
   end function
   !====================================================================!
   !====================================================================!
-  function str_i1D(this,delim_) result(res)
+  function str_i1D(this,delim) result(res)
     !! Interfaced with str()
   !====================================================================!
   integer(i32), intent(in) :: this(:)
-  character(len=*),optional, intent(in) :: delim_
+  character(len=*),optional, intent(in) :: delim
   character(len=:),allocatable :: res
-  character(len=:),allocatable :: deli
+  character(len=:),allocatable :: delim_
   integer(i32) :: i,N
   N=size(this)
   res=''
   if (N < printOptions%threshold .or. printOptions%threshold == 0) then
     do i=1,N - 1
-      res=res//str(this(i),delim_)
+      res=res//str(this(i),delim)
     enddo
     res=res//str(this(N))
   else
     do i = 1, printOptions%edgeitems
-      res = res // str(this(i),delim_)
+      res = res // str(this(i),delim)
     end do
-    deli=' '
-    if (present(delim_)) deli=delim_
-    res = res // '...'//deli
+    delim_=' '
+    if (present(delim)) delim_=delim
+    res = res // '...'//delim_
     do i = N - printOptions%edgeitems + 1, N - 1
-      res = res // str(this(i),delim_)
+      res = res // str(this(i),delim)
     end do
     res=res//str(this(N))
   end if
   end function
   !====================================================================!
   !====================================================================!
-  function str_id2D(this,delim_) result(res)
+  function str_id2D(this,delim) result(res)
     !! Interfaced with str()
   !====================================================================!
   integer(i64), intent(in) :: this(:,:)
-  character(len=*),optional, intent(in) :: delim_
+  character(len=*),optional, intent(in) :: delim
   character(len=:),allocatable :: res
   integer(i32) :: i,N
   N = size(this,1)
@@ -561,94 +539,94 @@
 
   if (N < printOptions%threshold .or. printOptions%threshold == 0) then
     do i=1,N-1
-      res = res // str_id1D(this(i,:),delim_)//new_line('a')
+      res = res // str_id1D(this(i,:),delim)//new_line('a')
     enddo
   else
     do i = 1, printOptions%edgeitems
-      res = res // str_id1D(this(i,:),delim_)//new_line('a')
+      res = res // str_id1D(this(i,:),delim)//new_line('a')
     end do
     res = res // '...'//new_line('a')
     do i=N - printOptions%edgeitems + 1, N-1
-      res = res // str_id1D(this(i,:),delim_)//new_line('a')
+      res = res // str_id1D(this(i,:),delim)//new_line('a')
     enddo
   endif
-  res = res // str_id1D(this(N,:),delim_)
+  res = res // str_id1D(this(N,:),delim)
   end function
   !====================================================================!
   !====================================================================!
-  function str_id1D(this,delim_) result(res)
+  function str_id1D(this,delim) result(res)
     !! Interfaced with str()
   !====================================================================!
   integer(i64), intent(in) :: this(:) !! 1D array
-  character(len=*),optional, intent(in) :: delim_
+  character(len=*),optional, intent(in) :: delim
   character(len=:),allocatable :: res
-  character(len=:),allocatable :: deli
+  character(len=:),allocatable :: delim_
     !! String
   integer(i32) :: i,N
   N=size(this)
   res=''
   if (N < printOptions%threshold .or. printOptions%threshold == 0) then
     do i=1,N - 1
-      res=res//str(this(i),delim_)
+      res=res//str(this(i),delim)
     enddo
     res=res//str(this(N))
   else
     do i = 1, printOptions%edgeitems
-      res = res // str(this(i),delim_)
+      res = res // str(this(i),delim)
     end do
-    deli=' '
-    if (present(delim_)) deli=delim_
-    res = res // '...'//deli
+    delim_=' '
+    if (present(delim)) delim_=delim
+    res = res // '...'//delim_
     do i = N - printOptions%edgeitems + 1, N - 1
-      res = res // str(this(i),delim_)
+      res = res // str(this(i),delim)
     end do
     res=res//str(this(N))
   end if
   end function
   !====================================================================!
   !====================================================================!
-  function str_s1(this,delim_) result(res)
+  function str_s1(this,delim) result(res)
     !! Interfaced with str()
   !====================================================================!
   character(len=*), intent(in) :: this
-  character(len=*),optional, intent(in) :: delim_
+  character(len=*),optional, intent(in) :: delim
   character(len=:),allocatable :: res
-  character(len=:),allocatable :: deli
-  deli=' '
-  if(present(delim_)) deli=delim_
-  res = trim(this)//deli
+  character(len=:),allocatable :: delim_
+  delim_=' '
+  if(present(delim)) delim_=delim
+  res = trim(this)//delim_
   end function
   !====================================================================!
   !====================================================================!
-  function str_s1D(this,delim_) result(res)
+  function str_s1D(this,delim) result(res)
     !! Interfaced with str()
   !====================================================================!
   character(len=*), intent(in) :: this(:)
-  character(len=*),optional, intent(in) :: delim_
+  character(len=*),optional, intent(in) :: delim
   character(len=:),allocatable :: res
   integer(i32) :: i,N
   N=size(this)
   res=''
   do i=1,N - 1
-    res=res//str_s1(this(i),delim_)
+    res=res//str_s1(this(i),delim)
   enddo
   res=res//str(this(N))
   end function
   !====================================================================!
   !====================================================================!
-  function str_1L(this,delim_) result(res)
+  function str_1L(this,delim) result(res)
     !! Interfaced with str()
   !====================================================================!
   logical, intent(in) :: this
-  character(len=*),optional, intent(in) :: delim_
+  character(len=*),optional, intent(in) :: delim
   character(len=:),allocatable :: res
-  character(len=:),allocatable :: deli
-  deli=' '
-  if (present(delim_)) deli=delim_
+  character(len=:),allocatable :: delim_
+  delim_=' '
+  if (present(delim)) delim_=delim
   if (this) then
-    res='True'//deli
+    res='True'//delim_
   else
-    res='False'//deli
+    res='False'//delim_
   endif
   end function
   !====================================================================!
@@ -785,91 +763,38 @@ subroutine replace(this, sub1, sub2)
 end subroutine
 !====================================================================!
   !====================================================================!
-  !> Replace a single character length delimiter in a string
-  subroutine replacedelim(this,dlim,dlimr)
-  !====================================================================!
-  character(len=*) :: this  !! Replace delimiter in this
-  character(len=*) :: dlim  !! Find this delimiter
-  character(len=*) :: dlimr !! Replace with this delimiter
-  integer(i32) :: i,it
-  it=len(dlim)
-  if (it /= len(dlimr)) call Emsg('replaceDelim : un-equal length replacement')
-  do i=1,len_trim(this)
-    if (this(i:(i-1)+it)==dlim) this(i:(i-1)+it)=dlimr
-  enddo
-  end subroutine
-  !====================================================================!
-!  !====================================================================!
-!  subroutine removebksl(str)
-!  !====================================================================!
-!  ! Removes backslash (\) characters. Double backslashes (\\) are replaced
-!  ! by a single backslash.
-!  character(len=*):: str
-!  character(len=1):: ch
-!  character(len=len_trim(str))::outstr
-!  integer(i32) :: i,ibsl
-!  integer(i32) :: k
-!  integer(i32) :: lenstr
-!
-!  str=adjustl(str)
-!  lenstr=len_trim(str)
-!  outstr=' '
-!  k=0
-!  ibsl=0                        ! backslash initially inactive
-!
-!  do i=1,lenstr
-!    ch=str(i:i)
-!    if(ibsl == 1) then          ! backslash active
-!      k=k+1
-!      outstr(k:k)=ch
-!      ibsl=0
-!      cycle
-!    end if
-!    if(ch == '\') then          ! backslash with backslash inactive
-!      ibsl=1
-!      cycle
-!    end if
-!    k=k+1
-!    outstr(k:k)=ch              ! non-backslash with backslash inactive
-!  end do
-!
-!  str=adjustl(outstr)
-!
-!  end subroutine removebksl
-!  !====================================================================!
-  !====================================================================!
-  function appendString(this,that,delim) result(res)
+  function appendString(this,that,delim_) result(res)
     !! Append a string
   !====================================================================!
   character(len=*) :: this
     !! String to append to
   character(len=*) :: that
     !! String to append
-  character(len=*),optional :: delim
+  character(len=*),optional :: delim_
     !! Optional delimiter to separate the append
   character(len=:), allocatable :: res
     !! Appended String
-  if (present(delim)) then
-    res = trim(this)//trim(delim)//trim(that)
+  if (present(delim_)) then
+    res = trim(this)//trim(delim_)//trim(that)
   else
     res = trim(this)//trim(that)
   endif
   end function
   !====================================================================!
   !====================================================================!
-  function prependString(this,that,delim) result(res)
+  function prependString(this,that,delim_) result(res)
     !! Prepend a string
   !====================================================================!
   character(len=*) :: this
     !! String to prepend to
   character(len=*) :: that
     !! String to prepend
-  character(len=*),optional :: delim
+  character(len=*),optional :: delim_
     !! Optional delimiter to separate the append
   character(len=:), allocatable :: res
     !! Prepended String
-  if (present(delim)) then
-    res = trim(that)//trim(delim)//trim(this)
+  if (present(delim_)) then
+    res = trim(that)//trim(delim_)//trim(this)
   else
     res = trim(that)//trim(this)
   endif
