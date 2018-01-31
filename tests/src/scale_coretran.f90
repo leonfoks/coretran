@@ -93,7 +93,7 @@ program scaleTest_coretran
   ! call random_seed(size = ia)
   ! call allocate(ia1D, ia)
   ! ia1D = 546420601
-  call setRNG(big = .true.)
+  call setPrng(big = .true., display=.true.)
 
     ! Initial setup for testing
   call allocate(ar1D, N)

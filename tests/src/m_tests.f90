@@ -21,10 +21,12 @@ use m_random, only: rngInteger, rngNormal
 use m_reallocate, only: reallocate
 use m_select, only: argSelect, select
 use m_sort, only: argSort, sort
-use Prng_Class, only: Prng
+use Prng_Class, only: Prng, getRandomSeed
 use m_strings
 use m_time
 use m_unitTester, only: tester
+
+use omp_lib
 
 implicit none
 
@@ -810,12 +812,8 @@ contains
   call arange(ia1D, 1, N)  
   call argSort(c1D, ia1D)
 
-  write(*,*) 'a'
-
   ia = search%nearest(tree, a1D, b1D, 0.d0, 0.d0)
-
-  write(*,*) 'b'
-
+ 
   call test%test(ia == ia1D(1), '2D - KdTreeSearch%nearest')
 
   da = search%kNearest(tree, a1D, b1D, 0.d0, 0.d0, k = 10)
@@ -826,6 +824,7 @@ contains
   a = c1D(15) + 1.d-14
 
   call da%deallocate()
+
   da = search%kNearest(tree, a1D, b1D, 0.d0, 0.d0, radius = a)
 
   call test%test(all(da%i%values == ia1D(1:15)) .and. all(abs(da%v%values - (c1D(1:15))) <= 1.d-15), '2D - KdTreeSearch%kNearest, radius search')
@@ -1147,8 +1146,11 @@ contains
   class(tester) :: test
 
   type(Prng) :: rng
+  type(Prng), allocatable :: rngs(:)
   integer(i64) :: seed(16)
   integer(i32) :: i, id
+
+  integer(i32) :: iThread, nThreads
 
   real(r64) :: a
 
@@ -1157,6 +1159,30 @@ contains
   call rng%rngUniform(a)
 
   call rng%rngInteger(id, 1, 100)
+
+  ! Get the number of threads available
+  !$omp parallel 
+    nThreads = omp_get_num_threads()
+  !$omp end parallel
+
+  ! Allocate an array of Prngs, one for each thread
+  allocate(rngs(nThreads))
+
+  ! In parallel, initialize each Prng with the same seed, and jump each prng by the thread ID it is associated with.
+  ! This allows all Prngs to draw from the same stream, but at different points along the stream.
+  ! This is better than giving each Prng its own randomly generated seed
+
+  call getRandomSeed(seed, big = .true.)
+
+  !$omp parallel shared(rng, seed) private(iThread, a)
+    iThread = omp_get_thread_num()
+    rngs(iThread + 1) = Prng(seed, big = .true.)
+    call rngs(iThread + 1)%jump(iThread) ! Jump the current thread's Prng by its thread number.
+    call rngs(iThread + 1)%rngNormal(a) ! Draw from normal distribution on each thread
+  !$omp end parallel
+
+  write(*,*) 'First seed on each thread should be different'
+  write(*,*) (rngs(i)%seed(0), i = 1, nThreads)
 
   end subroutine
   !====================================================================!

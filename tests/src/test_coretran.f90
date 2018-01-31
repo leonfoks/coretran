@@ -92,7 +92,7 @@ program test_coretran
   call get_command_argument(1, sa)
   read(sa,*) N
 
-  !if (N < 100) call eMsg('Please use size >= 100')
+  if (N < 15) call eMsg('Please use size >= 15')
 
   call get_command_argument(2, sa)
   read(sa,*) nIterations
@@ -105,7 +105,7 @@ program test_coretran
   call Msg('LibFortran Testing')
   call Msg('==========================')
 
-  call setRNG(big = .true.)
+  call setPrng(big = .true., display = .true.)
 
   call strings_test(test)
   

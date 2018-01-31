@@ -1,0 +1,8 @@
+16777216 8388608 4194304 2097152 1048576 524288 
+Double precision introspection sort
+1.927 9.220E-01 4.380E-01 2.030E-01 9.400E-02 4.700E-02 
+Already sorted double precision introspection sort
+2.780E-01 1.400E-01 6.300E-02 3.100E-02 1.600E-02 0. 
+Double precision merge sort
+2.566 1.214 5.780E-01 2.900E-01 1.250E-01 6.300E-02 
+Already sorted double precision merge sort
