@@ -39,11 +39,27 @@ endif()
 # Set gfortran compile flags
 if (${F90tag} MATCHES "gfortran")
   MESSAGE(STATUS "Getting gfortran flags")
+
+  set (GFORTRAN_RELEASE "-O3 -fopenmp -std=f2008ts -funroll-all-loops -finline-functions -static-libgfortran -static-libgcc -ffree-line-length-none -fall-intrinsics")
+  set (GFORTRAN_DEBUG   "-O0 -g -fopenmp -std=f2008ts -fbacktrace -fbounds-check -Waliasing -Wampersand -Wconversion -Wsurprising -Wc-binding-type -Wintrinsics-std -Wtabs -Wintrinsic-shadow -Wline-truncation -Wtarget-lifetime -Wreal-q-constant -static-libgfortran -static-libgcc -ffree-line-length-none -fall-intrinsics")
   
-  set (CMAKE_Fortran_FLAGS_RELEASE "-O3 -fopenmp -std=f2008ts -funroll-all-loops  -finline-functions -static-libgfortran -static-libgcc -ffree-line-length-none -fall-intrinsics")
-  set (CMAKE_Fortran_FLAGS_DEBUG   "-O0 -g -fopenmp -std=f2008ts -fbacktrace -fbounds-check -Waliasing -Wampersand -Wconversion -Wsurprising -Wc-binding-type -Wintrinsics-std -Wtabs -Wintrinsic-shadow -Wline-truncation -Wtarget-lifetime -Wreal-q-constant -static-libgfortran -static-libgcc -ffree-line-length-none -fall-intrinsics")
+  if (WIN32)
+    set (CMAKE_Fortran_FLAGS_RELEASE ${GFORTRAN_RELEASE})
+    set (CMAKE_Fortran_FLAGS_DEBUG   ${GFORTRAN_DEBUG})
+  endif ()
+
+  if (${LINUX})
+    set (CMAKE_Fortran_FLAGS_RELEASE ${GFORTRAN_RELEASE})
+    set (CMAKE_Fortran_FLAGS_DEBUG   ${GFORTRAN_DEBUG})
+  endif ()
+
+  if (APPLE)
+    set (CMAKE_Fortran_FLAGS_RELEASE "${GFORTRAN_RELEASE} -fno-underscoring")
+    set (CMAKE_Fortran_FLAGS_DEBUG   "${GFORTRAN_DEBUG} -fno-underscoring")
+  endif ()
 
 elseif (${F90tag} MATCHES "ifort") 
+
   MESSAGE(STATUS "Getting ifort flags")
 
   if (WIN32)
