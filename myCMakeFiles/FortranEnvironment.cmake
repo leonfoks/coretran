@@ -5,6 +5,32 @@ if(UNIX AND NOT APPLE)
     set(LINUX TRUE)
 endif()
 
+
+# determine, whether we want a static binary
+SET(STATIC FALSE CACHE BOOL "Build a static library or use static linking?")
+
+# do we want static libraries?
+# When STATIC is TRUE, than cmake looks for libraries ending
+# with .a. This is for linux only!
+IF(STATIC)
+    if (WIN32)
+      SET(CMAKE_FIND_LIBRARY_SUFFIXES ".lib")
+    elseif(LINUX)
+      SET(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
+    elseif(APPLE)
+      SET(CMAKE_FIND_LIBRARY_SUFFIXES ".a")
+    endif()
+ENDIF(STATIC)
+
+# set -static, when STATIC_LINKING is TRUE and set LINK_SEARCH_END_STATIC
+# to remove the additional -bdynamic from the linker line.
+#IF(STATIC)
+#    SET(CMAKE_EXE_LINKER_FLAGS "-static")
+#    SET_TARGET_PROPERTIES(${programName} PROPERTIES 
+#        LINK_SEARCH_END_STATIC 1)
+#ENDIF(STATIC)
+
+
 # Make sure the build type is uppercase
 STRING(TOUPPER "${CMAKE_BUILD_TYPE}" BT)
 
@@ -40,22 +66,31 @@ endif()
 if (${F90tag} MATCHES "gfortran")
   MESSAGE(STATUS "Getting gfortran flags")
 
-  set (GFORTRAN_RELEASE "-O3 -fopenmp -std=f2008ts -funroll-all-loops -finline-functions -static-libgfortran -static-libgcc -ffree-line-length-none -fall-intrinsics")
-  set (GFORTRAN_DEBUG   "-O0 -g -fopenmp -std=f2008ts -fbacktrace -fbounds-check -Waliasing -Wampersand -Wconversion -Wsurprising -Wc-binding-type -Wintrinsics-std -Wtabs -Wintrinsic-shadow -Wline-truncation -Wtarget-lifetime -Wreal-q-constant -static-libgfortran -static-libgcc -ffree-line-length-none -fall-intrinsics")
+  set (COMMONFLAGS "-std=f2008ts -fopenmp -cpp -ffree-line-length-none -ffixed-line-length-none -fall-intrinsics")
+
+  set (STATIC_FLAGS "")
+  if (STATIC)
+    set (STATIC_FLAGS "-static-libgfortran -static-libgcc")
+  endif()
+
+  set (GFORTRAN_RELEASE "${COMMONFLAGS} -funroll-all-loops -finline-functions ${STATIC_FLAGS}")
+  set (GFORTRAN_DEBUG   "${COMMONFLAGS} -O0 -fbacktrace -fbounds-check -Waliasing -Wampersand -Wconversion -Wsurprising -Wc-binding-type -Wintrinsics-std -Wtabs -Wintrinsic-shadow -Wline-truncation -Wtarget-lifetime -Wreal-q-constant ${STATIC_FLAGS}")
+
+  set (CMAKE_SHARED_LINKER_FLAGS "${CMAKE_SHARED_LINKER_FLAGS} -shared -fpic")
   
   if (WIN32)
-    set (CMAKE_Fortran_FLAGS_RELEASE ${GFORTRAN_RELEASE})
-    set (CMAKE_Fortran_FLAGS_DEBUG   ${GFORTRAN_DEBUG})
+    set (CMAKE_Fortran_FLAGS_RELEASE "${CMAKE_Fortran_FLAGS_RELEASE} ${GFORTRAN_RELEASE} -static-libgfortran -static-libgcc")
+    set (CMAKE_Fortran_FLAGS_DEBUG   "${CMAKE_Fortran_FLAGS_DEBUG} ${GFORTRAN_DEBUG}")
   endif ()
 
   if (${LINUX})
-    set (CMAKE_Fortran_FLAGS_RELEASE ${GFORTRAN_RELEASE})
-    set (CMAKE_Fortran_FLAGS_DEBUG   ${GFORTRAN_DEBUG})
+    set (CMAKE_Fortran_FLAGS_RELEASE "${CMAKE_Fortran_FLAGS_RELEASE} ${GFORTRAN_RELEASE}")
+    set (CMAKE_Fortran_FLAGS_DEBUG   "${CMAKE_Fortran_FLAGS_DEBUG} ${GFORTRAN_DEBUG}")
   endif ()
 
   if (APPLE)
-    set (CMAKE_Fortran_FLAGS_RELEASE "${GFORTRAN_RELEASE} -fno-underscoring")
-    set (CMAKE_Fortran_FLAGS_DEBUG   "${GFORTRAN_DEBUG} -fno-underscoring")
+    set (CMAKE_Fortran_FLAGS_RELEASE "${CMAKE_Fortran_FLAGS_RELEASE} ${GFORTRAN_RELEASE}")
+    set (CMAKE_Fortran_FLAGS_DEBUG   "${CMAKE_Fortran_FLAGS_DEBUG} ${GFORTRAN_DEBUG}")
   endif ()
 
 elseif (${F90tag} MATCHES "ifort") 
@@ -101,30 +136,33 @@ set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../include)
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../bin)
 
 ### 
-### Enforce the library types from experience!
-### I never got static libraries to work on a Mac, so make them shared
-### I never got shared libraries to work on windows! so make them static
+### Set the library type
 ###
-if (APPLE)
-  set(libType SHARED) # Shared library on OSX
-endif()
-if(WIN32)
-  set(libType STATIC) # Static library on Windows
-endif()
-if (${LINUX})
-  set(libType STATIC) # Shared library on Linux
+if (STATIC)
+  set(libType STATIC)
+else()
+  set(libType SHARED)
+  MESSAGE(STATUS "Using linker flags ${CMAKE_SHARED_LINKER_FLAGS}")
 endif()
 
 
 
+###
+### Function to link a static or shared library
+###
+function(LINK_LIBRARY target relativePathToBuildDir lib)
+  if (STATIC)
+    if (WIN32)
+      target_link_libraries(${target} ${lib})
+    else()
+      get_filename_component(absPath "${relativePathToBuildDir}/lib${lib}.a"
+                        REALPATH BASE_DIR "${CMAKE_BINARY_DIR}")
 
+      MESSAGE(STATUS "real: ${absPath}")
 
-# Optional blas compile if not given?
-#if(TARGET shared_lib)
-#message("shared_lib is already defined")
-#else()
-#include_directories(${SHARED_LIB_INCLUDE_DIR})
-#set(LIB_SRCS ./src/foo.c)
-#add_library(shared_lib STATIC ${LIB_SRCS})
-#endif()
-
+      target_link_libraries(${target} "${absPath}")
+    endif(WIN32)
+  else()
+    target_link_libraries(${target} ${lib})
+  endif(STATIC)
+endfunction(LINK_LIBRARY)
