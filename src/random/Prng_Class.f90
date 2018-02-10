@@ -173,17 +173,6 @@ public :: rngExponential_unscaled_d1
 
 interface
   !====================================================================!
-  module subroutine jump_Prng(this, nJumps)
-  !====================================================================!
-  class(Prng), intent(inout) :: this
-    !!Prng Class
-  integer(i32) :: nJumps
-    !!Number of times to skip \(2^{64}\) numbers if the Prng was initialized with big = .false.
-    !!or $2^{512}$ numbers if big was .true.
-  end subroutine
-  !====================================================================!
-
-  !====================================================================!
   module subroutine rngExponential_d1_Prng(this, res, lambda)
     !! Overloaded Type bound procedure Prng%rngExponential()
   !====================================================================!
@@ -495,7 +484,7 @@ end interface
 contains
 
 !====================================================================!
-module function initWithSetseed_Prng(seed, big) result(this)
+function initWithSetseed_Prng(seed, big) result(this)
 !====================================================================!
 type(Prng) :: this
   !! Prng Class
