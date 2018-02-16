@@ -1,6 +1,7 @@
 target_sources(${libName}
     PUBLIC       
         "${CMAKE_CURRENT_LIST_DIR}/Prng_Class.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/sm_xorshift128plus.f90"
         "${CMAKE_CURRENT_LIST_DIR}/sm_xorshift1024star.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_random.f90"
         "${CMAKE_CURRENT_LIST_DIR}/sm_rngExponential.f90"
