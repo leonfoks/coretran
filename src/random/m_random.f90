@@ -1,7 +1,7 @@
 module m_random
   !!# Random number generation - Not parallel safe
   !!This module has been comprised using different sources. The first was a public domain pseudo-random number
-  !!generator using the xorshift1024* and xorshift128+ methods.  See [[m_xorshift1024star]] and [[m_xorshift128plus]]
+  !!generator using the xorshift1024* and xorshift128+ methods.  See [[Prng_Class]]
   !!for more details on those methods.
   !!
   !!The secound source are the functions inside http://www.netlib.org/random/random.f90.  These are used to generate 
