@@ -8,6 +8,8 @@ submodule (m_Sort) sm_introsort
 
   implicit none
 
+  integer(i32), parameter :: minimumLengthForInsertion = 16
+
   contains
   !====================================================================!
   module procedure introsort_r1D
@@ -30,7 +32,7 @@ submodule (m_Sort) sm_introsort
   integer(i32) :: imid,iPivot
   integer(i32) :: N
   N = right - left + 1
-  if (N < 16) then
+  if (N < minimumLengthForInsertion) then
     call InsertionSort(this,left,right)
     return
   end if
@@ -66,7 +68,7 @@ submodule (m_Sort) sm_introsort
   integer(i32) :: imid,iPivot
   integer(i32) :: N
   N = right - left + 1
-  if (N < 16) then
+  if (N < minimumLengthForInsertion) then
     call InsertionSort(this,left,right)
     return
   end if
@@ -103,7 +105,7 @@ submodule (m_Sort) sm_introsort
     integer(i32) :: imid,iPivot
     integer(i32) :: N
     N=right-left + 1
-    if (N < 16) then
+    if (N < minimumLengthForInsertion) then
       call InsertionSort(this,left,right)
       return
     end if
@@ -140,7 +142,7 @@ submodule (m_Sort) sm_introsort
     integer(i32) :: imid,iPivot
     integer(i32) :: N
     N=right-left + 1
-    if (N < 16) then
+    if (N < minimumLengthForInsertion) then
       call InsertionSort(this,left,right)
       return
     end if
@@ -178,7 +180,7 @@ submodule (m_Sort) sm_introsort
   integer(i32) :: imid,iPivot
   integer(i32) :: N
   N=right-left + 1
-  if (N < 16) then
+  if (N < minimumLengthForInsertion) then
     call argInsertionSort(this,idx,left,right)
     return
   end if
@@ -216,7 +218,7 @@ submodule (m_Sort) sm_introsort
   integer(i32) :: imid,iPivot
   integer(i32) :: N
   N = right - left + 1
-  if (N < 16) then
+  if (N < minimumLengthForInsertion) then
     call argInsertionSort(this,idx,left,right)
     return
   end if
@@ -254,7 +256,7 @@ submodule (m_Sort) sm_introsort
   integer(i32) :: imid,iPivot
   integer(i32) :: N
   N=right - left + 1
-  if (N < 16) then
+  if (N < minimumLengthForInsertion) then
     call argInsertionSort(this,idx,left,right)
     return
   end if
@@ -292,7 +294,7 @@ submodule (m_Sort) sm_introsort
   integer(i32) :: imid,iPivot
   integer(i32) :: N
   N = right - left + 1
-  if (N < 16) then
+  if (N < minimumLengthForInsertion) then
     call argInsertionSort(this,idx,left,right)
     return
   end if
