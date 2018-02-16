@@ -30,11 +30,6 @@ All Procedures &ndash; Fortran Program
     <script src="../js/svg-pan-zoom.min.js"></script>
 
     
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
 
   </head>
 
@@ -93,15 +88,6 @@ All Procedures &ndash; Fortran Program
 
           </ul>
         
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
-        </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
-        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -114,8 +100,6 @@ All Procedures &ndash; Fortran Program
 			 <table class="table table-striped">
 			 <thead><tr><th>Procedure</th><th>Location</th><th>Procedure Type</th><th>Description</th></tr></thead>
 			 <tbody>
-			 
-			   <tr><td><a href='../proc/abstimetohms.html'>absTimetoHMS</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Function</td><td><p>Convert an absolute time to HH:MM:SS.MSEC</p></td></tr>
 			 
 			   <tr><td><a href='../interface/allocate.html'>allocate</a></td><td><a href='../module/m_allocate.html'>m_allocate</a></td><td>Interface</td><td><p>Allocate an allocatable array. If the array is already allocated, memory is reallocated to the given size, unless no size change will occur.
  The allocated memory is NOT initialized to any value, so be sure to do so afterwards if you call allocate.</p></td></tr>
@@ -136,8 +120,6 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../interface/argsort.html'>argSort</a></td><td><a href='../module/m_sort.html'>m_sort</a></td><td>Interface</td><td><p>Use an indirect introspection sort on an array of numbers</p></td></tr>
 			 
-			   <tr><td><a href='../proc/array1d_test.html'>array1D_test</a></td><td><a href='../module/m_array1d.html'>m_array1D</a></td><td>Subroutine</td><td></td></tr>
-			 
 			   <tr><td><a href='../interface/binarysearch.html'>binarySearch</a></td><td><a href='../module/m_searching.html'>m_searching</a></td><td>Interface</td><td><p>Perform a binary search.  See <a href="../module/m_searching.html">m_searching</a> for more information on how to use this interface</p></td></tr>
 			 
 			   <tr><td><a href='../proc/checkisopen.html'>checkIsOpen</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Subroutine</td><td><p>Checks whether a file is open with an error message if not</p></td></tr>
@@ -153,8 +135,6 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../interface/copy.html'>copy</a></td><td><a href='../module/m_copy.html'>m_copy</a></td><td>Interface</td><td><p>Copies an array to new memory (no pointers), The output array size will be changed to match the copy.</p></td></tr>
 			 
-			   <tr><td><a href='../proc/copy_test.html'>copy_test</a></td><td><a href='../module/m_copy.html'>m_copy</a></td><td>Subroutine</td><td></td></tr>
-			 
 			   <tr><td><a href='../proc/countentries.html'>countEntries</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Function</td><td><p>Count the number of entries in a string</p></td></tr>
 			 
 			   <tr><td><a href='../interface/crossproduct.html'>crossproduct</a></td><td><a href='../module/m_maths.html'>m_maths</a></td><td>Interface</td><td><p>Compute the cross product between two arrays of length 2 or 3</p></td></tr>
@@ -165,15 +145,11 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../interface/dargdynamicarray.html'>dArgDynamicArray</a></td><td><a href='../module/m_dargdynamicarray.html'>m_dArgDynamicArray</a></td><td>Interface</td><td></td></tr>
 			 
-			   <tr><td><a href='../proc/dargdynamicarray_test.html'>dArgDynamicArray_test</a></td><td><a href='../module/m_dargdynamicarray.html'>m_dArgDynamicArray</a></td><td>Subroutine</td><td></td></tr>
+			   <tr><td><a href='../proc/daysinmonth.html'>daysInMonth</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Function</td><td><p>Get the number of days in a month. Accounts for leap years</p></td></tr>
 			 
-			   <tr><td><a href='../proc/daysinmonth.html'>daysinMonth</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Function</td><td><p>Get the number of days in a month. Accounts for leap years</p></td></tr>
-			 
-			   <tr><td><a href='../proc/daysinyear.html'>daysinYear</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Function</td><td><p>Get the number of days in a year, accounts for leap years</p></td></tr>
+			   <tr><td><a href='../proc/daysinyear.html'>daysInYear</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Function</td><td><p>Get the number of days in a year, accounts for leap years</p></td></tr>
 			 
 			   <tr><td><a href='../interface/ddynamicarray.html'>dDynamicArray</a></td><td><a href='../module/m_ddynamicarray.html'>m_dDynamicArray</a></td><td>Interface</td><td></td></tr>
-			 
-			   <tr><td><a href='../proc/ddynamicarray_test.html'>dDynamicArray_test</a></td><td><a href='../module/m_ddynamicarray.html'>m_dDynamicArray</a></td><td>Subroutine</td><td></td></tr>
 			 
 			   <tr><td><a href='../interface/deallocate.html'>deallocate</a></td><td><a href='../module/m_deallocate.html'>m_deallocate</a></td><td>Interface</td><td><p>Deallocate an allocatable array.</p></td></tr>
 			 
@@ -198,8 +174,6 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../proc/fileexists.html'>fileExists</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Function</td><td><p>Checks whether the file with name fName exists on disk</p></td></tr>
 			 
-			   <tr><td><a href='../proc/fileio_test.html'>fileIO_test</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Subroutine</td><td></td></tr>
-			 
 			   <tr><td><a href='../interface/geometricmean.html'>geometricMean</a></td><td><a href='../module/m_maths.html'>m_maths</a></td><td>Interface</td><td><p>Compute the geometric mean of a vector</p></td></tr>
 			 
 			   <tr><td><a href='../proc/getextension.html'>getExtension</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Function</td><td><p>Get the extension of a file</p></td></tr>
@@ -207,6 +181,9 @@ All Procedures &ndash; Fortran Program
 			   <tr><td><a href='../proc/getfilesize.html'>getFileSize</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Function</td><td><p>Get the file size in Bytes</p></td></tr>
 			 
 			   <tr><td><a href='../proc/getnfilelines.html'>getNFileLines</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Function</td><td><p>Counts the number of lines in a file after the number of specified header lines</p></td></tr>
+			 
+			   <tr><td><a href='../proc/getrandomseed.html'>getRandomSeed</a></td><td><a href='../module/prng_class.html'>Prng_Class</a></td><td>Subroutine</td><td><p>Gets a randomly generated seed by getting the current integer time 
+ and then using a splitmix algorithm to generate the necessary number of seeds.</p></td></tr>
 			 
 			   <tr><td><a href='../proc/hasextension.html'>hasExtension</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Function</td><td><p>Checks if a file 'fname' is of type 'extension'</p></td></tr>
 			 
@@ -216,23 +193,13 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../interface/iargdynamicarray.html'>iArgDynamicArray</a></td><td><a href='../module/m_iargdynamicarray.html'>m_iArgDynamicArray</a></td><td>Interface</td><td></td></tr>
 			 
-			   <tr><td><a href='../proc/iargdynamicarray_test.html'>iArgDynamicArray_test</a></td><td><a href='../module/m_iargdynamicarray.html'>m_iArgDynamicArray</a></td><td>Subroutine</td><td></td></tr>
-			 
 			   <tr><td><a href='../interface/idargdynamicarray.html'>idArgDynamicArray</a></td><td><a href='../module/m_idargdynamicarray.html'>m_idArgDynamicArray</a></td><td>Interface</td><td></td></tr>
-			 
-			   <tr><td><a href='../proc/idargdynamicarray_test.html'>idArgDynamicArray_test</a></td><td><a href='../module/m_idargdynamicarray.html'>m_idArgDynamicArray</a></td><td>Subroutine</td><td></td></tr>
 			 
 			   <tr><td><a href='../interface/iddynamicarray.html'>idDynamicArray</a></td><td><a href='../module/m_iddynamicarray.html'>m_idDynamicArray</a></td><td>Interface</td><td></td></tr>
 			 
-			   <tr><td><a href='../proc/iddynamicarray_test.html'>idDynamicArray_test</a></td><td><a href='../module/m_iddynamicarray.html'>m_idDynamicArray</a></td><td>Subroutine</td><td></td></tr>
-			 
 			   <tr><td><a href='../interface/idynamicarray.html'>iDynamicArray</a></td><td><a href='../module/m_idynamicarray.html'>m_iDynamicArray</a></td><td>Interface</td><td></td></tr>
 			 
-			   <tr><td><a href='../proc/idynamicarray_test.html'>iDynamicArray_test</a></td><td><a href='../module/m_idynamicarray.html'>m_iDynamicArray</a></td><td>Subroutine</td><td></td></tr>
-			 
 			   <tr><td><a href='../proc/ind2sub.html'>ind2sub</a></td><td><a href='../module/m_indexing.html'>m_indexing</a></td><td>Function</td><td><p>Compute the indices in each dimension from the global index</p></td></tr>
-			 
-			   <tr><td><a href='../proc/indexing_test.html'>indexing_test</a></td><td><a href='../module/m_indexing.html'>m_indexing</a></td><td>Subroutine</td><td></td></tr>
 			 
 			   <tr><td><a href='../proc/insertat__iddynamicarray.html'>insertAt__idDynamicArray</a></td><td><a href='../module/m_iddynamicarray.html'>m_idDynamicArray</a></td><td>Subroutine</td><td><p>Private insert into array without checking for sorted flag.</p></td></tr>
 			 
@@ -251,7 +218,11 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../proc/isleapyear.html'>isLeapYear</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Function</td><td><p>Determine whether the year is a leap year</p></td></tr>
 			 
-			   <tr><td><a href='../proc/isopen.html'>isOpen</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Function</td><td><p>Is the file open or not</p></td></tr>
+			   <tr><td><a href='../interface/isopen.html'>isOpen</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Interface</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/isopen_i1.html'>isOpen_i1</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Function</td><td><p>Is the file open or not</p></td></tr>
+			 
+			   <tr><td><a href='../proc/isopen_s.html'>isOpen_s</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Function</td><td><p>Is the file open or not</p></td></tr>
 			 
 			   <tr><td><a href='../interface/issorted.html'>isSorted</a></td><td><a href='../module/m_array1d.html'>m_array1D</a></td><td>Interface</td><td><p>Check that a 1D array is sorted</p></td></tr>
 			 
@@ -260,8 +231,6 @@ All Procedures &ndash; Fortran Program
 			   <tr><td><a href='../interface/kdtree.html'>KdTree</a></td><td><a href='../module/m_kdtree.html'>m_KdTree</a></td><td>Interface</td><td><p>Overloaded Initializer for a KdTree.</p></td></tr>
 			 
 			   <tr><td><a href='../proc/lowercase.html'>lowerCase</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Function</td><td><p>Convert a string to lowercase</p></td></tr>
-			 
-			   <tr><td><a href='../proc/maths_test.html'>maths_test</a></td><td><a href='../module/m_maths.html'>m_maths</a></td><td>Subroutine</td><td></td></tr>
 			 
 			   <tr><td><a href='../interface/mean.html'>mean</a></td><td><a href='../module/m_maths.html'>m_maths</a></td><td>Interface</td><td><p>Compute the mean</p></td></tr>
 			 
@@ -291,19 +260,17 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../proc/prependstring.html'>prependString</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Function</td><td><p>Prepend a string</p></td></tr>
 			 
+			   <tr><td><a href='../interface/prng.html'>Prng</a></td><td><a href='../module/prng_class.html'>Prng_Class</a></td><td>Interface</td><td><p>Overloaded Initializer for a Prng - Pseudo random number generator.
+Thread safe, xorshift1024* or xorshift128+ generator than can draw from different distributions.
+See <a href="../module/prng_class.html">Prng_Class</a> for more information on how to use this class.</p></td></tr>
+			 
 			   <tr><td><a href='../interface/progressbar.html'>ProgressBar</a></td><td><a href='../module/progressbar_class.html'>ProgressBar_Class</a></td><td>Interface</td><td></td></tr>
 			 
 			   <tr><td><a href='../interface/project.html'>project</a></td><td><a href='../module/m_maths.html'>m_maths</a></td><td>Interface</td><td><p>Project a vector a onto vector b</p></td></tr>
 			 
-			   <tr><td><a href='../proc/random_test.html'>random_test</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td></td></tr>
-			 
 			   <tr><td><a href='../interface/rargdynamicarray.html'>rArgDynamicArray</a></td><td><a href='../module/m_rargdynamicarray.html'>m_rArgDynamicArray</a></td><td>Interface</td><td></td></tr>
 			 
-			   <tr><td><a href='../proc/rargdynamicarray_test.html'>rArgDynamicArray_test</a></td><td><a href='../module/m_rargdynamicarray.html'>m_rArgDynamicArray</a></td><td>Subroutine</td><td></td></tr>
-			 
 			   <tr><td><a href='../interface/rdynamicarray.html'>rDynamicArray</a></td><td><a href='../module/m_rdynamicarray.html'>m_rDynamicArray</a></td><td>Interface</td><td></td></tr>
-			 
-			   <tr><td><a href='../proc/rdynamicarray_test.html'>rDynamicArray_test</a></td><td><a href='../module/m_rdynamicarray.html'>m_rDynamicArray</a></td><td>Subroutine</td><td></td></tr>
 			 
 			   <tr><td><a href='../proc/read1dble.html'>read1Dble</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Subroutine</td><td></td></tr>
 			 
@@ -315,35 +282,79 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../interface/reallocate.html'>reallocate</a></td><td><a href='../module/m_reallocate.html'>m_reallocate</a></td><td>Interface</td><td><p>Reallocate an allocatable array</p></td></tr>
 			 
-			   <tr><td><a href='../proc/reallocate_test.html'>reallocate_test</a></td><td><a href='../module/m_reallocate.html'>m_reallocate</a></td><td>Subroutine</td><td></td></tr>
-			 
 			   <tr><td><a href='../proc/removecomments.html'>removeComments</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Subroutine</td><td><p>Removes the text after the ! mark in a string</p></td></tr>
 			 
 			   <tr><td><a href='../interface/repeat.html'>repeat</a></td><td><a href='../module/m_array1d.html'>m_array1D</a></td><td>Interface</td><td><p>Repeat each element nRepeat times</p></td></tr>
 			 
 			   <tr><td><a href='../proc/replacedelim.html'>replacedelim</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Subroutine</td><td><p>Replace a single character length delimiter in a string</p></td></tr>
 			 
-			   <tr><td><a href='../interface/rngchisq.html'>rngChisq</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td><p>Pull from a Chi Ssquared distribution</p></td></tr>
-			 
 			   <tr><td><a href='../interface/rngexponential.html'>rngExponential</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td></td></tr>
 			 
-			   <tr><td><a href='../interface/rnggamma.html'>rngGamma</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td></td></tr>
+			   <tr><td><a href='../proc/rngexponential_d1.html'>rngExponential_d1</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rngexponential.html">rngExponential</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rngexponential_d1d.html'>rngExponential_d1D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rngexponential.html">rngExponential</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rngexponential_d2d.html'>rngExponential_d2D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rngexponential.html">rngExponential</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rngexponential_d3d.html'>rngExponential_d3D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rngexponential.html">rngExponential</a></p></td></tr>
+			 
+			   <tr><td><a href='../interface/rngexponential_unscaled_d1.html'>rngExponential_unscaled_d1</a></td><td><a href='../module/prng_class.html'>Prng_Class</a></td><td>Interface</td><td></td></tr>
 			 
 			   <tr><td><a href='../interface/rnginteger.html'>rngInteger</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td><p>Generate size(this) random integers starting from imin</p></td></tr>
 			 
+			   <tr><td><a href='../proc/rnginteger_i1.html'>rngInteger_i1</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rnginteger.html">rngInteger</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rnginteger_i1d.html'>rngInteger_i1D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rnginteger.html">rngInteger</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rnginteger_i2d.html'>rngInteger_i2D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rnginteger.html">rngInteger</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rnginteger_i3d.html'>rngInteger_i3D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rnginteger.html">rngInteger</a></p></td></tr>
+			 
 			   <tr><td><a href='../interface/rngnormal.html'>rngNormal</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/rngnormal_d1.html'>rngNormal_d1</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rngnormal.html">rngNormal</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rngnormal_d1d.html'>rngNormal_d1D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rngnormal.html">rngNormal</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rngnormal_d2d.html'>rngNormal_d2D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rngnormal.html">rngNormal</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rngnormal_d3d.html'>rngNormal_d3D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rngnormal.html">rngNormal</a></p></td></tr>
 			 
 			   <tr><td><a href='../interface/rnguniform.html'>rngUniform</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td></td></tr>
 			 
+			   <tr><td><a href='../proc/rnguniform_d1.html'>rngUniform_d1</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rnguniform.html">rngUniform</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rnguniform_d1d.html'>rngUniform_d1D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rnguniform.html">rngUniform</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rnguniform_d2d.html'>rngUniform_d2D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rnguniform.html">rngUniform</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rnguniform_d3d.html'>rngUniform_d3D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rnguniform.html">rngUniform</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rnguniform_xorshift.html'>rngUniform_xorshift</a></td><td><a href='../module/prng_class.html'>Prng_Class</a></td><td>Subroutine</td><td></td></tr>
+			 
 			   <tr><td><a href='../interface/rngweibull.html'>rngWeibull</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td></td></tr>
+			 
+			   <tr><td><a href='../proc/rngweibull_d1.html'>rngWeibull_d1</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rngweibull.html">rngWeibull</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rngweibull_d1d.html'>rngWeibull_d1D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rngweibull.html">rngWeibull</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rngweibull_d2d.html'>rngWeibull_d2D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rngweibull.html">rngWeibull</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/rngweibull_d3d.html'>rngWeibull_d3D</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced with <a href="../interface/rngweibull.html">rngWeibull</a></p></td></tr>
+			 
+			   <tr><td><a href='../proc/secondstohms.html'>secondsToHMS</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Function</td><td><p>Convert a time in seconds to HH:MM:SS.MSEC</p></td></tr>
 			 
 			   <tr><td><a href='../interface/select.html'>select</a></td><td><a href='../module/m_select.html'>m_select</a></td><td>Interface</td><td><p>Use an in-place quick select on an array of numbers</p></td></tr>
 			 
-			   <tr><td><a href='../proc/select_test.html'>select_test</a></td><td><a href='../module/m_select.html'>m_select</a></td><td>Subroutine</td><td></td></tr>
+			   <tr><td><a href='../interface/setprng.html'>setPrng</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td></td></tr>
 			 
-			   <tr><td><a href='../interface/setrng.html'>setRNG</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td><p>Sets the random number with or without a seed</p></td></tr>
+			   <tr><td><a href='../proc/setprng_withseed.html'>setPrng_withSeed</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced to setPrng()
+ Sets the seed of the random number generator with a specified seed</p></td></tr>
 			 
-			   <tr><td><a href='../interface/shuffle.html'>shuffle</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Interface</td><td><p>Perform Knuth shuffling on an array</p></td></tr>
+			   <tr><td><a href='../proc/setprng_woseed.html'>setPrng_WOseed</a></td><td><a href='../module/m_random.html'>m_random</a></td><td>Subroutine</td><td><p>Interfaced to setPrng()
+ 'Randomly' sets the seed of the random number generator</p></td></tr>
+			 
+			   <tr><td><a href='../interface/shuffle.html'>shuffle</a></td><td><a href='../module/m_array1d.html'>m_array1D</a></td><td>Interface</td><td><p>Perform Knuth shuffling on an array</p></td></tr>
 			 
 			   <tr><td><a href='../interface/simplesearch.html'>simpleSearch</a></td><td><a href='../module/m_searching.html'>m_searching</a></td><td>Interface</td><td><p>Carry out a brute force search on an array for a given number. Returns -1 if the value is not found.</p></td></tr>
 			 
@@ -351,14 +362,10 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../interface/sort.html'>sort</a></td><td><a href='../module/m_sort.html'>m_sort</a></td><td>Interface</td><td><p>Use an in-place introspection sort on an array of numbers</p></td></tr>
 			 
-			   <tr><td><a href='../proc/sorting_test.html'>sorting_test</a></td><td><a href='../module/m_sort.html'>m_sort</a></td><td>Subroutine</td><td></td></tr>
-			 
 			   <tr><td><a href='../interface/std.html'>std</a></td><td><a href='../module/m_maths.html'>m_maths</a></td><td>Interface</td><td><p>Compute the standard deviation of an array</p></td></tr>
 			 
 			   <tr><td><a href='../interface/str.html'>str</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Interface</td><td><p>Interface to print a string representation of a number
  The output format options can be set using the printOptions class</p></td></tr>
-			 
-			   <tr><td><a href='../proc/strings_test.html'>strings_test</a></td><td><a href='../module/m_strings.html'>m_strings</a></td><td>Subroutine</td><td></td></tr>
 			 
 			   <tr><td><a href='../proc/sub2ind.html'>sub2ind</a></td><td><a href='../module/m_indexing.html'>m_indexing</a></td><td>Function</td><td><p>Given component indices, get the global vector location.</p></td></tr>
 			 
@@ -366,9 +373,9 @@ All Procedures &ndash; Fortran Program
 			 
 			   <tr><td><a href='../interface/tester.html'>tester</a></td><td><a href='../module/m_unittester.html'>m_unitTester</a></td><td>Interface</td><td></td></tr>
 			 
-			   <tr><td><a href='../proc/time_test.html'>time_test</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Subroutine</td><td></td></tr>
+			   <tr><td><a href='../proc/timeinseconds.html'>timeInSeconds</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Function</td><td><p>Convert hours minutes seconds etc. to seconds</p></td></tr>
 			 
-			   <tr><td><a href='../proc/timeinseconds.html'>timeinseconds</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Function</td><td><p>Convert hours minutes seconds etc. to seconds</p></td></tr>
+			   <tr><td><a href='../proc/timetointeger.html'>timeToInteger</a></td><td><a href='../module/m_time.html'>m_time</a></td><td>Function</td><td><p>Convert hours minutes seconds etc. to an integer.  Use 64bit to prevent the 2038 problem.</p></td></tr>
 			 
 			   <tr><td><a href='../proc/trimextension.html'>trimExtension</a></td><td><a href='../module/m_fileio.html'>m_fileIO</a></td><td>Function</td><td><p>Trims the extension of a filename</p></td></tr>
 			 
@@ -390,1440 +397,6 @@ All Procedures &ndash; Fortran Program
 			 
 			 </tbody></table>
              
-                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
- "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.40.1 (20161225.0304)
- -->
-<!-- Title: call~~graph~~CallGraph Pages: 1 -->
-<svg id="callgraphCallGraph" width="494pt" height="3706pt"
- viewBox="0.00 0.00 493.73 3705.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="call~~graph~~CallGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 3701.5)">
-<title>call~~graph~~CallGraph</title>
-<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-3701.5 489.7297,-3701.5 489.7297,4 -4,4"/>
-<!-- interface~progressbar -->
-<g id="call~~graph~~CallGraph_node1" class="node">
-<title>interface~progressbar</title>
-<g id="a_call~~graph~~CallGraph_node1"><a xlink:href="../interface/progressbar.html" xlink:title="ProgressBar">
-<polygon fill="#a7506f" stroke="#a7506f" points="86.5756,-22.2554 15.8638,-22.2554 15.8638,-.2446 86.5756,-.2446 86.5756,-22.2554"/>
-<text text-anchor="middle" x="51.2197" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">ProgressBar</text>
-</a>
-</g>
-</g>
-<!-- proc~fileexists -->
-<g id="call~~graph~~CallGraph_node2" class="node">
-<title>proc~fileexists</title>
-<g id="a_call~~graph~~CallGraph_node2"><a xlink:href="../proc/fileexists.html" xlink:title="fileExists">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="232.1272,-63.2554 178.1272,-63.2554 178.1272,-41.2446 232.1272,-41.2446 232.1272,-63.2554"/>
-<text text-anchor="middle" x="205.1272" y="-49.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">fileExists</text>
-</a>
-</g>
-</g>
-<!-- proc~lowercase -->
-<g id="call~~graph~~CallGraph_node3" class="node">
-<title>proc~lowercase</title>
-<g id="a_call~~graph~~CallGraph_node3"><a xlink:href="../proc/lowercase.html" xlink:title="lowerCase">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="374.1917,-673.2554 312.9826,-673.2554 312.9826,-651.2446 374.1917,-651.2446 374.1917,-673.2554"/>
-<text text-anchor="middle" x="343.5872" y="-659.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">lowerCase</text>
-</a>
-</g>
-</g>
-<!-- interface~fasttwosum -->
-<g id="call~~graph~~CallGraph_node4" class="node">
-<title>interface~fasttwosum</title>
-<g id="a_call~~graph~~CallGraph_node4"><a xlink:href="../interface/fasttwosum.html" xlink:title="fastTwoSum">
-<polygon fill="#a7506f" stroke="#a7506f" points="85.9957,-684.2554 16.4437,-684.2554 16.4437,-662.2446 85.9957,-662.2446 85.9957,-684.2554"/>
-<text text-anchor="middle" x="51.2197" y="-670.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">fastTwoSum</text>
-</a>
-</g>
-</g>
-<!-- proc~hasextension -->
-<g id="call~~graph~~CallGraph_node5" class="node">
-<title>proc~hasextension</title>
-<g id="a_call~~graph~~CallGraph_node5"><a xlink:href="../proc/hasextension.html" xlink:title="hasExtension">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="88.7608,-745.2554 13.6787,-745.2554 13.6787,-723.2446 88.7608,-723.2446 88.7608,-745.2554"/>
-<text text-anchor="middle" x="51.2197" y="-731.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">hasExtension</text>
-</a>
-</g>
-</g>
-<!-- isstring -->
-<g id="call~~graph~~CallGraph_node112" class="node">
-<title>isstring</title>
-<polygon fill="#777777" stroke="#777777" points="232.1272,-745.2554 178.1272,-745.2554 178.1272,-723.2446 232.1272,-723.2446 232.1272,-745.2554"/>
-<text text-anchor="middle" x="205.1272" y="-731.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">isstring</text>
-</g>
-<!-- proc~hasextension&#45;&gt;isstring -->
-<g id="call~~graph~~CallGraph_edge1" class="edge">
-<title>proc~hasextension&#45;&gt;isstring</title>
-<path fill="none" stroke="#000000" d="M88.8697,-734.25C112.9011,-734.25 143.9228,-734.25 167.8763,-734.25"/>
-<polygon fill="#000000" stroke="#000000" points="168.0005,-737.7501 178.0004,-734.25 168.0004,-730.7501 168.0005,-737.7501"/>
-</g>
-<!-- proc~removecomments -->
-<g id="call~~graph~~CallGraph_node6" class="node">
-<title>proc~removecomments</title>
-<g id="a_call~~graph~~CallGraph_node6"><a xlink:href="../proc/removecomments.html" xlink:title="removeComments">
-<polygon fill="#d9534f" stroke="#d9534f" points="99.9939,-786.2554 2.4455,-786.2554 2.4455,-764.2446 99.9939,-764.2446 99.9939,-786.2554"/>
-<text text-anchor="middle" x="51.2197" y="-772.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">removeComments</text>
-</a>
-</g>
-</g>
-<!-- proc~openfile -->
-<g id="call~~graph~~CallGraph_node7" class="node">
-<title>proc~openfile</title>
-<g id="a_call~~graph~~CallGraph_node7"><a xlink:href="../proc/openfile.html" xlink:title="openFile">
-<polygon fill="#d9534f" stroke="#d9534f" points="232.1272,-622.2554 178.1272,-622.2554 178.1272,-600.2446 232.1272,-600.2446 232.1272,-622.2554"/>
-<text text-anchor="middle" x="205.1272" y="-608.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openFile</text>
-</a>
-</g>
-</g>
-<!-- proc~openfile&#45;&gt;proc~lowercase -->
-<g id="call~~graph~~CallGraph_edge4" class="edge">
-<title>proc~openfile&#45;&gt;proc~lowercase</title>
-<path fill="none" stroke="#000000" d="M232.2466,-619.1787C244.4296,-622.8969 258.9327,-627.5404 271.8149,-632.25 284.1027,-636.7422 297.3684,-642.1306 309.1123,-647.0936"/>
-<polygon fill="#000000" stroke="#000000" points="307.9935,-650.4216 318.5644,-651.1334 310.7446,-643.9849 307.9935,-650.4216"/>
-</g>
-<!-- proc~compact -->
-<g id="call~~graph~~CallGraph_node76" class="node">
-<title>proc~compact</title>
-<g id="a_call~~graph~~CallGraph_node76"><a xlink:href="../proc/compact.html" xlink:title="compact">
-<polygon fill="#d9534f" stroke="#d9534f" points="477.5446,-513.2554 423.5446,-513.2554 423.5446,-491.2446 477.5446,-491.2446 477.5446,-513.2554"/>
-<text text-anchor="middle" x="450.5446" y="-499.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">compact</text>
-</a>
-</g>
-</g>
-<!-- proc~openfile&#45;&gt;proc~compact -->
-<g id="call~~graph~~CallGraph_edge5" class="edge">
-<title>proc~openfile&#45;&gt;proc~compact</title>
-<path fill="none" stroke="#000000" d="M232.1521,-617.1761C268.1649,-623.583 332.755,-629.7597 379.3594,-604.25 411.6798,-586.5588 432.5393,-547.1389 442.8577,-522.8138"/>
-<polygon fill="#000000" stroke="#000000" points="446.1515,-524.0039 446.6372,-513.4202 439.6574,-521.391 446.1515,-524.0039"/>
-</g>
-<!-- emsg -->
-<g id="call~~graph~~CallGraph_node113" class="node">
-<title>emsg</title>
-<polygon fill="#777777" stroke="#777777" points="370.5872,-310.2554 316.5872,-310.2554 316.5872,-288.2446 370.5872,-288.2446 370.5872,-310.2554"/>
-<text text-anchor="middle" x="343.5872" y="-296.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">emsg</text>
-</g>
-<!-- proc~openfile&#45;&gt;emsg -->
-<g id="call~~graph~~CallGraph_edge2" class="edge">
-<title>proc~openfile&#45;&gt;emsg</title>
-<path fill="none" stroke="#000000" d="M232.3031,-609.4428C246.1738,-607.0524 262.1229,-601.7655 271.8149,-590.25 349.2034,-498.3017 243.3202,-423.6595 307.8149,-322.25 309.0383,-320.3264 310.4869,-318.5323 312.0886,-316.8644"/>
-<polygon fill="#000000" stroke="#000000" points="314.4482,-319.4536 319.8676,-310.3497 309.9538,-314.087 314.4482,-319.4536"/>
-</g>
-<!-- ferr -->
-<g id="call~~graph~~CallGraph_node114" class="node">
-<title>ferr</title>
-<polygon fill="#777777" stroke="#777777" points="370.5872,-595.2554 316.5872,-595.2554 316.5872,-573.2446 370.5872,-573.2446 370.5872,-595.2554"/>
-<text text-anchor="middle" x="343.5872" y="-581.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">ferr</text>
-</g>
-<!-- proc~openfile&#45;&gt;ferr -->
-<g id="call~~graph~~CallGraph_edge3" class="edge">
-<title>proc~openfile&#45;&gt;ferr</title>
-<path fill="none" stroke="#000000" d="M232.1524,-605.98C253.2673,-601.8626 282.8524,-596.0934 306.2326,-591.5342"/>
-<polygon fill="#000000" stroke="#000000" points="307.0117,-594.9483 316.157,-589.599 305.6719,-588.0777 307.0117,-594.9483"/>
-</g>
-<!-- proc~hasnentries -->
-<g id="call~~graph~~CallGraph_node8" class="node">
-<title>proc~hasnentries</title>
-<g id="a_call~~graph~~CallGraph_node8"><a xlink:href="../proc/hasnentries.html" xlink:title="hasNentries">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="239.1545,-473.2554 171.0998,-473.2554 171.0998,-451.2446 239.1545,-451.2446 239.1545,-473.2554"/>
-<text text-anchor="middle" x="205.1272" y="-459.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">hasNentries</text>
-</a>
-</g>
-</g>
-<!-- proc~countentries -->
-<g id="call~~graph~~CallGraph_node45" class="node">
-<title>proc~countentries</title>
-<g id="a_call~~graph~~CallGraph_node45"><a xlink:href="../proc/countentries.html" xlink:title="countEntries">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="378.9533,-472.2554 308.221,-472.2554 308.221,-450.2446 378.9533,-450.2446 378.9533,-472.2554"/>
-<text text-anchor="middle" x="343.5872" y="-458.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">countEntries</text>
-</a>
-</g>
-</g>
-<!-- proc~hasnentries&#45;&gt;proc~countentries -->
-<g id="call~~graph~~CallGraph_edge6" class="edge">
-<title>proc~hasnentries&#45;&gt;proc~countentries</title>
-<path fill="none" stroke="#000000" d="M239.3533,-462.0028C257.1383,-461.8744 279.106,-461.7157 298.2814,-461.5772"/>
-<polygon fill="#000000" stroke="#000000" points="298.3348,-465.077 308.3092,-461.5048 298.2842,-458.0772 298.3348,-465.077"/>
-</g>
-<!-- interface~simplesearch -->
-<g id="call~~graph~~CallGraph_node9" class="node">
-<title>interface~simplesearch</title>
-<g id="a_call~~graph~~CallGraph_node9"><a xlink:href="../interface/simplesearch.html" xlink:title="simpleSearch">
-<polygon fill="#a7506f" stroke="#a7506f" points="88.8308,-827.2554 13.6086,-827.2554 13.6086,-805.2446 88.8308,-805.2446 88.8308,-827.2554"/>
-<text text-anchor="middle" x="51.2197" y="-813.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">simpleSearch</text>
-</a>
-</g>
-</g>
-<!-- interface~kdtree -->
-<g id="call~~graph~~CallGraph_node10" class="node">
-<title>interface~kdtree</title>
-<g id="a_call~~graph~~CallGraph_node10"><a xlink:href="../interface/kdtree.html" xlink:title="KdTree">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-868.2554 24.2197,-868.2554 24.2197,-846.2446 78.2197,-846.2446 78.2197,-868.2554"/>
-<text text-anchor="middle" x="51.2197" y="-854.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">KdTree</text>
-</a>
-</g>
-</g>
-<!-- proc~insertat__iddynamicarray -->
-<g id="call~~graph~~CallGraph_node11" class="node">
-<title>proc~insertat__iddynamicarray</title>
-<g id="a_call~~graph~~CallGraph_node11"><a xlink:href="../proc/insertat__iddynamicarray.html" xlink:title="insertAt__idDynamicArray">
-<polygon fill="#d9534f" stroke="#d9534f" points="272.0032,-186.2554 138.2512,-186.2554 138.2512,-164.2446 272.0032,-164.2446 272.0032,-186.2554"/>
-<text text-anchor="middle" x="205.1272" y="-172.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">insertAt__idDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- interface~str -->
-<g id="call~~graph~~CallGraph_node65" class="node">
-<title>interface~str</title>
-<g id="a_call~~graph~~CallGraph_node65"><a xlink:href="../interface/str.html" xlink:title="str">
-<polygon fill="#a7506f" stroke="#a7506f" points="370.5872,-227.2554 316.5872,-227.2554 316.5872,-205.2446 370.5872,-205.2446 370.5872,-227.2554"/>
-<text text-anchor="middle" x="343.5872" y="-213.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">str</text>
-</a>
-</g>
-</g>
-<!-- proc~insertat__iddynamicarray&#45;&gt;interface~str -->
-<g id="call~~graph~~CallGraph_edge8" class="edge">
-<title>proc~insertat__iddynamicarray&#45;&gt;interface~str</title>
-<path fill="none" stroke="#000000" d="M242.5965,-186.3452C262.4654,-192.2287 286.7904,-199.4317 306.5883,-205.2941"/>
-<polygon fill="#000000" stroke="#000000" points="305.6096,-208.6545 316.1919,-208.1379 307.5972,-201.9425 305.6096,-208.6545"/>
-</g>
-<!-- proc~insertat__iddynamicarray&#45;&gt;emsg -->
-<g id="call~~graph~~CallGraph_edge7" class="edge">
-<title>proc~insertat__iddynamicarray&#45;&gt;emsg</title>
-<path fill="none" stroke="#000000" d="M253.6074,-186.3057C260.0647,-188.9567 266.3371,-192.2254 271.8149,-196.25 287.3798,-207.6856 315.794,-252.6558 331.8054,-279.246"/>
-<polygon fill="#000000" stroke="#000000" points="328.9671,-281.3201 337.0964,-288.1146 334.9786,-277.7336 328.9671,-281.3201"/>
-</g>
-<!-- interface~mean -->
-<g id="call~~graph~~CallGraph_node12" class="node">
-<title>interface~mean</title>
-<g id="a_call~~graph~~CallGraph_node12"><a xlink:href="../interface/mean.html" xlink:title="mean">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-909.2554 24.2197,-909.2554 24.2197,-887.2446 78.2197,-887.2446 78.2197,-909.2554"/>
-<text text-anchor="middle" x="51.2197" y="-895.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">mean</text>
-</a>
-</g>
-</g>
-<!-- interface~tester -->
-<g id="call~~graph~~CallGraph_node13" class="node">
-<title>interface~tester</title>
-<g id="a_call~~graph~~CallGraph_node13"><a xlink:href="../interface/tester.html" xlink:title="tester">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-950.2554 24.2197,-950.2554 24.2197,-928.2446 78.2197,-928.2446 78.2197,-950.2554"/>
-<text text-anchor="middle" x="51.2197" y="-936.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">tester</text>
-</a>
-</g>
-</g>
-<!-- interface~rngweibull -->
-<g id="call~~graph~~CallGraph_node14" class="node">
-<title>interface~rngweibull</title>
-<g id="a_call~~graph~~CallGraph_node14"><a xlink:href="../interface/rngweibull.html" xlink:title="rngWeibull">
-<polygon fill="#a7506f" stroke="#a7506f" points="82.1399,-991.2554 20.2996,-991.2554 20.2996,-969.2446 82.1399,-969.2446 82.1399,-991.2554"/>
-<text text-anchor="middle" x="51.2197" y="-977.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">rngWeibull</text>
-</a>
-</g>
-</g>
-<!-- interface~median -->
-<g id="call~~graph~~CallGraph_node15" class="node">
-<title>interface~median</title>
-<g id="a_call~~graph~~CallGraph_node15"><a xlink:href="../interface/median.html" xlink:title="median">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-1032.2554 24.2197,-1032.2554 24.2197,-1010.2446 78.2197,-1010.2446 78.2197,-1032.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1018.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">median</text>
-</a>
-</g>
-</g>
-<!-- proc~checkisopen -->
-<g id="call~~graph~~CallGraph_node16" class="node">
-<title>proc~checkisopen</title>
-<g id="a_call~~graph~~CallGraph_node16"><a xlink:href="../proc/checkisopen.html" xlink:title="checkIsOpen">
-<polygon fill="#d9534f" stroke="#d9534f" points="241.9102,-531.2554 168.3442,-531.2554 168.3442,-509.2446 241.9102,-509.2446 241.9102,-531.2554"/>
-<text text-anchor="middle" x="205.1272" y="-517.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">checkIsOpen</text>
-</a>
-</g>
-</g>
-<!-- proc~isopen -->
-<g id="call~~graph~~CallGraph_node18" class="node">
-<title>proc~isopen</title>
-<g id="a_call~~graph~~CallGraph_node18"><a xlink:href="../proc/isopen.html" xlink:title="isOpen">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="370.5872,-513.2554 316.5872,-513.2554 316.5872,-491.2446 370.5872,-491.2446 370.5872,-513.2554"/>
-<text text-anchor="middle" x="343.5872" y="-499.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">isOpen</text>
-</a>
-</g>
-</g>
-<!-- proc~checkisopen&#45;&gt;proc~isopen -->
-<g id="call~~graph~~CallGraph_edge10" class="edge">
-<title>proc~checkisopen&#45;&gt;proc~isopen</title>
-<path fill="none" stroke="#000000" d="M241.8684,-515.4736C261.7898,-512.8838 286.3529,-509.6905 306.3505,-507.0908"/>
-<polygon fill="#000000" stroke="#000000" points="306.8776,-510.5518 316.343,-505.7918 305.9752,-503.6102 306.8776,-510.5518"/>
-</g>
-<!-- proc~checkisopen&#45;&gt;ferr -->
-<g id="call~~graph~~CallGraph_edge9" class="edge">
-<title>proc~checkisopen&#45;&gt;ferr</title>
-<path fill="none" stroke="#000000" d="M230.1976,-531.3882C242.7248,-536.9892 258.0991,-543.9169 271.8149,-550.25 284.6556,-556.179 298.7294,-562.8155 310.9864,-568.6405"/>
-<polygon fill="#000000" stroke="#000000" points="309.8353,-571.9689 320.3686,-573.1091 312.8454,-565.6491 309.8353,-571.9689"/>
-</g>
-<!-- interface~setrng -->
-<g id="call~~graph~~CallGraph_node17" class="node">
-<title>interface~setrng</title>
-<g id="a_call~~graph~~CallGraph_node17"><a xlink:href="../interface/setrng.html" xlink:title="setRNG">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-1073.2554 24.2197,-1073.2554 24.2197,-1051.2446 78.2197,-1051.2446 78.2197,-1073.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1059.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">setRNG</text>
-</a>
-</g>
-</g>
-<!-- proc~deletefile -->
-<g id="call~~graph~~CallGraph_node19" class="node">
-<title>proc~deletefile</title>
-<g id="a_call~~graph~~CallGraph_node19"><a xlink:href="../proc/deletefile.html" xlink:title="deleteFile">
-<polygon fill="#d9534f" stroke="#d9534f" points="79.749,-1114.2554 22.6905,-1114.2554 22.6905,-1092.2446 79.749,-1092.2446 79.749,-1114.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1100.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">deleteFile</text>
-</a>
-</g>
-</g>
-<!-- interface~cumsum -->
-<g id="call~~graph~~CallGraph_node20" class="node">
-<title>interface~cumsum</title>
-<g id="a_call~~graph~~CallGraph_node20"><a xlink:href="../interface/cumsum.html" xlink:title="cumsum">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-1155.2554 24.2197,-1155.2554 24.2197,-1133.2446 78.2197,-1133.2446 78.2197,-1155.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1141.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">cumsum</text>
-</a>
-</g>
-</g>
-<!-- proc~getfilesize -->
-<g id="call~~graph~~CallGraph_node21" class="node">
-<title>proc~getfilesize</title>
-<g id="a_call~~graph~~CallGraph_node21"><a xlink:href="../proc/getfilesize.html" xlink:title="getFileSize">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="83.1609,-63.2554 19.2785,-63.2554 19.2785,-41.2446 83.1609,-41.2446 83.1609,-63.2554"/>
-<text text-anchor="middle" x="51.2197" y="-49.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">getFileSize</text>
-</a>
-</g>
-</g>
-<!-- proc~getfilesize&#45;&gt;proc~fileexists -->
-<g id="call~~graph~~CallGraph_edge11" class="edge">
-<title>proc~getfilesize&#45;&gt;proc~fileexists</title>
-<path fill="none" stroke="#000000" d="M83.4838,-52.25C108.1198,-52.25 142.1074,-52.25 167.8956,-52.25"/>
-<polygon fill="#000000" stroke="#000000" points="168.0419,-55.7501 178.0418,-52.25 168.0418,-48.7501 168.0419,-55.7501"/>
-</g>
-<!-- interface~idargdynamicarray -->
-<g id="call~~graph~~CallGraph_node22" class="node">
-<title>interface~idargdynamicarray</title>
-<g id="a_call~~graph~~CallGraph_node22"><a xlink:href="../interface/idargdynamicarray.html" xlink:title="idArgDynamicArray">
-<polygon fill="#a7506f" stroke="#a7506f" points="102.6601,-1196.2554 -.2207,-1196.2554 -.2207,-1174.2446 102.6601,-1174.2446 102.6601,-1196.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1182.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">idArgDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- interface~project -->
-<g id="call~~graph~~CallGraph_node23" class="node">
-<title>interface~project</title>
-<g id="a_call~~graph~~CallGraph_node23"><a xlink:href="../interface/project.html" xlink:title="project">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-1237.2554 24.2197,-1237.2554 24.2197,-1215.2446 78.2197,-1215.2446 78.2197,-1237.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1223.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">project</text>
-</a>
-</g>
-</g>
-<!-- proc~openbinaryfile -->
-<g id="call~~graph~~CallGraph_node24" class="node">
-<title>proc~openbinaryfile</title>
-<g id="a_call~~graph~~CallGraph_node24"><a xlink:href="../proc/openbinaryfile.html" xlink:title="openBinaryFile">
-<polygon fill="#d9534f" stroke="#d9534f" points="246.1665,-581.2554 164.0879,-581.2554 164.0879,-559.2446 246.1665,-559.2446 246.1665,-581.2554"/>
-<text text-anchor="middle" x="205.1272" y="-567.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">openBinaryFile</text>
-</a>
-</g>
-</g>
-<!-- proc~openbinaryfile&#45;&gt;proc~lowercase -->
-<g id="call~~graph~~CallGraph_edge14" class="edge">
-<title>proc~openbinaryfile&#45;&gt;proc~lowercase</title>
-<path fill="none" stroke="#000000" d="M246.3051,-579.8499C255.0665,-582.8011 264.0185,-586.5497 271.8149,-591.25 294.4853,-604.9174 315.3872,-627.1704 328.7167,-643.1216"/>
-<polygon fill="#000000" stroke="#000000" points="326.2866,-645.6815 335.306,-651.2404 331.7218,-641.2703 326.2866,-645.6815"/>
-</g>
-<!-- proc~openbinaryfile&#45;&gt;emsg -->
-<g id="call~~graph~~CallGraph_edge12" class="edge">
-<title>proc~openbinaryfile&#45;&gt;emsg</title>
-<path fill="none" stroke="#000000" d="M246.1796,-559.2657C255.896,-554.8367 265.3116,-548.7015 271.8149,-540.25 331.7021,-462.4233 253.8732,-404.3094 307.8149,-322.25 309.0671,-320.3451 310.5376,-318.5651 312.1555,-316.9077"/>
-<polygon fill="#000000" stroke="#000000" points="314.5144,-319.4983 319.9729,-310.4178 310.0431,-314.1124 314.5144,-319.4983"/>
-</g>
-<!-- proc~openbinaryfile&#45;&gt;ferr -->
-<g id="call~~graph~~CallGraph_edge13" class="edge">
-<title>proc~openbinaryfile&#45;&gt;ferr</title>
-<path fill="none" stroke="#000000" d="M246.2949,-574.4126C265.3082,-576.335 287.7209,-578.6012 306.2395,-580.4737"/>
-<polygon fill="#000000" stroke="#000000" points="306.057,-583.973 316.3584,-581.4968 306.7613,-577.0085 306.057,-583.973"/>
-</g>
-<!-- interface~geometricmean -->
-<g id="call~~graph~~CallGraph_node25" class="node">
-<title>interface~geometricmean</title>
-<g id="a_call~~graph~~CallGraph_node25"><a xlink:href="../interface/geometricmean.html" xlink:title="geometricMean">
-<polygon fill="#a7506f" stroke="#a7506f" points="93.5875,-1278.2554 8.852,-1278.2554 8.852,-1256.2446 93.5875,-1256.2446 93.5875,-1278.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1264.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">geometricMean</text>
-</a>
-</g>
-</g>
-<!-- proc~replacedelim -->
-<g id="call~~graph~~CallGraph_node26" class="node">
-<title>proc~replacedelim</title>
-<g id="a_call~~graph~~CallGraph_node26"><a xlink:href="../proc/replacedelim.html" xlink:title="replacedelim">
-<polygon fill="#d9534f" stroke="#d9534f" points="240.6578,-391.2554 169.5966,-391.2554 169.5966,-369.2446 240.6578,-369.2446 240.6578,-391.2554"/>
-<text text-anchor="middle" x="205.1272" y="-377.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">replacedelim</text>
-</a>
-</g>
-</g>
-<!-- proc~replacedelim&#45;&gt;emsg -->
-<g id="call~~graph~~CallGraph_edge15" class="edge">
-<title>proc~replacedelim&#45;&gt;emsg</title>
-<path fill="none" stroke="#000000" d="M240.8053,-372.5438C251.2651,-369.3712 262.4102,-365.0431 271.8149,-359.25 291.3501,-347.2168 290.0505,-336.7704 307.8149,-322.25 310.3874,-320.1473 313.1609,-318.0731 315.9851,-316.0825"/>
-<polygon fill="#000000" stroke="#000000" points="318.0925,-318.8837 324.4601,-310.4159 314.2017,-313.0646 318.0925,-318.8837"/>
-</g>
-<!-- interface~cumprod -->
-<g id="call~~graph~~CallGraph_node27" class="node">
-<title>interface~cumprod</title>
-<g id="a_call~~graph~~CallGraph_node27"><a xlink:href="../interface/cumprod.html" xlink:title="cumprod">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-1319.2554 24.2197,-1319.2554 24.2197,-1297.2446 78.2197,-1297.2446 78.2197,-1319.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1305.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">cumprod</text>
-</a>
-</g>
-</g>
-<!-- interface~sort -->
-<g id="call~~graph~~CallGraph_node28" class="node">
-<title>interface~sort</title>
-<g id="a_call~~graph~~CallGraph_node28"><a xlink:href="../interface/sort.html" xlink:title="sort">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-1360.2554 24.2197,-1360.2554 24.2197,-1338.2446 78.2197,-1338.2446 78.2197,-1360.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1346.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">sort</text>
-</a>
-</g>
-</g>
-<!-- proc~prependstring -->
-<g id="call~~graph~~CallGraph_node29" class="node">
-<title>proc~prependstring</title>
-<g id="a_call~~graph~~CallGraph_node29"><a xlink:href="../proc/prependstring.html" xlink:title="prependString">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="90.1831,-1401.2554 12.2563,-1401.2554 12.2563,-1379.2446 90.1831,-1379.2446 90.1831,-1401.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1387.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">prependString</text>
-</a>
-</g>
-</g>
-<!-- interface~argselect -->
-<g id="call~~graph~~CallGraph_node30" class="node">
-<title>interface~argselect</title>
-<g id="a_call~~graph~~CallGraph_node30"><a xlink:href="../interface/argselect.html" xlink:title="argSelect">
-<polygon fill="#a7506f" stroke="#a7506f" points="79.5793,-1442.2554 22.8602,-1442.2554 22.8602,-1420.2446 79.5793,-1420.2446 79.5793,-1442.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1428.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">argSelect</text>
-</a>
-</g>
-</g>
-<!-- proc~closefile -->
-<g id="call~~graph~~CallGraph_node31" class="node">
-<title>proc~closefile</title>
-<g id="a_call~~graph~~CallGraph_node31"><a xlink:href="../proc/closefile.html" xlink:title="closeFile">
-<polygon fill="#d9534f" stroke="#d9534f" points="232.1272,-704.2554 178.1272,-704.2554 178.1272,-682.2446 232.1272,-682.2446 232.1272,-704.2554"/>
-<text text-anchor="middle" x="205.1272" y="-690.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">closeFile</text>
-</a>
-</g>
-</g>
-<!-- proc~closefile&#45;&gt;proc~lowercase -->
-<g id="call~~graph~~CallGraph_edge17" class="edge">
-<title>proc~closefile&#45;&gt;proc~lowercase</title>
-<path fill="none" stroke="#000000" d="M232.1524,-687.1993C252.3075,-682.6867 280.1804,-676.4462 303.0073,-671.3355"/>
-<polygon fill="#000000" stroke="#000000" points="303.7747,-674.7504 312.7684,-669.1501 302.2453,-667.9195 303.7747,-674.7504"/>
-</g>
-<!-- proc~closefile&#45;&gt;proc~compact -->
-<g id="call~~graph~~CallGraph_edge18" class="edge">
-<title>proc~closefile&#45;&gt;proc~compact</title>
-<path fill="none" stroke="#000000" d="M232.2667,-699.7663C269.2883,-706.9783 335.9679,-713.796 379.3594,-682.25 431.3111,-644.4806 445.368,-562.7719 449.1561,-523.7891"/>
-<polygon fill="#000000" stroke="#000000" points="452.6644,-523.8325 450.0043,-513.5771 445.6885,-523.2531 452.6644,-523.8325"/>
-</g>
-<!-- proc~closefile&#45;&gt;ferr -->
-<g id="call~~graph~~CallGraph_edge16" class="edge">
-<title>proc~closefile&#45;&gt;ferr</title>
-<path fill="none" stroke="#000000" d="M232.3626,-688.4489C245.1208,-685.2915 260.0606,-680.2201 271.8149,-672.25 298.1568,-654.3888 319.817,-624.0604 332.225,-604.091"/>
-<polygon fill="#000000" stroke="#000000" points="335.253,-605.8473 337.4059,-595.4735 329.2537,-602.2405 335.253,-605.8473"/>
-</g>
-<!-- interface~rngexponential -->
-<g id="call~~graph~~CallGraph_node32" class="node">
-<title>interface~rngexponential</title>
-<g id="a_call~~graph~~CallGraph_node32"><a xlink:href="../interface/rngexponential.html" xlink:title="rngExponential">
-<polygon fill="#a7506f" stroke="#a7506f" points="92.2693,-1483.2554 10.1702,-1483.2554 10.1702,-1461.2446 92.2693,-1461.2446 92.2693,-1483.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1469.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">rngExponential</text>
-</a>
-</g>
-</g>
-<!-- proc~appendstring -->
-<g id="call~~graph~~CallGraph_node33" class="node">
-<title>proc~appendstring</title>
-<g id="a_call~~graph~~CallGraph_node33"><a xlink:href="../proc/appendstring.html" xlink:title="appendString">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="88.688,-1524.2554 13.7515,-1524.2554 13.7515,-1502.2446 88.688,-1502.2446 88.688,-1524.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1510.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">appendString</text>
-</a>
-</g>
-</g>
-<!-- interface~rnggamma -->
-<g id="call~~graph~~CallGraph_node34" class="node">
-<title>interface~rnggamma</title>
-<g id="a_call~~graph~~CallGraph_node34"><a xlink:href="../interface/rnggamma.html" xlink:title="rngGamma">
-<polygon fill="#a7506f" stroke="#a7506f" points="83.2369,-1565.2554 19.2025,-1565.2554 19.2025,-1543.2446 83.2369,-1543.2446 83.2369,-1565.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1551.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">rngGamma</text>
-</a>
-</g>
-</g>
-<!-- proc~getnfilelines -->
-<g id="call~~graph~~CallGraph_node35" class="node">
-<title>proc~getnfilelines</title>
-<g id="a_call~~graph~~CallGraph_node35"><a xlink:href="../proc/getnfilelines.html" xlink:title="getNFileLines">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="89.4197,-622.2554 13.0198,-622.2554 13.0198,-600.2446 89.4197,-600.2446 89.4197,-622.2554"/>
-<text text-anchor="middle" x="51.2197" y="-608.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">getNFileLines</text>
-</a>
-</g>
-</g>
-<!-- proc~getnfilelines&#45;&gt;proc~openfile -->
-<g id="call~~graph~~CallGraph_edge19" class="edge">
-<title>proc~getnfilelines&#45;&gt;proc~openfile</title>
-<path fill="none" stroke="#000000" d="M89.6601,-611.25C113.5481,-611.25 144.1072,-611.25 167.7864,-611.25"/>
-<polygon fill="#000000" stroke="#000000" points="167.8028,-614.7501 177.8028,-611.25 167.8028,-607.7501 167.8028,-614.7501"/>
-</g>
-<!-- proc~getnfilelines&#45;&gt;proc~closefile -->
-<g id="call~~graph~~CallGraph_edge21" class="edge">
-<title>proc~getnfilelines&#45;&gt;proc~closefile</title>
-<path fill="none" stroke="#000000" d="M64.3061,-622.3412C80.7004,-635.761 110.0939,-658.2877 138.4395,-672.25 147.8311,-676.8761 158.4642,-680.7687 168.4362,-683.897"/>
-<polygon fill="#000000" stroke="#000000" points="167.5348,-687.2803 178.1173,-686.7694 169.5259,-680.5695 167.5348,-687.2803"/>
-</g>
-<!-- proc~skipfilelines -->
-<g id="call~~graph~~CallGraph_node36" class="node">
-<title>proc~skipfilelines</title>
-<g id="a_call~~graph~~CallGraph_node36"><a xlink:href="../proc/skipfilelines.html" xlink:title="skipFileLines">
-<polygon fill="#d9534f" stroke="#d9534f" points="241.3207,-104.2554 168.9337,-104.2554 168.9337,-82.2446 241.3207,-82.2446 241.3207,-104.2554"/>
-<text text-anchor="middle" x="205.1272" y="-90.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">skipFileLines</text>
-</a>
-</g>
-</g>
-<!-- proc~getnfilelines&#45;&gt;proc~skipfilelines -->
-<g id="call~~graph~~CallGraph_edge20" class="edge">
-<title>proc~getnfilelines&#45;&gt;proc~skipfilelines</title>
-<path fill="none" stroke="#000000" d="M51.6444,-600.1333C54.3963,-533.7803 71.7426,-190.3375 138.4395,-114.25 143.9572,-107.9554 151.3414,-103.5282 159.1861,-100.4191"/>
-<polygon fill="#000000" stroke="#000000" points="160.4736,-103.6805 168.8888,-97.2435 158.2961,-97.0277 160.4736,-103.6805"/>
-</g>
-<!-- interface~select -->
-<g id="call~~graph~~CallGraph_node37" class="node">
-<title>interface~select</title>
-<g id="a_call~~graph~~CallGraph_node37"><a xlink:href="../interface/select.html" xlink:title="select">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-1606.2554 24.2197,-1606.2554 24.2197,-1584.2446 78.2197,-1584.2446 78.2197,-1606.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1592.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">select</text>
-</a>
-</g>
-</g>
-<!-- interface~writeline -->
-<g id="call~~graph~~CallGraph_node38" class="node">
-<title>interface~writeline</title>
-<g id="a_call~~graph~~CallGraph_node38"><a xlink:href="../interface/writeline.html" xlink:title="writeline">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-1647.2554 24.2197,-1647.2554 24.2197,-1625.2446 78.2197,-1625.2446 78.2197,-1647.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1633.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">writeline</text>
-</a>
-</g>
-</g>
-<!-- interface~idynamicarray -->
-<g id="call~~graph~~CallGraph_node39" class="node">
-<title>interface~idynamicarray</title>
-<g id="a_call~~graph~~CallGraph_node39"><a xlink:href="../interface/idynamicarray.html" xlink:title="iDynamicArray">
-<polygon fill="#a7506f" stroke="#a7506f" points="91.4804,-1688.2554 10.959,-1688.2554 10.959,-1666.2446 91.4804,-1666.2446 91.4804,-1688.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1674.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">iDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- interface~norm1 -->
-<g id="call~~graph~~CallGraph_node40" class="node">
-<title>interface~norm1</title>
-<g id="a_call~~graph~~CallGraph_node40"><a xlink:href="../interface/norm1.html" xlink:title="norm1">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-1729.2554 24.2197,-1729.2554 24.2197,-1707.2446 78.2197,-1707.2446 78.2197,-1729.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1715.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">norm1</text>
-</a>
-</g>
-</g>
-<!-- proc~read1dble -->
-<g id="call~~graph~~CallGraph_node41" class="node">
-<title>proc~read1dble</title>
-<g id="a_call~~graph~~CallGraph_node41"><a xlink:href="../proc/read1dble.html" xlink:title="read1Dble">
-<polygon fill="#d9534f" stroke="#d9534f" points="235.5786,-432.2554 174.6758,-432.2554 174.6758,-410.2446 235.5786,-410.2446 235.5786,-432.2554"/>
-<text text-anchor="middle" x="205.1272" y="-418.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">read1Dble</text>
-</a>
-</g>
-</g>
-<!-- proc~read1dble&#45;&gt;interface~str -->
-<g id="call~~graph~~CallGraph_edge22" class="edge">
-<title>proc~read1dble&#45;&gt;interface~str</title>
-<path fill="none" stroke="#000000" d="M235.6385,-417.9885C248.3222,-415.1697 262.2786,-409.939 271.8149,-400.25 311.1725,-360.2621 285.8211,-330.8671 307.8149,-279.25 314.1952,-264.2763 323.2657,-248.3428 330.6764,-236.246"/>
-<polygon fill="#000000" stroke="#000000" points="333.8383,-237.7915 336.1807,-227.4588 327.906,-234.0755 333.8383,-237.7915"/>
-</g>
-<!-- proc~read1dble&#45;&gt;proc~compact -->
-<g id="call~~graph~~CallGraph_edge26" class="edge">
-<title>proc~read1dble&#45;&gt;proc~compact</title>
-<path fill="none" stroke="#000000" d="M235.649,-413.4437C278.786,-403.1031 355.0467,-387.5696 379.3594,-400.25 412.0285,-417.2887 432.7718,-456.9259 442.974,-481.4685"/>
-<polygon fill="#000000" stroke="#000000" points="439.7871,-482.9283 446.7051,-490.9528 446.3012,-480.3656 439.7871,-482.9283"/>
-</g>
-<!-- proc~readline -->
-<g id="call~~graph~~CallGraph_node101" class="node">
-<title>proc~readline</title>
-<g id="a_call~~graph~~CallGraph_node101"><a xlink:href="../proc/readline.html" xlink:title="readline">
-<polygon fill="#d9534f" stroke="#d9534f" points="370.5872,-353.2554 316.5872,-353.2554 316.5872,-331.2446 370.5872,-331.2446 370.5872,-353.2554"/>
-<text text-anchor="middle" x="343.5872" y="-339.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">readline</text>
-</a>
-</g>
-</g>
-<!-- proc~read1dble&#45;&gt;proc~readline -->
-<g id="call~~graph~~CallGraph_edge23" class="edge">
-<title>proc~read1dble&#45;&gt;proc~readline</title>
-<path fill="none" stroke="#000000" d="M235.5056,-414.6946C247.3229,-411.3882 260.6716,-406.6822 271.8149,-400.25 290.6131,-389.3991 290.8826,-380.8296 307.8149,-367.25 311.2062,-364.5302 314.8742,-361.7738 318.5246,-359.1338"/>
-<polygon fill="#000000" stroke="#000000" points="320.7098,-361.8758 326.8715,-353.257 316.6799,-356.1521 320.7098,-361.8758"/>
-</g>
-<!-- proc~read1dble&#45;&gt;ferr -->
-<g id="call~~graph~~CallGraph_edge24" class="edge">
-<title>proc~read1dble&#45;&gt;ferr</title>
-<path fill="none" stroke="#000000" d="M235.6385,-424.5115C248.3222,-427.3303 262.2786,-432.561 271.8149,-442.25 311.1725,-482.2379 273.2124,-519.0831 307.8149,-563.25 308.7587,-564.4546 309.7923,-565.604 310.8943,-566.6989"/>
-<polygon fill="#000000" stroke="#000000" points="308.9412,-569.6191 318.9323,-573.1448 313.3205,-564.1582 308.9412,-569.6191"/>
-</g>
-<!-- wmsg -->
-<g id="call~~graph~~CallGraph_node115" class="node">
-<title>wmsg</title>
-<polygon fill="#777777" stroke="#777777" points="370.5872,-431.2554 316.5872,-431.2554 316.5872,-409.2446 370.5872,-409.2446 370.5872,-431.2554"/>
-<text text-anchor="middle" x="343.5872" y="-417.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">wmsg</text>
-</g>
-<!-- proc~read1dble&#45;&gt;wmsg -->
-<g id="call~~graph~~CallGraph_edge25" class="edge">
-<title>proc~read1dble&#45;&gt;wmsg</title>
-<path fill="none" stroke="#000000" d="M235.5128,-421.0305C256.4043,-420.8797 284.2734,-420.6784 306.4783,-420.518"/>
-<polygon fill="#000000" stroke="#000000" points="306.5773,-424.0175 316.5517,-420.4453 306.5266,-417.0177 306.5773,-424.0175"/>
-</g>
-<!-- proc~read1integer -->
-<g id="call~~graph~~CallGraph_node42" class="node">
-<title>proc~read1integer</title>
-<g id="a_call~~graph~~CallGraph_node42"><a xlink:href="../proc/read1integer.html" xlink:title="read1Integer">
-<polygon fill="#d9534f" stroke="#d9534f" points="379.133,-554.2554 308.0413,-554.2554 308.0413,-532.2446 379.133,-532.2446 379.133,-554.2554"/>
-<text text-anchor="middle" x="343.5872" y="-540.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">read1Integer</text>
-</a>
-</g>
-</g>
-<!-- proc~read1integer&#45;&gt;proc~compact -->
-<g id="call~~graph~~CallGraph_edge27" class="edge">
-<title>proc~read1integer&#45;&gt;proc~compact</title>
-<path fill="none" stroke="#000000" d="M372.5314,-532.1548C385.276,-527.2694 400.394,-521.4742 413.9124,-516.2922"/>
-<polygon fill="#000000" stroke="#000000" points="415.3317,-519.4965 423.4164,-512.649 412.8262,-512.9603 415.3317,-519.4965"/>
-</g>
-<!-- interface~intervalsearch -->
-<g id="call~~graph~~CallGraph_node43" class="node">
-<title>interface~intervalsearch</title>
-<g id="a_call~~graph~~CallGraph_node43"><a xlink:href="../interface/intervalsearch.html" xlink:title="intervalSearch">
-<polygon fill="#a7506f" stroke="#a7506f" points="90.8368,-1770.2554 11.6027,-1770.2554 11.6027,-1748.2446 90.8368,-1748.2446 90.8368,-1770.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1756.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">intervalSearch</text>
-</a>
-</g>
-</g>
-<!-- interface~normi -->
-<g id="call~~graph~~CallGraph_node44" class="node">
-<title>interface~normi</title>
-<g id="a_call~~graph~~CallGraph_node44"><a xlink:href="../interface/normi.html" xlink:title="normI">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-1811.2554 24.2197,-1811.2554 24.2197,-1789.2446 78.2197,-1789.2446 78.2197,-1811.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1797.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">normI</text>
-</a>
-</g>
-</g>
-<!-- proc~countentries&#45;&gt;proc~compact -->
-<g id="call~~graph~~CallGraph_edge28" class="edge">
-<title>proc~countentries&#45;&gt;proc~compact</title>
-<path fill="none" stroke="#000000" d="M372.5314,-472.3452C385.276,-477.2306 400.394,-483.0258 413.9124,-488.2078"/>
-<polygon fill="#000000" stroke="#000000" points="412.8262,-491.5397 423.4164,-491.851 415.3317,-485.0035 412.8262,-491.5397"/>
-</g>
-<!-- interface~variance -->
-<g id="call~~graph~~CallGraph_node46" class="node">
-<title>interface~variance</title>
-<g id="a_call~~graph~~CallGraph_node46"><a xlink:href="../interface/variance.html" xlink:title="variance">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-1852.2554 24.2197,-1852.2554 24.2197,-1830.2446 78.2197,-1830.2446 78.2197,-1852.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1838.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">variance</text>
-</a>
-</g>
-</g>
-<!-- interface~twodiff -->
-<g id="call~~graph~~CallGraph_node47" class="node">
-<title>interface~twodiff</title>
-<g id="a_call~~graph~~CallGraph_node47"><a xlink:href="../interface/twodiff.html" xlink:title="twoDiff">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-1893.2554 24.2197,-1893.2554 24.2197,-1871.2446 78.2197,-1871.2446 78.2197,-1893.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1879.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">twoDiff</text>
-</a>
-</g>
-</g>
-<!-- proc~getextension -->
-<g id="call~~graph~~CallGraph_node48" class="node">
-<title>proc~getextension</title>
-<g id="a_call~~graph~~CallGraph_node48"><a xlink:href="../proc/getextension.html" xlink:title="getExtension">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="241.336,-350.2554 168.9184,-350.2554 168.9184,-328.2446 241.336,-328.2446 241.336,-350.2554"/>
-<text text-anchor="middle" x="205.1272" y="-336.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">getExtension</text>
-</a>
-</g>
-</g>
-<!-- proc~getextension&#45;&gt;emsg -->
-<g id="call~~graph~~CallGraph_edge29" class="edge">
-<title>proc~getextension&#45;&gt;emsg</title>
-<path fill="none" stroke="#000000" d="M241.5059,-328.7405C261.5206,-322.9584 286.3041,-315.7986 306.439,-309.9818"/>
-<polygon fill="#000000" stroke="#000000" points="307.5652,-313.2997 316.2009,-307.1617 305.6224,-306.5747 307.5652,-313.2997"/>
-</g>
-<!-- interface~dargdynamicarray -->
-<g id="call~~graph~~CallGraph_node49" class="node">
-<title>interface~dargdynamicarray</title>
-<g id="a_call~~graph~~CallGraph_node49"><a xlink:href="../interface/dargdynamicarray.html" xlink:title="dArgDynamicArray">
-<polygon fill="#a7506f" stroke="#a7506f" points="101.3265,-1934.2554 1.113,-1934.2554 1.113,-1912.2446 101.3265,-1912.2446 101.3265,-1934.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1920.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">dArgDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- interface~insertionsort -->
-<g id="call~~graph~~CallGraph_node50" class="node">
-<title>interface~insertionsort</title>
-<g id="a_call~~graph~~CallGraph_node50"><a xlink:href="../interface/insertionsort.html" xlink:title="insertionsort">
-<polygon fill="#a7506f" stroke="#a7506f" points="85.9112,-1975.2554 16.5283,-1975.2554 16.5283,-1953.2446 85.9112,-1953.2446 85.9112,-1975.2554"/>
-<text text-anchor="middle" x="51.2197" y="-1961.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">insertionsort</text>
-</a>
-</g>
-</g>
-<!-- interface~partition -->
-<g id="call~~graph~~CallGraph_node51" class="node">
-<title>interface~partition</title>
-<g id="a_call~~graph~~CallGraph_node51"><a xlink:href="../interface/partition.html" xlink:title="partition">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-2016.2554 24.2197,-2016.2554 24.2197,-1994.2446 78.2197,-1994.2446 78.2197,-2016.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2002.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">partition</text>
-</a>
-</g>
-</g>
-<!-- interface~rdynamicarray -->
-<g id="call~~graph~~CallGraph_node52" class="node">
-<title>interface~rdynamicarray</title>
-<g id="a_call~~graph~~CallGraph_node52"><a xlink:href="../interface/rdynamicarray.html" xlink:title="rDynamicArray">
-<polygon fill="#a7506f" stroke="#a7506f" points="92.1449,-2057.2554 10.2945,-2057.2554 10.2945,-2035.2446 92.1449,-2035.2446 92.1449,-2057.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2043.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">rDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- interface~iargdynamicarray -->
-<g id="call~~graph~~CallGraph_node53" class="node">
-<title>interface~iargdynamicarray</title>
-<g id="a_call~~graph~~CallGraph_node53"><a xlink:href="../interface/iargdynamicarray.html" xlink:title="iArgDynamicArray">
-<polygon fill="#a7506f" stroke="#a7506f" points="99.3204,-2098.2554 3.119,-2098.2554 3.119,-2076.2446 99.3204,-2076.2446 99.3204,-2098.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2084.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">iArgDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- interface~repeat -->
-<g id="call~~graph~~CallGraph_node54" class="node">
-<title>interface~repeat</title>
-<g id="a_call~~graph~~CallGraph_node54"><a xlink:href="../interface/repeat.html" xlink:title="repeat">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-2139.2554 24.2197,-2139.2554 24.2197,-2117.2446 78.2197,-2117.2446 78.2197,-2139.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2125.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">repeat</text>
-</a>
-</g>
-</g>
-<!-- proc~merr -->
-<g id="call~~graph~~CallGraph_node55" class="node">
-<title>proc~merr</title>
-<g id="a_call~~graph~~CallGraph_node55"><a xlink:href="../proc/merr.html" xlink:title="mErr">
-<polygon fill="#d9534f" stroke="#d9534f" points="78.2197,-2221.2554 24.2197,-2221.2554 24.2197,-2199.2446 78.2197,-2199.2446 78.2197,-2221.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2207.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">mErr</text>
-</a>
-</g>
-</g>
-<!-- proc~emsg -->
-<g id="call~~graph~~CallGraph_node84" class="node">
-<title>proc~emsg</title>
-<g id="a_call~~graph~~CallGraph_node84"><a xlink:href="../proc/emsg.html" xlink:title="eMsg">
-<polygon fill="#d9534f" stroke="#d9534f" points="232.1272,-2201.2554 178.1272,-2201.2554 178.1272,-2179.2446 232.1272,-2179.2446 232.1272,-2201.2554"/>
-<text text-anchor="middle" x="205.1272" y="-2187.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">eMsg</text>
-</a>
-</g>
-</g>
-<!-- proc~merr&#45;&gt;proc~emsg -->
-<g id="call~~graph~~CallGraph_edge30" class="edge">
-<title>proc~merr&#45;&gt;proc~emsg</title>
-<path fill="none" stroke="#000000" d="M78.381,-2206.7204C103.2502,-2203.4887 140.2782,-2198.677 167.8987,-2195.0878"/>
-<polygon fill="#000000" stroke="#000000" points="168.5135,-2198.5374 177.979,-2193.7779 167.6113,-2191.5958 168.5135,-2198.5374"/>
-</g>
-<!-- proc~debug_s -->
-<g id="call~~graph~~CallGraph_node56" class="node">
-<title>proc~debug_s</title>
-<g id="a_call~~graph~~CallGraph_node56"><a xlink:href="../proc/debug_s.html" xlink:title="debug_s">
-<polygon fill="#d9534f" stroke="#d9534f" points="232.1272,-145.2554 178.1272,-145.2554 178.1272,-123.2446 232.1272,-123.2446 232.1272,-145.2554"/>
-<text text-anchor="middle" x="205.1272" y="-131.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">debug_s</text>
-</a>
-</g>
-</g>
-<!-- proc~debug_s&#45;&gt;interface~str -->
-<g id="call~~graph~~CallGraph_edge31" class="edge">
-<title>proc~debug_s&#45;&gt;interface~str</title>
-<path fill="none" stroke="#000000" d="M232.4138,-140.2007C244.8985,-143.5762 259.5968,-148.4995 271.8149,-155.25 292.1558,-166.4882 312.0305,-184.0467 325.6884,-197.4455"/>
-<polygon fill="#000000" stroke="#000000" points="323.4377,-200.1461 332.9681,-204.7746 328.4042,-195.2131 323.4377,-200.1461"/>
-</g>
-<!-- proc~timeinseconds -->
-<g id="call~~graph~~CallGraph_node57" class="node">
-<title>proc~timeinseconds</title>
-<g id="a_call~~graph~~CallGraph_node57"><a xlink:href="../proc/timeinseconds.html" xlink:title="timeinseconds">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="90.8368,-2262.2554 11.6027,-2262.2554 11.6027,-2240.2446 90.8368,-2240.2446 90.8368,-2262.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2248.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">timeinseconds</text>
-</a>
-</g>
-</g>
-<!-- proc~compare_d1 -->
-<g id="call~~graph~~CallGraph_node58" class="node">
-<title>proc~compare_d1</title>
-<g id="a_call~~graph~~CallGraph_node58"><a xlink:href="../proc/compare_d1.html" xlink:title="compare_d1">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="485.9159,-2323.2554 415.1732,-2323.2554 415.1732,-2301.2446 485.9159,-2301.2446 485.9159,-2323.2554"/>
-<text text-anchor="middle" x="450.5446" y="-2309.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">compare_d1</text>
-</a>
-</g>
-</g>
-<!-- interface~compare -->
-<g id="call~~graph~~CallGraph_node59" class="node">
-<title>interface~compare</title>
-<g id="a_call~~graph~~CallGraph_node59"><a xlink:href="../interface/compare.html" xlink:title="compare">
-<polygon fill="#a7506f" stroke="#a7506f" points="370.5872,-2323.2554 316.5872,-2323.2554 316.5872,-2301.2446 370.5872,-2301.2446 370.5872,-2323.2554"/>
-<text text-anchor="middle" x="343.5872" y="-2309.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">compare</text>
-</a>
-</g>
-</g>
-<!-- interface~compare&#45;&gt;proc~compare_d1 -->
-<g id="call~~graph~~CallGraph_edge32" class="edge">
-<title>interface~compare&#45;&gt;proc~compare_d1</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M370.8538,-2312.25C381.2894,-2312.25 393.4941,-2312.25 405.1711,-2312.25"/>
-<polygon fill="#000000" stroke="#000000" points="405.2391,-2315.7501 415.239,-2312.25 405.239,-2308.7501 405.2391,-2315.7501"/>
-</g>
-<!-- proc~wmsg -->
-<g id="call~~graph~~CallGraph_node60" class="node">
-<title>proc~wmsg</title>
-<g id="a_call~~graph~~CallGraph_node60"><a xlink:href="../proc/wmsg.html" xlink:title="wMsg">
-<polygon fill="#d9534f" stroke="#d9534f" points="232.1272,-2160.2554 178.1272,-2160.2554 178.1272,-2138.2446 232.1272,-2138.2446 232.1272,-2160.2554"/>
-<text text-anchor="middle" x="205.1272" y="-2146.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">wMsg</text>
-</a>
-</g>
-</g>
-<!-- proc~msg -->
-<g id="call~~graph~~CallGraph_node93" class="node">
-<title>proc~msg</title>
-<g id="a_call~~graph~~CallGraph_node93"><a xlink:href="../proc/msg.html" xlink:title="msg">
-<polygon fill="#d9534f" stroke="#d9534f" points="370.5872,-2160.2554 316.5872,-2160.2554 316.5872,-2138.2446 370.5872,-2138.2446 370.5872,-2160.2554"/>
-<text text-anchor="middle" x="343.5872" y="-2146.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">msg</text>
-</a>
-</g>
-</g>
-<!-- proc~wmsg&#45;&gt;proc~msg -->
-<g id="call~~graph~~CallGraph_edge33" class="edge">
-<title>proc~wmsg&#45;&gt;proc~msg</title>
-<path fill="none" stroke="#000000" d="M232.1524,-2149.25C253.1726,-2149.25 282.5872,-2149.25 305.9177,-2149.25"/>
-<polygon fill="#000000" stroke="#000000" points="306.157,-2152.7501 316.157,-2149.25 306.1569,-2145.7501 306.157,-2152.7501"/>
-</g>
-<!-- interface~argsort -->
-<g id="call~~graph~~CallGraph_node61" class="node">
-<title>interface~argsort</title>
-<g id="a_call~~graph~~CallGraph_node61"><a xlink:href="../interface/argsort.html" xlink:title="argSort">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-2344.2554 24.2197,-2344.2554 24.2197,-2322.2446 78.2197,-2322.2446 78.2197,-2344.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2330.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">argSort</text>
-</a>
-</g>
-</g>
-<!-- proc~array1d_test -->
-<g id="call~~graph~~CallGraph_node62" class="node">
-<title>proc~array1d_test</title>
-<g id="a_call~~graph~~CallGraph_node62"><a xlink:href="../proc/array1d_test.html" xlink:title="array1D_test">
-<polygon fill="#d9534f" stroke="#d9534f" points="241.2357,-2119.2554 169.0187,-2119.2554 169.0187,-2097.2446 241.2357,-2097.2446 241.2357,-2119.2554"/>
-<text text-anchor="middle" x="205.1272" y="-2105.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">array1D_test</text>
-</a>
-</g>
-</g>
-<!-- interface~arange -->
-<g id="call~~graph~~CallGraph_node70" class="node">
-<title>interface~arange</title>
-<g id="a_call~~graph~~CallGraph_node70"><a xlink:href="../interface/arange.html" xlink:title="arange">
-<polygon fill="#a7506f" stroke="#a7506f" points="370.5872,-2119.2554 316.5872,-2119.2554 316.5872,-2097.2446 370.5872,-2097.2446 370.5872,-2119.2554"/>
-<text text-anchor="middle" x="343.5872" y="-2105.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">arange</text>
-</a>
-</g>
-</g>
-<!-- proc~array1d_test&#45;&gt;interface~arange -->
-<g id="call~~graph~~CallGraph_edge34" class="edge">
-<title>proc~array1d_test&#45;&gt;interface~arange</title>
-<path fill="none" stroke="#000000" d="M241.5059,-2108.25C261.4292,-2108.25 286.0778,-2108.25 306.1629,-2108.25"/>
-<polygon fill="#000000" stroke="#000000" points="306.2009,-2111.7501 316.2009,-2108.25 306.2009,-2104.7501 306.2009,-2111.7501"/>
-</g>
-<!-- interface~diff -->
-<g id="call~~graph~~CallGraph_node72" class="node">
-<title>interface~diff</title>
-<g id="a_call~~graph~~CallGraph_node72"><a xlink:href="../interface/diff.html" xlink:title="diff">
-<polygon fill="#a7506f" stroke="#a7506f" points="370.5872,-2078.2554 316.5872,-2078.2554 316.5872,-2056.2446 370.5872,-2056.2446 370.5872,-2078.2554"/>
-<text text-anchor="middle" x="343.5872" y="-2064.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">diff</text>
-</a>
-</g>
-</g>
-<!-- proc~array1d_test&#45;&gt;interface~diff -->
-<g id="call~~graph~~CallGraph_edge35" class="edge">
-<title>proc~array1d_test&#45;&gt;interface~diff</title>
-<path fill="none" stroke="#000000" d="M241.5059,-2097.4777C261.5206,-2091.5511 286.3041,-2084.2124 306.439,-2078.2501"/>
-<polygon fill="#000000" stroke="#000000" points="307.6062,-2081.5548 316.2009,-2075.3595 305.6187,-2074.8429 307.6062,-2081.5548"/>
-</g>
-<!-- proc~array1d_test&#45;&gt;proc~msg -->
-<g id="call~~graph~~CallGraph_edge36" class="edge">
-<title>proc~array1d_test&#45;&gt;proc~msg</title>
-<path fill="none" stroke="#000000" d="M241.5059,-2119.0223C261.5206,-2124.9489 286.3041,-2132.2876 306.439,-2138.2499"/>
-<polygon fill="#000000" stroke="#000000" points="305.6187,-2141.6571 316.2009,-2141.1405 307.6062,-2134.9452 305.6187,-2141.6571"/>
-</g>
-<!-- interface~binarysearch -->
-<g id="call~~graph~~CallGraph_node63" class="node">
-<title>interface~binarysearch</title>
-<g id="a_call~~graph~~CallGraph_node63"><a xlink:href="../interface/binarysearch.html" xlink:title="binarySearch">
-<polygon fill="#a7506f" stroke="#a7506f" points="88.0868,-2385.2554 14.3527,-2385.2554 14.3527,-2363.2446 88.0868,-2363.2446 88.0868,-2385.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2371.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">binarySearch</text>
-</a>
-</g>
-</g>
-<!-- interface~partition3way -->
-<g id="call~~graph~~CallGraph_node64" class="node">
-<title>interface~partition3way</title>
-<g id="a_call~~graph~~CallGraph_node64"><a xlink:href="../interface/partition3way.html" xlink:title="partition3way">
-<polygon fill="#a7506f" stroke="#a7506f" points="88.0868,-2303.2554 14.3527,-2303.2554 14.3527,-2281.2446 88.0868,-2281.2446 88.0868,-2303.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2289.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">partition3way</text>
-</a>
-</g>
-</g>
-<!-- proc~partition3way_d1d -->
-<g id="call~~graph~~CallGraph_node71" class="node">
-<title>proc~partition3way_d1d</title>
-<g id="a_call~~graph~~CallGraph_node71"><a xlink:href="../proc/partition3way_d1d.html" xlink:title="partition3way_d1D">
-<polygon fill="#d9534f" stroke="#d9534f" points="254.5957,-2303.2554 155.6587,-2303.2554 155.6587,-2281.2446 254.5957,-2281.2446 254.5957,-2303.2554"/>
-<text text-anchor="middle" x="205.1272" y="-2289.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">partition3way_d1D</text>
-</a>
-</g>
-</g>
-<!-- interface~partition3way&#45;&gt;proc~partition3way_d1d -->
-<g id="call~~graph~~CallGraph_edge37" class="edge">
-<title>interface~partition3way&#45;&gt;proc~partition3way_d1d</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M88.4764,-2292.25C105.5192,-2292.25 126.1392,-2292.25 145.2735,-2292.25"/>
-<polygon fill="#000000" stroke="#000000" points="145.4169,-2295.7501 155.4169,-2292.25 145.4168,-2288.7501 145.4169,-2295.7501"/>
-</g>
-<!-- interface~rngchisq -->
-<g id="call~~graph~~CallGraph_node66" class="node">
-<title>interface~rngchisq</title>
-<g id="a_call~~graph~~CallGraph_node66"><a xlink:href="../interface/rngchisq.html" xlink:title="rngChisq">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2402,-2426.2554 24.1992,-2426.2554 24.1992,-2404.2446 78.2402,-2404.2446 78.2402,-2426.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2412.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">rngChisq</text>
-</a>
-</g>
-</g>
-<!-- interface~readline -->
-<g id="call~~graph~~CallGraph_node67" class="node">
-<title>interface~readline</title>
-<g id="a_call~~graph~~CallGraph_node67"><a xlink:href="../interface/readline.html" xlink:title="readline">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-2467.2554 24.2197,-2467.2554 24.2197,-2445.2446 78.2197,-2445.2446 78.2197,-2467.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2453.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">readline</text>
-</a>
-</g>
-</g>
-<!-- proc~daysinmonth -->
-<g id="call~~graph~~CallGraph_node68" class="node">
-<title>proc~daysinmonth</title>
-<g id="a_call~~graph~~CallGraph_node68"><a xlink:href="../proc/daysinmonth.html" xlink:title="daysinMonth">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="86.7554,-2549.2554 15.684,-2549.2554 15.684,-2527.2446 86.7554,-2527.2446 86.7554,-2549.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2535.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">daysinMonth</text>
-</a>
-</g>
-</g>
-<!-- proc~isleapyear -->
-<g id="call~~graph~~CallGraph_node92" class="node">
-<title>proc~isleapyear</title>
-<g id="a_call~~graph~~CallGraph_node92"><a xlink:href="../proc/isleapyear.html" xlink:title="isLeapYear">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="237.2839,-2528.2554 172.9705,-2528.2554 172.9705,-2506.2446 237.2839,-2506.2446 237.2839,-2528.2554"/>
-<text text-anchor="middle" x="205.1272" y="-2514.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">isLeapYear</text>
-</a>
-</g>
-</g>
-<!-- proc~daysinmonth&#45;&gt;proc~isleapyear -->
-<g id="call~~graph~~CallGraph_edge38" class="edge">
-<title>proc~daysinmonth&#45;&gt;proc~isleapyear</title>
-<path fill="none" stroke="#000000" d="M86.916,-2533.3794C109.5806,-2530.2869 139.0241,-2526.2695 162.8559,-2523.0177"/>
-<polygon fill="#000000" stroke="#000000" points="163.5921,-2526.4498 173.0271,-2521.6299 162.6457,-2519.5141 163.5921,-2526.4498"/>
-</g>
-<!-- interface~iddynamicarray -->
-<g id="call~~graph~~CallGraph_node69" class="node">
-<title>interface~iddynamicarray</title>
-<g id="a_call~~graph~~CallGraph_node69"><a xlink:href="../interface/iddynamicarray.html" xlink:title="idDynamicArray">
-<polygon fill="#a7506f" stroke="#a7506f" points="94.3196,-2590.2554 8.1198,-2590.2554 8.1198,-2568.2446 94.3196,-2568.2446 94.3196,-2590.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2576.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">idDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- proc~partition3way_d1d&#45;&gt;interface~compare -->
-<g id="call~~graph~~CallGraph_edge40" class="edge">
-<title>proc~partition3way_d1d&#45;&gt;interface~compare</title>
-<path fill="none" stroke="#000000" d="M254.7233,-2299.414C271.7825,-2301.8781 290.5756,-2304.5927 306.4685,-2306.8883"/>
-<polygon fill="#000000" stroke="#000000" points="306.0484,-2310.3639 316.4461,-2308.3296 307.0492,-2303.4358 306.0484,-2310.3639"/>
-</g>
-<!-- interface~swap -->
-<g id="call~~graph~~CallGraph_node91" class="node">
-<title>interface~swap</title>
-<g id="a_call~~graph~~CallGraph_node91"><a xlink:href="../interface/swap.html" xlink:title="swap">
-<polygon fill="#a7506f" stroke="#a7506f" points="370.5872,-2282.2554 316.5872,-2282.2554 316.5872,-2260.2446 370.5872,-2260.2446 370.5872,-2282.2554"/>
-<text text-anchor="middle" x="343.5872" y="-2268.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">swap</text>
-</a>
-</g>
-</g>
-<!-- proc~partition3way_d1d&#45;&gt;interface~swap -->
-<g id="call~~graph~~CallGraph_edge39" class="edge">
-<title>proc~partition3way_d1d&#45;&gt;interface~swap</title>
-<path fill="none" stroke="#000000" d="M254.7233,-2284.7278C271.7825,-2282.1405 290.5756,-2279.2902 306.4685,-2276.8797"/>
-<polygon fill="#000000" stroke="#000000" points="307.084,-2280.3265 316.4461,-2275.3664 306.0343,-2273.4056 307.084,-2280.3265"/>
-</g>
-<!-- proc~ind2sub -->
-<g id="call~~graph~~CallGraph_node73" class="node">
-<title>proc~ind2sub</title>
-<g id="a_call~~graph~~CallGraph_node73"><a xlink:href="../proc/ind2sub.html" xlink:title="ind2sub">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="78.2197,-2631.2554 24.2197,-2631.2554 24.2197,-2609.2446 78.2197,-2609.2446 78.2197,-2631.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2617.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">ind2sub</text>
-</a>
-</g>
-</g>
-<!-- interface~rargdynamicarray -->
-<g id="call~~graph~~CallGraph_node74" class="node">
-<title>interface~rargdynamicarray</title>
-<g id="a_call~~graph~~CallGraph_node74"><a xlink:href="../interface/rargdynamicarray.html" xlink:title="rArgDynamicArray">
-<polygon fill="#a7506f" stroke="#a7506f" points="99.9837,-2672.2554 2.4558,-2672.2554 2.4558,-2650.2446 99.9837,-2650.2446 99.9837,-2672.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2658.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">rArgDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- interface~rnginteger -->
-<g id="call~~graph~~CallGraph_node75" class="node">
-<title>interface~rnginteger</title>
-<g id="a_call~~graph~~CallGraph_node75"><a xlink:href="../interface/rnginteger.html" xlink:title="rngInteger">
-<polygon fill="#a7506f" stroke="#a7506f" points="81.0851,-2713.2554 21.3543,-2713.2554 21.3543,-2691.2446 81.0851,-2691.2446 81.0851,-2713.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2699.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">rngInteger</text>
-</a>
-</g>
-</g>
-<!-- proc~insertat__idynamicarray -->
-<g id="call~~graph~~CallGraph_node77" class="node">
-<title>proc~insertat__idynamicarray</title>
-<g id="a_call~~graph~~CallGraph_node77"><a xlink:href="../proc/insertat__idynamicarray.html" xlink:title="insertAt__iDynamicArray">
-<polygon fill="#d9534f" stroke="#d9534f" points="268.6639,-268.2554 141.5905,-268.2554 141.5905,-246.2446 268.6639,-246.2446 268.6639,-268.2554"/>
-<text text-anchor="middle" x="205.1272" y="-254.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">insertAt__iDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- proc~insertat__idynamicarray&#45;&gt;interface~str -->
-<g id="call~~graph~~CallGraph_edge42" class="edge">
-<title>proc~insertat__idynamicarray&#45;&gt;interface~str</title>
-<path fill="none" stroke="#000000" d="M242.5965,-246.1548C262.4654,-240.2713 286.7904,-233.0683 306.5883,-227.2059"/>
-<polygon fill="#000000" stroke="#000000" points="307.5972,-230.5575 316.1919,-224.3621 305.6096,-223.8455 307.5972,-230.5575"/>
-</g>
-<!-- proc~insertat__idynamicarray&#45;&gt;emsg -->
-<g id="call~~graph~~CallGraph_edge41" class="edge">
-<title>proc~insertat__idynamicarray&#45;&gt;emsg</title>
-<path fill="none" stroke="#000000" d="M241.5059,-268.285C261.5206,-274.3562 286.3041,-281.8739 306.439,-287.9816"/>
-<polygon fill="#000000" stroke="#000000" points="305.6155,-291.3892 316.2009,-290.9427 307.6475,-284.6906 305.6155,-291.3892"/>
-</g>
-<!-- interface~rngnormal -->
-<g id="call~~graph~~CallGraph_node78" class="node">
-<title>interface~rngnormal</title>
-<g id="a_call~~graph~~CallGraph_node78"><a xlink:href="../interface/rngnormal.html" xlink:title="rngNormal">
-<polygon fill="#a7506f" stroke="#a7506f" points="81.7334,-2754.2554 20.7061,-2754.2554 20.7061,-2732.2446 81.7334,-2732.2446 81.7334,-2754.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2740.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">rngNormal</text>
-</a>
-</g>
-</g>
-<!-- interface~rnguniform -->
-<g id="call~~graph~~CallGraph_node79" class="node">
-<title>interface~rnguniform</title>
-<g id="a_call~~graph~~CallGraph_node79"><a xlink:href="../interface/rnguniform.html" xlink:title="rngUniform">
-<polygon fill="#a7506f" stroke="#a7506f" points="83.1507,-2795.2554 19.2888,-2795.2554 19.2888,-2773.2446 83.1507,-2773.2446 83.1507,-2795.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2781.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">rngUniform</text>
-</a>
-</g>
-</g>
-<!-- proc~trimextension -->
-<g id="call~~graph~~CallGraph_node80" class="node">
-<title>proc~trimextension</title>
-<g id="a_call~~graph~~CallGraph_node80"><a xlink:href="../proc/trimextension.html" xlink:title="trimExtension">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="242.7332,-309.2554 167.5212,-309.2554 167.5212,-287.2446 242.7332,-287.2446 242.7332,-309.2554"/>
-<text text-anchor="middle" x="205.1272" y="-295.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">trimExtension</text>
-</a>
-</g>
-</g>
-<!-- proc~trimextension&#45;&gt;emsg -->
-<g id="call~~graph~~CallGraph_edge43" class="edge">
-<title>proc~trimextension&#45;&gt;emsg</title>
-<path fill="none" stroke="#000000" d="M242.962,-298.5233C262.6446,-298.6654 286.6227,-298.8386 306.2345,-298.9802"/>
-<polygon fill="#000000" stroke="#000000" points="306.3102,-302.4808 316.3352,-299.0532 306.3608,-295.481 306.3102,-302.4808"/>
-</g>
-<!-- proc~uppercase -->
-<g id="call~~graph~~CallGraph_node81" class="node">
-<title>proc~uppercase</title>
-<g id="a_call~~graph~~CallGraph_node81"><a xlink:href="../proc/uppercase.html" xlink:title="upperCase">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="83.0877,-2836.2554 19.3517,-2836.2554 19.3517,-2814.2446 83.0877,-2814.2446 83.0877,-2836.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2822.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">upperCase</text>
-</a>
-</g>
-</g>
-<!-- interface~allocate -->
-<g id="call~~graph~~CallGraph_node82" class="node">
-<title>interface~allocate</title>
-<g id="a_call~~graph~~CallGraph_node82"><a xlink:href="../interface/allocate.html" xlink:title="allocate">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-2877.2554 24.2197,-2877.2554 24.2197,-2855.2446 78.2197,-2855.2446 78.2197,-2877.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2863.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">allocate</text>
-</a>
-</g>
-</g>
-<!-- interface~copy -->
-<g id="call~~graph~~CallGraph_node83" class="node">
-<title>interface~copy</title>
-<g id="a_call~~graph~~CallGraph_node83"><a xlink:href="../interface/copy.html" xlink:title="copy">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-2918.2554 24.2197,-2918.2554 24.2197,-2896.2446 78.2197,-2896.2446 78.2197,-2918.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2904.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">copy</text>
-</a>
-</g>
-</g>
-<!-- proc~emsg&#45;&gt;proc~msg -->
-<g id="call~~graph~~CallGraph_edge44" class="edge">
-<title>proc~emsg&#45;&gt;proc~msg</title>
-<path fill="none" stroke="#000000" d="M232.1524,-2182.2475C253.362,-2175.967 283.1179,-2167.1558 306.5468,-2160.2182"/>
-<polygon fill="#000000" stroke="#000000" points="307.5623,-2163.5678 316.157,-2157.3725 305.5747,-2156.8559 307.5623,-2163.5678"/>
-</g>
-<!-- proc~iachar1d -->
-<g id="call~~graph~~CallGraph_node85" class="node">
-<title>proc~iachar1d</title>
-<g id="a_call~~graph~~CallGraph_node85"><a xlink:href="../proc/iachar1d.html" xlink:title="iachar1D">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="78.2402,-2959.2554 24.1992,-2959.2554 24.1992,-2937.2446 78.2402,-2937.2446 78.2402,-2959.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2945.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">iachar1D</text>
-</a>
-</g>
-</g>
-<!-- merr -->
-<g id="call~~graph~~CallGraph_node116" class="node">
-<title>merr</title>
-<polygon fill="#777777" stroke="#777777" points="232.1272,-2959.2554 178.1272,-2959.2554 178.1272,-2937.2446 232.1272,-2937.2446 232.1272,-2959.2554"/>
-<text text-anchor="middle" x="205.1272" y="-2945.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">merr</text>
-</g>
-<!-- proc~iachar1d&#45;&gt;merr -->
-<g id="call~~graph~~CallGraph_edge45" class="edge">
-<title>proc~iachar1d&#45;&gt;merr</title>
-<path fill="none" stroke="#000000" d="M78.381,-2948.25C103.2502,-2948.25 140.2782,-2948.25 167.8987,-2948.25"/>
-<polygon fill="#000000" stroke="#000000" points="167.9791,-2951.7501 177.979,-2948.25 167.979,-2944.7501 167.9791,-2951.7501"/>
-</g>
-<!-- proc~insertat__rdynamicarray -->
-<g id="call~~graph~~CallGraph_node86" class="node">
-<title>proc~insertat__rdynamicarray</title>
-<g id="a_call~~graph~~CallGraph_node86"><a xlink:href="../proc/insertat__rdynamicarray.html" xlink:title="insertAt__rDynamicArray">
-<polygon fill="#d9534f" stroke="#d9534f" points="269.3273,-227.2554 140.9271,-227.2554 140.9271,-205.2446 269.3273,-205.2446 269.3273,-227.2554"/>
-<text text-anchor="middle" x="205.1272" y="-213.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">insertAt__rDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- proc~insertat__rdynamicarray&#45;&gt;interface~str -->
-<g id="call~~graph~~CallGraph_edge47" class="edge">
-<title>proc~insertat__rdynamicarray&#45;&gt;interface~str</title>
-<path fill="none" stroke="#000000" d="M269.493,-216.25C282.0161,-216.25 294.7525,-216.25 306.0522,-216.25"/>
-<polygon fill="#000000" stroke="#000000" points="306.392,-219.7501 316.392,-216.25 306.3919,-212.7501 306.392,-219.7501"/>
-</g>
-<!-- proc~insertat__rdynamicarray&#45;&gt;emsg -->
-<g id="call~~graph~~CallGraph_edge46" class="edge">
-<title>proc~insertat__rdynamicarray&#45;&gt;emsg</title>
-<path fill="none" stroke="#000000" d="M249.2409,-227.3336C256.9969,-230.0617 264.8184,-233.3477 271.8149,-237.25 292.4912,-248.7821 312.5822,-266.918 326.2232,-280.6019"/>
-<polygon fill="#000000" stroke="#000000" points="323.988,-283.3241 333.4651,-288.0607 329.0102,-278.4479 323.988,-283.3241"/>
-</g>
-<!-- interface~trimmedmean -->
-<g id="call~~graph~~CallGraph_node87" class="node">
-<title>interface~trimmedmean</title>
-<g id="a_call~~graph~~CallGraph_node87"><a xlink:href="../interface/trimmedmean.html" xlink:title="trimmedmean">
-<polygon fill="#a7506f" stroke="#a7506f" points="89.4043,-3000.2554 13.0352,-3000.2554 13.0352,-2978.2446 89.4043,-2978.2446 89.4043,-3000.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2986.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">trimmedmean</text>
-</a>
-</g>
-</g>
-<!-- interface~deallocate -->
-<g id="call~~graph~~CallGraph_node88" class="node">
-<title>interface~deallocate</title>
-<g id="a_call~~graph~~CallGraph_node88"><a xlink:href="../interface/deallocate.html" xlink:title="deallocate">
-<polygon fill="#a7506f" stroke="#a7506f" points="81.0902,-3041.2554 21.3492,-3041.2554 21.3492,-3019.2446 81.0902,-3019.2446 81.0902,-3041.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3027.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">deallocate</text>
-</a>
-</g>
-</g>
-<!-- interface~shuffle -->
-<g id="call~~graph~~CallGraph_node89" class="node">
-<title>interface~shuffle</title>
-<g id="a_call~~graph~~CallGraph_node89"><a xlink:href="../interface/shuffle.html" xlink:title="shuffle">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-3082.2554 24.2197,-3082.2554 24.2197,-3060.2446 78.2197,-3060.2446 78.2197,-3082.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3068.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">shuffle</text>
-</a>
-</g>
-</g>
-<!-- proc~daysinyear -->
-<g id="call~~graph~~CallGraph_node90" class="node">
-<title>proc~daysinyear</title>
-<g id="a_call~~graph~~CallGraph_node90"><a xlink:href="../proc/daysinyear.html" xlink:title="daysinYear">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="82.7881,-2508.2554 19.6514,-2508.2554 19.6514,-2486.2446 82.7881,-2486.2446 82.7881,-2508.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2494.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">daysinYear</text>
-</a>
-</g>
-</g>
-<!-- proc~daysinyear&#45;&gt;proc~isleapyear -->
-<g id="call~~graph~~CallGraph_edge48" class="edge">
-<title>proc~daysinyear&#45;&gt;proc~isleapyear</title>
-<path fill="none" stroke="#000000" d="M83.1095,-2501.394C106.2478,-2504.4008 137.7786,-2508.4982 162.9911,-2511.7745"/>
-<polygon fill="#000000" stroke="#000000" points="162.6462,-2515.259 173.0139,-2513.0769 163.5484,-2508.3174 162.6462,-2515.259"/>
-</g>
-<!-- interface~medianof3 -->
-<g id="call~~graph~~CallGraph_node94" class="node">
-<title>interface~medianof3</title>
-<g id="a_call~~graph~~CallGraph_node94"><a xlink:href="../interface/medianof3.html" xlink:title="medianOf3">
-<polygon fill="#a7506f" stroke="#a7506f" points="83.0826,-3123.2554 19.3569,-3123.2554 19.3569,-3101.2446 83.0826,-3101.2446 83.0826,-3123.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3109.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">medianOf3</text>
-</a>
-</g>
-</g>
-<!-- proc~ferr -->
-<g id="call~~graph~~CallGraph_node95" class="node">
-<title>proc~ferr</title>
-<g id="a_call~~graph~~CallGraph_node95"><a xlink:href="../proc/ferr.html" xlink:title="fErr">
-<polygon fill="#d9534f" stroke="#d9534f" points="78.2197,-2180.2554 24.2197,-2180.2554 24.2197,-2158.2446 78.2197,-2158.2446 78.2197,-2180.2554"/>
-<text text-anchor="middle" x="51.2197" y="-2166.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">fErr</text>
-</a>
-</g>
-</g>
-<!-- proc~ferr&#45;&gt;proc~emsg -->
-<g id="call~~graph~~CallGraph_edge49" class="edge">
-<title>proc~ferr&#45;&gt;proc~emsg</title>
-<path fill="none" stroke="#000000" d="M78.381,-2172.956C103.2502,-2176.3493 140.2782,-2181.4016 167.8987,-2185.1703"/>
-<polygon fill="#000000" stroke="#000000" points="167.5976,-2188.6616 177.979,-2186.5458 168.544,-2181.7259 167.5976,-2188.6616"/>
-</g>
-<!-- proc~isstring -->
-<g id="call~~graph~~CallGraph_node96" class="node">
-<title>proc~isstring</title>
-<g id="a_call~~graph~~CallGraph_node96"><a xlink:href="../proc/isstring.html" xlink:title="isString">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="232.1272,-663.2554 178.1272,-663.2554 178.1272,-641.2446 232.1272,-641.2446 232.1272,-663.2554"/>
-<text text-anchor="middle" x="205.1272" y="-649.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">isString</text>
-</a>
-</g>
-</g>
-<!-- proc~isstring&#45;&gt;proc~lowercase -->
-<g id="call~~graph~~CallGraph_edge50" class="edge">
-<title>proc~isstring&#45;&gt;proc~lowercase</title>
-<path fill="none" stroke="#000000" d="M232.1524,-654.2018C252.2172,-655.651 279.9305,-657.6525 302.6999,-659.297"/>
-<polygon fill="#000000" stroke="#000000" points="302.5422,-662.7946 312.7684,-660.0242 303.0465,-655.8128 302.5422,-662.7946"/>
-</g>
-<!-- interface~argmedianof3 -->
-<g id="call~~graph~~CallGraph_node97" class="node">
-<title>interface~argmedianof3</title>
-<g id="a_call~~graph~~CallGraph_node97"><a xlink:href="../interface/argmedianof3.html" xlink:title="argMedianOf3">
-<polygon fill="#a7506f" stroke="#a7506f" points="90.2587,-3164.2554 12.1808,-3164.2554 12.1808,-3142.2446 90.2587,-3142.2446 90.2587,-3164.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3150.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">argMedianOf3</text>
-</a>
-</g>
-</g>
-<!-- proc~abstimetohms -->
-<g id="call~~graph~~CallGraph_node98" class="node">
-<title>proc~abstimetohms</title>
-<g id="a_call~~graph~~CallGraph_node98"><a xlink:href="../proc/abstimetohms.html" xlink:title="absTimetoHMS">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="93.1868,-3205.2554 9.2527,-3205.2554 9.2527,-3183.2446 93.1868,-3183.2446 93.1868,-3205.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3191.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">absTimetoHMS</text>
-</a>
-</g>
-</g>
-<!-- interface~debug -->
-<g id="call~~graph~~CallGraph_node99" class="node">
-<title>interface~debug</title>
-<g id="a_call~~graph~~CallGraph_node99"><a xlink:href="../interface/debug.html" xlink:title="debug">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-3246.2554 24.2197,-3246.2554 24.2197,-3224.2446 78.2197,-3224.2446 78.2197,-3246.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3232.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">debug</text>
-</a>
-</g>
-</g>
-<!-- interface~ddynamicarray -->
-<g id="call~~graph~~CallGraph_node100" class="node">
-<title>interface~ddynamicarray</title>
-<g id="a_call~~graph~~CallGraph_node100"><a xlink:href="../interface/ddynamicarray.html" xlink:title="dDynamicArray">
-<polygon fill="#a7506f" stroke="#a7506f" points="92.9871,-3287.2554 9.4523,-3287.2554 9.4523,-3265.2446 92.9871,-3265.2446 92.9871,-3287.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3273.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">dDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- proc~readline&#45;&gt;proc~compact -->
-<g id="call~~graph~~CallGraph_edge51" class="edge">
-<title>proc~readline&#45;&gt;proc~compact</title>
-<path fill="none" stroke="#000000" d="M363.1414,-353.4494C368.8299,-357.3247 374.7471,-362.0234 379.3594,-367.25 410.2952,-402.3064 432.4049,-453.1755 443.1579,-481.4026"/>
-<polygon fill="#000000" stroke="#000000" points="439.9673,-482.8661 446.7177,-491.0321 446.5331,-480.4389 439.9673,-482.8661"/>
-</g>
-<!-- proc~sub2ind -->
-<g id="call~~graph~~CallGraph_node102" class="node">
-<title>proc~sub2ind</title>
-<g id="a_call~~graph~~CallGraph_node102"><a xlink:href="../proc/sub2ind.html" xlink:title="sub2ind">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="78.2197,-3328.2554 24.2197,-3328.2554 24.2197,-3306.2446 78.2197,-3306.2446 78.2197,-3328.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3314.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">sub2ind</text>
-</a>
-</g>
-</g>
-<!-- interface~reallocate -->
-<g id="call~~graph~~CallGraph_node103" class="node">
-<title>interface~reallocate</title>
-<g id="a_call~~graph~~CallGraph_node103"><a xlink:href="../interface/reallocate.html" xlink:title="reallocate">
-<polygon fill="#a7506f" stroke="#a7506f" points="79.749,-3369.2554 22.6905,-3369.2554 22.6905,-3347.2446 79.749,-3347.2446 79.749,-3369.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3355.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">reallocate</text>
-</a>
-</g>
-</g>
-<!-- proc~integerbin -->
-<g id="call~~graph~~CallGraph_node104" class="node">
-<title>proc~integerbin</title>
-<g id="a_call~~graph~~CallGraph_node104"><a xlink:href="../proc/integerbin.html" xlink:title="integerBin">
-<polygon fill="#d94e8f" stroke="#d94e8f" points="81.0012,-3410.2554 21.4383,-3410.2554 21.4383,-3388.2446 81.0012,-3388.2446 81.0012,-3410.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3396.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">integerBin</text>
-</a>
-</g>
-</g>
-<!-- idnint -->
-<g id="call~~graph~~CallGraph_node117" class="node">
-<title>idnint</title>
-<polygon fill="#777777" stroke="#777777" points="232.1272,-3410.2554 178.1272,-3410.2554 178.1272,-3388.2446 232.1272,-3388.2446 232.1272,-3410.2554"/>
-<text text-anchor="middle" x="205.1272" y="-3396.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">idnint</text>
-</g>
-<!-- proc~integerbin&#45;&gt;idnint -->
-<g id="call~~graph~~CallGraph_edge52" class="edge">
-<title>proc~integerbin&#45;&gt;idnint</title>
-<path fill="none" stroke="#000000" d="M80.8946,-3399.25C105.7255,-3399.25 141.2791,-3399.25 167.9945,-3399.25"/>
-<polygon fill="#000000" stroke="#000000" points="168.1204,-3402.7501 178.1204,-3399.25 168.1204,-3395.7501 168.1204,-3402.7501"/>
-</g>
-<!-- interface~argpartition -->
-<g id="call~~graph~~CallGraph_node105" class="node">
-<title>interface~argpartition</title>
-<g id="a_call~~graph~~CallGraph_node105"><a xlink:href="../interface/argpartition.html" xlink:title="argPartition">
-<polygon fill="#a7506f" stroke="#a7506f" points="83.915,-3451.2554 18.5244,-3451.2554 18.5244,-3429.2446 83.915,-3429.2446 83.915,-3451.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3437.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">argPartition</text>
-</a>
-</g>
-</g>
-<!-- interface~fasttwodiff -->
-<g id="call~~graph~~CallGraph_node106" class="node">
-<title>interface~fasttwodiff</title>
-<g id="a_call~~graph~~CallGraph_node106"><a xlink:href="../interface/fasttwodiff.html" xlink:title="fastTwoDiff">
-<polygon fill="#a7506f" stroke="#a7506f" points="82.9717,-3492.2554 19.4678,-3492.2554 19.4678,-3470.2446 82.9717,-3470.2446 82.9717,-3492.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3478.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">fastTwoDiff</text>
-</a>
-</g>
-</g>
-<!-- interface~crossproduct -->
-<g id="call~~graph~~CallGraph_node107" class="node">
-<title>interface~crossproduct</title>
-<g id="a_call~~graph~~CallGraph_node107"><a xlink:href="../interface/crossproduct.html" xlink:title="crossproduct">
-<polygon fill="#a7506f" stroke="#a7506f" points="87.3282,-3533.2554 15.1112,-3533.2554 15.1112,-3511.2446 87.3282,-3511.2446 87.3282,-3533.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3519.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">crossproduct</text>
-</a>
-</g>
-</g>
-<!-- interface~issorted -->
-<g id="call~~graph~~CallGraph_node108" class="node">
-<title>interface~issorted</title>
-<g id="a_call~~graph~~CallGraph_node108"><a xlink:href="../interface/issorted.html" xlink:title="isSorted">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-3574.2554 24.2197,-3574.2554 24.2197,-3552.2446 78.2197,-3552.2446 78.2197,-3574.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3560.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">isSorted</text>
-</a>
-</g>
-</g>
-<!-- interface~twosum -->
-<g id="call~~graph~~CallGraph_node109" class="node">
-<title>interface~twosum</title>
-<g id="a_call~~graph~~CallGraph_node109"><a xlink:href="../interface/twosum.html" xlink:title="twoSum">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-3615.2554 24.2197,-3615.2554 24.2197,-3593.2446 78.2197,-3593.2446 78.2197,-3615.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3601.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">twoSum</text>
-</a>
-</g>
-</g>
-<!-- interface~std -->
-<g id="call~~graph~~CallGraph_node110" class="node">
-<title>interface~std</title>
-<g id="a_call~~graph~~CallGraph_node110"><a xlink:href="../interface/std.html" xlink:title="std">
-<polygon fill="#a7506f" stroke="#a7506f" points="78.2197,-3656.2554 24.2197,-3656.2554 24.2197,-3634.2446 78.2197,-3634.2446 78.2197,-3656.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3642.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">std</text>
-</a>
-</g>
-</g>
-<!-- interface~arginsertionsort -->
-<g id="call~~graph~~CallGraph_node111" class="node">
-<title>interface~arginsertionsort</title>
-<g id="a_call~~graph~~CallGraph_node111"><a xlink:href="../interface/arginsertionsort.html" xlink:title="argInsertionsort">
-<polygon fill="#a7506f" stroke="#a7506f" points="93.6712,-3697.2554 8.7683,-3697.2554 8.7683,-3675.2446 93.6712,-3675.2446 93.6712,-3697.2554"/>
-<text text-anchor="middle" x="51.2197" y="-3683.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">argInsertionsort</text>
-</a>
-</g>
-</g>
-</g>
-</svg>
-</div>
-                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
-                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
-                  <div class="modal-dialog modal-lg" role="document">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
-                      </div>
-                      <div class="modal-body">
-                        
-    <p>Nodes of different colours represent the following: </p>
-    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
- "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.40.1 (20161225.0304)
- -->
-<!-- Title: Graph Key Pages: 1 -->
-<svg width="550pt" height="31pt"
- viewBox="0.00 0.00 550.25 30.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 26.5)">
-<title>Graph Key</title>
-<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-26.5 546.2477,-26.5 546.2477,4 -4,4"/>
-<!-- Subroutine -->
-<g id="node1" class="node">
-<title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="62.6818,-22.2554 .1058,-22.2554 .1058,-.2446 62.6818,-.2446 62.6818,-22.2554"/>
-<text text-anchor="middle" x="31.3938" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Subroutine</text>
-</g>
-<!-- Function -->
-<g id="node2" class="node">
-<title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="134.3938,-22.2554 80.3938,-22.2554 80.3938,-.2446 134.3938,-.2446 134.3938,-22.2554"/>
-<text text-anchor="middle" x="107.3938" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Function</text>
-</g>
-<!-- Interface -->
-<g id="node3" class="node">
-<title>Interface</title>
-<polygon fill="#a7506f" stroke="#a7506f" points="206.3938,-22.2554 152.3938,-22.2554 152.3938,-.2446 206.3938,-.2446 206.3938,-22.2554"/>
-<text text-anchor="middle" x="179.3938" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Interface</text>
-</g>
-<!-- Unknown Procedure Type -->
-<g id="node4" class="node">
-<title>Unknown Procedure Type</title>
-<polygon fill="#777777" stroke="#777777" points="356.5315,-22.2554 224.2561,-22.2554 224.2561,-.2446 356.5315,-.2446 356.5315,-22.2554"/>
-<text text-anchor="middle" x="290.3938" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Unknown Procedure Type</text>
-</g>
-<!-- Program -->
-<g id="node5" class="node">
-<title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="428.3938,-22.2554 374.3938,-22.2554 374.3938,-.2446 428.3938,-.2446 428.3938,-22.2554"/>
-<text text-anchor="middle" x="401.3938" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Program</text>
-</g>
-<!-- This Page&#39;s Entity -->
-<g id="node6" class="node">
-<title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="#000000" points="542.102,-22.2554 446.6856,-22.2554 446.6856,-.2446 542.102,-.2446 542.102,-22.2554"/>
-<text text-anchor="middle" x="494.3938" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
-</g>
-</g>
-</svg>
-
-    
-    <p>Solid arrows point from a procedure to one which it calls. Dashed 
-    arrows point from an interface to procedures which implement that interface.
-    This could include the module procedures in a generic interface or the
-    implementation in a submodule of an interface in a parent module.
-    </p>
-    
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                
         </div>
       </div>
 

@@ -55,13 +55,10 @@ use m_errors, only: eMsg, msg
 use m_reallocate, only: reallocate
 use m_sort, only: sort
 use m_strings, only: str
-use m_unitTester, only: tester
 
 implicit none
 
 private
-
-public :: iDynamicArray_test
 
 public :: insertAt__iDynamicArray
 
@@ -167,7 +164,7 @@ contains
   integer(i32) :: M_
   M_ = 1
   if (present(M)) then
-    if (M < 1) call eMsg('M must be > 0')
+    if (M < 1) call eMsg('iDynamicArray: M must be > 0')
     M_ = M
   endif
   call allocate(this%values, M_)
@@ -195,7 +192,7 @@ contains
     !! Return type
 
   if (present(M)) then
-    if (M < size(values)) call eMsg('M must be >= size(values)')
+    if (M < size(values)) call eMsg('iDynamicArray:M must be >= size(values)')
     call allocate(this%values, M)
   else
     call allocate(this%values, size(values))
@@ -375,66 +372,4 @@ contains
   call this%reallocate(this%N)
   end subroutine
   !====================================================================!
-
-  !====================================================================!
-  subroutine iDynamicArray_test(test)
-    !! graph: false
-  !====================================================================!
-  class(tester) :: test
-
-  type(iDynamicArray) :: ida, ida2
-
-  integer(i32) :: ia
-
-  ida = iDynamicArray(10)
-  call test%test(size(ida%values)==10, 'iDynamicArray')
-  call test%test(ida%N==0, 'iDynamicArray')
-  call ida%insertAt(1, 10)
-  call test%test(ida%values(1) == 10, 'iDynamicArray%insert')
-  call ida%insertAt(1, 20)
-  call test%test(all(ida%values(1:2) == [20, 10]), 'iDynamicArray%insert')
-  call ida%prepend(30)
-  call test%test(all(ida%values(1:3) == [30, 20, 10]), 'iDynamicArray%prepend')
-  call ida%append(40)
-  call test%test(all(ida%values(1:4) == [30, 20, 10, 40]), 'iDynamicArray%append')
-  call ida%remove(2)
-  call test%test(all(ida%values(1:3) == [30, 10, 40]), 'iDynamicArray%remove')
-  call ida%tighten()
-  call test%test(size(ida%values) == 3, 'iDynamicArray%tighten')
-  ida2 = ida
-  call test%test(all(ida2%values == ida%values), 'iDynamicArray%copy')
-  ida2%values(2) = 50
-  call test%test(ida2%values(2) /= ida%values(2), 'iDynamicArray%copy')
-  call ida%deallocate()
-  call test%test(.not. allocated(ida%values), 'iDynamicArray%deallocate')
-  call ida2%deallocate()
-
-  ida = iDynamicArray(3, sorted=.true.)
-  call ida%insertSorted(20)
-  call ida%insertSorted(30)
-  call ida%insertSorted(10)
-  call test%test(all(ida%values==[10, 20, 30]), 'iDynamicArray%insertSorted')
-  ia = ida%locationOf(20)
-  call test%test(ia == 2, 'iDynamicArray%locationOf')
-  call ida%insertSortedUnique(10)
-  call test%test(all(ida%values==[10, 20, 30]), 'iDynamicArray%insertSortedUnique')
-  call ida%insertSortedUnique(15)
-  call test%test(all(ida%values(1:ida%N)==[10, 15, 20, 30]), 'iDynamicArray%insertSortedUnique')
-  call test%test(size(ida%values) == 6, 'iDynamicArray%insert')
-  call ida%deallocate()
-
-  ida = iDynamicArray(3, sorted=.true., fixed=.true.)
-  call ida%insertSorted(20)
-  call ida%insertSorted(30)
-  call ida%insertSorted(10)
-  call test%test(all(ida%values(1:ida%N)==[10, 20, 30]), 'iDynamicArray%insertSorted')
-  ia = ida%locationOf(20)
-  call test%test(ia == 2, 'iDynamicArray%locationOf')
-  call ida%insertSortedUnique(10)
-  call test%test(all(ida%values(1:ida%N)==[10, 20, 30]), 'iDynamicArray%insertSortedUnique')
-  call ida%insertSortedUnique(15)
-  call test%test(all(ida%values(1:ida%N)==[10, 15, 20]), 'iDynamicArray%insertSortedUnique')
-  call test%test(size(ida%values) == 3, 'iDynamicArray%insert')
-  call ida%deallocate()
-end subroutine
 end module

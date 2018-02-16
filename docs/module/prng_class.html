@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	 <meta name="description" content="Modern well documented core Fortran routines for cleaner, smarter code.">
+    
+    <meta name="author" content="Leon Foks" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>Prng_Class &ndash; Fortran Program</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">Fortran Program </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>Prng_Class 
+    <small>Module</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 4.7% of total for modules and submodules.">313 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/Prng_Class.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/prng_class.f90.html'>Prng_Class.f90</a></li>
+  
+     <li class="active">Prng_Class</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-0">Interfaces</a></h3></div>
+  <div id="inters-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/prng_class.html#interface-prng">Prng</a>
+      
+      <a class="list-group-item" href="../module/prng_class.html#interface-rngexponential_unscaled_d1">rngExponential_unscaled_d1</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types-0">Derived Types</a></h3></div>
+  <div id="types-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/prng_class.html#type-prng">Prng</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-0" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/prng_class.html#proc-getrandomseed">getRandomSeed</a>
+      
+      <a class="list-group-item" href="../module/prng_class.html#proc-rnguniform_xorshift">rngUniform_xorshift</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allmods-0">All Modules</a></h3></div>
+  <div id="allmods-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/formatting.html">formatting</a>
+      
+      <a class="list-group-item" href="../module/m_allocate.html">m_allocate</a>
+      
+      <a class="list-group-item" href="../module/m_array1d.html">m_array1D</a>
+      
+      <a class="list-group-item" href="../module/m_compare.html">m_compare</a>
+      
+      <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
+      
+      <a class="list-group-item" href="../module/m_dargdynamicarray.html">m_dArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_ddynamicarray.html">m_dDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_deallocate.html">m_deallocate</a>
+      
+      <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
+      
+      <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
+      
+      <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_iargdynamicarray.html">m_iArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_idargdynamicarray.html">m_idArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_iddynamicarray.html">m_idDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_idynamicarray.html">m_iDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
+      
+      <a class="list-group-item" href="../module/m_kdtree.html">m_KdTree</a>
+      
+      <a class="list-group-item" href="../module/m_maths.html">m_maths</a>
+      
+      <a class="list-group-item" href="../module/m_medianof3.html">m_medianOf3</a>
+      
+      <a class="list-group-item" href="../module/m_parameters.html">m_parameters</a>
+      
+      <a class="list-group-item" href="../module/m_partition.html">m_partition</a>
+      
+      <a class="list-group-item" href="../module/m_partition3way.html">m_partition3way</a>
+      
+      <a class="list-group-item" href="../module/m_random.html">m_random</a>
+      
+      <a class="list-group-item" href="../module/m_rargdynamicarray.html">m_rArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_rdynamicarray.html">m_rDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_readline.html">m_readline</a>
+      
+      <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
+      
+      <a class="list-group-item" href="../module/m_searching.html">m_searching</a>
+      
+      <a class="list-group-item" href="../module/m_select.html">m_select</a>
+      
+      <a class="list-group-item" href="../module/m_sort.html">m_sort</a>
+      
+      <a class="list-group-item" href="../module/m_strings.html">m_strings</a>
+      
+      <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
+      
+      <a class="list-group-item" href="../module/m_time.html">m_time</a>
+      
+      <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
+      
+      <a class="list-group-item" href="../module/m_writeline.html">m_writeline</a>
+      
+      <a class="list-group-item" href="../module/prng_class.html">Prng_Class</a>
+      
+      <a class="list-group-item" href="../module/progressbar_class.html">ProgressBar_Class</a>
+      
+      <a class="list-group-item" href="../module/stopwatch_class.html">Stopwatch_Class</a>
+      
+      <a class="list-group-item" href="../module/variablekind.html">variableKind</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+      
+    
+  
+    <ul class="list-inline">
+      <li><h4>Uses:</h4></li>
+      
+      <li><a href="https://software.intel.com/en-us/node/511041">iso_fortran_env</a></li>
+      
+      <li><a href='../module/variablekind.html'>variableKind</a></li>
+      
+      <li><a href='../module/m_allocate.html'>m_allocate</a></li>
+      
+      <li><a href='../module/m_errors.html'>m_errors</a></li>
+      
+      <li><a href='../module/m_time.html'>m_time</a></li>
+      
+      <li><a href='../module/m_indexing.html'>m_indexing</a></li>
+      
+      <li><a href='../module/m_strings.html'>m_strings</a></li>
+      
+    </ul>
+    
+    
+
+    
+    <h1>Prng Class</h1>
+<p>Class providing a pseudo-random number generator with an xorshift128+ or xorshift1024* generator that are both suitable for parallel applications.
+This is class is thread safe, and can be used in parallel without Prngs on different threads affecting each other.</p>
+<p>If you are writing serial code, and/or do not need a parallel random number generator, you can use the overloaded functions and subroutines in <a href="../module/m_random.html">m_random</a>. See that module for more
+information.</p>
+<h3>Example Serial usage with a randomly generated seed</h3>
+<div class="codehilite"><pre><span></span><span class="k">program </span><span class="n">PrngTest</span>
+
+<span class="k">use </span><span class="n">Prng_Class</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">Prng</span>
+
+<span class="k">implicit none</span>
+
+<span class="k">type</span><span class="p">(</span><span class="n">Prng</span><span class="p">)</span> <span class="kd">::</span> <span class="n">rng</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">seed</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">id</span>
+
+<span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span>
+
+<span class="c">! Use a constructor to initialize the Prng with a random seed</span>
+<span class="c">! Using display = .true. will print the randomly generated seed to the screen</span>
+<span class="c">! So you can reproduce any results later if you wish.</span>
+<span class="n">rng</span> <span class="o">=</span> <span class="n">Prng</span><span class="p">(</span><span class="n">big</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.,</span> <span class="n">display</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+
+<span class="c">! Or you could have set the seed using this</span>
+<span class="c">! seed = [Some numbers, size 16 if big == .true., size 2 if big == .false.]</span>
+<span class="c">! and you can use rng = Prng(seed, .true., .true.)</span>
+
+<span class="c">! Draw from a uniform distribution</span>
+<span class="k">call </span><span class="n">rng</span><span class="p">%</span><span class="n">rngUniform</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+
+<span class="c">! Draw an integer between 1 and 100 inclusive</span>
+<span class="k">call </span><span class="n">rng</span><span class="p">%</span><span class="n">rngInteger</span><span class="p">(</span><span class="n">id</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="c">! Other distributions</span>
+<span class="k">call </span><span class="n">rng</span><span class="p">%</span><span class="n">rngNormal</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<span class="k">call </span><span class="n">rng</span><span class="p">%</span><span class="n">rngExponential</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mf">1.</span><span class="n">d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">rng</span><span class="p">%</span><span class="n">rngWeibull</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="mf">1.</span><span class="n">d0</span><span class="p">,</span> <span class="mf">1.</span><span class="n">d0</span><span class="p">)</span>
+<span class="k">stop</span>
+<span class="k">end program</span>
+</pre></div>
+
+
+<h3>Example parallel usage using OpenMP</h3>
+<div class="codehilite"><pre><span></span><span class="k">program </span><span class="n">PrngTest</span>
+
+<span class="k">use </span><span class="n">omp_lib</span>
+<span class="k">use </span><span class="n">Prng_Class</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">Prng</span><span class="p">,</span> <span class="n">getRandomSeed</span>
+
+<span class="k">implicit none</span>
+
+<span class="k">type</span><span class="p">(</span><span class="n">Prng</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">rng</span><span class="p">(:)</span> <span class="c">! Array of Prng classes, one for each thread</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">seed</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="c">! Use xorshift1024*, so the seed is size 16</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">id</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">nThreads</span><span class="p">,</span> <span class="n">iThread</span>
+
+<span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span>
+
+<span class="c">! Get a randomly generated seed</span>
+<span class="k">call </span><span class="n">getRandomSeed</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+
+<span class="c">! Get the number of threads available</span>
+<span class="c">!$omp parallel </span>
+  <span class="n">nThreads</span> <span class="o">=</span> <span class="n">omp_get_num_threads</span><span class="p">()</span>
+<span class="c">!$omp end parallel</span>
+
+<span class="c">! Allocate an array of Prngs, one for each thread</span>
+<span class="k">allocate</span><span class="p">(</span><span class="n">rng</span><span class="p">(</span><span class="n">nThreads</span><span class="p">))</span>
+
+<span class="c">! In parallel, initialize each Prng with the same seed, and jump each prng by the thread ID it is associated with.</span>
+<span class="c">! This allows all Prngs to draw from the same stream, but at different points along the stream.</span>
+<span class="c">! This is better than giving each Prng its own randomly generated seed.</span>
+
+<span class="c">!$omp parallel shared(rng, seed) private(iThread, a)</span>
+  <span class="n">iThreads</span> <span class="o">=</span> <span class="n">omp_get_thread_num</span><span class="p">()</span>
+  <span class="n">rng</span><span class="p">(</span><span class="n">iThread</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">Prng</span><span class="p">(</span><span class="n">seed</span><span class="p">,</span> <span class="n">big</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+  <span class="k">call </span><span class="n">rng</span><span class="p">(</span><span class="n">iThread</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)%</span><span class="n">jump</span><span class="p">(</span><span class="n">iThread</span><span class="p">)</span> <span class="c">! Jump the current thread&#39;s Prng by its thread number.</span>
+  <span class="k">call </span><span class="n">rng</span><span class="p">(</span><span class="n">iThread</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)%</span><span class="n">rngNormal</span><span class="p">(</span><span class="n">a</span><span class="p">)</span> <span class="c">! Draw from normal distribution on each thread</span>
+<span class="c">!$omp end parallel</span>
+
+<span class="k">stop</span>
+<span class="k">end program</span>
+</pre></div>
+
+
+<h2>xorshift128+</h2>
+<p>This module contains routines to generate random numbers using the xorshift128+ method by Vigna's extensions to 
+Marsaglia, G., 2003. Xorshift RNGs. Journal of Statistical Software 8, 1 - 6.</p>
+<p>This module is a modified version of the public domain code written by Shun Sakuraba in 2015-2016.
+The original code can be found <a href="https://bitbucket.org/shun.sakuraba/xorshiftf90">here</a>.
+The modified code in coretran is distributed under the coretran license, see the repository for that information.</p>
+<p>Vigna's xorshift128+ pseudorandom generator.
+Sebastiano Vigna. 2014. Further scramblings of Marsaglia's xorshift generators. CoRR, abs/1402.6246.
+ xorshift128+ is known as a fast pseudorandom generator with reasonably good resilience to randomness tests.
+ Since its primary imporance is its speed, do not forget to add inlining directives depending your compiler.</p>
+<h3>Why xorshift128+ ?</h3>
+<p>The seed of the xorshift128+ can be jumped by k cycles, where each cycle jumps ahead by \(2^{64}\) random numbers, but quickly.
+This ability to jump is an important aspect for using random number generators in general but especially in parallel
+in either OpenMP or MPI paradigms.
+The time taken to generate a 64 bit integer was 1.06 ns on an IntelR CoreTM i7-4770 CPU @3.40GHz (Haswell) as shown in Vigna (2014).
+xorshift128+ is the better for less massively parallel applications.</p>
+<p>If the period of the random number generator is too small for your application, consider using the xorshift1024*
+generator which has a period of \(2^{512}\) numbers. The time to generate a 64 bit integer is slightly slower at 1.36 ns</p>
+<h2>xorshift1024*</h2>
+<p>This module contains routines to generate random numbers using the xorshift1024* method by Vigna's extensions to 
+Marsaglia, G., 2003. Xorshift RNGs. Journal of Statistical Software 8, 1 - 6.</p>
+<p>This module is a modified version of the public domain code written by Shun Sakuraba in 2015-2016.
+The original code can be found <a href="https://bitbucket.org/shun.sakuraba/xorshiftf90">here</a>.
+The modified code in coretran is distributed under the coretran license, see the repository for that information.</p>
+<p>Vigna's xorshift1024<em> pseudorandom generator.
+Sebastiano Vigna. 2014. An experimental exploration of Marsaglia's xorshift generators, scrambled. CoRR, abs/1402.6246.
+xorshift1024</em> is a pseudorandom generator with reasonable speed and a good size state space.</p>
+<h3>Why xorshift1024* ?</h3>
+<p>The seed of the xorshift1024<em> can be jumped by k cycles, where each cycle jumps ahead by \(2^{512}\) random numbers, but quickly.
+This ability to jump is an important aspect for using random number generators in general but especially in parallel
+in either OpenMP or MPI paradigms.
+The time taken to generate a 64 bit integer was 1.36 ns on an IntelR CoreTM i7-4770 CPU @3.40GHz (Haswell) as shown in Vigna (2014).
+xorshift1024</em> is better for massively parallel applications that draw many realizations.</p>
+<p>If the size of the random number generator is too much for your application, consider using the xorshift128+
+generator which has a period of \(2^{64}\) numbers. The time to generate a 64 bit integer is faster at 1.06 ns</p>
+    <br>
+    
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-1">Interfaces</a></h3></div>
+  <div id="inters-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/prng_class.html#interface-prng">Prng</a>
+      
+      <a class="list-group-item" href="../module/prng_class.html#interface-rngexponential_unscaled_d1">rngExponential_unscaled_d1</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types-1">Derived Types</a></h3></div>
+  <div id="types-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/prng_class.html#type-prng">Prng</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
+  <div class="list-group">
+    <div id="subs-1" class="panel-collapse collapse">
+      
+      <a class="list-group-item" href="../module/prng_class.html#proc-getrandomseed">getRandomSeed</a>
+      
+      <a class="list-group-item" href="../module/prng_class.html#proc-rnguniform_xorshift">rngUniform_xorshift</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    
+    
+    
+    
+    <section>
+	 <h2>Interfaces</h2>
+	 
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-prng"></span><h3>public interface <a href='../interface/prng.html'>Prng</a>
+    
+  </h3></div>
+  
+  <div class="panel-body">
+    
+    <p>Overloaded Initializer for a Prng - Pseudo random number generator.
+Thread safe, xorshift1024* or xorshift128+ generator than can draw from different distributions.
+See <a href="../module/prng_class.html">Prng_Class</a> for more information on how to use this class.</p>
+  </div>
+  
+  <ul class="list-group">
+  
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private function initWithSetseed_Prng(seed, big) result(this)
+    
+    
+	 
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>seed</strong>(:)</td><td><p>Fixed seeds of 64 bit integers. If big == true, must be length 16 else must be length 2.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>big</strong></td><td><p>Use the high period xorshift1024* (true) or xorshift128+ (false). Default is false.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>type(<a href='../type/prng.html'>Prng</a>)
+  </small></h4>
+  <p>Prng Class</p>
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private function initWithRandomSeed_Prng(big, display) result(this)
+    
+    
+	 
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>big</strong></td><td><p>Use the high period xorshift1024* (true) or xorshift128+ (false). Default is false.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>display</strong></td><td><p>Display the randomly generated seed to the screen for reproducibility</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>type(<a href='../type/prng.html'>Prng</a>)
+  </small></h4>
+  <p>Prng Class</p>
+    
+
+    </li>
+  
+  
+  </ul>
+</div>
+
+    
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-rngexponential_unscaled_d1"></span><h3>interface 
+    
+  </h3></div>
+  
+  <ul class="list-group">
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+public subroutine <a href='../interface/rngexponential_unscaled_d1.html'>rngExponential_unscaled_d1</a>(this, res)
+    
+    
+	 
+</h3>
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/prng.html'>Prng</a>)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>Prng Class</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>res</strong></td><td><p>Draw from exponential distribution</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+    </li>
+  
+  </ul>
+</div>
+
+    
+    </section>
+	<br>
+    
+
+    
+    
+    
+    <section>
+     <h2>Derived Types</h2>
+	 
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="type-prng"></span><h3>type, public :: <a href='../type/prng.html'>Prng</a>
+    
+  </h3></div>
+  <div class="panel-body">
+    
+    
+    <p>Class that generates pseudo random numbers. See <a href="../module/prng_class.html">Prng_Class</a> for more information on how to use this class.</p>
+    
+     
+     <h4>Components</h4>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-seed"></span>integer(kind=i64),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>seed</strong>(0:15)</td><td> =</td><td>0</td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-ptr"></span>integer(kind=i32),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>ptr</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-big"></span>logical,</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>big</strong></td><td></td><td></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+     
+     
+     <h4>Constructor</h4>
+       
+         <p>Overloaded Initializer for a Prng - Pseudo random number generator.
+Thread safe, xorshift1024* or xorshift128+ generator than can draw from different distributions.
+See <a href="../module/prng_class.html">Prng_Class</a> for more information on how to use this class.</p>
+       
+       <table class="table table-striped varlist">
+      <tbody>
+        
+             
+             
+             
+             <tr><td>private  function <strong>initWithSetseed_Prng</strong>(seed, big)</td><td></td></tr>
+             
+             
+             <tr><td>private  function <strong>initWithRandomSeed_Prng</strong>(big, display)</td><td></td></tr>
+             
+        
+       </tbody>
+       </table>
+     
+          
+     
+     <h4>Type-Bound Procedures</h4>
+      <table class="table table-striped varlist">
+      <tbody>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/prng.html#boundprocedure-jump'>jump</a></strong>  => jump_Prng </td>
+       <td><p>Jumps the Prng by \(2^{64}\) numbers if the Prng was instantiated with big = .false. or \(2^{512}\) if big = .true.
+ This allows the Prng to be used correctly in parallel on multiple threads for OpenMP, or ranks for MPI.</p></td></tr>
+      
+       <tr><td>generic, public :: <strong><a href='../type/prng.html#boundprocedure-rngexponential'>rngExponential</a></strong>  => rngExponential_d1_Prng_, rngExponential_d1D_Prng_, rngExponential_d2D_Prng_, rngExponential_d3D_Prng_ </td>
+       <td><p>Prng%rngExponential() - Draw from an exponential distribution
+ $$y = \frac{-ln(\tilde{u})}{\lambda}$$
+ where \(\tilde{u}\) is a sample from a uniform distribution</p></td></tr>
+      
+       <tr><td>generic, public :: <strong><a href='../type/prng.html#boundprocedure-rnginteger'>rngInteger</a></strong>  => rngInteger_i1_Prng_, rngInteger_i1D_Prng_, rngInteger_i2D_Prng_, rngInteger_i3D_Prng_ </td>
+       <td><p>Prng%rngInteger() - Draw a random integer in the interval \(x_{0} &lt;= \tilde{u} &lt;= x_{1}\)
+ $$y = x_{0} + (\tilde{u} * x_{1})$$
+ where \(\tilde{u}\) is a sample from a uniform distribution, and integers are generated such that \(x_{0} &lt;= \tilde{u} &lt;= x_{1}\).</p></td></tr>
+      
+       <tr><td>generic, public :: <strong><a href='../type/prng.html#boundprocedure-rngnormal'>rngNormal</a></strong>  => rngNormal_d1_Prng_, rngNormal_d1D_Prng_, rngNormal_d2D_Prng_, rngNormal_d3D_Prng_ </td>
+       <td><p>Prng%rngNormal() - Draw from a normal distribution.</p></td></tr>
+      
+       <tr><td>generic, public :: <strong><a href='../type/prng.html#boundprocedure-rnguniform'>rngUniform</a></strong>  => rngUniform_d1_Prng_, rngUniform_d1D_Prng_, rngUniform_d2D_Prng_, rngUniform_d3D_Prng_ </td>
+       <td><p>Prng%rngUniform() - Draw from a uniform distribution
+ Draws uniform random numbers on (0, 1) using either the xorshift1024* or xorshift128+ algorithms.</p></td></tr>
+      
+       <tr><td>generic, public :: <strong><a href='../type/prng.html#boundprocedure-rngweibull'>rngWeibull</a></strong>  => rngWeibull_d1_Prng_, rngWeibull_d1D_Prng_, rngWeibull_d2D_Prng_, rngWeibull_d3D_Prng_ </td>
+       <td><p>Prng%rngWeibull() - Draw from a Weibull distribution
+ $$y = \left[ \frac{-1}{\lambda} ln(\tilde{u}) \right]^{\frac{1}{k}}$$
+ where \(\tilde{u}\) is a sample from a uniform distribution and
+ \(\frac{-1}{\lambda} ln(\tilde{u})\) is a draw from an exponential distribution.</p></td></tr>
+      
+       </tbody>
+       </table>
+     
+  </div>
+</div>
+
+     
+    </section>
+	<br>
+    
+    
+    
+
+    
+    <section>
+    <h2>Subroutines</h2>
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-getrandomseed"></span><h3>
+public subroutine <a href='../proc/getrandomseed.html'>getRandomSeed</a>(seed, big)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+
+
+
+
+
+
+
+<p>Gets a randomly generated seed by getting the current integer time 
+ and then using a splitmix algorithm to generate the necessary number of seeds.</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i64),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>seed</strong>(:)</td><td><p>Random seeds of 64 bit integers. If big == true, must be size 16 else must be size 2.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>big</strong></td><td><p>Use the high period xorshift1024* (true) or xorshift128+ (false). Default is false.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+    
+    
+  <div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="proc-rnguniform_xorshift"></span><h3>
+public subroutine <a href='../proc/rnguniform_xorshift.html'>rngUniform_xorshift</a>(this, val)
+    
+    
+	 
+</h3></div>
+  <div class="panel-body">
+       
+    
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>class(<a href='../type/prng.html'>Prng</a>),</td>
+  <td>intent(inout)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(out)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>val</strong></td><td></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  </div>
+  </div>
+
+    
+    </section>    
+    <br>
+    
+    
+    
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allmods-1">All Modules</a></h3></div>
+  <div id="allmods-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/formatting.html">formatting</a>
+      
+      <a class="list-group-item" href="../module/m_allocate.html">m_allocate</a>
+      
+      <a class="list-group-item" href="../module/m_array1d.html">m_array1D</a>
+      
+      <a class="list-group-item" href="../module/m_compare.html">m_compare</a>
+      
+      <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
+      
+      <a class="list-group-item" href="../module/m_dargdynamicarray.html">m_dArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_ddynamicarray.html">m_dDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_deallocate.html">m_deallocate</a>
+      
+      <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
+      
+      <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
+      
+      <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_iargdynamicarray.html">m_iArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_idargdynamicarray.html">m_idArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_iddynamicarray.html">m_idDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_idynamicarray.html">m_iDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
+      
+      <a class="list-group-item" href="../module/m_kdtree.html">m_KdTree</a>
+      
+      <a class="list-group-item" href="../module/m_maths.html">m_maths</a>
+      
+      <a class="list-group-item" href="../module/m_medianof3.html">m_medianOf3</a>
+      
+      <a class="list-group-item" href="../module/m_parameters.html">m_parameters</a>
+      
+      <a class="list-group-item" href="../module/m_partition.html">m_partition</a>
+      
+      <a class="list-group-item" href="../module/m_partition3way.html">m_partition3way</a>
+      
+      <a class="list-group-item" href="../module/m_random.html">m_random</a>
+      
+      <a class="list-group-item" href="../module/m_rargdynamicarray.html">m_rArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_rdynamicarray.html">m_rDynamicArray</a>
+      
+      <a class="list-group-item" href="../module/m_readline.html">m_readline</a>
+      
+      <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
+      
+      <a class="list-group-item" href="../module/m_searching.html">m_searching</a>
+      
+      <a class="list-group-item" href="../module/m_select.html">m_select</a>
+      
+      <a class="list-group-item" href="../module/m_sort.html">m_sort</a>
+      
+      <a class="list-group-item" href="../module/m_strings.html">m_strings</a>
+      
+      <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
+      
+      <a class="list-group-item" href="../module/m_time.html">m_time</a>
+      
+      <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
+      
+      <a class="list-group-item" href="../module/m_writeline.html">m_writeline</a>
+      
+      <a class="list-group-item" href="../module/prng_class.html">Prng_Class</a>
+      
+      <a class="list-group-item" href="../module/progressbar_class.html">ProgressBar_Class</a>
+      
+      <a class="list-group-item" href="../module/stopwatch_class.html">Stopwatch_Class</a>
+      
+      <a class="list-group-item" href="../module/variablekind.html">variableKind</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> Fortran Program was developed by Leon Foks</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

@@ -147,20 +147,23 @@ module m_KdTree
   !!end program
   !!```
   use variableKind, only: i32, r64
-  use m_errors, only: eMsg, mErr
   use m_allocate, only: allocate
-  use m_deallocate, only: deallocate
   use m_array1D, only: arange
-  use m_random, only: rngNormal
-  use m_select, only: argSelect
+  use m_deallocate, only: deallocate
+  use m_errors, only: eMsg
   use m_maths, only: variance
   use m_iDynamicArray, only: iDynamicArray
   use m_dArgDynamicArray, only: dArgDynamicArray
+  use m_select, only: argSelect
   use m_strings, only: str
 
   implicit none
 
   private
+
+  public :: KdTree
+  public :: KdTreeSearch
+
   !====================================================================!
   ! Type Definitions
   !====================================================================!
@@ -180,7 +183,7 @@ module m_KdTree
   end type
   !====================================================================!
   !====================================================================!
-  type, public :: KdTree
+  type :: KdTree
     !!KdTree in 2, 3, or N dimensions.  See [[m_KdTree]] for more information on how to use this class.
     private
     type(KdTreebranch) :: trunk
@@ -194,7 +197,7 @@ module m_KdTree
   end type
   !====================================================================!
   !====================================================================!
-  type, public :: KdTreeSearch
+  type :: KdTreeSearch
     !!Class to search a KdTree.  See [[m_KdTree]] for more information on how to use this class.
   contains
     generic, public :: nearest => nearest2D, nearest3D, nearestKD

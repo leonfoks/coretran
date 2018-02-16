@@ -28,11 +28,6 @@
     <script src="../js/svg-pan-zoom.min.js"></script>
 
     
-    <script src="../tipuesearch/tipuesearch_content.js"></script>
-    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
-    <script src="../tipuesearch/tipuesearch_set.js"></script>
-    <script src="../tipuesearch/tipuesearch.js"></script>
-    
 
   </head>
 
@@ -91,15 +86,6 @@
 
           </ul>
         
-        <form action="../search.html" class="navbar-form navbar-right" role="search">
-        <div class="form-group">
-          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
-        </div>
-<!--
-        <button type="submit" class="btn btn-default">Submit</button>
--->
-        </form>
-        
         </div><!--/.nav-collapse -->
       </div>
     </nav>
@@ -126,7 +112,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="<p> 0.1% of total for procedures.</p>Including implementation: 23 statements,  0.8% of total for procedures.">3 statements</a>
+	  title="<p> 0.1% of total for procedures.</p>Including implementation: 23 statements,  1.1% of total for procedures.">3 statements</a>
      </li> 
      
      
@@ -203,8 +189,6 @@
   <div id="allprocs-0" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/abstimetohms.html">absTimetoHMS</a>
-      
       <a class="list-group-item" href="../interface/allocate.html">allocate</a>
       
       <a class="list-group-item" href="../proc/allocate_test.html">allocate_test</a>
@@ -223,8 +207,6 @@
       
       <a class="list-group-item" href="../interface/argsort.html">argSort</a>
       
-      <a class="list-group-item" href="../proc/array1d_test.html">array1D_test</a>
-      
       <a class="list-group-item" href="../interface/binarysearch.html">binarySearch</a>
       
       <a class="list-group-item" href="../proc/checkisopen.html">checkIsOpen</a>
@@ -239,8 +221,6 @@
       
       <a class="list-group-item" href="../interface/copy.html">copy</a>
       
-      <a class="list-group-item" href="../proc/copy_test.html">copy_test</a>
-      
       <a class="list-group-item" href="../proc/countentries.html">countEntries</a>
       
       <a class="list-group-item" href="../interface/crossproduct.html">crossproduct</a>
@@ -251,15 +231,11 @@
       
       <a class="list-group-item" href="../interface/dargdynamicarray.html">dArgDynamicArray</a>
       
-      <a class="list-group-item" href="../proc/dargdynamicarray_test.html">dArgDynamicArray_test</a>
+      <a class="list-group-item" href="../proc/daysinmonth.html">daysInMonth</a>
       
-      <a class="list-group-item" href="../proc/daysinmonth.html">daysinMonth</a>
-      
-      <a class="list-group-item" href="../proc/daysinyear.html">daysinYear</a>
+      <a class="list-group-item" href="../proc/daysinyear.html">daysInYear</a>
       
       <a class="list-group-item" href="../interface/ddynamicarray.html">dDynamicArray</a>
-      
-      <a class="list-group-item" href="../proc/ddynamicarray_test.html">dDynamicArray_test</a>
       
       <a class="list-group-item" href="../interface/deallocate.html">deallocate</a>
       
@@ -281,8 +257,6 @@
       
       <a class="list-group-item" href="../proc/fileexists.html">fileExists</a>
       
-      <a class="list-group-item" href="../proc/fileio_test.html">fileIO_test</a>
-      
       <a class="list-group-item" href="../interface/geometricmean.html">geometricMean</a>
       
       <a class="list-group-item" href="../proc/getextension.html">getExtension</a>
@@ -290,6 +264,8 @@
       <a class="list-group-item" href="../proc/getfilesize.html">getFileSize</a>
       
       <a class="list-group-item" href="../proc/getnfilelines.html">getNFileLines</a>
+      
+      <a class="list-group-item" href="../proc/getrandomseed.html">getRandomSeed</a>
       
       <a class="list-group-item" href="../proc/hasextension.html">hasExtension</a>
       
@@ -299,23 +275,13 @@
       
       <a class="list-group-item" href="../interface/iargdynamicarray.html">iArgDynamicArray</a>
       
-      <a class="list-group-item" href="../proc/iargdynamicarray_test.html">iArgDynamicArray_test</a>
-      
       <a class="list-group-item" href="../interface/idargdynamicarray.html">idArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../proc/idargdynamicarray_test.html">idArgDynamicArray_test</a>
       
       <a class="list-group-item" href="../interface/iddynamicarray.html">idDynamicArray</a>
       
-      <a class="list-group-item" href="../proc/iddynamicarray_test.html">idDynamicArray_test</a>
-      
       <a class="list-group-item" href="../interface/idynamicarray.html">iDynamicArray</a>
       
-      <a class="list-group-item" href="../proc/idynamicarray_test.html">iDynamicArray_test</a>
-      
       <a class="list-group-item" href="../proc/ind2sub.html">ind2sub</a>
-      
-      <a class="list-group-item" href="../proc/indexing_test.html">indexing_test</a>
       
       <a class="list-group-item" href="../proc/insertat__iddynamicarray.html">insertAt__idDynamicArray</a>
       
@@ -331,7 +297,11 @@
       
       <a class="list-group-item" href="../proc/isleapyear.html">isLeapYear</a>
       
-      <a class="list-group-item" href="../proc/isopen.html">isOpen</a>
+      <a class="list-group-item" href="../interface/isopen.html">isOpen</a>
+      
+      <a class="list-group-item" href="../proc/isopen_i1.html">isOpen_i1</a>
+      
+      <a class="list-group-item" href="../proc/isopen_s.html">isOpen_s</a>
       
       <a class="list-group-item" href="../interface/issorted.html">isSorted</a>
       
@@ -340,8 +310,6 @@
       <a class="list-group-item" href="../interface/kdtree.html">KdTree</a>
       
       <a class="list-group-item" href="../proc/lowercase.html">lowerCase</a>
-      
-      <a class="list-group-item" href="../proc/maths_test.html">maths_test</a>
       
       <a class="list-group-item" href="../interface/mean.html">mean</a>
       
@@ -369,19 +337,15 @@
       
       <a class="list-group-item" href="../proc/prependstring.html">prependString</a>
       
+      <a class="list-group-item" href="../interface/prng.html">Prng</a>
+      
       <a class="list-group-item" href="../interface/progressbar.html">ProgressBar</a>
       
       <a class="list-group-item" href="../interface/project.html">project</a>
       
-      <a class="list-group-item" href="../proc/random_test.html">random_test</a>
-      
       <a class="list-group-item" href="../interface/rargdynamicarray.html">rArgDynamicArray</a>
       
-      <a class="list-group-item" href="../proc/rargdynamicarray_test.html">rArgDynamicArray_test</a>
-      
       <a class="list-group-item" href="../interface/rdynamicarray.html">rDynamicArray</a>
-      
-      <a class="list-group-item" href="../proc/rdynamicarray_test.html">rDynamicArray_test</a>
       
       <a class="list-group-item" href="../proc/read1dble.html">read1Dble</a>
       
@@ -393,33 +357,75 @@
       
       <a class="list-group-item" href="../interface/reallocate.html">reallocate</a>
       
-      <a class="list-group-item" href="../proc/reallocate_test.html">reallocate_test</a>
-      
       <a class="list-group-item" href="../proc/removecomments.html">removeComments</a>
       
       <a class="list-group-item" href="../interface/repeat.html">repeat</a>
       
       <a class="list-group-item" href="../proc/replacedelim.html">replacedelim</a>
       
-      <a class="list-group-item" href="../interface/rngchisq.html">rngChisq</a>
-      
       <a class="list-group-item" href="../interface/rngexponential.html">rngExponential</a>
       
-      <a class="list-group-item" href="../interface/rnggamma.html">rngGamma</a>
+      <a class="list-group-item" href="../proc/rngexponential_d1.html">rngExponential_d1</a>
+      
+      <a class="list-group-item" href="../proc/rngexponential_d1d.html">rngExponential_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rngexponential_d2d.html">rngExponential_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rngexponential_d3d.html">rngExponential_d3D</a>
+      
+      <a class="list-group-item" href="../interface/rngexponential_unscaled_d1.html">rngExponential_unscaled_d1</a>
       
       <a class="list-group-item" href="../interface/rnginteger.html">rngInteger</a>
       
+      <a class="list-group-item" href="../proc/rnginteger_i1.html">rngInteger_i1</a>
+      
+      <a class="list-group-item" href="../proc/rnginteger_i1d.html">rngInteger_i1D</a>
+      
+      <a class="list-group-item" href="../proc/rnginteger_i2d.html">rngInteger_i2D</a>
+      
+      <a class="list-group-item" href="../proc/rnginteger_i3d.html">rngInteger_i3D</a>
+      
       <a class="list-group-item" href="../interface/rngnormal.html">rngNormal</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d1.html">rngNormal_d1</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d1d.html">rngNormal_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d2d.html">rngNormal_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d3d.html">rngNormal_d3D</a>
       
       <a class="list-group-item" href="../interface/rnguniform.html">rngUniform</a>
       
+      <a class="list-group-item" href="../proc/rnguniform_d1.html">rngUniform_d1</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_d1d.html">rngUniform_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_d2d.html">rngUniform_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_d3d.html">rngUniform_d3D</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_xorshift.html">rngUniform_xorshift</a>
+      
       <a class="list-group-item" href="../interface/rngweibull.html">rngWeibull</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d1.html">rngWeibull_d1</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d1d.html">rngWeibull_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d2d.html">rngWeibull_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d3d.html">rngWeibull_d3D</a>
+      
+      <a class="list-group-item" href="../proc/secondstohms.html">secondsToHMS</a>
       
       <a class="list-group-item" href="../interface/select.html">select</a>
       
-      <a class="list-group-item" href="../proc/select_test.html">select_test</a>
+      <a class="list-group-item" href="../interface/setprng.html">setPrng</a>
       
-      <a class="list-group-item" href="../interface/setrng.html">setRNG</a>
+      <a class="list-group-item" href="../proc/setprng_withseed.html">setPrng_withSeed</a>
+      
+      <a class="list-group-item" href="../proc/setprng_woseed.html">setPrng_WOseed</a>
       
       <a class="list-group-item" href="../interface/shuffle.html">shuffle</a>
       
@@ -429,13 +435,9 @@
       
       <a class="list-group-item" href="../interface/sort.html">sort</a>
       
-      <a class="list-group-item" href="../proc/sorting_test.html">sorting_test</a>
-      
       <a class="list-group-item" href="../interface/std.html">std</a>
       
       <a class="list-group-item" href="../interface/str.html">str</a>
-      
-      <a class="list-group-item" href="../proc/strings_test.html">strings_test</a>
       
       <a class="list-group-item" href="../proc/sub2ind.html">sub2ind</a>
       
@@ -443,9 +445,9 @@
       
       <a class="list-group-item" href="../interface/tester.html">tester</a>
       
-      <a class="list-group-item" href="../proc/time_test.html">time_test</a>
+      <a class="list-group-item" href="../proc/timeinseconds.html">timeInSeconds</a>
       
-      <a class="list-group-item" href="../proc/timeinseconds.html">timeinseconds</a>
+      <a class="list-group-item" href="../proc/timetointeger.html">timeToInteger</a>
       
       <a class="list-group-item" href="../proc/trimextension.html">trimExtension</a>
       
@@ -808,8 +810,6 @@ private subroutine debug_I1D(name, var)
   <div id="allprocs-1" class="panel-collapse collapse">
     <div class="list-group">
       
-      <a class="list-group-item" href="../proc/abstimetohms.html">absTimetoHMS</a>
-      
       <a class="list-group-item" href="../interface/allocate.html">allocate</a>
       
       <a class="list-group-item" href="../proc/allocate_test.html">allocate_test</a>
@@ -828,8 +828,6 @@ private subroutine debug_I1D(name, var)
       
       <a class="list-group-item" href="../interface/argsort.html">argSort</a>
       
-      <a class="list-group-item" href="../proc/array1d_test.html">array1D_test</a>
-      
       <a class="list-group-item" href="../interface/binarysearch.html">binarySearch</a>
       
       <a class="list-group-item" href="../proc/checkisopen.html">checkIsOpen</a>
@@ -844,8 +842,6 @@ private subroutine debug_I1D(name, var)
       
       <a class="list-group-item" href="../interface/copy.html">copy</a>
       
-      <a class="list-group-item" href="../proc/copy_test.html">copy_test</a>
-      
       <a class="list-group-item" href="../proc/countentries.html">countEntries</a>
       
       <a class="list-group-item" href="../interface/crossproduct.html">crossproduct</a>
@@ -856,15 +852,11 @@ private subroutine debug_I1D(name, var)
       
       <a class="list-group-item" href="../interface/dargdynamicarray.html">dArgDynamicArray</a>
       
-      <a class="list-group-item" href="../proc/dargdynamicarray_test.html">dArgDynamicArray_test</a>
+      <a class="list-group-item" href="../proc/daysinmonth.html">daysInMonth</a>
       
-      <a class="list-group-item" href="../proc/daysinmonth.html">daysinMonth</a>
-      
-      <a class="list-group-item" href="../proc/daysinyear.html">daysinYear</a>
+      <a class="list-group-item" href="../proc/daysinyear.html">daysInYear</a>
       
       <a class="list-group-item" href="../interface/ddynamicarray.html">dDynamicArray</a>
-      
-      <a class="list-group-item" href="../proc/ddynamicarray_test.html">dDynamicArray_test</a>
       
       <a class="list-group-item" href="../interface/deallocate.html">deallocate</a>
       
@@ -886,8 +878,6 @@ private subroutine debug_I1D(name, var)
       
       <a class="list-group-item" href="../proc/fileexists.html">fileExists</a>
       
-      <a class="list-group-item" href="../proc/fileio_test.html">fileIO_test</a>
-      
       <a class="list-group-item" href="../interface/geometricmean.html">geometricMean</a>
       
       <a class="list-group-item" href="../proc/getextension.html">getExtension</a>
@@ -895,6 +885,8 @@ private subroutine debug_I1D(name, var)
       <a class="list-group-item" href="../proc/getfilesize.html">getFileSize</a>
       
       <a class="list-group-item" href="../proc/getnfilelines.html">getNFileLines</a>
+      
+      <a class="list-group-item" href="../proc/getrandomseed.html">getRandomSeed</a>
       
       <a class="list-group-item" href="../proc/hasextension.html">hasExtension</a>
       
@@ -904,23 +896,13 @@ private subroutine debug_I1D(name, var)
       
       <a class="list-group-item" href="../interface/iargdynamicarray.html">iArgDynamicArray</a>
       
-      <a class="list-group-item" href="../proc/iargdynamicarray_test.html">iArgDynamicArray_test</a>
-      
       <a class="list-group-item" href="../interface/idargdynamicarray.html">idArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../proc/idargdynamicarray_test.html">idArgDynamicArray_test</a>
       
       <a class="list-group-item" href="../interface/iddynamicarray.html">idDynamicArray</a>
       
-      <a class="list-group-item" href="../proc/iddynamicarray_test.html">idDynamicArray_test</a>
-      
       <a class="list-group-item" href="../interface/idynamicarray.html">iDynamicArray</a>
       
-      <a class="list-group-item" href="../proc/idynamicarray_test.html">iDynamicArray_test</a>
-      
       <a class="list-group-item" href="../proc/ind2sub.html">ind2sub</a>
-      
-      <a class="list-group-item" href="../proc/indexing_test.html">indexing_test</a>
       
       <a class="list-group-item" href="../proc/insertat__iddynamicarray.html">insertAt__idDynamicArray</a>
       
@@ -936,7 +918,11 @@ private subroutine debug_I1D(name, var)
       
       <a class="list-group-item" href="../proc/isleapyear.html">isLeapYear</a>
       
-      <a class="list-group-item" href="../proc/isopen.html">isOpen</a>
+      <a class="list-group-item" href="../interface/isopen.html">isOpen</a>
+      
+      <a class="list-group-item" href="../proc/isopen_i1.html">isOpen_i1</a>
+      
+      <a class="list-group-item" href="../proc/isopen_s.html">isOpen_s</a>
       
       <a class="list-group-item" href="../interface/issorted.html">isSorted</a>
       
@@ -945,8 +931,6 @@ private subroutine debug_I1D(name, var)
       <a class="list-group-item" href="../interface/kdtree.html">KdTree</a>
       
       <a class="list-group-item" href="../proc/lowercase.html">lowerCase</a>
-      
-      <a class="list-group-item" href="../proc/maths_test.html">maths_test</a>
       
       <a class="list-group-item" href="../interface/mean.html">mean</a>
       
@@ -974,19 +958,15 @@ private subroutine debug_I1D(name, var)
       
       <a class="list-group-item" href="../proc/prependstring.html">prependString</a>
       
+      <a class="list-group-item" href="../interface/prng.html">Prng</a>
+      
       <a class="list-group-item" href="../interface/progressbar.html">ProgressBar</a>
       
       <a class="list-group-item" href="../interface/project.html">project</a>
       
-      <a class="list-group-item" href="../proc/random_test.html">random_test</a>
-      
       <a class="list-group-item" href="../interface/rargdynamicarray.html">rArgDynamicArray</a>
       
-      <a class="list-group-item" href="../proc/rargdynamicarray_test.html">rArgDynamicArray_test</a>
-      
       <a class="list-group-item" href="../interface/rdynamicarray.html">rDynamicArray</a>
-      
-      <a class="list-group-item" href="../proc/rdynamicarray_test.html">rDynamicArray_test</a>
       
       <a class="list-group-item" href="../proc/read1dble.html">read1Dble</a>
       
@@ -998,33 +978,75 @@ private subroutine debug_I1D(name, var)
       
       <a class="list-group-item" href="../interface/reallocate.html">reallocate</a>
       
-      <a class="list-group-item" href="../proc/reallocate_test.html">reallocate_test</a>
-      
       <a class="list-group-item" href="../proc/removecomments.html">removeComments</a>
       
       <a class="list-group-item" href="../interface/repeat.html">repeat</a>
       
       <a class="list-group-item" href="../proc/replacedelim.html">replacedelim</a>
       
-      <a class="list-group-item" href="../interface/rngchisq.html">rngChisq</a>
-      
       <a class="list-group-item" href="../interface/rngexponential.html">rngExponential</a>
       
-      <a class="list-group-item" href="../interface/rnggamma.html">rngGamma</a>
+      <a class="list-group-item" href="../proc/rngexponential_d1.html">rngExponential_d1</a>
+      
+      <a class="list-group-item" href="../proc/rngexponential_d1d.html">rngExponential_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rngexponential_d2d.html">rngExponential_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rngexponential_d3d.html">rngExponential_d3D</a>
+      
+      <a class="list-group-item" href="../interface/rngexponential_unscaled_d1.html">rngExponential_unscaled_d1</a>
       
       <a class="list-group-item" href="../interface/rnginteger.html">rngInteger</a>
       
+      <a class="list-group-item" href="../proc/rnginteger_i1.html">rngInteger_i1</a>
+      
+      <a class="list-group-item" href="../proc/rnginteger_i1d.html">rngInteger_i1D</a>
+      
+      <a class="list-group-item" href="../proc/rnginteger_i2d.html">rngInteger_i2D</a>
+      
+      <a class="list-group-item" href="../proc/rnginteger_i3d.html">rngInteger_i3D</a>
+      
       <a class="list-group-item" href="../interface/rngnormal.html">rngNormal</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d1.html">rngNormal_d1</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d1d.html">rngNormal_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d2d.html">rngNormal_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d3d.html">rngNormal_d3D</a>
       
       <a class="list-group-item" href="../interface/rnguniform.html">rngUniform</a>
       
+      <a class="list-group-item" href="../proc/rnguniform_d1.html">rngUniform_d1</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_d1d.html">rngUniform_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_d2d.html">rngUniform_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_d3d.html">rngUniform_d3D</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_xorshift.html">rngUniform_xorshift</a>
+      
       <a class="list-group-item" href="../interface/rngweibull.html">rngWeibull</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d1.html">rngWeibull_d1</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d1d.html">rngWeibull_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d2d.html">rngWeibull_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d3d.html">rngWeibull_d3D</a>
+      
+      <a class="list-group-item" href="../proc/secondstohms.html">secondsToHMS</a>
       
       <a class="list-group-item" href="../interface/select.html">select</a>
       
-      <a class="list-group-item" href="../proc/select_test.html">select_test</a>
+      <a class="list-group-item" href="../interface/setprng.html">setPrng</a>
       
-      <a class="list-group-item" href="../interface/setrng.html">setRNG</a>
+      <a class="list-group-item" href="../proc/setprng_withseed.html">setPrng_withSeed</a>
+      
+      <a class="list-group-item" href="../proc/setprng_woseed.html">setPrng_WOseed</a>
       
       <a class="list-group-item" href="../interface/shuffle.html">shuffle</a>
       
@@ -1034,13 +1056,9 @@ private subroutine debug_I1D(name, var)
       
       <a class="list-group-item" href="../interface/sort.html">sort</a>
       
-      <a class="list-group-item" href="../proc/sorting_test.html">sorting_test</a>
-      
       <a class="list-group-item" href="../interface/std.html">std</a>
       
       <a class="list-group-item" href="../interface/str.html">str</a>
-      
-      <a class="list-group-item" href="../proc/strings_test.html">strings_test</a>
       
       <a class="list-group-item" href="../proc/sub2ind.html">sub2ind</a>
       
@@ -1048,9 +1066,9 @@ private subroutine debug_I1D(name, var)
       
       <a class="list-group-item" href="../interface/tester.html">tester</a>
       
-      <a class="list-group-item" href="../proc/time_test.html">time_test</a>
+      <a class="list-group-item" href="../proc/timeinseconds.html">timeInSeconds</a>
       
-      <a class="list-group-item" href="../proc/timeinseconds.html">timeinseconds</a>
+      <a class="list-group-item" href="../proc/timetointeger.html">timeToInteger</a>
       
       <a class="list-group-item" href="../proc/trimextension.html">trimExtension</a>
       

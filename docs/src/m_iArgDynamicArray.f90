@@ -58,13 +58,10 @@ use m_errors, only: msg, eMsg
 use m_iDynamicArray, only: iDynamicArray, insertAt__iDynamicArray
 use m_searching, only: intervalSearch
 use m_strings, only: str
-use m_unitTester, only: tester
 
 implicit none
 
 private
-
-public :: iArgDynamicArray_test
 
 public :: iArgDynamicArray
 
@@ -331,74 +328,4 @@ contains
   call this%v%tighten()
   end subroutine
   !====================================================================!
-
-  !====================================================================!
-  subroutine iArgDynamicArray_test(test)
-    !! graph: false
-  !====================================================================!
-  class(tester) :: test
-
-  type(iArgDynamicArray) :: ida, ida2
-
-  integer(i32) :: ia
-
-  call Msg('==========================')
-  call Msg('Testing : iArgDynamic Arrays')
-  call Msg('==========================')
-
-  ida = iArgDynamicArray(10)
-  call test%test(size(ida%v%values)==10 .and. size(ida%i%values)==10, 'iArgDynamicArray')
-  call test%test(ida%v%N == 0 .and. ida%i%N == 0, 'iArgDynamicArray')
-  call ida%insertAt(1, 10, 10)
-  call test%test(ida%i%values(1) == 10 .and. ida%v%values(1) == 10, 'iArgDynamicArray%insert')
-  call ida%insertAt(1, 20, 20)
-  call test%test(all(ida%i%values(1:2) == [20, 10]) .and. all(ida%v%values(1:2) == [20, 10]), 'iArgDynamicArray%insert')
-  call ida%prepend(30, 30)
-  call test%test(all(ida%i%values(1:3) == [30, 20, 10]) .and. all(ida%v%values(1:3) == [30, 20, 10]), 'iArgDynamicArray%prepend')
-  call ida%append(40, 40)
-  call test%test(all(ida%i%values(1:4) == [30, 20, 10, 40]) .and. all(ida%v%values(1:4) == [30, 20, 10, 40]), 'iArgDynamicArray%append')
-  call ida%remove(2)
-  call test%test(all(ida%i%values(1:3) == [30, 10, 40]) .and. all(ida%v%values(1:3) == [30, 10, 40]), 'iArgDynamicArray%remove')
-  call ida%tighten()
-  call test%test(size(ida%i%values) == 3 .and. size(ida%v%values) == 3, 'iArgDynamicArray%tighten')
-  ida2 = ida
-  call test%test(all(ida2%i%values == ida%i%values) .and. all(ida2%v%values == ida%v%values), 'iArgDynamicArray%copy')
-  ida2%v%values(2) = 50
-  call test%test(ida2%v%values(2) /= ida%v%values(2), 'iArgDynamicArray%copy')
-  call ida%deallocate()
-  call test%test(.not. allocated(ida%i%values) .and. .not. allocated(ida%v%values), 'iArgDynamicArray%deallocate')
-  call ida2%deallocate()
-
-  ida = iArgDynamicArray(3, sorted=.true.)
-  call ida%insertSorted(1, 20)
-  call ida%insertSorted(2, 30)
-  call ida%insertSorted(3, 10)
-  call test%test(all(ida%i%values(1:3)==[3, 1, 2]) .and. all(ida%v%values(1:3)==[10, 20, 30]), 'iArgDynamicArray%insertSorted')
-  ia = ida%locationOf(20)
-  call test%test(ia == 2, 'iArgDynamicArray%locationOf')
-  ia = ida%argOf(20)
-  call test%test(ia == 1, 'iArgDynamicArray%argOf')
-  call ida%insertSortedUnique(4, 10)
-  call test%test(all(ida%i%values(1:3)==[3, 1, 2]) .and. all(ida%v%values(1:3)==[10, 20, 30]), 'iArgDynamicArray%insertSortedUnique')
-  call ida%insertSortedUnique(4, 15)
-  call test%test(all(ida%i%values(1:4)==[3, 4, 1, 2]) .and. all(ida%v%values(1:4)==[10, 15, 20, 30]), 'iArgDynamicArray%insertSortedUnique')
-  call test%test(size(ida%i%values) == 6 .and. size(ida%v%values) == 6, 'iArgDynamicArray%insert')
-  call ida%deallocate()
-
-  ida = iArgDynamicArray(3, sorted=.true., fixed=.true.)
-  call ida%insertSorted(1, 20)
-  call ida%insertSorted(2, 30)
-  call ida%insertSorted(3, 10)
-  call test%test(all(ida%i%values(1:3)==[3, 1, 2]) .and. all(ida%v%values(1:3)==[10, 20, 30]), 'iArgDynamicArray%insertSorted')
-  ia = ida%locationOf(20)
-  call test%test(ia == 2, 'iArgDynamicArray%locationOf')
-  ia = ida%argOf(20)
-  call test%test(ia == 1, 'iArgDynamicArray%argOf')
-  call ida%insertSortedUnique(4, 10)
-  call test%test(all(ida%i%values(1:3)==[3, 1, 2]) .and. all(ida%v%values(1:3)==[10, 20, 30]), 'iArgDynamicArray%insertSortedUnique')
-  call ida%insertSortedUnique(4, 15)
-  call test%test(all(ida%i%values(1:3)==[3, 4, 1]) .and. all(ida%v%values(1:3)==[10, 15, 20]), 'iArgDynamicArray%insertSortedUnique')
-  call test%test(size(ida%i%values) == 3 .and. size(ida%v%values) == 3, 'iArgDynamicArray%insert')
-  call ida%deallocate()
-end subroutine
 end module

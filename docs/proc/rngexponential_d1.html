@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	 <meta name="description" content="Modern well documented core Fortran routines for cleaner, smarter code.">
+    
+    <meta name="author" content="Leon Foks" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>rngExponential_d1 &ndash; Fortran Program</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">Fortran Program </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+          </ul>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>rngExponential_d1
+      <small>Subroutine</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 0.2% of total for procedures.">5 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/m_random.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/m_random.f90.html'>m_random.f90</a></li>
+  
+     <li><a href='../module/m_random.html'>m_random</a></li>
+  
+     <li class="active">rngExponential_d1</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprocs-0">All Procedures</a></h3></div>
+  <div id="allprocs-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../interface/allocate.html">allocate</a>
+      
+      <a class="list-group-item" href="../proc/allocate_test.html">allocate_test</a>
+      
+      <a class="list-group-item" href="../proc/appendstring.html">appendString</a>
+      
+      <a class="list-group-item" href="../interface/arange.html">arange</a>
+      
+      <a class="list-group-item" href="../interface/arginsertionsort.html">argInsertionsort</a>
+      
+      <a class="list-group-item" href="../interface/argmedianof3.html">argMedianOf3</a>
+      
+      <a class="list-group-item" href="../interface/argpartition.html">argPartition</a>
+      
+      <a class="list-group-item" href="../interface/argselect.html">argSelect</a>
+      
+      <a class="list-group-item" href="../interface/argsort.html">argSort</a>
+      
+      <a class="list-group-item" href="../interface/binarysearch.html">binarySearch</a>
+      
+      <a class="list-group-item" href="../proc/checkisopen.html">checkIsOpen</a>
+      
+      <a class="list-group-item" href="../proc/closefile.html">closeFile</a>
+      
+      <a class="list-group-item" href="../proc/compact.html">compact</a>
+      
+      <a class="list-group-item" href="../interface/compare.html">compare</a>
+      
+      <a class="list-group-item" href="../proc/compare_d1.html">compare_d1</a>
+      
+      <a class="list-group-item" href="../interface/copy.html">copy</a>
+      
+      <a class="list-group-item" href="../proc/countentries.html">countEntries</a>
+      
+      <a class="list-group-item" href="../interface/crossproduct.html">crossproduct</a>
+      
+      <a class="list-group-item" href="../interface/cumprod.html">cumprod</a>
+      
+      <a class="list-group-item" href="../interface/cumsum.html">cumsum</a>
+      
+      <a class="list-group-item" href="../interface/dargdynamicarray.html">dArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../proc/daysinmonth.html">daysInMonth</a>
+      
+      <a class="list-group-item" href="../proc/daysinyear.html">daysInYear</a>
+      
+      <a class="list-group-item" href="../interface/ddynamicarray.html">dDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/deallocate.html">deallocate</a>
+      
+      <a class="list-group-item" href="../interface/debug.html">debug</a>
+      
+      <a class="list-group-item" href="../proc/debug_s.html">debug_s</a>
+      
+      <a class="list-group-item" href="../proc/deletefile.html">deleteFile</a>
+      
+      <a class="list-group-item" href="../interface/diff.html">diff</a>
+      
+      <a class="list-group-item" href="../proc/emsg.html">eMsg</a>
+      
+      <a class="list-group-item" href="../interface/fasttwodiff.html">fastTwoDiff</a>
+      
+      <a class="list-group-item" href="../interface/fasttwosum.html">fastTwoSum</a>
+      
+      <a class="list-group-item" href="../proc/ferr.html">fErr</a>
+      
+      <a class="list-group-item" href="../proc/fileexists.html">fileExists</a>
+      
+      <a class="list-group-item" href="../interface/geometricmean.html">geometricMean</a>
+      
+      <a class="list-group-item" href="../proc/getextension.html">getExtension</a>
+      
+      <a class="list-group-item" href="../proc/getfilesize.html">getFileSize</a>
+      
+      <a class="list-group-item" href="../proc/getnfilelines.html">getNFileLines</a>
+      
+      <a class="list-group-item" href="../proc/getrandomseed.html">getRandomSeed</a>
+      
+      <a class="list-group-item" href="../proc/hasextension.html">hasExtension</a>
+      
+      <a class="list-group-item" href="../proc/hasnentries.html">hasNentries</a>
+      
+      <a class="list-group-item" href="../proc/iachar1d.html">iachar1D</a>
+      
+      <a class="list-group-item" href="../interface/iargdynamicarray.html">iArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/idargdynamicarray.html">idArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/iddynamicarray.html">idDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/idynamicarray.html">iDynamicArray</a>
+      
+      <a class="list-group-item" href="../proc/ind2sub.html">ind2sub</a>
+      
+      <a class="list-group-item" href="../proc/insertat__iddynamicarray.html">insertAt__idDynamicArray</a>
+      
+      <a class="list-group-item" href="../proc/insertat__idynamicarray.html">insertAt__iDynamicArray</a>
+      
+      <a class="list-group-item" href="../proc/insertat__rdynamicarray.html">insertAt__rDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/insertionsort.html">insertionsort</a>
+      
+      <a class="list-group-item" href="../proc/integerbin.html">integerBin</a>
+      
+      <a class="list-group-item" href="../interface/intervalsearch.html">intervalSearch</a>
+      
+      <a class="list-group-item" href="../proc/isleapyear.html">isLeapYear</a>
+      
+      <a class="list-group-item" href="../interface/isopen.html">isOpen</a>
+      
+      <a class="list-group-item" href="../proc/isopen_i1.html">isOpen_i1</a>
+      
+      <a class="list-group-item" href="../proc/isopen_s.html">isOpen_s</a>
+      
+      <a class="list-group-item" href="../interface/issorted.html">isSorted</a>
+      
+      <a class="list-group-item" href="../proc/isstring.html">isString</a>
+      
+      <a class="list-group-item" href="../interface/kdtree.html">KdTree</a>
+      
+      <a class="list-group-item" href="../proc/lowercase.html">lowerCase</a>
+      
+      <a class="list-group-item" href="../interface/mean.html">mean</a>
+      
+      <a class="list-group-item" href="../interface/median.html">median</a>
+      
+      <a class="list-group-item" href="../interface/medianof3.html">medianOf3</a>
+      
+      <a class="list-group-item" href="../proc/merr.html">mErr</a>
+      
+      <a class="list-group-item" href="../proc/msg.html">msg</a>
+      
+      <a class="list-group-item" href="../interface/norm1.html">norm1</a>
+      
+      <a class="list-group-item" href="../interface/normi.html">normI</a>
+      
+      <a class="list-group-item" href="../proc/openbinaryfile.html">openBinaryFile</a>
+      
+      <a class="list-group-item" href="../proc/openfile.html">openFile</a>
+      
+      <a class="list-group-item" href="../interface/partition.html">partition</a>
+      
+      <a class="list-group-item" href="../interface/partition3way.html">partition3way</a>
+      
+      <a class="list-group-item" href="../proc/partition3way_d1d.html">partition3way_d1D</a>
+      
+      <a class="list-group-item" href="../proc/prependstring.html">prependString</a>
+      
+      <a class="list-group-item" href="../interface/prng.html">Prng</a>
+      
+      <a class="list-group-item" href="../interface/progressbar.html">ProgressBar</a>
+      
+      <a class="list-group-item" href="../interface/project.html">project</a>
+      
+      <a class="list-group-item" href="../interface/rargdynamicarray.html">rArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/rdynamicarray.html">rDynamicArray</a>
+      
+      <a class="list-group-item" href="../proc/read1dble.html">read1Dble</a>
+      
+      <a class="list-group-item" href="../proc/read1integer.html">read1Integer</a>
+      
+      <a class="list-group-item" href="../interface/readline.html">readline</a>
+      
+      <a class="list-group-item" href="../proc/readline.html">readline</a>
+      
+      <a class="list-group-item" href="../interface/reallocate.html">reallocate</a>
+      
+      <a class="list-group-item" href="../proc/removecomments.html">removeComments</a>
+      
+      <a class="list-group-item" href="../interface/repeat.html">repeat</a>
+      
+      <a class="list-group-item" href="../proc/replacedelim.html">replacedelim</a>
+      
+      <a class="list-group-item" href="../interface/rngexponential.html">rngExponential</a>
+      
+      <a class="list-group-item" href="../proc/rngexponential_d1.html">rngExponential_d1</a>
+      
+      <a class="list-group-item" href="../proc/rngexponential_d1d.html">rngExponential_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rngexponential_d2d.html">rngExponential_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rngexponential_d3d.html">rngExponential_d3D</a>
+      
+      <a class="list-group-item" href="../interface/rngexponential_unscaled_d1.html">rngExponential_unscaled_d1</a>
+      
+      <a class="list-group-item" href="../interface/rnginteger.html">rngInteger</a>
+      
+      <a class="list-group-item" href="../proc/rnginteger_i1.html">rngInteger_i1</a>
+      
+      <a class="list-group-item" href="../proc/rnginteger_i1d.html">rngInteger_i1D</a>
+      
+      <a class="list-group-item" href="../proc/rnginteger_i2d.html">rngInteger_i2D</a>
+      
+      <a class="list-group-item" href="../proc/rnginteger_i3d.html">rngInteger_i3D</a>
+      
+      <a class="list-group-item" href="../interface/rngnormal.html">rngNormal</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d1.html">rngNormal_d1</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d1d.html">rngNormal_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d2d.html">rngNormal_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d3d.html">rngNormal_d3D</a>
+      
+      <a class="list-group-item" href="../interface/rnguniform.html">rngUniform</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_d1.html">rngUniform_d1</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_d1d.html">rngUniform_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_d2d.html">rngUniform_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_d3d.html">rngUniform_d3D</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_xorshift.html">rngUniform_xorshift</a>
+      
+      <a class="list-group-item" href="../interface/rngweibull.html">rngWeibull</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d1.html">rngWeibull_d1</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d1d.html">rngWeibull_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d2d.html">rngWeibull_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d3d.html">rngWeibull_d3D</a>
+      
+      <a class="list-group-item" href="../proc/secondstohms.html">secondsToHMS</a>
+      
+      <a class="list-group-item" href="../interface/select.html">select</a>
+      
+      <a class="list-group-item" href="../interface/setprng.html">setPrng</a>
+      
+      <a class="list-group-item" href="../proc/setprng_withseed.html">setPrng_withSeed</a>
+      
+      <a class="list-group-item" href="../proc/setprng_woseed.html">setPrng_WOseed</a>
+      
+      <a class="list-group-item" href="../interface/shuffle.html">shuffle</a>
+      
+      <a class="list-group-item" href="../interface/simplesearch.html">simpleSearch</a>
+      
+      <a class="list-group-item" href="../proc/skipfilelines.html">skipFileLines</a>
+      
+      <a class="list-group-item" href="../interface/sort.html">sort</a>
+      
+      <a class="list-group-item" href="../interface/std.html">std</a>
+      
+      <a class="list-group-item" href="../interface/str.html">str</a>
+      
+      <a class="list-group-item" href="../proc/sub2ind.html">sub2ind</a>
+      
+      <a class="list-group-item" href="../interface/swap.html">swap</a>
+      
+      <a class="list-group-item" href="../interface/tester.html">tester</a>
+      
+      <a class="list-group-item" href="../proc/timeinseconds.html">timeInSeconds</a>
+      
+      <a class="list-group-item" href="../proc/timetointeger.html">timeToInteger</a>
+      
+      <a class="list-group-item" href="../proc/trimextension.html">trimExtension</a>
+      
+      <a class="list-group-item" href="../interface/trimmedmean.html">trimmedmean</a>
+      
+      <a class="list-group-item" href="../interface/twodiff.html">twoDiff</a>
+      
+      <a class="list-group-item" href="../interface/twosum.html">twoSum</a>
+      
+      <a class="list-group-item" href="../proc/uppercase.html">upperCase</a>
+      
+      <a class="list-group-item" href="../interface/variance.html">variance</a>
+      
+      <a class="list-group-item" href="../proc/wmsg.html">wMsg</a>
+      
+      <a class="list-group-item" href="../interface/writeline.html">writeline</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+    <h2>
+public subroutine rngExponential_d1(this, lambda)
+    
+    
+	 
+</h2>
+    
+  
+
+
+    
+    <p>Interfaced with <a href="../interface/rngexponential.html">rngExponential</a></p>
+    
+
+    <h3>Arguments</h3>
+    
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-this%7E16"></span>real(kind=r64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>this</strong></td><td><p>Random number</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-lambda"></span>real(kind=r64)</td>
+  <td></td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>lambda</strong></td><td><p>Inverse scale &gt; 0</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+    
+    
+    
+     
+    <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    
+    
+    
+    
+
+    
+    
+    
+    
+    
+
+
+    
+    
+    
+    
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allprocs-1">All Procedures</a></h3></div>
+  <div id="allprocs-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../interface/allocate.html">allocate</a>
+      
+      <a class="list-group-item" href="../proc/allocate_test.html">allocate_test</a>
+      
+      <a class="list-group-item" href="../proc/appendstring.html">appendString</a>
+      
+      <a class="list-group-item" href="../interface/arange.html">arange</a>
+      
+      <a class="list-group-item" href="../interface/arginsertionsort.html">argInsertionsort</a>
+      
+      <a class="list-group-item" href="../interface/argmedianof3.html">argMedianOf3</a>
+      
+      <a class="list-group-item" href="../interface/argpartition.html">argPartition</a>
+      
+      <a class="list-group-item" href="../interface/argselect.html">argSelect</a>
+      
+      <a class="list-group-item" href="../interface/argsort.html">argSort</a>
+      
+      <a class="list-group-item" href="../interface/binarysearch.html">binarySearch</a>
+      
+      <a class="list-group-item" href="../proc/checkisopen.html">checkIsOpen</a>
+      
+      <a class="list-group-item" href="../proc/closefile.html">closeFile</a>
+      
+      <a class="list-group-item" href="../proc/compact.html">compact</a>
+      
+      <a class="list-group-item" href="../interface/compare.html">compare</a>
+      
+      <a class="list-group-item" href="../proc/compare_d1.html">compare_d1</a>
+      
+      <a class="list-group-item" href="../interface/copy.html">copy</a>
+      
+      <a class="list-group-item" href="../proc/countentries.html">countEntries</a>
+      
+      <a class="list-group-item" href="../interface/crossproduct.html">crossproduct</a>
+      
+      <a class="list-group-item" href="../interface/cumprod.html">cumprod</a>
+      
+      <a class="list-group-item" href="../interface/cumsum.html">cumsum</a>
+      
+      <a class="list-group-item" href="../interface/dargdynamicarray.html">dArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../proc/daysinmonth.html">daysInMonth</a>
+      
+      <a class="list-group-item" href="../proc/daysinyear.html">daysInYear</a>
+      
+      <a class="list-group-item" href="../interface/ddynamicarray.html">dDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/deallocate.html">deallocate</a>
+      
+      <a class="list-group-item" href="../interface/debug.html">debug</a>
+      
+      <a class="list-group-item" href="../proc/debug_s.html">debug_s</a>
+      
+      <a class="list-group-item" href="../proc/deletefile.html">deleteFile</a>
+      
+      <a class="list-group-item" href="../interface/diff.html">diff</a>
+      
+      <a class="list-group-item" href="../proc/emsg.html">eMsg</a>
+      
+      <a class="list-group-item" href="../interface/fasttwodiff.html">fastTwoDiff</a>
+      
+      <a class="list-group-item" href="../interface/fasttwosum.html">fastTwoSum</a>
+      
+      <a class="list-group-item" href="../proc/ferr.html">fErr</a>
+      
+      <a class="list-group-item" href="../proc/fileexists.html">fileExists</a>
+      
+      <a class="list-group-item" href="../interface/geometricmean.html">geometricMean</a>
+      
+      <a class="list-group-item" href="../proc/getextension.html">getExtension</a>
+      
+      <a class="list-group-item" href="../proc/getfilesize.html">getFileSize</a>
+      
+      <a class="list-group-item" href="../proc/getnfilelines.html">getNFileLines</a>
+      
+      <a class="list-group-item" href="../proc/getrandomseed.html">getRandomSeed</a>
+      
+      <a class="list-group-item" href="../proc/hasextension.html">hasExtension</a>
+      
+      <a class="list-group-item" href="../proc/hasnentries.html">hasNentries</a>
+      
+      <a class="list-group-item" href="../proc/iachar1d.html">iachar1D</a>
+      
+      <a class="list-group-item" href="../interface/iargdynamicarray.html">iArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/idargdynamicarray.html">idArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/iddynamicarray.html">idDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/idynamicarray.html">iDynamicArray</a>
+      
+      <a class="list-group-item" href="../proc/ind2sub.html">ind2sub</a>
+      
+      <a class="list-group-item" href="../proc/insertat__iddynamicarray.html">insertAt__idDynamicArray</a>
+      
+      <a class="list-group-item" href="../proc/insertat__idynamicarray.html">insertAt__iDynamicArray</a>
+      
+      <a class="list-group-item" href="../proc/insertat__rdynamicarray.html">insertAt__rDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/insertionsort.html">insertionsort</a>
+      
+      <a class="list-group-item" href="../proc/integerbin.html">integerBin</a>
+      
+      <a class="list-group-item" href="../interface/intervalsearch.html">intervalSearch</a>
+      
+      <a class="list-group-item" href="../proc/isleapyear.html">isLeapYear</a>
+      
+      <a class="list-group-item" href="../interface/isopen.html">isOpen</a>
+      
+      <a class="list-group-item" href="../proc/isopen_i1.html">isOpen_i1</a>
+      
+      <a class="list-group-item" href="../proc/isopen_s.html">isOpen_s</a>
+      
+      <a class="list-group-item" href="../interface/issorted.html">isSorted</a>
+      
+      <a class="list-group-item" href="../proc/isstring.html">isString</a>
+      
+      <a class="list-group-item" href="../interface/kdtree.html">KdTree</a>
+      
+      <a class="list-group-item" href="../proc/lowercase.html">lowerCase</a>
+      
+      <a class="list-group-item" href="../interface/mean.html">mean</a>
+      
+      <a class="list-group-item" href="../interface/median.html">median</a>
+      
+      <a class="list-group-item" href="../interface/medianof3.html">medianOf3</a>
+      
+      <a class="list-group-item" href="../proc/merr.html">mErr</a>
+      
+      <a class="list-group-item" href="../proc/msg.html">msg</a>
+      
+      <a class="list-group-item" href="../interface/norm1.html">norm1</a>
+      
+      <a class="list-group-item" href="../interface/normi.html">normI</a>
+      
+      <a class="list-group-item" href="../proc/openbinaryfile.html">openBinaryFile</a>
+      
+      <a class="list-group-item" href="../proc/openfile.html">openFile</a>
+      
+      <a class="list-group-item" href="../interface/partition.html">partition</a>
+      
+      <a class="list-group-item" href="../interface/partition3way.html">partition3way</a>
+      
+      <a class="list-group-item" href="../proc/partition3way_d1d.html">partition3way_d1D</a>
+      
+      <a class="list-group-item" href="../proc/prependstring.html">prependString</a>
+      
+      <a class="list-group-item" href="../interface/prng.html">Prng</a>
+      
+      <a class="list-group-item" href="../interface/progressbar.html">ProgressBar</a>
+      
+      <a class="list-group-item" href="../interface/project.html">project</a>
+      
+      <a class="list-group-item" href="../interface/rargdynamicarray.html">rArgDynamicArray</a>
+      
+      <a class="list-group-item" href="../interface/rdynamicarray.html">rDynamicArray</a>
+      
+      <a class="list-group-item" href="../proc/read1dble.html">read1Dble</a>
+      
+      <a class="list-group-item" href="../proc/read1integer.html">read1Integer</a>
+      
+      <a class="list-group-item" href="../interface/readline.html">readline</a>
+      
+      <a class="list-group-item" href="../proc/readline.html">readline</a>
+      
+      <a class="list-group-item" href="../interface/reallocate.html">reallocate</a>
+      
+      <a class="list-group-item" href="../proc/removecomments.html">removeComments</a>
+      
+      <a class="list-group-item" href="../interface/repeat.html">repeat</a>
+      
+      <a class="list-group-item" href="../proc/replacedelim.html">replacedelim</a>
+      
+      <a class="list-group-item" href="../interface/rngexponential.html">rngExponential</a>
+      
+      <a class="list-group-item" href="../proc/rngexponential_d1.html">rngExponential_d1</a>
+      
+      <a class="list-group-item" href="../proc/rngexponential_d1d.html">rngExponential_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rngexponential_d2d.html">rngExponential_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rngexponential_d3d.html">rngExponential_d3D</a>
+      
+      <a class="list-group-item" href="../interface/rngexponential_unscaled_d1.html">rngExponential_unscaled_d1</a>
+      
+      <a class="list-group-item" href="../interface/rnginteger.html">rngInteger</a>
+      
+      <a class="list-group-item" href="../proc/rnginteger_i1.html">rngInteger_i1</a>
+      
+      <a class="list-group-item" href="../proc/rnginteger_i1d.html">rngInteger_i1D</a>
+      
+      <a class="list-group-item" href="../proc/rnginteger_i2d.html">rngInteger_i2D</a>
+      
+      <a class="list-group-item" href="../proc/rnginteger_i3d.html">rngInteger_i3D</a>
+      
+      <a class="list-group-item" href="../interface/rngnormal.html">rngNormal</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d1.html">rngNormal_d1</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d1d.html">rngNormal_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d2d.html">rngNormal_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rngnormal_d3d.html">rngNormal_d3D</a>
+      
+      <a class="list-group-item" href="../interface/rnguniform.html">rngUniform</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_d1.html">rngUniform_d1</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_d1d.html">rngUniform_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_d2d.html">rngUniform_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_d3d.html">rngUniform_d3D</a>
+      
+      <a class="list-group-item" href="../proc/rnguniform_xorshift.html">rngUniform_xorshift</a>
+      
+      <a class="list-group-item" href="../interface/rngweibull.html">rngWeibull</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d1.html">rngWeibull_d1</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d1d.html">rngWeibull_d1D</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d2d.html">rngWeibull_d2D</a>
+      
+      <a class="list-group-item" href="../proc/rngweibull_d3d.html">rngWeibull_d3D</a>
+      
+      <a class="list-group-item" href="../proc/secondstohms.html">secondsToHMS</a>
+      
+      <a class="list-group-item" href="../interface/select.html">select</a>
+      
+      <a class="list-group-item" href="../interface/setprng.html">setPrng</a>
+      
+      <a class="list-group-item" href="../proc/setprng_withseed.html">setPrng_withSeed</a>
+      
+      <a class="list-group-item" href="../proc/setprng_woseed.html">setPrng_WOseed</a>
+      
+      <a class="list-group-item" href="../interface/shuffle.html">shuffle</a>
+      
+      <a class="list-group-item" href="../interface/simplesearch.html">simpleSearch</a>
+      
+      <a class="list-group-item" href="../proc/skipfilelines.html">skipFileLines</a>
+      
+      <a class="list-group-item" href="../interface/sort.html">sort</a>
+      
+      <a class="list-group-item" href="../interface/std.html">std</a>
+      
+      <a class="list-group-item" href="../interface/str.html">str</a>
+      
+      <a class="list-group-item" href="../proc/sub2ind.html">sub2ind</a>
+      
+      <a class="list-group-item" href="../interface/swap.html">swap</a>
+      
+      <a class="list-group-item" href="../interface/tester.html">tester</a>
+      
+      <a class="list-group-item" href="../proc/timeinseconds.html">timeInSeconds</a>
+      
+      <a class="list-group-item" href="../proc/timetointeger.html">timeToInteger</a>
+      
+      <a class="list-group-item" href="../proc/trimextension.html">trimExtension</a>
+      
+      <a class="list-group-item" href="../interface/trimmedmean.html">trimmedmean</a>
+      
+      <a class="list-group-item" href="../interface/twodiff.html">twoDiff</a>
+      
+      <a class="list-group-item" href="../interface/twosum.html">twoSum</a>
+      
+      <a class="list-group-item" href="../proc/uppercase.html">upperCase</a>
+      
+      <a class="list-group-item" href="../interface/variance.html">variance</a>
+      
+      <a class="list-group-item" href="../proc/wmsg.html">wMsg</a>
+      
+      <a class="list-group-item" href="../interface/writeline.html">writeline</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> Fortran Program was developed by Leon Foks</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>
