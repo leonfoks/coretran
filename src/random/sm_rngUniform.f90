@@ -29,7 +29,7 @@ contains
   !real(r64), intent(in), optional :: rmax
   !  !! Maximum value to draw between. Requires rmin be used as well.
   
-  call rngUniform_1024star(this, res)
+  call rngUniform_xorshift(this, res)
   if (present(rmin)) then
     if (present(rmax)) res=rmin+(rmax-rmin)*res
   endif
