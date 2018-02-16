@@ -69,7 +69,7 @@ program scaleTest_coretran
   type(KdTreeSearch) :: search
 
   integer(i32) :: iunit
-  integer(i32) :: maxSize = 24
+  integer(i32) :: maxSize = 25
   integer(i32), parameter :: nSizes = 6
   integer(i32) :: sizes(nSizes)
   real(r64) :: times(nSizes)
@@ -113,6 +113,12 @@ program scaleTest_coretran
 
   call Msg('Size  Time(s)')
   call Msg('Double precision introspection sort', iunit)
+
+  b1D = a1D
+  call clk%restart()
+  call sort(b1D)
+  call clk%stop()
+  write(*,*) clk%elapsedInSeconds()
 
   do ia = 0, nSizes-1
     ib = sizes(ia+1)

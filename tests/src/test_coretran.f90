@@ -99,8 +99,6 @@ program test_coretran
 
   test = tester()
 
-
-
   call Msg('==========================')
   call Msg('LibFortran Testing')
   call Msg('==========================')
@@ -109,12 +107,11 @@ program test_coretran
 
   call strings_test(test)
   
-  !call fileIO_test(test)
+  call fileIO_test(test)
   
-  !call random_test(test, .false.)
+  call random_test(test, .false.)
 
   call Prng_test(test)
-  
 
   call time_test(test)
   
