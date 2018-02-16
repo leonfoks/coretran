@@ -30,6 +30,11 @@ Search Results &ndash; Fortran Program
     <script src="./js/svg-pan-zoom.min.js"></script>
 
     
+    <script src="./tipuesearch/tipuesearch_content.js"></script>
+    <link  href="./tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="./tipuesearch/tipuesearch_set.js"></script>
+    <script src="./tipuesearch/tipuesearch.js"></script>
+    
 
   </head>
 
@@ -87,6 +92,15 @@ Search Results &ndash; Fortran Program
 
 
           </ul>
+        
+        <form action="./search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
         
         </div><!--/.nav-collapse -->
       </div>

@@ -6,6 +6,10 @@ module Prng_Class
 !!If you are writing serial code, and/or do not need a parallel random number generator, you can use the overloaded functions and subroutines in [[m_random]]. See that module for more
 !!information.
 !!
+!!Side note: The default random number generator in Matlab and Python is the Mersenne Twister algorithm.  This algorithm is not great for parallel applications.  It has a huge period, 
+!!but you cannot easily jump the state as far as I can tell.  These xorshift algorithms are fantastic, they have a high enough period for most applications, and can be easily jumped in 
+!!only a few iterations.
+!!
 !!### Example Serial usage with a randomly generated seed
 !!```Fortran
 !!program PrngTest
