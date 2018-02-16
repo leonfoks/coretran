@@ -183,7 +183,7 @@ module m_KdTree
   end type
   !====================================================================!
   !====================================================================!
-  type, public :: KdTree
+  type :: KdTree
     !!KdTree in 2, 3, or N dimensions.  See [[m_KdTree]] for more information on how to use this class.
     private
     type(KdTreebranch) :: trunk
@@ -197,7 +197,7 @@ module m_KdTree
   end type
   !====================================================================!
   !====================================================================!
-  type, public :: KdTreeSearch
+  type :: KdTreeSearch
     !!Class to search a KdTree.  See [[m_KdTree]] for more information on how to use this class.
   contains
     generic, public :: nearest => nearest2D, nearest3D, nearestKD
