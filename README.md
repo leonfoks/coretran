@@ -59,7 +59,7 @@ There are three aspects that we need to address
 3. Install Python and the software to generate the source code documentation locally (optional! You could just go [here](https://leonfoks.github.io/coretran/))
 
 ### Installing the GNU fortran compiler <a name="gfortran"></a>
-To compile my library, I have been using gfortran version 6.3.0 because of the use of submodules and other 2008 standards. I you want to use Intel's fortran compiler you will need ifort version 16+ or 17+
+To compile my library, I have been using gfortran version 6.3.0 because of the use of submodules and other 2008 standards. I you want to use Intel's fortran compiler you will need ifort version 17+
 
 #### * Linux 
 If you work in Linux you should be well versed in installing packages on your system. At the time of writing this I am running on Ubuntu 16.04 LTS.
