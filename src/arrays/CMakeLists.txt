@@ -1,5 +1,5 @@
-target_sources(${libName}
-	PUBLIC
+target_sources(${PROJECT_NAME}
+    PRIVATE
 	"${CMAKE_CURRENT_LIST_DIR}/m_array1D.f90"
         "${CMAKE_CURRENT_LIST_DIR}/sm_array_i1D.f90"
 	"${CMAKE_CURRENT_LIST_DIR}/sm_array_id1D.f90"

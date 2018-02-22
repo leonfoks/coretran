@@ -1,11 +1,11 @@
-target_sources(${libName}
-    PUBLIC
+target_sources(${PROJECT_NAME}
+    PRIVATE
         "${CMAKE_CURRENT_LIST_DIR}/m_variableKind.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_swap.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_indexing.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_strings.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_errors.f90"
-	"${CMAKE_CURRENT_LIST_DIR}/m_fileIO.f90"
+    	"${CMAKE_CURRENT_LIST_DIR}/m_fileIO.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_parameters.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_debugging.f90"
         "${CMAKE_CURRENT_LIST_DIR}/m_write.f90"
