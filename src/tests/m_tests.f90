@@ -747,112 +747,112 @@ contains
   end subroutine
   !====================================================================!
 
-    !====================================================================!
-    subroutine fileIO_test(test)
-      !! graph: false
-    !====================================================================!
-    class(tester) :: test
-    character(len=100) :: fname
-    integer(i32) :: istat, iTest
-    logical :: lTest
-    real(r64) :: a, b, c
-    real(r64) :: a1D(5), b1D(5), c1D(5)
-    integer(i32) :: ia,ib,ic,id
-  
-    fName = 'testFile.txt'
-  
-    a = 1.d0 ; b = 2.d0 ; c = 3.d0
-    a1D = [0.d0,1.d0,2.d0,3.d0,4.d0]
-    b1D = [5.d0,6.d0,7.d0,8.d0,9.d0]
-    c1D = [10.d0,11.d0,12.d0,13.d0,14.d0]
-  
-    call Msg('==========================')
-    call Msg('Testing : file IO')
-    call Msg('==========================')
-    call deleteFile(fName) ! Make sure tests can work!
-    call test%test(fileExists(fName) .eqv. .false.,'fileExists')
-    call test%test(hasExtension(fName,'txt'),'hasExtension')
-    call test%test(getExtension(fName) == 'txt','getExtension')
-    call test%test(trimExtension(fName) == 'testFile','trimExtension')
-    call test%test(.not. isOpen(fName),'isOpen')
-    call openFile(fName,iTest,'unknown',istat)
-    call test%test(istat == 0,'openFile')
-    call test%test(isOpen(fName),'isOpen')
-    call writeLine(a,fName,iTest)
-    call writeLine(a,b,fName,iTest)
-    call writeLine(a,b,c,fName,iTest)
-    call writeLine(a,b1D,fName,iTest)
-    call writeLine(a1D,b1D,c1D,fName,iTest)
-    call closeFile(fName,iTest,'',istat)
-    call test%test(istat == 0,'closeFile')
-    lTest = fileExists(fName)
-    call test%test(lTest .eqv. .true.,'fileExists')
-    if (lTest .eqv. .false.) call eMsg('Make sure you change to the directory containing the executable before running the test')
-    call test%test(.not.isOpen(fName),'isOpen')
-    iTest = getFileSize(fName)
-    call test%test(itest > 0,'getFileSize '//str(iTest)//'bytes')
-    call openFile(fName,iTest,'unknown',istat)
-    call skipFileLines(iTest,1)
-    a = 0.d0 ; b = 0.d0 ; c = 0.d0
-    a1D = 0.d0 ; b1D = 0.d0 ; c1D = 0.d0
-    ! call readLine(a,b,fName,iTest)
-    ! call readLine(a,b,c,fName,iTest)
-    ! call readLine(a,b1D,fName,iTest)
-    ! call readLine(a1D,b1D,c1D,fName,iTest)
-    ! call test%test(a == 1.d0,'writeLine/readLine')
-    ! call test%test(b == 2.d0,'writeLine/readLine')
-    ! call test%test(c == 3.d0,'writeLine/readLine')
-    ! call test%test(all(a1D == [0.d0,1.d0,2.d0,3.d0,4.d0]),'writeLine/readLine')
-    ! call test%test(all(b1D == [5.d0,6.d0,7.d0,8.d0,9.d0]),'writeLine/readLine')
-    ! call test%test(all(c1D == [10.d0,11.d0,12.d0,13.d0,14.d0]),'writeLine/readLine')
-    call closeFile(fName,iTest,'delete',istat)
-    call test%test(istat == 0,'closeFile + Delete')
-  
-    ia = 1
-    open(unit = ia, file = 'test.txt', status='unknown', iostat=istat)
-    write(ia, *) ia
-    close(ia, iostat=istat)
-    call test%test(istat == 0, 'Open file - fixed unit')
-  
-    ib = 999
-    istat = 999
-    open(unit = ia, file = 'test.txt', status='old', iostat=istat)
-    read(ia, *) ib
-    close(ia, iostat=istat)
-  
-    call test%test(istat == 0 .and. ib==1, 'reopen file - fixed unit')
-  
-    ia = 999
-    ib = 999
-    istat = 999   
-    open(newunit = ia, file = 'test.txt', status='unknown', iostat=istat)
-  
-    write(ia, *) ib
-    do ib = 1, 10
-      write(ia, *) ib, ib
-    enddo
-    close(ia, iostat=istat)
-    call test%test(istat == 0, 'Open file - new unit')
-  
-    ia = 999
-    ib = 10
-    istat = 999
-    open(newunit = ia, file = 'test.txt', status='old', iostat=istat)
-    read(ia, *) ib
-    close(ia, iostat=istat)
-    call test%test(istat == 0 .and. ib==999, 'reopen file - new unit, read a little')
-  
-    open(newunit = ia, file = 'test.txt', status='old', iostat=istat)
-    read(ia, *) istat
-    do ib = 1, 10
-      read(ia, *) ic, id
-    enddo
-    close(ia, iostat=istat)
-
-    call test%test(istat == 0 .and. id==10, 'reopen file - new unit, read all')
-  
-    end subroutine
-    !====================================================================!
+!    !====================================================================!
+!    subroutine fileIO_test(test)
+!      !! graph: false
+!    !====================================================================!
+!    class(tester) :: test
+!    character(len=100) :: fname
+!    integer(i32) :: istat, iTest
+!    logical :: lTest
+!    real(r64) :: a, b, c
+!    real(r64) :: a1D(5), b1D(5), c1D(5)
+!    integer(i32) :: ia,ib,ic,id
+!  
+!    fName = 'testFile.txt'
+!  
+!    a = 1.d0 ; b = 2.d0 ; c = 3.d0
+!    a1D = [0.d0,1.d0,2.d0,3.d0,4.d0]
+!    b1D = [5.d0,6.d0,7.d0,8.d0,9.d0]
+!    c1D = [10.d0,11.d0,12.d0,13.d0,14.d0]
+!  
+!    call Msg('==========================')
+!    call Msg('Testing : file IO')
+!    call Msg('==========================')
+!    call deleteFile(fName) ! Make sure tests can work!
+!    call test%test(fileExists(fName) .eqv. .false.,'fileExists')
+!    call test%test(hasExtension(fName,'txt'),'hasExtension')
+!    call test%test(getExtension(fName) == 'txt','getExtension')
+!    call test%test(trimExtension(fName) == 'testFile','trimExtension')
+!    call test%test(.not. isOpen(fName),'isOpen')
+!    call openFile(fName,iTest,'unknown',istat)
+!    call test%test(istat == 0,'openFile')
+!    call test%test(isOpen(fName),'isOpen')
+!    call writeLine(a,fName,iTest)
+!    call writeLine(a,b,fName,iTest)
+!    call writeLine(a,b,c,fName,iTest)
+!    call writeLine(a,b1D,fName,iTest)
+!    call writeLine(a1D,b1D,c1D,fName,iTest)
+!    call closeFile(fName,iTest,'',istat)
+!    call test%test(istat == 0,'closeFile')
+!    lTest = fileExists(fName)
+!    call test%test(lTest .eqv. .true.,'fileExists')
+!    if (lTest .eqv. .false.) call eMsg('Make sure you change to the directory containing the executable before running the test')
+!    call test%test(.not.isOpen(fName),'isOpen')
+!    iTest = getFileSize(fName)
+!    call test%test(itest > 0,'getFileSize '//str(iTest)//'bytes')
+!    call openFile(fName,iTest,'unknown',istat)
+!    call skipFileLines(iTest,1)
+!    a = 0.d0 ; b = 0.d0 ; c = 0.d0
+!    a1D = 0.d0 ; b1D = 0.d0 ; c1D = 0.d0
+!    ! call readLine(a,b,fName,iTest)
+!    ! call readLine(a,b,c,fName,iTest)
+!    ! call readLine(a,b1D,fName,iTest)
+!    ! call readLine(a1D,b1D,c1D,fName,iTest)
+!    ! call test%test(a == 1.d0,'writeLine/readLine')
+!    ! call test%test(b == 2.d0,'writeLine/readLine')
+!    ! call test%test(c == 3.d0,'writeLine/readLine')
+!    ! call test%test(all(a1D == [0.d0,1.d0,2.d0,3.d0,4.d0]),'writeLine/readLine')
+!    ! call test%test(all(b1D == [5.d0,6.d0,7.d0,8.d0,9.d0]),'writeLine/readLine')
+!    ! call test%test(all(c1D == [10.d0,11.d0,12.d0,13.d0,14.d0]),'writeLine/readLine')
+!    call closeFile(fName,iTest,'delete',istat)
+!    call test%test(istat == 0,'closeFile + Delete')
+!  
+!    ia = 1
+!    open(unit = ia, file = 'test.txt', status='unknown', iostat=istat)
+!    write(ia, *) ia
+!    close(ia, iostat=istat)
+!    call test%test(istat == 0, 'Open file - fixed unit')
+!  
+!    ib = 999
+!    istat = 999
+!    open(unit = ia, file = 'test.txt', status='old', iostat=istat)
+!    read(ia, *) ib
+!    close(ia, iostat=istat)
+!  
+!    call test%test(istat == 0 .and. ib==1, 'reopen file - fixed unit')
+!  
+!    ia = 999
+!    ib = 999
+!    istat = 999   
+!    open(newunit = ia, file = 'test.txt', status='unknown', iostat=istat)
+!  
+!    write(ia, *) ib
+!    do ib = 1, 10
+!      write(ia, *) ib, ib
+!    enddo
+!    close(ia, iostat=istat)
+!    call test%test(istat == 0, 'Open file - new unit')
+!  
+!    ia = 999
+!    ib = 10
+!    istat = 999
+!    open(newunit = ia, file = 'test.txt', status='old', iostat=istat)
+!    read(ia, *) ib
+!    close(ia, iostat=istat)
+!    call test%test(istat == 0 .and. ib==999, 'reopen file - new unit, read a little')
+!  
+!    open(newunit = ia, file = 'test.txt', status='old', iostat=istat)
+!    read(ia, *) istat
+!    do ib = 1, 10
+!      read(ia, *) ic, id
+!    enddo
+!    close(ia, iostat=istat)
+!
+!    call test%test(istat == 0 .and. id==10, 'reopen file - new unit, read all')
+!  
+!    end subroutine
+!    !====================================================================!
 
   !====================================================================!
   subroutine indexing_test(test)

@@ -1,5 +1,5 @@
-target_sources(${libName}
-    PUBLIC       
+target_sources(${PROJECT_NAME}
+    PRIVATE
         "${CMAKE_CURRENT_LIST_DIR}/Prng_Class.f90"
         "${CMAKE_CURRENT_LIST_DIR}/sm_xorshift128plus.f90"
         "${CMAKE_CURRENT_LIST_DIR}/sm_xorshift1024star.f90"
