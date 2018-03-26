@@ -23,6 +23,8 @@ use m_reallocate, only: reallocate
 use m_select, only: argSelect, select
 use m_sort, only: argSort, sort
 use Prng_Class, only: Prng, getRandomSeed
+  use Stopwatch_Class
+  use ProgressBar_Class
 use m_strings
 use m_time
 !use m_readline, only: readline
@@ -1259,7 +1261,8 @@ contains
   type(Prng), allocatable :: rngs(:)
   integer(i64) :: seedSmall(2)
   integer(i64) :: seedBig(16)
-  integer(i32) :: i, id
+  integer(i32) :: i, id, j
+  logical :: same
 
   integer(i32) :: iThread, nThreads
 
@@ -1271,6 +1274,9 @@ contains
 
   call rng%rngInteger(id, 1, 100)
 
+  !!
+  !! Test the jump capabilities of the xorshift128+ in parallel
+  !!
   ! Get the number of threads available
   !$omp parallel 
     nThreads = omp_get_num_threads()
@@ -1282,18 +1288,48 @@ contains
   ! In parallel, initialize each Prng with the same seed, and jump each prng by the thread ID it is associated with.
   ! This allows all Prngs to draw from the same stream, but at different points along the stream.
   ! This is better than giving each Prng its own randomly generated seed
-
   call getRandomSeed(seedSmall, big = .false.)
 
-  !$omp parallel shared(rng, seedSmall) private(iThread, a)
+  !$omp parallel shared(rngs, seedSmall) private(iThread, a)
     iThread = omp_get_thread_num()
     rngs(iThread + 1) = Prng(seedSmall, big = .false.)
     call rngs(iThread + 1)%jump(iThread) ! Jump the current thread's Prng by its thread number.
     call rngs(iThread + 1)%rngNormal(a) ! Draw from normal distribution on each thread
   !$omp end parallel
 
-  write(*,*) 'First seed on each thread should be different'
-  write(*,*) (rngs(i)%seed(0), i = 1, nThreads)
+  same = .true.
+  loop1: do i = 1, nThreads-1
+    do j = i+1, nThreads
+      same = all(rngs(i)%seed(1:2) == rngs(j)%seed(1:2))
+      if (same) exit loop1
+    enddo
+  enddo loop1
+  call test%test(same .eqv. .false., 'xorshift128+ jumping')
+
+
+  !!
+  !! Test the jump capabilities of the xorshift1024* in parallel
+  !!
+  ! In parallel, initialize each Prng with the same seed, and jump each prng by the thread ID it is associated with.
+  ! This allows all Prngs to draw from the same stream, but at different points along the stream.
+  ! This is better than giving each Prng its own randomly generated seed
+  call getRandomSeed(seedBig, big = .true.)
+
+  !$omp parallel shared(rngs, seedBig) private(iThread, a)
+    iThread = omp_get_thread_num()
+    rngs(iThread + 1) = Prng(seedBig, big = .true.)
+    call rngs(iThread + 1)%jump(iThread) ! Jump the current thread's Prng by its thread number.
+    call rngs(iThread + 1)%rngNormal(a) ! Draw from normal distribution on each thread
+  !$omp end parallel
+
+  same = .true.
+  loop2: do i = 1, nThreads-1
+    do j = i+1, nThreads
+      same = all(rngs(i)%seed == rngs(j)%seed)
+      if (same) exit loop2
+    enddo
+  enddo loop2
+  call test%test(same .eqv. .false., 'xorshift1024* jumping')
 
   end subroutine
   !====================================================================!
@@ -1808,10 +1844,18 @@ contains
   !====================================================================!
 
   !=====================================================================!
-  subroutine time_test(test)
+  subroutine time_test(test, nIterations)
     !! graph: false
   !=====================================================================!
   class(tester) :: test
+  integer(i32) :: nIterations
+  real(r64) :: a2D(10,10)
+  integer(i32) :: i
+
+  type(ProgressBar) :: P
+  type(Stopwatch) :: clk
+
+
   call Msg('==========================')
   call Msg('Testing : time')
   call Msg('==========================')
@@ -1826,6 +1870,34 @@ contains
   call test%test(daysinYear(2012) == 366,'daysinYear')
   call test%test(isLeapYear(2012).eqv. .true.,'isLeapYear')
   call test%test(secondsToHMS(90031.008d0) == '25: 0:31.  8 (h:m:s)','secondsToHMS')
+
+  call Msg('==========================')
+  call Msg('Testing : Stopwatch Class')
+  call Msg('==========================')
+  call clk%start('Generating Random Number')
+  do i = 1, nIterations
+    call rngNormal(a2D)
+  enddo
+  call clk%stop()
+  write(output_unit,'(a)') 'Elapsed time '//clk%elapsed()
+  write(output_unit,'(a)') 'Finished on '//clk%dateAndTime()
+
+  call Msg('==========================')
+  call Msg('Testing : ProgressBar Class')
+  call Msg('==========================')
+  P = ProgressBar(N=nIterations)
+  call P%print(0)
+  do i = 1, nIterations
+    call rngNormal(a2D)
+    call P%print(i)
+  enddo
+  P=ProgressBar(N=nIterations, time = .true.)
+  call P%print(0)
+  do i = 1, nIterations
+    call rngNormal(a2D)
+    call P%print(i)
+  enddo
+
   end subroutine
   !=====================================================================!
 end module

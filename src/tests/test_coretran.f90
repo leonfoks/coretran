@@ -24,8 +24,6 @@ program test_coretran
   use m_maths
   use m_KdTree
 
-  use Stopwatch_Class
-  use ProgressBar_Class
   use m_rDynamicArray
   use m_dDynamicArray
   use m_iDynamicArray
@@ -42,47 +40,13 @@ program test_coretran
 
   type(tester) :: test
 
-  character(len=100) :: fName
-  character(len=128) :: sa
-  character(len=:), allocatable :: cTest
-  logical :: lTest
-  integer(i32) :: iTest,istat,N, nIterations
-  real(r32) :: ar, br, cr
-  real(r32),allocatable :: ar1D(:),br1D(:),cr1D(:)
-  real(r32),allocatable :: ar2D(:,:),br2D(:,:)
-  real(r32),allocatable :: ar3D(:,:,:),br3D(:,:,:)
-  real(r64) :: a,b,c
-  real(r64),allocatable :: a1D(:),b1D(:),c1D(:), d1D(:)
-  real(r64),allocatable :: a2D(:,:),b2D(:,:)
-  real(r64),allocatable :: a3D(:,:,:),b3D(:,:,:)
-  integer(i32) :: ia,ib,ic,id
-  integer(i32), allocatable :: ia1D(:),ib1D(:),ic1D(:)
-  integer(i32), allocatable :: ia2D(:,:),ib2D(:,:)
-  integer(i32), allocatable :: ia3D(:,:,:),ib3D(:,:,:)
-  integer(i64) :: iad,ibd,icd
-  integer(i64), allocatable :: iad1D(:),ibd1D(:),icd1D(:)
-  integer(i64), allocatable :: iad2D(:,:),ibd2D(:,:)
-  integer(i64), allocatable :: iad3D(:,:,:),ibd3D(:,:,:)
-  complex(r32) :: x,y,z
-  complex(r32), allocatable :: za1D(:),zb1D(:)
-  complex(r32), allocatable :: za2D(:,:),zb2D(:,:)
-  complex(r32), allocatable :: za3D(:,:,:),zb3D(:,:,:)
-  complex(r64), allocatable :: zza1D(:),zzb1D(:)
-  complex(r64), allocatable :: zza2D(:,:),zzb2D(:,:)
-  complex(r64), allocatable :: zza3D(:,:,:),zzb3D(:,:,:)
-  logical :: la,lb,lc
-  logical, allocatable :: la1D(:),lb1D(:)
-  logical, allocatable :: la2D(:,:),lb2D(:,:)
-  logical, allocatable :: la3D(:,:,:),lb3D(:,:,:)
-  integer(i32) :: passCount = 0
-  integer(i32) :: testTotal = 0
-  type(Stopwatch) :: clk
-  type(ProgressBar) :: P
+  character(len=cLen) :: sa
+  integer(i32) :: i, iTest,istat, N, nIterations
   
 
 ! Get an integer from command line argument
-  ib = command_argument_count()
-  if (ib < 2) then
+  i = command_argument_count()
+  if (i < 2) then
     write(*,'(a)') 'Error with input options'
     write(*,'(a)') 'Usage: coretranTest size iterations'
     write(*,'(a)') '  size : Size of the array to run tests on'
@@ -113,7 +77,7 @@ program test_coretran
 
   call Prng_test(test)
 
-  call time_test(test)
+  call time_test(test, nIterations)
   
   call indexing_test(test)
   
@@ -130,36 +94,6 @@ program test_coretran
   call array1D_test(test)
   
   call maths_test(test)
-
-
-!  call Msg('==========================')
-!  call Msg('Testing : Stopwatch Class')
-!  call Msg('==========================')
-!  call clk%start('Generating Random Number')
-!  ic = nIterations
-!  do ib = 1, ic
-!    call rngNormal(a2D)
-!  enddo
-!  call clk%stop()
-!  write(output_unit,'(a)') 'Elapsed time '//clk%elapsed()
-!  write(output_unit,'(a)') 'Finished on '//clk%dateAndTime()
-!
-!  call Msg('==========================')
-!  call Msg('Testing : ProgressBar Class')
-!  call Msg('==========================')
-!  P = ProgressBar(N=ic)
-!  call P%print(int(0,i64))
-!  do ib = 1, nIterations
-!    call rngNormal(a2D)
-!    call P%print(ib)
-!  enddo
-!  P=ProgressBar(N=ic,time = .true.)
-!  call P%print(int(0,i64))
-!  do ib = 1, nIterations
-!    call rngNormal(a2D)
-!    call P%print(ib)
-!  enddo
-
 
   call KdTree_test(test, N)
   
