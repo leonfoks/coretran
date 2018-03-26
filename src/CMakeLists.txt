@@ -4,7 +4,8 @@ project(coretran LANGUAGES Fortran)
 # Optional parameters to use
 # -DCMAKE_Fortran_COMPILER=/path/to/fortran/compiler
 # -DCMAKE_BUILD_TYPE=[DEBUG, RELEASE]  - Build with debug flags or not.
-# -DSTATIC=[ON, OFF]  - Build and shared or static library, or link a program using -static
+# -DBUILD_SHARED_LIBS=[ON, OFF]  - Build and shared or static library, or link a program using the appropriate flags
+
 
 # Add our local modules to the module path
 if(NOT CMAKE_MODULE_PATH)
@@ -51,23 +52,31 @@ target_include_directories(${PROJECT_NAME} PUBLIC $<BUILD_INTERFACE:${CMAKE_CURR
                                            PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}) # for source files
 
 
+# ================================
+# Set up the make install functionality
+# ================================
 # 'make install' to the correct locations (provided by GNUInstallDirs).
-install(TARGETS ${PROJECT_NAME} EXPORT coretran-config
+install(TARGETS ${PROJECT_NAME} EXPORT ${PROJECT_NAME}-config
     ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib
-    INCLUDES DESTINATION include)
+    INCLUDES DESTINATION include/${PROJECT_NAME})
 
-install(DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}/ DESTINATION include
+install(DIRECTORY ${CMAKE_Fortran_MODULE_DIRECTORY}/ DESTINATION include/${PROJECT_NAME}
     FILES_MATCHING PATTERN "*.mod"
     PATTERN "CMakeFiles" EXCLUDE)
 
-install(EXPORT coretran-config DESTINATION lib/cmake)
+install(EXPORT ${PROJECT_NAME}-config DESTINATION lib/cmake)
 
-export(TARGETS ${PROJECT_NAME} FILE coretran-config.cmake)
+export(TARGETS ${PROJECT_NAME} FILE ${PROJECT_NAME}-config.cmake)
 #    RUNTIME  DESTINATION ${CMAKE_INSTALL_BINDIR})  # This is for Windows
 
+# ++++++++++++++++++++++++++++++++
 
-# Compile the tests
+# ================================
+# Compile the test and scaling codes
+# ================================
 add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
+
+# ++++++++++++++++++++++++++++++++
 
 # Thats it! Simple!
