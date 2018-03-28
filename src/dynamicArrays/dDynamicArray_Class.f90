@@ -1,4 +1,4 @@
-module m_dDynamicArray
+module dDynamicArray_Class
 !! Class that act as stacks, queues, and priority queues.
 !! These classes use dynamically allocated contiguous blocks of memory to store a list of numbers.
 !! The queues can be sorted to become priority queues and use binary searches to quickly insert new numbers.

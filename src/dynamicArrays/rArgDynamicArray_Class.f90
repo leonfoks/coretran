@@ -1,4 +1,4 @@
-module m_rArgDynamicArray
+module rArgDynamicArray_Class
   !! Class that act as stacks, queues, and priority queues like [[m_rDynamicArray]] but with an added
   !! integer index so that 'lists' of both a key and value can be maintained.
   !! These classes use dynamically allocated contiguous blocks of memory to store a list of numbers.
@@ -55,8 +55,8 @@ module m_rArgDynamicArray
 
 use variableKind, only: r32, i32
 use m_errors, only: msg, eMsg
-use m_iDynamicArray, only: iDynamicArray
-use m_rDynamicArray, only: rDynamicArray, insertAt__rDynamicArray
+use iDynamicArray_Class, only: iDynamicArray
+use rDynamicArray_Class, only: rDynamicArray
 use m_searching, only: intervalSearch
 use m_strings, only: str
 
@@ -231,7 +231,7 @@ contains
 
   iSearch = intervalSearch(this%v%values, val, 1, this%v%N)
   call this%i%insertAt(iSearch(3), i)
-  call insertAt__rDynamicArray(this%v, iSearch(3), val)
+  call this%v%insertAt(iSearch(3), val)
   end subroutine
   !====================================================================!
 
@@ -250,7 +250,7 @@ contains
   iSearch = intervalSearch(this%v%values, val, 1, this%v%N)
   if (iSearch(1) == -1) then
     call this%i%insertAt(iSearch(3), i)
-    call insertAt__rDynamicArray(this%v, iSearch(3), val)
+    call this%v%insertAt(iSearch(3), val)
   endif
 
   end subroutine

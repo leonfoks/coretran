@@ -1,4 +1,4 @@
-module m_idDynamicArray
+module idDynamicArray_Class
 !! Class that act as stacks, queues, and priority queues.
 !! These classes use dynamically allocated contiguous blocks of memory to store a list of numbers.
 !! The queues can be sorted to become priority queues and use binary searches to quickly insert new numbers.
@@ -60,8 +60,6 @@ implicit none
 
 private
 
-public :: insertAt__idDynamicArray
-
 public :: idDynamicArray
 
 type :: idDynamicArray
@@ -120,7 +118,7 @@ contains
   integer(i64) :: val
     !! Value to append.
   if (this%fixed) call eMsg('idDynamicArray%append: Cannot use append with fixed array.')
-  call insertAt__idDynamicArray(this, this%N + 1, val) ! Append at last location
+  call this%insertAt(this%N + 1, val) ! Append at last location
   end subroutine
   !====================================================================!
   !====================================================================!
@@ -214,19 +212,6 @@ contains
   !====================================================================!
   !====================================================================!
   subroutine insertAt_idDynamicArray(this,i,val)
-    !! Overloaded type bound procedure rDynamicArray%insertAt()
-  !====================================================================!
-  class(idDynamicArray) :: this
-  integer(i32) :: i
-    !! Insert value at this location.
-  integer(i64) :: val
-    !! Insert this value.
-  if (this%sorted) call eMsg('idDynamicArray%insertAt: Cannot use insertAt with sorted array')
-  call insertAt__idDynamicArray(this, i, val)
-  end subroutine
-  !====================================================================!
-  !====================================================================!
-  subroutine insertAt__idDynamicArray(this,i,val)
     !! Private insert into array without checking for sorted flag.
   !====================================================================!
   class(idDynamicArray) :: this
@@ -269,7 +254,7 @@ contains
   integer(i32) :: iSearch(3) ! location and interval of new value
   if (.not. this%sorted) call eMsg('idDynamicArray%insertSorted: Cannot use insertSorted with unsorted dynamic array')
   iSearch=intervalSearch(this%values, val, 1, this%N)
-  call insertAt__idDynamicArray(this, iSearch(3), val)
+  call this%insertAt(iSearch(3), val)
   end subroutine
   !====================================================================!
   !====================================================================!
@@ -282,9 +267,7 @@ contains
   integer(i32) :: iSearch(3) ! location and interval of new value
   if (.not. this%sorted) call eMsg('idDynamicArray%insertSortedUnique: Cannot use insertSortedUnique with unsorted dynamic array')
   iSearch=intervalSearch(this%values, val, 1, this%N)
-  if (iSearch(1) == -1) then
-    call insertAt__idDynamicArray(this, iSearch(3), val)
-  endif
+  if (iSearch(1) == -1) call this%insertAt(iSearch(3), val)
   end subroutine
   !====================================================================!
   !====================================================================!
@@ -328,7 +311,7 @@ contains
   integer(i64) :: val
     !! Value to prepend.
   if (this%fixed) call eMsg('idDynamicArray%prepend: Cannot use prepend with fixed array.')
-  call insertAt__idDynamicArray(this, 1, val) ! Prepend at first location
+  call this%insertAt(1, val) ! Prepend at first location
   end subroutine
   !====================================================================!
   !====================================================================!

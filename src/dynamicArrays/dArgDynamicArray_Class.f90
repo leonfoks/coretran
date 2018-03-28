@@ -1,4 +1,4 @@
-module m_dArgDynamicArray
+module dArgDynamicArray_Class
   !! Class that act as stacks, queues, and priority queues like [[m_dDynamicArray]] but with an added
   !! integer index so that 'lists' of both a key and value can be maintained.
   !! These classes use dynamically allocated contiguous blocks of memory to store a list of numbers.
@@ -56,8 +56,8 @@ module m_dArgDynamicArray
 use variableKind, only: i32, r64
 use iso_fortran_env, only: output_unit
 use m_errors, only: msg, eMsg
-use m_iDynamicArray, only: iDynamicArray
-use m_dDynamicArray, only: dDynamicArray
+use iDynamicArray_Class, only: iDynamicArray
+use dDynamicArray_Class, only: dDynamicArray
 use m_searching, only: intervalSearch
 use m_strings, only: str, printOptions
 

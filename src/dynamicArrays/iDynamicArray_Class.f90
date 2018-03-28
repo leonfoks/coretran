@@ -1,4 +1,4 @@
-module m_rDynamicArray
+module iDynamicArray_Class
 !! Class that act as stacks, queues, and priority queues.
 !! These classes use dynamically allocated contiguous blocks of memory to store a list of numbers.
 !! The queues can be sorted to become priority queues and use binary searches to quickly insert new numbers.
@@ -8,46 +8,46 @@ module m_rDynamicArray
 !!```fortran
 !!program dynamicArray_test
 !!use variableKind, only: i32
-!!use m_rDynamicArray, only: rDynamicArray
+!!use m_iDynamicArray, only: iDynamicArray
 !!
 !!implicit none
 !!
-!!type(rDynamicArray) :: da, da2
+!!type(iDynamicArray) :: da, da2
 !!integer(i32) :: ia
 !!
-!!da = rDynamicArray(10)
-!!call da%insertAt(1, 10.0)
-!!call da%insertAt(1, 20.0)
-!!call da%prepend(30.0)
-!!call da%append(40.0)
+!!da = iDynamicArray(10)
+!!call da%insertAt(1, 10)
+!!call da%insertAt(1, 20)
+!!call da%prepend(30)
+!!call da%append(40)
 !!call da%remove(2)
 !!call da%tighten()
 !!da2 = da
-!!da2%values(2) = 50.0
+!!da2%values(2) = 50
 !!call da%deallocate()
 !!call da2%deallocate()
 !!
-!!da = rDynamicArray(3, sorted=.true.)
-!!call da%insertSorted(20.0)
-!!call da%insertSorted(30.0)
-!!call da%insertSorted(10.0)
-!!ia = da%locationOf(20.0)
-!!call da%insertSortedUnique(10.0)
-!!call da%insertSortedUnique(15.0)
+!!da = iDynamicArray(3, sorted=.true.)
+!!call da%insertSorted(20)
+!!call da%insertSorted(30)
+!!call da%insertSorted(10)
+!!ia = da%locationOf(20)
+!!call da%insertSortedUnique(10)
+!!call da%insertSortedUnique(15)
 !!call da%deallocate()
 !!
-!!da = rDynamicArray(3, sorted=.true., fixed=.true.)
-!!call da%insertSorted(20.0)
-!!call da%insertSorted(30.0)
-!!call da%insertSorted(10.0)
-!!ia = da%locationOf(20.0)
-!!call da%insertSortedUnique(10.0)
-!!call da%insertSortedUnique(15.0)
+!!da = iDynamicArray(3, sorted=.true., fixed=.true.)
+!!call da%insertSorted(20)
+!!call da%insertSorted(30)
+!!call da%insertSorted(10)
+!!ia = da%locationOf(20)
+!!call da%insertSortedUnique(10)
+!!call da%insertSortedUnique(15)
 !!call da%deallocate()
 !!end program
 !!```
 
-use variableKind, only: r32, i32
+use variableKind, only: i32
 use m_allocate, only: allocate
 use m_searching, only: binarySearch, intervalSearch
 use m_deallocate, only: deallocate
@@ -60,76 +60,74 @@ implicit none
 
 private
 
-public :: rDynamicArray
+public :: iDynamicArray
 
-type :: rDynamicArray
-  !! Class that act as stacks, queues, and priority queues. See [[m_rDynamicArray]] for more information on how to use this class.
+type :: iDynamicArray
+  !! Class that act as stacks, queues, and priority queues. See [[m_iDynamicArray]] for more information on how to use this class.
   integer(i32) :: N
     !! Current size of the array
-  real(r32), allocatable :: values(:)
+  integer(i32), allocatable :: values(:)
     !! Memory for values, can be larger than N
   logical :: sorted = .false.
     !! Keep track of whether the array is sorted for potential speed increases
   logical :: fixed = .false.
     !! Don't allow the memory to change after initial instantiation.
 contains
-  procedure, public :: append => append_rDynamicArray
-    !! rDynamicArray%append() - Append a value to the end of the dynamic array.  Will change a sorted dynamic array to unsorted.
-  procedure, public :: deallocate => deallocate_rDynamicArray
-    !! rDynamicArray%deallocate() - Deallocate a dynamic array.
-  procedure, public :: insertAt => insertAt_rDynamicArray
-    !! rDynamicArray%insertAt() - Insert a value at a given index.
-  procedure, public :: insertSorted => insertSorted_rDynamicArray
-    !! rDynamicArray%insertSorted() - Insert a value into a sorted dynamic array.
-  procedure, public :: insertSortedUnique => insertSortedUnique_rDynamicArray
-    !! rDynamicArray%insertSortedUnique() - Inserts only unique numbers into a dynamic array.
-  procedure, public :: isEmpty => isEmpty_rDynamicArray
-    !! rDynamicArray%isEmpty() - True if the array is empty.
-  procedure, public :: isFilled => isFilled_rDynamicArray
-    !! rDynamicArray%isFilled() - True if the array is filled.
-  procedure, public :: locationOf => locationOf_rDynamicArray
-    !! rDynamicArray%locationOf() - Get the location of a value in a sorted dynamic array.
-  procedure, public :: prepend => prepend_rDynamicArray
-    !! rDynamicArray%prepend() - Prepend a value to the start of the dynamic array. Only for unsorted dynamic arrays
-  procedure, public :: reallocate => reallocate_rDynamicArray
-    !! rDynamicArray%reallocate() - Create new contiguous memory to match the needs of the expanding or shrinking array.
-  procedure, public :: remove => remove_rDynamicArray
-    !! rDynamicArray%remove() - Remove an element from the array.
-  procedure, public :: tighten => tighten_rDynamicArray
-    !! rDynamicArray%tighten() - Removes excess buffer memory and trims it to the current length.
+  procedure, public :: append => append_iDynamicArray
+    !! iDynamicArray%append() - Append a value to the end of the dynamic array.  Will change a sorted dynamic array to unsorted.
+  procedure, public :: deallocate => deallocate_iDynamicArray
+    !! iDynamicArray%deallocate() - Deallocate a dynamic array.
+  procedure, public :: insertAt => insertAt_iDynamicArray
+    !! iDynamicArray%insertAt() - Insert a value at a given index.
+  procedure, public :: insertSorted => insertSorted_iDynamicArray
+    !! iDynamicArray%insertSorted() - Insert a value into a sorted dynamic array.
+  procedure, public :: insertSortedUnique => insertSortedUnique_iDynamicArray
+    !! iDynamicArray%insertSortedUnique() - Inserts only unique numbers into a dynamic array.
+  procedure, public :: isEmpty => isEmpty_iDynamicArray
+    !! iDynamicArray%isEmpty() - True if the array is empty.
+  procedure, public :: isFilled => isFilled_iDynamicArray
+    !! iDynamicArray%isFilled() - True if the array is filled.
+  procedure, public :: locationOf => locationOf_iDynamicArray
+    !! iDynamicArray%locationOf() - Get the location of a value in a sorted dynamic array.
+  procedure, public :: prepend => prepend_iDynamicArray
+    !! iDynamicArray%prepend() - Prepend a value to the start of the dynamic array. Only for unsorted dynamic arrays
+  procedure, public :: reallocate => reallocate_iDynamicArray
+    !! iDynamicArray%reallocate() - Create new contiguous memory to match the needs of the expanding or shrinking array.
+  procedure, public :: remove => remove_iDynamicArray
+    !! iDynamicArray%remove() - Remove an element from the array.
+  procedure, public :: tighten => tighten_iDynamicArray
+    !! iDynamicArray%tighten() - Removes excess buffer memory and trims it to the current length.
 end type
 
-public :: insertAt__rDynamicArray
 
-
-interface rDynamicArray
-  procedure :: init_rDynamicArray_i1, init_rDynamicArray_d1D
+interface iDynamicArray
+  procedure :: init_iDynamicArray_i1, init_iDynamicArray_d1D
 end interface
 
 interface assignment(=)
-  procedure :: copy_rDynamicArray
+  procedure :: copy_iDynamicArray
 end interface
 
 contains
 
   !====================================================================!
-  subroutine append_rDynamicArray(this,val)
-    !! Overloaded type bound procedure rDynamicArray%append()
+  subroutine append_iDynamicArray(this,val)
+    !! Overloaded type bound procedure iDynamicArray%append()
   !====================================================================!
-  class(rDynamicArray) :: this
-  real(r32) :: val
+  class(iDynamicArray) :: this
+  integer(i32) :: val
     !! Value to append.
-  if (this%fixed .or. this%sorted) call eMsg('rDynamicArray%append: Cannot use append with fixed/sorted array.')
-  call insertAt__rDynamicArray(this, this%N + 1, val) ! Append at last location.
+  if (this%fixed) call eMsg('iDynamicArray%append: Cannot use append with fixed array.')
+  call this%insertAt(this%N + 1,val) ! Append at last location
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine copy_rDynamicArray(new,this)
+  subroutine copy_iDynamicArray(new,this)
     !! Overloaded assignment of equals.  new = this
   !====================================================================!
-  class(rDynamicArray), intent(in) :: this
+  class(iDynamicArray), intent(in) :: this
     !! Class to copy.
-  type(rDynamicArray), intent(out) :: new
+  type(iDynamicArray), intent(out) :: new
     !! Copy of this.
   call allocate(new%values, size(this%values))
   new%N = this%N
@@ -139,18 +137,18 @@ contains
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine deallocate_rDynamicArray(this)
-    !! Overloaded type bound procedure rDynamicArray%deallocate()
+  subroutine deallocate_iDynamicArray(this)
+    !! Overloaded type bound procedure iDynamicArray%deallocate()
   !====================================================================!
-  class(rDynamicArray) :: this
+  class(iDynamicArray) :: this
   call deallocate(this%values)
   this%N = 0
   this%sorted = .false.
   end subroutine
   !====================================================================!
   !====================================================================!
-  function init_rDynamicArray_i1(M, sorted, fixed) result(this)
-    !! Overloaded by interface rDynamicArray()
+  function init_iDynamicArray_i1(M, sorted, fixed) result(this)
+    !! Overloaded by interface iDynamicArray()
   !====================================================================!
   integer(i32), intent(in), optional :: M
     !! Amount of memory to allocate.
@@ -158,13 +156,13 @@ contains
     !! Maintain a sorted array.
   logical, intent(in), optional :: fixed
     !! Maintain a fixed size array.
-  type(rDynamicArray) :: this
+  type(iDynamicArray) :: this
     !! Return type.
 
   integer(i32) :: M_
   M_ = 1
   if (present(M)) then
-    if (M < 1) call eMsg('rDynamicArray: M must be > 0')
+    if (M < 1) call eMsg('iDynamicArray: M must be > 0')
     M_ = M
   endif
   call allocate(this%values, M_)
@@ -177,10 +175,10 @@ contains
   end function
   !====================================================================!
   !====================================================================!
-  function init_rDynamicArray_d1D(values, M, sorted, fixed) result(this)
-    !! Overloaded by interface rDynamicArray()
+  function init_iDynamicArray_d1D(values, M, sorted, fixed) result(this)
+    !! Overloaded by interface iDynamicArray()
   !====================================================================!
-  real(r32), intent(in) :: values(:)
+  integer(i32), intent(in) :: values(:)
       !! Set of values to initialize with.
   integer(i32), intent(in), optional :: M
     !! Amount of memory to allocate.
@@ -188,11 +186,11 @@ contains
     !! Maintain a sorted array.
   logical, intent(in), optional :: fixed
     !! Maintain a fixed size array.
-  type(rDynamicArray) :: this
+  type(iDynamicArray) :: this
     !! Return type
 
   if (present(M)) then
-    if (M < size(values)) call eMsg('rDynamicArray: M must be >= size(values)')
+    if (M < size(values)) call eMsg('iDynamicArray:M must be >= size(values)')
     call allocate(this%values, M)
   else
     call allocate(this%values, size(values))
@@ -213,36 +211,21 @@ contains
   end function
   !====================================================================!
   !====================================================================!
-  subroutine insertAt_rDynamicArray(this,i,val)
-    !! Overloaded type bound procedure rDynamicArray%insertAt()
-  !====================================================================!
-  class(rDynamicArray) :: this
-  integer(i32) :: i
-    !! Insert value at this location.
-  real(r32) :: val
-    !! Insert this value.
-  if (this%sorted) call eMsg('rDynamicArray%insertAt: Cannot use insertAt with sorted array')
-
-  call insertAt__rDynamicArray(this, i, val)
-
-  end subroutine
-  !====================================================================!
-  !====================================================================!
-  subroutine insertAt__rDynamicArray(this,i,val)
+  subroutine insertAt_iDynamicArray(this,i,val)
     !! Private insert into array without checking for sorted flag.
   !====================================================================!
-  class(rDynamicArray) :: this
+  class(iDynamicArray) :: this
   integer(i32) :: i
     !! Insert value at this location.
-  real(r32) :: val
+  integer(i32) :: val
     !! Insert this value.
   integer :: j, N
-  if (i < 1 .or. i > this%N + 1) call Emsg('rDynamicArray%insertAt: 1 <= i <= '//str(this%N + 1))
+  if (i < 1 .or. i > this%N + 1) call Emsg('iDynamicArray%insertAt: 1 <= i <= '//str(this%N + 1))
 
   N = size(this%values)
 
   if (this%fixed) then
-    if (i > N) call Emsg('rDynamicArray%insertAt: For fixed array, 1 <= i <= '//str(N))
+    if (i > N) call Emsg('iDynamicArray%insertAt: For fixed array, 1 <= i <= '//str(N))
 
     if (this%N < N) this%N = this%N + 1
 
@@ -262,96 +245,95 @@ contains
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine insertSorted_rDynamicArray(this,val)
-    !! Overloaded type bound procedure rDynamicArray%insertSorted()
+  subroutine insertSorted_iDynamicArray(this,val)
+    !! Overloaded type bound procedure iDynamicArray%insertSorted()
   !====================================================================!
-  class(rDynamicArray) :: this
-  real(r32) :: val
+  class(iDynamicArray) :: this
+  integer(i32) :: val
     !! Insert this value.
   integer(i32) :: iSearch(3) ! location and interval of new value
-  if (.not. this%sorted) call eMsg('rDynamicArray%insertSorted: Cannot use insertSorted with unsorted dynamic array')
+  if (.not. this%sorted) call eMsg('iDynamicArray%insertSorted: Cannot use insertSorted with unsorted dynamic array')
   iSearch=intervalSearch(this%values, val, 1, this%N)
-  call insertAt__rDynamicArray(this,iSearch(3),val)
+  call this%insertAt(iSearch(3), val)
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine insertSortedUnique_rDynamicArray(this,val)
-    !! Overloaded type bound procedure rDynamicArray%insertSortedUnique()
+  subroutine insertSortedUnique_iDynamicArray(this,val)
+    !! Overloaded type bound procedure iDynamicArray%insertSortedUnique()
   !====================================================================!
-  class(rDynamicArray) :: this
-  real(r32) :: val
+  class(iDynamicArray) :: this
+  integer(i32) :: val
     !! Insert this value.
   integer(i32) :: iSearch(3) ! location and interval of new value
-  if (.not. this%sorted) call eMsg('rDynamicArray%insertSortedUnique: Cannot use insertSortedUnique with unsorted dynamic array')
+  if (.not. this%sorted) call eMsg('iDynamicArray%insertSortedUnique: Cannot use insertSortedUnique with unsorted dynamic array')
   iSearch=intervalSearch(this%values, val, 1, this%N)
-  if (iSearch(1) == -1) then
-    call insertAt__rDynamicArray(this,iSearch(3),val)
-  endif
+  if (iSearch(1) == -1) call this%insertAt(iSearch(3), val)
   end subroutine
   !====================================================================!
   !====================================================================!
-  function isEmpty_rDynamicArray(this) result(yes)
-    !! Overloaded type bound procedure rDynamicArray%isEmpty()
+  function isEmpty_iDynamicArray(this) result(yes)
+    !! Overloaded type bound procedure iDynamicArray%isEmpty()
   !====================================================================!
-  class(rDynamicArray) :: this
+  class(iDynamicArray) :: this
   logical :: yes
     !! Array is empty
   yes = (this%N == 0)
   end function
   !====================================================================!
   !====================================================================!
-  function isFilled_rDynamicArray(this) result(yes)
-    !! Overloaded type bound procedure rDynamicArray%isFilled()
+  function isFilled_iDynamicArray(this) result(yes)
+    !! Overloaded type bound procedure iDynamicArray%isFilled()
   !====================================================================!
-  class(rDynamicArray) :: this
+  class(iDynamicArray) :: this
   logical :: yes
     !! Array is filled
   yes = (this%N == size(this%values))
   end function
   !====================================================================!
   !====================================================================!
-  function locationOf_rDynamicArray(this, val) result(i)
-    !! Overloaded type bound procedure rDynamicArray%locationOf().
+  function locationOf_iDynamicArray(this, val) result(i)
+    !! Overloaded type bound procedure iDynamicArray%locationOf().
   !====================================================================!
-  class(rDynamicArray) :: this
-  real(r32) :: val
+  class(iDynamicArray) :: this
+  integer(i32) :: val
     !! Get the location of this value
   integer(i32) :: i
     !! Location of value
-  if (.not. this%sorted) call eMsg('rDynamicArray%locationOf: Cannot use locationOf with unsorted dynamic array')
+  if (.not. this%sorted) call eMsg('iDynamicArray%locationOf: Cannot use locationOf with unsorted dynamic array')
   i = binarySearch(this%values, val, 1, this%N)
   end function
   !====================================================================!
   !====================================================================!
-  subroutine prepend_rDynamicArray(this,val)
-    !! Overloaded type bound procedure rDynamicArray%prepend()
+  subroutine prepend_iDynamicArray(this,val)
+    !! Overloaded type bound procedure iDynamicArray%prepend()
   !====================================================================!
-  class(rDynamicArray) :: this
-  real(r32) :: val
+  class(iDynamicArray) :: this
+  integer(i32) :: val
     !! Value to prepend.
-  if (this%fixed .or. this%sorted) call eMsg('rDynamicArray%prepend: Cannot use prepend with fixed/sorted array.')
-  call insertAt__rDynamicArray(this, 1, val)
+  if (this%fixed) call eMsg('iDynamicArray%prepend: Cannot use prepend with fixed array.')
+  call this%insertAt(1, val) ! Prepend at first location
   end subroutine
   !====================================================================!
   !====================================================================!
-  subroutine reallocate_rDynamicArray(this, M)
-    !! Overloaded type bound procedure rDynamicArray%reallocate().
+  subroutine reallocate_iDynamicArray(this, M)
+    !! Overloaded type bound procedure iDynamicArray%reallocate().
   !====================================================================!
-  class(rDynamicArray) :: this
+  class(iDynamicArray) :: this
   integer(i32) :: M
     !! Reallocate memory to this size.
   call reallocate(this%values, M)
   end subroutine
   !====================================================================!
+
   !====================================================================!
-  subroutine remove_rDynamicArray(this, i)
-    !! Overloaded type bound procedure rDynamicArray%remove().
+  subroutine remove_iDynamicArray(this, i)
+    !! Overloaded type bound procedure iDynamicArray%remove().
   !====================================================================!
-  class(rDynamicArray) :: this
+  class(iDynamicArray) :: this
   integer(i32) :: i
     !! Remove the value at this location.
   integer(i32) :: j
-  if (i < 1 .or. i > this%N) call Emsg('rDynamic%remove: 1 <= i <= '//str(this%N))
+  if (i < 1 .or. i > this%N) call Emsg('iDynamic%remove: 1 <= i <= '//str(this%N))
   do j = i, this%N - 1
     this%values(j) = this%values(j + 1)
   enddo
@@ -361,12 +343,13 @@ contains
   endif
   end subroutine
   !====================================================================!
+
   !====================================================================!
-  subroutine tighten_rDynamicArray(this)
-    !! Overloaded type bound procedure rDynamicArray%tighten().
+  subroutine tighten_iDynamicArray(this)
+    !! Overloaded type bound procedure iDynamicArray%tighten().
   !====================================================================!
-  class(rDynamicArray) :: this
-  if (this%fixed) call eMsg('rDynamicArray%tighten: Cannot use tighten with fixed array.')
+  class(iDynamicArray) :: this
+  if (this%fixed) call eMsg('iDynamicArray%tighten: Cannot use tighten with fixed array.')
   call this%reallocate(this%N)
   end subroutine
   !====================================================================!

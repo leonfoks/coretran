@@ -1,11 +1,11 @@
 target_sources(${PROJECT_NAME}
     PRIVATE
-        "${CMAKE_CURRENT_LIST_DIR}/m_rDynamicArray.f90"
-        "${CMAKE_CURRENT_LIST_DIR}/m_dDynamicArray.f90"
-        "${CMAKE_CURRENT_LIST_DIR}/m_iDynamicArray.f90"
-        "${CMAKE_CURRENT_LIST_DIR}/m_idDynamicArray.f90"
-        "${CMAKE_CURRENT_LIST_DIR}/m_rArgDynamicArray.f90"
-        "${CMAKE_CURRENT_LIST_DIR}/m_dArgDynamicArray.f90"
-        "${CMAKE_CURRENT_LIST_DIR}/m_iArgDynamicArray.f90"
-        "${CMAKE_CURRENT_LIST_DIR}/m_idArgDynamicArray.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/rDynamicArray_Class.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/dDynamicArray_Class.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/iDynamicArray_Class.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/idDynamicArray_Class.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/rArgDynamicArray_Class.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/dArgDynamicArray_Class.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/iArgDynamicArray_Class.f90"
+        "${CMAKE_CURRENT_LIST_DIR}/idArgDynamicArray_Class.f90"
 )
