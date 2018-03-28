@@ -1,5 +1,5 @@
 module rArgDynamicArray_Class
-  !! Class that act as stacks, queues, and priority queues like [[m_rDynamicArray]] but with an added
+  !! Class that act as stacks, queues, and priority queues like [[rDynamicArray_Class]] but with an added
   !! integer index so that 'lists' of both a key and value can be maintained.
   !! These classes use dynamically allocated contiguous blocks of memory to store a list of numbers.
   !! The queues can be sorted to become priority queues and use binary searches to quickly insert new numbers.
@@ -67,7 +67,7 @@ private
 public :: rArgDynamicArray
 
 type :: rArgDynamicArray
-  !! Class that act as stacks, queues, and priority queues. See [[m_rArgDynamicArray]] for more information on how to use this class.
+  !! Class that act as stacks, queues, and priority queues. See [[rArgDynamicArray_Class]] for more information on how to use this class.
   type(iDynamicArray) :: i
     !! Argument of the values.
   type(rDynamicArray) :: v

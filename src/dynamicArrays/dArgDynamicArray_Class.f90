@@ -1,5 +1,5 @@
 module dArgDynamicArray_Class
-  !! Class that act as stacks, queues, and priority queues like [[m_dDynamicArray]] but with an added
+  !! Class that act as stacks, queues, and priority queues like [[dDynamicArray_Class]] but with an added
   !! integer index so that 'lists' of both a key and value can be maintained.
   !! These classes use dynamically allocated contiguous blocks of memory to store a list of numbers.
   !! The queues can be sorted to become priority queues and use binary searches to quickly insert new numbers.
@@ -12,7 +12,7 @@ module dArgDynamicArray_Class
   !!```fortran
   !!program dynamicArray_test
   !!use variableKind, only: i32
-  !!use m_dArgDynamicArray, only: dArgDynamicArray
+  !!use dArgDynamicArray_Class, only: dArgDynamicArray
   !!
   !!implicit none
   !!
@@ -68,7 +68,7 @@ private
 public :: dArgDynamicArray
 
 type :: dArgDynamicArray
-  !! Class that act as stacks, queues, and priority queues. See [[m_dArgDynamicArray]] for more information on how to use this class.
+  !! Class that act as stacks, queues, and priority queues. See [[dArgDynamicArray_Class]] for more information on how to use this class.
   type(iDynamicArray) :: i
     !! Argument of the values.
   type(dDynamicArray) :: v

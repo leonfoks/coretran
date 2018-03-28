@@ -10,7 +10,7 @@ module dDynamicArray_Class
 !!```fortran
 !!program dynamicArray_test
 !!use variableKind, only: i32
-!!use m_dDynamicArray, only: dDynamicArray
+!!use dDynamicArray_Class, only: dDynamicArray
 !!
 !!implicit none
 !!
@@ -65,7 +65,7 @@ private
 public :: dDynamicArray
 
 type :: dDynamicArray
-  !! Class that act as stacks, queues, and priority queues. See [[m_dDynamicArray]] for more information on how to use this class.
+  !! Class that act as stacks, queues, and priority queues. See [[dDynamicArray_Class]] for more information on how to use this class.
   integer(i32) :: N
     !! Current size of the array
   real(r64), allocatable :: values(:)

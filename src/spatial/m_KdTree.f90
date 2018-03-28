@@ -34,12 +34,12 @@ module m_KdTree
   !!The searches are thread safe and can be used in a parallel region.
   !!
   !!After the KdTree is built, various queries can be carried out.  Searches that return multiple values
-  !!are called using the argDynamicArray within coretran. The [[m_dArgDynamicArray]] contains an integer index
+  !!are called using the argDynamicArray within coretran. The [[dArgDynamicArray_Class]] contains an integer index
   !!containing the indices into the co-ordinates that are closest, and a double precision that contains the
   !!distance from the query point to those points.
   !!
   !!```fortran
-  !!use m_dArgDynamicArray
+  !!use dArgDynamicArray_Class
   !!use m_KdTree
   !!type(KdTreeSearch) :: search
   !!integer(i32) :: i

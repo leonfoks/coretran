@@ -63,7 +63,7 @@ private
 public :: idDynamicArray
 
 type :: idDynamicArray
-  !! Class that act as stacks, queues, and priority queues. See [[m_idDynamicArray]] for more information on how to use this class.
+  !! Class that act as stacks, queues, and priority queues. See [[idDynamicArray_Class]] for more information on how to use this class.
   integer(i32) :: N
     !! Current size of the array
   integer(i64), allocatable :: values(:)

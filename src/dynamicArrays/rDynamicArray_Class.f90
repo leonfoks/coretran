@@ -8,7 +8,7 @@ module rDynamicArray_Class
 !!```fortran
 !!program dynamicArray_test
 !!use variableKind, only: i32
-!!use m_rDynamicArray, only: rDynamicArray
+!!use rDynamicArray_Class, only: rDynamicArray
 !!
 !!implicit none
 !!
@@ -63,7 +63,7 @@ private
 public :: rDynamicArray
 
 type :: rDynamicArray
-  !! Class that act as stacks, queues, and priority queues. See [[m_rDynamicArray]] for more information on how to use this class.
+  !! Class that act as stacks, queues, and priority queues. See [[rDynamicArray_Class]] for more information on how to use this class.
   integer(i32) :: N
     !! Current size of the array
   real(r32), allocatable :: values(:)
