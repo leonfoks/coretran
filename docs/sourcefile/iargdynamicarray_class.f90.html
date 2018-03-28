@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	 <meta name="description" content="Modern well documented core Fortran routines for cleaner, smarter code.">
+    
+    <meta name="author" content="Leon Foks" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>iArgDynamicArray_Class.f90 &ndash; Fortran Program</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">Fortran Program </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            <li><a href="../lists/programs.html">Programs</a></li>
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/programs.html">Programs</a></li>
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>iArgDynamicArray_Class.f90
+    <small>Source File</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 1.7% of total for source files.">145 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/iArgDynamicArray_Class.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li class="active">iArgDynamicArray_Class.f90</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-0">Modules</a></h3></div>
+  <div id="mods-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/iargdynamicarray_class.html">iArgDynamicArray_Class</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/iargdynamicarray_class.f90.html#src">iArgDynamicArray_Class.f90</a>
+  </div>
+</div>
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allfiles-0">All Source Files</a></h3></div>
+  <div id="allfiles-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../sourcefile/dargdynamicarray_class.f90.html">dArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/ddynamicarray_class.f90.html">dDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/iargdynamicarray_class.f90.html">iArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/idargdynamicarray_class.f90.html">idArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/iddynamicarray_class.f90.html">idDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/idynamicarray_class.f90.html">iDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_allocate.f90.html">m_allocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_array1d.f90.html">m_array1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_compare.f90.html">m_compare.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_copy.f90.html">m_copy.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_deallocate.f90.html">m_deallocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_debugging.f90.html">m_debugging.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_errors.f90.html">m_errors.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_fileio.f90.html">m_fileIO.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_format.f90.html">m_format.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_indexing.f90.html">m_indexing.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_kdtree.f90.html">m_KdTree.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_maths.f90.html">m_maths.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_medianof3.f90.html">m_medianOf3.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_parameters.f90.html">m_parameters.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_partition.f90.html">m_partition.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_partition3way.f90.html">m_partition3way.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_random.f90.html">m_random.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_read.f90.html">m_read.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_reallocate.f90.html">m_reallocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_searching.f90.html">m_searching.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_select.f90.html">m_select.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_sort.f90.html">m_sort.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_strings.f90.html">m_strings.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_swap.f90.html">m_swap.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_tests.f90.html">m_tests.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_time.f90.html">m_time.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_unittester.f90.html">m_unitTester.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_variablekind.f90.html">m_variableKind.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_write.f90.html">m_write.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/prng_class.f90.html">Prng_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/progressbar_class.f90.html">ProgressBar_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/rargdynamicarray_class.f90.html">rArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/rdynamicarray_class.f90.html">rDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/scale_coretran.f90.html">scale_coretran.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/stopwatch_class.f90.html">Stopwatch_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/test_coretran.f90.html">test_coretran.f90</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    <div class="col-md-9" id='text'>
+    
+    
+    <h3>This File Depends On</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: sourcefile~~iargdynamicarray_class.f90~~EfferentGraph Pages: 1 -->
+<svg id="sourcefileiargdynamicarray_classf90EfferentGraph" width="641pt" height="216pt"
+ viewBox="0.00 0.00 641.00 216.28" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph" class="graph" transform="scale(.667 .667) rotate(0) translate(4 320.2738)">
+<title>sourcefile~~iargdynamicarray_class.f90~~EfferentGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-320.2738 957.0559,-320.2738 957.0559,4 -4,4"/>
+<!-- sourcefile~iargdynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node1" class="node">
+<title>sourcefile~iargdynamicarray_class.f90</title>
+<polygon fill="none" stroke="#000000" points="953.1602,-189.3553 806.7434,-189.3553 806.7434,-167.3445 953.1602,-167.3445 953.1602,-189.3553"/>
+<text text-anchor="middle" x="879.9518" y="-175.1999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">iArgDynamicArray_Class.f90</text>
+</g>
+<!-- sourcefile~m_errors.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node2" class="node">
+<title>sourcefile~m_errors.f90</title>
+<g id="a_sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node2"><a xlink:href="../sourcefile/m_errors.f90.html" xlink:title="m_errors.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="222.0086,-189.3553 150.9678,-189.3553 150.9678,-167.3445 222.0086,-167.3445 222.0086,-189.3553"/>
+<text text-anchor="middle" x="186.4882" y="-175.1999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_errors.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge26" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M705.9133,-255.3499C760.8728,-243.735 819.594,-213.5859 852.8399,-194.6435"/>
+<polygon fill="#000000" stroke="#000000" points="854.6145,-197.6604 861.5171,-189.6227 851.1087,-191.6016 854.6145,-197.6604"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M560.1654,-217.3499C627.1076,-217.2351 640.4176,-269.1915 705.9133,-255.3499"/>
+</g>
+<!-- sourcefile~m_strings.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node3" class="node">
+<title>sourcefile~m_strings.f90</title>
+<g id="a_sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node3"><a xlink:href="../sourcefile/m_strings.f90.html" xlink:title="m_strings.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="354.6013,-267.3553 279.55,-267.3553 279.55,-245.3445 354.6013,-245.3445 354.6013,-267.3553"/>
+<text text-anchor="middle" x="317.0757" y="-253.1999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_strings.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_strings.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge3" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_strings.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M210.2188,-189.4469C218.2924,-193.5109 227.2521,-198.3471 235.0906,-203.3499 252.1769,-214.2551 254.1301,-220.25 271.0906,-231.3499 275.7477,-234.3978 280.8087,-237.4183 285.8137,-240.2501"/>
+<polygon fill="#000000" stroke="#000000" points="284.2128,-243.3639 294.663,-245.1086 287.5817,-237.2279 284.2128,-243.3639"/>
+</g>
+<!-- sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node4" class="node">
+<title>sourcefile~idynamicarray_class.f90</title>
+<g id="a_sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node4"><a xlink:href="../sourcefile/idynamicarray_class.f90.html" xlink:title="iDynamicArray_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="770.782,-189.3553 641.0446,-189.3553 641.0446,-167.3445 770.782,-167.3445 770.782,-189.3553"/>
+<text text-anchor="middle" x="705.9133" y="-175.1999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">iDynamicArray_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge21" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M560.1654,-217.3499C599.0609,-217.2832 641.8716,-204.1721 670.9689,-193.1718"/>
+<polygon fill="#000000" stroke="#000000" points="672.6143,-196.287 680.6601,-189.3938 670.0718,-189.765 672.6143,-196.287"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.2063,-217.3499C492.7943,-213.0581 506.4059,-217.4421 560.1654,-217.3499"/>
+</g>
+<!-- sourcefile~m_reallocate.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node9" class="node">
+<title>sourcefile~m_reallocate.f90</title>
+<g id="a_sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node9"><a xlink:href="../sourcefile/m_reallocate.f90.html" xlink:title="m_reallocate.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="604.7934,-189.3553 515.5374,-189.3553 515.5374,-167.3445 604.7934,-167.3445 604.7934,-189.3553"/>
+<text text-anchor="middle" x="560.1654" y="-175.1999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_reallocate.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_reallocate.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge7" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_reallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.2063,-217.3499C470.1353,-214.8728 503.5839,-203.349 527.4513,-193.4649"/>
+<polygon fill="#000000" stroke="#000000" points="528.9157,-196.6453 536.7391,-189.5008 526.1679,-190.2072 528.9157,-196.6453"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M317.0757,-217.3499C371.3078,-215.0638 385.0993,-221.6833 439.2063,-217.3499"/>
+</g>
+<!-- sourcefile~m_allocate.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node10" class="node">
+<title>sourcefile~m_allocate.f90</title>
+<g id="a_sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node10"><a xlink:href="../sourcefile/m_allocate.f90.html" xlink:title="m_allocate.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="479.4978,-132.3553 398.9148,-132.3553 398.9148,-110.3445 479.4978,-110.3445 479.4978,-132.3553"/>
+<text text-anchor="middle" x="439.2063" y="-118.1999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_allocate.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_allocate.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge12" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_allocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M317.0757,-217.3499C365.7356,-215.2987 406.518,-168.371 426.3231,-140.9004"/>
+<polygon fill="#000000" stroke="#000000" points="429.3821,-142.6319 432.2165,-132.4232 423.6345,-138.6361 429.3821,-142.6319"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M207.6408,-189.3847C233.0103,-201.4981 277.1242,-219.034 317.0757,-217.3499"/>
+</g>
+<!-- sourcefile~m_deallocate.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node11" class="node">
+<title>sourcefile~m_deallocate.f90</title>
+<g id="a_sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node11"><a xlink:href="../sourcefile/m_deallocate.f90.html" xlink:title="m_deallocate.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="363.0459,-73.3553 271.1055,-73.3553 271.1055,-51.3445 363.0459,-51.3445 363.0459,-73.3553"/>
+<text text-anchor="middle" x="317.0757" y="-59.1999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_deallocate.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_deallocate.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge15" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_deallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M199.0094,-167.2273C221.5721,-147.185 269.2459,-104.8368 296.6103,-80.5291"/>
+<polygon fill="#000000" stroke="#000000" points="299.2485,-82.8671 304.4004,-73.6092 294.5997,-77.6337 299.2485,-82.8671"/>
+</g>
+<!-- sourcefile~m_unittester.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node12" class="node">
+<title>sourcefile~m_unittester.f90</title>
+<g id="a_sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node12"><a xlink:href="../sourcefile/m_unittester.f90.html" xlink:title="m_unitTester.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="361.6235,-151.3553 272.5278,-151.3553 272.5278,-129.3445 361.6235,-129.3445 361.6235,-151.3553"/>
+<text text-anchor="middle" x="317.0757" y="-137.1999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_unitTester.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_unittester.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge10" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_unittester.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M222.1718,-167.9662C236.6674,-163.7481 253.6334,-158.8112 269.1798,-154.2872"/>
+<polygon fill="#000000" stroke="#000000" points="270.5271,-157.5405 279.1509,-151.3857 268.5712,-150.8192 270.5271,-157.5405"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge27" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M560.1654,-255.3499C624.1766,-245.4195 642.5363,-268.7437 705.9133,-255.3499"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge22" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M354.7484,-259.0922C402.696,-261.9194 487.9706,-264.7244 560.1654,-255.3499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M560.1654,-255.3499C608.6491,-247.8283 657.5622,-215.8461 684.5842,-195.5397"/>
+<polygon fill="#000000" stroke="#000000" points="686.7689,-198.2748 692.56,-189.4028 682.5002,-192.727 686.7689,-198.2748"/>
+</g>
+<!-- sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge28" class="edge">
+<title>sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M771.214,-178.3499C779.4427,-178.3499 787.9481,-178.3499 796.4097,-178.3499"/>
+<polygon fill="#000000" stroke="#000000" points="796.6876,-181.85 806.6876,-178.3499 796.6876,-174.85 796.6876,-181.85"/>
+</g>
+<!-- sourcefile~m_variablekind.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node5" class="node">
+<title>sourcefile~m_variablekind.f90</title>
+<g id="a_sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node5"><a xlink:href="../sourcefile/m_variablekind.f90.html" xlink:title="m_variableKind.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="101.8287,-228.3553 .0571,-228.3553 .0571,-206.3445 101.8287,-206.3445 101.8287,-228.3553"/>
+<text text-anchor="middle" x="50.9429" y="-214.1999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_variableKind.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge29" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M62.3823,-228.516C77.9472,-242.8458 107.3709,-266.9737 137.8857,-276.3499 379.3722,-350.551 458.7435,-307.5856 705.9133,-255.3499"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_errors.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge1" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_errors.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M89.4221,-206.2784C105.3668,-201.6907 123.99,-196.3323 140.6361,-191.5428"/>
+<polygon fill="#000000" stroke="#000000" points="142.0612,-194.7748 150.7035,-188.6461 140.1256,-188.0477 142.0612,-194.7748"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_strings.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge5" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_strings.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M102.0038,-220.7379C139.107,-223.656 190.4347,-228.6364 235.0906,-236.3499 246.2545,-238.2783 258.1546,-240.8665 269.3273,-243.54"/>
+<polygon fill="#000000" stroke="#000000" points="268.7951,-247.0133 279.3416,-246.0028 270.4668,-240.2159 268.7951,-247.0133"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge24" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.2063,-62.3499C492.7975,-66.6013 508.9452,-46.0225 560.1654,-62.3499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M317.0757,-23.3499C372.3593,-9.547 382.4041,-57.8438 439.2063,-62.3499"/>
+</g>
+<!-- sourcefile~m_searching.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node6" class="node">
+<title>sourcefile~m_searching.f90</title>
+<g id="a_sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node6"><a xlink:href="../sourcefile/m_searching.f90.html" xlink:title="m_searching.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="604.7934,-34.3553 515.5374,-34.3553 515.5374,-12.3445 604.7934,-12.3445 604.7934,-34.3553"/>
+<text text-anchor="middle" x="560.1654" y="-20.1999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_searching.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_searching.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge25" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_searching.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M317.0757,-23.3499C387.1266,-4.0219 407.2174,5.4435 479.3518,-3.3499 490.5561,-4.7157 502.4449,-7.1094 513.5579,-9.7768"/>
+<polygon fill="#000000" stroke="#000000" points="512.9518,-13.2333 523.5038,-12.2816 514.6614,-6.4453 512.9518,-13.2333"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M59.2676,-206.3291C78.4754,-181.9124 128.6997,-123.6624 186.4882,-101.3499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-101.3499C229.2527,-84.8382 230.8694,-64.3432 271.0906,-42.3499 290.493,-31.7405 295.6207,-28.7067 317.0757,-23.3499"/>
+</g>
+<!-- sourcefile~m_parameters.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node7" class="node">
+<title>sourcefile~m_parameters.f90</title>
+<g id="a_sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node7"><a xlink:href="../sourcefile/m_parameters.f90.html" xlink:title="m_parameters.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="235.1932,-267.3553 137.7831,-267.3553 137.7831,-245.3445 235.1932,-245.3445 235.1932,-267.3553"/>
+<text text-anchor="middle" x="186.4882" y="-253.1999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_parameters.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_parameters.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge2" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_parameters.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M89.4221,-228.4214C104.589,-232.7853 122.1795,-237.8466 138.1865,-242.4522"/>
+<polygon fill="#000000" stroke="#000000" points="137.3347,-245.8491 147.9127,-245.2507 139.2704,-239.122 137.3347,-245.8491"/>
+</g>
+<!-- sourcefile~m_sort.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node8" class="node">
+<title>sourcefile~m_sort.f90</title>
+<g id="a_sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_node8"><a xlink:href="../sourcefile/m_sort.f90.html" xlink:title="m_sort.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="469.8108,-34.3553 408.6018,-34.3553 408.6018,-12.3445 469.8108,-12.3445 469.8108,-34.3553"/>
+<text text-anchor="middle" x="439.2063" y="-20.1999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_sort.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_sort.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge6" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_sort.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M317.0757,-23.3499C343.4267,-16.0793 374.2109,-16.1317 398.2803,-17.9752"/>
+<polygon fill="#000000" stroke="#000000" points="398.2151,-21.4834 408.4885,-18.8934 398.8423,-14.5115 398.2151,-21.4834"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_reallocate.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge9" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_reallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-101.3499C229.3779,-85.166 227.8061,-145.2537 271.0906,-160.3499 348.9128,-187.4918 445.5852,-187.2565 505.0667,-183.5748"/>
+<polygon fill="#000000" stroke="#000000" points="505.6248,-187.0452 515.3664,-182.8796 505.1533,-180.0611 505.6248,-187.0452"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_allocate.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge13" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_allocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-101.3499C256.9289,-75.3231 345.7359,-92.8748 397.1351,-107.4763"/>
+<polygon fill="#000000" stroke="#000000" points="396.3186,-110.8843 406.8997,-110.3435 398.2908,-104.1678 396.3186,-110.8843"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_deallocate.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge16" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_deallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-101.3499C212.1396,-91.8721 241.2463,-83.003 265.46,-76.1248"/>
+<polygon fill="#000000" stroke="#000000" points="266.4864,-79.472 275.1678,-73.3988 264.594,-72.7327 266.4864,-79.472"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_unittester.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge11" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_unittester.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-101.3499C204.2385,-94.7914 250.7883,-111.6541 283.2191,-125.2305"/>
+<polygon fill="#000000" stroke="#000000" points="282.2115,-128.6057 292.783,-129.3087 284.9573,-122.1667 282.2115,-128.6057"/>
+</g>
+<!-- sourcefile~m_searching.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge30" class="edge">
+<title>sourcefile~m_searching.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M582.9073,-34.3729C638.8257,-61.4764 783.1626,-131.4363 847.8089,-162.7703"/>
+<polygon fill="#000000" stroke="#000000" points="846.5866,-166.0673 857.1119,-167.2795 849.6398,-159.7682 846.5866,-166.0673"/>
+</g>
+<!-- sourcefile~m_searching.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge18" class="edge">
+<title>sourcefile~m_searching.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M584.1429,-34.3835C591.2481,-38.252 598.7794,-42.9887 604.979,-48.3499 624.8816,-65.5613 624.8722,-74.5432 640.979,-95.3499 657.9548,-117.2791 677.5928,-142.3382 690.7889,-159.1327"/>
+<polygon fill="#000000" stroke="#000000" points="688.122,-161.4035 697.0542,-167.1015 693.6249,-157.077 688.122,-161.4035"/>
+</g>
+<!-- sourcefile~m_parameters.f90&#45;&gt;sourcefile~m_strings.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge4" class="edge">
+<title>sourcefile~m_parameters.f90&#45;&gt;sourcefile~m_strings.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M235.1141,-256.3499C246.3291,-256.3499 258.2471,-256.3499 269.4203,-256.3499"/>
+<polygon fill="#000000" stroke="#000000" points="269.4303,-259.85 279.4303,-256.3499 269.4303,-252.85 269.4303,-259.85"/>
+</g>
+<!-- sourcefile~m_sort.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge17" class="edge">
+<title>sourcefile~m_sort.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M560.1654,-62.3499C616.2911,-80.2411 666.3368,-131.4023 690.5384,-159.4287"/>
+<polygon fill="#000000" stroke="#000000" points="688.074,-161.9354 697.1977,-167.3214 693.4241,-157.4214 688.074,-161.9354"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M470.0122,-33.3446C494.4464,-41.257 529.4731,-52.5661 560.1654,-62.3499"/>
+</g>
+<!-- sourcefile~m_reallocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge19" class="edge">
+<title>sourcefile~m_reallocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M605.0838,-178.3499C613.1996,-178.3499 621.8607,-178.3499 630.5688,-178.3499"/>
+<polygon fill="#000000" stroke="#000000" points="630.7832,-181.85 640.7832,-178.3499 630.7831,-174.85 630.7832,-181.85"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge20" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M449.4549,-110.2218C469.7825,-89.5642 516.9788,-48.5833 560.1654,-62.3499"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_reallocate.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge8" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_reallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M462.8156,-132.4754C481.2149,-141.1458 506.9764,-153.2855 527.377,-162.8989"/>
+<polygon fill="#000000" stroke="#000000" points="526.0777,-166.1558 536.6157,-167.2525 529.0617,-159.8236 526.0777,-166.1558"/>
+</g>
+<!-- sourcefile~m_deallocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge23" class="edge">
+<title>sourcefile~m_deallocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M363.2495,-60.6302C386.1315,-60.2154 414.1592,-60.3629 439.2063,-62.3499"/>
+</g>
+<!-- sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_allocate.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~EfferentGraph_edge14" class="edge">
+<title>sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_allocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M361.8591,-133.3829C370.6635,-132.0132 379.9551,-130.5677 388.926,-129.1721"/>
+<polygon fill="#000000" stroke="#000000" points="389.532,-132.62 398.875,-127.6243 388.4558,-125.7032 389.532,-132.62"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var pansourcefileiargdynamicarray_classf90EfferentGraph = svgPanZoom('#sourcefileiargdynamicarray_classf90EfferentGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="186pt" height="31pt"
+ viewBox="0.00 0.00 186.41 30.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 26.5)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-26.5 182.4064,-26.5 182.4064,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="65.1576,-22.2554 -.0526,-22.2554 -.0526,-.2446 65.1576,-.2446 65.1576,-22.2554"/>
+<text text-anchor="middle" x="32.5525" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="178.2607,-22.2554 82.8443,-22.2554 82.8443,-.2446 178.2607,-.2446 178.2607,-22.2554"/>
+<text text-anchor="middle" x="130.5525" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which depends upon it. A file 
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+      
+      <h3>Files Dependent On This One</h3>
+      
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: sourcefile~~iargdynamicarray_class.f90~~AfferentGraph Pages: 1 -->
+<svg id="sourcefileiargdynamicarray_classf90AfferentGraph" width="383pt" height="31pt"
+ viewBox="0.00 0.00 383.28 30.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~iargdynamicarray_class.f90~~AfferentGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 26.5)">
+<title>sourcefile~~iargdynamicarray_class.f90~~AfferentGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-26.5 379.2783,-26.5 379.2783,4 -4,4"/>
+<!-- sourcefile~iargdynamicarray_class.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~AfferentGraph_node1" class="node">
+<title>sourcefile~iargdynamicarray_class.f90</title>
+<polygon fill="none" stroke="#000000" points="146.3125,-22.2554 -.1043,-22.2554 -.1043,-.2446 146.3125,-.2446 146.3125,-22.2554"/>
+<text text-anchor="middle" x="73.1041" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">iArgDynamicArray_Class.f90</text>
+</g>
+<!-- sourcefile~m_tests.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~AfferentGraph_node2" class="node">
+<title>sourcefile~m_tests.f90</title>
+<g id="a_sourcefile~~iargdynamicarray_class.f90~~AfferentGraph_node2"><a xlink:href="../sourcefile/m_tests.f90.html" xlink:title="m_tests.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="248.6197,-22.2554 182.0707,-22.2554 182.0707,-.2446 248.6197,-.2446 248.6197,-22.2554"/>
+<text text-anchor="middle" x="215.3452" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_tests.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~iargdynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~AfferentGraph_edge2" class="edge">
+<title>sourcefile~iargdynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M146.308,-11.25C155.1147,-11.25 163.8788,-11.25 172.0595,-11.25"/>
+<polygon fill="#000000" stroke="#000000" points="172.069,-14.7501 182.069,-11.25 172.0689,-7.7501 172.069,-14.7501"/>
+</g>
+<!-- sourcefile~test_coretran.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~AfferentGraph_node3" class="node">
+<title>sourcefile~test_coretran.f90</title>
+<g id="a_sourcefile~~iargdynamicarray_class.f90~~AfferentGraph_node3"><a xlink:href="../sourcefile/test_coretran.f90.html" xlink:title="test_coretran.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="375.1766,-22.2554 284.5839,-22.2554 284.5839,-.2446 375.1766,-.2446 375.1766,-22.2554"/>
+<text text-anchor="middle" x="329.8802" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">test_coretran.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_tests.f90&#45;&gt;sourcefile~test_coretran.f90 -->
+<g id="sourcefile~~iargdynamicarray_class.f90~~AfferentGraph_edge1" class="edge">
+<title>sourcefile~m_tests.f90&#45;&gt;sourcefile~test_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M248.7814,-11.25C256.7543,-11.25 265.4773,-11.25 274.1532,-11.25"/>
+<polygon fill="#000000" stroke="#000000" points="274.2685,-14.7501 284.2684,-11.25 274.2684,-7.7501 274.2685,-14.7501"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="186pt" height="31pt"
+ viewBox="0.00 0.00 186.41 30.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 26.5)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-26.5 182.4064,-26.5 182.4064,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="65.1576,-22.2554 -.0526,-22.2554 -.0526,-.2446 65.1576,-.2446 65.1576,-22.2554"/>
+<text text-anchor="middle" x="32.5525" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="178.2607,-22.2554 82.8443,-22.2554 82.8443,-.2446 178.2607,-.2446 178.2607,-22.2554"/>
+<text text-anchor="middle" x="130.5525" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which depends upon it. A file 
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+      
+      <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#mods-1">Modules</a></h3></div>
+  <div id="mods-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/iargdynamicarray_class.html">iArgDynamicArray_Class</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/iargdynamicarray_class.f90.html#src">iArgDynamicArray_Class.f90</a>
+  </div>
+</div>
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    <section>
+      <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl"><pre><span></span><a name="ln-1"></a><span class="k">module </span><span class="n">iArgDynamicArray_Class</span>
+<a name="ln-2"></a>  <span class="c">!! Class that act as stacks, queues, and priority queues like [[iDynamicArray_Class]] but with an added</span>
+<a name="ln-3"></a>  <span class="c">!! integer index so that &#39;lists&#39; of both a key and value can be maintained.</span>
+<a name="ln-4"></a>  <span class="c">!! These classes use dynamically allocated contiguous blocks of memory to store a list of numbers.</span>
+<a name="ln-5"></a>  <span class="c">!! The queues can be sorted to become priority queues and use binary searches to quickly insert new numbers.</span>
+<a name="ln-6"></a>  <span class="c">!! If the allocated memory is filled, the available space is doubled.</span>
+<a name="ln-7"></a>  <span class="c">!! Memory is only reallocated to a smaller size, if the utilization is a quarter of that allocated.</span>
+<a name="ln-8"></a>  <span class="c">!! The array can be specified as fixed, so that no reallocation occurs.  This is useful for heaps of given </span>
+<a name="ln-9"></a>  <span class="c">!! like k nearest neighbours, or k smallest.</span>
+<a name="ln-10"></a>  <span class="c">!!</span>
+<a name="ln-11"></a>  <span class="c">!! Example usage</span>
+<a name="ln-12"></a>  <span class="c">!!```fortran</span>
+<a name="ln-13"></a>  <span class="c">!!program dynamicArray_test</span>
+<a name="ln-14"></a>  <span class="c">!!use variableKind, only: i32</span>
+<a name="ln-15"></a>  <span class="c">!!use iArgDynamicArray_Class, only: iArgDynamicArray</span>
+<a name="ln-16"></a>  <span class="c">!!</span>
+<a name="ln-17"></a>  <span class="c">!!implicit none</span>
+<a name="ln-18"></a>  <span class="c">!!</span>
+<a name="ln-19"></a>  <span class="c">!!type(iArgDynamicArray) :: da, da2</span>
+<a name="ln-20"></a>  <span class="c">!!integer(i32) :: ia</span>
+<a name="ln-21"></a>  <span class="c">!!</span>
+<a name="ln-22"></a>  <span class="c">!!da = iArgDynamicArray(10)</span>
+<a name="ln-23"></a>  <span class="c">!!call da%insertAt(1, 10, 10)</span>
+<a name="ln-24"></a>  <span class="c">!!call da%insertAt(1, 20, 20)</span>
+<a name="ln-25"></a>  <span class="c">!!call da%prepend(30, 30)</span>
+<a name="ln-26"></a>  <span class="c">!!call da%append(40, 40)</span>
+<a name="ln-27"></a>  <span class="c">!!call da%remove(2)</span>
+<a name="ln-28"></a>  <span class="c">!!call da%tighten()</span>
+<a name="ln-29"></a>  <span class="c">!!da2 = da</span>
+<a name="ln-30"></a>  <span class="c">!!da2%v%values(2) = 50</span>
+<a name="ln-31"></a>  <span class="c">!!call da%deallocate()</span>
+<a name="ln-32"></a>  <span class="c">!!call da2%deallocate()</span>
+<a name="ln-33"></a>  <span class="c">!!</span>
+<a name="ln-34"></a>  <span class="c">!!da = iArgDynamicArray(3, sorted=.true.)</span>
+<a name="ln-35"></a>  <span class="c">!!call da%insertSorted(1, 20)</span>
+<a name="ln-36"></a>  <span class="c">!!call da%insertSorted(2, 30)</span>
+<a name="ln-37"></a>  <span class="c">!!call da%insertSorted(3, 10)</span>
+<a name="ln-38"></a>  <span class="c">!!ia = da%locationOf(20)</span>
+<a name="ln-39"></a>  <span class="c">!!ia = da%argOf(20)</span>
+<a name="ln-40"></a>  <span class="c">!!call da%insertSortedUnique(4, 10)</span>
+<a name="ln-41"></a>  <span class="c">!!call da%insertSortedUnique(4, 15)</span>
+<a name="ln-42"></a>  <span class="c">!!call da%deallocate()</span>
+<a name="ln-43"></a>  <span class="c">!!</span>
+<a name="ln-44"></a>  <span class="c">!!da = iArgDynamicArray(3, sorted=.true., fixed=.true.)</span>
+<a name="ln-45"></a>  <span class="c">!!call da%insertSorted(1, 20)</span>
+<a name="ln-46"></a>  <span class="c">!!call da%insertSorted(2, 30)</span>
+<a name="ln-47"></a>  <span class="c">!!call da%insertSorted(3, 10)</span>
+<a name="ln-48"></a>  <span class="c">!!ia = da%locationOf(20)</span>
+<a name="ln-49"></a>  <span class="c">!!ia = da%argOf(20)</span>
+<a name="ln-50"></a>  <span class="c">!!call da%insertSortedUnique(4, 10)</span>
+<a name="ln-51"></a>  <span class="c">!!call da%insertSortedUnique(4, 15)</span>
+<a name="ln-52"></a>  <span class="c">!!call da%deallocate()</span>
+<a name="ln-53"></a>  <span class="c">!!end program</span>
+<a name="ln-54"></a>  <span class="c">!!```</span>
+<a name="ln-55"></a>
+<a name="ln-56"></a><span class="k">use </span><span class="n">variableKind</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">i32</span>
+<a name="ln-57"></a><span class="k">use </span><span class="n">m_errors</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">msg</span><span class="p">,</span> <span class="n">eMsg</span>
+<a name="ln-58"></a><span class="k">use </span><span class="n">iDynamicArray_Class</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">iDynamicArray</span>
+<a name="ln-59"></a><span class="k">use </span><span class="n">m_searching</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">intervalSearch</span>
+<a name="ln-60"></a><span class="k">use </span><span class="n">m_strings</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">str</span>
+<a name="ln-61"></a>
+<a name="ln-62"></a><span class="k">implicit none</span>
+<a name="ln-63"></a>
+<a name="ln-64"></a><span class="k">private</span>
+<a name="ln-65"></a>
+<a name="ln-66"></a><span class="k">public</span> <span class="kd">::</span> <span class="n">iArgDynamicArray</span>
+<a name="ln-67"></a>
+<a name="ln-68"></a><span class="k">type</span> <span class="kd">::</span> <span class="n">iArgDynamicArray</span>
+<a name="ln-69"></a>  <span class="c">!! Class that act as stacks, queues, and priority queues. See [[iArgDynamicArray_Class]] for more information on how to use this class.</span>
+<a name="ln-70"></a>  <span class="k">type</span><span class="p">(</span><span class="n">iDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
+<a name="ln-71"></a>    <span class="c">!! Argument of the values.</span>
+<a name="ln-72"></a>  <span class="k">type</span><span class="p">(</span><span class="n">iDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">v</span>
+<a name="ln-73"></a>    <span class="c">!! Values.</span>
+<a name="ln-74"></a><span class="k">contains</span>
+<a name="ln-75"></a><span class="k">  procedure</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">append</span> <span class="o">=&gt;</span> <span class="n">append_iArgDynamicArray</span>
+<a name="ln-76"></a>    <span class="c">!! iArgDynamicArray%append() - Append a value to the end of the dynamic array.  Will change a sorted dynamic array to unsorted.</span>
+<a name="ln-77"></a>  <span class="k">procedure</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">argOf</span> <span class="o">=&gt;</span> <span class="n">argOf_iArgDynamicArray</span>
+<a name="ln-78"></a>    <span class="c">!! iArgDynamicArray%argOf() - Get the argument of a value in a sorted dynamic array</span>
+<a name="ln-79"></a>  <span class="k">procedure</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="k">deallocate</span> <span class="o">=&gt;</span> <span class="n">deallocate_iArgDynamicArray</span>
+<a name="ln-80"></a>    <span class="c">!! iArgDynamicArray%%deallocate() - Deallocate a dynamic array.</span>
+<a name="ln-81"></a>  <span class="k">procedure</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">insertAt</span> <span class="o">=&gt;</span> <span class="n">insertAt_iArgDynamicArray</span>
+<a name="ln-82"></a>    <span class="c">!! iArgDynamicArray%insertAt() - Insert a value at a given index.</span>
+<a name="ln-83"></a>  <span class="k">procedure</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">insertSorted</span> <span class="o">=&gt;</span> <span class="n">insertSorted_iArgDynamicArray</span>
+<a name="ln-84"></a>    <span class="c">!! iArgDynamicArray%insertSorted() - Insert a value into a sorted dynamic array.</span>
+<a name="ln-85"></a>  <span class="k">procedure</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">insertSortedUnique</span> <span class="o">=&gt;</span> <span class="n">insertSortedUnique_iArgDynamicArray</span>
+<a name="ln-86"></a>    <span class="c">!! iArgDynamicArray%insertSortedUnique() - Inserts only unique numbers into a dynamic array.</span>
+<a name="ln-87"></a>  <span class="k">procedure</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">isEmpty</span> <span class="o">=&gt;</span> <span class="n">isEmpty_iArgDynamicArray</span>
+<a name="ln-88"></a>    <span class="c">!! iArgDynamicArray%isEmpty() - True if the array is empty.</span>
+<a name="ln-89"></a>  <span class="k">procedure</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">isFilled</span> <span class="o">=&gt;</span> <span class="n">isFilled_iArgDynamicArray</span>
+<a name="ln-90"></a>    <span class="c">!! iArgDynamicArray%isFilled() - True if the allocated memory has been filled.</span>
+<a name="ln-91"></a>  <span class="k">procedure</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">locationOf</span> <span class="o">=&gt;</span> <span class="n">locationOf_iArgDynamicArray</span>
+<a name="ln-92"></a>    <span class="c">!! iArgDynamicArray%locationOf() - Get the location of a value in a sorted dynamic array.</span>
+<a name="ln-93"></a>  <span class="k">procedure</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">prepend</span> <span class="o">=&gt;</span> <span class="n">prepend_iArgDynamicArray</span>
+<a name="ln-94"></a>    <span class="c">!! iArgDynamicArray%prepend() - Prepend a value to the start of the dynamic array. Only for unsorted dynamic arrays</span>
+<a name="ln-95"></a>  <span class="k">procedure</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">remove</span> <span class="o">=&gt;</span> <span class="n">remove_iArgDynamicArray</span>
+<a name="ln-96"></a>    <span class="c">!! iArgDynamicArray%remove() - Remove an element from the array.</span>
+<a name="ln-97"></a>  <span class="k">procedure</span><span class="p">,</span> <span class="k">public</span> <span class="kd">::</span> <span class="n">tighten</span> <span class="o">=&gt;</span> <span class="n">tighten_iArgDynamicArray</span>
+<a name="ln-98"></a>    <span class="c">!! iArgDynamicArray%tighten() - Removes excess buffer memory and trims it to the current length.</span>
+<a name="ln-99"></a><span class="k">end type</span>
+<a name="ln-100"></a>
+<a name="ln-101"></a><span class="k">interface </span><span class="n">iArgDynamicArray</span>
+<a name="ln-102"></a>  <span class="k">procedure</span> <span class="kd">::</span> <span class="n">init_iArgDynamicArray_i1</span><span class="p">,</span> <span class="n">init_iArgDynamicArray_i1D</span>
+<a name="ln-103"></a><span class="k">end interface</span>
+<a name="ln-104"></a>
+<a name="ln-105"></a><span class="k">interface </span><span class="n">assignment</span><span class="p">(</span><span class="o">=</span><span class="p">)</span>
+<a name="ln-106"></a>  <span class="k">procedure</span> <span class="kd">::</span> <span class="n">copy_iArgDynamicArray</span>
+<a name="ln-107"></a><span class="k">end interface</span>
+<a name="ln-108"></a>
+<a name="ln-109"></a><span class="k">contains</span>
+<a name="ln-110"></a>
+<a name="ln-111"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-112"></a>  <span class="k">subroutine </span><span class="n">append_iArgDynamicArray</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+<a name="ln-113"></a>    <span class="c">!! Overloaded type bound procedure iArgDynamicArray%append().</span>
+<a name="ln-114"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-115"></a>  <span class="k">class</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-116"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
+<a name="ln-117"></a>    <span class="c">!! Index of value</span>
+<a name="ln-118"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">val</span>
+<a name="ln-119"></a>    <span class="c">!! Value to append</span>
+<a name="ln-120"></a>  <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">i</span><span class="p">%</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-121"></a>  <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">append</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<a name="ln-122"></a>  <span class="k">end subroutine</span>
+<a name="ln-123"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-124"></a>
+<a name="ln-125"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-126"></a>  <span class="k">function </span><span class="n">argOf_iArgDynamicArray</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-127"></a>    <span class="c">!! Overloaded type bound procedure iArgDynamicArray%locationOf().</span>
+<a name="ln-128"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-129"></a>  <span class="k">class</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-130"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">val</span>
+<a name="ln-131"></a>    <span class="c">!! Value to get the argument of.</span>
+<a name="ln-132"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
+<a name="ln-133"></a>    <span class="c">!! Argument of the value.</span>
+<a name="ln-134"></a>
+<a name="ln-135"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iSearch</span>
+<a name="ln-136"></a>
+<a name="ln-137"></a>  <span class="n">iSearch</span> <span class="o">=</span> <span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">locationOf</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<a name="ln-138"></a>  <span class="n">i</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<a name="ln-139"></a>  <span class="k">if</span> <span class="p">(</span><span class="n">iSearch</span> <span class="o">/=</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="n">i</span> <span class="o">=</span> <span class="n">this</span><span class="p">%</span><span class="n">i</span><span class="p">%</span><span class="n">values</span><span class="p">(</span><span class="n">iSearch</span><span class="p">)</span>
+<a name="ln-140"></a>
+<a name="ln-141"></a>  <span class="k">end function</span>
+<a name="ln-142"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-143"></a>
+<a name="ln-144"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-145"></a>  <span class="k">subroutine </span><span class="n">copy_iArgDynamicArray</span><span class="p">(</span><span class="n">new</span><span class="p">,</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-146"></a>    <span class="c">!! Overloaded assignment of equals.  new = this</span>
+<a name="ln-147"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-148"></a>  <span class="k">class</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-149"></a>    <span class="c">!! Class to copy.</span>
+<a name="ln-150"></a>  <span class="k">type</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">out</span><span class="p">)</span> <span class="kd">::</span> <span class="n">new</span>
+<a name="ln-151"></a>    <span class="c">!! Copy of this.</span>
+<a name="ln-152"></a>  <span class="n">new</span><span class="p">%</span><span class="n">i</span> <span class="o">=</span> <span class="n">this</span><span class="p">%</span><span class="n">i</span>
+<a name="ln-153"></a>  <span class="n">new</span><span class="p">%</span><span class="n">v</span> <span class="o">=</span> <span class="n">this</span><span class="p">%</span><span class="n">v</span>
+<a name="ln-154"></a>  <span class="k">end subroutine</span>
+<a name="ln-155"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-156"></a>
+<a name="ln-157"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-158"></a>  <span class="k">subroutine </span><span class="n">deallocate_iArgDynamicArray</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-159"></a>    <span class="c">!! Overloaded type bound procedure iArgDynamicArray%deallocate().</span>
+<a name="ln-160"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-161"></a>  <span class="k">class</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-162"></a>  <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">i</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
+<a name="ln-163"></a>  <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
+<a name="ln-164"></a>  <span class="k">end subroutine</span>
+<a name="ln-165"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-166"></a>
+<a name="ln-167"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-168"></a>  <span class="k">function </span><span class="n">init_iArgDynamicArray_i1</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">sorted</span><span class="p">,</span> <span class="n">fixed</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-169"></a>    <span class="c">!! Overloaded by interface [[iArgDynamicArray(type)]]</span>
+<a name="ln-170"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-171"></a>    <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">M</span>
+<a name="ln-172"></a>    <span class="kt">logical</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">sorted</span>
+<a name="ln-173"></a>    <span class="kt">logical</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">fixed</span>
+<a name="ln-174"></a>    <span class="k">type</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-175"></a>    <span class="n">this</span><span class="p">%</span><span class="n">i</span> <span class="o">=</span> <span class="n">iDynamicArray</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="p">.</span><span class="n">false</span><span class="p">.,</span> <span class="n">fixed</span><span class="p">)</span>
+<a name="ln-176"></a>    <span class="n">this</span><span class="p">%</span><span class="n">v</span> <span class="o">=</span> <span class="n">iDynamicArray</span><span class="p">(</span><span class="n">M</span><span class="p">,</span> <span class="n">sorted</span><span class="p">,</span>  <span class="n">fixed</span><span class="p">)</span>
+<a name="ln-177"></a>  <span class="k">end function</span>
+<a name="ln-178"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-179"></a>
+<a name="ln-180"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-181"></a>  <span class="k">function </span><span class="n">init_iArgDynamicArray_i1D</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">values</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">sorted</span><span class="p">,</span> <span class="n">fixed</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-182"></a>    <span class="c">!! Overloaded by interface [[iArgDynamicArray(type)]]</span>
+<a name="ln-183"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-184"></a>    <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">(:)</span>
+<a name="ln-185"></a>    <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">)</span> <span class="kd">::</span> <span class="n">values</span><span class="p">(:)</span>
+<a name="ln-186"></a>    <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">M</span>
+<a name="ln-187"></a>    <span class="kt">logical</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">sorted</span>
+<a name="ln-188"></a>    <span class="kt">logical</span><span class="p">,</span> <span class="k">intent</span><span class="p">(</span><span class="n">in</span><span class="p">),</span> <span class="k">optional</span> <span class="kd">::</span> <span class="n">fixed</span>
+<a name="ln-189"></a>    <span class="k">type</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-190"></a>
+<a name="ln-191"></a>    <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ii</span><span class="p">,</span> <span class="n">iv</span>
+<a name="ln-192"></a>
+<a name="ln-193"></a>    <span class="n">ii</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-194"></a>    <span class="n">iv</span> <span class="o">=</span> <span class="n">size</span><span class="p">(</span><span class="n">values</span><span class="p">)</span>
+<a name="ln-195"></a>
+<a name="ln-196"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">ii</span> <span class="o">/=</span> <span class="n">iv</span><span class="p">)</span> <span class="k">call </span><span class="n">eMsg</span><span class="p">(</span><span class="s2">&quot;iArgDynamicArray: Size of i &quot;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">ii</span><span class="p">)</span><span class="o">//</span><span class="s2">&quot;must equal size of values &quot;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">iv</span><span class="p">))</span>
+<a name="ln-197"></a>
+<a name="ln-198"></a>    <span class="n">this</span><span class="p">%</span><span class="n">i</span> <span class="o">=</span> <span class="n">iDynamicArray</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="p">.</span><span class="n">false</span><span class="p">.,</span> <span class="n">fixed</span><span class="p">)</span>
+<a name="ln-199"></a>    <span class="n">this</span><span class="p">%</span><span class="n">v</span> <span class="o">=</span> <span class="n">iDynamicArray</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">M</span><span class="p">,</span> <span class="n">sorted</span><span class="p">,</span> <span class="n">fixed</span><span class="p">)</span>
+<a name="ln-200"></a>  <span class="k">end function</span>
+<a name="ln-201"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-202"></a>
+<a name="ln-203"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-204"></a>  <span class="k">subroutine </span><span class="n">insertAt_iArgDynamicArray</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="nb">loc</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+<a name="ln-205"></a>    <span class="c">!! Overloaded type bound procedure iArgDynamicArray%insertAt().</span>
+<a name="ln-206"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-207"></a>  <span class="k">class</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-208"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="nb">loc</span>
+<a name="ln-209"></a>    <span class="c">!! Insert index and value at this location.</span>
+<a name="ln-210"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
+<a name="ln-211"></a>    <span class="c">!! index.</span>
+<a name="ln-212"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">val</span>
+<a name="ln-213"></a>    <span class="c">!! Value.</span>
+<a name="ln-214"></a>  <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">i</span><span class="p">%</span><span class="n">insertAt</span><span class="p">(</span><span class="nb">loc</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<a name="ln-215"></a>  <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">insertAt</span><span class="p">(</span><span class="nb">loc</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+<a name="ln-216"></a>  <span class="k">end subroutine</span>
+<a name="ln-217"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-218"></a>
+<a name="ln-219"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-220"></a>  <span class="k">subroutine </span><span class="n">insertSorted_iArgDynamicArray</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+<a name="ln-221"></a>    <span class="c">!! Overloaded type bound procedure iArgDynamicArray%insertSorted().</span>
+<a name="ln-222"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-223"></a>  <span class="k">class</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-224"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
+<a name="ln-225"></a>    <span class="c">!! Index.</span>
+<a name="ln-226"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">val</span>
+<a name="ln-227"></a>    <span class="c">!! Value.</span>
+<a name="ln-228"></a>
+<a name="ln-229"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iSearch</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a name="ln-230"></a>
+<a name="ln-231"></a>  <span class="n">iSearch</span> <span class="o">=</span> <span class="n">intervalSearch</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">values</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">N</span><span class="p">)</span>
+<a name="ln-232"></a>  <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">i</span><span class="p">%</span><span class="n">insertAt</span><span class="p">(</span><span class="n">iSearch</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">i</span><span class="p">)</span>
+<a name="ln-233"></a>  <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">insertAt</span><span class="p">(</span><span class="n">iSearch</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">val</span><span class="p">)</span>
+<a name="ln-234"></a>  <span class="k">end subroutine</span>
+<a name="ln-235"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-236"></a>
+<a name="ln-237"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-238"></a>  <span class="k">subroutine </span><span class="n">insertSortedUnique_iArgDynamicArray</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+<a name="ln-239"></a>    <span class="c">!! Overloaded type bound procedure iArgDynamicArray%insertSortedUnique().</span>
+<a name="ln-240"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-241"></a>  <span class="k">class</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-242"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
+<a name="ln-243"></a>    <span class="c">!! Index.</span>
+<a name="ln-244"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">val</span>
+<a name="ln-245"></a>    <span class="c">!! Value.</span>
+<a name="ln-246"></a>
+<a name="ln-247"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iSearch</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<a name="ln-248"></a>
+<a name="ln-249"></a>  <span class="n">iSearch</span> <span class="o">=</span> <span class="n">intervalSearch</span><span class="p">(</span><span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">values</span><span class="p">,</span> <span class="n">val</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">N</span><span class="p">)</span>
+<a name="ln-250"></a>  <span class="k">if</span> <span class="p">(</span><span class="n">iSearch</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-251"></a><span class="k">    call </span><span class="n">this</span><span class="p">%</span><span class="n">i</span><span class="p">%</span><span class="n">insertAt</span><span class="p">(</span><span class="n">iSearch</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">i</span><span class="p">)</span>
+<a name="ln-252"></a>    <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">insertAt</span><span class="p">(</span><span class="n">iSearch</span><span class="p">(</span><span class="mi">3</span><span class="p">),</span> <span class="n">val</span><span class="p">)</span>
+<a name="ln-253"></a>  <span class="n">endif</span>
+<a name="ln-254"></a>
+<a name="ln-255"></a>  <span class="k">end subroutine</span>
+<a name="ln-256"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-257"></a>
+<a name="ln-258"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-259"></a>  <span class="k">function </span><span class="n">isEmpty_iArgDynamicArray</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">yes</span><span class="p">)</span>
+<a name="ln-260"></a>    <span class="c">!! Overloaded type bound procedure iArgDynamicArray%isEmpty()</span>
+<a name="ln-261"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-262"></a>  <span class="k">class</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-263"></a>  <span class="kt">logical</span> <span class="kd">::</span> <span class="n">yes</span>
+<a name="ln-264"></a>    <span class="c">!! Array is empty</span>
+<a name="ln-265"></a>  <span class="n">yes</span> <span class="o">=</span> <span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">isEmpty</span><span class="p">()</span>
+<a name="ln-266"></a>  <span class="k">end function</span>
+<a name="ln-267"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-268"></a>
+<a name="ln-269"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-270"></a>  <span class="k">function </span><span class="n">isFilled_iArgDynamicArray</span><span class="p">(</span><span class="n">this</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">yes</span><span class="p">)</span>
+<a name="ln-271"></a>    <span class="c">!! Overloaded type bound procedure iArgDynamicArray%isFilled()</span>
+<a name="ln-272"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-273"></a>  <span class="k">class</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-274"></a>  <span class="kt">logical</span> <span class="kd">::</span> <span class="n">yes</span>
+<a name="ln-275"></a>    <span class="c">!! Array is filled</span>
+<a name="ln-276"></a>  <span class="n">yes</span> <span class="o">=</span> <span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">isFilled</span><span class="p">()</span>
+<a name="ln-277"></a>  <span class="k">end function</span>
+<a name="ln-278"></a>  <span class="c">!====================================================================!  </span>
+<a name="ln-279"></a>
+<a name="ln-280"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-281"></a>  <span class="k">function </span><span class="n">locationOf_iArgDynamicArray</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span> <span class="k">result</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-282"></a>    <span class="c">!! Overloaded type bound procedure iArgDynamicArray%locationOf().</span>
+<a name="ln-283"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-284"></a>  <span class="k">class</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-285"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">val</span>
+<a name="ln-286"></a>    <span class="c">!! Value to get the argument of.</span>
+<a name="ln-287"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
+<a name="ln-288"></a>    <span class="c">!! Index of the value.</span>
+<a name="ln-289"></a>  <span class="n">i</span> <span class="o">=</span> <span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">locationOf</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<a name="ln-290"></a>  <span class="k">end function</span>
+<a name="ln-291"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-292"></a>
+<a name="ln-293"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-294"></a>  <span class="k">subroutine </span><span class="n">prepend_iArgDynamicArray</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">val</span><span class="p">)</span>
+<a name="ln-295"></a>    <span class="c">!! Overloaded type bound procedure iArgDynamicArray%prepend().</span>
+<a name="ln-296"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-297"></a>  <span class="k">class</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-298"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
+<a name="ln-299"></a>    <span class="c">!! Prepend indices with this index.</span>
+<a name="ln-300"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">val</span>
+<a name="ln-301"></a>    <span class="c">!! Prepend values with this value.</span>
+<a name="ln-302"></a>
+<a name="ln-303"></a>  <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">i</span><span class="p">%</span><span class="n">prepend</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-304"></a>  <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">prepend</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+<a name="ln-305"></a>
+<a name="ln-306"></a>  <span class="k">end subroutine</span>
+<a name="ln-307"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-308"></a>
+<a name="ln-309"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-310"></a>  <span class="k">subroutine </span><span class="n">remove_iArgDynamicArray</span><span class="p">(</span><span class="n">this</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+<a name="ln-311"></a>    <span class="c">!! Overloaded type bound procedure iArgDynamicArray%remove().</span>
+<a name="ln-312"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-313"></a>  <span class="k">class</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-314"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
+<a name="ln-315"></a>    <span class="c">!! Remove the elements at this location.</span>
+<a name="ln-316"></a>  <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">i</span><span class="p">%</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-317"></a>  <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">remove</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<a name="ln-318"></a>  <span class="k">end subroutine</span>
+<a name="ln-319"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-320"></a>
+<a name="ln-321"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-322"></a>  <span class="k">subroutine </span><span class="n">tighten_iArgDynamicArray</span><span class="p">(</span><span class="n">this</span><span class="p">)</span>
+<a name="ln-323"></a>    <span class="c">!! Overloaded type bound procedure iArgDynamicArray%tighten().</span>
+<a name="ln-324"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-325"></a>  <span class="k">class</span><span class="p">(</span><span class="n">iArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">this</span>
+<a name="ln-326"></a>
+<a name="ln-327"></a>  <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">i</span><span class="p">%</span><span class="n">tighten</span><span class="p">()</span>
+<a name="ln-328"></a>  <span class="k">call </span><span class="n">this</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">tighten</span><span class="p">()</span>
+<a name="ln-329"></a>  <span class="k">end subroutine</span>
+<a name="ln-330"></a>  <span class="c">!====================================================================!</span>
+<a name="ln-331"></a><span class="k">end module</span>
+</pre></div>
+
+    </section>
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allfiles-1">All Source Files</a></h3></div>
+  <div id="allfiles-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../sourcefile/dargdynamicarray_class.f90.html">dArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/ddynamicarray_class.f90.html">dDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/iargdynamicarray_class.f90.html">iArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/idargdynamicarray_class.f90.html">idArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/iddynamicarray_class.f90.html">idDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/idynamicarray_class.f90.html">iDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_allocate.f90.html">m_allocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_array1d.f90.html">m_array1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_compare.f90.html">m_compare.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_copy.f90.html">m_copy.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_deallocate.f90.html">m_deallocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_debugging.f90.html">m_debugging.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_errors.f90.html">m_errors.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_fileio.f90.html">m_fileIO.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_format.f90.html">m_format.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_indexing.f90.html">m_indexing.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_kdtree.f90.html">m_KdTree.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_maths.f90.html">m_maths.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_medianof3.f90.html">m_medianOf3.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_parameters.f90.html">m_parameters.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_partition.f90.html">m_partition.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_partition3way.f90.html">m_partition3way.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_random.f90.html">m_random.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_read.f90.html">m_read.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_reallocate.f90.html">m_reallocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_searching.f90.html">m_searching.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_select.f90.html">m_select.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_sort.f90.html">m_sort.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_strings.f90.html">m_strings.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_swap.f90.html">m_swap.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_tests.f90.html">m_tests.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_time.f90.html">m_time.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_unittester.f90.html">m_unitTester.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_variablekind.f90.html">m_variableKind.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_write.f90.html">m_write.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/prng_class.f90.html">Prng_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/progressbar_class.f90.html">ProgressBar_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/rargdynamicarray_class.f90.html">rArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/rdynamicarray_class.f90.html">rDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/scale_coretran.f90.html">scale_coretran.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/stopwatch_class.f90.html">Stopwatch_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/test_coretran.f90.html">test_coretran.f90</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> Fortran Program was developed by Leon Foks</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

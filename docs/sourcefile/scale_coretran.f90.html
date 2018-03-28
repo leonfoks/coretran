@@ -1,0 +1,1885 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	 <meta name="description" content="Modern well documented core Fortran routines for cleaner, smarter code.">
+    
+    <meta name="author" content="Leon Foks" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>scale_coretran.f90 &ndash; Fortran Program</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">Fortran Program </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            <li><a href="../lists/programs.html">Programs</a></li>
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/programs.html">Programs</a></li>
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>scale_coretran.f90
+    <small>Source File</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 2.8% of total for source files.">238 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/scale_coretran.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li class="active">scale_coretran.f90</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#progs-0">Programs</a></h3></div>
+  <div id="progs-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../program/scaletest_coretran.html">scaleTest_coretran</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/scale_coretran.f90.html#src">scale_coretran.f90</a>
+  </div>
+</div>
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allfiles-0">All Source Files</a></h3></div>
+  <div id="allfiles-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../sourcefile/dargdynamicarray_class.f90.html">dArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/ddynamicarray_class.f90.html">dDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/iargdynamicarray_class.f90.html">iArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/idargdynamicarray_class.f90.html">idArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/iddynamicarray_class.f90.html">idDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/idynamicarray_class.f90.html">iDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_allocate.f90.html">m_allocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_array1d.f90.html">m_array1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_compare.f90.html">m_compare.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_copy.f90.html">m_copy.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_deallocate.f90.html">m_deallocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_debugging.f90.html">m_debugging.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_errors.f90.html">m_errors.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_fileio.f90.html">m_fileIO.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_format.f90.html">m_format.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_indexing.f90.html">m_indexing.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_kdtree.f90.html">m_KdTree.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_maths.f90.html">m_maths.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_medianof3.f90.html">m_medianOf3.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_parameters.f90.html">m_parameters.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_partition.f90.html">m_partition.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_partition3way.f90.html">m_partition3way.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_random.f90.html">m_random.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_read.f90.html">m_read.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_reallocate.f90.html">m_reallocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_searching.f90.html">m_searching.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_select.f90.html">m_select.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_sort.f90.html">m_sort.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_strings.f90.html">m_strings.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_swap.f90.html">m_swap.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_tests.f90.html">m_tests.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_time.f90.html">m_time.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_unittester.f90.html">m_unitTester.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_variablekind.f90.html">m_variableKind.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_write.f90.html">m_write.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/prng_class.f90.html">Prng_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/progressbar_class.f90.html">ProgressBar_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/rargdynamicarray_class.f90.html">rArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/rdynamicarray_class.f90.html">rDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/scale_coretran.f90.html">scale_coretran.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/stopwatch_class.f90.html">Stopwatch_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/test_coretran.f90.html">test_coretran.f90</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    <div class="col-md-9" id='text'>
+    
+    
+    <h3>This File Depends On</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: sourcefile~~scale_coretran.f90~~EfferentGraph Pages: 1 -->
+<svg id="sourcefilescale_coretranf90EfferentGraph" width="641pt" height="599pt"
+ viewBox="0.00 0.00 641.00 599.39" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph" class="graph" transform="scale(.4761 .4761) rotate(0) translate(4 1254.9164)">
+<title>sourcefile~~scale_coretran.f90~~EfferentGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-1254.9164 1342.3047,-1254.9164 1342.3047,4 -4,4"/>
+<!-- sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node1" class="node">
+<title>sourcefile~scale_coretran.f90</title>
+<polygon fill="none" stroke="#000000" points="1338.4975,-728.5579 1239.7279,-728.5579 1239.7279,-706.547 1338.4975,-706.547 1338.4975,-728.5579"/>
+<text text-anchor="middle" x="1289.1127" y="-714.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">scale_coretran.f90</text>
+</g>
+<!-- sourcefile~stopwatch_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node2" class="node">
+<title>sourcefile~stopwatch_class.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node2"><a xlink:href="../sourcefile/stopwatch_class.f90.html" xlink:title="Stopwatch_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="625.8086,-55.5579 515.5325,-55.5579 515.5325,-33.547 625.8086,-33.547 625.8086,-55.5579"/>
+<text text-anchor="middle" x="570.6705" y="-41.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Stopwatch_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~stopwatch_class.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge102" class="edge">
+<title>sourcefile~stopwatch_class.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M613.8696,-33.5262C647.4189,-27.4451 693.9244,-24.6457 728.677,-44.5525"/>
+</g>
+<!-- sourcefile~progressbar_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node19" class="node">
+<title>sourcefile~progressbar_class.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node19"><a xlink:href="../sourcefile/progressbar_class.f90.html" xlink:title="ProgressBar_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="788.6404,-248.5579 668.7136,-248.5579 668.7136,-226.547 788.6404,-226.547 788.6404,-248.5579"/>
+<text text-anchor="middle" x="728.677" y="-234.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">ProgressBar_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~stopwatch_class.f90&#45;&gt;sourcefile~progressbar_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge64" class="edge">
+<title>sourcefile~stopwatch_class.f90&#45;&gt;sourcefile~progressbar_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M603.6197,-55.5733C611.5071,-59.212 619.5109,-63.8326 625.9893,-69.5525 673.8276,-111.7905 706.5035,-181.7674 720.6908,-216.5638"/>
+<polygon fill="#000000" stroke="#000000" points="717.5575,-218.1573 724.4965,-226.1636 724.0648,-215.5776 717.5575,-218.1573"/>
+</g>
+<!-- sourcefile~m_sort.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node3" class="node">
+<title>sourcefile~m_sort.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node3"><a xlink:href="../sourcefile/m_sort.f90.html" xlink:title="m_sort.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="601.2751,-1095.5579 540.066,-1095.5579 540.066,-1073.547 601.2751,-1073.547 601.2751,-1095.5579"/>
+<text text-anchor="middle" x="570.6705" y="-1081.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_sort.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_sort.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge103" class="edge">
+<title>sourcefile~m_sort.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M906.2223,-1235.5525C1021.7556,-1247.7778 1079.3026,-1276.163 1164.8467,-1197.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M600.9653,-1095.6233C609.1337,-1098.7249 617.9372,-1102.1748 625.9893,-1105.5525 702.4142,-1137.6115 726.3499,-1137.6668 795.3647,-1183.5525 813.4395,-1195.5698 812.2676,-1206.237 831.3647,-1216.5525 861.5654,-1232.8657 872.2463,-1230.6703 906.2223,-1235.5525"/>
+</g>
+<!-- sourcefile~m_maths.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node11" class="node">
+<title>sourcefile~m_maths.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node11"><a xlink:href="../sourcefile/m_maths.f90.html" xlink:title="m_maths.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1089.6198,-748.5579 1017.2328,-748.5579 1017.2328,-726.547 1089.6198,-726.547 1089.6198,-748.5579"/>
+<text text-anchor="middle" x="1053.4263" y="-734.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_maths.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_sort.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge29" class="edge">
+<title>sourcefile~m_sort.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M601.4076,-1075.6408C619.0649,-1070.6463 641.6978,-1064.4553 661.9893,-1059.5525 691.4272,-1052.4397 699.4382,-1053.4442 728.677,-1045.5525"/>
+</g>
+<!-- sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node28" class="node">
+<title>sourcefile~idynamicarray_class.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node28"><a xlink:href="../sourcefile/idynamicarray_class.f90.html" xlink:title="iDynamicArray_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="793.5457,-824.5579 663.8083,-824.5579 663.8083,-802.547 793.5457,-802.547 793.5457,-824.5579"/>
+<text text-anchor="middle" x="728.677" y="-810.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">iDynamicArray_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_sort.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge81" class="edge">
+<title>sourcefile~m_sort.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M601.2871,-1076.8835C610.5311,-1073.117 619.8461,-1067.5916 625.9893,-1059.5525 687.4789,-979.0849 595.8087,-911.2084 661.9893,-834.5525 663.189,-833.1628 664.4798,-831.8641 665.8466,-830.6503"/>
+<polygon fill="#000000" stroke="#000000" points="668.2671,-833.2248 674.4027,-824.5874 664.2199,-827.5134 668.2671,-833.2248"/>
+</g>
+<!-- sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node29" class="node">
+<title>sourcefile~ddynamicarray_class.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node29"><a xlink:href="../sourcefile/ddynamicarray_class.f90.html" xlink:title="dDynamicArray_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="795.553,-865.5579 661.801,-865.5579 661.801,-843.547 795.553,-843.547 795.553,-865.5579"/>
+<text text-anchor="middle" x="728.677" y="-851.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">dDynamicArray_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_sort.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge67" class="edge">
+<title>sourcefile~m_sort.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M601.3701,-1075.0648C610.0846,-1071.2771 619.0736,-1066.1974 625.9893,-1059.5525 681.4665,-1006.2471 711.7076,-916.5783 723.1958,-875.8398"/>
+<polygon fill="#000000" stroke="#000000" points="726.6426,-876.5021 725.8877,-865.9342 719.8876,-874.6663 726.6426,-876.5021"/>
+</g>
+<!-- sourcefile~m_write.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node4" class="node">
+<title>sourcefile~m_write.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node4"><a xlink:href="../sourcefile/m_write.f90.html" xlink:title="m_write.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.9399,-287.5579 537.4012,-287.5579 537.4012,-265.547 603.9399,-265.547 603.9399,-287.5579"/>
+<text text-anchor="middle" x="570.6705" y="-273.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_write.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_write.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge104" class="edge">
+<title>sourcefile~m_write.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M603.8693,-273.7056C635.9899,-271.6199 685.9502,-270.1426 728.677,-276.5525"/>
+</g>
+<!-- sourcefile~m_fileio.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node5" class="node">
+<title>sourcefile~m_fileio.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node5"><a xlink:href="../sourcefile/m_fileio.f90.html" xlink:title="m_fileIO.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="762.7848,-326.5579 694.5692,-326.5579 694.5692,-304.547 762.7848,-304.547 762.7848,-326.5579"/>
+<text text-anchor="middle" x="728.677" y="-312.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_fileIO.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_write.f90&#45;&gt;sourcefile~m_fileio.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge10" class="edge">
+<title>sourcefile~m_write.f90&#45;&gt;sourcefile~m_fileio.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M604.1796,-284.8234C627.6117,-290.607 659.1433,-298.3898 684.6101,-304.6756"/>
+<polygon fill="#000000" stroke="#000000" points="683.8507,-308.0932 694.398,-307.0916 685.5281,-301.2971 683.8507,-308.0932"/>
+</g>
+<!-- sourcefile~m_fileio.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge105" class="edge">
+<title>sourcefile~m_fileio.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M758.1151,-304.5469C801.5153,-289.084 880.3285,-264.1324 906.2223,-276.5525"/>
+</g>
+<!-- sourcefile~m_searching.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node6" class="node">
+<title>sourcefile~m_searching.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node6"><a xlink:href="../sourcefile/m_searching.f90.html" xlink:title="m_searching.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="615.2985,-1136.5579 526.0426,-1136.5579 526.0426,-1114.547 615.2985,-1114.547 615.2985,-1136.5579"/>
+<text text-anchor="middle" x="570.6705" y="-1122.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_searching.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_searching.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge106" class="edge">
+<title>sourcefile~m_searching.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M728.677,-1235.5525C806.4819,-1248.7068 828.2243,-1223.5963 906.2223,-1235.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M579.676,-1136.5738C594.9026,-1154.5669 627.4656,-1190.3652 661.9893,-1211.5525 688.8366,-1228.0287 697.6178,-1230.3013 728.677,-1235.5525"/>
+</g>
+<!-- sourcefile~dargdynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node27" class="node">
+<title>sourcefile~dargdynamicarray_class.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node27"><a xlink:href="../sourcefile/dargdynamicarray_class.f90.html" xlink:title="dArgDynamicArray_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="980.9376,-843.5579 831.5069,-843.5579 831.5069,-821.547 980.9376,-821.547 980.9376,-843.5579"/>
+<text text-anchor="middle" x="906.2223" y="-829.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">dArgDynamicArray_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_searching.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge75" class="edge">
+<title>sourcefile~m_searching.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M604.0493,-1114.4716C611.4348,-1111.5854 619.1064,-1108.2375 625.9893,-1104.5525 707.5491,-1060.8853 729.5248,-1048.5442 795.3647,-983.5525 837.5516,-941.9091 875.8634,-883.0166 894.4315,-852.5491"/>
+<polygon fill="#000000" stroke="#000000" points="897.5908,-854.087 899.7462,-843.7138 891.5924,-850.4788 897.5908,-854.087"/>
+</g>
+<!-- sourcefile~m_searching.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge82" class="edge">
+<title>sourcefile~m_searching.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M614.2848,-1114.4619C618.744,-1111.8315 622.7986,-1108.5776 625.9893,-1104.5525 701.1924,-1009.6816 584.0788,-927.2129 661.9893,-834.5525 663.1439,-833.1792 664.3876,-831.8945 665.7061,-830.6928"/>
+<polygon fill="#000000" stroke="#000000" points="667.9488,-833.3895 673.9778,-824.6773 663.8317,-827.7282 667.9488,-833.3895"/>
+</g>
+<!-- sourcefile~m_searching.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge68" class="edge">
+<title>sourcefile~m_searching.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M611.6582,-1114.4748C616.9013,-1111.8271 621.8671,-1108.5651 625.9893,-1104.5525 643.5198,-1087.4878 700.6412,-932.301 721.2105,-875.3692"/>
+<polygon fill="#000000" stroke="#000000" points="724.6156,-876.2437 724.7116,-865.6493 718.0298,-873.8714 724.6156,-876.2437"/>
+</g>
+<!-- sourcefile~m_read.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node7" class="node">
+<title>sourcefile~m_read.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node7"><a xlink:href="../sourcefile/m_read.f90.html" xlink:title="m_read.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.2859,-209.5579 538.0552,-209.5579 538.0552,-187.547 603.2859,-187.547 603.2859,-209.5579"/>
+<text text-anchor="middle" x="570.6705" y="-195.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_read.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_read.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge107" class="edge">
+<title>sourcefile~m_read.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M592.1286,-209.6029C602.5664,-215.2215 615.1652,-222.3691 625.9893,-229.5525 642.8782,-240.7609 643.9109,-248.3852 661.9893,-257.5525 689.4758,-271.4905 698.1996,-271.9802 728.677,-276.5525"/>
+</g>
+<!-- sourcefile~m_read.f90&#45;&gt;sourcefile~m_fileio.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge11" class="edge">
+<title>sourcefile~m_read.f90&#45;&gt;sourcefile~m_fileio.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M603.2668,-209.0621C611.338,-212.7424 619.5183,-217.5109 625.9893,-223.5525 650.698,-246.6218 636.5352,-268.3082 661.9893,-290.5525 668.5472,-296.2835 676.545,-300.7534 684.6939,-304.2223"/>
+<polygon fill="#000000" stroke="#000000" points="683.6608,-307.5738 694.252,-307.8503 686.1449,-301.0294 683.6608,-307.5738"/>
+</g>
+<!-- sourcefile~m_allocate.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node8" class="node">
+<title>sourcefile~m_allocate.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node8"><a xlink:href="../sourcefile/m_allocate.f90.html" xlink:title="m_allocate.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="478.0367,-709.5579 397.4536,-709.5579 397.4536,-687.547 478.0367,-687.547 478.0367,-709.5579"/>
+<text text-anchor="middle" x="437.7451" y="-695.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_allocate.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge108" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M477.9953,-688.1082C504.5694,-680.8797 540.0128,-670.6011 570.6705,-659.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-659.5525C777.9768,-584.8425 834.8688,-518.4442 1053.4263,-546.5525"/>
+</g>
+<!-- sourcefile~m_reallocate.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node10" class="node">
+<title>sourcefile~m_reallocate.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node10"><a xlink:href="../sourcefile/m_reallocate.f90.html" xlink:title="m_reallocate.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="615.2985,-863.5579 526.0426,-863.5579 526.0426,-841.547 615.2985,-841.547 615.2985,-863.5579"/>
+<text text-anchor="middle" x="570.6705" y="-849.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_reallocate.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_reallocate.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge25" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_reallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M441.7934,-709.7502C451.1488,-734.2118 476.4845,-792.9909 515.3518,-827.5525 519.2392,-831.0093 523.6841,-834.0624 528.3269,-836.7391"/>
+<polygon fill="#000000" stroke="#000000" points="526.914,-839.9486 537.4048,-841.4296 530.1273,-833.7297 526.914,-839.9486"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge30" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M478.0459,-709.1623C504.4867,-716.2726 539.7618,-726.0419 570.6705,-735.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-735.5525C639.6058,-756.7638 656.6378,-695.0407 728.677,-698.5525"/>
+</g>
+<!-- sourcefile~m_random.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node14" class="node">
+<title>sourcefile~m_random.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node14"><a xlink:href="../sourcefile/m_random.f90.html" xlink:title="m_random.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="768.379,-442.5579 688.975,-442.5579 688.975,-420.547 768.379,-420.547 768.379,-442.5579"/>
+<text text-anchor="middle" x="728.677" y="-428.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_random.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_random.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge46" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_random.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M440.6873,-687.5462C451.0731,-649.3711 486.9219,-523.3643 515.3518,-493.5525 533.8476,-474.1576 547.7521,-483.4449 570.6705,-469.5525"/>
+</g>
+<!-- sourcefile~m_array1d.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node18" class="node">
+<title>sourcefile~m_array1d.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node18"><a xlink:href="../sourcefile/m_array1d.f90.html" xlink:title="m_array1D.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="947.1681,-480.5579 865.2765,-480.5579 865.2765,-458.547 947.1681,-458.547 947.1681,-480.5579"/>
+<text text-anchor="middle" x="906.2223" y="-466.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_array1D.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_array1d.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge58" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_array1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M446.6491,-687.3606C466.2197,-663.6525 515.6435,-608.5046 570.6705,-583.5525"/>
+</g>
+<!-- sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node20" class="node">
+<title>sourcefile~m_kdtree.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node20"><a xlink:href="../sourcefile/m_kdtree.f90.html" xlink:title="m_KdTree.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1203.9948,-728.5579 1125.6986,-728.5579 1125.6986,-706.547 1203.9948,-706.547 1203.9948,-728.5579"/>
+<text text-anchor="middle" x="1164.8467" y="-714.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_KdTree.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge91" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-659.5525C771.3884,-594.5933 1028.5556,-669.5998 1125.514,-703.064"/>
+<polygon fill="#000000" stroke="#000000" points="1124.6015,-706.4527 1135.1963,-706.4527 1126.9139,-699.8457 1124.6015,-706.4527"/>
+</g>
+<!-- sourcefile~m_copy.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node21" class="node">
+<title>sourcefile~m_copy.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node21"><a xlink:href="../sourcefile/m_copy.f90.html" xlink:title="m_copy.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.1773,-785.5579 538.1638,-785.5579 538.1638,-763.547 603.1773,-763.547 603.1773,-785.5579"/>
+<text text-anchor="middle" x="570.6705" y="-771.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_copy.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_copy.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge100" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_copy.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M453.0537,-709.6483C468.3937,-720.5157 492.8915,-737.1969 515.3518,-749.5525 521.4319,-752.8972 528.0439,-756.1752 534.5119,-759.1995"/>
+<polygon fill="#000000" stroke="#000000" points="533.2549,-762.4727 543.8066,-763.4273 536.1532,-756.1009 533.2549,-762.4727"/>
+</g>
+<!-- sourcefile~prng_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node24" class="node">
+<title>sourcefile~prng_class.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node24"><a xlink:href="../sourcefile/prng_class.f90.html" xlink:title="Prng_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="612.4584,-365.5579 528.8827,-365.5579 528.8827,-343.547 612.4584,-343.547 612.4584,-365.5579"/>
+<text text-anchor="middle" x="570.6705" y="-351.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Prng_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~prng_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge39" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~prng_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M441.2505,-687.4282C448.6217,-663.9128 466.1363,-607.3844 479.3518,-559.5525 496.6908,-496.796 485.0309,-475.1689 515.3518,-417.5525 524.2487,-400.6464 538.5637,-384.5157 550.4025,-372.8092"/>
+<polygon fill="#000000" stroke="#000000" points="552.9333,-375.2318 557.7429,-365.7915 548.096,-370.1721 552.9333,-375.2318"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge84" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-735.5525C595.5168,-743.1976 602.3186,-743.8061 625.9893,-754.5525 653.2646,-766.9353 682.7526,-784.3323 703.1013,-797.026"/>
+<polygon fill="#000000" stroke="#000000" points="701.4416,-800.1172 711.7668,-802.4924 705.1764,-794.1968 701.4416,-800.1172"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge70" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-735.5525C595.5168,-743.1976 606.7401,-737.0809 625.9893,-754.5525 654.5601,-780.485 633.0866,-807.9903 661.9893,-833.5525 663.9782,-835.3115 666.1142,-836.9233 668.3575,-838.4002"/>
+<polygon fill="#000000" stroke="#000000" points="667.0168,-841.659 677.4586,-843.4534 670.4148,-835.5391 667.0168,-841.659"/>
+</g>
+<!-- sourcefile~m_select.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node9" class="node">
+<title>sourcefile~m_select.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node9"><a xlink:href="../sourcefile/m_select.f90.html" xlink:title="m_select.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="941.7529,-1207.5579 870.6917,-1207.5579 870.6917,-1185.547 941.7529,-1185.547 941.7529,-1207.5579"/>
+<text text-anchor="middle" x="906.2223" y="-1193.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_select.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_select.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge109" class="edge">
+<title>sourcefile~m_select.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1164.8467,-1197.5525C1234.7564,-1133.3091 1276.4547,-823.3685 1286.6512,-738.8689"/>
+<polygon fill="#000000" stroke="#000000" points="1290.1321,-739.2358 1287.8338,-728.8933 1283.1808,-738.4117 1290.1321,-739.2358"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1053.4263,-1197.5525C1095.2589,-1171.0519 1128.3841,-1231.0597 1164.8467,-1197.5525"/>
+</g>
+<!-- sourcefile~m_select.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge31" class="edge">
+<title>sourcefile~m_select.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M910.7841,-1185.1681C923.3193,-1153.5786 958.8321,-1061.9868 981.0798,-983.5525 1001.562,-911.3426 993.5899,-889.8406 1017.0798,-818.5525 1024.1104,-797.216 1034.9169,-773.9191 1042.9209,-757.8102"/>
+<polygon fill="#000000" stroke="#000000" points="1046.0926,-759.2939 1047.4835,-748.7908 1039.8464,-756.1341 1046.0926,-759.2939"/>
+</g>
+<!-- sourcefile~m_select.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge92" class="edge">
+<title>sourcefile~m_select.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M941.8727,-1206.9332C973.6622,-1213.9744 1020.1786,-1218.6145 1053.4263,-1197.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1053.4263,-1197.5525C1133.3096,-1146.9473 1158.3154,-825.782 1163.6516,-739.0915"/>
+<polygon fill="#000000" stroke="#000000" points="1167.159,-739.0674 1164.2545,-728.8785 1160.1712,-738.6548 1167.159,-739.0674"/>
+</g>
+<!-- sourcefile~m_reallocate.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge110" class="edge">
+<title>sourcefile~m_reallocate.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M600.0613,-841.4398C608.7309,-837.5963 618.0235,-832.8935 625.9893,-827.5525 644.2686,-815.2964 644.9297,-807.4563 661.9893,-793.5525 764.7048,-709.8375 784.6624,-675.2959 906.2223,-622.5525"/>
+</g>
+<!-- sourcefile~m_reallocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge83" class="edge">
+<title>sourcefile~m_reallocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M615.5262,-841.481C633.7844,-836.9744 655.0557,-831.7241 674.1955,-826.9999"/>
+<polygon fill="#000000" stroke="#000000" points="675.113,-830.3786 683.9828,-824.5841 673.4355,-823.5825 675.113,-830.3786"/>
+</g>
+<!-- sourcefile~m_reallocate.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge69" class="edge">
+<title>sourcefile~m_reallocate.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M615.5262,-853.1202C626.7883,-853.2628 639.1969,-853.4199 651.5445,-853.5761"/>
+<polygon fill="#000000" stroke="#000000" points="651.8321,-857.08 661.8756,-853.7069 651.9207,-850.0805 651.8321,-857.08"/>
+</g>
+<!-- sourcefile~m_maths.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge111" class="edge">
+<title>sourcefile~m_maths.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1057.0292,-726.5244C1071.2415,-684.012 1124.6036,-533.7567 1164.8467,-546.5525"/>
+</g>
+<!-- sourcefile~m_maths.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge90" class="edge">
+<title>sourcefile~m_maths.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1089.9095,-731.0037C1098.1205,-729.5298 1106.9666,-727.942 1115.6026,-726.3918"/>
+<polygon fill="#000000" stroke="#000000" points="1116.3691,-729.8102 1125.5934,-724.5984 1115.1323,-722.9204 1116.3691,-729.8102"/>
+</g>
+<!-- sourcefile~m_errors.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node12" class="node">
+<title>sourcefile~m_errors.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node12"><a xlink:href="../sourcefile/m_errors.f90.html" xlink:title="m_errors.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="222.0086,-441.5579 150.9678,-441.5579 150.9678,-419.547 222.0086,-419.547 222.0086,-441.5579"/>
+<text text-anchor="middle" x="186.4882" y="-427.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_errors.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge112" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-545.5525C518.5635,-521.431 550.2697,-558.7009 625.9893,-521.5525 646.3036,-511.5861 642.1038,-496.3492 661.9893,-485.5525 700.5872,-464.5958 1018.2963,-404.192 1053.4263,-430.5525"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_write.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge5" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_write.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M209.5081,-419.3473C217.6884,-415.1994 226.8969,-410.3379 235.0906,-405.5525 272.0877,-383.9449 275.38,-367.2786 315.6145,-352.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-352.5525C388.8345,-325.7534 476.3506,-301.2618 527.5,-287.6802"/>
+<polygon fill="#000000" stroke="#000000" points="528.4545,-291.0483 537.23,-285.1119 526.6679,-284.2801 528.4545,-291.0483"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_fileio.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge12" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_fileio.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-429.5525C522.4375,-408.9515 545.8059,-408.7261 625.9893,-374.5525 653.7096,-362.7383 683.3454,-345.1146 703.6187,-332.205"/>
+<polygon fill="#000000" stroke="#000000" points="705.731,-335.0073 712.2341,-326.6431 701.9344,-329.1264 705.731,-335.0073"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_read.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge17" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_read.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M215.1253,-419.4247C222.2166,-415.7492 229.4041,-411.1376 235.0906,-405.5525 259.2074,-381.8651 246.0529,-361.2643 271.0906,-338.5525 345.3891,-271.1559 389.5019,-296.157 479.3518,-251.5525 501.8622,-240.3775 526.4534,-225.9708 544.4402,-214.9991"/>
+<polygon fill="#000000" stroke="#000000" points="546.5156,-217.8316 553.1981,-209.61 542.8471,-211.8699 546.5156,-217.8316"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_allocate.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge20" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_allocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-583.5525C360.3131,-613.2652 354.7768,-639.3468 396.1384,-673.5525 399.7426,-676.5331 403.7396,-679.3964 407.7897,-682.0531"/>
+<polygon fill="#000000" stroke="#000000" points="406.2624,-685.2237 416.6089,-687.5045 409.943,-679.2694 406.2624,-685.2237"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_reallocate.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge24" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_reallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-813.5525C455.3576,-804.9731 504.3882,-823.1086 537.7148,-837.4311"/>
+<polygon fill="#000000" stroke="#000000" points="536.5155,-840.7267 547.0797,-841.5317 539.3233,-834.3145 536.5155,-840.7267"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge32" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M728.677,-698.5525C828.3403,-703.4108 944.1892,-719.9742 1007.0487,-729.885"/>
+<polygon fill="#000000" stroke="#000000" points="1006.6165,-733.3602 1017.0422,-731.4752 1007.7165,-726.4471 1006.6165,-733.3602"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-583.5525C474.3158,-689.047 538.1152,-699.7333 728.677,-698.5525"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_random.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge47" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_random.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-583.5525C362.9562,-615.0222 383.2726,-561.8106 437.7451,-545.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-545.5525C477.5297,-533.6782 478.9124,-513.4518 515.3518,-493.5525 538.8733,-480.7075 547.7521,-483.4449 570.6705,-469.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M192.7553,-441.6534C209.169,-469.7246 256.2748,-544.1072 315.6145,-583.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-469.5525C603.436,-449.6911 645.903,-440.2083 678.5581,-435.682"/>
+<polygon fill="#000000" stroke="#000000" points="679.3129,-439.1143 688.791,-434.3797 678.4291,-432.1703 679.3129,-439.1143"/>
+</g>
+<!-- sourcefile~m_strings.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node15" class="node">
+<title>sourcefile~m_strings.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node15"><a xlink:href="../sourcefile/m_strings.f90.html" xlink:title="m_strings.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="475.2708,-363.5579 400.2195,-363.5579 400.2195,-341.547 475.2708,-341.547 475.2708,-363.5579"/>
+<text text-anchor="middle" x="437.7451" y="-349.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_strings.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_strings.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge53" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_strings.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-352.5525C339.0112,-343.9891 366.6603,-343.2869 389.7289,-345.0334"/>
+<polygon fill="#000000" stroke="#000000" points="389.6921,-348.5451 399.9739,-345.9888 390.3421,-341.5753 389.6921,-348.5451"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_array1d.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge59" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_array1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-583.5525C360.8187,-613.6013 384.0509,-575.5975 437.7451,-583.5525"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge93" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-969.5525C334.4341,-981.8481 341.4425,-981.0696 360.1384,-993.5525 367.2395,-998.2937 473.6345,-1084.2108 479.3518,-1090.5525 498.9143,-1112.2513 489.6519,-1131.6585 515.3518,-1145.5525 584.5761,-1182.9768 812.0462,-1180.4954 906.2223,-1121.5525"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_copy.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge99" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_copy.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-969.5525C375.1498,-1003.1111 347.57,-886.6331 396.1384,-838.5525 411.4698,-823.375 418.3505,-822.9999 437.7451,-813.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M187.0893,-441.9559C191.2164,-514.8831 218.1686,-914.6244 315.6145,-969.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-813.5525C466.599,-799.4972 501.4923,-789.4977 528.2874,-783.1449"/>
+<polygon fill="#000000" stroke="#000000" points="529.1661,-786.5343 538.1309,-780.8878 527.6016,-779.7114 529.1661,-786.5343"/>
+</g>
+<!-- sourcefile~m_unittester.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node22" class="node">
+<title>sourcefile~m_unittester.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node22"><a xlink:href="../sourcefile/m_unittester.f90.html" xlink:title="m_unitTester.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="360.1624,-479.5579 271.0666,-479.5579 271.0666,-457.547 360.1624,-457.547 360.1624,-479.5579"/>
+<text text-anchor="middle" x="315.6145" y="-465.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_unitTester.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_unittester.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge8" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_unittester.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M222.1143,-441.0367C236.3211,-445.2176 252.8848,-450.092 268.0904,-454.5668"/>
+<polygon fill="#000000" stroke="#000000" points="267.2667,-457.9728 277.8481,-457.4384 269.243,-451.2575 267.2667,-457.9728"/>
+</g>
+<!-- sourcefile~m_deallocate.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node23" class="node">
+<title>sourcefile~m_deallocate.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node23"><a xlink:href="../sourcefile/m_deallocate.f90.html" xlink:title="m_deallocate.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="616.6408,-979.5579 524.7003,-979.5579 524.7003,-957.547 616.6408,-957.547 616.6408,-979.5579"/>
+<text text-anchor="middle" x="570.6705" y="-965.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_deallocate.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_deallocate.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge27" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_deallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-969.5525C348.3857,-988.0248 450.0112,-981.536 514.656,-975.0828"/>
+<polygon fill="#000000" stroke="#000000" points="515.1074,-978.5549 524.6974,-974.0512 514.392,-971.5916 515.1074,-978.5549"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~prng_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge40" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~prng_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-429.5525C477.976,-421.4909 479.8464,-400.1165 515.3518,-379.5525 521.2954,-376.11 527.798,-372.8001 534.1898,-369.7783"/>
+<polygon fill="#000000" stroke="#000000" points="535.7536,-372.9119 543.3971,-365.5753 532.8467,-366.544 535.7536,-372.9119"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M222.2907,-434.6996C271.4242,-439.4231 362.2541,-444.6795 437.7451,-429.5525"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge76" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-813.5525C611.9223,-808.5992 620.6824,-798.0229 661.9893,-793.5525 720.9231,-787.1744 736.9327,-783.5739 795.3647,-793.5525 822.2227,-798.139 851.2272,-808.5536 872.8297,-817.4675"/>
+<polygon fill="#000000" stroke="#000000" points="871.6265,-820.7587 882.2,-821.4311 874.3536,-814.3118 871.6265,-820.7587"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-813.5525C490.8569,-787.6808 511.6315,-815.6981 570.6705,-813.5525"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge85" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-813.5525C597.4799,-810.3334 627.0331,-809.5898 653.2563,-809.894"/>
+<polygon fill="#000000" stroke="#000000" points="653.4512,-813.3977 663.5089,-810.0671 653.5695,-806.3987 653.4512,-813.3977"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge71" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-969.5525C348.5311,-988.5554 591.8318,-904.0423 688.8785,-869.0877"/>
+<polygon fill="#000000" stroke="#000000" points="690.1294,-872.3572 698.3454,-865.6678 687.751,-865.7736 690.1294,-872.3572"/>
+</g>
+<!-- sourcefile~m_time.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node13" class="node">
+<title>sourcefile~m_time.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node13"><a xlink:href="../sourcefile/m_time.f90.html" xlink:title="m_time.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="469.6812,-131.5579 405.8091,-131.5579 405.8091,-109.547 469.6812,-109.547 469.6812,-131.5579"/>
+<text text-anchor="middle" x="437.7451" y="-117.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_time.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_time.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge113" class="edge">
+<title>sourcefile~m_time.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M728.677,-44.5525C841.3428,-109.0889 789.1524,-220.3993 906.2223,-276.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M906.2223,-276.5525C991.593,-317.501 977.693,-373.7245 1053.4263,-430.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1053.4263,-430.5525C1110.6048,-473.4575 1097.9373,-521.386 1164.8467,-546.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M442.5942,-109.5398C452.6104,-88.3609 477.8324,-42.4675 515.3518,-24.5525 601.2852,16.4797 646.0462,2.7796 728.677,-44.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1164.8467,-546.5525C1231.3781,-571.5768 1268.3698,-656.6236 1282.4355,-696.5408"/>
+<polygon fill="#000000" stroke="#000000" points="1279.1439,-697.7331 1285.6618,-706.0858 1285.7754,-695.4916 1279.1439,-697.7331"/>
+</g>
+<!-- sourcefile~m_time.f90&#45;&gt;sourcefile~stopwatch_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge2" class="edge">
+<title>sourcefile~m_time.f90&#45;&gt;sourcefile~stopwatch_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M457.011,-109.4357C464.1149,-105.217 472.1774,-100.2866 479.3518,-95.5525 495.8252,-84.6824 498.273,-79.4442 515.3518,-69.5525 521.2954,-66.11 527.798,-62.8001 534.1898,-59.7783"/>
+<polygon fill="#000000" stroke="#000000" points="535.7536,-62.9119 543.3971,-55.5753 532.8467,-56.544 535.7536,-62.9119"/>
+</g>
+<!-- sourcefile~m_time.f90&#45;&gt;sourcefile~progressbar_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge65" class="edge">
+<title>sourcefile~m_time.f90&#45;&gt;sourcefile~progressbar_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M456.8718,-109.464C482.4808,-95.9545 529.4677,-75.828 570.6705,-83.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-83.5525C597.0119,-88.4908 604.7483,-91.21 625.9893,-107.5525 666.5673,-138.7725 700.3647,-189.4324 717.191,-217.4011"/>
+<polygon fill="#000000" stroke="#000000" points="714.3282,-219.4373 722.4182,-226.2786 720.3602,-215.8856 714.3282,-219.4373"/>
+</g>
+<!-- sourcefile~m_time.f90&#45;&gt;sourcefile~prng_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge41" class="edge">
+<title>sourcefile~m_time.f90&#45;&gt;sourcefile~prng_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M463.7821,-131.659C469.6903,-135.296 475.3848,-139.8944 479.3518,-145.5525 527.1887,-213.7818 463.6207,-264.2264 515.3518,-329.5525 517.8923,-332.7606 520.9347,-335.5706 524.2683,-338.0295"/>
+<polygon fill="#000000" stroke="#000000" points="522.6878,-341.1671 533.0348,-343.4454 526.3669,-335.2119 522.6878,-341.1671"/>
+</g>
+<!-- sourcefile~m_random.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge114" class="edge">
+<title>sourcefile~m_random.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M768.0661,-420.5398C777.4784,-416.9184 787.1654,-412.3037 795.3647,-406.5525 857.5295,-362.948 837.7578,-243.7131 906.2223,-276.5525"/>
+</g>
+<!-- sourcefile~m_random.f90&#45;&gt;sourcefile~m_array1d.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge61" class="edge">
+<title>sourcefile~m_random.f90&#45;&gt;sourcefile~m_array1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M768.5216,-440.0804C794.1995,-445.5763 827.8202,-452.7721 855.4122,-458.6776"/>
+<polygon fill="#000000" stroke="#000000" points="854.768,-462.1189 865.2791,-460.7894 856.2331,-455.2739 854.768,-462.1189"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge115" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M462.655,-341.5051C488.9455,-330.8319 531.8691,-316.1826 570.6705,-315.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-315.5525C642.9936,-314.378 657.1449,-265.8212 728.677,-276.5525"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~stopwatch_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge1" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~stopwatch_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M443.2325,-341.306C452.0023,-322.929 469.2179,-285.1409 479.3518,-251.5525 503.169,-172.611 464.0953,-134.1418 515.3518,-69.5525 517.8956,-66.347 520.9403,-63.5388 524.2755,-61.0811"/>
+<polygon fill="#000000" stroke="#000000" points="526.3741,-63.8987 533.0443,-55.6671 522.6967,-57.9425 526.3741,-63.8987"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~m_write.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge6" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~m_write.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M457.011,-341.4357C464.1149,-337.217 472.1774,-332.2866 479.3518,-327.5525 495.8252,-316.6824 498.273,-311.4442 515.3518,-301.5525 521.2954,-298.11 527.798,-294.8001 534.1898,-291.7783"/>
+<polygon fill="#000000" stroke="#000000" points="535.7536,-294.9119 543.3971,-287.5753 532.8467,-288.544 535.7536,-294.9119"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~m_fileio.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge13" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~m_fileio.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-315.5525C608.9895,-314.9302 652.5426,-314.9871 684.2047,-315.1672"/>
+<polygon fill="#000000" stroke="#000000" points="684.4397,-318.6687 694.4617,-315.2322 684.4841,-311.6688 684.4397,-318.6687"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~m_read.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge18" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~m_read.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M446.3041,-341.3692C460.3085,-323.2093 489.1847,-286.3396 515.3518,-256.5525 527.2906,-242.9621 541.3693,-228.2177 552.3358,-216.9961"/>
+<polygon fill="#000000" stroke="#000000" points="554.8498,-219.4314 559.3663,-209.8475 549.859,-214.523 554.8498,-219.4314"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~m_random.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge48" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~m_random.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-315.5525C596.663,-315.1304 606.4282,-317.4309 625.9893,-334.5525 652.9104,-358.1163 635.3986,-382.6164 661.9893,-406.5525 667.114,-411.1656 673.1705,-414.9552 679.5096,-418.0612"/>
+<polygon fill="#000000" stroke="#000000" points="678.3565,-421.3759 688.9238,-422.139 681.1388,-414.9526 678.3565,-421.3759"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~m_array1d.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge60" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~m_array1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M728.677,-392.5525C753.9023,-410.2573 766.7423,-400.1272 795.3647,-411.5525 825.0195,-423.3898 857.1703,-440.7569 879.1727,-453.4"/>
+<polygon fill="#000000" stroke="#000000" points="877.5398,-456.4992 887.9441,-458.4994 881.058,-450.4476 877.5398,-456.4992"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge94" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M728.677,-392.5525C752.2101,-409.0696 956.4281,-434.7568 981.0798,-449.5525 1080.1864,-509.0348 1138.365,-644.968 1157.6467,-696.8799"/>
+<polygon fill="#000000" stroke="#000000" points="1154.3837,-698.1488 1161.0787,-706.3602 1160.9657,-695.766 1154.3837,-698.1488"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-315.5525C648.7802,-314.284 665.623,-346.4339 728.677,-392.5525"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~prng_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge42" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~prng_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M475.4806,-353.1202C488.8216,-353.321 504.0748,-353.5505 518.4045,-353.7661"/>
+<polygon fill="#000000" stroke="#000000" points="518.5834,-357.2691 528.6349,-353.92 518.6887,-350.2699 518.5834,-357.2691"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge77" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M728.677,-392.5525C753.9023,-410.2573 774.9061,-388.5042 795.3647,-411.5525 862.5936,-487.2907 805.1592,-538.7298 831.3647,-636.5525 849.0368,-702.5206 880.9765,-776.9936 896.8056,-812.1286"/>
+<polygon fill="#000000" stroke="#000000" points="893.6676,-813.6831 900.993,-821.3374 900.0397,-810.7855 893.6676,-813.6831"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge86" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-507.5525C625.3147,-590.9939 614.0552,-625.0837 661.9893,-712.5525 678.1895,-742.1142 700.2751,-774.2899 714.5073,-794.1936"/>
+<polygon fill="#000000" stroke="#000000" points="711.7546,-796.3603 720.4444,-802.4215 717.4311,-792.2642 711.7546,-796.3603"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M445.7551,-363.95C454.3954,-376.4079 468.3869,-397.063 479.3518,-415.5525 496.7948,-444.9655 490.2521,-460.3277 515.3518,-483.5525 535.0229,-501.7542 555.9879,-485.1321 570.6705,-507.5525"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge72" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-507.5525C606.8715,-562.8312 607.3969,-582.1444 625.9893,-645.5525 649.9266,-727.1891 605.4172,-770.014 661.9893,-833.5525 663.3211,-835.0483 664.7582,-836.4385 666.2817,-837.7306"/>
+<polygon fill="#000000" stroke="#000000" points="664.3071,-840.6204 674.5289,-843.4069 668.2758,-834.8541 664.3071,-840.6204"/>
+</g>
+<!-- sourcefile~m_indexing.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node16" class="node">
+<title>sourcefile~m_indexing.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node16"><a xlink:href="../sourcefile/m_indexing.f90.html" xlink:title="m_indexing.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="479.4588,-209.5579 396.0315,-209.5579 396.0315,-187.547 479.4588,-187.547 479.4588,-209.5579"/>
+<text text-anchor="middle" x="437.7451" y="-195.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_indexing.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_indexing.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge116" class="edge">
+<title>sourcefile~m_indexing.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M728.677,-276.5525C806.7128,-288.2594 835.0744,-242.426 906.2223,-276.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M460.7401,-187.4664C498.5007,-171.0252 574.5776,-145.4824 625.9893,-178.5525 658.4404,-199.4263 632.7377,-232.3903 661.9893,-257.5525 685.3531,-277.65 698.1996,-271.9802 728.677,-276.5525"/>
+</g>
+<!-- sourcefile~m_indexing.f90&#45;&gt;sourcefile~prng_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge43" class="edge">
+<title>sourcefile~m_indexing.f90&#45;&gt;sourcefile~prng_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M462.8355,-209.7812C468.9017,-213.456 474.9086,-218.0419 479.3518,-223.5525 510.5814,-262.2845 481.9184,-292.7059 515.3518,-329.5525 518.4225,-332.9367 522.04,-335.8917 525.9309,-338.4658"/>
+<polygon fill="#000000" stroke="#000000" points="524.3588,-341.5983 534.7795,-343.5113 527.8261,-335.5174 524.3588,-341.5983"/>
+</g>
+<!-- sourcefile~m_variablekind.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node17" class="node">
+<title>sourcefile~m_variablekind.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node17"><a xlink:href="../sourcefile/m_variablekind.f90.html" xlink:title="m_variableKind.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="101.8287,-402.5579 .0571,-402.5579 .0571,-380.547 101.8287,-380.547 101.8287,-402.5579"/>
+<text text-anchor="middle" x="50.9429" y="-388.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_variableKind.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge117" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-1235.5525C637.1243,-1258.2562 659.4346,-1223.8457 728.677,-1235.5525"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~stopwatch_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge3" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~stopwatch_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M56.5302,-380.3626C80.5454,-334.0198 179.9637,-159.5525 315.6145,-159.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-159.5525C358.9361,-149.979 356.6107,-120.7013 396.1384,-100.5525 433.0384,-81.7431 477.5307,-67.5846 512.3574,-58.2097"/>
+<polygon fill="#000000" stroke="#000000" points="513.5923,-61.5039 522.3718,-55.5734 511.8102,-54.7346 513.5923,-61.5039"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_sort.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge4" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_sort.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-1104.5525C453.9356,-1111.4709 497.2201,-1103.2854 530.0345,-1095.3975"/>
+<polygon fill="#000000" stroke="#000000" points="530.9712,-1098.7714 539.8405,-1092.9761 529.2931,-1091.9755 530.9712,-1098.7714"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_write.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge7" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_write.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-237.5525C467.317,-248.5826 501.5017,-258.5529 527.7986,-265.6512"/>
+<polygon fill="#000000" stroke="#000000" points="526.9008,-269.0341 537.4649,-268.2274 528.7035,-262.2701 526.9008,-269.0341"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_fileio.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge14" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_fileio.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-159.5525C521.7443,-155.6639 560.6141,-125.6651 625.9893,-178.5525 666.639,-211.4375 625.9091,-252.7101 661.9893,-290.5525 668.2504,-297.1194 676.4017,-301.9758 684.8451,-305.5626"/>
+<polygon fill="#000000" stroke="#000000" points="683.8234,-308.9163 694.4168,-309.0963 686.2478,-302.3495 683.8234,-308.9163"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_searching.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge16" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_searching.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-1104.5525C462.0895,-1114.9551 490.9255,-1120.2631 515.5073,-1122.9484"/>
+<polygon fill="#000000" stroke="#000000" points="515.4644,-1126.4606 525.7565,-1123.9458 516.1425,-1119.4936 515.4644,-1126.4606"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_read.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge19" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_read.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-159.5525C455.9792,-158.7084 499.3255,-172.5776 531.592,-184.0082"/>
+<polygon fill="#000000" stroke="#000000" points="530.6155,-187.3762 541.21,-187.4584 532.9791,-180.7873 530.6155,-187.3762"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_allocate.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge21" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_allocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M51.7499,-402.9046C57.2957,-477.344 92.3868,-894.9657 186.4882,-969.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-969.5525C241.1126,-1012.849 384.012,-787.427 425.9892,-718.2469"/>
+<polygon fill="#000000" stroke="#000000" points="429.0568,-719.9375 431.2229,-709.5665 423.0621,-716.3231 429.0568,-719.9375"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_select.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge23" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_select.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M728.677,-1197.5525C772.5725,-1187.5162 824.1833,-1188.6082 860.4114,-1191.3963"/>
+<polygon fill="#000000" stroke="#000000" points="860.4089,-1194.9084 870.668,-1192.2624 860.998,-1187.9333 860.4089,-1194.9084"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_reallocate.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge26" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_reallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-852.5525C461.649,-836.394 493.9099,-836.0187 520.6633,-839.8642"/>
+<polygon fill="#000000" stroke="#000000" points="520.1793,-843.3317 530.6182,-841.5205 521.3283,-836.4266 520.1793,-843.3317"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge34" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M728.677,-1045.5525C811.5461,-1023.1855 836.6381,-1019.808 906.2223,-969.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-1045.5525C637.1772,-1023.0043 660.8781,-1063.8519 728.677,-1045.5525"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_errors.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge37" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_errors.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M89.4221,-402.624C105.3668,-407.2117 123.99,-412.5701 140.6361,-417.3596"/>
+<polygon fill="#000000" stroke="#000000" points="140.1256,-420.8546 150.7035,-420.2563 142.0612,-414.1276 140.1256,-420.8546"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_time.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge38" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_time.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-159.5525C348.0887,-159.5525 383.2163,-146.8851 407.4251,-135.9891"/>
+<polygon fill="#000000" stroke="#000000" points="409.1938,-139.026 416.7741,-131.624 406.2323,-132.6833 409.1938,-139.026"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_random.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge50" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_random.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-159.5525C358.9673,-150.121 357.8664,-196.1099 396.1384,-218.5525 413.6745,-228.8356 418.6982,-230.4481 437.7451,-237.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-237.5525C516.5321,-266.9396 562.6555,-201.2369 625.9893,-256.5525 677.6267,-301.6525 616.5845,-355.1827 661.9893,-406.5525 666.8308,-412.03 672.9931,-416.311 679.6079,-419.6558"/>
+<polygon fill="#000000" stroke="#000000" points="678.2606,-422.8865 688.8271,-423.6613 681.05,-416.4662 678.2606,-422.8865"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_strings.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge55" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_strings.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M101.9434,-388.8562C127.4161,-388.1936 158.6613,-388.4143 186.4882,-391.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-391.5525C230.5788,-396.5248 228.4463,-350.8069 271.0906,-338.5525 310.0364,-327.3608 356.0491,-332.5327 389.8484,-339.5526"/>
+<polygon fill="#000000" stroke="#000000" points="389.4054,-343.0389 399.9245,-341.7745 390.9128,-336.2031 389.4054,-343.0389"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_indexing.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge56" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_indexing.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-159.5525C348.0887,-159.5525 383.2163,-172.2198 407.4251,-183.1159"/>
+<polygon fill="#000000" stroke="#000000" points="406.2323,-186.4217 416.7741,-187.481 409.1938,-180.0789 406.2323,-186.4217"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_array1d.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge62" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_array1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-1007.5525C595.399,-999.5346 603.6443,-1001.8374 625.9893,-988.5525 644.646,-977.4603 644.6299,-968.5818 661.9893,-955.5525 717.4569,-913.9205 757.3708,-932.5726 795.3647,-874.5525 860.7211,-774.7475 794.4873,-722.0097 831.3647,-608.5525 846.0791,-563.2822 875.2809,-515.4626 892.5413,-489.3875"/>
+<polygon fill="#000000" stroke="#000000" points="895.6339,-491.0608 898.3112,-480.8097 889.8257,-487.1538 895.6339,-491.0608"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~progressbar_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge66" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~progressbar_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-159.5525C505.7396,-156.7439 503.7833,-71.0129 570.6705,-83.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-159.5525C368.6541,-148.0136 383.5111,-161.7927 437.7451,-159.5525"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge97" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-1104.5525C514.0192,-1137.1454 492.1791,-1208.736 570.6705,-1235.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M728.677,-1197.5525C812.3523,-1178.4209 835.3526,-1169.9783 906.2223,-1121.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-1235.5525C604.8448,-1247.228 693.4718,-1205.6018 728.677,-1197.5525"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_copy.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge101" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_copy.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-852.5525C455.618,-840.4708 461.5594,-839.7523 479.3518,-827.5525 496.0692,-816.0897 497.995,-810.0217 515.3518,-799.5525 520.9781,-796.1589 527.1448,-792.9355 533.2551,-790.0007"/>
+<polygon fill="#000000" stroke="#000000" points="535.1033,-793.003 542.7247,-785.6433 532.1772,-786.6439 535.1033,-793.003"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1007.5525C403.315,-1008.3635 365.0845,-901.6694 437.7451,-852.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-969.5525C237.0041,-1001.5982 255.7941,-1006.9993 315.6145,-1007.5525"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_unittester.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge9" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_unittester.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-391.5525C230.8022,-396.55 273.482,-429.1748 296.9703,-450.3237"/>
+<polygon fill="#000000" stroke="#000000" points="294.7376,-453.0266 304.4492,-457.2616 299.4982,-447.8947 294.7376,-453.0266"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_deallocate.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge28" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_deallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1007.5525C369.8925,-1008.0544 383.6087,-1011.5022 437.7451,-1007.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-1007.5525C471.7757,-1005.0696 508.9132,-993.3604 535.2617,-983.4139"/>
+<polygon fill="#000000" stroke="#000000" points="536.7467,-986.592 544.8029,-979.7111 534.214,-980.0663 536.7467,-986.592"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~prng_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge44" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~prng_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-391.5525C304.9713,-407.2167 444.8452,-383.0931 518.7888,-367.02"/>
+<polygon fill="#000000" stroke="#000000" points="519.7681,-370.3881 528.7759,-364.8105 518.2559,-363.5534 519.7681,-370.3881"/>
+</g>
+<!-- sourcefile~m_parameters.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node25" class="node">
+<title>sourcefile~m_parameters.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node25"><a xlink:href="../sourcefile/m_parameters.f90.html" xlink:title="m_parameters.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="235.1932,-305.5579 137.7831,-305.5579 137.7831,-283.547 235.1932,-283.547 235.1932,-305.5579"/>
+<text text-anchor="middle" x="186.4882" y="-291.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_parameters.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_parameters.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge52" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_parameters.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M66.4916,-380.4253C89.959,-363.6314 134.6235,-331.6683 162.346,-311.8292"/>
+<polygon fill="#000000" stroke="#000000" points="164.6079,-314.5145 170.7032,-305.8486 160.5342,-308.822 164.6079,-314.5145"/>
+</g>
+<!-- sourcefile~m_swap.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_node26" class="node">
+<title>sourcefile~m_swap.f90</title>
+<g id="a_sourcefile~~scale_coretran.f90~~EfferentGraph_node26"><a xlink:href="../sourcefile/m_swap.f90.html" xlink:title="m_swap.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="349.7274,-520.5579 281.5016,-520.5579 281.5016,-498.547 349.7274,-498.547 349.7274,-520.5579"/>
+<text text-anchor="middle" x="315.6145" y="-506.4025" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_swap.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_swap.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge57" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_swap.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-391.5525C209.5351,-394.1516 218.2081,-394.6497 235.0906,-410.5525 262.8829,-436.732 244.205,-461.4426 271.0906,-488.5525 272.5349,-490.0089 274.0998,-491.3768 275.7499,-492.66"/>
+<polygon fill="#000000" stroke="#000000" points="274.257,-495.8644 284.547,-498.3875 278.0764,-489.9982 274.257,-495.8644"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge79" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1007.5525C384.8453,-1011.0191 374.0033,-1077.3148 437.7451,-1104.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-1045.5525C677.1066,-1009.4668 703.1318,-993.77 795.3647,-929.5525 830.3517,-905.1927 866.7808,-871.4264 887.9381,-850.8338"/>
+<polygon fill="#000000" stroke="#000000" points="890.5854,-853.1394 895.2642,-843.6336 885.6787,-848.1469 890.5854,-853.1394"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-1104.5525C473.4277,-1119.8001 479.6623,-1079.7839 515.3518,-1064.5525 539.2613,-1054.3485 546.0511,-1053.8993 570.6705,-1045.5525"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge88" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1007.5525C390.8254,-1008.248 564.3983,-915.7232 625.9893,-872.5525 645.04,-859.1994 642.2628,-846.8855 661.9893,-834.5525 665.5787,-832.3084 669.4278,-830.2859 673.3991,-828.4665"/>
+<polygon fill="#000000" stroke="#000000" points="674.9124,-831.6284 682.823,-824.5805 672.2439,-825.157 674.9124,-831.6284"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge74" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-1007.5525C595.399,-999.5346 606.3802,-1005.6191 625.9893,-988.5525 652.677,-965.325 640.8166,-945.898 661.9893,-917.5525 674.8171,-900.3788 692.5888,-883.85 706.5606,-872.0346"/>
+<polygon fill="#000000" stroke="#000000" points="708.8033,-874.7217 714.2818,-865.6533 704.3439,-869.326 708.8033,-874.7217"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-1007.5525C496.6665,-1003.2536 514.4728,-1025.7738 570.6705,-1007.5525"/>
+</g>
+<!-- sourcefile~m_array1d.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge118" class="edge">
+<title>sourcefile~m_array1d.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M919.3061,-480.5648C943.7389,-500.1217 998.7892,-539.5257 1053.4263,-546.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1053.4263,-546.5525C1102.5419,-552.8691 1117.6546,-531.5472 1164.8467,-546.5525"/>
+</g>
+<!-- sourcefile~m_array1d.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge35" class="edge">
+<title>sourcefile~m_array1d.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M912.36,-480.7269C934.8989,-521.7613 1013.2989,-664.4965 1042.4223,-717.5187"/>
+<polygon fill="#000000" stroke="#000000" points="1039.3803,-719.2505 1047.2623,-726.3303 1045.5157,-715.8805 1039.3803,-719.2505"/>
+</g>
+<!-- sourcefile~m_array1d.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge98" class="edge">
+<title>sourcefile~m_array1d.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M918.0069,-480.8529C958.9972,-520.1593 1095.5898,-651.1407 1145.9707,-699.4519"/>
+<polygon fill="#000000" stroke="#000000" points="1143.6482,-702.074 1153.2884,-706.469 1148.4931,-697.0215 1143.6482,-702.074"/>
+</g>
+<!-- sourcefile~progressbar_class.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge119" class="edge">
+<title>sourcefile~progressbar_class.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M788.8965,-243.7625C824.3725,-249.105 869.3734,-258.8777 906.2223,-276.5525"/>
+</g>
+<!-- sourcefile~m_kdtree.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge120" class="edge">
+<title>sourcefile~m_kdtree.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1204.1652,-717.5525C1212.2401,-717.5525 1220.9121,-717.5525 1229.5189,-717.5525"/>
+<polygon fill="#000000" stroke="#000000" points="1229.5531,-721.0526 1239.5531,-717.5525 1229.553,-714.0526 1229.5531,-721.0526"/>
+</g>
+<!-- sourcefile~m_copy.f90&#45;&gt;sourcefile~scale_coretran.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge121" class="edge">
+<title>sourcefile~m_copy.f90&#45;&gt;sourcefile~scale_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M603.2148,-763.9869C611.2865,-760.307 619.48,-755.5527 625.9893,-749.5525 650.2707,-727.1699 635.8362,-704.7164 661.9893,-684.5525 750.6802,-616.172 796.5136,-645.0463 906.2223,-622.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M906.2223,-622.5525C935.2742,-615.2686 1136.3037,-537.4769 1164.8467,-546.5525"/>
+</g>
+<!-- sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_fileio.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge15" class="edge">
+<title>sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_fileio.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M360.3799,-466.4937C412.1023,-463.1083 499.2543,-454.283 570.6705,-431.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-431.5525C596.4292,-424.1536 603.4254,-422.0136 625.9893,-407.5525 643.7192,-396.1894 685.5887,-356.9836 710.0379,-333.5777"/>
+<polygon fill="#000000" stroke="#000000" points="712.5256,-336.0413 717.3112,-326.5888 707.6755,-330.9938 712.5256,-336.0413"/>
+</g>
+<!-- sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_allocate.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge22" class="edge">
+<title>sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_allocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M348.236,-479.6543C352.7193,-482.3226 356.8905,-485.5843 360.1384,-489.5525 402.4689,-541.27 369.3324,-574.3315 396.1384,-635.5525 402.9253,-651.0527 413.4475,-666.9405 422.212,-678.8835"/>
+<polygon fill="#000000" stroke="#000000" points="419.6581,-681.3093 428.4806,-687.1757 425.2421,-677.0879 419.6581,-681.3093"/>
+</g>
+<!-- sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge36" class="edge">
+<title>sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M347.5087,-479.6263C352.1957,-482.3144 356.621,-485.5895 360.1384,-489.5525 393.7254,-527.3932 358.3496,-563.9071 396.1384,-597.5525 474.0812,-666.949 523.8992,-623.9061 625.9893,-645.5525 764.7451,-674.9731 928.672,-710.4606 1007.0966,-727.4833"/>
+<polygon fill="#000000" stroke="#000000" points="1006.6179,-730.9609 1017.1329,-729.6623 1008.1031,-724.1202 1006.6179,-730.9609"/>
+</g>
+<!-- sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_random.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge51" class="edge">
+<title>sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_random.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-431.5525C605.428,-420.4898 646.7067,-420.9192 678.3552,-423.8871"/>
+<polygon fill="#000000" stroke="#000000" points="678.3836,-427.4094 688.6956,-424.978 679.118,-420.4481 678.3836,-427.4094"/>
+</g>
+<!-- sourcefile~m_deallocate.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge33" class="edge">
+<title>sourcefile~m_deallocate.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M906.2223,-969.5525C949.2306,-945.9061 1018.2114,-810.369 1043.6199,-758.1031"/>
+<polygon fill="#000000" stroke="#000000" points="1046.9065,-759.3454 1048.1,-748.818 1040.602,-756.3034 1046.9065,-759.3454"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M616.7259,-974.0688C696.8047,-982.7855 857.7898,-996.1811 906.2223,-969.5525"/>
+</g>
+<!-- sourcefile~m_deallocate.f90&#45;&gt;sourcefile~m_random.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge49" class="edge">
+<title>sourcefile~m_deallocate.f90&#45;&gt;sourcefile~m_random.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M578.8067,-957.351C590.9757,-940.0446 613.7883,-905.3666 625.9893,-872.5525 655.6383,-792.8125 643.1363,-767.5109 661.9893,-684.5525 681.7134,-597.7604 710.3122,-495.612 722.645,-452.4614"/>
+<polygon fill="#000000" stroke="#000000" points="726.0856,-453.1605 725.4794,-442.583 719.3571,-451.2299 726.0856,-453.1605"/>
+</g>
+<!-- sourcefile~m_deallocate.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge96" class="edge">
+<title>sourcefile~m_deallocate.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M906.2223,-1121.5525C1031.7264,-1050.6512 940.6653,-922.3479 1053.4263,-832.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M595.189,-979.6076C604.7978,-983.9468 615.9143,-988.975 625.9893,-993.5525 688.3202,-1021.872 846.6139,-1155.2271 906.2223,-1121.5525"/>
+</g>
+<!-- sourcefile~m_deallocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge87" class="edge">
+<title>sourcefile~m_deallocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M606.5986,-957.5447C613.7652,-954.0073 620.7024,-949.4285 625.9893,-943.5525 660.1131,-905.6259 625.6636,-870.3758 661.9893,-834.5525 663.6394,-832.9251 665.4145,-831.4237 667.2865,-830.0384"/>
+<polygon fill="#000000" stroke="#000000" points="669.3331,-832.8892 676.0296,-824.679 665.6747,-826.9212 669.3331,-832.8892"/>
+</g>
+<!-- sourcefile~m_deallocate.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge73" class="edge">
+<title>sourcefile~m_deallocate.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M604.3419,-957.4248C612.0371,-953.8232 619.7711,-949.2465 625.9893,-943.5525 650.0582,-921.5122 637.2085,-900.7893 661.9893,-879.5525 666.2728,-875.8815 671.1477,-872.725 676.2672,-870.0161"/>
+<polygon fill="#000000" stroke="#000000" points="678.1014,-873.0218 685.6713,-865.6092 675.1311,-866.6833 678.1014,-873.0218"/>
+</g>
+<!-- sourcefile~prng_class.f90&#45;&gt;sourcefile~m_random.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge45" class="edge">
+<title>sourcefile~prng_class.f90&#45;&gt;sourcefile~m_random.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M588.0751,-365.5721C606.1296,-376.7361 635.3909,-394.0904 661.9893,-406.5525 669.7953,-410.2098 678.2958,-413.7293 686.5334,-416.9148"/>
+<polygon fill="#000000" stroke="#000000" points="685.4336,-420.2405 696.0255,-420.489 687.9004,-413.6895 685.4336,-420.2405"/>
+</g>
+<!-- sourcefile~m_parameters.f90&#45;&gt;sourcefile~m_strings.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge54" class="edge">
+<title>sourcefile~m_parameters.f90&#45;&gt;sourcefile~m_strings.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M235.2518,-289.2056C270.7517,-286.9829 319.5206,-287.4322 360.1384,-300.5525 381.8123,-307.5535 403.0616,-322.5224 417.8295,-334.61"/>
+<polygon fill="#000000" stroke="#000000" points="415.84,-337.512 425.7299,-341.3121 420.3684,-332.174 415.84,-337.512"/>
+</g>
+<!-- sourcefile~m_swap.f90&#45;&gt;sourcefile~m_array1d.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge63" class="edge">
+<title>sourcefile~m_swap.f90&#45;&gt;sourcefile~m_array1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M326.8077,-520.6945C346.9152,-539.6237 391.3947,-576.6855 437.7451,-583.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-583.5525C496.1852,-592.2105 516.8658,-607.9503 570.6705,-583.5525"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-583.5525C595.0786,-572.4846 602.8175,-573.0181 625.9893,-559.5525 643.2815,-549.5036 643.9627,-541.2153 661.9893,-532.5525 724.946,-502.298 804.2684,-485.2869 855.1197,-476.7615"/>
+<polygon fill="#000000" stroke="#000000" points="855.902,-480.1803 865.2096,-475.1188 854.7771,-473.2713 855.902,-480.1803"/>
+</g>
+<!-- sourcefile~dargdynamicarray_class.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge89" class="edge">
+<title>sourcefile~dargdynamicarray_class.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M940.9978,-843.5634C973.5102,-851.5343 1021.6841,-857.0946 1053.4263,-832.5525"/>
+</g>
+<!-- sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge95" class="edge">
+<title>sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1053.4263,-832.5525C1091.5916,-803.0441 1129.2145,-760.6964 1149.4922,-736.4766"/>
+<polygon fill="#000000" stroke="#000000" points="1152.2349,-738.6521 1155.9138,-728.7165 1146.8419,-734.1894 1152.2349,-738.6521"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M793.5888,-812.8246C806.1232,-812.7112 819.1523,-812.6119 831.3647,-812.5525 897.904,-812.2285 915.1439,-803.6063 981.0798,-812.5525 1014.137,-817.0376 1027.0347,-852.9577 1053.4263,-832.5525"/>
+</g>
+<!-- sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge78" class="edge">
+<title>sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M793.7802,-820.5195C802.7197,-821.4761 812.0047,-822.4698 821.2351,-823.4576"/>
+<polygon fill="#000000" stroke="#000000" points="820.8949,-826.9411 831.2106,-824.5251 821.6398,-819.9808 820.8949,-826.9411"/>
+</g>
+<!-- sourcefile~ddynamicarray_class.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90 -->
+<g id="sourcefile~~scale_coretran.f90~~EfferentGraph_edge80" class="edge">
+<title>sourcefile~ddynamicarray_class.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M795.5463,-846.2666C803.9538,-845.2248 812.641,-844.1483 821.2797,-843.0779"/>
+<polygon fill="#000000" stroke="#000000" points="821.8852,-846.5297 831.3789,-841.8265 821.0244,-839.5828 821.8852,-846.5297"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var pansourcefilescale_coretranf90EfferentGraph = svgPanZoom('#sourcefilescale_coretranf90EfferentGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="186pt" height="31pt"
+ viewBox="0.00 0.00 186.41 30.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 26.5)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-26.5 182.4064,-26.5 182.4064,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="65.1576,-22.2554 -.0526,-22.2554 -.0526,-.2446 65.1576,-.2446 65.1576,-22.2554"/>
+<text text-anchor="middle" x="32.5525" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="178.2607,-22.2554 82.8443,-22.2554 82.8443,-.2446 178.2607,-.2446 178.2607,-22.2554"/>
+<text text-anchor="middle" x="130.5525" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which depends upon it. A file 
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+      
+      <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#progs-1">Programs</a></h3></div>
+  <div id="progs-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../program/scaletest_coretran.html">scaleTest_coretran</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/scale_coretran.f90.html#src">scale_coretran.f90</a>
+  </div>
+</div>
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    <section>
+      <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl"><pre><span></span><a name="ln-1"></a><span class="k">program </span><span class="n">scaleTest_coretran</span>
+<a name="ln-2"></a>
+<a name="ln-3"></a><span class="c">!! Test program for the coretran library</span>
+<a name="ln-4"></a>  <span class="k">use </span><span class="n">iso_fortran_env</span>
+<a name="ln-5"></a>  <span class="k">use </span><span class="n">variableKind</span>
+<a name="ln-6"></a>  <span class="k">use </span><span class="n">m_array1D</span>
+<a name="ln-7"></a>  <span class="k">use </span><span class="n">m_errors</span>
+<a name="ln-8"></a>  <span class="k">use </span><span class="n">m_fileIO</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">openFile</span><span class="p">,</span> <span class="n">closeFile</span>
+<a name="ln-9"></a>  <span class="k">use </span><span class="n">m_indexing</span>
+<a name="ln-10"></a>  <span class="k">use </span><span class="n">m_random</span>
+<a name="ln-11"></a>  <span class="k">use </span><span class="n">m_readLine</span>
+<a name="ln-12"></a>  <span class="k">use </span><span class="n">m_strings</span>
+<a name="ln-13"></a>  <span class="k">use </span><span class="n">m_writeLine</span>
+<a name="ln-14"></a>  <span class="k">use </span><span class="n">m_time</span>
+<a name="ln-15"></a>  <span class="k">use </span><span class="n">m_allocate</span>
+<a name="ln-16"></a>  <span class="k">use </span><span class="n">m_reallocate</span>
+<a name="ln-17"></a>  <span class="k">use </span><span class="n">m_copy</span>
+<a name="ln-18"></a>  <span class="c">! Sorting routines</span>
+<a name="ln-19"></a>  <span class="k">use </span><span class="n">m_Sort</span>
+<a name="ln-20"></a>  <span class="c">!use m_PartialQuicksort</span>
+<a name="ln-21"></a>  <span class="k">use </span><span class="n">m_Select</span>
+<a name="ln-22"></a>  <span class="k">use </span><span class="n">m_maths</span>
+<a name="ln-23"></a>
+<a name="ln-24"></a>  <span class="k">use </span><span class="n">m_searching</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">binarySearch</span>
+<a name="ln-25"></a>
+<a name="ln-26"></a>  <span class="k">use </span><span class="n">Stopwatch_Class</span>
+<a name="ln-27"></a>  <span class="k">use </span><span class="n">ProgressBar_Class</span>
+<a name="ln-28"></a>  <span class="k">use </span><span class="n">m_KdTree</span>
+<a name="ln-29"></a>
+<a name="ln-30"></a>  <span class="k">implicit none</span>
+<a name="ln-31"></a>
+<a name="ln-32"></a><span class="k">  </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="kd">::</span> <span class="n">fName</span>
+<a name="ln-33"></a>  <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span> <span class="kd">::</span> <span class="n">sa</span>
+<a name="ln-34"></a>  <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="p">:),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">cTest</span>
+<a name="ln-35"></a>  <span class="kt">logical</span> <span class="kd">::</span> <span class="n">lTest</span>
+<a name="ln-36"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iTest</span><span class="p">,</span><span class="n">istat</span><span class="p">,</span><span class="n">N</span><span class="p">,</span> <span class="n">nIterations</span>
+<a name="ln-37"></a>  <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ar</span><span class="p">,</span> <span class="n">br</span><span class="p">,</span> <span class="n">cr</span>
+<a name="ln-38"></a>  <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">ar1D</span><span class="p">(:),</span><span class="n">br1D</span><span class="p">(:),</span><span class="n">cr1D</span><span class="p">(:)</span>
+<a name="ln-39"></a>  <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">ar2D</span><span class="p">(:,:),</span><span class="n">br2D</span><span class="p">(:,:)</span>
+<a name="ln-40"></a>  <span class="kt">real</span><span class="p">(</span><span class="n">r32</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">ar3D</span><span class="p">(:,:,:),</span><span class="n">br3D</span><span class="p">(:,:,:)</span>
+<a name="ln-41"></a>  <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">,</span><span class="n">c</span>
+<a name="ln-42"></a>  <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">a1D</span><span class="p">(:),</span><span class="n">b1D</span><span class="p">(:),</span><span class="n">c1D</span><span class="p">(:)</span>
+<a name="ln-43"></a>  <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">a2D</span><span class="p">(:,:),</span><span class="n">b2D</span><span class="p">(:,:)</span>
+<a name="ln-44"></a>  <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span><span class="k">allocatable</span> <span class="kd">::</span> <span class="n">a3D</span><span class="p">(:,:,:),</span><span class="n">b3D</span><span class="p">(:,:,:)</span>
+<a name="ln-45"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ia</span><span class="p">,</span><span class="n">ib</span><span class="p">,</span><span class="n">ic</span><span class="p">,</span><span class="n">id</span><span class="p">,</span><span class="n">ie</span>
+<a name="ln-46"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">ia1D</span><span class="p">(:),</span><span class="n">ib1D</span><span class="p">(:),</span><span class="n">ic1D</span><span class="p">(:)</span>
+<a name="ln-47"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">ia2D</span><span class="p">(:,:),</span><span class="n">ib2D</span><span class="p">(:,:)</span>
+<a name="ln-48"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">ia3D</span><span class="p">(:,:,:),</span><span class="n">ib3D</span><span class="p">(:,:,:)</span>
+<a name="ln-49"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iad</span><span class="p">,</span><span class="n">ibd</span><span class="p">,</span><span class="n">icd</span>
+<a name="ln-50"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">iad1D</span><span class="p">(:),</span><span class="n">ibd1D</span><span class="p">(:),</span><span class="n">icd1D</span><span class="p">(:)</span>
+<a name="ln-51"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">iad2D</span><span class="p">(:,:),</span><span class="n">ibd2D</span><span class="p">(:,:)</span>
+<a name="ln-52"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i64</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">iad3D</span><span class="p">(:,:,:),</span><span class="n">ibd3D</span><span class="p">(:,:,:)</span>
+<a name="ln-53"></a>  <span class="kt">complex</span><span class="p">(</span><span class="n">r32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span>
+<a name="ln-54"></a>  <span class="kt">complex</span><span class="p">(</span><span class="n">r32</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">za1D</span><span class="p">(:),</span><span class="n">zb1D</span><span class="p">(:)</span>
+<a name="ln-55"></a>  <span class="kt">complex</span><span class="p">(</span><span class="n">r32</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">za2D</span><span class="p">(:,:),</span><span class="n">zb2D</span><span class="p">(:,:)</span>
+<a name="ln-56"></a>  <span class="kt">complex</span><span class="p">(</span><span class="n">r32</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">za3D</span><span class="p">(:,:,:),</span><span class="n">zb3D</span><span class="p">(:,:,:)</span>
+<a name="ln-57"></a>  <span class="kt">complex</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">zza1D</span><span class="p">(:),</span><span class="n">zzb1D</span><span class="p">(:)</span>
+<a name="ln-58"></a>  <span class="kt">complex</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">zza2D</span><span class="p">(:,:),</span><span class="n">zzb2D</span><span class="p">(:,:)</span>
+<a name="ln-59"></a>  <span class="kt">complex</span><span class="p">(</span><span class="n">r64</span><span class="p">),</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">zza3D</span><span class="p">(:,:,:),</span><span class="n">zzb3D</span><span class="p">(:,:,:)</span>
+<a name="ln-60"></a>  <span class="kt">logical</span> <span class="kd">::</span> <span class="n">la</span><span class="p">,</span><span class="n">lb</span><span class="p">,</span><span class="n">lc</span>
+<a name="ln-61"></a>  <span class="kt">logical</span><span class="p">,</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">la1D</span><span class="p">(:),</span><span class="n">lb1D</span><span class="p">(:)</span>
+<a name="ln-62"></a>  <span class="kt">logical</span><span class="p">,</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">la2D</span><span class="p">(:,:),</span><span class="n">lb2D</span><span class="p">(:,:)</span>
+<a name="ln-63"></a>  <span class="kt">logical</span><span class="p">,</span> <span class="k">allocatable</span> <span class="kd">::</span> <span class="n">la3D</span><span class="p">(:,:,:),</span><span class="n">lb3D</span><span class="p">(:,:,:)</span>
+<a name="ln-64"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">passCount</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="ln-65"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">testTotal</span> <span class="o">=</span> <span class="mi">0</span>
+<a name="ln-66"></a>  <span class="k">type</span><span class="p">(</span><span class="n">Stopwatch</span><span class="p">)</span> <span class="kd">::</span> <span class="n">clk</span>
+<a name="ln-67"></a>  <span class="k">type</span><span class="p">(</span><span class="n">ProgressBar</span><span class="p">)</span> <span class="kd">::</span> <span class="n">P</span>
+<a name="ln-68"></a>  <span class="k">type</span><span class="p">(</span><span class="n">KdTree</span><span class="p">)</span> <span class="kd">::</span> <span class="n">tree</span>
+<a name="ln-69"></a>  <span class="k">type</span><span class="p">(</span><span class="n">KdTreeSearch</span><span class="p">)</span> <span class="kd">::</span> <span class="n">search</span>
+<a name="ln-70"></a>
+<a name="ln-71"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">iunit</span>
+<a name="ln-72"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">maxSize</span> <span class="o">=</span> <span class="mi">25</span>
+<a name="ln-73"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">nSizes</span> <span class="o">=</span> <span class="mi">6</span>
+<a name="ln-74"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">sizes</span><span class="p">(</span><span class="n">nSizes</span><span class="p">)</span>
+<a name="ln-75"></a>  <span class="kt">real</span><span class="p">(</span><span class="n">r64</span><span class="p">)</span> <span class="kd">::</span> <span class="n">times</span><span class="p">(</span><span class="n">nSizes</span><span class="p">)</span>
+<a name="ln-76"></a>
+<a name="ln-77"></a>  <span class="c">! Open a file for python plotting</span>
+<a name="ln-78"></a>  <span class="k">call </span><span class="n">openFile</span><span class="p">(</span><span class="s1">&#39;scale_results.txt&#39;</span><span class="p">,</span> <span class="n">iunit</span><span class="p">,</span> <span class="s1">&#39;unknown&#39;</span><span class="p">,</span> <span class="n">istat</span><span class="p">)</span>
+<a name="ln-79"></a>
+<a name="ln-80"></a>  <span class="c">! Set the max length of the tests</span>
+<a name="ln-81"></a>  <span class="n">N</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="n">maxSize</span>
+<a name="ln-82"></a>  <span class="c">! Set a repetition for very quick algorithms</span>
+<a name="ln-83"></a>  <span class="n">ic</span> <span class="o">=</span> <span class="err">1</span><span class="n">e6</span>
+<a name="ln-84"></a>
+<a name="ln-85"></a>  <span class="c">! Set the sizes</span>
+<a name="ln-86"></a>  <span class="k">do </span><span class="n">ia</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nSizes</span><span class="o">-</span><span class="mi">1</span>
+<a name="ln-87"></a>    <span class="n">sizes</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="n">maxSize</span><span class="o">-</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-88"></a>  <span class="n">enddo</span>
+<a name="ln-89"></a>
+<a name="ln-90"></a>  <span class="k">write</span><span class="p">(</span><span class="n">iunit</span><span class="p">,</span> <span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="n">str</span><span class="p">(</span><span class="n">sizes</span><span class="p">)</span>
+<a name="ln-91"></a>
+<a name="ln-92"></a>  <span class="c">! Set a fixed seed</span>
+<a name="ln-93"></a>  <span class="c">! call random_seed(size = ia)</span>
+<a name="ln-94"></a>  <span class="c">! call allocate(ia1D, ia)</span>
+<a name="ln-95"></a>  <span class="c">! ia1D = 546420601</span>
+<a name="ln-96"></a>  <span class="k">call </span><span class="n">setPrng</span><span class="p">(</span><span class="n">big</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.,</span> <span class="n">display</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<a name="ln-97"></a>
+<a name="ln-98"></a>    <span class="c">! Initial setup for testing</span>
+<a name="ln-99"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">ar1D</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-100"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">br1D</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-101"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">a1D</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-102"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">b1D</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-103"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">c1D</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-104"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">ia1D</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<a name="ln-105"></a>
+<a name="ln-106"></a>
+<a name="ln-107"></a>  <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">a1D</span><span class="p">)</span>
+<a name="ln-108"></a>  <span class="n">ar1D</span> <span class="o">=</span> <span class="kt">real</span><span class="p">(</span><span class="n">a1D</span><span class="p">)</span>
+<a name="ln-109"></a>
+<a name="ln-110"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-111"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Testing : Sorting&#39;</span><span class="p">)</span>
+<a name="ln-112"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-113"></a>
+<a name="ln-114"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Size  Time(s)&#39;</span><span class="p">)</span>
+<a name="ln-115"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Double precision introspection sort&#39;</span><span class="p">,</span> <span class="n">iunit</span><span class="p">)</span>
+<a name="ln-116"></a>
+<a name="ln-117"></a>  <span class="n">b1D</span> <span class="o">=</span> <span class="n">a1D</span>
+<a name="ln-118"></a>  <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">restart</span><span class="p">()</span>
+<a name="ln-119"></a>  <span class="k">call </span><span class="n">sort</span><span class="p">(</span><span class="n">b1D</span><span class="p">)</span>
+<a name="ln-120"></a>  <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="k">stop</span><span class="p">()</span>
+<a name="ln-121"></a>  <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">clk</span><span class="p">%</span><span class="n">elapsedInSeconds</span><span class="p">()</span>
+<a name="ln-122"></a>
+<a name="ln-123"></a>  <span class="k">do </span><span class="n">ia</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">nSizes</span><span class="o">-</span><span class="mi">1</span>
+<a name="ln-124"></a>    <span class="n">ib</span> <span class="o">=</span> <span class="n">sizes</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<a name="ln-125"></a>    <span class="n">b1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">)</span> <span class="o">=</span> <span class="n">a1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">)</span>
+<a name="ln-126"></a>
+<a name="ln-127"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">restart</span><span class="p">()</span>
+<a name="ln-128"></a>    <span class="k">call </span><span class="n">sort</span><span class="p">(</span><span class="n">b1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">))</span>
+<a name="ln-129"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="k">stop</span><span class="p">()</span>
+<a name="ln-130"></a>    <span class="n">times</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">clk</span><span class="p">%</span><span class="n">elapsedInSeconds</span><span class="p">()</span>
+<a name="ln-131"></a>    <span class="k">call </span><span class="n">msg</span><span class="p">(</span><span class="n">str</span><span class="p">(</span><span class="n">ib</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39; &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">times</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<a name="ln-132"></a>
+<a name="ln-133"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">ia</span> <span class="o">==</span> <span class="mi">0</span><span class="p">)</span> <span class="n">c1D</span><span class="o">=</span><span class="n">b1D</span>
+<a name="ln-134"></a>  <span class="n">enddo</span>
+<a name="ln-135"></a>
+<a name="ln-136"></a>  <span class="c">! Write the times</span>
+<a name="ln-137"></a>  <span class="k">write</span><span class="p">(</span><span class="n">iunit</span><span class="p">,</span> <span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="n">str</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+<a name="ln-138"></a>
+<a name="ln-139"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Already sorted double precision introspection sort&#39;</span><span class="p">,</span> <span class="n">iunit</span><span class="p">)</span>
+<a name="ln-140"></a>
+<a name="ln-141"></a>  <span class="n">b1D</span> <span class="o">=</span> <span class="n">c1D</span>
+<a name="ln-142"></a>
+<a name="ln-143"></a>  <span class="k">do </span><span class="n">ia</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span>
+<a name="ln-144"></a>    <span class="n">ib</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">24</span><span class="o">-</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-145"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">restart</span><span class="p">()</span>
+<a name="ln-146"></a>    <span class="k">call </span><span class="n">sort</span><span class="p">(</span><span class="n">b1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">))</span>
+<a name="ln-147"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="k">stop</span><span class="p">()</span>
+<a name="ln-148"></a>    <span class="n">times</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">clk</span><span class="p">%</span><span class="n">elapsedInSeconds</span><span class="p">()</span>
+<a name="ln-149"></a>    <span class="k">call </span><span class="n">msg</span><span class="p">(</span><span class="n">str</span><span class="p">(</span><span class="n">ib</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39; &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">times</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<a name="ln-150"></a>  <span class="n">enddo</span>
+<a name="ln-151"></a>
+<a name="ln-152"></a>  <span class="c">! Write the times</span>
+<a name="ln-153"></a>  <span class="k">write</span><span class="p">(</span><span class="n">iunit</span><span class="p">,</span> <span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="n">str</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+<a name="ln-154"></a>
+<a name="ln-155"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Double precision merge sort&#39;</span><span class="p">,</span> <span class="n">iunit</span><span class="p">)</span>
+<a name="ln-156"></a>  <span class="k">do </span><span class="n">ia</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span>
+<a name="ln-157"></a>    <span class="n">ib</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">24</span><span class="o">-</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-158"></a>    <span class="n">b1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">)</span> <span class="o">=</span> <span class="n">a1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">)</span>
+<a name="ln-159"></a>
+<a name="ln-160"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">restart</span><span class="p">()</span>
+<a name="ln-161"></a>    <span class="k">call </span><span class="n">sort</span><span class="p">(</span><span class="n">b1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">),</span> <span class="n">stable</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<a name="ln-162"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="k">stop</span><span class="p">()</span>
+<a name="ln-163"></a>    <span class="n">times</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">clk</span><span class="p">%</span><span class="n">elapsedInSeconds</span><span class="p">()</span>
+<a name="ln-164"></a>    <span class="k">call </span><span class="n">msg</span><span class="p">(</span><span class="n">str</span><span class="p">(</span><span class="n">ib</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39; &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">times</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<a name="ln-165"></a>  <span class="n">enddo</span>
+<a name="ln-166"></a>
+<a name="ln-167"></a>  <span class="c">! Write the times</span>
+<a name="ln-168"></a>  <span class="k">write</span><span class="p">(</span><span class="n">iunit</span><span class="p">,</span> <span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="n">str</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+<a name="ln-169"></a>
+<a name="ln-170"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Already sorted double precision merge sort&#39;</span><span class="p">,</span> <span class="n">iunit</span><span class="p">)</span>
+<a name="ln-171"></a>  <span class="n">b1D</span> <span class="o">=</span> <span class="n">c1D</span>
+<a name="ln-172"></a>  <span class="k">do </span><span class="n">ia</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span>
+<a name="ln-173"></a>    <span class="n">ib</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">24</span><span class="o">-</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-174"></a>
+<a name="ln-175"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">restart</span><span class="p">()</span>
+<a name="ln-176"></a>    <span class="k">call </span><span class="n">sort</span><span class="p">(</span><span class="n">b1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">),</span> <span class="n">stable</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<a name="ln-177"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="k">stop</span><span class="p">()</span>
+<a name="ln-178"></a>    <span class="n">times</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">clk</span><span class="p">%</span><span class="n">elapsedInSeconds</span><span class="p">()</span>
+<a name="ln-179"></a>    <span class="k">call </span><span class="n">msg</span><span class="p">(</span><span class="n">str</span><span class="p">(</span><span class="n">ib</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39; &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">times</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<a name="ln-180"></a>  <span class="n">enddo</span>
+<a name="ln-181"></a>
+<a name="ln-182"></a>  <span class="c">! Write the times</span>
+<a name="ln-183"></a>  <span class="k">write</span><span class="p">(</span><span class="n">iunit</span><span class="p">,</span> <span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="n">str</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+<a name="ln-184"></a>
+<a name="ln-185"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-186"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Testing : Binary Search&#39;</span><span class="p">)</span>
+<a name="ln-187"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-188"></a>
+<a name="ln-189"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">ia1D</span><span class="p">,</span> <span class="n">ic</span><span class="p">)</span>
+<a name="ln-190"></a>  <span class="n">b1D</span> <span class="o">=</span> <span class="n">c1D</span>
+<a name="ln-191"></a>
+<a name="ln-192"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Double precision binary search&#39;</span><span class="p">,</span> <span class="n">iunit</span><span class="p">)</span>
+<a name="ln-193"></a>  <span class="k">do </span><span class="n">ia</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span>
+<a name="ln-194"></a>    <span class="n">ib</span> <span class="o">=</span> <span class="n">sizes</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<a name="ln-195"></a>    <span class="k">call </span><span class="n">rngInteger</span><span class="p">(</span><span class="n">ia1D</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ib</span><span class="p">)</span>
+<a name="ln-196"></a>
+<a name="ln-197"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">restart</span><span class="p">()</span>
+<a name="ln-198"></a>    <span class="k">do </span><span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ic</span>
+<a name="ln-199"></a>      <span class="n">a</span> <span class="o">=</span> <span class="n">b1D</span><span class="p">(</span><span class="n">ia1D</span><span class="p">(</span><span class="n">id</span><span class="p">))</span>
+<a name="ln-200"></a>      <span class="n">ie</span> <span class="o">=</span> <span class="n">binarySearch</span><span class="p">(</span><span class="n">b1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">),</span> <span class="n">a</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ib</span><span class="p">)</span>
+<a name="ln-201"></a>    <span class="n">enddo</span>
+<a name="ln-202"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="k">stop</span><span class="p">()</span>
+<a name="ln-203"></a>    <span class="n">times</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">clk</span><span class="p">%</span><span class="n">elapsedInSeconds</span><span class="p">()</span><span class="o">/</span><span class="nb">dble</span><span class="p">(</span><span class="n">ic</span><span class="p">)</span>
+<a name="ln-204"></a>    <span class="k">call </span><span class="n">msg</span><span class="p">(</span><span class="n">str</span><span class="p">(</span><span class="n">ib</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39; &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">times</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<a name="ln-205"></a>
+<a name="ln-206"></a>  <span class="n">enddo</span>
+<a name="ln-207"></a>
+<a name="ln-208"></a>  <span class="k">write</span><span class="p">(</span><span class="n">iunit</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="n">str</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+<a name="ln-209"></a>
+<a name="ln-210"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">ia1D</span><span class="p">,</span><span class="n">N</span><span class="p">)</span>
+<a name="ln-211"></a>
+<a name="ln-212"></a>
+<a name="ln-213"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-214"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Testing : Selection&#39;</span><span class="p">)</span>
+<a name="ln-215"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-216"></a>
+<a name="ln-217"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Double precision quick select&#39;</span><span class="p">,</span> <span class="n">iunit</span><span class="p">)</span>
+<a name="ln-218"></a>
+<a name="ln-219"></a>  <span class="n">ic</span> <span class="o">=</span> <span class="mi">1</span>
+<a name="ln-220"></a>  <span class="k">do </span><span class="n">ia</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span>
+<a name="ln-221"></a>    <span class="n">ib</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">24</span><span class="o">-</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-222"></a>
+<a name="ln-223"></a>    <span class="n">ie</span> <span class="o">=</span> <span class="p">(</span><span class="n">ib</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<a name="ln-224"></a>
+<a name="ln-225"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">restart</span><span class="p">()</span>
+<a name="ln-226"></a>    <span class="k">do </span><span class="n">id</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">ic</span>
+<a name="ln-227"></a>      <span class="n">b1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">)</span> <span class="o">=</span> <span class="n">a1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">)</span>
+<a name="ln-228"></a>      <span class="k">call select</span><span class="p">(</span><span class="n">b1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">),</span> <span class="n">ie</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<a name="ln-229"></a>    <span class="n">enddo</span>
+<a name="ln-230"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="k">stop</span><span class="p">()</span>
+<a name="ln-231"></a>    <span class="n">times</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">clk</span><span class="p">%</span><span class="n">elapsedInSeconds</span><span class="p">()</span><span class="o">/</span><span class="nb">dble</span><span class="p">(</span><span class="n">ic</span><span class="p">)</span>
+<a name="ln-232"></a>    <span class="k">call </span><span class="n">msg</span><span class="p">(</span><span class="n">str</span><span class="p">(</span><span class="n">ib</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39; &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">times</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<a name="ln-233"></a>  <span class="n">enddo</span>
+<a name="ln-234"></a>  <span class="k">write</span><span class="p">(</span><span class="n">iunit</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="n">str</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+<a name="ln-235"></a>
+<a name="ln-236"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Already sorted double precision quick select&#39;</span><span class="p">,</span> <span class="n">iunit</span><span class="p">)</span>
+<a name="ln-237"></a>  <span class="n">b1D</span> <span class="o">=</span> <span class="n">c1D</span>
+<a name="ln-238"></a>  <span class="k">do </span><span class="n">ia</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span>
+<a name="ln-239"></a>    <span class="n">ib</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">24</span><span class="o">-</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-240"></a>
+<a name="ln-241"></a>    <span class="n">ic</span> <span class="o">=</span> <span class="p">(</span><span class="n">ib</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span>
+<a name="ln-242"></a>
+<a name="ln-243"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">restart</span><span class="p">()</span>
+<a name="ln-244"></a>    <span class="k">call select</span><span class="p">(</span><span class="n">b1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">),</span> <span class="n">ic</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+<a name="ln-245"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="k">stop</span><span class="p">()</span>
+<a name="ln-246"></a>    <span class="n">times</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="n">clk</span><span class="p">%</span><span class="n">elapsedInSeconds</span><span class="p">()</span><span class="o">/</span><span class="nb">dble</span><span class="p">(</span><span class="n">ic</span><span class="p">)</span>
+<a name="ln-247"></a>    <span class="k">call </span><span class="n">msg</span><span class="p">(</span><span class="n">str</span><span class="p">(</span><span class="n">ib</span><span class="p">)</span><span class="o">//</span><span class="s1">&#39; &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">times</span><span class="p">(</span><span class="n">ia</span><span class="o">+</span><span class="mi">1</span><span class="p">)))</span>
+<a name="ln-248"></a>  <span class="n">enddo</span>
+<a name="ln-249"></a>  <span class="k">write</span><span class="p">(</span><span class="n">iunit</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="n">str</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>
+<a name="ln-250"></a>
+<a name="ln-251"></a>
+<a name="ln-252"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-253"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Testing : Spatial&#39;</span><span class="p">)</span>
+<a name="ln-254"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-255"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;---  Timing the 2D KdTree ---&#39;</span><span class="p">)</span>
+<a name="ln-256"></a>  <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">a1D</span><span class="p">)</span>
+<a name="ln-257"></a>  <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">b1D</span><span class="p">)</span>
+<a name="ln-258"></a>  <span class="k">do </span><span class="n">ia</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span>
+<a name="ln-259"></a>    <span class="n">ib</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">24</span><span class="o">-</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-260"></a>
+<a name="ln-261"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">restart</span><span class="p">()</span>
+<a name="ln-262"></a>    <span class="n">tree</span> <span class="o">=</span> <span class="n">KdTree</span><span class="p">(</span><span class="n">a1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">),</span> <span class="n">b1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">))</span>
+<a name="ln-263"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="k">stop</span><span class="p">()</span>
+<a name="ln-264"></a>    <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(i10,1x,f0.3)&#39;</span><span class="p">)</span> <span class="n">ib</span><span class="p">,</span><span class="n">clk</span><span class="p">%</span><span class="n">elapsedInSeconds</span><span class="p">()</span>
+<a name="ln-265"></a>  <span class="n">enddo</span>
+<a name="ln-266"></a>  <span class="k">call </span><span class="n">tree</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
+<a name="ln-267"></a>
+<a name="ln-268"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;---  Timing the 3D KdTree ---&#39;</span><span class="p">)</span>
+<a name="ln-269"></a>  <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">c1D</span><span class="p">)</span>
+<a name="ln-270"></a>  <span class="k">do </span><span class="n">ia</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span>
+<a name="ln-271"></a>    <span class="n">ib</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">24</span><span class="o">-</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-272"></a>
+<a name="ln-273"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">restart</span><span class="p">()</span>
+<a name="ln-274"></a>    <span class="n">tree</span> <span class="o">=</span> <span class="n">KdTree</span><span class="p">(</span><span class="n">a1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">),</span> <span class="n">b1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">),</span> <span class="n">c1D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">))</span>
+<a name="ln-275"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="k">stop</span><span class="p">()</span>
+<a name="ln-276"></a>    <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(i10,1x,f0.3)&#39;</span><span class="p">)</span> <span class="n">ib</span><span class="p">,</span><span class="n">clk</span><span class="p">%</span><span class="n">elapsedInSeconds</span><span class="p">()</span>
+<a name="ln-277"></a>  <span class="n">enddo</span>
+<a name="ln-278"></a>  <span class="k">call </span><span class="n">tree</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
+<a name="ln-279"></a>
+<a name="ln-280"></a>  <span class="k">call allocate</span><span class="p">(</span><span class="n">a2D</span><span class="p">,</span> <span class="p">[</span><span class="n">N</span><span class="p">,</span> <span class="mi">5</span><span class="p">])</span>
+<a name="ln-281"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;---  Timing the ND KdTree ---&#39;</span><span class="p">)</span>
+<a name="ln-282"></a>  <span class="k">call </span><span class="n">rngNormal</span><span class="p">(</span><span class="n">a2D</span><span class="p">)</span>
+<a name="ln-283"></a>  <span class="k">do </span><span class="n">ia</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">5</span>
+<a name="ln-284"></a>    <span class="n">ib</span> <span class="o">=</span> <span class="mi">2</span><span class="o">**</span><span class="p">(</span><span class="mi">24</span><span class="o">-</span><span class="n">ia</span><span class="p">)</span>
+<a name="ln-285"></a>
+<a name="ln-286"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="n">restart</span><span class="p">()</span>
+<a name="ln-287"></a>    <span class="n">tree</span> <span class="o">=</span> <span class="n">KdTree</span><span class="p">(</span><span class="n">a2D</span><span class="p">(</span><span class="mi">1</span><span class="p">:</span><span class="n">ib</span><span class="p">,:))</span>
+<a name="ln-288"></a>    <span class="k">call </span><span class="n">clk</span><span class="p">%</span><span class="k">stop</span><span class="p">()</span>
+<a name="ln-289"></a>    <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(i10,1x,f0.3)&#39;</span><span class="p">)</span> <span class="n">ib</span><span class="p">,</span><span class="n">clk</span><span class="p">%</span><span class="n">elapsedInSeconds</span><span class="p">()</span>
+<a name="ln-290"></a>  <span class="n">enddo</span>
+<a name="ln-291"></a>  <span class="k">call </span><span class="n">tree</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
+<a name="ln-292"></a>
+<a name="ln-293"></a>  <span class="k">call </span><span class="n">closeFile</span><span class="p">(</span><span class="s1">&#39;scale_results.txt&#39;</span><span class="p">,</span><span class="n">iunit</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="n">istat</span><span class="p">)</span>
+<a name="ln-294"></a>
+<a name="ln-295"></a>  <span class="k">stop</span>
+<a name="ln-296"></a><span class="mi">1</span> <span class="k">format</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a name="ln-297"></a><span class="k">contains</span>
+<a name="ln-298"></a>
+<a name="ln-299"></a><span class="k">  subroutine </span><span class="n">test</span><span class="p">(</span><span class="n">l</span><span class="p">,</span><span class="n">msg</span><span class="p">)</span>
+<a name="ln-300"></a>  <span class="kt">logical</span> <span class="kd">::</span> <span class="n">l</span>
+<a name="ln-301"></a>  <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=*</span><span class="p">)</span> <span class="kd">::</span> <span class="n">msg</span>
+<a name="ln-302"></a>    <span class="n">testTotal</span> <span class="o">=</span> <span class="n">testTotal</span> <span class="o">+</span> <span class="mi">1</span>
+<a name="ln-303"></a>    <span class="k">if</span> <span class="p">(</span><span class="n">l</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-304"></a><span class="k">      write</span><span class="p">(</span><span class="n">output_unit</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="n">msg</span><span class="o">//</span><span class="s1">&#39; Passed!&#39;</span>
+<a name="ln-305"></a>      <span class="n">passCount</span> <span class="o">=</span> <span class="n">passCount</span> <span class="o">+</span> <span class="mi">1</span>
+<a name="ln-306"></a>    <span class="k">else</span>
+<a name="ln-307"></a><span class="k">      write</span><span class="p">(</span><span class="n">output_unit</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="n">msg</span><span class="o">//</span><span class="s1">&#39; Failed!&#39;</span>
+<a name="ln-308"></a>    <span class="n">endif</span>
+<a name="ln-309"></a>  <span class="mi">1</span> <span class="k">format</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a name="ln-310"></a>  <span class="k">end subroutine</span>
+<a name="ln-311"></a>
+<a name="ln-312"></a><span class="k">end program</span>
+</pre></div>
+
+    </section>
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allfiles-1">All Source Files</a></h3></div>
+  <div id="allfiles-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../sourcefile/dargdynamicarray_class.f90.html">dArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/ddynamicarray_class.f90.html">dDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/iargdynamicarray_class.f90.html">iArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/idargdynamicarray_class.f90.html">idArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/iddynamicarray_class.f90.html">idDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/idynamicarray_class.f90.html">iDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_allocate.f90.html">m_allocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_array1d.f90.html">m_array1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_compare.f90.html">m_compare.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_copy.f90.html">m_copy.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_deallocate.f90.html">m_deallocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_debugging.f90.html">m_debugging.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_errors.f90.html">m_errors.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_fileio.f90.html">m_fileIO.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_format.f90.html">m_format.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_indexing.f90.html">m_indexing.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_kdtree.f90.html">m_KdTree.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_maths.f90.html">m_maths.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_medianof3.f90.html">m_medianOf3.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_parameters.f90.html">m_parameters.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_partition.f90.html">m_partition.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_partition3way.f90.html">m_partition3way.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_random.f90.html">m_random.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_read.f90.html">m_read.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_reallocate.f90.html">m_reallocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_searching.f90.html">m_searching.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_select.f90.html">m_select.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_sort.f90.html">m_sort.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_strings.f90.html">m_strings.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_swap.f90.html">m_swap.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_tests.f90.html">m_tests.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_time.f90.html">m_time.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_unittester.f90.html">m_unitTester.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_variablekind.f90.html">m_variableKind.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_write.f90.html">m_write.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/prng_class.f90.html">Prng_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/progressbar_class.f90.html">ProgressBar_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/rargdynamicarray_class.f90.html">rArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/rdynamicarray_class.f90.html">rDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/scale_coretran.f90.html">scale_coretran.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/stopwatch_class.f90.html">Stopwatch_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/test_coretran.f90.html">test_coretran.f90</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> Fortran Program was developed by Leon Foks</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

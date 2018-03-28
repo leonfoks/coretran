@@ -73,6 +73,8 @@
             <li><a href="../lists/types.html">Derived Types</a></li>
 				
 				
+            <li><a href="../lists/programs.html">Programs</a></li>
+				
             </ul>
             </li>
 
@@ -88,6 +90,8 @@
                              
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
 
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/programs.html">Programs</a></li>
 
           </ul>
         
@@ -126,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title="14.0% of total for modules and submodules.">928 statements</a>
+	  title="10.3% of total for modules and submodules.">833 statements</a>
      </li> 
      
      
@@ -179,17 +183,6 @@
 
 
 
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-0">Subroutines</a></h3></div>
-  <div class="list-group">
-    <div id="subs-0" class="panel-collapse collapse">
-      
-      <a class="list-group-item" href="../module/m_allocate.html#proc-allocate_test">allocate_test</a>
-      
-    </div>
-  </div>
-</div>
-
 
 
 
@@ -206,7 +199,19 @@
   <div id="allmods-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../module/dargdynamicarray_class.html">dArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/ddynamicarray_class.html">dDynamicArray_Class</a>
+      
       <a class="list-group-item" href="../module/formatting.html">formatting</a>
+      
+      <a class="list-group-item" href="../module/iargdynamicarray_class.html">iArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/idargdynamicarray_class.html">idArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/iddynamicarray_class.html">idDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/idynamicarray_class.html">iDynamicArray_Class</a>
       
       <a class="list-group-item" href="../module/m_allocate.html">m_allocate</a>
       
@@ -216,10 +221,6 @@
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
       
-      <a class="list-group-item" href="../module/m_dargdynamicarray.html">m_dArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_ddynamicarray.html">m_dDynamicArray</a>
-      
       <a class="list-group-item" href="../module/m_deallocate.html">m_deallocate</a>
       
       <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
@@ -227,14 +228,6 @@
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
-      
-      <a class="list-group-item" href="../module/m_iargdynamicarray.html">m_iArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_idargdynamicarray.html">m_idArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_iddynamicarray.html">m_idDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_idynamicarray.html">m_iDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
       
@@ -252,10 +245,6 @@
       
       <a class="list-group-item" href="../module/m_random.html">m_random</a>
       
-      <a class="list-group-item" href="../module/m_rargdynamicarray.html">m_rArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_rdynamicarray.html">m_rDynamicArray</a>
-      
       <a class="list-group-item" href="../module/m_readline.html">m_readline</a>
       
       <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
@@ -270,6 +259,8 @@
       
       <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
       
+      <a class="list-group-item" href="../module/m_tests.html">m_tests</a>
+      
       <a class="list-group-item" href="../module/m_time.html">m_time</a>
       
       <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
@@ -279,6 +270,10 @@
       <a class="list-group-item" href="../module/prng_class.html">Prng_Class</a>
       
       <a class="list-group-item" href="../module/progressbar_class.html">ProgressBar_Class</a>
+      
+      <a class="list-group-item" href="../module/rargdynamicarray_class.html">rArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/rdynamicarray_class.html">rDynamicArray_Class</a>
       
       <a class="list-group-item" href="../module/stopwatch_class.html">Stopwatch_Class</a>
       
@@ -311,96 +306,111 @@
                 <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
  -->
 <!-- Title: module~~m_allocate~~UsesGraph Pages: 1 -->
-<svg id="modulem_allocateUsesGraph" width="504pt" height="103pt"
- viewBox="0.00 0.00 504.00 102.91" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="module~~m_allocate~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 98.9134)">
+<svg id="modulem_allocateUsesGraph" width="495pt" height="109pt"
+ viewBox="0.00 0.00 495.05 108.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~m_allocate~~UsesGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 104.5)">
 <title>module~~m_allocate~~UsesGraph</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-98.9134 500,-98.9134 500,4 -4,4"/>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-104.5 491.054,-104.5 491.054,4 -4,4"/>
 <!-- module~m_allocate -->
-<g id="module~~m_allocate~~UsesGraph_node1" class="node"><title>module~m_allocate</title>
-<polygon fill="none" stroke="black" points="496,-82.0821 432,-82.0821 432,-58.0821 496,-58.0821 496,-82.0821"/>
-<text text-anchor="middle" x="464" y="-67.6821" font-family="Helvetica,sans-Serif" font-size="10.50">m_allocate</text>
-</g>
-<!-- module~m_errors -->
-<g id="module~~m_allocate~~UsesGraph_node2" class="node"><title>module~m_errors</title>
-<g id="a_module~~m_allocate~~UsesGraph_node2"><a xlink:href="../module/m_errors.html" xlink:title="m_errors">
-<polygon fill="#337ab7" stroke="#337ab7" points="285,-83.0821 230,-83.0821 230,-59.0821 285,-59.0821 285,-83.0821"/>
-<text text-anchor="middle" x="257.5" y="-68.6821" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_errors</text>
-</a>
-</g>
-</g>
-<!-- module~m_errors&#45;&gt;module~m_allocate -->
-<g id="module~~m_allocate~~UsesGraph_edge7" class="edge"><title>module~m_errors&#45;&gt;module~m_allocate</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M285.131,-81.6102C296.061,-85.3996 308.956,-89.202 321,-91.0821 353.934,-96.2232 363.05,-96.1249 396,-91.0821 404.574,-89.7699 413.558,-87.5647 422.062,-85.0644"/>
-<polygon fill="#000000" stroke="#000000" points="423.27,-88.3538 431.77,-82.0294 421.181,-81.6726 423.27,-88.3538"/>
-</g>
-<!-- module~m_unittester -->
-<g id="module~~m_allocate~~UsesGraph_node3" class="node"><title>module~m_unittester</title>
-<g id="a_module~~m_allocate~~UsesGraph_node3"><a xlink:href="../module/m_unittester.html" xlink:title="m_unitTester">
-<polygon fill="#337ab7" stroke="#337ab7" points="396,-82.0821 321,-82.0821 321,-58.0821 396,-58.0821 396,-82.0821"/>
-<text text-anchor="middle" x="358.5" y="-67.6821" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_unitTester</text>
-</a>
-</g>
-</g>
-<!-- module~m_errors&#45;&gt;module~m_unittester -->
-<g id="module~~m_allocate~~UsesGraph_edge3" class="edge"><title>module~m_errors&#45;&gt;module~m_unittester</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M285.03,-70.8141C292.934,-70.7343 301.842,-70.6443 310.639,-70.5555"/>
-<polygon fill="#000000" stroke="#000000" points="310.883,-74.0533 320.847,-70.4524 310.812,-67.0536 310.883,-74.0533"/>
-</g>
-<!-- module~m_unittester&#45;&gt;module~m_allocate -->
-<g id="module~~m_allocate~~UsesGraph_edge8" class="edge"><title>module~m_unittester&#45;&gt;module~m_allocate</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M396.282,-70.0821C404.543,-70.0821 413.362,-70.0821 421.79,-70.0821"/>
-<polygon fill="#000000" stroke="#000000" points="421.815,-73.5822 431.815,-70.0821 421.815,-66.5822 421.815,-73.5822"/>
+<g id="module~~m_allocate~~UsesGraph_node1" class="node">
+<title>module~m_allocate</title>
+<polygon fill="none" stroke="#000000" points="486.943,-61.2554 424.3875,-61.2554 424.3875,-39.2446 486.943,-39.2446 486.943,-61.2554"/>
+<text text-anchor="middle" x="455.6653" y="-47.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">m_allocate</text>
 </g>
 <!-- module~variablekind -->
-<g id="module~~m_allocate~~UsesGraph_node4" class="node"><title>module~variablekind</title>
-<g id="a_module~~m_allocate~~UsesGraph_node4"><a xlink:href="../module/variablekind.html" xlink:title="variableKind">
-<polygon fill="#337ab7" stroke="#337ab7" points="194,-43.0821 123,-43.0821 123,-19.0821 194,-19.0821 194,-43.0821"/>
-<text text-anchor="middle" x="158.5" y="-28.6821" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">variableKind</text>
+<g id="module~~m_allocate~~UsesGraph_node2" class="node">
+<title>module~variablekind</title>
+<g id="a_module~~m_allocate~~UsesGraph_node2"><a xlink:href="../module/variablekind.html" xlink:title="variableKind">
+<polygon fill="#337ab7" stroke="#337ab7" points="190.0564,-100.2554 120.4839,-100.2554 120.4839,-78.2446 190.0564,-78.2446 190.0564,-100.2554"/>
+<text text-anchor="middle" x="155.2701" y="-86.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">variableKind</text>
 </a>
 </g>
 </g>
 <!-- module~variablekind&#45;&gt;module~m_allocate -->
-<g id="module~~m_allocate~~UsesGraph_edge9" class="edge"><title>module~variablekind&#45;&gt;module~m_allocate</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M258.5,-30.0821C319.927,-35.7925 335.802,-35.5876 396,-49.0821 404.549,-50.9986 413.579,-53.4943 422.146,-56.0929"/>
-<polygon fill="#000000" stroke="#000000" points="421.345,-59.5096 431.934,-59.1622 423.439,-52.8303 421.345,-59.5096"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M194.189,-28.5294C212.741,-27.7165 235.937,-27.5833 256.5,-30.0821"/>
+<g id="module~~m_allocate~~UsesGraph_edge7" class="edge">
+<title>module~variablekind&#45;&gt;module~m_allocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M253.1656,-89.25C313.5197,-83.3659 329.0211,-83.1345 388.2766,-70.25 396.8478,-68.3863 405.9181,-65.9925 414.5317,-63.5133"/>
+<polygon fill="#000000" stroke="#000000" points="415.786,-66.792 424.3761,-60.5903 413.7935,-60.0815 415.786,-66.792"/>
 </g>
-<!-- module~variablekind&#45;&gt;module~m_errors -->
-<g id="module~~m_allocate~~UsesGraph_edge2" class="edge"><title>module~variablekind&#45;&gt;module~m_errors</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.603,-43.0834C198.601,-47.2062 209.915,-51.8719 220.401,-56.1958"/>
-<polygon fill="#000000" stroke="#000000" points="219.156,-59.4686 229.736,-60.0452 221.825,-52.9972 219.156,-59.4686"/>
-</g>
-<!-- module~variablekind&#45;&gt;module~m_unittester -->
-<g id="module~~m_allocate~~UsesGraph_edge5" class="edge"><title>module~variablekind&#45;&gt;module~m_unittester</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M258.5,-30.0821C283.29,-32.3867 309.318,-43.2831 328.462,-53.1217"/>
-<polygon fill="#000000" stroke="#000000" points="327.067,-56.3446 337.536,-57.9713 330.366,-50.171 327.067,-56.3446"/>
-</g>
-<!-- iso_fortran_env -->
-<g id="module~~m_allocate~~UsesGraph_node5" class="node"><title>iso_fortran_env</title>
-<g id="a_module~~m_allocate~~UsesGraph_node5"><a xlink:href="https://software.intel.com/en-us/node/511041" xlink:title="iso_fortran_env">
-<polygon fill="#337ab7" stroke="#337ab7" points="87,-43.0821 0,-43.0821 0,-19.0821 87,-19.0821 87,-43.0821"/>
-<text text-anchor="middle" x="43.5" y="-28.6821" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+<!-- module~m_errors -->
+<g id="module~~m_allocate~~UsesGraph_node3" class="node">
+<title>module~m_errors</title>
+<g id="a_module~~m_allocate~~UsesGraph_node3"><a xlink:href="../module/m_errors.html" xlink:title="m_errors">
+<polygon fill="#337ab7" stroke="#337ab7" points="280.1708,-22.2554 226.1605,-22.2554 226.1605,-.2446 280.1708,-.2446 280.1708,-22.2554"/>
+<text text-anchor="middle" x="253.1656" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_errors</text>
 </a>
 </g>
 </g>
-<!-- iso_fortran_env&#45;&gt;module~m_errors -->
-<g id="module~~m_allocate~~UsesGraph_edge1" class="edge"><title>iso_fortran_env&#45;&gt;module~m_errors</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M85.8339,-43.1354C97.759,-46.3414 110.836,-49.5989 123,-52.0821 155.501,-58.7171 192.921,-63.8279 219.859,-67.0692"/>
-<polygon fill="#000000" stroke="#000000" points="219.656,-70.5693 229.996,-68.2603 220.473,-63.6172 219.656,-70.5693"/>
+<!-- module~variablekind&#45;&gt;module~m_errors -->
+<g id="module~~m_allocate~~UsesGraph_edge2" class="edge">
+<title>module~variablekind&#45;&gt;module~m_errors</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.4428,-78.0568C177.4021,-73.8298 184.1607,-68.9137 190.1631,-64.25 204.6528,-52.9919 220.4534,-39.6971 232.6065,-29.2394"/>
+<polygon fill="#000000" stroke="#000000" points="235.107,-31.704 240.3765,-22.5125 230.5253,-26.4118 235.107,-31.704"/>
 </g>
-<!-- iso_fortran_env&#45;&gt;module~m_unittester -->
-<g id="module~~m_allocate~~UsesGraph_edge4" class="edge"><title>iso_fortran_env&#45;&gt;module~m_unittester</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M81.6316,-19.0174C94.5758,-15.3837 109.292,-11.884 123,-10.0821 194.435,-0.692236 217.393,8.8271 285,-16.0821 305.189,-23.5208 324.547,-38.4787 338.174,-50.7691"/>
-<polygon fill="#000000" stroke="#000000" points="335.804,-53.3447 345.497,-57.6202 340.586,-48.2327 335.804,-53.3447"/>
+<!-- module~m_unittester -->
+<g id="module~~m_allocate~~UsesGraph_node4" class="node">
+<title>module~m_unittester</title>
+<g id="a_module~~m_allocate~~UsesGraph_node4"><a xlink:href="../module/m_unittester.html" xlink:title="m_unitTester">
+<polygon fill="#337ab7" stroke="#337ab7" points="388.3309,-61.2554 316.1139,-61.2554 316.1139,-39.2446 388.3309,-39.2446 388.3309,-61.2554"/>
+<text text-anchor="middle" x="352.2224" y="-47.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_unitTester</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~m_unittester -->
+<g id="module~~m_allocate~~UsesGraph_edge4" class="edge">
+<title>module~variablekind&#45;&gt;module~m_unittester</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M253.1656,-89.25C278.3438,-86.7953 304.9154,-75.8166 324.1927,-66.1306"/>
+<polygon fill="#000000" stroke="#000000" points="326.0509,-69.1089 333.2969,-61.3793 322.8122,-62.9031 326.0509,-69.1089"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.237,-90.8925C208.9476,-91.3577 232.3595,-91.2784 253.1656,-89.25"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_allocate -->
+<g id="module~~m_allocate~~UsesGraph_edge8" class="edge">
+<title>module~m_errors&#45;&gt;module~m_allocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M280.2916,-13.8644C307.7229,-16.7885 351.2419,-22.1972 388.2766,-30.25 396.8478,-32.1137 405.9181,-34.5075 414.5317,-36.9867"/>
+<polygon fill="#000000" stroke="#000000" points="413.7935,-40.4185 424.3761,-39.9097 415.786,-33.708 413.7935,-40.4185"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_unittester -->
+<g id="module~~m_allocate~~UsesGraph_edge6" class="edge">
+<title>module~m_errors&#45;&gt;module~m_unittester</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M280.2333,-21.9069C290.8844,-26.1004 303.2936,-30.9861 314.7794,-35.5082"/>
+<polygon fill="#000000" stroke="#000000" points="313.5643,-38.7912 324.1513,-39.198 316.1287,-32.2778 313.5643,-38.7912"/>
+</g>
+<!-- module~m_unittester&#45;&gt;module~m_allocate -->
+<g id="module~~m_allocate~~UsesGraph_edge9" class="edge">
+<title>module~m_unittester&#45;&gt;module~m_allocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M388.4017,-50.25C396.6858,-50.25 405.5563,-50.25 414.0486,-50.25"/>
+<polygon fill="#000000" stroke="#000000" points="414.155,-53.7501 424.1549,-50.25 414.1549,-46.7501 414.155,-53.7501"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="module~~m_allocate~~UsesGraph_node5" class="node">
+<title>iso_fortran_env</title>
+<g id="a_module~~m_allocate~~UsesGraph_node5"><a xlink:href="https://software.intel.com/en-us/node/511041" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="84.5666,-80.2554 -.1894,-80.2554 -.1894,-58.2446 84.5666,-58.2446 84.5666,-80.2554"/>
+<text text-anchor="middle" x="42.1886" y="-66.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">iso_fortran_env</text>
+</a>
+</g>
 </g>
 <!-- iso_fortran_env&#45;&gt;module~variablekind -->
-<g id="module~~m_allocate~~UsesGraph_edge6" class="edge"><title>iso_fortran_env&#45;&gt;module~variablekind</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M87.2205,-31.0821C95.5739,-31.0821 104.355,-31.0821 112.772,-31.0821"/>
-<polygon fill="#000000" stroke="#000000" points="112.804,-34.5822 122.804,-31.0821 112.804,-27.5822 112.804,-34.5822"/>
+<g id="module~~m_allocate~~UsesGraph_edge1" class="edge">
+<title>iso_fortran_env&#45;&gt;module~variablekind</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M84.6177,-76.7542C92.994,-78.2356 101.8118,-79.7952 110.2697,-81.2911"/>
+<polygon fill="#000000" stroke="#000000" points="109.8974,-84.7795 120.3541,-83.0746 111.1165,-77.8864 109.8974,-84.7795"/>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~m_errors -->
+<g id="module~~m_allocate~~UsesGraph_edge3" class="edge">
+<title>iso_fortran_env&#45;&gt;module~m_errors</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M84.3962,-62.4684C105.6775,-58.9704 131.8717,-54.5451 155.2701,-50.25"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M155.2701,-50.25C179.13,-45.8702 204.5366,-35.5645 223.4864,-26.6467"/>
+<polygon fill="#000000" stroke="#000000" points="225.0257,-29.7902 232.4997,-22.2808 221.9741,-23.4903 225.0257,-29.7902"/>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~m_unittester -->
+<g id="module~~m_allocate~~UsesGraph_edge5" class="edge">
+<title>iso_fortran_env&#45;&gt;module~m_unittester</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M155.2701,-50.25C206.1633,-40.9079 265.7083,-42.6104 305.8933,-45.5645"/>
+<polygon fill="#000000" stroke="#000000" points="305.6842,-49.0588 315.9289,-46.358 306.2359,-42.0806 305.6842,-49.0588"/>
 </g>
 </g>
 </svg>
@@ -419,43 +429,49 @@
     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
  -->
 <!-- Title: Graph Key Pages: 1 -->
-<svg width="488pt" height="32pt"
- viewBox="0.00 0.00 487.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg width="484pt" height="31pt"
+ viewBox="0.00 0.00 483.85 30.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 26.5)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-28 483.5,-28 483.5,4 -4,4"/>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-26.5 479.8539,-26.5 479.8539,4 -4,4"/>
 <!-- Module -->
-<g id="node1" class="node"><title>Module</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
-<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-22.2554 0,-22.2554 0,-.2446 54,-.2446 54,-22.2554"/>
+<text text-anchor="middle" x="27" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Module</text>
 </g>
 <!-- Submodule -->
-<g id="node2" class="node"><title>Submodule</title>
-<polygon fill="#5bc0de" stroke="#5bc0de" points="138,-24 72,-24 72,-0 138,-0 138,-24"/>
-<text text-anchor="middle" x="105" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="137.6205,-22.2554 72.3795,-22.2554 72.3795,-.2446 137.6205,-.2446 137.6205,-22.2554"/>
+<text text-anchor="middle" x="105" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Submodule</text>
 </g>
 <!-- Subroutine -->
-<g id="node3" class="node"><title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="220,-24 156,-24 156,-0 220,-0 220,-24"/>
-<text text-anchor="middle" x="188" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="218.288,-22.2554 155.712,-22.2554 155.712,-.2446 218.288,-.2446 218.288,-22.2554"/>
+<text text-anchor="middle" x="187" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Subroutine</text>
 </g>
 <!-- Function -->
-<g id="node4" class="node"><title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="292,-24 238,-24 238,-0 292,-0 292,-24"/>
-<text text-anchor="middle" x="265" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="290,-22.2554 236,-22.2554 236,-.2446 290,-.2446 290,-22.2554"/>
+<text text-anchor="middle" x="263" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Function</text>
 </g>
 <!-- Program -->
-<g id="node5" class="node"><title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="364,-24 310,-24 310,-0 364,-0 364,-24"/>
-<text text-anchor="middle" x="337" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="362,-22.2554 308,-22.2554 308,-.2446 362,-.2446 362,-22.2554"/>
+<text text-anchor="middle" x="335" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
-<g id="node6" class="node"><title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="479.5,-24 382.5,-24 382.5,-0 479.5,-0 479.5,-24"/>
-<text text-anchor="middle" x="431" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="475.7082,-22.2554 380.2918,-22.2554 380.2918,-.2446 475.7082,-.2446 475.7082,-22.2554"/>
+<text text-anchor="middle" x="428" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -483,286 +499,507 @@
                 <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
  -->
 <!-- Title: module~~m_allocate~~UsedByGraph Pages: 1 -->
-<svg id="modulem_allocateUsedByGraph" width="641pt" height="334pt"
- viewBox="0.00 0.00 641.00 333.93" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="module~~m_allocate~~UsedByGraph" class="graph" transform="scale(0.969743 0.969743) rotate(0) translate(4 340.347)">
+<svg id="modulem_allocateUsedByGraph" width="641pt" height="393pt"
+ viewBox="0.00 0.00 641.00 393.49" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~m_allocate~~UsedByGraph" class="graph" transform="scale(.6309 .6309) rotate(0) translate(4 619.6897)">
 <title>module~~m_allocate~~UsedByGraph</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-340.347 657,-340.347 657,4 -4,4"/>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-619.6897 1011.9978,-619.6897 1011.9978,4 -4,4"/>
 <!-- module~m_allocate -->
-<g id="module~~m_allocate~~UsedByGraph_node1" class="node"><title>module~m_allocate</title>
-<polygon fill="none" stroke="black" points="64,-188 0,-188 0,-164 64,-164 64,-188"/>
-<text text-anchor="middle" x="32" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50">m_allocate</text>
+<g id="module~~m_allocate~~UsedByGraph_node1" class="node">
+<title>module~m_allocate</title>
+<polygon fill="none" stroke="#000000" points="62.6664,-407.5278 .1109,-407.5278 .1109,-385.5169 62.6664,-385.5169 62.6664,-407.5278"/>
+<text text-anchor="middle" x="31.3887" y="-393.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">m_allocate</text>
 </g>
-<!-- module~m_iddynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_node2" class="node"><title>module~m_iddynamicarray</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node2"><a xlink:href="../module/m_iddynamicarray.html" xlink:title="m_idDynamicArray">
-<polygon fill="#337ab7" stroke="#337ab7" points="310,-188 209,-188 209,-164 310,-164 310,-188"/>
-<text text-anchor="middle" x="259.5" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_idDynamicArray</text>
+<!-- module~idynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_node2" class="node">
+<title>module~idynamicarray_class</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node2"><a xlink:href="../module/idynamicarray_class.html" xlink:title="iDynamicArray_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="424.6176,-157.5278 311.9065,-157.5278 311.9065,-135.5169 424.6176,-135.5169 424.6176,-157.5278"/>
+<text text-anchor="middle" x="368.2621" y="-143.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">iDynamicArray_Class</text>
 </a>
 </g>
 </g>
-<!-- module~m_allocate&#45;&gt;module~m_iddynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge19" class="edge"><title>module~m_allocate&#45;&gt;module~m_iddynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M137.5,-216C153.968,-219.044 193.273,-204.5 222.646,-192.105"/>
-<polygon fill="#000000" stroke="#000000" points="224.371,-195.173 232.18,-188.012 221.61,-188.741 224.371,-195.173"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M56.2705,-188.021C76.5715,-197.782 107.136,-210.757 135.5,-216"/>
+<!-- module~m_allocate&#45;&gt;module~idynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge42" class="edge">
+<title>module~m_allocate&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M237.108,-186.5223C246.2187,-186.664 291.3437,-172.3288 326.1462,-160.7824"/>
+<polygon fill="#000000" stroke="#000000" points="327.2703,-164.0971 335.6501,-157.614 325.0564,-157.4564 327.2703,-164.0971"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M131.9143,-167.5223C166.3423,-134.7834 189.6045,-185.7838 237.108,-186.5223"/>
 </g>
-<!-- module~m_kdtree -->
-<g id="module~~m_allocate~~UsedByGraph_node3" class="node"><title>module~m_kdtree</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node3"><a xlink:href="../module/m_kdtree.html" xlink:title="m_KdTree">
-<polygon fill="#337ab7" stroke="#337ab7" points="653,-248 591,-248 591,-224 653,-224 653,-248"/>
-<text text-anchor="middle" x="622" y="-233.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_KdTree</text>
+<!-- program~scaletest_coretran -->
+<g id="module~~m_allocate~~UsedByGraph_node3" class="node">
+<title>program~scaletest_coretran</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node3"><a xlink:href="../program/scaletest_coretran.html" xlink:title="scaleTest_coretran">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="898.779,-523.5278 798.5245,-523.5278 798.5245,-501.5169 898.779,-501.5169 898.779,-523.5278"/>
+<text text-anchor="middle" x="848.6517" y="-509.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">scaleTest_coretran</text>
 </a>
 </g>
 </g>
-<!-- module~m_allocate&#45;&gt;module~m_kdtree -->
-<g id="module~~m_allocate~~UsedByGraph_edge20" class="edge"><title>module~m_allocate&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M36.8754,-188.052C44.7303,-210.242 64.8355,-257.108 100,-277 265.151,-370.422 340.612,-334.055 526.5,-296"/>
-</g>
-<!-- module~m_ddynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_node4" class="node"><title>module~m_ddynamicarray</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node4"><a xlink:href="../module/m_ddynamicarray.html" xlink:title="m_dDynamicArray">
-<polygon fill="#337ab7" stroke="#337ab7" points="309,-146 210,-146 210,-122 309,-122 309,-146"/>
-<text text-anchor="middle" x="259.5" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_dDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- module~m_allocate&#45;&gt;module~m_ddynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge21" class="edge"><title>module~m_allocate&#45;&gt;module~m_ddynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M64.0577,-165.043C75.2709,-161.414 88.0979,-157.633 100,-155 132.608,-147.786 169.576,-142.714 199.602,-139.365"/>
-<polygon fill="#000000" stroke="#000000" points="200.348,-142.805 209.915,-138.251 199.597,-135.845 200.348,-142.805"/>
-</g>
-<!-- module~m_random -->
-<g id="module~~m_allocate~~UsedByGraph_node5" class="node"><title>module~m_random</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node5"><a xlink:href="../module/m_random.html" xlink:title="m_random">
-<polygon fill="#337ab7" stroke="#337ab7" points="291,-268 228,-268 228,-244 291,-244 291,-268"/>
-<text text-anchor="middle" x="259.5" y="-253.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_random</text>
-</a>
-</g>
-</g>
-<!-- module~m_allocate&#45;&gt;module~m_random -->
-<g id="module~~m_allocate~~UsedByGraph_edge22" class="edge"><title>module~m_allocate&#45;&gt;module~m_random</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M137.5,-216C165.675,-221.208 196.308,-231.383 219.702,-240.167"/>
-<polygon fill="#000000" stroke="#000000" points="218.666,-243.518 229.257,-243.827 221.171,-236.981 218.666,-243.518"/>
+<!-- module~m_allocate&#45;&gt;program~scaletest_coretran -->
+<g id="module~~m_allocate~~UsedByGraph_edge43" class="edge">
+<title>module~m_allocate&#45;&gt;program~scaletest_coretran</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M368.2621,-607.5223C439.5549,-618.6887 458.957,-599.1061 530.6265,-607.5223"/>
 </g>
 <!-- module~prng_class -->
-<g id="module~~m_allocate~~UsedByGraph_node6" class="node"><title>module~prng_class</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node6"><a xlink:href="../module/prng_class.html" xlink:title="Prng_Class">
-<polygon fill="#337ab7" stroke="#337ab7" points="170,-268 103,-268 103,-244 170,-244 170,-268"/>
-<text text-anchor="middle" x="136.5" y="-253.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Prng_Class</text>
+<g id="module~~m_allocate~~UsedByGraph_node4" class="node">
+<title>module~prng_class</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node4"><a xlink:href="../module/prng_class.html" xlink:title="Prng_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="165.1888,-407.5278 98.6398,-407.5278 98.6398,-385.5169 165.1888,-385.5169 165.1888,-407.5278"/>
+<text text-anchor="middle" x="131.9143" y="-393.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Prng_Class</text>
 </a>
 </g>
 </g>
 <!-- module~m_allocate&#45;&gt;module~prng_class -->
-<g id="module~~m_allocate~~UsedByGraph_edge23" class="edge"><title>module~m_allocate&#45;&gt;module~prng_class</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M47.7454,-188.21C61.2175,-199.287 81.7579,-215.98 100,-230 103.407,-232.619 107.031,-235.342 110.612,-237.997"/>
-<polygon fill="#000000" stroke="#000000" points="108.635,-240.888 118.766,-243.988 112.78,-235.247 108.635,-240.888"/>
+<g id="module~~m_allocate~~UsedByGraph_edge44" class="edge">
+<title>module~m_allocate&#45;&gt;module~prng_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M62.9198,-396.5223C71.0251,-396.5223 79.8887,-396.5223 88.481,-396.5223"/>
+<polygon fill="#000000" stroke="#000000" points="88.758,-400.0224 98.758,-396.5223 88.7579,-393.0224 88.758,-400.0224"/>
 </g>
-<!-- module~m_maths -->
-<g id="module~~m_allocate~~UsedByGraph_node7" class="node"><title>module~m_maths</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node7"><a xlink:href="../module/m_maths.html" xlink:title="m_maths">
-<polygon fill="#337ab7" stroke="#337ab7" points="555,-248 500,-248 500,-224 555,-224 555,-248"/>
-<text text-anchor="middle" x="527.5" y="-233.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_maths</text>
+<!-- module~m_kdtree -->
+<g id="module~~m_allocate~~UsedByGraph_node5" class="node">
+<title>module~m_kdtree</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node5"><a xlink:href="../module/m_kdtree.html" xlink:title="m_KdTree">
+<polygon fill="#337ab7" stroke="#337ab7" points="728.3762,-427.5278 668.1055,-427.5278 668.1055,-405.5169 728.3762,-405.5169 728.3762,-427.5278"/>
+<text text-anchor="middle" x="698.2408" y="-413.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_KdTree</text>
 </a>
 </g>
 </g>
-<!-- module~m_allocate&#45;&gt;module~m_maths -->
-<g id="module~~m_allocate~~UsedByGraph_edge24" class="edge"><title>module~m_allocate&#45;&gt;module~m_maths</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M137.5,-216C190.382,-225.775 204.848,-212.33 258.5,-216"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M260.5,-216C342.24,-221.592 438.041,-229.007 489.431,-233.054"/>
-<polygon fill="#000000" stroke="#000000" points="489.457,-236.567 499.702,-233.865 490.008,-229.589 489.457,-236.567"/>
+<!-- module~m_allocate&#45;&gt;module~m_kdtree -->
+<g id="module~~m_allocate~~UsedByGraph_edge45" class="edge">
+<title>module~m_allocate&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M237.108,-530.5223C263.7786,-531.8073 437.4339,-455.9131 463.3594,-449.5223 530.4521,-432.9836 610.5106,-423.9477 657.7081,-419.6848"/>
+<polygon fill="#000000" stroke="#000000" points="658.1764,-423.1572 667.833,-418.7983 657.5658,-416.1839 658.1764,-423.1572"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M131.9143,-530.5223C175.4703,-547.5134 190.3937,-528.6259 237.108,-530.5223"/>
 </g>
 <!-- module~m_copy -->
-<g id="module~~m_allocate~~UsedByGraph_node8" class="node"><title>module~m_copy</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node8"><a xlink:href="../module/m_copy.html" xlink:title="m_copy">
-<polygon fill="#337ab7" stroke="#337ab7" points="163.5,-188 109.5,-188 109.5,-164 163.5,-164 163.5,-188"/>
-<text text-anchor="middle" x="136.5" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_copy</text>
+<g id="module~~m_allocate~~UsedByGraph_node6" class="node">
+<title>module~m_copy</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node6"><a xlink:href="../module/m_copy.html" xlink:title="m_copy">
+<polygon fill="#337ab7" stroke="#337ab7" points="725.2408,-543.5278 671.2408,-543.5278 671.2408,-521.5169 725.2408,-521.5169 725.2408,-543.5278"/>
+<text text-anchor="middle" x="698.2408" y="-529.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_copy</text>
 </a>
 </g>
 </g>
 <!-- module~m_allocate&#45;&gt;module~m_copy -->
-<g id="module~~m_allocate~~UsedByGraph_edge25" class="edge"><title>module~m_allocate&#45;&gt;module~m_copy</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M64.0315,-176C75.1293,-176 87.7333,-176 99.2337,-176"/>
-<polygon fill="#000000" stroke="#000000" points="99.4102,-179.5 109.41,-176 99.4101,-172.5 99.4102,-179.5"/>
-</g>
-<!-- module~m_idynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_node9" class="node"><title>module~m_idynamicarray</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node9"><a xlink:href="../module/m_idynamicarray.html" xlink:title="m_iDynamicArray">
-<polygon fill="#337ab7" stroke="#337ab7" points="307,-104 212,-104 212,-80 307,-80 307,-104"/>
-<text text-anchor="middle" x="259.5" y="-89.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_iDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- module~m_allocate&#45;&gt;module~m_idynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge26" class="edge"><title>module~m_allocate&#45;&gt;module~m_idynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M137.5,-56C145.056,-53.0996 184.18,-65.533 215.925,-76.5698"/>
-<polygon fill="#000000" stroke="#000000" points="214.902,-79.9201 225.497,-79.9317 217.222,-73.3156 214.902,-79.9201"/>
+<g id="module~~m_allocate~~UsedByGraph_edge46" class="edge">
+<title>module~m_allocate&#45;&gt;module~m_copy</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M368.2621,-607.5223C397.2075,-611.8826 581.0828,-563.9965 661.1115,-542.5712"/>
+<polygon fill="#000000" stroke="#000000" points="662.4888,-545.8254 671.2394,-539.8524 660.6739,-539.0648 662.4888,-545.8254"/>
 </g>
 <!-- module~m_array1d -->
-<g id="module~~m_allocate~~UsedByGraph_node10" class="node"><title>module~m_array1d</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node10"><a xlink:href="../module/m_array1d.html" xlink:title="m_array1D">
-<polygon fill="#337ab7" stroke="#337ab7" points="437.5,-268 372.5,-268 372.5,-244 437.5,-244 437.5,-268"/>
-<text text-anchor="middle" x="405" y="-253.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_array1D</text>
+<g id="module~~m_allocate~~UsedByGraph_node7" class="node">
+<title>module~m_array1d</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node7"><a xlink:href="../module/m_array1d.html" xlink:title="m_array1D">
+<polygon fill="#337ab7" stroke="#337ab7" points="400.193,-541.5278 336.3311,-541.5278 336.3311,-519.5169 400.193,-519.5169 400.193,-541.5278"/>
+<text text-anchor="middle" x="368.2621" y="-527.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_array1D</text>
 </a>
 </g>
 </g>
 <!-- module~m_allocate&#45;&gt;module~m_array1d -->
-<g id="module~~m_allocate~~UsedByGraph_edge27" class="edge"><title>module~m_allocate&#45;&gt;module~m_array1d</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M260.5,-216C296.738,-218.479 336.403,-230.276 364.83,-240.422"/>
-<polygon fill="#000000" stroke="#000000" points="363.798,-243.772 374.392,-243.924 366.205,-237.198 363.798,-243.772"/>
+<g id="module~~m_allocate~~UsedByGraph_edge47" class="edge">
+<title>module~m_allocate&#45;&gt;module~m_array1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M237.108,-530.5223C266.7922,-531.9524 300.2994,-531.9243 326.0155,-531.5531"/>
+<polygon fill="#000000" stroke="#000000" points="326.2308,-535.0501 336.1708,-531.3831 326.1135,-528.0511 326.2308,-535.0501"/>
 </g>
-<!-- module~m_rdynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_node11" class="node"><title>module~m_rdynamicarray</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node11"><a xlink:href="../module/m_rdynamicarray.html" xlink:title="m_rDynamicArray">
-<polygon fill="#337ab7" stroke="#337ab7" points="308,-62 211,-62 211,-38 308,-38 308,-62"/>
-<text text-anchor="middle" x="259.5" y="-47.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_rDynamicArray</text>
+<!-- module~m_random -->
+<g id="module~~m_allocate~~UsedByGraph_node8" class="node">
+<title>module~m_random</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node8"><a xlink:href="../module/m_random.html" xlink:title="m_random">
+<polygon fill="#337ab7" stroke="#337ab7" points="268.2961,-502.5278 205.92,-502.5278 205.92,-480.5169 268.2961,-480.5169 268.2961,-502.5278"/>
+<text text-anchor="middle" x="237.108" y="-488.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_random</text>
 </a>
 </g>
 </g>
-<!-- module~m_allocate&#45;&gt;module~m_rdynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge28" class="edge"><title>module~m_allocate&#45;&gt;module~m_rdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M137.5,-56C157.238,-48.4241 180.13,-45.8725 200.657,-45.5676"/>
-<polygon fill="#000000" stroke="#000000" points="200.824,-49.0679 210.832,-45.5921 200.84,-42.0679 200.824,-49.0679"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M38.6353,-163.715C48.5609,-143.167 70.8959,-101.481 100,-75 113.236,-62.9565 118.793,-62.4127 135.5,-56"/>
+<!-- module~m_allocate&#45;&gt;module~m_random -->
+<g id="module~~m_allocate~~UsedByGraph_edge48" class="edge">
+<title>module~m_allocate&#45;&gt;module~m_random</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M35.1549,-407.7782C45.3219,-435.9618 76.3716,-508.8553 131.9143,-530.5223"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M131.9143,-530.5223C146.0552,-536.0387 181.9695,-520.382 207.9031,-507.2889"/>
+<polygon fill="#000000" stroke="#000000" points="209.6635,-510.3191 216.9472,-502.625 206.4552,-504.0976 209.6635,-510.3191"/>
+</g>
+<!-- module~m_maths -->
+<g id="module~~m_allocate~~UsedByGraph_node9" class="node">
+<title>module~m_maths</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node9"><a xlink:href="../module/m_maths.html" xlink:title="m_maths">
+<polygon fill="#337ab7" stroke="#337ab7" points="558.306,-541.5278 502.947,-541.5278 502.947,-519.5169 558.306,-519.5169 558.306,-541.5278"/>
+<text text-anchor="middle" x="530.6265" y="-527.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_maths</text>
+</a>
+</g>
+</g>
+<!-- module~m_allocate&#45;&gt;module~m_maths -->
+<g id="module~~m_allocate~~UsedByGraph_edge49" class="edge">
+<title>module~m_allocate&#45;&gt;module~m_maths</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M368.2621,-607.5223C415.8962,-614.6979 419.5353,-575.5209 463.3594,-555.5223 472.8803,-551.1776 483.3954,-546.9925 493.2273,-543.3299"/>
+<polygon fill="#000000" stroke="#000000" points="494.5707,-546.5657 502.7693,-539.8551 492.1753,-539.9882 494.5707,-546.5657"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M237.108,-530.5223C276.5558,-532.4228 274.7484,-563.151 309.1648,-582.5223 334.0175,-596.5107 340.0613,-603.2742 368.2621,-607.5223"/>
+</g>
+<!-- module~iddynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_node10" class="node">
+<title>module~iddynamicarray_class</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node10"><a xlink:href="../module/iddynamicarray_class.html" xlink:title="idDynamicArray_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="427.4568,-38.5278 309.0673,-38.5278 309.0673,-16.5169 427.4568,-16.5169 427.4568,-38.5278"/>
+<text text-anchor="middle" x="368.2621" y="-24.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">idDynamicArray_Class</text>
+</a>
+</g>
+</g>
+<!-- module~m_allocate&#45;&gt;module~iddynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge50" class="edge">
+<title>module~m_allocate&#45;&gt;module~iddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M237.108,-48.5223C255.7998,-38.3023 278.0808,-32.7237 298.9264,-29.7676"/>
+<polygon fill="#000000" stroke="#000000" points="299.5279,-33.22 309.0224,-28.5182 298.6682,-26.2729 299.5279,-33.22"/>
+</g>
+<!-- module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_node11" class="node">
+<title>module~m_tests</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node11"><a xlink:href="../module/m_tests.html" xlink:title="m_tests">
+<polygon fill="#337ab7" stroke="#337ab7" points="875.6517,-311.5278 821.6517,-311.5278 821.6517,-289.5169 875.6517,-289.5169 875.6517,-311.5278"/>
+<text text-anchor="middle" x="848.6517" y="-297.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_tests</text>
+</a>
+</g>
+</g>
+<!-- module~m_allocate&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge51" class="edge">
+<title>module~m_allocate&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M530.6265,-28.5223C606.998,-32.6918 631.0015,-31.0688 698.2408,-67.5223"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M33.1366,-385.4793C39.4577,-349.1023 64.4243,-231.7013 131.9143,-167.5223"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M698.2408,-67.5223C783.6331,-113.8174 827.8476,-231.8466 842.7537,-279.7983"/>
+<polygon fill="#000000" stroke="#000000" points="839.4125,-280.8414 845.638,-289.4143 846.1174,-278.8303 839.4125,-280.8414"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M237.108,-48.5223C269.4376,-30.8457 273.544,-16.947 309.1648,-7.5223 359.9483,5.914 375.0925,-2.2618 427.3594,-7.5223 473.9598,-12.2126 483.8602,-25.9691 530.6265,-28.5223"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M131.9143,-167.5223C183.0685,-118.8777 174.5071,-81.144 237.108,-48.5223"/>
+</g>
+<!-- module~ddynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_node12" class="node">
+<title>module~ddynamicarray_class</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node12"><a xlink:href="../module/ddynamicarray_class.html" xlink:title="dDynamicArray_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="426.124,-198.5278 310.4002,-198.5278 310.4002,-176.5169 426.124,-176.5169 426.124,-198.5278"/>
+<text text-anchor="middle" x="368.2621" y="-184.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">dDynamicArray_Class</text>
+</a>
+</g>
+</g>
+<!-- module~m_allocate&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge52" class="edge">
+<title>module~m_allocate&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M237.108,-186.5223C257.559,-186.8403 279.8053,-187.0583 300.0693,-187.2072"/>
+<polygon fill="#000000" stroke="#000000" points="300.1281,-190.7076 310.1521,-187.277 300.1766,-183.7078 300.1281,-190.7076"/>
+</g>
+<!-- module~rdynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_node13" class="node">
+<title>module~rdynamicarray_class</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node13"><a xlink:href="../module/rdynamicarray_class.html" xlink:title="rDynamicArray_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="424.7819,-79.5278 311.7423,-79.5278 311.7423,-57.5169 424.7819,-57.5169 424.7819,-79.5278"/>
+<text text-anchor="middle" x="368.2621" y="-65.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">rDynamicArray_Class</text>
+</a>
+</g>
+</g>
+<!-- module~m_allocate&#45;&gt;module~rdynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge53" class="edge">
+<title>module~m_allocate&#45;&gt;module~rdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M237.108,-48.5223C251.1497,-40.8449 288.5917,-47.3953 319.8926,-54.9895"/>
+<polygon fill="#000000" stroke="#000000" points="319.2508,-58.4369 329.8019,-57.4752 320.954,-51.6473 319.2508,-58.4369"/>
 </g>
 <!-- module~m_reallocate -->
-<g id="module~~m_allocate~~UsedByGraph_node12" class="node"><title>module~m_reallocate</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node12"><a xlink:href="../module/m_reallocate.html" xlink:title="m_reallocate">
-<polygon fill="#337ab7" stroke="#337ab7" points="173,-108 100,-108 100,-84 173,-84 173,-108"/>
-<text text-anchor="middle" x="136.5" y="-93.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_reallocate</text>
+<g id="module~~m_allocate~~UsedByGraph_node14" class="node">
+<title>module~m_reallocate</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node14"><a xlink:href="../module/m_reallocate.html" xlink:title="m_reallocate">
+<polygon fill="#337ab7" stroke="#337ab7" points="273.2216,-158.5278 200.9944,-158.5278 200.9944,-136.5169 273.2216,-136.5169 273.2216,-158.5278"/>
+<text text-anchor="middle" x="237.108" y="-144.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_reallocate</text>
 </a>
 </g>
 </g>
 <!-- module~m_allocate&#45;&gt;module~m_reallocate -->
-<g id="module~~m_allocate~~UsedByGraph_edge29" class="edge"><title>module~m_allocate&#45;&gt;module~m_reallocate</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M47.7454,-163.79C61.2175,-152.713 81.7579,-136.02 100,-122 103.407,-119.381 107.031,-116.658 110.612,-114.003"/>
-<polygon fill="#000000" stroke="#000000" points="112.78,-116.753 118.766,-108.012 108.635,-111.112 112.78,-116.753"/>
+<g id="module~~m_allocate~~UsedByGraph_edge54" class="edge">
+<title>module~m_allocate&#45;&gt;module~m_reallocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M131.9143,-167.5223C147.4722,-152.7278 170.4014,-147.2113 190.8849,-145.6127"/>
+<polygon fill="#000000" stroke="#000000" points="191.1952,-149.1017 201.0102,-145.1121 190.8495,-142.1103 191.1952,-149.1017"/>
 </g>
-<!-- module~m_idargdynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_node13" class="node"><title>module~m_idargdynamicarray</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node13"><a xlink:href="../module/m_idargdynamicarray.html" xlink:title="m_idArgDynamicArray">
-<polygon fill="#337ab7" stroke="#337ab7" points="464,-188 346,-188 346,-164 464,-164 464,-188"/>
-<text text-anchor="middle" x="405" y="-173.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_idArgDynamicArray</text>
+<!-- module~idynamicarray_class&#45;&gt;module~m_kdtree -->
+<g id="module~~m_allocate~~UsedByGraph_edge6" class="edge">
+<title>module~idynamicarray_class&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M412.1501,-157.5838C417.6708,-160.2298 422.9266,-163.4956 427.3594,-167.5223 455.3221,-192.9241 439.3697,-215.3392 463.3594,-244.5223 522.6083,-316.5982 618.5441,-374.1641 667.4479,-400.6676"/>
+<polygon fill="#000000" stroke="#000000" points="665.8262,-403.7695 676.2948,-405.4005 669.1283,-397.5972 665.8262,-403.7695"/>
+</g>
+<!-- module~idynamicarray_class&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge10" class="edge">
+<title>module~idynamicarray_class&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M530.6265,-147.5223C606.8836,-151.9535 624.2054,-166.7199 698.2408,-185.5223"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M698.2408,-185.5223C756.8152,-200.3982 808.834,-253.2206 833.5025,-281.8129"/>
+<polygon fill="#000000" stroke="#000000" points="830.8687,-284.119 839.9882,-289.5121 836.2223,-279.6091 830.8687,-284.119"/>
+</g>
+<!-- module~dargdynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_node15" class="node">
+<title>module~dargdynamicarray_class</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node15"><a xlink:href="../module/dargdynamicarray_class.html" xlink:title="dArgDynamicArray_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="596.828,-235.5278 464.4249,-235.5278 464.4249,-213.5169 596.828,-213.5169 596.828,-235.5278"/>
+<text text-anchor="middle" x="530.6265" y="-221.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">dArgDynamicArray_Class</text>
 </a>
 </g>
 </g>
-<!-- module~m_iddynamicarray&#45;&gt;module~m_idargdynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge1" class="edge"><title>module~m_iddynamicarray&#45;&gt;module~m_idargdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M310.287,-176C318.549,-176 327.24,-176 335.863,-176"/>
-<polygon fill="#000000" stroke="#000000" points="335.922,-179.5 345.922,-176 335.922,-172.5 335.922,-179.5"/>
+<!-- module~idynamicarray_class&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge7" class="edge">
+<title>module~idynamicarray_class&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M402.3892,-157.5827C410.666,-160.5561 419.416,-163.9475 427.3594,-167.5223 454.2413,-179.6204 483.544,-196.136 504.0449,-208.2756"/>
+<polygon fill="#000000" stroke="#000000" points="502.4257,-211.3854 512.8046,-213.5137 506.0183,-205.3776 502.4257,-211.3854"/>
 </g>
-<!-- module~m_dargdynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_node14" class="node"><title>module~m_dargdynamicarray</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node14"><a xlink:href="../module/m_dargdynamicarray.html" xlink:title="m_dArgDynamicArray">
-<polygon fill="#337ab7" stroke="#337ab7" points="462.5,-146 347.5,-146 347.5,-122 462.5,-122 462.5,-146"/>
-<text text-anchor="middle" x="405" y="-131.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_dArgDynamicArray</text>
+<!-- module~iargdynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_node16" class="node">
+<title>module~iargdynamicarray_class</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node16"><a xlink:href="../module/iargdynamicarray_class.html" xlink:title="iArgDynamicArray_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="762.4358,-157.5278 634.0459,-157.5278 634.0459,-135.5169 762.4358,-135.5169 762.4358,-157.5278"/>
+<text text-anchor="middle" x="698.2408" y="-143.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">iArgDynamicArray_Class</text>
 </a>
 </g>
 </g>
-<!-- module~m_ddynamicarray&#45;&gt;module~m_dargdynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge3" class="edge"><title>module~m_ddynamicarray&#45;&gt;module~m_dargdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M309.083,-134C318.099,-134 327.662,-134 337.113,-134"/>
-<polygon fill="#000000" stroke="#000000" points="337.291,-137.5 347.291,-134 337.291,-130.5 337.291,-137.5"/>
+<!-- module~idynamicarray_class&#45;&gt;module~iargdynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge8" class="edge">
+<title>module~idynamicarray_class&#45;&gt;module~iargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M530.6265,-147.5223C561.0315,-149.2891 594.5909,-149.4442 623.6435,-149.01"/>
+<polygon fill="#000000" stroke="#000000" points="623.7821,-152.5082 633.7192,-148.8335 623.6594,-145.5093 623.7821,-152.5082"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M424.6642,-145.4342C455.9147,-145.192 495.4498,-145.4783 530.6265,-147.5223"/>
 </g>
-<!-- module~m_random&#45;&gt;module~m_array1d -->
-<g id="module~~m_allocate~~UsedByGraph_edge4" class="edge"><title>module~m_random&#45;&gt;module~m_array1d</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M291.284,-256C311.995,-256 339.554,-256 362.237,-256"/>
-<polygon fill="#000000" stroke="#000000" points="362.274,-259.5 372.274,-256 362.274,-252.5 362.274,-259.5"/>
+<!-- module~rargdynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_node17" class="node">
+<title>module~rargdynamicarray_class</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node17"><a xlink:href="../module/rargdynamicarray_class.html" xlink:title="rArgDynamicArray_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="595.4849,-119.5278 465.768,-119.5278 465.768,-97.5169 595.4849,-97.5169 595.4849,-119.5278"/>
+<text text-anchor="middle" x="530.6265" y="-105.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">rArgDynamicArray_Class</text>
+</a>
+</g>
+</g>
+<!-- module~idynamicarray_class&#45;&gt;module~rargdynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge9" class="edge">
+<title>module~idynamicarray_class&#45;&gt;module~rargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M415.6611,-135.429C433.751,-131.1952 454.565,-126.3239 473.4688,-121.8996"/>
+<polygon fill="#000000" stroke="#000000" points="474.51,-125.2506 483.4493,-119.5638 472.9148,-118.4348 474.51,-125.2506"/>
+</g>
+<!-- module~idargdynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_node18" class="node">
+<title>module~idargdynamicarray_class</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node18"><a xlink:href="../module/idargdynamicarray_class.html" xlink:title="idArgDynamicArray_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="597.6614,-78.5278 463.5915,-78.5278 463.5915,-56.5169 597.6614,-56.5169 597.6614,-78.5278"/>
+<text text-anchor="middle" x="530.6265" y="-64.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">idArgDynamicArray_Class</text>
+</a>
+</g>
+</g>
+<!-- module~idynamicarray_class&#45;&gt;module~idargdynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge11" class="edge">
+<title>module~idynamicarray_class&#45;&gt;module~idargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M399.9422,-135.4557C409.1157,-131.6407 418.9241,-126.9419 427.3594,-121.5223 445.6203,-109.79 444.5479,-99.35 463.3594,-88.5223 467.2826,-86.2642 471.4769,-84.2202 475.782,-82.3755"/>
+<polygon fill="#000000" stroke="#000000" points="477.2798,-85.548 485.3213,-78.6498 474.7332,-79.0276 477.2798,-85.548"/>
 </g>
 <!-- module~prng_class&#45;&gt;module~m_random -->
-<g id="module~~m_allocate~~UsedByGraph_edge5" class="edge"><title>module~prng_class&#45;&gt;module~m_random</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M170.244,-256C184.802,-256 202.097,-256 217.503,-256"/>
-<polygon fill="#000000" stroke="#000000" points="217.81,-259.5 227.81,-256 217.81,-252.5 217.81,-259.5"/>
+<g id="module~~m_allocate~~UsedByGraph_edge13" class="edge">
+<title>module~prng_class&#45;&gt;module~m_random</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M144.3945,-407.7932C162.3465,-424.0056 195.6494,-454.0813 217.0721,-473.428"/>
+<polygon fill="#000000" stroke="#000000" points="214.8767,-476.1614 224.6441,-480.2662 219.5684,-470.9663 214.8767,-476.1614"/>
 </g>
-<!-- module~m_maths&#45;&gt;module~m_kdtree -->
-<g id="module~~m_allocate~~UsedByGraph_edge6" class="edge"><title>module~m_maths&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M555.255,-236C563.145,-236 571.962,-236 580.512,-236"/>
-<polygon fill="#000000" stroke="#000000" points="580.728,-239.5 590.728,-236 580.728,-232.5 580.728,-239.5"/>
+<!-- module~prng_class&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge12" class="edge">
+<title>module~prng_class&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M165.3146,-388.2942C243.1343,-368.556 441.7643,-314.8859 597.8936,-244.5223 645.0612,-223.2651 648.0963,-172.7874 698.2408,-185.5223"/>
 </g>
-<!-- module~m_idynamicarray&#45;&gt;module~m_kdtree -->
-<g id="module~~m_allocate~~UsedByGraph_edge11" class="edge"><title>module~m_idynamicarray&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M528.5,-94C578.152,-115.632 604.225,-179.575 614.956,-213.796"/>
-<polygon fill="#000000" stroke="#000000" points="611.715,-215.177 617.912,-223.771 618.427,-213.189 611.715,-215.177"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M307.11,-88.0143C372.691,-83.1382 488.449,-77.4217 526.5,-94"/>
+<!-- module~m_kdtree&#45;&gt;program~scaletest_coretran -->
+<g id="module~~m_allocate~~UsedByGraph_edge14" class="edge">
+<title>module~m_kdtree&#45;&gt;program~scaletest_coretran</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M715.4949,-427.5348C741.7615,-444.2995 791.9589,-476.3381 822.6567,-495.931"/>
+<polygon fill="#000000" stroke="#000000" points="820.8232,-498.9128 831.1356,-501.3427 824.5892,-493.0122 820.8232,-498.9128"/>
 </g>
-<!-- module~m_idynamicarray&#45;&gt;module~m_idargdynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge7" class="edge"><title>module~m_idynamicarray&#45;&gt;module~m_idargdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M294.649,-104.013C300.017,-106.588 305.329,-109.582 310,-113 329.841,-127.518 325.775,-141.021 346,-155 348.354,-156.627 350.848,-158.143 353.428,-159.554"/>
-<polygon fill="#000000" stroke="#000000" points="351.926,-162.715 362.449,-163.951 354.994,-156.423 351.926,-162.715"/>
+<!-- module~m_kdtree&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge15" class="edge">
+<title>module~m_kdtree&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M728.4175,-407.9031C739.6851,-403.9068 752.2444,-398.4769 762.5881,-391.5223 792.1406,-371.6531 819.1028,-339.9652 834.695,-319.7107"/>
+<polygon fill="#000000" stroke="#000000" points="837.6237,-321.6396 840.8417,-311.5452 832.0312,-317.4296 837.6237,-321.6396"/>
 </g>
-<!-- module~m_idynamicarray&#45;&gt;module~m_dargdynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge9" class="edge"><title>module~m_idynamicarray&#45;&gt;module~m_dargdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M301.621,-104.036C317.683,-108.737 336.266,-114.175 353.156,-119.119"/>
-<polygon fill="#000000" stroke="#000000" points="352.292,-122.513 362.873,-121.963 354.258,-115.795 352.292,-122.513"/>
+<!-- module~m_copy&#45;&gt;program~scaletest_coretran -->
+<g id="module~~m_allocate~~UsedByGraph_edge16" class="edge">
+<title>module~m_copy&#45;&gt;program~scaletest_coretran</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M725.4791,-528.9005C743.019,-526.5682 766.5331,-523.4416 788.3143,-520.5454"/>
+<polygon fill="#000000" stroke="#000000" points="789.0504,-523.9784 798.5018,-519.1907 788.1276,-517.0395 789.0504,-523.9784"/>
 </g>
-<!-- module~m_iargdynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_node15" class="node"><title>module~m_iargdynamicarray</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node15"><a xlink:href="../module/m_iargdynamicarray.html" xlink:title="m_iArgDynamicArray">
-<polygon fill="#337ab7" stroke="#337ab7" points="461,-66 349,-66 349,-42 461,-42 461,-66"/>
-<text text-anchor="middle" x="405" y="-51.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_iArgDynamicArray</text>
-</a>
+<!-- module~m_copy&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge17" class="edge">
+<title>module~m_copy&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M712.0921,-521.3153C726.0783,-509.497 747.6876,-489.8093 762.5881,-469.5223 798.4668,-420.6738 827.2463,-354.6951 840.5854,-321.4779"/>
+<polygon fill="#000000" stroke="#000000" points="843.947,-322.4942 844.3631,-311.9075 837.4359,-319.924 843.947,-322.4942"/>
 </g>
-</g>
-<!-- module~m_idynamicarray&#45;&gt;module~m_iargdynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge8" class="edge"><title>module~m_idynamicarray&#45;&gt;module~m_iargdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M305.904,-79.9766C319.383,-76.4072 334.303,-72.4563 348.354,-68.7356"/>
-<polygon fill="#000000" stroke="#000000" points="349.628,-72.019 358.399,-66.0756 347.836,-65.2522 349.628,-72.019"/>
-</g>
-<!-- module~m_rargdynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_node16" class="node"><title>module~m_rargdynamicarray</title>
-<g id="a_module~~m_allocate~~UsedByGraph_node16"><a xlink:href="../module/m_rargdynamicarray.html" xlink:title="m_rArgDynamicArray">
-<polygon fill="#337ab7" stroke="#337ab7" points="461.5,-24 348.5,-24 348.5,-0 461.5,-0 461.5,-24"/>
-<text text-anchor="middle" x="405" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_rArgDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- module~m_idynamicarray&#45;&gt;module~m_rargdynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge10" class="edge"><title>module~m_idynamicarray&#45;&gt;module~m_rargdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M294.244,-79.9081C299.718,-77.3287 305.169,-74.3538 310,-71 329.111,-57.7332 326.539,-45.7476 346,-33 348.56,-31.323 351.271,-29.7588 354.068,-28.303"/>
-<polygon fill="#000000" stroke="#000000" points="355.643,-31.4305 363.212,-24.0173 352.672,-25.0922 355.643,-31.4305"/>
+<!-- module~m_array1d&#45;&gt;program~scaletest_coretran -->
+<g id="module~~m_allocate~~UsedByGraph_edge18" class="edge">
+<title>module~m_array1d&#45;&gt;program~scaletest_coretran</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M530.6265,-607.5223C604.6218,-616.1388 624.8041,-620.0359 698.2408,-607.5223"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M395.4942,-541.5986C405.5701,-545.8129 417.0467,-550.7509 427.3594,-555.5223 473.9964,-577.1 479.5845,-601.5787 530.6265,-607.5223"/>
 </g>
 <!-- module~m_array1d&#45;&gt;module~m_kdtree -->
-<g id="module~~m_allocate~~UsedByGraph_edge12" class="edge"><title>module~m_array1d&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M431.969,-268.014C461.583,-281.107 508.252,-299.736 526.5,-296"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M528.5,-296C556.702,-290.226 583.692,-270.53 601.161,-255.261"/>
-<polygon fill="#000000" stroke="#000000" points="603.885,-257.515 608.935,-248.201 599.179,-252.333 603.885,-257.515"/>
+<g id="module~~m_allocate~~UsedByGraph_edge20" class="edge">
+<title>module~m_array1d&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M400.2017,-519.488C460.6626,-498.6001 591.7067,-453.3274 658.0402,-430.4107"/>
+<polygon fill="#000000" stroke="#000000" points="659.417,-433.6381 667.726,-427.0645 657.1312,-427.0218 659.417,-433.6381"/>
 </g>
 <!-- module~m_array1d&#45;&gt;module~m_maths -->
-<g id="module~~m_allocate~~UsedByGraph_edge13" class="edge"><title>module~m_array1d&#45;&gt;module~m_maths</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.66,-250.745C453.713,-248.081 473.292,-244.831 489.98,-242.061"/>
-<polygon fill="#000000" stroke="#000000" points="490.647,-245.499 499.939,-240.408 489.501,-238.593 490.647,-245.499"/>
+<g id="module~~m_allocate~~UsedByGraph_edge21" class="edge">
+<title>module~m_array1d&#45;&gt;module~m_maths</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M400.3401,-530.5223C426.8914,-530.5223 464.6678,-530.5223 492.7119,-530.5223"/>
+<polygon fill="#000000" stroke="#000000" points="492.9398,-534.0224 502.9398,-530.5223 492.9398,-527.0224 492.9398,-534.0224"/>
 </g>
-<!-- module~m_rdynamicarray&#45;&gt;module~m_rargdynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge14" class="edge"><title>module~m_rdynamicarray&#45;&gt;module~m_rargdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M305.904,-37.9766C319.383,-34.4072 334.303,-30.4563 348.354,-26.7356"/>
-<polygon fill="#000000" stroke="#000000" points="349.628,-30.019 358.399,-24.0756 347.836,-23.2522 349.628,-30.019"/>
+<!-- module~m_array1d&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge19" class="edge">
+<title>module~m_array1d&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M378.324,-519.5108C394.6201,-502.2853 428.4939,-468.9324 463.3594,-449.5223 585.3905,-381.586 635.7061,-411.8994 762.5881,-353.5223 784.5123,-343.4353 807.7193,-328.8896 824.503,-317.5873"/>
+<polygon fill="#000000" stroke="#000000" points="826.8424,-320.2275 833.1175,-311.6908 822.8885,-314.451 826.8424,-320.2275"/>
 </g>
-<!-- module~m_reallocate&#45;&gt;module~m_iddynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge15" class="edge"><title>module~m_reallocate&#45;&gt;module~m_iddynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M149.824,-108.076C163.44,-120.943 186.438,-141.304 209,-155 211.628,-156.595 214.4,-158.128 217.234,-159.587"/>
-<polygon fill="#000000" stroke="#000000" points="215.872,-162.816 226.402,-163.987 218.901,-156.505 215.872,-162.816"/>
+<!-- module~m_random&#45;&gt;program~scaletest_coretran -->
+<g id="module~~m_allocate~~UsedByGraph_edge24" class="edge">
+<title>module~m_random&#45;&gt;program~scaletest_coretran</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M254.3675,-502.7125C260.4533,-506.859 267.2492,-511.7235 273.1648,-516.5223 290.2561,-530.3871 289.8974,-539.8868 309.1648,-550.5223 353.6545,-575.0805 480.1499,-601.6445 530.6265,-607.5223"/>
 </g>
-<!-- module~m_reallocate&#45;&gt;module~m_ddynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge17" class="edge"><title>module~m_reallocate&#45;&gt;module~m_ddynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M173.15,-107.196C184.811,-110.858 197.963,-114.988 210.387,-118.89"/>
-<polygon fill="#000000" stroke="#000000" points="209.563,-122.3 220.153,-121.957 211.661,-115.622 209.563,-122.3"/>
+<!-- module~m_random&#45;&gt;module~m_array1d -->
+<g id="module~~m_allocate~~UsedByGraph_edge22" class="edge">
+<title>module~m_random&#45;&gt;module~m_array1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M268.5227,-500.8638C285.8669,-506.0213 307.6345,-512.4941 326.4054,-518.0758"/>
+<polygon fill="#000000" stroke="#000000" points="325.6098,-521.4907 336.1926,-520.9862 327.605,-514.781 325.6098,-521.4907"/>
 </g>
-<!-- module~m_reallocate&#45;&gt;module~m_idynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge16" class="edge"><title>module~m_reallocate&#45;&gt;module~m_idynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M173.15,-94.8215C182.152,-94.5239 192.043,-94.1969 201.802,-93.8743"/>
-<polygon fill="#000000" stroke="#000000" points="202.002,-97.3697 211.881,-93.5411 201.77,-90.3735 202.002,-97.3697"/>
+<!-- module~m_random&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge23" class="edge">
+<title>module~m_random&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M698.2408,-339.5223C737.9065,-336.9618 781.7389,-324.4292 811.8015,-314.2518"/>
+<polygon fill="#000000" stroke="#000000" points="813.1415,-317.4917 821.4428,-310.9085 810.8481,-310.8781 813.1415,-317.4917"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M257.9374,-480.3816C321.6374,-447.2642 520.3275,-351.0071 698.2408,-339.5223"/>
 </g>
-<!-- module~m_reallocate&#45;&gt;module~m_rdynamicarray -->
-<g id="module~~m_allocate~~UsedByGraph_edge18" class="edge"><title>module~m_reallocate&#45;&gt;module~m_rdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M169.291,-83.914C184.02,-78.3149 201.703,-71.5923 217.427,-65.6144"/>
-<polygon fill="#000000" stroke="#000000" points="218.817,-68.8304 226.921,-62.0052 216.33,-62.2873 218.817,-68.8304"/>
+<!-- program~test_coretran -->
+<g id="module~~m_allocate~~UsedByGraph_node19" class="node">
+<title>program~test_coretran</title>
+<g id="a_module~~m_allocate~~UsedByGraph_node19"><a xlink:href="../program/test_coretran.html" xlink:title="test_coretran">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1008.1396,-330.5278 934.5736,-330.5278 934.5736,-308.5169 1008.1396,-308.5169 1008.1396,-330.5278"/>
+<text text-anchor="middle" x="971.3566" y="-316.3723" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">test_coretran</text>
+</a>
 </g>
-<!-- module~m_dargdynamicarray&#45;&gt;module~m_kdtree -->
-<g id="module~~m_allocate~~UsedByGraph_edge2" class="edge"><title>module~m_dargdynamicarray&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M435.334,-121.992C468.182,-108.904 517.962,-90.2802 526.5,-94"/>
+</g>
+<!-- module~m_random&#45;&gt;program~test_coretran -->
+<g id="module~~m_allocate~~UsedByGraph_edge25" class="edge">
+<title>module~m_random&#45;&gt;program~test_coretran</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M698.2408,-339.5223C776.9271,-326.6899 869.7176,-322.0875 924.371,-320.4391"/>
+<polygon fill="#000000" stroke="#000000" points="924.5512,-323.9356 934.4488,-320.1558 924.3544,-316.9383 924.5512,-323.9356"/>
+</g>
+<!-- module~m_maths&#45;&gt;program~scaletest_coretran -->
+<g id="module~~m_allocate~~UsedByGraph_edge26" class="edge">
+<title>module~m_maths&#45;&gt;program~scaletest_coretran</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M698.2408,-607.5223C752.5975,-598.26 804.2911,-555.7134 830.5997,-530.8112"/>
+<polygon fill="#000000" stroke="#000000" points="833.1836,-533.1809 837.9243,-523.7059 828.3096,-528.1565 833.1836,-533.1809"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M542.5117,-541.8665C568.9826,-565.761 635.4198,-618.227 698.2408,-607.5223"/>
+</g>
+<!-- module~m_maths&#45;&gt;module~m_kdtree -->
+<g id="module~~m_allocate~~UsedByGraph_edge28" class="edge">
+<title>module~m_maths&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M558.4501,-524.8864C571.5521,-521.1308 586.7171,-515.073 597.8936,-505.5223 622.7044,-484.3207 609.2396,-462.9062 633.8936,-441.5223 641.0078,-435.3517 649.8172,-430.6138 658.6109,-427.0104"/>
+<polygon fill="#000000" stroke="#000000" points="659.8895,-430.2694 668.0658,-423.5315 657.4723,-423.7 659.8895,-430.2694"/>
+</g>
+<!-- module~m_maths&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge27" class="edge">
+<title>module~m_maths&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M558.5043,-525.0685C605.1974,-514.7564 700.2214,-488.6073 762.5881,-436.5223 801.1487,-404.3188 827.9979,-350.2638 840.565,-320.9377"/>
+<polygon fill="#000000" stroke="#000000" points="843.8097,-322.2501 844.4103,-311.6723 837.3444,-319.5668 843.8097,-322.2501"/>
+</g>
+<!-- module~iddynamicarray_class&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge29" class="edge">
+<title>module~iddynamicarray_class&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M427.6836,-26.5121C458.4334,-26.3379 496.5687,-26.663 530.6265,-28.5223"/>
+</g>
+<!-- module~iddynamicarray_class&#45;&gt;module~idargdynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge30" class="edge">
+<title>module~iddynamicarray_class&#45;&gt;module~idargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M413.0587,-38.5584C432.499,-43.3477 455.4492,-49.0017 475.8886,-54.0372"/>
+<polygon fill="#000000" stroke="#000000" points="475.1476,-57.4592 485.6945,-56.4529 476.8221,-50.6624 475.1476,-57.4592"/>
+</g>
+<!-- module~m_tests&#45;&gt;program~test_coretran -->
+<g id="module~~m_allocate~~UsedByGraph_edge31" class="edge">
+<title>module~m_tests&#45;&gt;program~test_coretran</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M875.8839,-304.7391C890.1506,-306.9482 908.0264,-309.7161 924.4407,-312.2577"/>
+<polygon fill="#000000" stroke="#000000" points="924.0089,-315.7325 934.4267,-313.804 925.0801,-308.8149 924.0089,-315.7325"/>
+</g>
+<!-- module~ddynamicarray_class&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge32" class="edge">
+<title>module~ddynamicarray_class&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M426.1841,-178.756C492.8661,-170.5844 605.1712,-162.7469 698.2408,-185.5223"/>
+</g>
+<!-- module~ddynamicarray_class&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge33" class="edge">
+<title>module~ddynamicarray_class&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M416.9768,-198.6236C434.3946,-202.5928 454.1998,-207.1061 472.3432,-211.2406"/>
+<polygon fill="#000000" stroke="#000000" points="471.6984,-214.6833 482.2261,-213.4928 473.2538,-207.8583 471.6984,-214.6833"/>
+</g>
+<!-- module~rdynamicarray_class&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge34" class="edge">
+<title>module~rdynamicarray_class&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M402.9319,-57.4487C442.8456,-45.1515 506.0592,-27.1811 530.6265,-28.5223"/>
+</g>
+<!-- module~rdynamicarray_class&#45;&gt;module~rargdynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge35" class="edge">
+<title>module~rdynamicarray_class&#45;&gt;module~rargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M413.0587,-79.5584C432.499,-84.3477 455.4492,-90.0017 475.8886,-95.0372"/>
+<polygon fill="#000000" stroke="#000000" points="475.1476,-98.4592 485.6945,-97.4529 476.8221,-91.6624 475.1476,-98.4592"/>
+</g>
+<!-- module~m_reallocate&#45;&gt;module~idynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge36" class="edge">
+<title>module~m_reallocate&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M273.2936,-147.2464C282.1849,-147.1787 291.9852,-147.1039 301.8115,-147.029"/>
+<polygon fill="#000000" stroke="#000000" points="302.0511,-150.5274 312.0241,-146.9511 301.9977,-143.5276 302.0511,-150.5274"/>
+</g>
+<!-- module~m_reallocate&#45;&gt;program~scaletest_coretran -->
+<g id="module~~m_allocate~~UsedByGraph_edge37" class="edge">
+<title>module~m_reallocate&#45;&gt;program~scaletest_coretran</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M254.4064,-158.6649C260.4958,-162.807 267.2841,-167.6808 273.1648,-172.5223 290.3927,-186.7059 291.9935,-193.2703 309.1648,-207.5223 445.057,-320.3116 477.0188,-355.4148 633.8936,-436.5223 687.1328,-464.0482 752.5943,-485.6169 797.1529,-498.636"/>
+<polygon fill="#000000" stroke="#000000" points="796.3117,-502.0359 806.8898,-501.4421 798.2502,-495.3097 796.3117,-502.0359"/>
+</g>
+<!-- module~m_reallocate&#45;&gt;module~iddynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge38" class="edge">
+<title>module~m_reallocate&#45;&gt;module~iddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M242.3937,-136.3156C252.5346,-115.9699 276.6344,-72.82 309.1648,-48.5223 311.8255,-46.535 314.6911,-44.7231 317.6749,-43.0731"/>
+<polygon fill="#000000" stroke="#000000" points="319.4287,-46.1123 326.8947,-38.595 316.3704,-39.8157 319.4287,-46.1123"/>
+</g>
+<!-- module~m_reallocate&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge39" class="edge">
+<title>module~m_reallocate&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M273.5143,-136.7864C326.8708,-120.9723 420.7411,-92.8158 427.3594,-88.5223 447.7033,-75.3248 442.8493,-60.4602 463.3594,-47.5223 489.6347,-30.9477 499.6065,-26.8288 530.6265,-28.5223"/>
+</g>
+<!-- module~m_reallocate&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge40" class="edge">
+<title>module~m_reallocate&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M273.2936,-158.5584C288.3632,-163.1544 306.0438,-168.5467 322.0374,-173.4245"/>
+<polygon fill="#000000" stroke="#000000" points="321.1532,-176.8139 331.7393,-176.3834 323.1953,-170.1184 321.1532,-176.8139"/>
+</g>
+<!-- module~m_reallocate&#45;&gt;module~rdynamicarray_class -->
+<g id="module~~m_allocate~~UsedByGraph_edge41" class="edge">
+<title>module~m_reallocate&#45;&gt;module~rdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M249.9806,-136.348C263.9007,-124.6405 287.0725,-106.2204 309.1648,-93.5223 315.2647,-90.0163 321.9517,-86.7186 328.5649,-83.7398"/>
+<polygon fill="#000000" stroke="#000000" points="330.3281,-86.791 338.1241,-79.6166 327.5556,-80.3635 330.3281,-86.791"/>
+</g>
+<!-- module~dargdynamicarray_class&#45;&gt;module~m_kdtree -->
+<g id="module~~m_allocate~~UsedByGraph_edge2" class="edge">
+<title>module~dargdynamicarray_class&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M577.2865,-235.6778C584.8898,-239.133 592.1452,-243.6427 597.8936,-249.5223 632.0875,-284.4976 607.7208,-312.2007 633.8936,-353.5223 644.9781,-371.0226 661.8262,-387.2843 675.5023,-398.9014"/>
+<polygon fill="#000000" stroke="#000000" points="673.5817,-401.8535 683.5278,-405.504 678.029,-396.4478 673.5817,-401.8535"/>
+</g>
+<!-- module~dargdynamicarray_class&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge1" class="edge">
+<title>module~dargdynamicarray_class&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M562.7222,-213.4136C603.8455,-199.8147 672.8477,-179.3083 698.2408,-185.5223"/>
+</g>
+<!-- module~iargdynamicarray_class&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge3" class="edge">
+<title>module~iargdynamicarray_class&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M738.0713,-157.6235C746.7036,-161.1809 755.3922,-165.7447 762.5881,-171.5223 799.7953,-201.3962 826.7349,-251.7363 839.7901,-279.8854"/>
+<polygon fill="#000000" stroke="#000000" points="836.6727,-281.4872 843.965,-289.1731 843.0573,-278.6172 836.6727,-281.4872"/>
+</g>
+<!-- module~rargdynamicarray_class&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge4" class="edge">
+<title>module~rargdynamicarray_class&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M565.3314,-97.4138C610.9215,-83.2227 686.5871,-61.2043 698.2408,-67.5223"/>
+</g>
+<!-- module~idargdynamicarray_class&#45;&gt;module~m_tests -->
+<g id="module~~m_allocate~~UsedByGraph_edge5" class="edge">
+<title>module~idargdynamicarray_class&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M575.0963,-56.4982C610.6122,-50.1818 660.5074,-47.0653 698.2408,-67.5223"/>
 </g>
 </g>
 </svg>
@@ -787,43 +1024,49 @@
     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
  -->
 <!-- Title: Graph Key Pages: 1 -->
-<svg width="488pt" height="32pt"
- viewBox="0.00 0.00 487.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg width="484pt" height="31pt"
+ viewBox="0.00 0.00 483.85 30.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 26.5)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-28 483.5,-28 483.5,4 -4,4"/>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-26.5 479.8539,-26.5 479.8539,4 -4,4"/>
 <!-- Module -->
-<g id="node1" class="node"><title>Module</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
-<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-22.2554 0,-22.2554 0,-.2446 54,-.2446 54,-22.2554"/>
+<text text-anchor="middle" x="27" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Module</text>
 </g>
 <!-- Submodule -->
-<g id="node2" class="node"><title>Submodule</title>
-<polygon fill="#5bc0de" stroke="#5bc0de" points="138,-24 72,-24 72,-0 138,-0 138,-24"/>
-<text text-anchor="middle" x="105" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="137.6205,-22.2554 72.3795,-22.2554 72.3795,-.2446 137.6205,-.2446 137.6205,-22.2554"/>
+<text text-anchor="middle" x="105" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Submodule</text>
 </g>
 <!-- Subroutine -->
-<g id="node3" class="node"><title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="220,-24 156,-24 156,-0 220,-0 220,-24"/>
-<text text-anchor="middle" x="188" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="218.288,-22.2554 155.712,-22.2554 155.712,-.2446 218.288,-.2446 218.288,-22.2554"/>
+<text text-anchor="middle" x="187" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Subroutine</text>
 </g>
 <!-- Function -->
-<g id="node4" class="node"><title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="292,-24 238,-24 238,-0 292,-0 292,-24"/>
-<text text-anchor="middle" x="265" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="290,-22.2554 236,-22.2554 236,-.2446 290,-.2446 290,-22.2554"/>
+<text text-anchor="middle" x="263" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Function</text>
 </g>
 <!-- Program -->
-<g id="node5" class="node"><title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="364,-24 310,-24 310,-0 364,-0 364,-24"/>
-<text text-anchor="middle" x="337" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="362,-22.2554 308,-22.2554 308,-.2446 362,-.2446 362,-22.2554"/>
+<text text-anchor="middle" x="335" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
-<g id="node6" class="node"><title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="479.5,-24 382.5,-24 382.5,-0 479.5,-0 479.5,-24"/>
-<text text-anchor="middle" x="431" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="475.7082,-22.2554 380.2918,-22.2554 380.2918,-.2446 475.7082,-.2446 475.7082,-22.2554"/>
+<text text-anchor="middle" x="428" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -867,17 +1110,6 @@
 
 
 
-
-<div class="panel panel-primary">
-  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#subs-1">Subroutines</a></h3></div>
-  <div class="list-group">
-    <div id="subs-1" class="panel-collapse collapse">
-      
-      <a class="list-group-item" href="../module/m_allocate.html#proc-allocate_test">allocate_test</a>
-      
-    </div>
-  </div>
-</div>
 
 
 
@@ -4061,63 +4293,6 @@ public subroutine allocate_lb_l3D(this, lb, n)
     
 
     
-    <section>
-    <h2>Subroutines</h2>
-    
-    
-  <div class="panel panel-default">
-  <div class="panel-heading codesum"><span class="anchor" id="proc-allocate_test"></span><h3>
-public subroutine <a href='../proc/allocate_test.html'>allocate_test</a>(test)
-    
-    
-	 
-</h3></div>
-  <div class="panel-body">
-       
-    
-    
-    <h4>Arguments</h4>
-    
-      
-      
-<table class="table table-striped varlist">
-<thead><tr><th>Type</th>
-<th>Intent</th><th>Optional</th>
-<th>Attributes</th><th></th><th>Name</th><th></th></thead>
-
-
-
-<tbody>
-
-  
-  
-  
-  
-<tr>
-  
-  <td><span class="anchor" ></span>class(<a href='../type/tester.html'>tester</a>)</td>
-  <td></td>
-  <td></td>
-  
-  <td></td><td>::</td>
-  <td><strong>test</strong></td><td></td>
-  
-</tr>
-
-</tbody>
-</table>
-
-      
-    
-    
-
-  </div>
-  </div>
-
-    
-    </section>    
-    <br>
-    
     
     
     </div>
@@ -4132,7 +4307,19 @@ public subroutine <a href='../proc/allocate_test.html'>allocate_test</a>(test)
   <div id="allmods-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../module/dargdynamicarray_class.html">dArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/ddynamicarray_class.html">dDynamicArray_Class</a>
+      
       <a class="list-group-item" href="../module/formatting.html">formatting</a>
+      
+      <a class="list-group-item" href="../module/iargdynamicarray_class.html">iArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/idargdynamicarray_class.html">idArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/iddynamicarray_class.html">idDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/idynamicarray_class.html">iDynamicArray_Class</a>
       
       <a class="list-group-item" href="../module/m_allocate.html">m_allocate</a>
       
@@ -4142,10 +4329,6 @@ public subroutine <a href='../proc/allocate_test.html'>allocate_test</a>(test)
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
       
-      <a class="list-group-item" href="../module/m_dargdynamicarray.html">m_dArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_ddynamicarray.html">m_dDynamicArray</a>
-      
       <a class="list-group-item" href="../module/m_deallocate.html">m_deallocate</a>
       
       <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
@@ -4153,14 +4336,6 @@ public subroutine <a href='../proc/allocate_test.html'>allocate_test</a>(test)
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
-      
-      <a class="list-group-item" href="../module/m_iargdynamicarray.html">m_iArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_idargdynamicarray.html">m_idArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_iddynamicarray.html">m_idDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_idynamicarray.html">m_iDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
       
@@ -4178,10 +4353,6 @@ public subroutine <a href='../proc/allocate_test.html'>allocate_test</a>(test)
       
       <a class="list-group-item" href="../module/m_random.html">m_random</a>
       
-      <a class="list-group-item" href="../module/m_rargdynamicarray.html">m_rArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_rdynamicarray.html">m_rDynamicArray</a>
-      
       <a class="list-group-item" href="../module/m_readline.html">m_readline</a>
       
       <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
@@ -4196,6 +4367,8 @@ public subroutine <a href='../proc/allocate_test.html'>allocate_test</a>(test)
       
       <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
       
+      <a class="list-group-item" href="../module/m_tests.html">m_tests</a>
+      
       <a class="list-group-item" href="../module/m_time.html">m_time</a>
       
       <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
@@ -4205,6 +4378,10 @@ public subroutine <a href='../proc/allocate_test.html'>allocate_test</a>(test)
       <a class="list-group-item" href="../module/prng_class.html">Prng_Class</a>
       
       <a class="list-group-item" href="../module/progressbar_class.html">ProgressBar_Class</a>
+      
+      <a class="list-group-item" href="../module/rargdynamicarray_class.html">rArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/rdynamicarray_class.html">rDynamicArray_Class</a>
       
       <a class="list-group-item" href="../module/stopwatch_class.html">Stopwatch_Class</a>
       

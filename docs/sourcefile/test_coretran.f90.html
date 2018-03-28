@@ -1,0 +1,1993 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	 <meta name="description" content="Modern well documented core Fortran routines for cleaner, smarter code.">
+    
+    <meta name="author" content="Leon Foks" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>test_coretran.f90 &ndash; Fortran Program</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">Fortran Program </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            <li><a href="../lists/programs.html">Programs</a></li>
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/programs.html">Programs</a></li>
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>test_coretran.f90
+    <small>Source File</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 0.7% of total for source files.">60 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/test_coretran.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li class="active">test_coretran.f90</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#progs-0">Programs</a></h3></div>
+  <div id="progs-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../program/test_coretran.html">test_coretran</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/test_coretran.f90.html#src">test_coretran.f90</a>
+  </div>
+</div>
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allfiles-0">All Source Files</a></h3></div>
+  <div id="allfiles-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../sourcefile/dargdynamicarray_class.f90.html">dArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/ddynamicarray_class.f90.html">dDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/iargdynamicarray_class.f90.html">iArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/idargdynamicarray_class.f90.html">idArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/iddynamicarray_class.f90.html">idDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/idynamicarray_class.f90.html">iDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_allocate.f90.html">m_allocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_array1d.f90.html">m_array1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_compare.f90.html">m_compare.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_copy.f90.html">m_copy.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_deallocate.f90.html">m_deallocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_debugging.f90.html">m_debugging.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_errors.f90.html">m_errors.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_fileio.f90.html">m_fileIO.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_format.f90.html">m_format.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_indexing.f90.html">m_indexing.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_kdtree.f90.html">m_KdTree.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_maths.f90.html">m_maths.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_medianof3.f90.html">m_medianOf3.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_parameters.f90.html">m_parameters.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_partition.f90.html">m_partition.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_partition3way.f90.html">m_partition3way.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_random.f90.html">m_random.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_read.f90.html">m_read.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_reallocate.f90.html">m_reallocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_searching.f90.html">m_searching.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_select.f90.html">m_select.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_sort.f90.html">m_sort.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_strings.f90.html">m_strings.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_swap.f90.html">m_swap.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_tests.f90.html">m_tests.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_time.f90.html">m_time.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_unittester.f90.html">m_unitTester.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_variablekind.f90.html">m_variableKind.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_write.f90.html">m_write.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/prng_class.f90.html">Prng_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/progressbar_class.f90.html">ProgressBar_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/rargdynamicarray_class.f90.html">rArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/rdynamicarray_class.f90.html">rDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/scale_coretran.f90.html">scale_coretran.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/stopwatch_class.f90.html">Stopwatch_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/test_coretran.f90.html">test_coretran.f90</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    <div class="col-md-9" id='text'>
+    
+    
+    <h3>This File Depends On</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: sourcefile~~test_coretran.f90~~EfferentGraph Pages: 1 -->
+<svg id="sourcefiletest_coretranf90EfferentGraph" width="641pt" height="896pt"
+ viewBox="0.00 0.00 641.00 896.29" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph" class="graph" transform="scale(.4434 .4434) rotate(0) translate(4 2017.4204)">
+<title>sourcefile~~test_coretran.f90~~EfferentGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-2017.4204 1441.6563,-2017.4204 1441.6563,4 -4,4"/>
+<!-- sourcefile~test_coretran.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node1" class="node">
+<title>sourcefile~test_coretran.f90</title>
+<polygon fill="none" stroke="#000000" points="1437.5545,-1668.1553 1346.9618,-1668.1553 1346.9618,-1646.1444 1437.5545,-1646.1444 1437.5545,-1668.1553"/>
+<text text-anchor="middle" x="1392.2582" y="-1653.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">test_coretran.f90</text>
+</g>
+<!-- sourcefile~m_random.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node2" class="node">
+<title>sourcefile~m_random.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node2"><a xlink:href="../sourcefile/m_random.f90.html" xlink:title="m_random.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="769.5454,-1551.1553 690.1414,-1551.1553 690.1414,-1529.1444 769.5454,-1529.1444 769.5454,-1551.1553"/>
+<text text-anchor="middle" x="729.8434" y="-1536.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_random.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_random.f90&#45;&gt;sourcefile~test_coretran.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge164" class="edge">
+<title>sourcefile~m_random.f90&#45;&gt;sourcefile~test_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1277.7231,-1812.1499C1324.6494,-1771.8468 1363.5314,-1708.9183 1381.5145,-1677.0622"/>
+<polygon fill="#000000" stroke="#000000" points="1384.6219,-1678.6756 1386.4103,-1668.2328 1378.5,-1675.2811 1384.6219,-1678.6756"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1169.5122,-1812.1499C1216.4049,-1801.4686 1241.2386,-1843.485 1277.7231,-1812.1499"/>
+</g>
+<!-- sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node4" class="node">
+<title>sourcefile~m_tests.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node4"><a xlink:href="../sourcefile/m_tests.f90.html" xlink:title="m_tests.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1310.9976,-1649.1553 1244.4487,-1649.1553 1244.4487,-1627.1444 1310.9976,-1627.1444 1310.9976,-1649.1553"/>
+<text text-anchor="middle" x="1277.7231" y="-1634.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_tests.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_random.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge152" class="edge">
+<title>sourcefile~m_random.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M742.1933,-1551.4981C803.2378,-1607.0069 1073.6328,-1845.9132 1169.5122,-1812.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1169.5122,-1812.1499C1237.7946,-1796.5965 1265.0503,-1702.0681 1273.9989,-1659.2253"/>
+<polygon fill="#000000" stroke="#000000" points="1277.456,-1659.7833 1275.9346,-1649.2983 1270.5853,-1658.4435 1277.456,-1659.7833"/>
+</g>
+<!-- sourcefile~m_array1d.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node18" class="node">
+<title>sourcefile~m_array1d.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node18"><a xlink:href="../sourcefile/m_array1d.f90.html" xlink:title="m_array1D.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="950.6672,-1415.1553 868.7756,-1415.1553 868.7756,-1393.1444 950.6672,-1393.1444 950.6672,-1415.1553"/>
+<text text-anchor="middle" x="909.7214" y="-1400.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_array1D.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_random.f90&#45;&gt;sourcefile~m_array1d.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge45" class="edge">
+<title>sourcefile~m_random.f90&#45;&gt;sourcefile~m_array1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M737.3348,-1528.963C752.7684,-1506.7503 790.3216,-1456.8409 833.6975,-1429.1499 841.5237,-1424.1536 850.4446,-1420.0623 859.3554,-1416.7438"/>
+<polygon fill="#000000" stroke="#000000" points="860.6487,-1420.0003 868.9682,-1413.44 858.3735,-1413.3804 860.6487,-1420.0003"/>
+</g>
+<!-- sourcefile~m_variablekind.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node3" class="node">
+<title>sourcefile~m_variablekind.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node3"><a xlink:href="../sourcefile/m_variablekind.f90.html" xlink:title="m_variableKind.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="101.8287,-722.1553 .0571,-722.1553 .0571,-700.1444 101.8287,-700.1444 101.8287,-722.1553"/>
+<text text-anchor="middle" x="50.9429" y="-707.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_variableKind.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~test_coretran.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge165" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~test_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1058.0918,-1926.1499C1106.5039,-1915.7326 1123.3411,-1944.0517 1169.5122,-1926.1499"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_random.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge24" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_random.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-1772.1499C478.3885,-1757.9267 480.3525,-1739.2343 515.3518,-1714.1499 563.8402,-1679.3977 586.9442,-1683.2534 625.9893,-1638.1499 649.666,-1610.7993 635.1007,-1589.35 661.9893,-1565.1499 667.4424,-1560.242 673.9416,-1556.2721 680.7253,-1553.0676"/>
+<polygon fill="#000000" stroke="#000000" points="682.2045,-1556.2428 690.0804,-1549.1562 679.5042,-1549.7846 682.2045,-1556.2428"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1811.1499C327.5579,-1818.9139 424.2031,-1776.5701 437.7451,-1772.1499"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge141" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1058.0918,-1926.1499C1112.3541,-1913.9177 1126.6679,-1904.6236 1169.5122,-1869.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-2003.1499C784.509,-1954.4308 844.1425,-1974.3799 1058.0918,-1926.1499"/>
+</g>
+<!-- sourcefile~m_unittester.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node5" class="node">
+<title>sourcefile~m_unittester.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node5"><a xlink:href="../sourcefile/m_unittester.f90.html" xlink:title="m_unitTester.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="360.1624,-1609.1553 271.0666,-1609.1553 271.0666,-1587.1444 360.1624,-1587.1444 360.1624,-1609.1553"/>
+<text text-anchor="middle" x="315.6145" y="-1594.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_unitTester.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_unittester.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge163" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_unittester.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-1598.1499C206.6646,-1624.6832 246.9649,-1620.3941 277.2055,-1612.1362"/>
+<polygon fill="#000000" stroke="#000000" points="278.4395,-1615.421 287.0318,-1609.2223 276.4493,-1608.7098 278.4395,-1615.421"/>
+</g>
+<!-- sourcefile~prng_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node6" class="node">
+<title>sourcefile~prng_class.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node6"><a xlink:href="../sourcefile/prng_class.f90.html" xlink:title="Prng_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="612.4584,-1745.1553 528.8827,-1745.1553 528.8827,-1723.1444 612.4584,-1723.1444 612.4584,-1745.1553"/>
+<text text-anchor="middle" x="570.6705" y="-1730.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Prng_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~prng_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge8" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~prng_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-1772.1499C464.1276,-1762.9173 494.0143,-1754.221 518.7575,-1747.4836"/>
+<polygon fill="#000000" stroke="#000000" points="519.9235,-1750.7944 528.6692,-1744.8141 518.103,-1744.0352 519.9235,-1750.7944"/>
+</g>
+<!-- sourcefile~m_allocate.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node7" class="node">
+<title>sourcefile~m_allocate.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node7"><a xlink:href="../sourcefile/m_allocate.f90.html" xlink:title="m_allocate.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="478.0367,-1286.1553 397.4536,-1286.1553 397.4536,-1264.1444 478.0367,-1264.1444 478.0367,-1286.1553"/>
+<text text-anchor="middle" x="437.7451" y="-1271.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_allocate.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_allocate.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge10" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_allocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1236.1499C338.5743,-1246.783 365.2255,-1255.6629 387.7624,-1262.25"/>
+<polygon fill="#000000" stroke="#000000" points="386.8954,-1265.6422 397.472,-1265.0219 388.817,-1258.9111 386.8954,-1265.6422"/>
+</g>
+<!-- sourcefile~m_errors.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node8" class="node">
+<title>sourcefile~m_errors.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node8"><a xlink:href="../sourcefile/m_errors.f90.html" xlink:title="m_errors.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="222.0086,-722.1553 150.9678,-722.1553 150.9678,-700.1444 222.0086,-700.1444 222.0086,-722.1553"/>
+<text text-anchor="middle" x="186.4882" y="-707.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_errors.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_errors.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge12" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_errors.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M102.1867,-711.1499C114.8377,-711.1499 128.3071,-711.1499 140.681,-711.1499"/>
+<polygon fill="#000000" stroke="#000000" points="140.7756,-714.65 150.7755,-711.1499 140.7755,-707.65 140.7756,-714.65"/>
+</g>
+<!-- sourcefile~m_strings.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node9" class="node">
+<title>sourcefile~m_strings.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node9"><a xlink:href="../sourcefile/m_strings.f90.html" xlink:title="m_strings.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="475.2708,-576.1553 400.2195,-576.1553 400.2195,-554.1444 475.2708,-554.1444 475.2708,-576.1553"/>
+<text text-anchor="middle" x="437.7451" y="-561.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_strings.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_strings.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge16" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_strings.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-488.1499C349.0196,-508.5045 387.084,-532.6579 411.7124,-548.414"/>
+<polygon fill="#000000" stroke="#000000" points="410.1477,-551.5682 420.4559,-554.0161 413.9241,-545.6742 410.1477,-551.5682"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-336.1499C233.6358,-286.8824 220.759,-418.1398 271.0906,-464.1499 287.6828,-479.3175 296.4173,-476.4525 315.6145,-488.1499"/>
+</g>
+<!-- sourcefile~m_deallocate.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node10" class="node">
+<title>sourcefile~m_deallocate.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node10"><a xlink:href="../sourcefile/m_deallocate.f90.html" xlink:title="m_deallocate.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="616.6408,-943.1553 524.7003,-943.1553 524.7003,-921.1444 616.6408,-921.1444 616.6408,-943.1553"/>
+<text text-anchor="middle" x="570.6705" y="-928.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_deallocate.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_deallocate.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge18" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_deallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1009.1499C381.5359,-979.8649 461.792,-957.685 514.455,-944.8212"/>
+<polygon fill="#000000" stroke="#000000" points="515.3817,-948.1981 524.2822,-942.4507 513.7402,-941.3933 515.3817,-948.1981"/>
+</g>
+<!-- sourcefile~m_time.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node11" class="node">
+<title>sourcefile~m_time.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node11"><a xlink:href="../sourcefile/m_time.f90.html" xlink:title="m_time.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="469.6812,-1822.1553 405.8091,-1822.1553 405.8091,-1800.1444 469.6812,-1800.1444 469.6812,-1822.1553"/>
+<text text-anchor="middle" x="437.7451" y="-1807.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_time.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_time.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge1" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_time.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1811.1499C338.973,-1826.3346 370.5277,-1825.9317 395.7113,-1821.9421"/>
+<polygon fill="#000000" stroke="#000000" points="396.5081,-1825.3546 405.7196,-1820.1201 395.2544,-1818.4678 396.5081,-1825.3546"/>
+</g>
+<!-- sourcefile~m_indexing.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node12" class="node">
+<title>sourcefile~m_indexing.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node12"><a xlink:href="../sourcefile/m_indexing.f90.html" xlink:title="m_indexing.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="479.4588,-1863.1553 396.0315,-1863.1553 396.0315,-1841.1444 479.4588,-1841.1444 479.4588,-1863.1553"/>
+<text text-anchor="middle" x="437.7451" y="-1848.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_indexing.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_indexing.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge2" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_indexing.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1811.1499C336.9315,-1825.0075 363.3988,-1834.6426 386.2391,-1841.0727"/>
+<polygon fill="#000000" stroke="#000000" points="385.547,-1844.5107 396.1123,-1843.7201 387.36,-1837.7495 385.547,-1844.5107"/>
+</g>
+<!-- sourcefile~m_parameters.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node13" class="node">
+<title>sourcefile~m_parameters.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node13"><a xlink:href="../sourcefile/m_parameters.f90.html" xlink:title="m_parameters.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="235.1932,-499.1553 137.7831,-499.1553 137.7831,-477.1444 235.1932,-477.1444 235.1932,-499.1553"/>
+<text text-anchor="middle" x="186.4882" y="-484.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_parameters.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_parameters.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge13" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_parameters.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M57.6646,-700.0913C79.2089,-664.6464 146.7468,-553.5326 174.4499,-507.9554"/>
+<polygon fill="#000000" stroke="#000000" points="177.5226,-509.6384 179.7259,-499.2752 171.5409,-506.0026 177.5226,-509.6384"/>
+</g>
+<!-- sourcefile~stopwatch_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node14" class="node">
+<title>sourcefile~stopwatch_class.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node14"><a xlink:href="../sourcefile/stopwatch_class.f90.html" xlink:title="Stopwatch_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="625.8086,-1861.1553 515.5325,-1861.1553 515.5325,-1839.1444 625.8086,-1839.1444 625.8086,-1861.1553"/>
+<text text-anchor="middle" x="570.6705" y="-1846.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Stopwatch_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~stopwatch_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge28" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~stopwatch_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-2003.1499C506.2326,-2019.9839 548.9592,-1916.6707 564.2812,-1871.0264"/>
+<polygon fill="#000000" stroke="#000000" points="567.6951,-1871.8439 567.4369,-1861.2522 561.0337,-1869.6931 567.6951,-1871.8439"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1811.1499C400.4069,-1866.2712 339.5342,-1979.0099 437.7451,-2003.1499"/>
+</g>
+<!-- sourcefile~m_maths.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node15" class="node">
+<title>sourcefile~m_maths.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node15"><a xlink:href="../sourcefile/m_maths.f90.html" xlink:title="m_maths.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1094.2853,-1454.1553 1021.8983,-1454.1553 1021.8983,-1432.1444 1094.2853,-1432.1444 1094.2853,-1454.1553"/>
+<text text-anchor="middle" x="1058.0918" y="-1439.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_maths.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge34" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-1695.1499C475.6583,-1673.4024 585.8231,-1655.3847 625.9893,-1638.1499 674.7737,-1617.217 683.2155,-1604.5261 729.8434,-1579.1499"/>
+</g>
+<!-- sourcefile~m_copy.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node16" class="node">
+<title>sourcefile~m_copy.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node16"><a xlink:href="../sourcefile/m_copy.f90.html" xlink:title="m_copy.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.1773,-1629.1553 538.1638,-1629.1553 538.1638,-1607.1444 603.1773,-1607.1444 603.1773,-1629.1553"/>
+<text text-anchor="middle" x="570.6705" y="-1614.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_copy.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_copy.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge39" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_copy.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1811.1499C378.38,-1851.9521 372.8078,-1732.3987 437.7451,-1695.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-1695.1499C455.2222,-1685.1248 462.5271,-1688.2349 479.3518,-1677.1499 497.7295,-1665.0417 497.0725,-1655.406 515.3518,-1643.1499 520.5794,-1639.6448 526.3783,-1636.4146 532.1976,-1633.5218"/>
+<polygon fill="#000000" stroke="#000000" points="533.712,-1636.6774 541.2797,-1629.2626 530.7398,-1630.3397 533.712,-1636.6774"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-1598.1499C253.4965,-1686.2703 222.7988,-1750.8127 315.6145,-1811.1499"/>
+</g>
+<!-- sourcefile~m_sort.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node17" class="node">
+<title>sourcefile~m_sort.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node17"><a xlink:href="../sourcefile/m_sort.f90.html" xlink:title="m_sort.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="601.2751,-673.1553 540.066,-673.1553 540.066,-651.1444 601.2751,-651.1444 601.2751,-673.1553"/>
+<text text-anchor="middle" x="570.6705" y="-658.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_sort.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_sort.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge40" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_sort.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-672.1499C229.7402,-663.362 228.6199,-632.1585 271.0906,-620.1499 363.5805,-593.9983 476.9357,-626.7025 534.0549,-647.4769"/>
+<polygon fill="#000000" stroke="#000000" points="533.1258,-650.8657 543.7186,-651.0746 535.5681,-644.3055 533.1258,-650.8657"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M82.2691,-700.0958C109.4612,-690.9957 150.0769,-678.5829 186.4882,-672.1499"/>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_array1d.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge46" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_array1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M51.2176,-722.3603C53.686,-814.7758 74.6329,-1451.0528 186.4882,-1598.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-1598.1499C189.1286,-1601.6222 696.2943,-1462.7467 859.6533,-1417.9057"/>
+<polygon fill="#000000" stroke="#000000" points="860.7376,-1421.2376 869.4542,-1415.215 858.8844,-1414.4874 860.7376,-1421.2376"/>
+</g>
+<!-- sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node19" class="node">
+<title>sourcefile~ddynamicarray_class.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node19"><a xlink:href="../sourcefile/ddynamicarray_class.f90.html" xlink:title="dDynamicArray_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="796.7194,-789.1553 662.9674,-789.1553 662.9674,-767.1444 796.7194,-767.1444 796.7194,-789.1553"/>
+<text text-anchor="middle" x="729.8434" y="-774.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">dDynamicArray_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge56" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M51.4753,-722.262C54.4887,-772.3623 73.5976,-979.3748 186.4882,-1085.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-1085.1499C235.0823,-1130.6811 254.9258,-1036.561 315.6145,-1009.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1009.1499C364.5296,-987.0564 349.7626,-946.1701 396.1384,-919.1499 486.4696,-866.5197 532.6321,-916.204 625.9893,-869.1499 661.7075,-851.1471 694.9828,-817.955 713.8267,-797.0208"/>
+<polygon fill="#000000" stroke="#000000" points="716.5585,-799.2146 720.54,-789.3963 711.3047,-794.5887 716.5585,-799.2146"/>
+</g>
+<!-- sourcefile~progressbar_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node20" class="node">
+<title>sourcefile~progressbar_class.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node20"><a xlink:href="../sourcefile/progressbar_class.f90.html" xlink:title="ProgressBar_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="789.8068,-1861.1553 669.88,-1861.1553 669.88,-1839.1444 789.8068,-1839.1444 789.8068,-1861.1553"/>
+<text text-anchor="middle" x="729.8434" y="-1846.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">ProgressBar_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~progressbar_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge59" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~progressbar_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-2003.1499C495.1154,-2017.2513 513.0686,-2016.2734 570.6705,-2003.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-2003.1499C642.7151,-1986.7359 696.515,-1908.2848 718.6953,-1870.5345"/>
+<polygon fill="#000000" stroke="#000000" points="721.956,-1871.8823 723.8744,-1861.4626 715.8769,-1868.4117 721.956,-1871.8823"/>
+</g>
+<!-- sourcefile~idargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node21" class="node">
+<title>sourcefile~idargdynamicarray_class.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node21"><a xlink:href="../sourcefile/idargdynamicarray_class.f90.html" xlink:title="idArgDynamicArray_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="985.7693,-481.1553 833.6736,-481.1553 833.6736,-459.1444 985.7693,-459.1444 985.7693,-481.1553"/>
+<text text-anchor="middle" x="909.7214" y="-466.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">idArgDynamicArray_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~idargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge65" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~idargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-241.1499C644.9287,-247.3686 767.2361,-415.4478 833.6975,-449.1499 838.5825,-451.627 843.797,-453.8427 849.1187,-455.8182"/>
+<polygon fill="#000000" stroke="#000000" points="848.1711,-459.1932 858.7657,-459.1194 850.4375,-452.5702 848.1711,-459.1932"/>
+</g>
+<!-- sourcefile~m_write.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node22" class="node">
+<title>sourcefile~m_write.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node22"><a xlink:href="../sourcefile/m_write.f90.html" xlink:title="m_write.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.9399,-43.1553 537.4012,-43.1553 537.4012,-21.1444 603.9399,-21.1444 603.9399,-43.1553"/>
+<text text-anchor="middle" x="570.6705" y="-28.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_write.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_write.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge68" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_write.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-32.1499C467.5608,-32.2246 501.1384,-32.2239 527.0865,-32.2049"/>
+<polygon fill="#000000" stroke="#000000" points="527.3505,-35.7048 537.3475,-32.1961 527.3444,-28.7048 527.3505,-35.7048"/>
+</g>
+<!-- sourcefile~rargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node23" class="node">
+<title>sourcefile~rargdynamicarray_class.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node23"><a xlink:href="../sourcefile/rargdynamicarray_class.f90.html" xlink:title="rArgDynamicArray_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="983.594,-440.1553 835.8489,-440.1553 835.8489,-418.1444 983.594,-418.1444 983.594,-440.1553"/>
+<text text-anchor="middle" x="909.7214" y="-425.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">rArgDynamicArray_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~rargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge74" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~rargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-241.1499C672.6624,-258.8354 721.6964,-222.8723 797.6975,-293.1499 837.0197,-329.5107 795.1911,-370.9262 833.6975,-408.1499 835.3773,-409.7737 837.1709,-411.2744 839.0556,-412.6611"/>
+<polygon fill="#000000" stroke="#000000" points="837.4779,-415.7991 847.8332,-418.0396 841.1353,-409.8305 837.4779,-415.7991"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-336.1499C436.2451,-327.1462 454.662,-206.8743 570.6705,-241.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-336.1499C227.2458,-295.7473 258.2252,-335.9932 315.6145,-336.1499"/>
+</g>
+<!-- sourcefile~m_select.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node24" class="node">
+<title>sourcefile~m_select.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node24"><a xlink:href="../sourcefile/m_select.f90.html" xlink:title="m_select.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="945.252,-1493.1553 874.1908,-1493.1553 874.1908,-1471.1444 945.252,-1471.1444 945.252,-1493.1553"/>
+<text text-anchor="middle" x="909.7214" y="-1478.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_select.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_select.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge75" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_select.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-1772.1499C517.6422,-1746.0706 549.3954,-1788.7483 625.9893,-1754.1499 754.7594,-1695.9827 860.848,-1553.9575 896.6994,-1501.7884"/>
+<polygon fill="#000000" stroke="#000000" points="899.6715,-1503.6417 902.3872,-1493.4009 893.8779,-1499.7129 899.6715,-1503.6417"/>
+</g>
+<!-- sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node25" class="node">
+<title>sourcefile~idynamicarray_class.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node25"><a xlink:href="../sourcefile/idynamicarray_class.f90.html" xlink:title="iDynamicArray_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="794.7121,-615.1553 664.9747,-615.1553 664.9747,-593.1444 794.7121,-593.1444 794.7121,-615.1553"/>
+<text text-anchor="middle" x="729.8434" y="-600.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">iDynamicArray_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge83" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-336.1499C217.0033,-304.2627 232.8492,-366.1144 271.0906,-388.1499 310.0465,-410.597 320.7389,-414.4908 360.1384,-436.1499 429.4387,-474.2462 443.668,-489.7537 515.3518,-523.1499 573.0482,-550.0295 642.354,-574.9329 686.2547,-589.8413"/>
+<polygon fill="#000000" stroke="#000000" points="685.1692,-593.1688 695.7634,-593.0488 687.4067,-586.536 685.1692,-593.1688"/>
+</g>
+<!-- sourcefile~dargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node26" class="node">
+<title>sourcefile~dargdynamicarray_class.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node26"><a xlink:href="../sourcefile/dargdynamicarray_class.f90.html" xlink:title="dArgDynamicArray_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="984.4368,-808.1553 835.0061,-808.1553 835.0061,-786.1444 984.4368,-786.1444 984.4368,-808.1553"/>
+<text text-anchor="middle" x="909.7214" y="-793.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">dArgDynamicArray_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge88" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1009.1499C379.3868,-981.4847 557.8438,-983.878 625.9893,-970.1499 703.6692,-954.501 730.4069,-963.9952 797.6975,-922.1499 841.9414,-894.6364 879.0261,-844.5841 897.3714,-816.8947"/>
+<polygon fill="#000000" stroke="#000000" points="900.3577,-818.7223 902.8577,-808.4266 894.4829,-814.9161 900.3577,-818.7223"/>
+</g>
+<!-- sourcefile~m_fileio.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node27" class="node">
+<title>sourcefile~m_fileio.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node27"><a xlink:href="../sourcefile/m_fileio.f90.html" xlink:title="m_fileIO.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="763.9512,-122.1553 695.7356,-122.1553 695.7356,-100.1444 763.9512,-100.1444 763.9512,-122.1553"/>
+<text text-anchor="middle" x="729.8434" y="-107.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_fileIO.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_fileio.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge97" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_fileio.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-336.1499C263.5266,-255.6477 194.0212,-180.6224 271.0906,-100.1499 326.4223,-42.3749 357.7482,-31.9493 437.7451,-32.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M51.629,-699.8194C55.2743,-649.6356 76.6061,-445.0748 186.4882,-336.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-32.1499C520.9095,-19.4072 547.8791,19.1151 625.9893,-12.1499 665.9766,-28.1555 699.3255,-67.7041 716.7611,-91.6906"/>
+<polygon fill="#000000" stroke="#000000" points="714.0236,-93.882 722.645,-100.0402 719.7456,-89.8498 714.0236,-93.882"/>
+</g>
+<!-- sourcefile~iddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node28" class="node">
+<title>sourcefile~iddynamicarray_class.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node28"><a xlink:href="../sourcefile/iddynamicarray_class.f90.html" xlink:title="idDynamicArray_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="797.5519,-711.1553 662.1348,-711.1553 662.1348,-689.1444 797.5519,-689.1444 797.5519,-711.1553"/>
+<text text-anchor="middle" x="729.8434" y="-696.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">idDynamicArray_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~iddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge106" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~iddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-710.1499C506.7077,-684.3568 591.338,-684.5908 651.718,-689.6336"/>
+<polygon fill="#000000" stroke="#000000" points="651.6727,-693.1436 661.9459,-690.553 652.2995,-686.1717 651.6727,-693.1436"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-672.1499C262.7356,-658.6786 284.1062,-671.5127 360.1384,-686.1499 395.591,-692.9749 404.5261,-724.2907 437.7451,-710.1499"/>
+</g>
+<!-- sourcefile~m_reallocate.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node29" class="node">
+<title>sourcefile~m_reallocate.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node29"><a xlink:href="../sourcefile/m_reallocate.f90.html" xlink:title="m_reallocate.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="615.2985,-751.1553 526.0426,-751.1553 526.0426,-729.1444 615.2985,-729.1444 615.2985,-751.1553"/>
+<text text-anchor="middle" x="570.6705" y="-736.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_reallocate.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_reallocate.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge109" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_reallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-672.1499C234.0186,-665.4479 348.8078,-716.1581 396.1384,-724.1499 435.8363,-730.8528 481.1214,-734.9011 515.6139,-737.2482"/>
+<polygon fill="#000000" stroke="#000000" points="515.7471,-740.7642 525.9539,-737.923 516.2031,-733.7791 515.7471,-740.7642"/>
+</g>
+<!-- sourcefile~rdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node30" class="node">
+<title>sourcefile~rdynamicarray_class.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node30"><a xlink:href="../sourcefile/rdynamicarray_class.f90.html" xlink:title="rDynamicArray_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="795.3759,-520.1553 664.3109,-520.1553 664.3109,-498.1444 795.3759,-498.1444 795.3759,-520.1553"/>
+<text text-anchor="middle" x="729.8434" y="-505.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">rDynamicArray_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~rdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge117" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~rdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-336.1499C388.4429,-330.1288 410.5218,-326.6007 479.3518,-351.1499 516.3842,-364.358 595.3022,-425.5702 625.9893,-450.1499 643.1663,-463.9083 643.2838,-472.5545 661.9893,-484.1499 668.2248,-488.0153 675.1493,-491.4186 682.1233,-494.3695"/>
+<polygon fill="#000000" stroke="#000000" points="681.0173,-497.6957 691.6039,-498.1138 683.5887,-491.1851 681.0173,-497.6957"/>
+</g>
+<!-- sourcefile~iargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node31" class="node">
+<title>sourcefile~iargdynamicarray_class.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node31"><a xlink:href="../sourcefile/iargdynamicarray_class.f90.html" xlink:title="iArgDynamicArray_Class.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="982.9298,-399.1553 836.513,-399.1553 836.513,-377.1444 982.9298,-377.1444 982.9298,-399.1553"/>
+<text text-anchor="middle" x="909.7214" y="-384.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">iArgDynamicArray_Class.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge121" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-336.1499C381.6316,-142.7062 556.9502,-110.7032 797.6975,-243.1499 849.4781,-271.6369 885.1012,-335.1419 900.7476,-367.8365"/>
+<polygon fill="#000000" stroke="#000000" points="897.5774,-369.3198 904.9578,-376.9211 903.9285,-366.3764 897.5774,-369.3198"/>
+</g>
+<!-- sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node32" class="node">
+<title>sourcefile~m_kdtree.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node32"><a xlink:href="../sourcefile/m_kdtree.f90.html" xlink:title="m_KdTree.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="1208.6603,-904.1553 1130.3641,-904.1553 1130.3641,-882.1444 1208.6603,-882.1444 1208.6603,-904.1553"/>
+<text text-anchor="middle" x="1169.5122" y="-889.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_KdTree.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge131" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M186.4882,-1085.1499C250.9257,-1145.5259 235.487,-1199.0413 315.6145,-1236.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1236.1499C400.5008,-1275.4622 636.898,-1150.5532 729.8434,-1161.1499"/>
+</g>
+<!-- sourcefile~m_swap.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node33" class="node">
+<title>sourcefile~m_swap.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node33"><a xlink:href="../sourcefile/m_swap.f90.html" xlink:title="m_swap.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="220.6011,-1211.1553 152.3753,-1211.1553 152.3753,-1189.1444 220.6011,-1189.1444 220.6011,-1211.1553"/>
+<text text-anchor="middle" x="186.4882" y="-1196.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_swap.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_swap.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge41" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_swap.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M52.4742,-722.2037C59.1406,-768.9171 87.5784,-954.3923 137.8857,-1099.1499 148.0415,-1128.3727 164.3282,-1160.2527 175.2139,-1180.2188"/>
+<polygon fill="#000000" stroke="#000000" points="172.1688,-1181.9448 180.0734,-1188.9994 178.2935,-1178.5552 172.1688,-1181.9448"/>
+</g>
+<!-- sourcefile~m_searching.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node34" class="node">
+<title>sourcefile~m_searching.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node34"><a xlink:href="../sourcefile/m_searching.f90.html" xlink:title="m_searching.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="615.2985,-481.1553 526.0426,-481.1553 526.0426,-459.1444 615.2985,-459.1444 615.2985,-481.1553"/>
+<text text-anchor="middle" x="570.6705" y="-466.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_searching.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_searching.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge48" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_searching.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-336.1499C416.6099,-330.9265 424.857,-400.0051 515.3518,-445.1499 521.9651,-448.449 529.1062,-451.8166 535.9897,-454.9676"/>
+<polygon fill="#000000" stroke="#000000" points="534.5886,-458.1752 545.1427,-459.1034 537.471,-451.7962 534.5886,-458.1752"/>
+</g>
+<!-- sourcefile~m_read.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_node35" class="node">
+<title>sourcefile~m_read.f90</title>
+<g id="a_sourcefile~~test_coretran.f90~~EfferentGraph_node35"><a xlink:href="../sourcefile/m_read.f90.html" xlink:title="m_read.f90">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="603.2859,-84.1553 538.0552,-84.1553 538.0552,-62.1444 603.2859,-62.1444 603.2859,-84.1553"/>
+<text text-anchor="middle" x="570.6705" y="-69.9999" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_read.f90</text>
+</a>
+</g>
+</g>
+<!-- sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_read.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge92" class="edge">
+<title>sourcefile~m_variablekind.f90&#45;&gt;sourcefile~m_read.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-32.1499C456.1841,-32.1961 499.9214,-46.7753 532.2156,-58.5333"/>
+<polygon fill="#000000" stroke="#000000" points="531.2365,-61.9024 541.8299,-62.0726 533.6547,-55.3334 531.2365,-61.9024"/>
+</g>
+<!-- sourcefile~m_tests.f90&#45;&gt;sourcefile~test_coretran.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge166" class="edge">
+<title>sourcefile~m_tests.f90&#45;&gt;sourcefile~test_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1311.1593,-1643.6965C1319.1323,-1645.0191 1327.8553,-1646.4662 1336.5311,-1647.9054"/>
+<polygon fill="#000000" stroke="#000000" points="1336.2084,-1651.3996 1346.6464,-1649.5834 1337.354,-1644.494 1336.2084,-1651.3996"/>
+</g>
+<!-- sourcefile~m_unittester.f90&#45;&gt;sourcefile~test_coretran.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge167" class="edge">
+<title>sourcefile~m_unittester.f90&#45;&gt;sourcefile~test_coretran.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1169.5122,-1926.1499C1235.7958,-1904.0906 1224.7281,-1857.6652 1277.7231,-1812.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M322.9653,-1609.1866C332.9081,-1624.6276 350.5045,-1653.8571 360.1384,-1681.1499 388.8918,-1762.6076 339.1485,-1807.2325 396.1384,-1872.1499 432.9164,-1914.0438 460.3076,-1902.3262 515.3518,-1911.1499 769.4796,-1951.8868 838.1794,-1888.237 1094.4382,-1912.1499 1128.2328,-1915.3034 1137.3074,-1936.8677 1169.5122,-1926.1499"/>
+</g>
+<!-- sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_random.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge25" class="edge">
+<title>sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_random.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-1579.1499C613.2878,-1579.1052 660.5273,-1565.7609 692.3896,-1554.6958"/>
+<polygon fill="#000000" stroke="#000000" points="693.9287,-1557.8627 702.1688,-1551.203 691.5742,-1551.2705 693.9287,-1557.8627"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M360.2314,-1592.8351C411.0856,-1587.2411 496.7392,-1579.2273 570.6705,-1579.1499"/>
+</g>
+<!-- sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge161" class="edge">
+<title>sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-1579.1499C596.6567,-1578.4389 603.5407,-1585.0409 625.9893,-1598.1499 771.6343,-1683.2 743.2088,-1823.3251 909.7214,-1850.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1169.5122,-1869.1499C1239.6579,-1815.7356 1266.1462,-1705.6952 1274.4569,-1659.4061"/>
+<polygon fill="#000000" stroke="#000000" points="1277.9455,-1659.7665 1276.1562,-1649.3238 1271.0428,-1658.603 1277.9455,-1659.7665"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M909.7214,-1850.1499C938.5212,-1853.0229 1146.4855,-1886.6842 1169.5122,-1869.1499"/>
+</g>
+<!-- sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_allocate.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge11" class="edge">
+<title>sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_allocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M319.8185,-1587.0315C337.5819,-1540.0525 406.6418,-1357.4092 429.9852,-1295.6725"/>
+<polygon fill="#000000" stroke="#000000" points="433.2958,-1296.8131 433.5588,-1286.2215 426.7482,-1294.3373 433.2958,-1296.8131"/>
+</g>
+<!-- sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge36" class="edge">
+<title>sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-1579.1499C641.3876,-1577.215 667.706,-1612.9668 729.8434,-1579.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M729.8434,-1579.1499C757.3509,-1564.1795 774.6953,-1581.4025 797.6975,-1560.1499 831.7787,-1528.6608 799.177,-1493.1567 833.6975,-1462.1499 859.6077,-1438.8769 875.144,-1447.3174 909.7214,-1443.1499"/>
+</g>
+<!-- sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_fileio.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge98" class="edge">
+<title>sourcefile~m_unittester.f90&#45;&gt;sourcefile~m_fileio.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-203.1499C606.7741,-168.508 658.3471,-141.7945 692.9063,-126.2893"/>
+<polygon fill="#000000" stroke="#000000" points="694.4286,-129.4434 702.1756,-122.216 691.6124,-123.0349 694.4286,-129.4434"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M317.3459,-1587.0653C324.012,-1543.9626 348.2372,-1383.3147 360.1384,-1250.1499 388.0668,-937.6538 332.3187,-852.3319 396.1384,-545.1499 426.8416,-397.3672 411.3604,-336.549 515.3518,-227.1499 533.8163,-207.7252 551.3325,-221.705 570.6705,-203.1499"/>
+</g>
+<!-- sourcefile~prng_class.f90&#45;&gt;sourcefile~m_random.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge19" class="edge">
+<title>sourcefile~prng_class.f90&#45;&gt;sourcefile~m_random.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M583.2579,-1722.7231C595.6412,-1710.8825 614.337,-1691.3142 625.9893,-1671.1499 650.8829,-1628.0713 627.2612,-1600.7787 661.9893,-1565.1499 667.2306,-1559.7726 673.7268,-1555.5433 680.6054,-1552.2192"/>
+<polygon fill="#000000" stroke="#000000" points="682.2695,-1555.3168 690.1403,-1548.2244 679.5646,-1548.8605 682.2695,-1555.3168"/>
+</g>
+<!-- sourcefile~prng_class.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge149" class="edge">
+<title>sourcefile~prng_class.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M588.4817,-1745.282C617.0864,-1762.5674 675.5714,-1795.4981 729.8434,-1811.1499"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_random.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge20" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_random.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M438.6015,-1286.2759C442.7491,-1331.06 465.1321,-1497.805 570.6705,-1541.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-1541.1499C605.1548,-1555.3126 647.4951,-1554.2714 679.8362,-1550.1172"/>
+<polygon fill="#000000" stroke="#000000" points="680.5564,-1553.55 689.9626,-1548.6743 679.5689,-1546.62 680.5564,-1553.55"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge134" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M444.3046,-1286.2874C456.2257,-1305.6891 483.2068,-1345.9251 515.3518,-1370.1499 637.6737,-1462.3328 683.3166,-1473.0652 833.6975,-1502.1499 947.504,-1524.1608 979.353,-1509.9982 1094.4382,-1496.1499 1128.1366,-1492.0949 1140.9348,-1463.8372 1169.5122,-1482.1499"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~prng_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge3" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~prng_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M438.8369,-1286.1946C443.5525,-1331.2676 464.2888,-1505.195 515.3518,-1638.1499 526.1385,-1666.2356 544.3937,-1695.837 556.9651,-1714.6184"/>
+<polygon fill="#000000" stroke="#000000" points="554.0969,-1716.6248 562.6223,-1722.9152 559.8804,-1712.6813 554.0969,-1716.6248"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge30" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M909.7214,-1443.1499C943.6465,-1440.0331 982.1194,-1440.1367 1011.386,-1440.9652"/>
+<polygon fill="#000000" stroke="#000000" points="1011.6189,-1444.4744 1021.7265,-1441.2986 1011.8445,-1437.4781 1011.6189,-1444.4744"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M453.3752,-1286.3026C511.4097,-1326.4731 720.9078,-1460.4968 909.7214,-1443.1499"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_copy.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge38" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_copy.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.1303,-1286.1797C445.6415,-1336.5143 474.6068,-1544.0681 515.3518,-1593.1499 519.1468,-1597.7214 523.9531,-1601.4918 529.1411,-1604.5923"/>
+<polygon fill="#000000" stroke="#000000" points="527.6267,-1607.7491 538.1216,-1609.2009 530.8227,-1601.5212 527.6267,-1607.7491"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_array1d.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge42" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_array1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M478.1629,-1269.2256C504.964,-1266.7243 540.5997,-1266.1626 570.6705,-1275.1499"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge52" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M444.3948,-1263.8355C482.0952,-1199.689 669.0319,-881.6195 718.0553,-798.2071"/>
+<polygon fill="#000000" stroke="#000000" points="721.2813,-799.6256 723.3308,-789.2309 715.2464,-796.0788 721.2813,-799.6256"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge79" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.1807,-1264.1113C444.5762,-1222.5662 464.1093,-1071.6408 479.3518,-947.1499 487.6461,-879.4075 472.5056,-695.2726 515.3518,-642.1499 531.672,-621.9153 550.1174,-639.0669 570.6705,-623.1499"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~iddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge102" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~iddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.0873,-1264.119C446.9847,-1199.8869 487.9893,-875.7442 515.3518,-841.1499 548.6034,-799.11 581.4602,-822.9857 625.9893,-793.1499 644.5279,-780.7284 645.4993,-773.1851 661.9893,-758.1499 677.2577,-744.2284 695.0273,-729.0756 708.5513,-717.7502"/>
+<polygon fill="#000000" stroke="#000000" points="710.9228,-720.3299 716.3629,-711.2384 706.4406,-714.9531 710.9228,-720.3299"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_reallocate.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge108" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_reallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.1303,-1264.0429C448.232,-1191.361 499.5932,-785.9363 515.3518,-765.1499 517.7892,-761.9348 520.7346,-759.1223 523.9816,-756.6638"/>
+<polygon fill="#000000" stroke="#000000" points="525.9664,-759.55 532.5565,-751.2541 522.2314,-753.6297 525.9664,-759.55"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~rdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge113" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~rdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.2691,-1264.1216C444.9783,-1222.6132 465.4818,-1071.8012 479.3518,-947.1499 488.6343,-863.727 481.741,-648.0644 515.3518,-571.1499 530.1393,-537.3103 539.4517,-528.8773 570.6705,-509.1499"/>
+</g>
+<!-- sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge125" class="edge">
+<title>sourcefile~m_allocate.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M477.9943,-1267.711C490.003,-1265.5397 503.2019,-1263.2006 515.3518,-1261.1499 690.3055,-1231.6207 737.2401,-1240.7548 909.7214,-1199.1499"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_random.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge21" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_random.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.0393,-722.34C198.4714,-797.4168 258.3775,-1225.5992 271.0906,-1250.1499 356.4454,-1414.9822 398.9667,-1470.6308 570.6705,-1541.1499"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge139" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-855.1499C802.0618,-827.5637 862.9496,-857.9072 1094.4382,-831.1499 1128.1552,-827.2526 1150.2211,-789.2236 1169.5122,-817.1499"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_unittester.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge162" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_unittester.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.2319,-722.3197C195.075,-766.4763 220.4366,-933.1784 235.0906,-1071.1499 246.0135,-1173.9924 235.9846,-1437.8695 271.0906,-1535.1499 276.9439,-1551.3698 288.1715,-1567.2099 297.8869,-1578.9495"/>
+<polygon fill="#000000" stroke="#000000" points="295.4113,-1581.4379 304.5956,-1586.7199 300.7098,-1576.8634 295.4113,-1581.4379"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~prng_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge4" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~prng_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1695.1499C370.8006,-1744.7796 461.3923,-1746.5037 518.4425,-1741.5433"/>
+<polygon fill="#000000" stroke="#000000" points="519.0733,-1744.9987 528.6886,-1740.5494 518.3973,-1738.0314 519.0733,-1744.9987"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_allocate.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge9" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_allocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-933.1499C339.6792,-957.0618 347.5072,-963.6643 360.1384,-995.1499 402.7544,-1101.3776 332.9357,-1154.7252 396.1384,-1250.1499 397.9998,-1252.9602 400.2952,-1255.5026 402.8437,-1257.7923"/>
+<polygon fill="#000000" stroke="#000000" points="400.9567,-1260.7509 411.0671,-1263.918 405.1385,-1255.1373 400.9567,-1260.7509"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_strings.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge14" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_strings.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-634.1499C345.7323,-614.3147 381.8719,-594.3393 406.9893,-581.0228"/>
+<polygon fill="#000000" stroke="#000000" points="408.8213,-584.0138 416.0406,-576.2593 405.5613,-577.8193 408.8213,-584.0138"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_deallocate.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge17" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_deallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-933.1499C462.8139,-934.886 490.6052,-934.9643 514.2677,-934.481"/>
+<polygon fill="#000000" stroke="#000000" points="514.5671,-937.9749 524.4792,-934.2331 514.3972,-930.9769 514.5671,-937.9749"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-933.1499C354.1185,-971.4094 383.5945,-929.3997 437.7451,-933.1499"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge32" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.8297,-722.4108C197.5058,-763.4206 229.4799,-908.394 271.0906,-1023.1499 273.9253,-1030.9676 390.6546,-1288.8984 396.1384,-1295.1499 552.7878,-1473.7274 673.8805,-1471.5754 909.7214,-1443.1499"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_copy.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge37" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_copy.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-1695.1499C323.8373,-1702.3641 459.2142,-1656.8587 529.309,-1632.6176"/>
+<polygon fill="#000000" stroke="#000000" points="530.8526,-1635.7869 539.1543,-1629.2042 528.5595,-1629.1732 530.8526,-1635.7869"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M188.2798,-722.3148C195.3024,-766.4528 221.2449,-933.095 235.0906,-1071.1499 247.2469,-1192.3603 235.6743,-1501.5933 271.0906,-1618.1499 282.5836,-1655.9738 286.221,-1668.7158 315.6145,-1695.1499"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_array1d.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge43" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_array1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M729.8434,-1349.1499C775.3796,-1363.0489 827.3904,-1378.9553 863.7322,-1390.0746"/>
+<polygon fill="#000000" stroke="#000000" points="862.9621,-1393.4991 873.5485,-1393.0783 865.0103,-1386.8054 862.9621,-1393.4991"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-1275.1499C594.9697,-1282.4121 602.4929,-1279.6045 625.9893,-1289.1499 675.3763,-1309.2132 678.8587,-1333.5877 729.8434,-1349.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-933.1499C450.1193,-1066.8007 388.9952,-1220.8527 570.6705,-1275.1499"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge53" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-855.1499C489.9183,-827.4341 512.008,-862.1435 570.6705,-855.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-855.1499C623.4328,-848.8596 677.6148,-815.8731 707.1751,-795.1673"/>
+<polygon fill="#000000" stroke="#000000" points="709.441,-797.8494 715.5296,-789.1788 705.3629,-792.1601 709.441,-797.8494"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~idargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge62" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~idargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-431.1499C621.0056,-414.9429 765.9779,-440.296 849.1469,-457.1333"/>
+<polygon fill="#000000" stroke="#000000" points="848.4743,-460.5681 858.9725,-459.1411 849.8757,-453.7098 848.4743,-460.5681"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-450.1499C407.2736,-382.9188 461.7293,-463.603 570.6705,-431.1499"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_write.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge66" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_write.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M219.3866,-700.0926C225.5264,-696.5692 231.2203,-692.0086 235.0906,-686.1499 296.4929,-593.2013 211.9052,-280.5255 271.0906,-186.1499 328.4232,-94.7286 458.7558,-55.0887 527.0621,-40.0806"/>
+<polygon fill="#000000" stroke="#000000" points="528.0151,-43.4565 537.0729,-37.9604 526.5647,-36.6084 528.0151,-43.4565"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~rargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge70" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~rargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M218.465,-700.0818C224.8164,-696.5358 230.8306,-691.9686 235.0906,-686.1499 291.547,-609.0363 215.381,-551.8047 271.0906,-474.1499 284.1946,-455.8839 299.0849,-465.3857 315.6145,-450.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M729.8434,-378.1499C776.184,-390.8319 787.4629,-395.0869 833.6975,-408.1499 842.1226,-410.5303 851.0814,-413.0316 859.7819,-415.4449"/>
+<polygon fill="#000000" stroke="#000000" points="858.8818,-418.8273 869.4531,-418.1211 860.7487,-412.0808 858.8818,-418.8273"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-450.1499C389.9753,-381.6091 417.3597,-366.1478 515.3518,-341.1499 562.9981,-328.9952 577.5353,-332.7763 625.9893,-341.1499 674.2728,-349.494 682.582,-365.2158 729.8434,-378.1499"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge80" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-623.1499C594.1916,-604.9344 625.8229,-598.6184 654.6903,-597.4402"/>
+<polygon fill="#000000" stroke="#000000" points="654.8443,-600.9379 664.7679,-597.2267 654.696,-593.9394 654.8443,-600.9379"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M222.1219,-703.8343C314.7098,-684.7136 556.6892,-633.9775 570.6705,-623.1499"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge85" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-933.1499C473.1708,-935.6032 480.0969,-947.897 515.3518,-952.1499 564.1701,-958.0388 578.3456,-964.315 625.9893,-952.1499 732.5168,-924.9495 842.1355,-848.6301 887.7494,-814.2818"/>
+<polygon fill="#000000" stroke="#000000" points="889.917,-817.0305 895.7533,-808.1881 885.6766,-811.461 889.917,-817.0305"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_fileio.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge95" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_fileio.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M218.8245,-700.02C225.0771,-696.4896 230.9593,-691.9445 235.0906,-686.1499 300.2579,-594.7447 229.1496,-540.2778 271.0906,-436.1499 283.7654,-404.6818 297.7564,-402.9939 315.6145,-374.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-374.1499C327.4482,-355.0364 344.9334,-366.7078 360.1384,-350.1499 387.335,-320.5333 370.2248,-297.8951 396.1384,-267.1499 436.9443,-218.7357 458.7317,-217.4908 515.3518,-189.1499 572.0113,-160.7892 641.5756,-137.4255 685.8164,-123.8817"/>
+<polygon fill="#000000" stroke="#000000" points="686.8463,-127.2268 695.4031,-120.9793 684.8179,-120.5271 686.8463,-127.2268"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~iddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge103" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~iddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.4916,-722.1701C203.592,-756.9769 248.2465,-866.2097 315.6145,-933.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-933.1499C395.7728,-1012.7992 331.9042,-749.736 437.7451,-710.1499"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_reallocate.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge107" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_reallocate.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.7451,-855.1499C484.3896,-830.3711 473.0449,-796.7697 515.3518,-765.1499 520.0568,-761.6334 525.3352,-758.4631 530.7143,-755.6549"/>
+<polygon fill="#000000" stroke="#000000" points="532.2982,-758.7768 539.7785,-751.2737 529.2519,-752.4744 532.2982,-758.7768"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-933.1499C346.0067,-963.349 359.874,-902.9658 396.1384,-880.1499 414.3983,-868.6615 418.6932,-865.2707 437.7451,-855.1499"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~rdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge114" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~rdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M209.485,-699.9049C217.6631,-695.7532 226.8761,-690.8995 235.0906,-686.1499 271.9714,-664.8252 280.0353,-657.5818 315.6145,-634.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-634.1499C360.1638,-604.8103 349.8302,-571.6263 396.1384,-545.1499 464.8963,-505.8379 503.7154,-551.4594 570.6705,-509.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-509.1499C603.0103,-488.6001 647.0127,-490.3109 680.557,-496.1969"/>
+<polygon fill="#000000" stroke="#000000" points="680.1248,-499.6781 690.6071,-498.1376 681.4521,-492.805 680.1248,-499.6781"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge118" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-374.1499C346.4895,-329.9541 745.8261,-304.4568 797.6975,-319.1499 832.8524,-329.1078 867.8124,-353.5613 889.0953,-370.5074"/>
+<polygon fill="#000000" stroke="#000000" points="887.119,-373.4123 897.0782,-377.0268 891.5467,-367.9905 887.119,-373.4123"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge127" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M315.6145,-933.1499C472.031,-1073.4915 522.4987,-1126.9438 729.8434,-1161.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M729.8434,-1161.1499C811.0277,-1170.4056 830.1581,-1217.7576 909.7214,-1199.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M909.7214,-1199.1499C981.8648,-1182.2775 998.3033,-1166.9068 1058.0918,-1123.1499"/>
+</g>
+<!-- sourcefile~m_errors.f90&#45;&gt;sourcefile~m_read.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge90" class="edge">
+<title>sourcefile~m_errors.f90&#45;&gt;sourcefile~m_read.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M219.2685,-700.0134C225.4157,-696.4949 231.1424,-691.9564 235.0906,-686.1499 280.7951,-618.933 239.9246,-397.2211 271.0906,-322.1499 327.5681,-186.1095 384.9648,-166.6768 515.3518,-98.1499 521.6198,-94.8556 528.4082,-91.5685 535.0119,-88.5117"/>
+<polygon fill="#000000" stroke="#000000" points="536.8095,-91.5397 544.473,-84.2239 533.92,-85.1639 536.8095,-91.5397"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~m_random.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge22" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~m_random.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.6858,-576.1563C446.179,-613.3251 467.4069,-737.652 479.3518,-841.1499 490.8027,-940.3677 477.0424,-1196.9127 515.3518,-1289.1499 558.6103,-1393.303 662.0746,-1485.6238 707.6471,-1522.777"/>
+<polygon fill="#000000" stroke="#000000" points="705.4709,-1525.5183 715.4552,-1529.0628 709.8605,-1520.0656 705.4709,-1525.5183"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge159" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-355.1499C646.4488,-299.2972 861.9749,-181.9233 909.7214,-226.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M441.2131,-553.9798C452.8926,-518.365 494.3995,-406.8133 570.6705,-355.1499"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~prng_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge6" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~prng_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.8741,-576.4018C446.8648,-613.8406 469.2458,-737.6998 479.3518,-841.1499 496.5893,-1017.6016 465.6834,-1467.9576 515.3518,-1638.1499 523.7341,-1666.8723 542.3529,-1696.1326 555.6741,-1714.6733"/>
+<polygon fill="#000000" stroke="#000000" points="552.9655,-1716.8973 561.72,-1722.8646 558.5976,-1712.7403 552.9655,-1716.8973"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~stopwatch_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge26" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~stopwatch_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.8974,-576.3996C446.9609,-613.8314 469.5422,-737.6712 479.3518,-841.1499 498.5144,-1043.2901 459.0267,-1559.072 515.3518,-1754.1499 523.6518,-1782.8962 542.2883,-1812.1513 555.6361,-1830.6843"/>
+<polygon fill="#000000" stroke="#000000" points="552.9332,-1832.9157 561.6954,-1838.8718 558.5599,-1828.7515 552.9332,-1832.9157"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~m_array1d.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge44" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~m_array1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.4524,-576.3591C449.8751,-644.6318 504.8316,-1002.3182 515.3518,-1023.1499 604.4518,-1199.5818 808.4242,-1340.4371 882.337,-1387.3746"/>
+<polygon fill="#000000" stroke="#000000" points="880.7592,-1390.5169 891.0878,-1392.8772 884.4855,-1384.5911 880.7592,-1390.5169"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge54" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-779.1499C603.4488,-799.9448 648.1793,-797.6181 681.8767,-791.2827"/>
+<polygon fill="#000000" stroke="#000000" points="682.8654,-794.6527 691.9548,-789.2091 681.4546,-787.7963 682.8654,-794.6527"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M438.9374,-576.1904C443.0661,-609.0305 459.7014,-707.1046 515.3518,-760.1499 534.1688,-778.086 548.7195,-765.2238 570.6705,-779.1499"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~idargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge63" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~idargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M445.1884,-553.9187C464.1384,-525.3518 512.8906,-452.0365 515.3518,-450.1499 535.9836,-434.3349 545.9257,-439.1173 570.6705,-431.1499"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~m_write.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge67" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~m_write.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M437.9547,-553.7666C439.4224,-485.8128 450.1224,-133.9443 515.3518,-53.1499 518.8607,-48.8037 523.3746,-45.3565 528.3084,-42.6223"/>
+<polygon fill="#000000" stroke="#000000" points="529.865,-45.7593 537.5163,-38.4307 526.9648,-39.3884 529.865,-45.7593"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~rargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge72" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~rargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-355.1499C599.6049,-334.1717 695.3719,-368.716 729.8434,-378.1499"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge81" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-585.1499C597.517,-592.692 627.7326,-597.2409 654.5672,-599.9842"/>
+<polygon fill="#000000" stroke="#000000" points="654.3846,-603.4826 664.6722,-600.9496 655.0504,-596.5143 654.3846,-603.4826"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M475.5141,-568.3046C502.4108,-571.1602 539.2163,-576.3132 570.6705,-585.1499"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge86" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-779.1499C656.4204,-833.5507 780.3051,-822.8842 852.1645,-810.089"/>
+<polygon fill="#000000" stroke="#000000" points="853.1851,-813.4594 862.3785,-808.1932 851.9076,-806.577 853.1851,-813.4594"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~m_fileio.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge96" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~m_fileio.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M438.9394,-554.1227C444.7949,-501.8469 471.9543,-279.3503 515.3518,-227.1499 532.4849,-206.5414 551.3325,-221.705 570.6705,-203.1499"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~iddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge104" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~iddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-585.1499C630.7143,-602.0184 686.2272,-653.5055 713.0221,-681.5189"/>
+<polygon fill="#000000" stroke="#000000" points="710.7048,-684.1648 720.0943,-689.0727 715.8147,-679.3806 710.7048,-684.1648"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~rdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge115" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~rdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M472.3108,-554.1317C500.0749,-544.4656 539.4458,-528.881 570.6705,-509.1499"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge119" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M570.6705,-355.1499C664.9441,-286.7991 814.7636,-343.1076 878.921,-372.7534"/>
+<polygon fill="#000000" stroke="#000000" points="877.5679,-375.9849 888.1052,-377.0877 880.5555,-369.6545 877.5679,-375.9849"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge128" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1058.0918,-1123.1499C1135.0944,-1078.253 1159.8576,-962.1818 1166.9505,-914.2922"/>
+<polygon fill="#000000" stroke="#000000" points="1170.4488,-914.5423 1168.3335,-904.1608 1163.5131,-913.5955 1170.4488,-914.5423"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.2781,-576.1823C447.7228,-636.321 489.1392,-922.9618 515.3518,-952.1499 536.4748,-975.6706 1030.7815,-1139.0733 1058.0918,-1123.1499"/>
+</g>
+<!-- sourcefile~m_strings.f90&#45;&gt;sourcefile~m_read.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge91" class="edge">
+<title>sourcefile~m_strings.f90&#45;&gt;sourcefile~m_read.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M439.0307,-554.1289C444.5746,-508.3542 468.3127,-329.0938 515.3518,-189.1499 527.1173,-154.1468 546.7919,-115.9179 559.2311,-93.2649"/>
+<polygon fill="#000000" stroke="#000000" points="562.4204,-94.7317 564.229,-84.2923 556.3051,-91.3253 562.4204,-94.7317"/>
+</g>
+<!-- sourcefile~m_deallocate.f90&#45;&gt;sourcefile~m_random.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge23" class="edge">
+<title>sourcefile~m_deallocate.f90&#45;&gt;sourcefile~m_random.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M572.369,-943.299C580.0802,-993.0125 613.5266,-1199.2136 661.9893,-1363.1499 679.0789,-1420.9595 706.4524,-1486.6612 720.6434,-1519.3633"/>
+<polygon fill="#000000" stroke="#000000" points="717.5436,-1521.0103 724.7579,-1528.7695 723.9568,-1518.205 717.5436,-1521.0103"/>
+</g>
+<!-- sourcefile~m_deallocate.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge136" class="edge">
+<title>sourcefile~m_deallocate.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1058.0918,-893.1499C1116.4834,-879.5996 1135.0973,-768.0703 1169.5122,-817.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M616.7188,-932.9624C704.023,-933.5189 899.1111,-930.0426 1058.0918,-893.1499"/>
+</g>
+<!-- sourcefile~m_deallocate.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge33" class="edge">
+<title>sourcefile~m_deallocate.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M579.0471,-943.1939C600.8076,-971.1317 662.1638,-1045.2268 729.8434,-1085.1499"/>
+</g>
+<!-- sourcefile~m_deallocate.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge55" class="edge">
+<title>sourcefile~m_deallocate.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M601.9729,-921.0578C610.2271,-917.3395 618.8219,-912.6977 625.9893,-907.1499 666.4626,-875.8217 700.8649,-825.6876 718.0694,-798.0493"/>
+<polygon fill="#000000" stroke="#000000" points="721.1996,-799.6388 723.4194,-789.2791 715.2237,-795.9933 721.1996,-799.6388"/>
+</g>
+<!-- sourcefile~m_deallocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge82" class="edge">
+<title>sourcefile~m_deallocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M583.8613,-921.0443C596.7139,-909.4535 615.7673,-890.0756 625.9893,-869.1499 663.5213,-792.3166 624.1401,-756.8273 661.9893,-680.1499 673.2566,-657.3237 693.2996,-636.1435 708.6907,-621.9723"/>
+<polygon fill="#000000" stroke="#000000" points="711.1152,-624.4997 716.2442,-615.229 706.4534,-619.2778 711.1152,-624.4997"/>
+</g>
+<!-- sourcefile~m_deallocate.f90&#45;&gt;sourcefile~iddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge105" class="edge">
+<title>sourcefile~m_deallocate.f90&#45;&gt;sourcefile~iddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M583.3167,-920.7567C595.7456,-908.9423 614.4762,-889.394 625.9893,-869.1499 651.6281,-824.0674 633.1959,-801.286 661.9893,-758.1499 672.8905,-741.8183 689.6225,-727.4452 703.7432,-717.0925"/>
+<polygon fill="#000000" stroke="#000000" points="705.9665,-719.8074 712.1224,-711.1844 701.9328,-714.0865 705.9665,-719.8074"/>
+</g>
+<!-- sourcefile~m_deallocate.f90&#45;&gt;sourcefile~rdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge116" class="edge">
+<title>sourcefile~m_deallocate.f90&#45;&gt;sourcefile~rdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M584.6325,-920.7404C597.6875,-909.2028 616.5464,-890.1196 625.9893,-869.1499 678.4116,-752.7353 608.7041,-700.172 661.9893,-584.1499 672.4109,-561.4579 692.1932,-540.8327 707.7202,-526.9807"/>
+<polygon fill="#000000" stroke="#000000" points="710.0898,-529.559 715.3798,-520.3793 705.5198,-524.2565 710.0898,-529.559"/>
+</g>
+<!-- sourcefile~m_deallocate.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge130" class="edge">
+<title>sourcefile~m_deallocate.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1058.0918,-893.1499C1078.0574,-888.5167 1100.583,-887.7188 1120.1291,-888.3751"/>
+<polygon fill="#000000" stroke="#000000" points="1120.1935,-891.8819 1130.347,-888.856 1120.5226,-884.8896 1120.1935,-891.8819"/>
+</g>
+<!-- sourcefile~m_time.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge140" class="edge">
+<title>sourcefile~m_time.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M470.1083,-1805.4229C524.8665,-1796.9845 638.7264,-1784.8722 729.8434,-1811.1499"/>
+</g>
+<!-- sourcefile~m_time.f90&#45;&gt;sourcefile~prng_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge5" class="edge">
+<title>sourcefile~m_time.f90&#45;&gt;sourcefile~prng_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M456.7901,-1800.1176C479.2954,-1787.0809 516.9362,-1765.2767 542.7398,-1750.3293"/>
+<polygon fill="#000000" stroke="#000000" points="544.7622,-1753.2027 551.6609,-1745.1616 541.2535,-1747.1456 544.7622,-1753.2027"/>
+</g>
+<!-- sourcefile~m_time.f90&#45;&gt;sourcefile~stopwatch_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge27" class="edge">
+<title>sourcefile~m_time.f90&#45;&gt;sourcefile~stopwatch_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M469.9227,-1820.5907C486.0004,-1825.3079 505.7643,-1831.1065 523.5158,-1836.3148"/>
+<polygon fill="#000000" stroke="#000000" points="522.5537,-1839.68 533.1346,-1839.1369 524.5245,-1832.9631 522.5537,-1839.68"/>
+</g>
+<!-- sourcefile~m_time.f90&#45;&gt;sourcefile~progressbar_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge58" class="edge">
+<title>sourcefile~m_time.f90&#45;&gt;sourcefile~progressbar_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M463.2121,-1822.2502C468.7482,-1825.1353 474.4191,-1828.4779 479.3518,-1832.1499 498.0132,-1846.0418 493.9805,-1860.9574 515.3518,-1870.1499 573.1643,-1895.0168 647.6491,-1878.5514 691.9094,-1864.3465"/>
+<polygon fill="#000000" stroke="#000000" points="693.0312,-1867.662 701.4127,-1861.1812 690.8191,-1861.0207 693.0312,-1867.662"/>
+</g>
+<!-- sourcefile~m_indexing.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge142" class="edge">
+<title>sourcefile~m_indexing.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M454.1271,-1863.2383C469.2623,-1872.7669 492.7568,-1885.7917 515.3518,-1891.1499 637.7899,-1920.1845 673.2616,-1888.8527 797.6975,-1870.1499 847.7114,-1862.6327 859.7645,-1842.2627 909.7214,-1850.1499"/>
+</g>
+<!-- sourcefile~m_indexing.f90&#45;&gt;sourcefile~prng_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge7" class="edge">
+<title>sourcefile~m_indexing.f90&#45;&gt;sourcefile~prng_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M463.2207,-1841.061C468.7563,-1838.1753 474.4249,-1834.8296 479.3518,-1831.1499 510.1342,-1808.1597 539.4177,-1774.1639 556.1868,-1753.125"/>
+<polygon fill="#000000" stroke="#000000" points="558.9613,-1755.2588 562.3765,-1745.2294 553.4524,-1750.94 558.9613,-1755.2588"/>
+</g>
+<!-- sourcefile~m_parameters.f90&#45;&gt;sourcefile~m_strings.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge15" class="edge">
+<title>sourcefile~m_parameters.f90&#45;&gt;sourcefile~m_strings.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M231.4517,-477.1293C257.8181,-473.2225 290.7275,-472.9855 315.6145,-488.1499"/>
+</g>
+<!-- sourcefile~stopwatch_class.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge133" class="edge">
+<title>sourcefile~stopwatch_class.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M600.5401,-1839.0719C639.5738,-1825.2473 705.7865,-1804.212 729.8434,-1811.1499"/>
+</g>
+<!-- sourcefile~stopwatch_class.f90&#45;&gt;sourcefile~progressbar_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge57" class="edge">
+<title>sourcefile~stopwatch_class.f90&#45;&gt;sourcefile~progressbar_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M625.8948,-1850.1499C636.7566,-1850.1499 648.2886,-1850.1499 659.5675,-1850.1499"/>
+<polygon fill="#000000" stroke="#000000" points="659.8283,-1853.65 669.8282,-1850.1499 659.8282,-1846.65 659.8283,-1853.65"/>
+</g>
+<!-- sourcefile~m_maths.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge135" class="edge">
+<title>sourcefile~m_maths.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1094.3891,-1451.2534C1117.1654,-1457.4164 1146.4759,-1467.388 1169.5122,-1482.1499"/>
+</g>
+<!-- sourcefile~m_maths.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge124" class="edge">
+<title>sourcefile~m_maths.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1080.2959,-1432.1232C1085.7257,-1428.4051 1090.9666,-1423.7472 1094.4382,-1418.1499 1148.1979,-1331.4728 1165.1354,-1001.6052 1168.7203,-914.4009"/>
+<polygon fill="#000000" stroke="#000000" points="1172.227,-914.2968 1169.1245,-904.1665 1165.2325,-914.0205 1172.227,-914.2968"/>
+</g>
+<!-- sourcefile~m_copy.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge137" class="edge">
+<title>sourcefile~m_copy.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M729.8434,-1811.1499C808.4433,-1833.8177 828.919,-1837.3928 909.7214,-1850.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M577.4749,-1629.3137C601.6785,-1668.4966 684.5647,-1798.0917 729.8434,-1811.1499"/>
+</g>
+<!-- sourcefile~m_sort.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge138" class="edge">
+<title>sourcefile~m_sort.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M909.7214,-739.1499C968.8851,-750.6827 1134.9056,-767.7968 1169.5122,-817.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M601.482,-660.7115C645.8089,-659.5045 729.7186,-660.4594 797.6975,-680.1499 851.7474,-695.8057 854.1168,-730.512 909.7214,-739.1499"/>
+</g>
+<!-- sourcefile~m_sort.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge29" class="edge">
+<title>sourcefile~m_sort.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M584.466,-673.16C597.0285,-683.8905 615.2131,-701.306 625.9893,-720.1499 709.7165,-866.5613 584.5734,-999.4575 729.8434,-1085.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M729.8434,-1085.1499C899.3602,-1185.145 874.6655,-1287.3734 1021.7454,-1418.1499 1024.8128,-1420.8773 1028.1888,-1423.5584 1031.6099,-1426.0931"/>
+<polygon fill="#000000" stroke="#000000" points="1029.8635,-1429.1438 1040.0563,-1432.035 1033.8912,-1423.4186 1029.8635,-1429.1438"/>
+</g>
+<!-- sourcefile~m_sort.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge49" class="edge">
+<title>sourcefile~m_sort.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M585.9327,-673.2724C613.79,-693.5739 673.0517,-736.7619 706.1796,-760.9045"/>
+<polygon fill="#000000" stroke="#000000" points="704.2505,-763.8294 714.3935,-766.8905 708.3733,-758.1723 704.2505,-763.8294"/>
+</g>
+<!-- sourcefile~m_sort.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge76" class="edge">
+<title>sourcefile~m_sort.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M600.9844,-651.104C626.1291,-641.9416 662.0922,-628.8373 689.6392,-618.7996"/>
+<polygon fill="#000000" stroke="#000000" points="691.1743,-621.9654 699.3717,-615.2532 688.7777,-615.3884 691.1743,-621.9654"/>
+</g>
+<!-- sourcefile~m_sort.f90&#45;&gt;sourcefile~iddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge99" class="edge">
+<title>sourcefile~m_sort.f90&#45;&gt;sourcefile~iddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M601.3607,-669.4766C621.8458,-674.3672 649.3875,-680.9423 673.717,-686.7506"/>
+<polygon fill="#000000" stroke="#000000" points="673.024,-690.1834 683.5634,-689.1013 674.6495,-683.3748 673.024,-690.1834"/>
+</g>
+<!-- sourcefile~m_sort.f90&#45;&gt;sourcefile~rdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge110" class="edge">
+<title>sourcefile~m_sort.f90&#45;&gt;sourcefile~rdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M582.3749,-650.8994C609.6261,-624.705 677.5203,-559.4438 710.8191,-527.4364"/>
+<polygon fill="#000000" stroke="#000000" points="713.3378,-529.8701 718.1219,-520.4168 708.4869,-524.8234 713.3378,-529.8701"/>
+</g>
+<!-- sourcefile~m_array1d.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge143" class="edge">
+<title>sourcefile~m_array1d.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1169.5122,-1482.1499C1221.322,-1515.35 1255.1143,-1583.0891 1269.6149,-1617.3363"/>
+<polygon fill="#000000" stroke="#000000" points="1266.467,-1618.8853 1273.4944,-1626.8142 1272.9454,-1616.2335 1266.467,-1618.8853"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1058.0918,-1404.1499C1073.653,-1394.6573 1079.1303,-1413.254 1094.4382,-1423.1499 1130.077,-1446.1887 1133.7818,-1459.2535 1169.5122,-1482.1499"/>
+</g>
+<!-- sourcefile~m_array1d.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge35" class="edge">
+<title>sourcefile~m_array1d.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M950.657,-1414.91C969.6481,-1419.9019 992.3047,-1425.8573 1011.9052,-1431.0094"/>
+<polygon fill="#000000" stroke="#000000" points="1011.2796,-1434.4638 1021.8408,-1433.6211 1013.0591,-1427.6938 1011.2796,-1434.4638"/>
+</g>
+<!-- sourcefile~m_array1d.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge132" class="edge">
+<title>sourcefile~m_array1d.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1058.0918,-1404.1499C1144.3217,-1351.5483 1164.8261,-1004.4187 1168.717,-914.4276"/>
+<polygon fill="#000000" stroke="#000000" points="1172.2181,-914.4696 1169.1289,-904.3351 1165.2239,-914.184 1172.2181,-914.4696"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M950.5782,-1414.9978C982.2426,-1420.9807 1025.9861,-1423.7348 1058.0918,-1404.1499"/>
+</g>
+<!-- sourcefile~ddynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge144" class="edge">
+<title>sourcefile~ddynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M764.9769,-767.1295C809.1187,-753.8793 882.3989,-734.0181 909.7214,-739.1499"/>
+</g>
+<!-- sourcefile~ddynamicarray_class.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge89" class="edge">
+<title>sourcefile~ddynamicarray_class.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M796.5677,-785.1978C805.7459,-786.1672 815.2703,-787.1733 824.7217,-788.1716"/>
+<polygon fill="#000000" stroke="#000000" points="824.6167,-791.6799 834.929,-789.2498 825.352,-784.7186 824.6167,-791.6799"/>
+</g>
+<!-- sourcefile~progressbar_class.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge145" class="edge">
+<title>sourcefile~progressbar_class.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M790.1695,-1845.4746C825.2681,-1843.9162 870.2376,-1843.9162 909.7214,-1850.1499"/>
+</g>
+<!-- sourcefile~idargdynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge146" class="edge">
+<title>sourcefile~idargdynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M985.7488,-460.1564C1016.9696,-458.0107 1048.1429,-459.0907 1058.0918,-470.1499"/>
+</g>
+<!-- sourcefile~m_write.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge147" class="edge">
+<title>sourcefile~m_write.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M604.0174,-34.4144C650.66,-38.9304 736.5215,-52.2652 797.6975,-91.1499 863.4976,-132.9737 852.3267,-173.3793 909.7214,-226.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M909.7214,-226.1499C1002.8338,-312.3977 973.791,-375.2712 1058.0918,-470.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1058.0918,-470.1499C1165.6783,-591.2361 1077.4499,-683.8784 1169.5122,-817.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1169.5122,-817.1499C1186.7613,-842.12 1198.189,-844.6377 1208.5862,-873.1499 1260.5423,-1015.6294 1274.751,-1508.8162 1277.2739,-1617.0453"/>
+<polygon fill="#000000" stroke="#000000" points="1273.775,-1617.138 1277.499,-1627.0568 1280.7732,-1616.9806 1273.775,-1617.138"/>
+</g>
+<!-- sourcefile~m_write.f90&#45;&gt;sourcefile~m_fileio.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge93" class="edge">
+<title>sourcefile~m_write.f90&#45;&gt;sourcefile~m_fileio.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M603.8192,-42.3913C611.3683,-45.3536 619.1682,-48.9455 625.9893,-53.1499 644.4663,-64.5388 643.4566,-74.8516 661.9893,-86.1499 669.3857,-90.659 677.7243,-94.5536 685.96,-97.8374"/>
+<polygon fill="#000000" stroke="#000000" points="684.9256,-101.1872 695.5181,-101.4119 687.3777,-94.6307 684.9256,-101.1872"/>
+</g>
+<!-- sourcefile~rargdynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge148" class="edge">
+<title>sourcefile~rargdynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M983.7147,-433.2667C1010.7226,-438.5417 1039.2356,-449.1894 1058.0918,-470.1499"/>
+</g>
+<!-- sourcefile~m_select.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge150" class="edge">
+<title>sourcefile~m_select.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1058.0918,-1482.1499C1098.8349,-1454.0029 1127.8181,-1455.4319 1169.5122,-1482.1499"/>
+</g>
+<!-- sourcefile~m_select.f90&#45;&gt;sourcefile~m_maths.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge31" class="edge">
+<title>sourcefile~m_select.f90&#45;&gt;sourcefile~m_maths.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M945.2598,-1472.8084C965.2424,-1467.5558 990.4153,-1460.939 1011.9114,-1455.2886"/>
+<polygon fill="#000000" stroke="#000000" points="1013.031,-1458.6133 1021.8126,-1452.686 1011.2514,-1451.8433 1013.031,-1458.6133"/>
+</g>
+<!-- sourcefile~m_select.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge126" class="edge">
+<title>sourcefile~m_select.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1058.0918,-1482.1499C1073.089,-1471.7892 1083.9955,-1478.09 1094.4382,-1463.1499 1158.2514,-1371.8542 1167.8589,-1006.4895 1169.2734,-914.3384"/>
+<polygon fill="#000000" stroke="#000000" points="1172.7739,-914.3203 1169.411,-904.2734 1165.7745,-914.2246 1172.7739,-914.3203"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M945.4426,-1492.747C977.7801,-1500.0566 1025.2424,-1504.8435 1058.0918,-1482.1499"/>
+</g>
+<!-- sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge151" class="edge">
+<title>sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M764.8346,-615.264C826.47,-635.5886 957.3978,-682.1397 1058.0918,-741.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1058.0918,-741.1499C1106.8231,-776.0562 1135.0973,-768.0703 1169.5122,-817.1499"/>
+</g>
+<!-- sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~idargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge64" class="edge">
+<title>sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~idargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M744.8703,-592.9556C776.2948,-569.5459 849.136,-515.2829 886.5803,-487.3888"/>
+<polygon fill="#000000" stroke="#000000" points="888.9353,-489.9989 894.8638,-481.218 884.7534,-484.3853 888.9353,-489.9989"/>
+</g>
+<!-- sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~rargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge73" class="edge">
+<title>sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~rargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M741.8629,-593.1339C756.4702,-579.2753 781.205,-554.2406 797.6975,-529.1499 818.8913,-496.9068 804.3449,-475.1941 833.6975,-450.1499 835.7483,-448.4001 837.9332,-446.7953 840.2196,-445.3234"/>
+<polygon fill="#000000" stroke="#000000" points="842.3665,-448.1394 849.4719,-440.2804 839.0164,-441.9931 842.3665,-448.1394"/>
+</g>
+<!-- sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge87" class="edge">
+<title>sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M741.4702,-615.1816C755.9012,-629.2911 780.6829,-654.9291 797.6975,-680.1499 817.9288,-710.1388 808.9824,-726.7339 833.6975,-753.1499 844.6177,-764.8215 859.3396,-774.3115 872.9197,-781.4498"/>
+<polygon fill="#000000" stroke="#000000" points="871.5669,-784.6861 882.0782,-786.0138 874.6891,-778.4209 871.5669,-784.6861"/>
+</g>
+<!-- sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge120" class="edge">
+<title>sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M742.9769,-593.0072C758.2195,-579.4042 783.1221,-554.9982 797.6975,-529.1499 825.0469,-480.6477 793.8949,-448.0883 833.6975,-409.1499 835.3676,-407.516 837.1528,-406.0067 839.0303,-404.6126"/>
+<polygon fill="#000000" stroke="#000000" points="841.1129,-407.4402 847.7831,-399.2086 837.4354,-401.4839 841.1129,-407.4402"/>
+</g>
+<!-- sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge129" class="edge">
+<title>sourcefile~idynamicarray_class.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1058.0918,-741.1499C1071.9428,-749.267 1130.0454,-834.2792 1156.4064,-873.5103"/>
+<polygon fill="#000000" stroke="#000000" points="1153.6208,-875.6408 1162.0952,-881.9997 1159.4359,-871.744 1153.6208,-875.6408"/>
+</g>
+<!-- sourcefile~dargdynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge153" class="edge">
+<title>sourcefile~dargdynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1058.0918,-817.1499C1106.2928,-828.5037 1141.0814,-776.6043 1169.5122,-817.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M984.5796,-804.3596C1008.2692,-807.4082 1034.4369,-811.5779 1058.0918,-817.1499"/>
+</g>
+<!-- sourcefile~dargdynamicarray_class.f90&#45;&gt;sourcefile~m_kdtree.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge123" class="edge">
+<title>sourcefile~dargdynamicarray_class.f90&#45;&gt;sourcefile~m_kdtree.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1058.0918,-817.1499C1095.9187,-826.0601 1131.5295,-855.3608 1151.8985,-874.868"/>
+<polygon fill="#000000" stroke="#000000" points="1149.5978,-877.5149 1159.1739,-882.048 1154.5148,-872.5326 1149.5978,-877.5149"/>
+</g>
+<!-- sourcefile~m_fileio.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge154" class="edge">
+<title>sourcefile~m_fileio.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M764.2832,-121.4076C775.2969,-125.3196 787.3173,-130.2765 797.6975,-136.1499 853.2827,-167.601 862.707,-182.9233 909.7214,-226.1499"/>
+</g>
+<!-- sourcefile~iddynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge155" class="edge">
+<title>sourcefile~iddynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M777.4161,-711.2212C813.5922,-719.456 864.6549,-730.6853 909.7214,-739.1499"/>
+</g>
+<!-- sourcefile~iddynamicarray_class.f90&#45;&gt;sourcefile~idargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge61" class="edge">
+<title>sourcefile~iddynamicarray_class.f90&#45;&gt;sourcefile~idargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M740.3206,-689.1253C753.9703,-674.6052 778.3722,-648.1033 797.6975,-624.1499 835.3496,-577.4806 875.88,-519.6404 896.3109,-489.8834"/>
+<polygon fill="#000000" stroke="#000000" points="899.4532,-491.4888 902.209,-481.2586 893.6751,-487.5374 899.4532,-491.4888"/>
+</g>
+<!-- sourcefile~m_reallocate.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge156" class="edge">
+<title>sourcefile~m_reallocate.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M615.3134,-734.7383C680.6189,-728.0079 805.7331,-719.6184 909.7214,-739.1499"/>
+</g>
+<!-- sourcefile~m_reallocate.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge51" class="edge">
+<title>sourcefile~m_reallocate.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M615.4326,-750.8361C633.5206,-755.1543 654.5979,-760.1862 673.6976,-764.746"/>
+<polygon fill="#000000" stroke="#000000" points="672.9396,-768.1633 683.479,-767.0811 674.5651,-761.3546 672.9396,-768.1633"/>
+</g>
+<!-- sourcefile~m_reallocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge78" class="edge">
+<title>sourcefile~m_reallocate.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M583.6963,-729.0204C611.2123,-705.5103 675.4631,-650.6133 708.8543,-622.0833"/>
+<polygon fill="#000000" stroke="#000000" points="711.3084,-624.5901 716.6376,-615.4331 706.7612,-619.2681 711.3084,-624.5901"/>
+</g>
+<!-- sourcefile~m_reallocate.f90&#45;&gt;sourcefile~iddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge101" class="edge">
+<title>sourcefile~m_reallocate.f90&#45;&gt;sourcefile~iddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M614.5866,-729.1138C633.5581,-724.3463 655.9393,-718.7219 675.9081,-713.7037"/>
+<polygon fill="#000000" stroke="#000000" points="676.9492,-717.051 685.7946,-711.2193 675.2431,-710.2621 676.9492,-717.051"/>
+</g>
+<!-- sourcefile~m_reallocate.f90&#45;&gt;sourcefile~rdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge112" class="edge">
+<title>sourcefile~m_reallocate.f90&#45;&gt;sourcefile~rdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M584.1468,-728.9492C596.4836,-718.084 614.5157,-700.5774 625.9893,-682.1499 650.5147,-642.7597 637.9843,-623.8594 661.9893,-584.1499 675.0188,-562.596 694.7495,-541.6501 709.5814,-527.3974"/>
+<polygon fill="#000000" stroke="#000000" points="712.347,-529.6019 717.2437,-520.2066 707.5568,-524.4976 712.347,-529.6019"/>
+</g>
+<!-- sourcefile~rdynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge157" class="edge">
+<title>sourcefile~rdynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M795.487,-507.8035C847.4396,-505.8916 921.6615,-501.2764 985.7454,-490.1499 1018.6136,-484.4431 1035.7805,-445.3487 1058.0918,-470.1499"/>
+</g>
+<!-- sourcefile~rdynamicarray_class.f90&#45;&gt;sourcefile~rargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge71" class="edge">
+<title>sourcefile~rdynamicarray_class.f90&#45;&gt;sourcefile~rargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M768.0829,-498.1138C778.1001,-494.4171 788.6276,-489.7722 797.6975,-484.1499 816.4029,-472.5545 814.5244,-460.9545 833.6975,-450.1499 837.8764,-447.7949 842.3352,-445.6912 846.9191,-443.8142"/>
+<polygon fill="#000000" stroke="#000000" points="848.2991,-447.0353 856.454,-440.2716 845.8611,-440.4735 848.2991,-447.0353"/>
+</g>
+<!-- sourcefile~iargdynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge158" class="edge">
+<title>sourcefile~iargdynamicarray_class.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M961.5884,-399.2322C969.9031,-401.9193 978.2349,-405.1919 985.7454,-409.1499 1022.953,-428.7581 1029.9631,-438.8822 1058.0918,-470.1499"/>
+</g>
+<!-- sourcefile~m_kdtree.f90&#45;&gt;sourcefile~m_tests.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge160" class="edge">
+<title>sourcefile~m_kdtree.f90&#45;&gt;sourcefile~m_tests.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1171.1259,-904.2594C1183.1233,-986.858 1258.411,-1505.1914 1274.6418,-1616.9359"/>
+<polygon fill="#000000" stroke="#000000" points="1271.199,-1617.5832 1276.1002,-1626.9762 1278.1263,-1616.5769 1271.199,-1617.5832"/>
+</g>
+<!-- sourcefile~m_swap.f90&#45;&gt;sourcefile~m_array1d.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge47" class="edge">
+<title>sourcefile~m_swap.f90&#45;&gt;sourcefile~m_array1d.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M203.1495,-1211.2729C219.8517,-1222.1131 246.5424,-1238.6049 271.0906,-1250.1499 459.8422,-1338.9193 525.4826,-1307.3904 729.8434,-1349.1499"/>
+</g>
+<!-- sourcefile~m_searching.f90&#45;&gt;sourcefile~ddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge50" class="edge">
+<title>sourcefile~m_searching.f90&#45;&gt;sourcefile~ddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M577.9966,-481.187C589.6989,-499.2701 612.6464,-536.6542 625.9893,-571.1499 650.5665,-634.6899 626.3622,-662.0801 661.9893,-720.1499 672.1234,-736.6678 688.547,-750.8876 702.6978,-761.1131"/>
+<polygon fill="#000000" stroke="#000000" points="700.9224,-764.1407 711.1383,-766.9487 704.9032,-758.3828 700.9224,-764.1407"/>
+</g>
+<!-- sourcefile~m_searching.f90&#45;&gt;sourcefile~idargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge60" class="edge">
+<title>sourcefile~m_searching.f90&#45;&gt;sourcefile~idargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M729.8434,-470.1499C760.141,-474.3619 793.5876,-475.3507 823.3379,-474.9662"/>
+<polygon fill="#000000" stroke="#000000" points="823.7616,-478.4591 833.6956,-474.776 823.6329,-471.4603 823.7616,-478.4591"/>
+</g>
+<!-- sourcefile~m_searching.f90&#45;&gt;sourcefile~rargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge69" class="edge">
+<title>sourcefile~m_searching.f90&#45;&gt;sourcefile~rargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M729.8434,-470.1499C742.5686,-471.919 810.0004,-455.3654 858.5661,-442.7615"/>
+<polygon fill="#000000" stroke="#000000" points="859.518,-446.1304 868.311,-440.2201 857.7514,-439.357 859.518,-446.1304"/>
+</g>
+<!-- sourcefile~m_searching.f90&#45;&gt;sourcefile~idynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge77" class="edge">
+<title>sourcefile~m_searching.f90&#45;&gt;sourcefile~idynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M583.9677,-481.3441C611.6577,-504.655 675.6884,-558.5594 708.9448,-586.5564"/>
+<polygon fill="#000000" stroke="#000000" points="706.7918,-589.3189 716.696,-593.0817 711.3,-583.9639 706.7918,-589.3189"/>
+</g>
+<!-- sourcefile~m_searching.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge84" class="edge">
+<title>sourcefile~m_searching.f90&#45;&gt;sourcefile~dargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M729.8434,-470.1499C760.8624,-474.4622 777.1263,-465.5363 797.6975,-489.1499 875.4828,-578.439 767.7318,-654.8054 833.6975,-753.1499 841.9688,-765.481 854.9458,-774.7971 867.8525,-781.6078"/>
+<polygon fill="#000000" stroke="#000000" points="866.6453,-784.9124 877.1698,-786.1315 869.7027,-778.6153 866.6453,-784.9124"/>
+</g>
+<!-- sourcefile~m_searching.f90&#45;&gt;sourcefile~iddynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge100" class="edge">
+<title>sourcefile~m_searching.f90&#45;&gt;sourcefile~iddynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M576.3934,-481.4402C589.8338,-507.5536 625.0783,-573.7416 661.9893,-624.1499 677.1547,-644.8609 696.932,-666.5141 711.2185,-681.3853"/>
+<polygon fill="#000000" stroke="#000000" points="709.0456,-684.1712 718.5264,-688.9003 714.064,-679.291 709.0456,-684.1712"/>
+</g>
+<!-- sourcefile~m_searching.f90&#45;&gt;sourcefile~rdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge111" class="edge">
+<title>sourcefile~m_searching.f90&#45;&gt;sourcefile~rdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M615.4326,-481.1173C633.9121,-485.6451 655.5118,-490.9374 674.9351,-495.6964"/>
+<polygon fill="#000000" stroke="#000000" points="674.3201,-499.1492 684.8658,-498.1296 675.986,-492.3503 674.3201,-499.1492"/>
+</g>
+<!-- sourcefile~m_searching.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge122" class="edge">
+<title>sourcefile~m_searching.f90&#45;&gt;sourcefile~iargdynamicarray_class.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M615.4945,-466.8684C647.5123,-465.322 691.5241,-464.8226 729.8434,-470.1499"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M729.8434,-470.1499C782.864,-477.5209 784.3987,-430.01 833.6975,-409.1499 839.5732,-406.6636 845.8284,-404.3868 852.1305,-402.3254"/>
+<polygon fill="#000000" stroke="#000000" points="853.5055,-405.5638 862.0243,-399.2645 851.4366,-398.8765 853.5055,-405.5638"/>
+</g>
+<!-- sourcefile~m_read.f90&#45;&gt;sourcefile~m_fileio.f90 -->
+<g id="sourcefile~~test_coretran.f90~~EfferentGraph_edge94" class="edge">
+<title>sourcefile~m_read.f90&#45;&gt;sourcefile~m_fileio.f90</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M603.2656,-80.9314C627.0329,-86.6055 659.5111,-94.3591 685.6176,-100.5916"/>
+<polygon fill="#000000" stroke="#000000" points="685.1024,-104.067 695.6418,-102.9848 686.7279,-97.2583 685.1024,-104.067"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var pansourcefiletest_coretranf90EfferentGraph = svgPanZoom('#sourcefiletest_coretranf90EfferentGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="186pt" height="31pt"
+ viewBox="0.00 0.00 186.41 30.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 26.5)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-26.5 182.4064,-26.5 182.4064,4 -4,4"/>
+<!-- Source File -->
+<g id="node1" class="node">
+<title>Source File</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="65.1576,-22.2554 -.0526,-22.2554 -.0526,-.2446 65.1576,-.2446 65.1576,-22.2554"/>
+<text text-anchor="middle" x="32.5525" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Source File</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node2" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="178.2607,-22.2554 82.8443,-22.2554 82.8443,-.2446 178.2607,-.2446 178.2607,-22.2554"/>
+<text text-anchor="middle" x="130.5525" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a file to a file which depends upon it. A file 
+    is dependent upon another if the latter must be compiled before the former
+    can be.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+      
+      <br>
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#progs-1">Programs</a></h3></div>
+  <div id="progs-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../program/test_coretran.html">test_coretran</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title">Source Code</h3></div>
+  <div class="list-group">
+    <a class="list-group-item" href="../sourcefile/test_coretran.f90.html#src">test_coretran.f90</a>
+  </div>
+</div>
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    <section>
+      <h2><span class="anchor" id="src"></span>Source Code</h2>
+    <div class="hl"><pre><span></span><a name="ln-1"></a><span class="k">program </span><span class="n">test_coretran</span>
+<a name="ln-2"></a>  <span class="c">!! Test program for the coretran library</span>
+<a name="ln-3"></a>  <span class="k">use </span><span class="n">m_unitTester</span>
+<a name="ln-4"></a>  <span class="k">use </span><span class="n">iso_fortran_env</span>
+<a name="ln-5"></a>  <span class="k">use </span><span class="n">variableKind</span>
+<a name="ln-6"></a>  <span class="k">use </span><span class="n">m_random</span>
+<a name="ln-7"></a>  <span class="k">use </span><span class="n">m_tests</span>
+<a name="ln-8"></a>
+<a name="ln-9"></a>  <span class="k">implicit none</span>
+<a name="ln-10"></a>
+<a name="ln-11"></a><span class="k">  type</span><span class="p">(</span><span class="n">tester</span><span class="p">)</span> <span class="kd">::</span> <span class="n">test</span>
+<a name="ln-12"></a>
+<a name="ln-13"></a>  <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="n">cLen</span><span class="p">)</span> <span class="kd">::</span> <span class="n">sa</span>
+<a name="ln-14"></a>  <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">iTest</span><span class="p">,</span><span class="n">istat</span><span class="p">,</span> <span class="n">N</span><span class="p">,</span> <span class="n">nIterations</span>
+<a name="ln-15"></a>  
+<a name="ln-16"></a>
+<a name="ln-17"></a><span class="c">! Get an integer from command line argument</span>
+<a name="ln-18"></a>  <span class="n">i</span> <span class="o">=</span> <span class="nb">command_argument_count</span><span class="p">()</span>
+<a name="ln-19"></a>  <span class="k">if</span> <span class="p">(</span><span class="n">i</span> <span class="o">&lt;</span> <span class="mi">2</span><span class="p">)</span> <span class="k">then</span>
+<a name="ln-20"></a><span class="k">    write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Error with input options&#39;</span>
+<a name="ln-21"></a>    <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Usage: coretranTest size iterations&#39;</span>
+<a name="ln-22"></a>    <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;  size : Size of the array to run tests on&#39;</span>
+<a name="ln-23"></a>    <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;  iterations : Number of times to run a test that is being timed&#39;</span>
+<a name="ln-24"></a>    <span class="k">stop</span>
+<a name="ln-25"></a><span class="k">  end if</span>
+<a name="ln-26"></a><span class="k">  call </span><span class="nb">get_command_argument</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sa</span><span class="p">)</span>
+<a name="ln-27"></a>  <span class="k">read</span><span class="p">(</span><span class="n">sa</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">N</span>
+<a name="ln-28"></a>
+<a name="ln-29"></a>  <span class="k">if</span> <span class="p">(</span><span class="n">N</span> <span class="o">&lt;</span> <span class="mi">15</span><span class="p">)</span> <span class="k">call </span><span class="n">eMsg</span><span class="p">(</span><span class="s1">&#39;Please use size &gt;= 15&#39;</span><span class="p">)</span>
+<a name="ln-30"></a>
+<a name="ln-31"></a>  <span class="k">call </span><span class="nb">get_command_argument</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">sa</span><span class="p">)</span>
+<a name="ln-32"></a>  <span class="k">read</span><span class="p">(</span><span class="n">sa</span><span class="p">,</span><span class="o">*</span><span class="p">)</span> <span class="n">nIterations</span>
+<a name="ln-33"></a>
+<a name="ln-34"></a>  <span class="n">test</span> <span class="o">=</span> <span class="n">tester</span><span class="p">()</span>
+<a name="ln-35"></a>
+<a name="ln-36"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-37"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;LibFortran Testing&#39;</span><span class="p">)</span>
+<a name="ln-38"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-39"></a>
+<a name="ln-40"></a>  <span class="k">call </span><span class="n">setPrng</span><span class="p">(</span><span class="n">big</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.,</span> <span class="n">display</span> <span class="o">=</span> <span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<a name="ln-41"></a>
+<a name="ln-42"></a>  <span class="k">call </span><span class="n">strings_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-43"></a>  
+<a name="ln-44"></a>  <span class="k">call </span><span class="n">fileIO_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-45"></a>  
+<a name="ln-46"></a>  <span class="k">call </span><span class="n">random_test</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="p">.</span><span class="n">false</span><span class="p">.)</span>
+<a name="ln-47"></a>
+<a name="ln-48"></a>  <span class="k">call </span><span class="n">Prng_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-49"></a>
+<a name="ln-50"></a>  <span class="k">call </span><span class="n">time_test</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">nIterations</span><span class="p">)</span>
+<a name="ln-51"></a>  
+<a name="ln-52"></a>  <span class="k">call </span><span class="n">indexing_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-53"></a>  
+<a name="ln-54"></a>  <span class="k">call </span><span class="n">allocate_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-55"></a>  
+<a name="ln-56"></a>  <span class="k">call </span><span class="n">reallocate_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-57"></a>  
+<a name="ln-58"></a>  <span class="k">call </span><span class="n">copy_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-59"></a>  
+<a name="ln-60"></a>  <span class="k">call </span><span class="n">sorting_test</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-61"></a>  
+<a name="ln-62"></a>  <span class="k">call </span><span class="n">select_test</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-63"></a>  
+<a name="ln-64"></a>  <span class="k">call </span><span class="n">array1D_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-65"></a>  
+<a name="ln-66"></a>  <span class="k">call </span><span class="n">maths_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-67"></a>
+<a name="ln-68"></a>  <span class="k">call </span><span class="n">KdTree_test</span><span class="p">(</span><span class="n">test</span><span class="p">,</span> <span class="n">N</span><span class="p">)</span>
+<a name="ln-69"></a>  
+<a name="ln-70"></a>
+<a name="ln-71"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-72"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Testing : Dynamic Arrays&#39;</span><span class="p">)</span>
+<a name="ln-73"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-74"></a>  <span class="k">call </span><span class="n">rDynamicArray_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-75"></a>  <span class="k">call </span><span class="n">dDynamicArray_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-76"></a>  <span class="k">call </span><span class="n">iDynamicArray_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-77"></a>  <span class="k">call </span><span class="n">idDynamicArray_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-78"></a>  
+<a name="ln-79"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-80"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;Testing : ArgDynamic Arrays&#39;</span><span class="p">)</span>
+<a name="ln-81"></a>  <span class="k">call </span><span class="n">Msg</span><span class="p">(</span><span class="s1">&#39;==========================&#39;</span><span class="p">)</span>
+<a name="ln-82"></a>  <span class="k">call </span><span class="n">rArgDynamicArray_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-83"></a>  <span class="k">call </span><span class="n">dArgDynamicArray_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-84"></a>  <span class="k">call </span><span class="n">iArgDynamicArray_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-85"></a>  <span class="k">call </span><span class="n">idArgDynamicArray_test</span><span class="p">(</span><span class="n">test</span><span class="p">)</span>
+<a name="ln-86"></a>
+<a name="ln-87"></a>  <span class="k">call </span><span class="n">test</span><span class="p">%</span><span class="n">summary</span><span class="p">()</span>
+<a name="ln-88"></a>
+<a name="ln-89"></a>  <span class="k">stop</span>
+<a name="ln-90"></a><span class="mi">1</span> <span class="k">format</span><span class="p">(</span><span class="n">a</span><span class="p">)</span>
+<a name="ln-91"></a>
+<a name="ln-92"></a><span class="k">end program</span>
+</pre></div>
+
+    </section>
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allfiles-1">All Source Files</a></h3></div>
+  <div id="allfiles-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../sourcefile/dargdynamicarray_class.f90.html">dArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/ddynamicarray_class.f90.html">dDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/iargdynamicarray_class.f90.html">iArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/idargdynamicarray_class.f90.html">idArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/iddynamicarray_class.f90.html">idDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/idynamicarray_class.f90.html">iDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_allocate.f90.html">m_allocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_array1d.f90.html">m_array1D.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_compare.f90.html">m_compare.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_copy.f90.html">m_copy.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_deallocate.f90.html">m_deallocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_debugging.f90.html">m_debugging.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_errors.f90.html">m_errors.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_fileio.f90.html">m_fileIO.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_format.f90.html">m_format.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_indexing.f90.html">m_indexing.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_kdtree.f90.html">m_KdTree.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_maths.f90.html">m_maths.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_medianof3.f90.html">m_medianOf3.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_parameters.f90.html">m_parameters.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_partition.f90.html">m_partition.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_partition3way.f90.html">m_partition3way.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_random.f90.html">m_random.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_read.f90.html">m_read.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_reallocate.f90.html">m_reallocate.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_searching.f90.html">m_searching.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_select.f90.html">m_select.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_sort.f90.html">m_sort.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_strings.f90.html">m_strings.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_swap.f90.html">m_swap.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_tests.f90.html">m_tests.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_time.f90.html">m_time.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_unittester.f90.html">m_unitTester.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_variablekind.f90.html">m_variableKind.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/m_write.f90.html">m_write.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/prng_class.f90.html">Prng_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/progressbar_class.f90.html">ProgressBar_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/rargdynamicarray_class.f90.html">rArgDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/rdynamicarray_class.f90.html">rDynamicArray_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/scale_coretran.f90.html">scale_coretran.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/stopwatch_class.f90.html">Stopwatch_Class.f90</a>
+      
+      <a class="list-group-item" href="../sourcefile/test_coretran.f90.html">test_coretran.f90</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> Fortran Program was developed by Leon Foks</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>

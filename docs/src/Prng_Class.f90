@@ -684,6 +684,7 @@ integer(i64) :: tmp
 
 useXorshift1024star = .false.
 if (present(big)) useXorshift1024star = big
+this%big = useXorshift1024star
 
 if (useXorshift1024star) then
   if (size(seed) /= 16) call eMsg('Prng: For big = .true., seed must have size 16')

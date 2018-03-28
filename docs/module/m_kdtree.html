@@ -73,6 +73,8 @@
             <li><a href="../lists/types.html">Derived Types</a></li>
 				
 				
+            <li><a href="../lists/programs.html">Programs</a></li>
+				
             </ul>
             </li>
 
@@ -88,6 +90,8 @@
                              
 <li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
 
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/programs.html">Programs</a></li>
 
           </ul>
         
@@ -126,7 +130,7 @@
      <li><i class="fa fa-list-ol"></i>
        <a data-toggle="tooltip"
 	  data-placement="bottom" data-html="true"
-	  title=" 2.7% of total for modules and submodules.">176 statements</a>
+	  title=" 2.2% of total for modules and submodules.">176 statements</a>
      </li> 
      
      
@@ -208,7 +212,19 @@
   <div id="allmods-0" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../module/dargdynamicarray_class.html">dArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/ddynamicarray_class.html">dDynamicArray_Class</a>
+      
       <a class="list-group-item" href="../module/formatting.html">formatting</a>
+      
+      <a class="list-group-item" href="../module/iargdynamicarray_class.html">iArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/idargdynamicarray_class.html">idArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/iddynamicarray_class.html">idDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/idynamicarray_class.html">iDynamicArray_Class</a>
       
       <a class="list-group-item" href="../module/m_allocate.html">m_allocate</a>
       
@@ -218,10 +234,6 @@
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
       
-      <a class="list-group-item" href="../module/m_dargdynamicarray.html">m_dArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_ddynamicarray.html">m_dDynamicArray</a>
-      
       <a class="list-group-item" href="../module/m_deallocate.html">m_deallocate</a>
       
       <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
@@ -229,14 +241,6 @@
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
-      
-      <a class="list-group-item" href="../module/m_iargdynamicarray.html">m_iArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_idargdynamicarray.html">m_idArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_iddynamicarray.html">m_idDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_idynamicarray.html">m_iDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
       
@@ -254,10 +258,6 @@
       
       <a class="list-group-item" href="../module/m_random.html">m_random</a>
       
-      <a class="list-group-item" href="../module/m_rargdynamicarray.html">m_rArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_rdynamicarray.html">m_rDynamicArray</a>
-      
       <a class="list-group-item" href="../module/m_readline.html">m_readline</a>
       
       <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
@@ -272,6 +272,8 @@
       
       <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
       
+      <a class="list-group-item" href="../module/m_tests.html">m_tests</a>
+      
       <a class="list-group-item" href="../module/m_time.html">m_time</a>
       
       <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
@@ -281,6 +283,10 @@
       <a class="list-group-item" href="../module/prng_class.html">Prng_Class</a>
       
       <a class="list-group-item" href="../module/progressbar_class.html">ProgressBar_Class</a>
+      
+      <a class="list-group-item" href="../module/rargdynamicarray_class.html">rArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/rdynamicarray_class.html">rDynamicArray_Class</a>
       
       <a class="list-group-item" href="../module/stopwatch_class.html">Stopwatch_Class</a>
       
@@ -314,9 +320,9 @@
       
       <li><a href='../module/m_maths.html'>m_maths</a></li>
       
-      <li><a href='../module/m_idynamicarray.html'>m_iDynamicArray</a></li>
+      <li><a href='../module/idynamicarray_class.html'>iDynamicArray_Class</a></li>
       
-      <li><a href='../module/m_dargdynamicarray.html'>m_dArgDynamicArray</a></li>
+      <li><a href='../module/dargdynamicarray_class.html'>dArgDynamicArray_Class</a></li>
       
       <li><a href='../module/m_select.html'>m_select</a></li>
       
@@ -327,639 +333,754 @@
                 <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
  -->
 <!-- Title: module~~m_kdtree~~UsesGraph Pages: 1 -->
-<svg id="modulem_kdtreeUsesGraph" width="641pt" height="558pt"
- viewBox="0.00 0.00 641.00 557.93" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="module~~m_kdtree~~UsesGraph" class="graph" transform="scale(0.573859 0.573859) rotate(0) translate(4 968.247)">
+<svg id="modulem_kdtreeUsesGraph" width="641pt" height="634pt"
+ viewBox="0.00 0.00 641.00 634.25" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~m_kdtree~~UsesGraph" class="graph" transform="scale(.5627 .5627) rotate(0) translate(4 1123.0832)">
 <title>module~~m_kdtree~~UsesGraph</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-968.247 1113,-968.247 1113,4 -4,4"/>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-1123.0832 1135.0732,-1123.0832 1135.0732,4 -4,4"/>
 <!-- module~m_kdtree -->
-<g id="module~~m_kdtree~~UsesGraph_node1" class="node"><title>module~m_kdtree</title>
-<polygon fill="none" stroke="black" points="1109,-393 1047,-393 1047,-369 1109,-369 1109,-393"/>
-<text text-anchor="middle" x="1078" y="-378.6" font-family="Helvetica,sans-Serif" font-size="10.50">m_KdTree</text>
+<g id="module~~m_kdtree~~UsesGraph_node1" class="node">
+<title>module~m_kdtree</title>
+<polygon fill="none" stroke="#000000" points="1130.8915,-536.6634 1070.6207,-536.6634 1070.6207,-514.6525 1130.8915,-514.6525 1130.8915,-536.6634"/>
+<text text-anchor="middle" x="1100.7561" y="-522.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">m_KdTree</text>
 </g>
-<!-- module~m_dargdynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_node2" class="node"><title>module~m_dargdynamicarray</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node2"><a xlink:href="../module/m_dargdynamicarray.html" xlink:title="m_dArgDynamicArray">
-<polygon fill="#337ab7" stroke="#337ab7" points="920,-305 805,-305 805,-281 920,-281 920,-305"/>
-<text text-anchor="middle" x="862.5" y="-290.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_dArgDynamicArray</text>
+<!-- module~idynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_node2" class="node">
+<title>module~idynamicarray_class</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node2"><a xlink:href="../module/idynamicarray_class.html" xlink:title="iDynamicArray_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="773.483,-324.6634 660.7719,-324.6634 660.7719,-302.6525 773.483,-302.6525 773.483,-324.6634"/>
+<text text-anchor="middle" x="717.1274" y="-310.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">iDynamicArray_Class</text>
 </a>
 </g>
 </g>
-<!-- module~m_dargdynamicarray&#45;&gt;module~m_kdtree -->
-<g id="module~~m_kdtree~~UsesGraph_edge78" class="edge"><title>module~m_dargdynamicarray&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M920,-302.343C940.253,-306.831 962.908,-313.201 982.5,-322"/>
+<!-- module~idynamicarray_class&#45;&gt;module~m_kdtree -->
+<g id="module~~m_kdtree~~UsesGraph_edge78" class="edge">
+<title>module~idynamicarray_class&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M733.8069,-302.5056C789.0345,-266.2349 964.8182,-156.2363 1006.8494,-196.6579"/>
+</g>
+<!-- module~dargdynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_node4" class="node">
+<title>module~dargdynamicarray_class</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node4"><a xlink:href="../module/dargdynamicarray_class.html" xlink:title="dArgDynamicArray_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="943.3606,-168.6634 810.9575,-168.6634 810.9575,-146.6525 943.3606,-146.6525 943.3606,-168.6634"/>
+<text text-anchor="middle" x="877.1591" y="-154.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">dArgDynamicArray_Class</text>
+</a>
+</g>
+</g>
+<!-- module~idynamicarray_class&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge23" class="edge">
+<title>module~idynamicarray_class&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M730.8228,-302.2846C743.4475,-291.2974 762.1317,-273.7083 775.0583,-255.6579 796.1209,-226.2468 784.2738,-206.9732 811.0583,-182.6579 815.0895,-178.9984 819.7092,-175.8564 824.5924,-173.1625"/>
+<polygon fill="#000000" stroke="#000000" points="826.135,-176.3043 833.5963,-168.7823 823.0728,-170.0096 826.135,-176.3043"/>
 </g>
 <!-- module~variablekind -->
-<g id="module~~m_kdtree~~UsesGraph_node3" class="node"><title>module~variablekind</title>
+<g id="module~~m_kdtree~~UsesGraph_node3" class="node">
+<title>module~variablekind</title>
 <g id="a_module~~m_kdtree~~UsesGraph_node3"><a xlink:href="../module/variablekind.html" xlink:title="variableKind">
-<polygon fill="#337ab7" stroke="#337ab7" points="194,-392 123,-392 123,-368 194,-368 194,-392"/>
-<text text-anchor="middle" x="158.5" y="-377.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">variableKind</text>
+<polygon fill="#337ab7" stroke="#337ab7" points="190.0564,-674.6634 120.4839,-674.6634 120.4839,-652.6525 190.0564,-652.6525 190.0564,-674.6634"/>
+<text text-anchor="middle" x="155.2701" y="-660.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">variableKind</text>
 </a>
 </g>
 </g>
 <!-- module~variablekind&#45;&gt;module~m_kdtree -->
-<g id="module~~m_kdtree~~UsesGraph_edge79" class="edge"><title>module~variablekind&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M984.5,-322C1009.14,-333.066 1034.86,-349.974 1052.91,-362.858"/>
-<polygon fill="#000000" stroke="#000000" points="1050.96,-365.772 1061.11,-368.816 1055.08,-360.108 1050.96,-365.772"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M720.5,-76C741.862,-84.0868 749.373,-81.3157 769,-93 846.863,-139.354 860.566,-161.597 920,-230 952.421,-267.314 937.407,-301.747 982.5,-322"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M161.188,-367.843C168.172,-318.918 196.036,-136.86 230,-91 277.202,-27.2663 304.19,-0 383.5,-0 383.5,-0 383.5,-0 491,-0 597.604,-0 621.958,-30.7895 718.5,-76"/>
+<g id="module~~m_kdtree~~UsesGraph_edge79" class="edge">
+<title>module~variablekind&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-62.6579C520.4452,-36.108 544.1302,-65.6307 585.9683,-43.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-374.6579C300.0562,-338.9778 302.6412,-323.5685 341.8542,-293.6579 356.2559,-282.6728 362.6308,-284.388 377.9084,-274.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M585.9683,-43.6579C728.0937,30.9843 809.6488,-7.668 943.2598,-96.6579 987.096,-125.8545 969.0462,-159.984 1006.8494,-196.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-274.6579C466.3374,-218.3391 394.6211,-121.5592 481.3513,-62.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M156.4504,-652.6269C161.4852,-610.7639 184.7733,-459.7884 266.0087,-374.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1006.8494,-196.6579C1052.7945,-240.0106 1087.217,-438.4326 1097.548,-504.3218"/>
+<polygon fill="#000000" stroke="#000000" points="1094.1143,-505.0205 1099.0966,-514.3707 1101.0326,-503.9543 1094.1143,-505.0205"/>
 </g>
-<!-- module~variablekind&#45;&gt;module~m_dargdynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge14" class="edge"><title>module~variablekind&#45;&gt;module~m_dargdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M385.5,-76C431.318,-71.9072 444.56,-64.1209 489,-76"/>
+<!-- module~variablekind&#45;&gt;module~idynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge6" class="edge">
+<title>module~variablekind&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M585.9683,-391.6579C604.2496,-388.361 608.3931,-383.8799 623.1965,-372.6579 641.9948,-358.4077 639.451,-346.5636 659.1965,-333.6579 661.7849,-331.9661 664.5322,-330.4007 667.369,-328.9548"/>
+<polygon fill="#000000" stroke="#000000" points="668.9947,-332.0605 676.6489,-324.7349 666.097,-325.6884 668.9947,-332.0605"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-353.6579C526.6484,-373.5408 537.2849,-400.4377 585.9683,-391.6579"/>
 </g>
-<!-- module~m_strings -->
-<g id="module~~m_kdtree~~UsesGraph_node4" class="node"><title>module~m_strings</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node4"><a xlink:href="../module/m_strings.html" xlink:title="m_strings">
-<polygon fill="#337ab7" stroke="#337ab7" points="519,-242 461,-242 461,-218 519,-218 519,-242"/>
-<text text-anchor="middle" x="490" y="-227.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_strings</text>
-</a>
-</g>
-</g>
-<!-- module~variablekind&#45;&gt;module~m_strings -->
-<g id="module~~m_kdtree~~UsesGraph_edge26" class="edge"><title>module~variablekind&#45;&gt;module~m_strings</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M271.5,-380C323.421,-385.494 307.997,-324.71 347,-290 361.503,-277.093 365.055,-272.06 383.5,-266"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M194.278,-378.133C215.969,-377.43 244.432,-377.347 269.5,-380"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M385.5,-266C407.456,-258.786 431.88,-250.313 451.485,-243.399"/>
-<polygon fill="#000000" stroke="#000000" points="452.715,-246.677 460.975,-240.042 450.38,-240.078 452.715,-246.677"/>
-</g>
-<!-- module~m_select -->
-<g id="module~~m_kdtree~~UsesGraph_node5" class="node"><title>module~m_select</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node5"><a xlink:href="../module/m_select.html" xlink:title="m_select">
-<polygon fill="#337ab7" stroke="#337ab7" points="890,-263 835,-263 835,-239 890,-239 890,-263"/>
-<text text-anchor="middle" x="862.5" y="-248.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_select</text>
-</a>
-</g>
-</g>
-<!-- module~variablekind&#45;&gt;module~m_select -->
-<g id="module~~m_kdtree~~UsesGraph_edge27" class="edge"><title>module~variablekind&#45;&gt;module~m_select</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M160.946,-367.652C165.468,-333.707 182.024,-237.427 230,-176 280.118,-111.83 302.401,-83.2445 383.5,-76"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M385.5,-76C416.569,-65.4314 425.332,-65.1253 458,-62 486.315,-59.2911 493.872,-57.7704 522,-62 578.79,-70.5394 721.334,-105.97 769,-138 805.013,-162.199 834.214,-204.543 849.617,-229.958"/>
-<polygon fill="#000000" stroke="#000000" points="846.735,-231.961 854.83,-238.796 852.764,-228.405 846.735,-231.961"/>
-</g>
-<!-- module~m_maths -->
-<g id="module~~m_kdtree~~UsesGraph_node6" class="node"><title>module~m_maths</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node6"><a xlink:href="../module/m_maths.html" xlink:title="m_maths">
-<polygon fill="#337ab7" stroke="#337ab7" points="1011,-393 956,-393 956,-369 1011,-369 1011,-393"/>
-<text text-anchor="middle" x="983.5" y="-378.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_maths</text>
-</a>
-</g>
-</g>
-<!-- module~variablekind&#45;&gt;module~m_maths -->
-<g id="module~~m_kdtree~~UsesGraph_edge31" class="edge"><title>module~variablekind&#45;&gt;module~m_maths</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-957C553.895,-947.16 853.261,-811.217 861.5,-805"/>
-</g>
-<!-- module~m_idynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_node7" class="node"><title>module~m_idynamicarray</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node7"><a xlink:href="../module/m_idynamicarray.html" xlink:title="m_iDynamicArray">
-<polygon fill="#337ab7" stroke="#337ab7" points="767,-305 672,-305 672,-281 767,-281 767,-305"/>
-<text text-anchor="middle" x="719.5" y="-290.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_iDynamicArray</text>
-</a>
-</g>
-</g>
-<!-- module~variablekind&#45;&gt;module~m_idynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge39" class="edge"><title>module~variablekind&#45;&gt;module~m_idynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-346C544.277,-382.672 573.912,-396.932 634,-373 663.947,-361.073 689.39,-332.934 704.31,-313.427"/>
-<polygon fill="#000000" stroke="#000000" points="707.287,-315.287 710.402,-305.161 701.652,-311.134 707.287,-315.287"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M385.5,-266C385.716,-265.929 488.81,-345.876 489,-346"/>
+<!-- module~variablekind&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge24" class="edge">
+<title>module~variablekind&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-62.6579C503.6411,-48.7323 691.2104,-77.2914 717.1274,-81.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M717.1274,-81.6579C764.2569,-92.5741 766.8594,-116.9906 811.0583,-136.6579 816.4145,-139.0413 822.1242,-141.2776 827.8593,-143.3367"/>
+<polygon fill="#000000" stroke="#000000" points="826.8824,-146.7016 837.477,-146.6293 829.1497,-140.079 826.8824,-146.7016"/>
 </g>
 <!-- module~m_array1d -->
-<g id="module~~m_kdtree~~UsesGraph_node8" class="node"><title>module~m_array1d</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node8"><a xlink:href="../module/m_array1d.html" xlink:title="m_array1D">
-<polygon fill="#337ab7" stroke="#337ab7" points="895,-423 830,-423 830,-399 895,-399 895,-423"/>
-<text text-anchor="middle" x="862.5" y="-408.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_array1D</text>
+<g id="module~~m_kdtree~~UsesGraph_node5" class="node">
+<title>module~m_array1d</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node5"><a xlink:href="../module/m_array1d.html" xlink:title="m_array1D">
+<polygon fill="#337ab7" stroke="#337ab7" points="909.09,-671.6634 845.2281,-671.6634 845.2281,-649.6525 909.09,-649.6525 909.09,-671.6634"/>
+<text text-anchor="middle" x="877.1591" y="-657.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_array1D</text>
 </a>
 </g>
 </g>
 <!-- module~variablekind&#45;&gt;module~m_array1d -->
-<g id="module~~m_kdtree~~UsesGraph_edge67" class="edge"><title>module~variablekind&#45;&gt;module~m_array1d</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-957C509.161,-953.843 668.428,-863.612 769,-705 826.661,-614.063 850.827,-484.427 858.528,-433.123"/>
-<polygon fill="#000000" stroke="#000000" points="862.004,-433.538 859.964,-423.141 855.076,-432.541 862.004,-433.538"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M385.5,-957C430.043,-968.485 443.553,-964.11 489,-957"/>
+<g id="module~~m_kdtree~~UsesGraph_edge51" class="edge">
+<title>module~variablekind&#45;&gt;module~m_array1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-1084.6579C704.6496,-1105.5212 838.9872,-769.1844 870.1487,-681.3602"/>
+<polygon fill="#000000" stroke="#000000" points="873.5251,-682.3068 873.5083,-671.7119 866.9144,-680.0048 873.5251,-682.3068"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-969.6579C279.503,-985.3198 289.4809,-981.0363 305.8542,-993.6579 323.528,-1007.282 323.146,-1016.4934 341.8542,-1028.6579 355.8565,-1037.7625 464.6494,-1084.6794 481.3513,-1084.6579"/>
 </g>
-<!-- module~m_deallocate -->
-<g id="module~~m_kdtree~~UsesGraph_node9" class="node"><title>module~m_deallocate</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node9"><a xlink:href="../module/m_deallocate.html" xlink:title="m_deallocate">
-<polygon fill="#337ab7" stroke="#337ab7" points="634,-444 558,-444 558,-420 634,-420 634,-444"/>
-<text text-anchor="middle" x="596" y="-429.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_deallocate</text>
+<!-- module~m_strings -->
+<g id="module~~m_kdtree~~UsesGraph_node6" class="node">
+<title>module~m_strings</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node6"><a xlink:href="../module/m_strings.html" xlink:title="m_strings">
+<polygon fill="#337ab7" stroke="#337ab7" points="509.8653,-673.6634 452.8373,-673.6634 452.8373,-651.6525 509.8653,-651.6525 509.8653,-673.6634"/>
+<text text-anchor="middle" x="481.3513" y="-659.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_strings</text>
 </a>
 </g>
 </g>
-<!-- module~variablekind&#45;&gt;module~m_deallocate -->
-<g id="module~~m_kdtree~~UsesGraph_edge72" class="edge"><title>module~variablekind&#45;&gt;module~m_deallocate</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-346C505.353,-355.879 508.925,-358.483 522,-370 538.98,-384.956 540.679,-391.441 558,-406 561.245,-408.728 564.768,-411.462 568.306,-414.078"/>
-<polygon fill="#000000" stroke="#000000" points="566.297,-416.944 576.468,-419.91 570.367,-411.248 566.297,-416.944"/>
-</g>
-<!-- module~m_allocate -->
-<g id="module~~m_kdtree~~UsesGraph_node10" class="node"><title>module~m_allocate</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node10"><a xlink:href="../module/m_allocate.html" xlink:title="m_allocate">
-<polygon fill="#337ab7" stroke="#337ab7" points="522,-626 458,-626 458,-602 522,-602 522,-626"/>
-<text text-anchor="middle" x="490" y="-611.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_allocate</text>
-</a>
-</g>
-</g>
-<!-- module~variablekind&#45;&gt;module~m_allocate -->
-<g id="module~~m_kdtree~~UsesGraph_edge75" class="edge"><title>module~variablekind&#45;&gt;module~m_allocate</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M169.208,-392.129C195.02,-423.677 268.743,-509.294 347,-559 378.579,-579.057 418.633,-593.746 448.144,-602.872"/>
-<polygon fill="#000000" stroke="#000000" points="447.136,-606.224 457.721,-605.754 449.153,-599.521 447.136,-606.224"/>
+<!-- module~variablekind&#45;&gt;module~m_strings -->
+<g id="module~~m_kdtree~~UsesGraph_edge59" class="edge">
+<title>module~variablekind&#45;&gt;module~m_strings</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M157.752,-674.9722C165.9874,-709.4145 195.9641,-813.0962 266.0087,-853.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-853.6579C289.8334,-867.4545 428.9654,-705.4646 449.9626,-687.6579 452.8982,-685.1684 456.0287,-682.589 459.1333,-680.0745"/>
+<polygon fill="#000000" stroke="#000000" points="461.5124,-682.6536 467.1389,-673.6762 457.1421,-677.1854 461.5124,-682.6536"/>
 </g>
 <!-- module~m_errors -->
-<g id="module~~m_kdtree~~UsesGraph_node11" class="node"><title>module~m_errors</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node11"><a xlink:href="../module/m_errors.html" xlink:title="m_errors">
-<polygon fill="#337ab7" stroke="#337ab7" points="298,-630 243,-630 243,-606 298,-606 298,-630"/>
-<text text-anchor="middle" x="270.5" y="-615.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_errors</text>
+<g id="module~~m_kdtree~~UsesGraph_node7" class="node">
+<title>module~m_errors</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node7"><a xlink:href="../module/m_errors.html" xlink:title="m_errors">
+<polygon fill="#337ab7" stroke="#337ab7" points="293.0138,-519.6634 239.0035,-519.6634 239.0035,-497.6525 293.0138,-497.6525 293.0138,-519.6634"/>
+<text text-anchor="middle" x="266.0087" y="-505.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_errors</text>
 </a>
 </g>
 </g>
 <!-- module~variablekind&#45;&gt;module~m_errors -->
-<g id="module~~m_kdtree~~UsesGraph_edge77" class="edge"><title>module~variablekind&#45;&gt;module~m_errors</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M163.615,-392.12C173.552,-420.887 200.243,-495.269 230,-554 237.524,-568.85 247.351,-584.784 255.321,-597.037"/>
-<polygon fill="#000000" stroke="#000000" points="252.553,-599.197 260.985,-605.612 258.394,-595.339 252.553,-599.197"/>
+<g id="module~~m_kdtree~~UsesGraph_edge62" class="edge">
+<title>module~variablekind&#45;&gt;module~m_errors</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M159.1675,-652.3718C167.9513,-628.224 191.2871,-570.7323 226.1631,-533.6579 228.9171,-530.7303 232.0851,-528.0043 235.4059,-525.5106"/>
+<polygon fill="#000000" stroke="#000000" points="237.5095,-528.3131 243.8271,-519.8079 233.5845,-522.517 237.5095,-528.3131"/>
 </g>
-<!-- module~m_ddynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_node12" class="node"><title>module~m_ddynamicarray</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node12"><a xlink:href="../module/m_ddynamicarray.html" xlink:title="m_dDynamicArray">
-<polygon fill="#337ab7" stroke="#337ab7" points="769,-215 670,-215 670,-191 769,-191 769,-215"/>
-<text text-anchor="middle" x="719.5" y="-200.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_dDynamicArray</text>
+<!-- module~m_allocate -->
+<g id="module~~m_kdtree~~UsesGraph_node8" class="node">
+<title>module~m_allocate</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node8"><a xlink:href="../module/m_allocate.html" xlink:title="m_allocate">
+<polygon fill="#337ab7" stroke="#337ab7" points="512.6291,-557.6634 450.0736,-557.6634 450.0736,-535.6525 512.6291,-535.6525 512.6291,-557.6634"/>
+<text text-anchor="middle" x="481.3513" y="-543.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_allocate</text>
 </a>
 </g>
 </g>
-<!-- module~variablekind&#45;&gt;module~m_ddynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge5" class="edge"><title>module~variablekind&#45;&gt;module~m_ddynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M271.5,-190C350.371,-134.108 395.641,-215.071 489,-190"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-190C547.112,-175.864 613.371,-182.125 659.864,-190.09"/>
-<polygon fill="#000000" stroke="#000000" points="659.307,-193.546 669.768,-191.864 660.541,-186.656 659.307,-193.546"/>
+<!-- module~variablekind&#45;&gt;module~m_allocate -->
+<g id="module~~m_kdtree~~UsesGraph_edge64" class="edge">
+<title>module~variablekind&#45;&gt;module~m_allocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-547.6579C322.4867,-523.5921 395.1121,-529.9885 439.932,-537.6694"/>
+<polygon fill="#000000" stroke="#000000" points="439.4146,-541.1326 449.8788,-539.4739 440.6642,-534.245 439.4146,-541.1326"/>
 </g>
-<!-- module~m_searching -->
-<g id="module~~m_kdtree~~UsesGraph_node13" class="node"><title>module~m_searching</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node13"><a xlink:href="../module/m_searching.html" xlink:title="m_searching">
-<polygon fill="#337ab7" stroke="#337ab7" points="632.5,-166 559.5,-166 559.5,-142 632.5,-142 632.5,-166"/>
-<text text-anchor="middle" x="596" y="-151.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_searching</text>
+<!-- module~m_select -->
+<g id="module~~m_kdtree~~UsesGraph_node9" class="node">
+<title>module~m_select</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node9"><a xlink:href="../module/m_select.html" xlink:title="m_select">
+<polygon fill="#337ab7" stroke="#337ab7" points="904.1744,-127.6634 850.1437,-127.6634 850.1437,-105.6525 904.1744,-105.6525 904.1744,-127.6634"/>
+<text text-anchor="middle" x="877.1591" y="-113.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_select</text>
 </a>
 </g>
 </g>
-<!-- module~variablekind&#45;&gt;module~m_searching -->
-<g id="module~~m_kdtree~~UsesGraph_edge13" class="edge"><title>module~variablekind&#45;&gt;module~m_searching</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M163.149,-367.723C173.765,-334.123 207.852,-239.848 269.5,-190"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M271.5,-190C351.332,-125.45 480.778,-134.387 549.214,-145.018"/>
-<polygon fill="#000000" stroke="#000000" points="548.823,-148.5 559.257,-146.659 549.952,-141.592 548.823,-148.5"/>
+<!-- module~variablekind&#45;&gt;module~m_select -->
+<g id="module~~m_kdtree~~UsesGraph_edge67" class="edge">
+<title>module~variablekind&#45;&gt;module~m_select</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M717.1274,-81.6579C759.1287,-91.3863 807.503,-101.8661 839.9745,-108.7961"/>
+<polygon fill="#000000" stroke="#000000" points="839.4206,-112.2565 849.9302,-110.9159 840.8784,-105.41 839.4206,-112.2565"/>
+</g>
+<!-- module~m_deallocate -->
+<g id="module~~m_kdtree~~UsesGraph_node10" class="node">
+<title>module~m_deallocate</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node10"><a xlink:href="../module/m_deallocate.html" xlink:title="m_deallocate">
+<polygon fill="#337ab7" stroke="#337ab7" points="623.4262,-441.6634 548.5103,-441.6634 548.5103,-419.6525 623.4262,-419.6525 623.4262,-441.6634"/>
+<text text-anchor="middle" x="585.9683" y="-427.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_deallocate</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~m_deallocate -->
+<g id="module~~m_kdtree~~UsesGraph_edge68" class="edge">
+<title>module~variablekind&#45;&gt;module~m_deallocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-374.6579C323.0221,-314.4619 368.4967,-390.2507 449.9626,-405.6579 479.4302,-411.231 512.5234,-417.3178 538.6876,-422.09"/>
+<polygon fill="#000000" stroke="#000000" points="538.2506,-425.568 548.716,-423.9167 539.5051,-418.6813 538.2506,-425.568"/>
+</g>
+<!-- module~m_maths -->
+<g id="module~~m_kdtree~~UsesGraph_node11" class="node">
+<title>module~m_maths</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node11"><a xlink:href="../module/m_maths.html" xlink:title="m_maths">
+<polygon fill="#337ab7" stroke="#337ab7" points="1034.5289,-536.6634 979.1699,-536.6634 979.1699,-514.6525 1034.5289,-514.6525 1034.5289,-536.6634"/>
+<text text-anchor="middle" x="1006.8494" y="-522.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_maths</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~m_maths -->
+<g id="module~~m_kdtree~~UsesGraph_edge70" class="edge">
+<title>module~variablekind&#45;&gt;module~m_maths</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M161.7884,-652.3652C176.6168,-627.9288 215.5347,-570.5101 266.0087,-547.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-547.6579C396.5625,-488.5495 443.2349,-494.8018 585.9683,-507.6579"/>
 </g>
 <!-- module~m_sort -->
-<g id="module~~m_kdtree~~UsesGraph_node15" class="node"><title>module~m_sort</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node15"><a xlink:href="../module/m_sort.html" xlink:title="m_sort">
-<polygon fill="#337ab7" stroke="#337ab7" points="623,-364 569,-364 569,-340 623,-340 623,-364"/>
-<text text-anchor="middle" x="596" y="-349.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_sort</text>
+<g id="module~~m_kdtree~~UsesGraph_node12" class="node">
+<title>module~m_sort</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node12"><a xlink:href="../module/m_sort.html" xlink:title="m_sort">
+<polygon fill="#337ab7" stroke="#337ab7" points="612.9683,-363.6634 558.9683,-363.6634 558.9683,-341.6525 612.9683,-341.6525 612.9683,-363.6634"/>
+<text text-anchor="middle" x="585.9683" y="-349.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_sort</text>
 </a>
 </g>
 </g>
 <!-- module~variablekind&#45;&gt;module~m_sort -->
-<g id="module~~m_kdtree~~UsesGraph_edge1" class="edge"><title>module~variablekind&#45;&gt;module~m_sort</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-270C528.54,-277.906 561.325,-310.34 579.605,-331.97"/>
-<polygon fill="#000000" stroke="#000000" points="577.064,-334.392 586.096,-339.93 582.489,-329.968 577.064,-334.392"/>
+<g id="module~~m_kdtree~~UsesGraph_edge1" class="edge">
+<title>module~variablekind&#45;&gt;module~m_sort</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-353.6579C502.4087,-362.9009 528.2265,-362.7567 548.9455,-360.2498"/>
+<polygon fill="#000000" stroke="#000000" points="549.562,-363.6972 558.9627,-358.8107 548.5666,-356.7683 549.562,-363.6972"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-274.6579C426.7016,-243.5824 428.3811,-330.407 481.3513,-353.6579"/>
+</g>
+<!-- module~m_searching -->
+<g id="module~~m_kdtree~~UsesGraph_node13" class="node">
+<title>module~m_searching</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node13"><a xlink:href="../module/m_searching.html" xlink:title="m_searching">
+<polygon fill="#337ab7" stroke="#337ab7" points="622.0819,-207.6634 549.8546,-207.6634 549.8546,-185.6525 622.0819,-185.6525 622.0819,-207.6634"/>
+<text text-anchor="middle" x="585.9683" y="-193.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_searching</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~m_searching -->
+<g id="module~~m_kdtree~~UsesGraph_edge2" class="edge">
+<title>module~variablekind&#45;&gt;module~m_searching</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-274.6579C482.5443,-274.2635 532.3664,-236.9259 562.8167,-214.0589"/>
+<polygon fill="#000000" stroke="#000000" points="565.3092,-216.5641 571.2025,-207.7596 561.1049,-210.9673 565.3092,-216.5641"/>
 </g>
 <!-- module~m_reallocate -->
-<g id="module~~m_kdtree~~UsesGraph_node16" class="node"><title>module~m_reallocate</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node16"><a xlink:href="../module/m_reallocate.html" xlink:title="m_reallocate">
-<polygon fill="#337ab7" stroke="#337ab7" points="632.5,-284 559.5,-284 559.5,-260 632.5,-260 632.5,-284"/>
-<text text-anchor="middle" x="596" y="-269.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_reallocate</text>
+<g id="module~~m_kdtree~~UsesGraph_node14" class="node">
+<title>module~m_reallocate</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node14"><a xlink:href="../module/m_reallocate.html" xlink:title="m_reallocate">
+<polygon fill="#337ab7" stroke="#337ab7" points="622.0819,-285.6634 549.8546,-285.6634 549.8546,-263.6525 622.0819,-263.6525 622.0819,-285.6634"/>
+<text text-anchor="middle" x="585.9683" y="-271.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_reallocate</text>
 </a>
 </g>
 </g>
 <!-- module~variablekind&#45;&gt;module~m_reallocate -->
-<g id="module~~m_kdtree~~UsesGraph_edge4" class="edge"><title>module~variablekind&#45;&gt;module~m_reallocate</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-270C509.848,-273.97 531.044,-274.979 549.359,-274.805"/>
-<polygon fill="#000000" stroke="#000000" points="549.563,-278.301 559.487,-274.589 549.414,-271.303 549.563,-278.301"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M385.5,-266C429.234,-251.631 443.954,-260.513 489,-270"/>
+<g id="module~~m_kdtree~~UsesGraph_edge4" class="edge">
+<title>module~variablekind&#45;&gt;module~m_reallocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-274.6579C499.83,-268.5485 521.1689,-267.5536 539.7359,-268.462"/>
+<polygon fill="#000000" stroke="#000000" points="539.5154,-271.955 549.7299,-269.1421 539.9907,-264.9712 539.5154,-271.955"/>
 </g>
-<!-- module~m_parameters -->
-<g id="module~~m_kdtree~~UsesGraph_node17" class="node"><title>module~m_parameters</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node17"><a xlink:href="../module/m_parameters.html" xlink:title="m_parameters">
-<polygon fill="#337ab7" stroke="#337ab7" points="311,-316 230,-316 230,-292 311,-292 311,-316"/>
-<text text-anchor="middle" x="270.5" y="-301.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_parameters</text>
+<!-- module~ddynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_node16" class="node">
+<title>module~ddynamicarray_class</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node16"><a xlink:href="../module/ddynamicarray_class.html" xlink:title="dDynamicArray_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="774.9893,-246.6634 659.2655,-246.6634 659.2655,-224.6525 774.9893,-224.6525 774.9893,-246.6634"/>
+<text text-anchor="middle" x="717.1274" y="-232.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">dDynamicArray_Class</text>
 </a>
 </g>
 </g>
-<!-- module~variablekind&#45;&gt;module~m_parameters -->
-<g id="module~~m_kdtree~~UsesGraph_edge22" class="edge"><title>module~variablekind&#45;&gt;module~m_parameters</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M177.173,-367.789C195.135,-355.38 223.152,-336.022 243.615,-321.884"/>
-<polygon fill="#000000" stroke="#000000" points="245.633,-324.744 251.87,-316.18 241.654,-318.985 245.633,-324.744"/>
-</g>
-<!-- module~m_unittester -->
-<g id="module~~m_kdtree~~UsesGraph_node18" class="node"><title>module~m_unittester</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node18"><a xlink:href="../module/m_unittester.html" xlink:title="m_unitTester">
-<polygon fill="#337ab7" stroke="#337ab7" points="422,-706 347,-706 347,-682 422,-682 422,-706"/>
-<text text-anchor="middle" x="384.5" y="-691.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_unitTester</text>
-</a>
-</g>
-</g>
-<!-- module~variablekind&#45;&gt;module~m_unittester -->
-<g id="module~~m_kdtree~~UsesGraph_edge30" class="edge"><title>module~variablekind&#45;&gt;module~m_unittester</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M271.5,-658C290.392,-672.625 315.403,-681.401 336.997,-686.62"/>
-<polygon fill="#000000" stroke="#000000" points="336.44,-690.082 346.962,-688.841 337.963,-683.249 336.44,-690.082"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M161.447,-392.209C168.97,-438.119 197.357,-599.778 230,-639 242.462,-653.974 254.096,-646.075 269.5,-658"/>
-</g>
-<!-- module~m_swap -->
-<g id="module~~m_kdtree~~UsesGraph_node19" class="node"><title>module~m_swap</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node19"><a xlink:href="../module/m_swap.html" xlink:title="m_swap">
-<polygon fill="#337ab7" stroke="#337ab7" points="517,-854 463,-854 463,-830 517,-830 517,-854"/>
-<text text-anchor="middle" x="490" y="-839.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_swap</text>
-</a>
-</g>
-</g>
-<!-- module~variablekind&#45;&gt;module~m_swap -->
-<g id="module~~m_kdtree~~UsesGraph_edge47" class="edge"><title>module~variablekind&#45;&gt;module~m_swap</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M161.607,-392.187C168.781,-432.677 193.84,-566.142 230,-672 271.092,-792.297 264.593,-836.206 347,-933 359.586,-947.783 364.686,-961.794 383.5,-957"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M385.5,-957C409.988,-963.314 454.447,-898.123 476.25,-863.2"/>
-<polygon fill="#000000" stroke="#000000" points="479.505,-864.589 481.764,-854.238 473.543,-860.921 479.505,-864.589"/>
+<!-- module~variablekind&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge15" class="edge">
+<title>module~variablekind&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-274.6579C531.5389,-258.0649 501.957,-201.2643 548.74,-176.6579 599.3249,-150.0518 664.4655,-192.4476 696.902,-218.2005"/>
+<polygon fill="#000000" stroke="#000000" points="694.8241,-221.0226 704.7806,-224.6447 699.256,-215.6042 694.8241,-221.0226"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-274.6579C416.6863,-249.961 436.9262,-286.4931 481.3513,-274.6579"/>
 </g>
 <!-- module~m_random -->
-<g id="module~~m_kdtree~~UsesGraph_node20" class="node"><title>module~m_random</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node20"><a xlink:href="../module/m_random.html" xlink:title="m_random">
-<polygon fill="#337ab7" stroke="#337ab7" points="751,-546 688,-546 688,-522 751,-522 751,-546"/>
-<text text-anchor="middle" x="719.5" y="-531.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_random</text>
+<g id="module~~m_kdtree~~UsesGraph_node17" class="node">
+<title>module~m_random</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node17"><a xlink:href="../module/m_random.html" xlink:title="m_random">
+<polygon fill="#337ab7" stroke="#337ab7" points="748.3155,-749.6634 685.9394,-749.6634 685.9394,-727.6525 748.3155,-727.6525 748.3155,-749.6634"/>
+<text text-anchor="middle" x="717.1274" y="-735.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_random</text>
 </a>
 </g>
 </g>
 <!-- module~variablekind&#45;&gt;module~m_random -->
-<g id="module~~m_kdtree~~UsesGraph_edge58" class="edge"><title>module~variablekind&#45;&gt;module~m_random</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M271.5,-380C305.461,-383.363 313.016,-369.124 347,-366 380.193,-362.948 390.129,-356.235 422,-366 510.749,-393.193 518.549,-430.358 595,-483"/>
+<g id="module~~m_kdtree~~UsesGraph_edge43" class="edge">
+<title>module~variablekind&#45;&gt;module~m_random</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M155.9583,-674.9478C159.2627,-719.1972 177.2521,-882.6465 266.0087,-969.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M585.9683,-1007.6579C676.2583,-951.2307 706.0403,-812.7734 714.3302,-759.7706"/>
+<polygon fill="#000000" stroke="#000000" points="717.8017,-760.2192 715.787,-749.8177 710.8755,-759.2053 717.8017,-760.2192"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-969.6579C317.139,-1019.7829 525.2488,-1045.6048 585.9683,-1007.6579"/>
+</g>
+<!-- module~m_swap -->
+<g id="module~~m_kdtree~~UsesGraph_node18" class="node">
+<title>module~m_swap</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node18"><a xlink:href="../module/m_swap.html" xlink:title="m_swap">
+<polygon fill="#337ab7" stroke="#337ab7" points="404.9084,-1095.6634 350.9084,-1095.6634 350.9084,-1073.6525 404.9084,-1073.6525 404.9084,-1095.6634"/>
+<text text-anchor="middle" x="377.9084" y="-1081.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_swap</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~m_swap -->
+<g id="module~~m_kdtree~~UsesGraph_edge50" class="edge">
+<title>module~variablekind&#45;&gt;module~m_swap</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M156.0933,-674.9731C160.2776,-729.6675 180.789,-966.2752 226.1631,-1021.6579 241.2452,-1040.0668 301.1333,-1061.2427 341.0114,-1073.7579"/>
+<polygon fill="#000000" stroke="#000000" points="340.0917,-1077.1369 350.6793,-1076.7461 342.1589,-1070.4491 340.0917,-1077.1369"/>
 </g>
 <!-- module~prng_class -->
-<g id="module~~m_kdtree~~UsesGraph_node21" class="node"><title>module~prng_class</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node21"><a xlink:href="../module/prng_class.html" xlink:title="Prng_Class">
-<polygon fill="#337ab7" stroke="#337ab7" points="629.5,-546 562.5,-546 562.5,-522 629.5,-522 629.5,-546"/>
-<text text-anchor="middle" x="596" y="-531.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Prng_Class</text>
+<g id="module~~m_kdtree~~UsesGraph_node19" class="node">
+<title>module~prng_class</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node19"><a xlink:href="../module/prng_class.html" xlink:title="Prng_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="619.2428,-823.6634 552.6938,-823.6634 552.6938,-801.6525 619.2428,-801.6525 619.2428,-823.6634"/>
+<text text-anchor="middle" x="585.9683" y="-809.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Prng_Class</text>
 </a>
 </g>
 </g>
 <!-- module~variablekind&#45;&gt;module~prng_class -->
-<g id="module~~m_kdtree~~UsesGraph_edge50" class="edge"><title>module~variablekind&#45;&gt;module~prng_class</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M271.5,-380C394.003,-392.963 520.572,-478.033 571.602,-515.888"/>
-<polygon fill="#000000" stroke="#000000" points="569.587,-518.752 579.684,-521.96 573.792,-513.155 569.587,-518.752"/>
+<g id="module~~m_kdtree~~UsesGraph_edge32" class="edge">
+<title>module~variablekind&#45;&gt;module~prng_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-853.6579C302.0787,-876.5242 302.4891,-896.096 341.8542,-912.6579 399.5288,-936.923 422.19,-952.0315 481.3513,-931.6579"/>
 </g>
-<!-- module~m_time -->
-<g id="module~~m_kdtree~~UsesGraph_node22" class="node"><title>module~m_time</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node22"><a xlink:href="../module/m_time.html" xlink:title="m_time">
-<polygon fill="#337ab7" stroke="#337ab7" points="411.5,-550 357.5,-550 357.5,-526 411.5,-526 411.5,-550"/>
-<text text-anchor="middle" x="384.5" y="-535.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_time</text>
+<!-- module~m_unittester -->
+<g id="module~~m_kdtree~~UsesGraph_node20" class="node">
+<title>module~m_unittester</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node20"><a xlink:href="../module/m_unittester.html" xlink:title="m_unitTester">
+<polygon fill="#337ab7" stroke="#337ab7" points="414.0169,-635.6634 341.8,-635.6634 341.8,-613.6525 414.0169,-613.6525 414.0169,-635.6634"/>
+<text text-anchor="middle" x="377.9084" y="-621.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_unitTester</text>
 </a>
 </g>
 </g>
-<!-- module~variablekind&#45;&gt;module~m_time -->
-<g id="module~~m_kdtree~~UsesGraph_edge48" class="edge"><title>module~variablekind&#45;&gt;module~m_time</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M271.5,-380C279.774,-380.876 342.232,-474.888 370.121,-517.462"/>
-<polygon fill="#000000" stroke="#000000" points="367.266,-519.491 375.667,-525.946 373.125,-515.66 367.266,-519.491"/>
+<!-- module~variablekind&#45;&gt;module~m_unittester -->
+<g id="module~~m_kdtree~~UsesGraph_edge39" class="edge">
+<title>module~variablekind&#45;&gt;module~m_unittester</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-547.6579C266.3108,-547.5292 320.4385,-584.9075 353.2923,-607.626"/>
+<polygon fill="#000000" stroke="#000000" points="351.7168,-610.7919 361.9322,-613.6017 355.6987,-605.0347 351.7168,-610.7919"/>
 </g>
 <!-- module~m_indexing -->
-<g id="module~~m_kdtree~~UsesGraph_node23" class="node"><title>module~m_indexing</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node23"><a xlink:href="../module/m_indexing.html" xlink:title="m_indexing">
-<polygon fill="#337ab7" stroke="#337ab7" points="417.5,-470 351.5,-470 351.5,-446 417.5,-446 417.5,-470"/>
-<text text-anchor="middle" x="384.5" y="-455.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">m_indexing</text>
+<g id="module~~m_kdtree~~UsesGraph_node21" class="node">
+<title>module~m_indexing</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node21"><a xlink:href="../module/m_indexing.html" xlink:title="m_indexing">
+<polygon fill="#337ab7" stroke="#337ab7" points="410.6088,-903.6634 345.2081,-903.6634 345.2081,-881.6525 410.6088,-881.6525 410.6088,-903.6634"/>
+<text text-anchor="middle" x="377.9084" y="-889.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_indexing</text>
 </a>
 </g>
 </g>
 <!-- module~variablekind&#45;&gt;module~m_indexing -->
-<g id="module~~m_kdtree~~UsesGraph_edge49" class="edge"><title>module~variablekind&#45;&gt;module~m_indexing</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M271.5,-380C272.798,-380.137 325.397,-417.058 358.042,-440.047"/>
-<polygon fill="#000000" stroke="#000000" points="356.074,-442.942 366.265,-445.841 360.106,-437.22 356.074,-442.942"/>
+<g id="module~~m_kdtree~~UsesGraph_edge30" class="edge">
+<title>module~variablekind&#45;&gt;module~m_indexing</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-853.6579C287.5258,-866.1182 313.667,-875.5058 335.2702,-881.9448"/>
+<polygon fill="#000000" stroke="#000000" points="334.5788,-885.3876 345.1564,-884.7827 336.5103,-878.6593 334.5788,-885.3876"/>
 </g>
-<!-- module~m_strings&#45;&gt;module~m_kdtree -->
-<g id="module~~m_kdtree~~UsesGraph_edge80" class="edge"><title>module~m_strings&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M493.377,-217.912C499.224,-191.658 516.926,-129.427 558,-100 616.632,-57.9937 651.286,-49.8381 718.5,-76"/>
-</g>
-<!-- module~m_strings&#45;&gt;module~m_dargdynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge15" class="edge"><title>module~m_strings&#45;&gt;module~m_dargdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M495.967,-217.767C508.014,-190.256 541.767,-125.043 595,-114"/>
-</g>
-<!-- module~m_strings&#45;&gt;module~m_idynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge40" class="edge"><title>module~m_strings&#45;&gt;module~m_idynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M597,-232C634.588,-234.53 672.535,-257.617 695.782,-274.644"/>
-<polygon fill="#000000" stroke="#000000" points="693.855,-277.575 703.941,-280.818 698.079,-271.993 693.855,-277.575"/>
-</g>
-<!-- module~m_strings&#45;&gt;module~m_array1d -->
-<g id="module~~m_kdtree~~UsesGraph_edge66" class="edge"><title>module~m_strings&#45;&gt;module~m_array1d</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M597,-232C675.307,-237.271 711.33,-218.765 769,-272 807.73,-307.752 770.087,-345.511 805,-385 809.318,-389.884 814.742,-393.911 820.51,-397.212"/>
-<polygon fill="#000000" stroke="#000000" points="819.237,-400.489 829.747,-401.823 822.363,-394.226 819.237,-400.489"/>
-</g>
-<!-- module~m_strings&#45;&gt;module~m_ddynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge6" class="edge"><title>module~m_strings&#45;&gt;module~m_ddynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M597,-232C625.21,-233.899 656.199,-226.342 679.82,-218.468"/>
-<polygon fill="#000000" stroke="#000000" points="681.176,-221.702 689.463,-215.101 678.868,-215.093 681.176,-221.702"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M519.282,-229.812C540.214,-229.851 569.414,-230.278 595,-232"/>
-</g>
-<!-- module~m_strings&#45;&gt;module~m_random -->
-<g id="module~~m_kdtree~~UsesGraph_edge57" class="edge"><title>module~m_strings&#45;&gt;module~m_random</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M509.837,-242.261C514.468,-246.131 518.963,-250.778 522,-256 566.751,-332.937 512.612,-376.437 558,-453 568.796,-471.211 577.563,-470.994 595,-483"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M597,-483C621.84,-500.104 653.319,-513.117 678.01,-521.717"/>
-<polygon fill="#000000" stroke="#000000" points="677.201,-525.137 687.795,-525.019 679.439,-518.505 677.201,-525.137"/>
-</g>
-<!-- module~m_strings&#45;&gt;module~prng_class -->
-<g id="module~~m_kdtree~~UsesGraph_edge51" class="edge"><title>module~m_strings&#45;&gt;module~prng_class</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M509.95,-242.196C514.581,-246.066 519.048,-250.73 522,-256 574.925,-350.487 509.258,-400.289 558,-497 561.241,-503.432 566.024,-509.428 571.082,-514.642"/>
-<polygon fill="#000000" stroke="#000000" points="568.867,-517.364 578.542,-521.681 573.671,-512.273 568.867,-517.364"/>
-</g>
-<!-- module~m_select&#45;&gt;module~m_kdtree -->
-<g id="module~~m_kdtree~~UsesGraph_edge81" class="edge"><title>module~m_select&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M890.156,-258.945C899.856,-262.338 910.712,-266.74 920,-272 950.954,-289.53 950.05,-307.426 982.5,-322"/>
-</g>
-<!-- module~m_select&#45;&gt;module~m_maths -->
-<g id="module~~m_kdtree~~UsesGraph_edge32" class="edge"><title>module~m_select&#45;&gt;module~m_maths</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M890.276,-256.758C900.431,-259.955 911.567,-264.794 920,-272 944.811,-293.202 939.719,-307.716 956,-336 960.566,-343.933 965.652,-352.607 970.138,-360.204"/>
-<polygon fill="#000000" stroke="#000000" points="967.129,-361.993 975.236,-368.815 973.153,-358.427 967.129,-361.993"/>
-</g>
-<!-- module~m_maths&#45;&gt;module~m_kdtree -->
-<g id="module~~m_kdtree~~UsesGraph_edge82" class="edge"><title>module~m_maths&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1011.25,-381C1019.14,-381 1027.96,-381 1036.51,-381"/>
-<polygon fill="#000000" stroke="#000000" points="1036.73,-384.5 1046.73,-381 1036.73,-377.5 1036.73,-384.5"/>
-</g>
-<!-- module~m_idynamicarray&#45;&gt;module~m_kdtree -->
-<g id="module~~m_kdtree~~UsesGraph_edge83" class="edge"><title>module~m_idynamicarray&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M744.88,-305.01C772.54,-317.423 819.298,-334.766 861.5,-333"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M863.5,-333C916.568,-330.779 934.048,-300.239 982.5,-322"/>
-</g>
-<!-- module~m_idynamicarray&#45;&gt;module~m_dargdynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge18" class="edge"><title>module~m_idynamicarray&#45;&gt;module~m_dargdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M767.059,-293C775.955,-293 785.427,-293 794.809,-293"/>
-<polygon fill="#000000" stroke="#000000" points="794.922,-296.5 804.922,-293 794.922,-289.5 794.922,-296.5"/>
-</g>
-<!-- module~m_array1d&#45;&gt;module~m_kdtree -->
-<g id="module~~m_kdtree~~UsesGraph_edge84" class="edge"><title>module~m_array1d&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M874.343,-398.97C898.977,-372.301 958.848,-311.377 982.5,-322"/>
-</g>
-<!-- module~m_array1d&#45;&gt;module~m_maths -->
-<g id="module~~m_kdtree~~UsesGraph_edge33" class="edge"><title>module~m_array1d&#45;&gt;module~m_maths</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M895.077,-403.039C910.701,-399.101 929.647,-394.324 945.902,-390.226"/>
-<polygon fill="#000000" stroke="#000000" points="946.78,-393.615 955.621,-387.776 945.069,-386.827 946.78,-393.615"/>
-</g>
-<!-- module~m_deallocate&#45;&gt;module~m_kdtree -->
-<g id="module~~m_kdtree~~UsesGraph_edge85" class="edge"><title>module~m_deallocate&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M615.926,-419.928C639.13,-405.749 680.113,-382.683 718.5,-371"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M720.5,-371C782.591,-352.103 796.654,-335.714 861.5,-333"/>
-</g>
-<!-- module~m_deallocate&#45;&gt;module~m_maths -->
-<g id="module~~m_kdtree~~UsesGraph_edge34" class="edge"><title>module~m_deallocate&#45;&gt;module~m_maths</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M720.5,-371C780.452,-352.754 798.991,-366.56 861.5,-371"/>
-</g>
-<!-- module~m_deallocate&#45;&gt;module~m_idynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge42" class="edge"><title>module~m_deallocate&#45;&gt;module~m_idynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M616.745,-419.882C622.609,-415.832 628.839,-411.053 634,-406 653.309,-387.094 653.839,-378.658 670,-357 680.974,-342.293 693.485,-325.791 703.051,-313.227"/>
-<polygon fill="#000000" stroke="#000000" points="705.869,-315.303 709.148,-305.228 700.302,-311.059 705.869,-315.303"/>
-</g>
-<!-- module~m_deallocate&#45;&gt;module~m_ddynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge8" class="edge"><title>module~m_deallocate&#45;&gt;module~m_ddynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M605.761,-419.795C613.834,-408.169 625.775,-389.973 634,-373 654.782,-330.115 648.098,-314.324 670,-272 679.053,-254.505 691.985,-236.342 702.219,-223.045"/>
-<polygon fill="#000000" stroke="#000000" points="705.062,-225.092 708.487,-215.066 699.557,-220.768 705.062,-225.092"/>
-</g>
-<!-- module~m_deallocate&#45;&gt;module~m_random -->
-<g id="module~~m_kdtree~~UsesGraph_edge61" class="edge"><title>module~m_deallocate&#45;&gt;module~m_random</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M611.415,-444.101C632.424,-461.738 671.635,-494.656 696.332,-515.39"/>
-<polygon fill="#000000" stroke="#000000" points="694.195,-518.165 704.104,-521.914 698.695,-512.804 694.195,-518.165"/>
-</g>
-<!-- module~m_allocate&#45;&gt;module~m_kdtree -->
-<g id="module~~m_kdtree~~UsesGraph_edge86" class="edge"><title>module~m_allocate&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M863.5,-919C975.743,-933.659 1055.78,-505.849 1073.37,-403"/>
-<polygon fill="#000000" stroke="#000000" points="1076.83,-403.532 1075.04,-393.089 1069.92,-402.368 1076.83,-403.532"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M500.75,-626.056C549.962,-686.256 772.234,-950.2 861.5,-919"/>
-</g>
-<!-- module~m_allocate&#45;&gt;module~m_maths -->
-<g id="module~~m_kdtree~~UsesGraph_edge35" class="edge"><title>module~m_allocate&#45;&gt;module~m_maths</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M863.5,-805C929.95,-754.861 969.455,-483.236 979.775,-403.202"/>
-<polygon fill="#000000" stroke="#000000" points="983.255,-403.583 981.038,-393.223 976.31,-402.705 983.255,-403.583"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M597,-615C647.489,-604.827 629.772,-672.839 670,-705 688.785,-720.018 695.163,-723.184 718.5,-729"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M720.5,-729C789.577,-746.216 804.672,-847.879 861.5,-805"/>
-</g>
-<!-- module~m_allocate&#45;&gt;module~m_idynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge43" class="edge"><title>module~m_allocate&#45;&gt;module~m_idynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M522.263,-617.65C543.08,-619.265 570.927,-619.85 595,-615"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M597,-615C616.956,-610.979 623.403,-605.382 634,-588 688.088,-499.282 629.39,-452.641 670,-357 676.995,-340.527 689.17,-324.481 699.572,-312.577"/>
-<polygon fill="#000000" stroke="#000000" points="702.279,-314.801 706.404,-305.042 697.094,-310.099 702.279,-314.801"/>
-</g>
-<!-- module~m_allocate&#45;&gt;module~m_array1d -->
-<g id="module~~m_kdtree~~UsesGraph_edge69" class="edge"><title>module~m_allocate&#45;&gt;module~m_array1d</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M720.5,-691C812.089,-628.285 847.236,-487.783 857.742,-433.241"/>
-<polygon fill="#000000" stroke="#000000" points="861.214,-433.713 859.573,-423.246 854.329,-432.451 861.214,-433.713"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M597,-615C659.439,-602.419 665.946,-726.986 718.5,-691"/>
-</g>
-<!-- module~m_allocate&#45;&gt;module~m_ddynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge9" class="edge"><title>module~m_allocate&#45;&gt;module~m_ddynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M509.981,-601.821C514.613,-597.952 519.072,-593.284 522,-588 577.905,-487.117 490.689,-424.658 558,-331 580.04,-300.334 603.715,-315.561 634,-293 661.398,-272.589 687.44,-242.7 703.191,-223.051"/>
-<polygon fill="#000000" stroke="#000000" points="706.042,-225.087 709.478,-215.065 700.542,-220.757 706.042,-225.087"/>
-</g>
-<!-- module~m_allocate&#45;&gt;module~m_reallocate -->
-<g id="module~~m_kdtree~~UsesGraph_edge2" class="edge"><title>module~m_allocate&#45;&gt;module~m_reallocate</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M510.036,-601.851C514.668,-597.982 519.113,-593.307 522,-588 584.062,-473.909 491.127,-409.339 558,-298 559.554,-295.413 561.475,-293.017 563.619,-290.812"/>
-<polygon fill="#000000" stroke="#000000" points="566.206,-293.206 571.551,-284.057 561.668,-287.876 566.206,-293.206"/>
-</g>
-<!-- module~m_allocate&#45;&gt;module~m_random -->
-<g id="module~~m_kdtree~~UsesGraph_edge62" class="edge"><title>module~m_allocate&#45;&gt;module~m_random</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M597,-615C638.612,-606.616 677.767,-574.548 699.878,-553.365"/>
-<polygon fill="#000000" stroke="#000000" points="702.564,-555.631 707.226,-546.116 697.649,-550.647 702.564,-555.631"/>
-</g>
-<!-- module~m_allocate&#45;&gt;module~prng_class -->
-<g id="module~~m_kdtree~~UsesGraph_edge54" class="edge"><title>module~m_allocate&#45;&gt;module~prng_class</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M506.795,-601.85C523.999,-588.616 551.697,-567.31 571.465,-552.104"/>
-<polygon fill="#000000" stroke="#000000" points="573.604,-554.874 579.397,-546.002 569.336,-549.325 573.604,-554.874"/>
-</g>
-<!-- module~m_errors&#45;&gt;module~m_kdtree -->
-<g id="module~~m_kdtree~~UsesGraph_edge87" class="edge"><title>module~m_errors&#45;&gt;module~m_kdtree</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-919C653.321,-946.695 706.783,-975.37 861.5,-919"/>
-</g>
-<!-- module~m_errors&#45;&gt;module~m_dargdynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge19" class="edge"><title>module~m_errors&#45;&gt;module~m_dargdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M385.5,-380C417.295,-333.858 446.595,-344.631 489,-308"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-308C504.186,-296.61 512.553,-298.641 522,-284 559.405,-226.028 515.416,-187.282 558,-133 569.41,-118.456 576.899,-117.755 595,-114"/>
-</g>
-<!-- module~m_errors&#45;&gt;module~m_strings -->
-<g id="module~~m_kdtree~~UsesGraph_edge24" class="edge"><title>module~m_errors&#45;&gt;module~m_strings</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M275.746,-605.812C286.25,-576.166 314.938,-498.231 347,-437 360.955,-410.35 366.431,-404.771 383.5,-380"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M385.5,-380C403.643,-353.67 405.861,-345.604 422,-318 438.083,-290.493 437.485,-280.382 458,-256 459.95,-253.682 462.123,-251.407 464.388,-249.227"/>
-<polygon fill="#000000" stroke="#000000" points="467.095,-251.505 472.256,-242.252 462.451,-246.267 467.095,-251.505"/>
-</g>
-<!-- module~m_errors&#45;&gt;module~m_maths -->
-<g id="module~~m_kdtree~~UsesGraph_edge36" class="edge"><title>module~m_errors&#45;&gt;module~m_maths</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M281.419,-630.191C289.518,-640.231 301.187,-654.894 311,-668 392.972,-777.471 354.261,-942.422 489,-919"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-919C545.677,-930.062 621.84,-771.152 670,-743 689.369,-731.678 696.868,-723.048 718.5,-729"/>
-</g>
-<!-- module~m_errors&#45;&gt;module~m_idynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge44" class="edge"><title>module~m_errors&#45;&gt;module~m_idynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-574C549.603,-547.995 587.595,-599.24 634,-555 698.738,-493.283 634.006,-438.88 670,-357 677.202,-340.616 689.377,-324.57 699.727,-312.643"/>
-<polygon fill="#000000" stroke="#000000" points="702.434,-314.868 706.516,-305.091 697.228,-310.188 702.434,-314.868"/>
-</g>
-<!-- module~m_errors&#45;&gt;module~m_array1d -->
-<g id="module~~m_kdtree~~UsesGraph_edge70" class="edge"><title>module~m_errors&#45;&gt;module~m_array1d</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M385.5,-654C418.257,-652.014 425.501,-663.44 458,-668 515.55,-676.075 668.813,-721.14 718.5,-691"/>
-</g>
-<!-- module~m_errors&#45;&gt;module~m_deallocate -->
-<g id="module~~m_kdtree~~UsesGraph_edge71" class="edge"><title>module~m_errors&#45;&gt;module~m_deallocate</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M385.5,-654C452.174,-648.112 412.576,-571.16 458,-522 487.364,-490.22 530.174,-464.443 560.101,-448.748"/>
-<polygon fill="#000000" stroke="#000000" points="562.032,-451.691 569.331,-444.012 558.836,-445.463 562.032,-451.691"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M292.763,-630.015C314.841,-641.238 350.677,-655.99 383.5,-654"/>
-</g>
-<!-- module~m_errors&#45;&gt;module~m_allocate -->
-<g id="module~~m_kdtree~~UsesGraph_edge73" class="edge"><title>module~m_errors&#45;&gt;module~m_allocate</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M385.5,-654C411.508,-651.703 438.988,-640.626 459.092,-630.71"/>
-<polygon fill="#000000" stroke="#000000" points="460.744,-633.796 468.053,-626.126 457.556,-627.564 460.744,-633.796"/>
-</g>
-<!-- module~m_errors&#45;&gt;module~m_ddynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge10" class="edge"><title>module~m_errors&#45;&gt;module~m_ddynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M273.279,-605.739C279.145,-567.962 300.229,-450.778 347,-366 371.498,-321.594 393.648,-322.05 422,-280 441.779,-250.665 434.011,-235.005 458,-209 468.957,-197.122 473.262,-193.665 489,-190"/>
-</g>
-<!-- module~m_errors&#45;&gt;module~m_reallocate -->
-<g id="module~~m_kdtree~~UsesGraph_edge3" class="edge"><title>module~m_errors&#45;&gt;module~m_reallocate</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-308C507.451,-293.789 529.822,-285.099 549.601,-279.829"/>
-<polygon fill="#000000" stroke="#000000" points="550.481,-283.217 559.363,-277.441 548.818,-276.418 550.481,-283.217"/>
-</g>
-<!-- module~m_errors&#45;&gt;module~m_unittester -->
-<g id="module~~m_kdtree~~UsesGraph_edge28" class="edge"><title>module~m_errors&#45;&gt;module~m_unittester</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M290.042,-630.087C296.675,-634.441 304.192,-639.412 311,-644 326.602,-654.513 343.955,-666.471 357.772,-676.057"/>
-<polygon fill="#000000" stroke="#000000" points="356.077,-679.141 366.286,-681.974 360.072,-673.393 356.077,-679.141"/>
-</g>
-<!-- module~m_errors&#45;&gt;module~m_random -->
-<g id="module~~m_kdtree~~UsesGraph_edge63" class="edge"><title>module~m_errors&#45;&gt;module~m_random</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M385.5,-654C431.416,-651.216 443.222,-658.519 489,-654"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-654C555.207,-647.662 577.642,-660.41 634,-629 665.717,-611.323 691.564,-577.138 705.988,-554.959"/>
-<polygon fill="#000000" stroke="#000000" points="709.09,-556.599 711.454,-546.272 703.166,-552.871 709.09,-556.599"/>
-</g>
-<!-- module~m_errors&#45;&gt;module~prng_class -->
-<g id="module~~m_kdtree~~UsesGraph_edge55" class="edge"><title>module~m_errors&#45;&gt;module~prng_class</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M385.5,-654C427.447,-650.295 423.842,-617.627 458,-593 471.108,-583.549 474.229,-580.554 489,-574"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-574C511.027,-565.113 533.689,-556.261 552.735,-549.151"/>
-<polygon fill="#000000" stroke="#000000" points="554.168,-552.353 562.332,-545.601 551.739,-545.788 554.168,-552.353"/>
-</g>
-<!-- module~m_ddynamicarray&#45;&gt;module~m_dargdynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge16" class="edge"><title>module~m_ddynamicarray&#45;&gt;module~m_dargdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M747.321,-215.041C754.709,-218.964 762.478,-223.694 769,-229 788.335,-244.729 784.64,-257.623 805,-272 807.208,-273.559 809.545,-275.017 811.964,-276.379"/>
-<polygon fill="#000000" stroke="#000000" points="810.48,-279.55 820.989,-280.897 813.613,-273.291 810.48,-279.55"/>
-</g>
-<!-- module~m_searching&#45;&gt;module~m_dargdynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge17" class="edge"><title>module~m_searching&#45;&gt;module~m_dargdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M632.673,-145.085C657.955,-140.692 691.961,-138.8 718.5,-152"/>
-</g>
-<!-- module~m_searching&#45;&gt;module~m_idynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge41" class="edge"><title>module~m_searching&#45;&gt;module~m_idynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M607.782,-166.335C628.82,-190.404 675.511,-243.819 701.024,-273.007"/>
-<polygon fill="#000000" stroke="#000000" points="698.699,-275.665 707.915,-280.891 703.969,-271.058 698.699,-275.665"/>
-</g>
-<!-- module~m_searching&#45;&gt;module~m_ddynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge7" class="edge"><title>module~m_searching&#45;&gt;module~m_ddynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M627.034,-166.112C642.66,-172.414 661.965,-180.2 678.806,-186.992"/>
-<polygon fill="#000000" stroke="#000000" points="677.807,-190.363 688.391,-190.857 680.426,-183.871 677.807,-190.363"/>
-</g>
-<!-- iso_fortran_env -->
-<g id="module~~m_kdtree~~UsesGraph_node14" class="node"><title>iso_fortran_env</title>
-<g id="a_module~~m_kdtree~~UsesGraph_node14"><a xlink:href="https://software.intel.com/en-us/node/511041" xlink:title="iso_fortran_env">
-<polygon fill="#337ab7" stroke="#337ab7" points="87,-392 0,-392 0,-368 87,-368 87,-392"/>
-<text text-anchor="middle" x="43.5" y="-377.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">iso_fortran_env</text>
+<!-- module~m_time -->
+<g id="module~~m_kdtree~~UsesGraph_node22" class="node">
+<title>module~m_time</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node22"><a xlink:href="../module/m_time.html" xlink:title="m_time">
+<polygon fill="#337ab7" stroke="#337ab7" points="508.3513,-846.6634 454.3513,-846.6634 454.3513,-824.6525 508.3513,-824.6525 508.3513,-846.6634"/>
+<text text-anchor="middle" x="481.3513" y="-832.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_time</text>
 </a>
 </g>
 </g>
-<!-- iso_fortran_env&#45;&gt;module~m_dargdynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge20" class="edge"><title>iso_fortran_env&#45;&gt;module~m_dargdynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M720.5,-152C743.194,-163.287 752.697,-162.593 769,-182 796.71,-214.987 774.164,-241.915 805,-272 806.236,-273.206 807.547,-274.343 808.919,-275.417"/>
-<polygon fill="#000000" stroke="#000000" points="807.042,-278.371 817.335,-280.885 810.856,-272.501 807.042,-278.371"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M597,-114C610.85,-111.127 705.835,-145.701 718.5,-152"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M159.5,-152C260.447,-40.6596 343.808,-37.189 489,-76"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-76C539.057,-86.5958 546.815,-123.996 595,-114"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M47.435,-367.915C56.9968,-330.879 90.5653,-217.51 157.5,-152"/>
+<!-- module~variablekind&#45;&gt;module~m_time -->
+<g id="module~~m_kdtree~~UsesGraph_edge31" class="edge">
+<title>module~variablekind&#45;&gt;module~m_time</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-853.6579C321.8973,-887.8809 401.7793,-867.0186 446.8886,-850.3118"/>
+<polygon fill="#000000" stroke="#000000" points="448.1519,-853.576 456.2335,-846.7248 445.6433,-847.0409 448.1519,-853.576"/>
 </g>
-<!-- iso_fortran_env&#45;&gt;module~variablekind -->
-<g id="module~~m_kdtree~~UsesGraph_edge21" class="edge"><title>iso_fortran_env&#45;&gt;module~variablekind</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M87.2205,-380C95.5739,-380 104.355,-380 112.772,-380"/>
-<polygon fill="#000000" stroke="#000000" points="112.804,-383.5 122.804,-380 112.804,-376.5 112.804,-383.5"/>
+<!-- module~m_parameters -->
+<g id="module~~m_kdtree~~UsesGraph_node23" class="node">
+<title>module~m_parameters</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node23"><a xlink:href="../module/m_parameters.html" xlink:title="m_parameters">
+<polygon fill="#337ab7" stroke="#337ab7" points="305.7004,-674.6634 226.3169,-674.6634 226.3169,-652.6525 305.7004,-652.6525 305.7004,-674.6634"/>
+<text text-anchor="middle" x="266.0087" y="-660.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_parameters</text>
+</a>
 </g>
-<!-- iso_fortran_env&#45;&gt;module~m_strings -->
-<g id="module~~m_kdtree~~UsesGraph_edge25" class="edge"><title>iso_fortran_env&#45;&gt;module~m_strings</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M159.5,-152C244.528,-66.6646 404.561,-167.927 465.037,-211.732"/>
-<polygon fill="#000000" stroke="#000000" points="463.088,-214.643 473.217,-217.749 467.236,-209.004 463.088,-214.643"/>
 </g>
-<!-- iso_fortran_env&#45;&gt;module~m_errors -->
-<g id="module~~m_kdtree~~UsesGraph_edge76" class="edge"><title>iso_fortran_env&#45;&gt;module~m_errors</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M159.5,-578C182.064,-592.433 210.555,-602.607 232.887,-609.082"/>
-<polygon fill="#000000" stroke="#000000" points="232.099,-612.496 242.67,-611.799 233.972,-605.751 232.099,-612.496"/>
+<!-- module~variablekind&#45;&gt;module~m_parameters -->
+<g id="module~~m_kdtree~~UsesGraph_edge57" class="edge">
+<title>module~variablekind&#45;&gt;module~m_parameters</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.3085,-663.6579C198.5064,-663.6579 207.3947,-663.6579 216.1012,-663.6579"/>
+<polygon fill="#000000" stroke="#000000" points="216.186,-667.158 226.186,-663.6579 216.1859,-660.158 216.186,-667.158"/>
 </g>
-<!-- iso_fortran_env&#45;&gt;module~m_unittester -->
-<g id="module~~m_kdtree~~UsesGraph_edge29" class="edge"><title>iso_fortran_env&#45;&gt;module~m_unittester</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M159.5,-578C194.405,-600.326 195.36,-616.265 230,-639 246.286,-649.689 254.096,-646.075 269.5,-658"/>
+<!-- module~dargdynamicarray_class&#45;&gt;module~m_kdtree -->
+<g id="module~~m_kdtree~~UsesGraph_edge80" class="edge">
+<title>module~dargdynamicarray_class&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M943.3935,-165.1333C965.936,-170.6546 989.7333,-180.1973 1006.8494,-196.6579"/>
 </g>
-<!-- iso_fortran_env&#45;&gt;module~m_random -->
-<g id="module~~m_kdtree~~UsesGraph_edge64" class="edge"><title>iso_fortran_env&#45;&gt;module~m_random</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M47.3217,-392.235C56.2738,-427.978 87.664,-532.567 157.5,-578"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M159.5,-578C196.228,-601.894 304.292,-526.792 347,-517 455.439,-492.136 502.608,-421.024 595,-483"/>
+<!-- module~m_array1d&#45;&gt;module~m_kdtree -->
+<g id="module~~m_kdtree~~UsesGraph_edge81" class="edge">
+<title>module~m_array1d&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M909.3795,-650.8344C920.4714,-646.845 932.7402,-641.7304 943.2598,-635.6579 974.8784,-617.406 974.9315,-601.3812 1006.8494,-583.6579"/>
 </g>
-<!-- iso_fortran_env&#45;&gt;module~prng_class -->
-<g id="module~~m_kdtree~~UsesGraph_edge56" class="edge"><title>iso_fortran_env&#45;&gt;module~prng_class</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M159.5,-578C208.77,-609.514 364.697,-570.703 422,-559 452.847,-552.7 457.547,-534.613 489,-536"/>
+<!-- module~m_array1d&#45;&gt;module~m_maths -->
+<g id="module~~m_kdtree~~UsesGraph_edge72" class="edge">
+<title>module~m_array1d&#45;&gt;module~m_maths</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M909.2192,-653.5466C920.9242,-649.7354 933.6375,-644.0382 943.2598,-635.6579 968.4566,-613.7134 962.3768,-598.4921 979.2598,-569.6579 983.9366,-561.6705 989.299,-553.0137 994.0452,-545.5088"/>
+<polygon fill="#000000" stroke="#000000" points="997.2017,-547.0686 999.6294,-536.7557 991.3003,-543.3037 997.2017,-547.0686"/>
+</g>
+<!-- module~m_strings&#45;&gt;module~m_kdtree -->
+<g id="module~~m_kdtree~~UsesGraph_edge82" class="edge">
+<title>module~m_strings&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M717.1274,-699.6579C816.0818,-680.1581 856.6072,-732.2675 943.2598,-680.6579 987.5486,-654.2798 961.782,-608.6828 1006.8494,-583.6579"/>
+</g>
+<!-- module~m_strings&#45;&gt;module~idynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge8" class="edge">
+<title>module~m_strings&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491.7542,-651.2736C516.3333,-624.0675 579.2319,-552.6218 623.1965,-486.6579 658.2381,-434.082 691.6554,-367.2193 707.5192,-334.1244"/>
+<polygon fill="#000000" stroke="#000000" points="710.7287,-335.5251 711.8613,-324.9909 704.4067,-332.5195 710.7287,-335.5251"/>
+</g>
+<!-- module~m_strings&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge25" class="edge">
+<title>module~m_strings&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M585.9683,-735.6579C698.317,-733.3789 609.2801,-594.3346 659.1965,-493.6579 698.1969,-414.9979 727.222,-407.2794 775.0583,-333.6579 810.6406,-278.8958 848.0784,-211.4399 866.1346,-178.1842"/>
+<polygon fill="#000000" stroke="#000000" points="869.4156,-179.4747 871.0925,-169.0134 863.2578,-176.1457 869.4156,-179.4747"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M495.3026,-673.8661C521.2573,-694.4946 575.303,-736.3243 585.9683,-735.6579"/>
+</g>
+<!-- module~m_strings&#45;&gt;module~m_array1d -->
+<g id="module~~m_kdtree~~UsesGraph_edge53" class="edge">
+<title>module~m_strings&#45;&gt;module~m_array1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M717.1274,-699.6579C757.5079,-691.7006 803.0658,-680.3637 835.2165,-671.9624"/>
+<polygon fill="#000000" stroke="#000000" points="836.3803,-675.2754 845.1604,-669.3458 834.5989,-668.5058 836.3803,-675.2754"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M585.9683,-735.6579C646.4047,-734.432 657.8191,-711.3452 717.1274,-699.6579"/>
+</g>
+<!-- module~m_strings&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge17" class="edge">
+<title>module~m_strings&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M485.6256,-651.5954C492.3106,-633.9043 505.2485,-598.0404 512.74,-566.6579 537.1719,-464.3101 487.1083,-417.9429 548.74,-332.6579 559.6205,-317.6017 574.1481,-327.9883 585.9683,-313.6579"/>
+</g>
+<!-- module~m_strings&#45;&gt;module~m_random -->
+<g id="module~~m_kdtree~~UsesGraph_edge44" class="edge">
+<title>module~m_strings&#45;&gt;module~m_random</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M585.9683,-735.6579C615.9899,-735.0489 649.8747,-735.8628 675.6818,-736.7956"/>
+<polygon fill="#000000" stroke="#000000" points="675.7311,-740.2999 685.8575,-737.1844 675.9985,-733.305 675.7311,-740.2999"/>
+</g>
+<!-- module~m_strings&#45;&gt;module~prng_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge33" class="edge">
+<title>module~m_strings&#45;&gt;module~prng_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M489.2146,-673.9323C506.8606,-699.2332 549.8055,-760.8077 572.0694,-792.7297"/>
+<polygon fill="#000000" stroke="#000000" points="569.4224,-795.0528 578.0137,-801.2527 575.1639,-791.0483 569.4224,-795.0528"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_kdtree -->
+<g id="module~~m_kdtree~~UsesGraph_edge83" class="edge">
+<title>module~m_errors&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M273.7397,-497.2215C321.9225,-425.9703 579.2137,-45.8604 585.9683,-43.6579"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~idynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge9" class="edge">
+<title>module~m_errors&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-391.6579C523.0538,-371.0954 540.21,-399.9102 585.9683,-391.6579"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge26" class="edge">
+<title>module~m_errors&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-412.6579C421.8635,-400.5691 416.2086,-370.2985 449.9626,-339.6579 476.5795,-315.4962 492.4491,-318.3316 512.74,-288.6579 542.253,-245.4976 508.2844,-209.7815 548.74,-176.6579 607.013,-128.946 642.0187,-163.2108 717.1274,-157.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M273.5962,-497.502C289.6399,-475.1676 329.5352,-425.9619 377.9084,-412.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M717.1274,-157.6579C744.2504,-155.2978 774.0571,-154.7445 800.519,-154.9606"/>
+<polygon fill="#000000" stroke="#000000" points="800.8246,-158.4644 810.8659,-155.0849 800.9087,-151.4649 800.8246,-158.4644"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_array1d -->
+<g id="module~~m_kdtree~~UsesGraph_edge55" class="edge">
+<title>module~m_errors&#45;&gt;module~m_array1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M293.2174,-516.0285C323.059,-524.2793 372.2578,-538.3741 413.9626,-552.6579 430.2038,-558.2205 433.5307,-561.6874 449.9626,-566.6579 588.4602,-608.552 757.4458,-640.1563 834.8126,-653.5801"/>
+<polygon fill="#000000" stroke="#000000" points="834.6597,-657.1052 845.1086,-655.3527 835.8475,-650.2067 834.6597,-657.1052"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_strings -->
+<g id="module~~m_kdtree~~UsesGraph_edge61" class="edge">
+<title>module~m_errors&#45;&gt;module~m_strings</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M283.9102,-519.7796C290.791,-524.0833 298.7072,-529.0696 305.8542,-533.6579 354.2275,-564.7129 368.0579,-570.0582 413.9626,-604.6579 430.7039,-617.2762 448.6485,-632.8301 461.8079,-644.6534"/>
+<polygon fill="#000000" stroke="#000000" points="459.5704,-647.3492 469.3296,-651.4734 464.2724,-642.1634 459.5704,-647.3492"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_allocate -->
+<g id="module~~m_kdtree~~UsesGraph_edge65" class="edge">
+<title>module~m_errors&#45;&gt;module~m_allocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-412.6579C405.5991,-405.0422 451.2989,-487.1527 471.3718,-526.4291"/>
+<polygon fill="#000000" stroke="#000000" points="468.2716,-528.0548 475.8963,-535.411 474.5232,-524.9055 468.2716,-528.0548"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_deallocate -->
+<g id="module~~m_kdtree~~UsesGraph_edge69" class="edge">
+<title>module~m_errors&#45;&gt;module~m_deallocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-469.6579C484.8953,-470.5607 520.628,-456.8414 549.3605,-445.4286"/>
+<polygon fill="#000000" stroke="#000000" points="550.7882,-448.6273 558.7796,-441.671 548.1945,-442.1256 550.7882,-448.6273"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-412.6579C428.5215,-398.7379 430.4834,-456.7003 481.3513,-469.6579"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_maths -->
+<g id="module~~m_kdtree~~UsesGraph_edge73" class="edge">
+<title>module~m_errors&#45;&gt;module~m_maths</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-469.6579C529.2892,-481.8692 536.699,-503.2202 585.9683,-507.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M585.9683,-507.6579C644.0262,-512.8872 659.8441,-496.8556 717.1274,-507.6579"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_reallocate -->
+<g id="module~~m_kdtree~~UsesGraph_edge5" class="edge">
+<title>module~m_errors&#45;&gt;module~m_reallocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-391.6579C497.1019,-383.8917 501.3938,-381.0616 512.74,-367.6579 534.834,-341.5574 525.855,-325.0678 548.74,-299.6579 551.2864,-296.8305 554.2175,-294.1715 557.2936,-291.7196"/>
+<polygon fill="#000000" stroke="#000000" points="559.5342,-294.4193 565.6099,-285.7396 555.4476,-288.736 559.5342,-294.4193"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge18" class="edge">
+<title>module~m_errors&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-391.6579C497.1019,-383.8917 502.6335,-382.0195 512.74,-367.6579 543.0742,-324.5521 508,-288.1023 548.74,-254.6579 576.2504,-232.074 615.3669,-226.5926 648.9753,-227.0926"/>
+<polygon fill="#000000" stroke="#000000" points="649.1005,-230.5985 659.2096,-227.4275 649.3295,-223.6023 649.1005,-230.5985"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-412.6579C423.1413,-400.2176 439.1624,-412.173 481.3513,-391.6579"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_random -->
+<g id="module~~m_kdtree~~UsesGraph_edge45" class="edge">
+<title>module~m_errors&#45;&gt;module~m_random</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M289.6737,-519.7611C295.6235,-523.4795 301.5369,-528.1184 305.8542,-533.6579 337.7358,-574.5644 306.5686,-606.6487 341.8542,-644.6579 387.4212,-693.7422 419.8952,-675.0353 481.3513,-701.6579"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~prng_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge34" class="edge">
+<title>module~m_errors&#45;&gt;module~prng_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M290.532,-519.6971C296.3376,-523.3733 301.9647,-528.0074 305.8542,-533.6579 352.6076,-601.578 289.1186,-652.2706 341.8542,-715.6579 392.5455,-776.5879 486.922,-799.495 542.3037,-807.9237"/>
+<polygon fill="#000000" stroke="#000000" points="542.1094,-811.4313 552.5036,-809.3792 543.0984,-804.5015 542.1094,-811.4313"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_unittester -->
+<g id="module~~m_kdtree~~UsesGraph_edge41" class="edge">
+<title>module~m_errors&#45;&gt;module~m_unittester</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M288.1899,-519.8082C294.3981,-523.6256 300.818,-528.3047 305.8542,-533.6579 328.7496,-557.9941 319.524,-574.8023 341.8542,-599.6579 344.3422,-602.4273 347.1944,-605.0504 350.1809,-607.4822"/>
+<polygon fill="#000000" stroke="#000000" points="348.1207,-610.3117 358.2427,-613.4416 352.2818,-604.6827 348.1207,-610.3117"/>
+</g>
+<!-- module~m_allocate&#45;&gt;module~m_kdtree -->
+<g id="module~~m_kdtree~~UsesGraph_edge84" class="edge">
+<title>module~m_allocate&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M877.1591,-583.6579C934.4509,-577.3306 956.4568,-611.6397 1006.8494,-583.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1006.8494,-583.6579C1030.4603,-570.5473 1056.5361,-554.2932 1075.2066,-542.3305"/>
+<polygon fill="#000000" stroke="#000000" points="1077.2241,-545.1942 1083.7339,-536.8352 1073.4322,-539.3101 1077.2241,-545.1942"/>
+</g>
+<!-- module~m_allocate&#45;&gt;module~idynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge10" class="edge">
+<title>module~m_allocate&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M494.3537,-535.5205C507.6255,-524.3736 529.0189,-507.008 548.74,-493.6579 580.385,-472.236 595.1514,-476.6151 623.1965,-450.6579 661.0609,-415.6126 691.8774,-362.6402 707.0041,-333.9134"/>
+<polygon fill="#000000" stroke="#000000" points="710.2142,-335.3248 711.6862,-324.8327 703.9925,-332.1169 710.2142,-335.3248"/>
+</g>
+<!-- module~m_allocate&#45;&gt;module~m_array1d -->
+<g id="module~~m_kdtree~~UsesGraph_edge56" class="edge">
+<title>module~m_allocate&#45;&gt;module~m_array1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M717.1274,-583.6579C770.1244,-589.9432 824.6163,-622.9314 854.3527,-643.6389"/>
+<polygon fill="#000000" stroke="#000000" points="852.5824,-646.675 862.7574,-649.6279 856.6446,-640.9743 852.5824,-646.675"/>
+</g>
+<!-- module~m_allocate&#45;&gt;module~m_maths -->
+<g id="module~~m_kdtree~~UsesGraph_edge74" class="edge">
+<title>module~m_allocate&#45;&gt;module~m_maths</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M717.1274,-583.6579C787.7576,-592.0344 806.4637,-591.4656 877.1591,-583.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M512.9,-552.3829C558.029,-560.3954 643.6819,-574.9475 717.1274,-583.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M877.1591,-583.6579C916.4608,-579.3174 957.3977,-557.6683 982.5097,-542.0907"/>
+<polygon fill="#000000" stroke="#000000" points="984.4624,-544.9966 991.0131,-536.6696 980.6994,-539.0941 984.4624,-544.9966"/>
+</g>
+<!-- module~m_allocate&#45;&gt;module~m_reallocate -->
+<g id="module~~m_kdtree~~UsesGraph_edge3" class="edge">
+<title>module~m_allocate&#45;&gt;module~m_reallocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M488.0998,-535.4481C495.2215,-523.1507 506.2892,-502.6319 512.74,-483.6579 539.5623,-404.7645 502.6344,-369.0688 548.74,-299.6579 550.5923,-296.8694 552.8726,-294.3122 555.385,-291.9875"/>
+<polygon fill="#000000" stroke="#000000" points="557.6948,-294.6246 563.4222,-285.7113 553.3864,-289.1075 557.6948,-294.6246"/>
+</g>
+<!-- module~m_allocate&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge19" class="edge">
+<title>module~m_allocate&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M585.9683,-313.6579C597.7884,-299.3276 608.0172,-305.3661 623.1965,-294.6579 641.18,-281.9716 640.8134,-272.7577 659.1965,-260.6579 664.6007,-257.1009 670.5948,-253.8545 676.619,-250.9647"/>
+<polygon fill="#000000" stroke="#000000" points="678.3509,-254.0232 686.0298,-246.7237 675.4748,-247.6413 678.3509,-254.0232"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M487.9503,-535.3955C494.9441,-523.0532 505.9032,-502.4963 512.74,-483.6579 536.2764,-418.8047 506.0883,-386.8864 548.74,-332.6579 560.224,-318.0568 574.1481,-327.9883 585.9683,-313.6579"/>
+</g>
+<!-- module~m_allocate&#45;&gt;module~m_random -->
+<g id="module~~m_kdtree~~UsesGraph_edge46" class="edge">
+<title>module~m_allocate&#45;&gt;module~m_random</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M490.7056,-557.8033C515.542,-586.8244 586.2472,-665.7927 659.1965,-713.6579 664.6058,-717.2072 670.6026,-720.4494 676.628,-723.3374"/>
+<polygon fill="#000000" stroke="#000000" points="675.4845,-726.661 686.0397,-727.5772 678.3597,-720.2787 675.4845,-726.661"/>
+</g>
+<!-- module~m_allocate&#45;&gt;module~prng_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge35" class="edge">
+<title>module~m_allocate&#45;&gt;module~prng_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M485.0356,-557.8638C498.8145,-599.7598 546.6345,-745.0318 548.74,-749.6579 555.6178,-764.7694 565.1754,-780.8705 572.8843,-793.0126"/>
+<polygon fill="#000000" stroke="#000000" points="569.9707,-794.9525 578.344,-801.444 575.8465,-791.1477 569.9707,-794.9525"/>
+</g>
+<!-- module~m_select&#45;&gt;module~m_kdtree -->
+<g id="module~~m_kdtree~~UsesGraph_edge85" class="edge">
+<title>module~m_select&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M904.34,-122.4053C916.743,-125.738 931.2969,-130.6841 943.2598,-137.6579 976.5666,-157.0744 979.0613,-169.934 1006.8494,-196.6579"/>
+</g>
+<!-- module~m_select&#45;&gt;module~m_maths -->
+<g id="module~~m_kdtree~~UsesGraph_edge75" class="edge">
+<title>module~m_select&#45;&gt;module~m_maths</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M904.3022,-118.7002C917.9365,-121.1679 933.5742,-126.4534 943.2598,-137.6579 991.4587,-193.4157 1003.59,-431.193 1006.2062,-504.2315"/>
+<polygon fill="#000000" stroke="#000000" points="1002.7168,-504.6085 1006.5485,-514.4862 1009.7129,-504.375 1002.7168,-504.6085"/>
+</g>
+<!-- module~m_deallocate&#45;&gt;module~m_kdtree -->
+<g id="module~~m_kdtree~~UsesGraph_edge86" class="edge">
+<title>module~m_deallocate&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M609.0828,-419.5326C666.7452,-391.5173 821.0912,-314.9133 943.2598,-239.6579 972.308,-221.7643 981.7602,-173.5384 1006.8494,-196.6579"/>
+</g>
+<!-- module~m_deallocate&#45;&gt;module~idynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge12" class="edge">
+<title>module~m_deallocate&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M606.3065,-419.558C612.2261,-415.6868 618.3869,-410.9653 623.1965,-405.6579 645.8962,-380.6092 634.2921,-361.5158 659.1965,-338.6579 663.0324,-335.1373 667.4409,-332.0622 672.0771,-329.3885"/>
+<polygon fill="#000000" stroke="#000000" points="673.8744,-332.4006 681.183,-324.7302 670.6863,-326.1687 673.8744,-332.4006"/>
+</g>
+<!-- module~m_deallocate&#45;&gt;module~m_maths -->
+<g id="module~~m_kdtree~~UsesGraph_edge76" class="edge">
+<title>module~m_deallocate&#45;&gt;module~m_maths</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M717.1274,-507.6579C806.8701,-520.5572 913.5619,-524.216 969.06,-525.2514"/>
+<polygon fill="#000000" stroke="#000000" points="969.0768,-528.752 979.1342,-525.4206 969.1945,-521.753 969.0768,-528.752"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M598.1403,-441.8196C619.9683,-460.8476 668.0869,-498.41 717.1274,-507.6579"/>
+</g>
+<!-- module~m_deallocate&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge21" class="edge">
+<title>module~m_deallocate&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M593.8817,-419.3976C601.7817,-407.9209 614.0332,-389.4669 623.1965,-372.6579 641.6649,-338.7801 637.2131,-325.3679 659.1965,-293.6579 669.474,-278.8331 683.7756,-264.4702 695.5971,-253.7459"/>
+<polygon fill="#000000" stroke="#000000" points="698.1244,-256.1836 703.305,-246.9418 693.4918,-250.9357 698.1244,-256.1836"/>
+</g>
+<!-- module~m_deallocate&#45;&gt;module~m_random -->
+<g id="module~~m_kdtree~~UsesGraph_edge47" class="edge">
+<title>module~m_deallocate&#45;&gt;module~m_random</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M587.5151,-441.7252C594.2668,-488.6559 622.4673,-670.7786 659.1965,-713.6579 663.8407,-719.0797 669.8748,-723.3612 676.2901,-726.7317"/>
+<polygon fill="#000000" stroke="#000000" points="675.29,-730.1203 685.8445,-731.0445 678.17,-723.7401 675.29,-730.1203"/>
+</g>
+<!-- module~m_maths&#45;&gt;module~m_kdtree -->
+<g id="module~~m_kdtree~~UsesGraph_edge87" class="edge">
+<title>module~m_maths&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M1034.5166,-525.6579C1042.6048,-525.6579 1051.6172,-525.6579 1060.3244,-525.6579"/>
+<polygon fill="#000000" stroke="#000000" points="1060.3322,-529.158 1070.3321,-525.6579 1060.3321,-522.158 1060.3322,-529.158"/>
+</g>
+<!-- module~m_sort&#45;&gt;module~idynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge7" class="edge">
+<title>module~m_sort&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M613.1445,-344.5771C629.6297,-339.6753 651.1138,-333.287 670.2711,-327.5906"/>
+<polygon fill="#000000" stroke="#000000" points="671.4507,-330.8914 680.0383,-324.6863 669.4555,-324.1817 671.4507,-330.8914"/>
 </g>
 <!-- module~m_sort&#45;&gt;module~m_maths -->
-<g id="module~~m_kdtree~~UsesGraph_edge37" class="edge"><title>module~m_sort&#45;&gt;module~m_maths</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M623.284,-351.777C657.073,-351.717 717.526,-352.374 769,-357 810.412,-360.722 820.16,-366.548 861.5,-371"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M863.5,-371C890.939,-372.949 921.901,-375.564 945.363,-377.631"/>
-<polygon fill="#000000" stroke="#000000" points="945.306,-381.14 955.576,-378.538 945.925,-374.167 945.306,-381.14"/>
+<g id="module~~m_kdtree~~UsesGraph_edge71" class="edge">
+<title>module~m_sort&#45;&gt;module~m_maths</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M603.8168,-341.5354C610.103,-337.3952 617.1141,-332.5175 623.1965,-327.6579 640.3906,-313.9208 638.7457,-301.7887 659.1965,-293.6579 707.0475,-274.6334 727.4884,-273.9412 775.0583,-293.6579 881.8371,-337.9153 965.0297,-457.8796 994.8934,-505.6436"/>
+<polygon fill="#000000" stroke="#000000" points="992.0799,-507.7504 1000.2966,-514.439 998.0444,-504.0863 992.0799,-507.7504"/>
 </g>
-<!-- module~m_sort&#45;&gt;module~m_idynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge45" class="edge"><title>module~m_sort&#45;&gt;module~m_idynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M621.881,-339.918C639.981,-331.129 664.7,-319.125 684.604,-309.46"/>
-<polygon fill="#000000" stroke="#000000" points="686.186,-312.582 693.653,-305.066 683.128,-306.286 686.186,-312.582"/>
+<!-- module~m_sort&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge16" class="edge">
+<title>module~m_sort&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M606.3065,-341.558C612.2261,-337.6868 618.3869,-332.9653 623.1965,-327.6579 645.8962,-302.6092 634.2921,-283.5158 659.1965,-260.6579 663.0324,-257.1373 667.4409,-254.0622 672.0771,-251.3885"/>
+<polygon fill="#000000" stroke="#000000" points="673.8744,-254.4006 681.183,-246.7302 670.6863,-248.1687 673.8744,-254.4006"/>
 </g>
-<!-- module~m_sort&#45;&gt;module~m_ddynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge11" class="edge"><title>module~m_sort&#45;&gt;module~m_ddynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M617.272,-339.76C623.027,-335.772 629.065,-331.057 634,-326 654.144,-305.355 653.705,-295.801 670,-272 681.264,-255.548 694.267,-237.075 703.973,-223.387"/>
-<polygon fill="#000000" stroke="#000000" points="706.885,-225.331 709.823,-215.151 701.178,-221.277 706.885,-225.331"/>
+<!-- module~m_searching&#45;&gt;module~idynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge11" class="edge">
+<title>module~m_searching&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M598.5444,-207.8764C621.322,-228.1951 669.5801,-271.2435 696.9937,-295.6977"/>
+<polygon fill="#000000" stroke="#000000" points="694.9886,-298.5993 704.7809,-302.6443 699.6484,-293.3756 694.9886,-298.5993"/>
 </g>
-<!-- module~m_reallocate&#45;&gt;module~m_idynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge46" class="edge"><title>module~m_reallocate&#45;&gt;module~m_idynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M632.797,-278.187C641.837,-279.75 651.768,-281.466 661.567,-283.16"/>
-<polygon fill="#000000" stroke="#000000" points="661.238,-286.655 671.688,-284.909 662.43,-279.757 661.238,-286.655"/>
+<!-- module~m_searching&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge27" class="edge">
+<title>module~m_searching&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M611.4762,-185.5004C637.4638,-174.9941 679.2213,-160.4604 717.1274,-157.6579"/>
 </g>
-<!-- module~m_reallocate&#45;&gt;module~m_ddynamicarray -->
-<g id="module~~m_kdtree~~UsesGraph_edge12" class="edge"><title>module~m_reallocate&#45;&gt;module~m_ddynamicarray</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M618.164,-259.981C637.558,-248.967 666.485,-232.539 688.304,-220.148"/>
-<polygon fill="#000000" stroke="#000000" points="690.204,-223.094 697.171,-215.113 686.747,-217.007 690.204,-223.094"/>
+<!-- module~m_searching&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge20" class="edge">
+<title>module~m_searching&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M622.1553,-207.4181C636.9743,-211.8245 654.318,-216.9816 670.0998,-221.6743"/>
+<polygon fill="#000000" stroke="#000000" points="669.105,-225.0299 679.6879,-224.5253 671.1002,-218.3203 669.105,-225.0299"/>
 </g>
-<!-- module~m_parameters&#45;&gt;module~m_strings -->
-<g id="module~~m_kdtree~~UsesGraph_edge23" class="edge"><title>module~m_parameters&#45;&gt;module~m_strings</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M284.872,-291.969C299.171,-279.819 323.041,-261.526 347,-252 380.447,-238.702 421.298,-233.405 450.583,-231.315"/>
-<polygon fill="#000000" stroke="#000000" points="451.049,-234.793 460.814,-230.681 450.616,-227.806 451.049,-234.793"/>
+<!-- module~m_reallocate&#45;&gt;module~idynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge13" class="edge">
+<title>module~m_reallocate&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M622.1553,-285.4181C636.9743,-289.8245 654.318,-294.9816 670.0998,-299.6743"/>
+<polygon fill="#000000" stroke="#000000" points="669.105,-303.0299 679.6879,-302.5253 671.1002,-296.3203 669.105,-303.0299"/>
 </g>
-<!-- module~m_unittester&#45;&gt;module~m_maths -->
-<g id="module~~m_kdtree~~UsesGraph_edge38" class="edge"><title>module~m_unittester&#45;&gt;module~m_maths</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M422.123,-696.555C496.543,-701.958 663.082,-715.188 718.5,-729"/>
+<!-- module~m_reallocate&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge22" class="edge">
+<title>module~m_reallocate&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M622.1553,-263.8978C636.9743,-259.4913 654.318,-254.3342 670.0998,-249.6415"/>
+<polygon fill="#000000" stroke="#000000" points="671.1002,-252.9956 679.6879,-246.7905 669.105,-246.2859 671.1002,-252.9956"/>
 </g>
-<!-- module~m_unittester&#45;&gt;module~m_allocate -->
-<g id="module~~m_kdtree~~UsesGraph_edge74" class="edge"><title>module~m_unittester&#45;&gt;module~m_allocate</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M403.105,-681.777C409.151,-677.496 415.924,-672.606 422,-668 437.137,-656.524 453.766,-643.127 466.67,-632.548"/>
-<polygon fill="#000000" stroke="#000000" points="469.065,-635.11 474.559,-626.051 464.615,-629.706 469.065,-635.11"/>
+<!-- iso_fortran_env -->
+<g id="module~~m_kdtree~~UsesGraph_node15" class="node">
+<title>iso_fortran_env</title>
+<g id="a_module~~m_kdtree~~UsesGraph_node15"><a xlink:href="https://software.intel.com/en-us/node/511041" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="84.5666,-674.6634 -.1894,-674.6634 -.1894,-652.6525 84.5666,-652.6525 84.5666,-674.6634"/>
+<text text-anchor="middle" x="42.1886" y="-660.5079" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">iso_fortran_env</text>
+</a>
 </g>
-<!-- module~m_unittester&#45;&gt;module~m_random -->
-<g id="module~~m_kdtree~~UsesGraph_edge60" class="edge"><title>module~m_unittester&#45;&gt;module~m_random</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M406.85,-681.809C427.202,-671.16 459.094,-656.952 489,-654"/>
 </g>
-<!-- module~m_swap&#45;&gt;module~m_array1d -->
-<g id="module~~m_kdtree~~UsesGraph_edge65" class="edge"><title>module~m_swap&#45;&gt;module~m_array1d</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M506.244,-829.929C536.462,-806.29 606.533,-752.897 670,-715 690.649,-702.67 698.656,-704.588 718.5,-691"/>
+<!-- iso_fortran_env&#45;&gt;module~variablekind -->
+<g id="module~~m_kdtree~~UsesGraph_edge14" class="edge">
+<title>iso_fortran_env&#45;&gt;module~variablekind</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M84.6177,-663.6579C92.994,-663.6579 101.8118,-663.6579 110.2697,-663.6579"/>
+<polygon fill="#000000" stroke="#000000" points="110.3542,-667.158 120.3541,-663.6579 110.3541,-660.158 110.3542,-667.158"/>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge29" class="edge">
+<title>iso_fortran_env&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M155.2701,-5.6579C253.4816,6.4123 278.9581,-5.6579 377.9084,-5.6579 377.9084,-5.6579 377.9084,-5.6579 481.3513,-5.6579 614.7645,-5.6579 668.7676,12.973 775.0583,-67.6579 802.6161,-88.5629 784.5751,-114.4075 811.0583,-136.6579 813.3055,-138.5459 815.724,-140.2648 818.2608,-141.8296"/>
+<polygon fill="#000000" stroke="#000000" points="816.7869,-145.0091 827.2649,-146.5782 820.0523,-138.8174 816.7869,-145.0091"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M42.9087,-652.3912C48.5631,-566.1767 87.4027,-14.075 155.2701,-5.6579"/>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~m_strings -->
+<g id="module~~m_kdtree~~UsesGraph_edge60" class="edge">
+<title>iso_fortran_env&#45;&gt;module~m_strings</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M155.2701,-1007.6579C196.1107,-1035.1237 219.8524,-1024.7438 266.0087,-1007.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-1007.6579C285.3964,-1000.4811 292.9978,-999.8475 305.8542,-983.6579 338.107,-943.0434 318.069,-918.7452 341.8542,-872.6579 366.4903,-824.922 387.5613,-822.4406 413.9626,-775.6579 434.7312,-738.8565 424.6162,-721.4697 449.9626,-687.6579 451.8039,-685.2017 453.9412,-682.8505 456.2181,-680.6407"/>
+<polygon fill="#000000" stroke="#000000" points="458.9634,-682.8966 464.2697,-673.7263 454.4029,-677.586 458.9634,-682.8966"/>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~m_errors -->
+<g id="module~~m_kdtree~~UsesGraph_edge63" class="edge">
+<title>iso_fortran_env&#45;&gt;module~m_errors</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M155.2701,-5.6579C241.1806,4.9005 204.5968,-304.8308 226.1631,-388.6579 235.2697,-424.055 249.3856,-464.1692 258.1426,-487.8913"/>
+<polygon fill="#000000" stroke="#000000" points="254.976,-489.4165 261.7518,-497.5613 261.5341,-486.9687 254.976,-489.4165"/>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~m_random -->
+<g id="module~~m_kdtree~~UsesGraph_edge48" class="edge">
+<title>iso_fortran_env&#45;&gt;module~m_random</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M155.2701,-1007.6579C257.1629,-1076.182 299.8588,-1150.0232 413.9626,-1104.6579 434.4135,-1096.5271 431.7407,-1082.9992 449.9626,-1070.6579 505.1198,-1033.3013 534.5615,-1050.0274 585.9683,-1007.6579"/>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~prng_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge36" class="edge">
+<title>iso_fortran_env&#45;&gt;module~prng_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-1007.6579C372.5007,-969.6616 423.1992,-1014.6994 512.74,-945.6579 550.108,-916.8449 571.0227,-863.2926 580.2223,-833.6898"/>
+<polygon fill="#000000" stroke="#000000" points="583.6209,-834.5388 583.0904,-823.9572 576.9064,-832.56 583.6209,-834.5388"/>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~m_unittester -->
+<g id="module~~m_kdtree~~UsesGraph_edge40" class="edge">
+<title>iso_fortran_env&#45;&gt;module~m_unittester</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M44.1127,-675.0069C53.6524,-729.7955 97.7268,-966.0012 155.2701,-1007.6579"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M155.2701,-1007.6579C164.5229,-1014.3562 299.8348,-877.366 305.8542,-867.6579 351.5036,-794.036 369.5542,-689.9445 375.4578,-645.7823"/>
+<polygon fill="#000000" stroke="#000000" points="378.9541,-646.031 376.7335,-635.6715 372.0091,-645.1546 378.9541,-646.031"/>
+</g>
+<!-- module~ddynamicarray_class&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge28" class="edge">
+<title>module~ddynamicarray_class&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M735.0524,-224.4572C753.6412,-213.103 783.7535,-195.4341 811.0583,-182.6579 818.8061,-179.0327 827.2364,-175.5278 835.4028,-172.3466"/>
+<polygon fill="#000000" stroke="#000000" points="836.7059,-175.5957 844.8116,-168.7731 834.2204,-169.0518 836.7059,-175.5957"/>
 </g>
 <!-- module~m_random&#45;&gt;module~m_array1d -->
-<g id="module~~m_kdtree~~UsesGraph_edge68" class="edge"><title>module~m_random&#45;&gt;module~m_array1d</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M734.276,-521.982C758.852,-500.544 810.425,-455.554 839.802,-429.928"/>
-<polygon fill="#000000" stroke="#000000" points="842.224,-432.46 847.459,-423.249 837.622,-427.185 842.224,-432.46"/>
+<g id="module~~m_kdtree~~UsesGraph_edge52" class="edge">
+<title>module~m_random&#45;&gt;module~m_array1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M743.8385,-727.6024C753.7173,-723.3902 764.9643,-718.4484 775.0583,-713.6579 799.8244,-701.9044 827.3851,-687.5181 847.6236,-676.7012"/>
+<polygon fill="#000000" stroke="#000000" points="849.4938,-679.6697 856.6481,-671.8551 846.1821,-673.5026 849.4938,-679.6697"/>
+</g>
+<!-- module~m_swap&#45;&gt;module~m_array1d -->
+<g id="module~~m_kdtree~~UsesGraph_edge54" class="edge">
+<title>module~m_swap&#45;&gt;module~m_array1d</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M405.1973,-1083.2765C426.0913,-1082.5529 455.6027,-1082.2522 481.3513,-1084.6579"/>
 </g>
 <!-- module~prng_class&#45;&gt;module~m_random -->
-<g id="module~~m_kdtree~~UsesGraph_edge59" class="edge"><title>module~prng_class&#45;&gt;module~m_random</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M629.56,-534C644.295,-534 661.873,-534 677.496,-534"/>
-<polygon fill="#000000" stroke="#000000" points="677.941,-537.5 687.941,-534 677.941,-530.5 677.941,-537.5"/>
+<g id="module~~m_kdtree~~UsesGraph_edge42" class="edge">
+<title>module~prng_class&#45;&gt;module~m_random</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M605.6041,-801.5794C627.6259,-789.1547 663.538,-768.8931 688.6429,-754.7289"/>
+<polygon fill="#000000" stroke="#000000" points="690.3678,-757.7744 697.3574,-749.8122 686.9281,-751.6778 690.3678,-757.7744"/>
 </g>
-<!-- module~m_time&#45;&gt;module~prng_class -->
-<g id="module~~m_kdtree~~UsesGraph_edge52" class="edge"><title>module~m_time&#45;&gt;module~prng_class</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M411.886,-536.569C432.808,-535.657 462.786,-534.844 489,-536"/>
+<!-- module~m_unittester&#45;&gt;module~m_allocate -->
+<g id="module~~m_kdtree~~UsesGraph_edge66" class="edge">
+<title>module~m_unittester&#45;&gt;module~m_allocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M392.7293,-613.4824C409.9357,-600.5081 438.511,-578.9612 458.5503,-563.8508"/>
+<polygon fill="#000000" stroke="#000000" points="460.6807,-566.6279 466.558,-557.8127 456.4662,-561.0388 460.6807,-566.6279"/>
+</g>
+<!-- module~m_unittester&#45;&gt;module~m_maths -->
+<g id="module~~m_kdtree~~UsesGraph_edge77" class="edge">
+<title>module~m_unittester&#45;&gt;module~m_maths</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M414.3365,-626.5521C524.0372,-631.6945 849.4695,-642.6789 943.2598,-597.6579 966.3475,-586.5754 984.6178,-562.8813 995.5427,-545.6936"/>
+<polygon fill="#000000" stroke="#000000" points="998.6593,-547.3036 1000.8402,-536.9357 992.6698,-543.6806 998.6593,-547.3036"/>
+</g>
+<!-- module~m_unittester&#45;&gt;module~m_random -->
+<g id="module~~m_kdtree~~UsesGraph_edge49" class="edge">
+<title>module~m_unittester&#45;&gt;module~m_random</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-701.6579C513.9753,-718.6233 513.7152,-738.4593 548.74,-749.6579 590.6459,-763.0567 641.3326,-756.95 676.0771,-749.6117"/>
+<polygon fill="#000000" stroke="#000000" points="676.8814,-753.0183 685.8764,-747.4201 675.3535,-746.1871 676.8814,-753.0183"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M389.1746,-635.8979C407.0514,-653.0228 443.7571,-685.3722 481.3513,-701.6579"/>
 </g>
 <!-- module~m_indexing&#45;&gt;module~prng_class -->
-<g id="module~~m_kdtree~~UsesGraph_edge53" class="edge"><title>module~m_indexing&#45;&gt;module~prng_class</title>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M393.826,-470.166C409.584,-491.619 446.067,-534.107 489,-536"/>
-<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M491,-536C511.094,-536.886 533.388,-536.623 552.165,-536.042"/>
-<polygon fill="#000000" stroke="#000000" points="552.327,-539.539 562.199,-535.692 552.083,-532.543 552.327,-539.539"/>
+<g id="module~~m_kdtree~~UsesGraph_edge37" class="edge">
+<title>module~m_indexing&#45;&gt;module~prng_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M481.3513,-931.6579C528.554,-915.4026 561.4081,-862.3887 576.5349,-832.9038"/>
+<polygon fill="#000000" stroke="#000000" points="579.6945,-834.4101 580.9804,-823.8936 573.417,-831.3129 579.6945,-834.4101"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M398.0896,-903.7722C423.4492,-917.1239 465.5635,-937.0948 481.3513,-931.6579"/>
+</g>
+<!-- module~m_time&#45;&gt;module~prng_class -->
+<g id="module~~m_kdtree~~UsesGraph_edge38" class="edge">
+<title>module~m_time&#45;&gt;module~prng_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M508.5651,-829.675C518.9603,-827.3896 531.0885,-824.7232 542.6181,-822.1884"/>
+<polygon fill="#000000" stroke="#000000" points="543.5223,-825.5733 552.5375,-820.0077 542.0192,-818.7366 543.5223,-825.5733"/>
+</g>
+<!-- module~m_parameters&#45;&gt;module~m_strings -->
+<g id="module~~m_kdtree~~UsesGraph_edge58" class="edge">
+<title>module~m_parameters&#45;&gt;module~m_strings</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M305.7568,-663.4733C344.7471,-663.2923 403.8227,-663.0179 442.5011,-662.8383"/>
+<polygon fill="#000000" stroke="#000000" points="442.8522,-666.3368 452.8358,-662.7903 442.8196,-659.3369 442.8522,-666.3368"/>
 </g>
 </g>
 </svg>
@@ -984,43 +1105,49 @@
     <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-<!-- Generated by graphviz version 2.38.0 (20140413.2041)
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
  -->
 <!-- Title: Graph Key Pages: 1 -->
-<svg width="488pt" height="32pt"
- viewBox="0.00 0.00 487.50 32.00" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 28)">
+<svg width="484pt" height="31pt"
+ viewBox="0.00 0.00 483.85 30.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 26.5)">
 <title>Graph Key</title>
-<polygon fill="white" stroke="none" points="-4,4 -4,-28 483.5,-28 483.5,4 -4,4"/>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-26.5 479.8539,-26.5 479.8539,4 -4,4"/>
 <!-- Module -->
-<g id="node1" class="node"><title>Module</title>
-<polygon fill="#337ab7" stroke="#337ab7" points="54,-24 0,-24 0,-0 54,-0 54,-24"/>
-<text text-anchor="middle" x="27" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Module</text>
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-22.2554 0,-22.2554 0,-.2446 54,-.2446 54,-22.2554"/>
+<text text-anchor="middle" x="27" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Module</text>
 </g>
 <!-- Submodule -->
-<g id="node2" class="node"><title>Submodule</title>
-<polygon fill="#5bc0de" stroke="#5bc0de" points="138,-24 72,-24 72,-0 138,-0 138,-24"/>
-<text text-anchor="middle" x="105" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Submodule</text>
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="137.6205,-22.2554 72.3795,-22.2554 72.3795,-.2446 137.6205,-.2446 137.6205,-22.2554"/>
+<text text-anchor="middle" x="105" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Submodule</text>
 </g>
 <!-- Subroutine -->
-<g id="node3" class="node"><title>Subroutine</title>
-<polygon fill="#d9534f" stroke="#d9534f" points="220,-24 156,-24 156,-0 220,-0 220,-24"/>
-<text text-anchor="middle" x="188" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Subroutine</text>
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="218.288,-22.2554 155.712,-22.2554 155.712,-.2446 218.288,-.2446 218.288,-22.2554"/>
+<text text-anchor="middle" x="187" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Subroutine</text>
 </g>
 <!-- Function -->
-<g id="node4" class="node"><title>Function</title>
-<polygon fill="#d94e8f" stroke="#d94e8f" points="292,-24 238,-24 238,-0 292,-0 292,-24"/>
-<text text-anchor="middle" x="265" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Function</text>
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="290,-22.2554 236,-22.2554 236,-.2446 290,-.2446 290,-22.2554"/>
+<text text-anchor="middle" x="263" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Function</text>
 </g>
 <!-- Program -->
-<g id="node5" class="node"><title>Program</title>
-<polygon fill="#f0ad4e" stroke="#f0ad4e" points="364,-24 310,-24 310,-0 364,-0 364,-24"/>
-<text text-anchor="middle" x="337" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50" fill="white">Program</text>
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="362,-22.2554 308,-22.2554 308,-.2446 362,-.2446 362,-22.2554"/>
+<text text-anchor="middle" x="335" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Program</text>
 </g>
 <!-- This Page&#39;s Entity -->
-<g id="node6" class="node"><title>This Page&#39;s Entity</title>
-<polygon fill="none" stroke="black" points="479.5,-24 382.5,-24 382.5,-0 479.5,-0 479.5,-24"/>
-<text text-anchor="middle" x="431" y="-9.6" font-family="Helvetica,sans-Serif" font-size="10.50">This Page&#39;s Entity</text>
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="475.7082,-22.2554 380.2918,-22.2554 380.2918,-.2446 475.7082,-.2446 475.7082,-22.2554"/>
+<text text-anchor="middle" x="428" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
 </g>
 </g>
 </svg>
@@ -1072,7 +1199,7 @@ the k nearest neighbours, all neighbours within a radius, k nearest within a rad
 upper and lower bounds in each dimension.
 The searches are thread safe and can be used in a parallel region.</p>
 <p>After the KdTree is built, various queries can be carried out.  Searches that return multiple values
-are called using the argDynamicArray within coretran. The <a href="../module/m_dargdynamicarray.html">m_dArgDynamicArray</a> contains an integer index
+are called using the argDynamicArray within coretran. The [[m_dArgDynamicArray]] contains an integer index
 containing the indices into the co-ordinates that are closest, and a double precision that contains the
 distance from the query point to those points.</p>
 <div class="codehilite"><pre><span></span><span class="k">use </span><span class="n">m_dArgDynamicArray</span>
@@ -1081,13 +1208,13 @@ distance from the query point to those points.</p>
 <span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">i</span>
 <span class="k">type</span><span class="p">(</span><span class="n">dArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">da</span>
 <span class="c">! Nearest Neighbour to (0, 0), for 3D add z, and zQuery</span>
-<span class="n">i</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="nb">nearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="p">[</span><span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">])</span>
+<span class="n">i</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="nb">nearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="p">[</span><span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">])</span>
 <span class="c">! K-Nearest to (0, 0), for 3D add z, and zQuery</span>
-<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="p">[</span><span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">],</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="p">[</span><span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">],</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 <span class="c">! Search for all points within a given distance</span>
-<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="p">[</span><span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">],</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">1</span><span class="mf">0.</span><span class="n">d0</span><span class="p">)</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="p">[</span><span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">],</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">1</span><span class="mf">0.d0</span><span class="p">)</span>
 <span class="c">! Search for all k points within a given distance</span>
-<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="p">[</span><span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">],</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">1</span><span class="mf">0.</span><span class="n">d0</span><span class="p">)</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="p">[</span><span class="n">z</span><span class="p">],</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="p">[</span><span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">],</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mi">1</span><span class="mf">0.d0</span><span class="p">)</span>
 </pre></div>
 
 
@@ -1119,14 +1246,14 @@ distance from the query point to those points.</p>
 <span class="c">! Build the tree</span>
 <span class="n">tree</span> <span class="o">=</span> <span class="n">KdTree</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 <span class="c">! Get the nearest neighbour to (0, 0)</span>
-<span class="n">ia</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">)</span>
+<span class="n">ia</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">)</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;Nearest point to the query location: &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span>
 <span class="c">! Get the 10 nearest neighbours to the query</span>
-<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;The 10 nearest neighbour indices and distances:&#39;</span>
 <span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
 <span class="c">! Find all the points within a 1.d0</span>
-<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mf">1.</span><span class="n">d0</span><span class="p">)</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mf">1.d0</span><span class="p">)</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;The points within a distance of 1.d0&#39;</span>
 <span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
 <span class="k">Deallocate </span><span class="nb">any </span><span class="n">tree</span> <span class="k">memory</span>
@@ -1141,14 +1268,14 @@ distance from the query point to those points.</p>
 <span class="c">! Build the tree</span>
 <span class="n">tree</span> <span class="o">=</span> <span class="n">KdTree</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">)</span>
 <span class="c">! Get the nearest neighbour to (0, 0, 0)</span>
-<span class="n">ia</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">)</span>
+<span class="n">ia</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">)</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;Nearest point to the query location: &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">x</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">y</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">z</span><span class="p">(</span><span class="n">ia</span><span class="p">))</span>
 <span class="c">! Get the 10 nearest neighbours to the query</span>
-<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;The 10 nearest neighbour indices and distances:&#39;</span>
 <span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
 <span class="c">! Find all the points within a 1.d0</span>
-<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mf">1.</span><span class="n">d0</span><span class="p">)</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">z</span><span class="p">,</span> <span class="n">xQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">yQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">zQuery</span> <span class="o">=</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="n">radius</span> <span class="o">=</span> <span class="mf">1.d0</span><span class="p">)</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;The points within a distance of 1.d0&#39;</span>
 <span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
 <span class="k">Deallocate </span><span class="nb">any </span><span class="n">tree</span> <span class="k">memory</span>
@@ -1164,14 +1291,14 @@ distance from the query point to those points.</p>
 <span class="c">! Build the tree</span>
 <span class="n">tree</span> <span class="o">=</span> <span class="n">KdTree</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
 <span class="c">! Get the nearest neighbour to (0, 0, 0)</span>
-<span class="n">ia</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">])</span>
+<span class="n">ia</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.d0</span><span class="p">,</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="mf">0.d0</span><span class="p">])</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span><span class="s1">&#39;Nearest point to the query location: &#39;</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">D</span><span class="p">(</span><span class="n">ia</span><span class="p">,</span> <span class="mi">1</span><span class="p">))</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">D</span><span class="p">(</span><span class="n">ia</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span><span class="o">//</span><span class="n">str</span><span class="p">(</span><span class="n">D</span><span class="p">(</span><span class="n">ia</span><span class="p">,</span> <span class="mi">3</span><span class="p">))</span>
 <span class="c">! Get the 10 nearest neighbours to the query</span>
-<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">],</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span> <span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.d0</span><span class="p">,</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="mf">0.d0</span><span class="p">],</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">10</span><span class="p">)</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;The 10 nearest neighbour indices and distances:&#39;</span>
 <span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
 <span class="c">! Find all the points within a 1.d0</span>
-<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span>  <span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">,</span> <span class="mf">0.</span><span class="n">d0</span><span class="p">],</span> <span class="n">radius</span> <span class="o">=</span> <span class="mf">1.</span><span class="n">d0</span><span class="p">)</span>
+<span class="n">da</span> <span class="o">=</span> <span class="n">search</span><span class="p">%</span><span class="n">kNearest</span><span class="p">(</span><span class="n">tree</span><span class="p">,</span> <span class="n">D</span><span class="p">,</span>  <span class="n">query</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.d0</span><span class="p">,</span> <span class="mf">0.d0</span><span class="p">,</span> <span class="mf">0.d0</span><span class="p">],</span> <span class="n">radius</span> <span class="o">=</span> <span class="mf">1.d0</span><span class="p">)</span>
 <span class="k">write</span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="s1">&#39;(a)&#39;</span><span class="p">)</span> <span class="s1">&#39;The points within a distance of 1.d0&#39;</span>
 <span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">print</span><span class="p">()</span>
 <span class="k">Deallocate </span><span class="nb">any </span><span class="n">tree</span> <span class="k">memory</span>
@@ -1182,6 +1309,147 @@ distance from the query point to those points.</p>
 <span class="k">call deallocate</span><span class="p">(</span><span class="n">D</span><span class="p">)</span>
 <span class="k">end program</span>
 </pre></div>
+    
+    
+    <h3>Used By</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: module~~m_kdtree~~UsedByGraph Pages: 1 -->
+<svg id="modulem_kdtreeUsedByGraph" width="314pt" height="72pt"
+ viewBox="0.00 0.00 314.04 71.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~m_kdtree~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 67.5)">
+<title>module~~m_kdtree~~UsedByGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-67.5 310.0439,-67.5 310.0439,4 -4,4"/>
+<!-- module~m_kdtree -->
+<g id="module~~m_kdtree~~UsedByGraph_node1" class="node">
+<title>module~m_kdtree</title>
+<polygon fill="none" stroke="#000000" points="60.4525,-42.2554 .1818,-42.2554 .1818,-20.2446 60.4525,-20.2446 60.4525,-42.2554"/>
+<text text-anchor="middle" x="30.3171" y="-28.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">m_KdTree</text>
+</g>
+<!-- program~scaletest_coretran -->
+<g id="module~~m_kdtree~~UsedByGraph_node2" class="node">
+<title>program~scaletest_coretran</title>
+<g id="a_module~~m_kdtree~~UsedByGraph_node2"><a xlink:href="../program/scaletest_coretran.html" xlink:title="scaleTest_coretran">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="196.8252,-63.2554 96.5706,-63.2554 96.5706,-41.2446 196.8252,-41.2446 196.8252,-63.2554"/>
+<text text-anchor="middle" x="146.6979" y="-49.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">scaleTest_coretran</text>
+</a>
+</g>
+</g>
+<!-- module~m_kdtree&#45;&gt;program~scaletest_coretran -->
+<g id="module~~m_kdtree~~UsedByGraph_edge2" class="edge">
+<title>module~m_kdtree&#45;&gt;program~scaletest_coretran</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M60.591,-36.7127C68.5183,-38.1431 77.3514,-39.737 86.255,-41.3436"/>
+<polygon fill="#000000" stroke="#000000" points="85.8302,-44.8233 96.2928,-43.1548 87.0733,-37.9346 85.8302,-44.8233"/>
+</g>
+<!-- module~m_tests -->
+<g id="module~~m_kdtree~~UsedByGraph_node3" class="node">
+<title>module~m_tests</title>
+<g id="a_module~~m_kdtree~~UsedByGraph_node3"><a xlink:href="../module/m_tests.html" xlink:title="m_tests">
+<polygon fill="#337ab7" stroke="#337ab7" points="173.6979,-22.2554 119.6979,-22.2554 119.6979,-.2446 173.6979,-.2446 173.6979,-22.2554"/>
+<text text-anchor="middle" x="146.6979" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_tests</text>
+</a>
+</g>
+</g>
+<!-- module~m_kdtree&#45;&gt;module~m_tests -->
+<g id="module~~m_kdtree~~UsedByGraph_edge3" class="edge">
+<title>module~m_kdtree&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M60.591,-26.0474C75.5079,-23.484 93.6324,-20.3693 109.3979,-17.66"/>
+<polygon fill="#000000" stroke="#000000" points="110.0973,-21.0912 119.3601,-15.948 108.9117,-14.1923 110.0973,-21.0912"/>
+</g>
+<!-- program~test_coretran -->
+<g id="module~~m_kdtree~~UsedByGraph_node4" class="node">
+<title>program~test_coretran</title>
+<g id="a_module~~m_kdtree~~UsedByGraph_node4"><a xlink:href="../program/test_coretran.html" xlink:title="test_coretran">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="306.1857,-22.2554 232.6197,-22.2554 232.6197,-.2446 306.1857,-.2446 306.1857,-22.2554"/>
+<text text-anchor="middle" x="269.4027" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">test_coretran</text>
+</a>
+</g>
+</g>
+<!-- module~m_tests&#45;&gt;program~test_coretran -->
+<g id="module~~m_kdtree~~UsedByGraph_edge1" class="edge">
+<title>module~m_tests&#45;&gt;program~test_coretran</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M173.9301,-11.25C188.0621,-11.25 205.7356,-11.25 222.0219,-11.25"/>
+<polygon fill="#000000" stroke="#000000" points="222.4729,-14.7501 232.4728,-11.25 222.4728,-7.7501 222.4729,-14.7501"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="484pt" height="31pt"
+ viewBox="0.00 0.00 483.85 30.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 26.5)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-26.5 479.8539,-26.5 479.8539,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-22.2554 0,-22.2554 0,-.2446 54,-.2446 54,-22.2554"/>
+<text text-anchor="middle" x="27" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="137.6205,-22.2554 72.3795,-22.2554 72.3795,-.2446 137.6205,-.2446 137.6205,-22.2554"/>
+<text text-anchor="middle" x="105" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="218.288,-22.2554 155.712,-22.2554 155.712,-.2446 218.288,-.2446 218.288,-22.2554"/>
+<text text-anchor="middle" x="187" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="290,-22.2554 236,-22.2554 236,-.2446 290,-.2446 290,-22.2554"/>
+<text text-anchor="middle" x="263" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="362,-22.2554 308,-22.2554 308,-.2446 362,-.2446 362,-22.2554"/>
+<text text-anchor="middle" x="335" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="475.7082,-22.2554 380.2918,-22.2554 380.2918,-.2446 475.7082,-.2446 475.7082,-22.2554"/>
+<text text-anchor="middle" x="428" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a parent (sub)module to the submodule which is
+    descended from it. Dashed arrows point from a module being used to the
+    module or program unit using it.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
     <br>
     
 
@@ -1605,7 +1873,19 @@ public function initKD_KdTree(D) result(this)
   <div id="allmods-1" class="panel-collapse collapse">
     <div class="list-group">
       
+      <a class="list-group-item" href="../module/dargdynamicarray_class.html">dArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/ddynamicarray_class.html">dDynamicArray_Class</a>
+      
       <a class="list-group-item" href="../module/formatting.html">formatting</a>
+      
+      <a class="list-group-item" href="../module/iargdynamicarray_class.html">iArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/idargdynamicarray_class.html">idArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/iddynamicarray_class.html">idDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/idynamicarray_class.html">iDynamicArray_Class</a>
       
       <a class="list-group-item" href="../module/m_allocate.html">m_allocate</a>
       
@@ -1615,10 +1895,6 @@ public function initKD_KdTree(D) result(this)
       
       <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
       
-      <a class="list-group-item" href="../module/m_dargdynamicarray.html">m_dArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_ddynamicarray.html">m_dDynamicArray</a>
-      
       <a class="list-group-item" href="../module/m_deallocate.html">m_deallocate</a>
       
       <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
@@ -1626,14 +1902,6 @@ public function initKD_KdTree(D) result(this)
       <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
       
       <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
-      
-      <a class="list-group-item" href="../module/m_iargdynamicarray.html">m_iArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_idargdynamicarray.html">m_idArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_iddynamicarray.html">m_idDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_idynamicarray.html">m_iDynamicArray</a>
       
       <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
       
@@ -1651,10 +1919,6 @@ public function initKD_KdTree(D) result(this)
       
       <a class="list-group-item" href="../module/m_random.html">m_random</a>
       
-      <a class="list-group-item" href="../module/m_rargdynamicarray.html">m_rArgDynamicArray</a>
-      
-      <a class="list-group-item" href="../module/m_rdynamicarray.html">m_rDynamicArray</a>
-      
       <a class="list-group-item" href="../module/m_readline.html">m_readline</a>
       
       <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
@@ -1669,6 +1933,8 @@ public function initKD_KdTree(D) result(this)
       
       <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
       
+      <a class="list-group-item" href="../module/m_tests.html">m_tests</a>
+      
       <a class="list-group-item" href="../module/m_time.html">m_time</a>
       
       <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
@@ -1678,6 +1944,10 @@ public function initKD_KdTree(D) result(this)
       <a class="list-group-item" href="../module/prng_class.html">Prng_Class</a>
       
       <a class="list-group-item" href="../module/progressbar_class.html">ProgressBar_Class</a>
+      
+      <a class="list-group-item" href="../module/rargdynamicarray_class.html">rArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/rdynamicarray_class.html">rDynamicArray_Class</a>
       
       <a class="list-group-item" href="../module/stopwatch_class.html">Stopwatch_Class</a>
       

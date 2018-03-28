@@ -1,0 +1,1602 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+	 
+	 <meta name="description" content="Modern well documented core Fortran routines for cleaner, smarter code.">
+    
+    <meta name="author" content="Leon Foks" >
+    <link rel="icon" href="../favicon.png">
+
+    <title>dArgDynamicArray_Class &ndash; Fortran Program</title>
+
+    <link href="../css/bootstrap.min.css" rel="stylesheet">
+    <link href="../css/pygments.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/local.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    <script src="../js/jquery-2.1.3.min.js"></script>
+    <script src="../js/svg-pan-zoom.min.js"></script>
+
+    
+    <script src="../tipuesearch/tipuesearch_content.js"></script>
+    <link  href="../tipuesearch/tipuesearch.css" rel="stylesheet">
+    <script src="../tipuesearch/tipuesearch_set.js"></script>
+    <script src="../tipuesearch/tipuesearch.js"></script>
+    
+
+  </head>
+
+  <body>
+
+    <!-- Fixed navbar -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="../index.html">Fortran Program </a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+				
+            <li class="dropdown hidden-xs visible-sm visible-md hidden-lg">
+              <a href="#" class="dropdown-toggle"
+              data-toggle="dropdown" role="button"
+              aria-haspopup="true"
+		 aria-expanded="false">Contents <span class="caret"></span></a>
+	      <ul class="dropdown-menu">
+              
+            <li><a href="../lists/files.html">Source Files</a></li>
+				
+				
+            <li><a href="../lists/modules.html">Modules</a></li>
+				
+            
+                                
+            <li><a href="../lists/procedures.html">Procedures</a></li>
+				
+								
+            <li><a href="../lists/types.html">Derived Types</a></li>
+				
+				
+            <li><a href="../lists/programs.html">Programs</a></li>
+				
+            </ul>
+            </li>
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/files.html">Source Files</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/modules.html">Modules</a></li>
+
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/procedures.html">Procedures</a></li>
+
+                             
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/types.html">Derived Types</a></li>
+
+
+<li class="visible-xs hidden-sm visible-lg"><a href="../lists/programs.html">Programs</a></li>
+
+          </ul>
+        
+        <form action="../search.html" class="navbar-form navbar-right" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search" name="q" id="tipue_search_input" autocomplete="off" required>
+        </div>
+<!--
+        <button type="submit" class="btn btn-default">Submit</button>
+-->
+        </form>
+        
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+
+    <div class="container">
+    
+  
+  <div class="row">
+    <h1>dArgDynamicArray_Class 
+    <small>Module</small>
+    
+    </h1>
+    
+<div class="row">
+  <div class="col-lg-12">
+<div class="well well-sm">
+  <ul class="list-inline" style="margin-bottom:0px;display:inline">
+     
+     
+     
+     
+    
+    
+     <li><i class="fa fa-list-ol"></i>
+       <a data-toggle="tooltip"
+	  data-placement="bottom" data-html="true"
+	  title=" 1.9% of total for modules and submodules.">156 statements</a>
+     </li> 
+     
+     
+    <li><i class="fa fa-code"></i><a href="../src/dArgDynamicArray_Class.f90"> Source File</a></li>
+     
+  </ul>
+  <ol class="breadcrumb in-well text-right">
+  
+     <li><a href='../sourcefile/dargdynamicarray_class.f90.html'>dArgDynamicArray_Class.f90</a></li>
+  
+     <li class="active">dArgDynamicArray_Class</li>
+  </ol>
+</div>
+</div>
+</div>
+<script>
+  $(function () {
+  $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
+
+  </div>
+  
+  <div class="row">
+    <div class="col-md-3 hidden-xs hidden-sm visible-md visible-lg">
+    
+<div id="sidebar">
+  
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-0">Interfaces</a></h3></div>
+  <div id="inters-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/dargdynamicarray_class.html#interface-dargdynamicarray">dArgDynamicArray</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types-0">Derived Types</a></h3></div>
+  <div id="types-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/dargdynamicarray_class.html#type-dargdynamicarray">dArgDynamicArray</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+  <hr>
+  
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allmods-0">All Modules</a></h3></div>
+  <div id="allmods-0" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/dargdynamicarray_class.html">dArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/ddynamicarray_class.html">dDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/formatting.html">formatting</a>
+      
+      <a class="list-group-item" href="../module/iargdynamicarray_class.html">iArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/idargdynamicarray_class.html">idArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/iddynamicarray_class.html">idDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/idynamicarray_class.html">iDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/m_allocate.html">m_allocate</a>
+      
+      <a class="list-group-item" href="../module/m_array1d.html">m_array1D</a>
+      
+      <a class="list-group-item" href="../module/m_compare.html">m_compare</a>
+      
+      <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
+      
+      <a class="list-group-item" href="../module/m_deallocate.html">m_deallocate</a>
+      
+      <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
+      
+      <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
+      
+      <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
+      
+      <a class="list-group-item" href="../module/m_kdtree.html">m_KdTree</a>
+      
+      <a class="list-group-item" href="../module/m_maths.html">m_maths</a>
+      
+      <a class="list-group-item" href="../module/m_medianof3.html">m_medianOf3</a>
+      
+      <a class="list-group-item" href="../module/m_parameters.html">m_parameters</a>
+      
+      <a class="list-group-item" href="../module/m_partition.html">m_partition</a>
+      
+      <a class="list-group-item" href="../module/m_partition3way.html">m_partition3way</a>
+      
+      <a class="list-group-item" href="../module/m_random.html">m_random</a>
+      
+      <a class="list-group-item" href="../module/m_readline.html">m_readline</a>
+      
+      <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
+      
+      <a class="list-group-item" href="../module/m_searching.html">m_searching</a>
+      
+      <a class="list-group-item" href="../module/m_select.html">m_select</a>
+      
+      <a class="list-group-item" href="../module/m_sort.html">m_sort</a>
+      
+      <a class="list-group-item" href="../module/m_strings.html">m_strings</a>
+      
+      <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
+      
+      <a class="list-group-item" href="../module/m_tests.html">m_tests</a>
+      
+      <a class="list-group-item" href="../module/m_time.html">m_time</a>
+      
+      <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
+      
+      <a class="list-group-item" href="../module/m_writeline.html">m_writeline</a>
+      
+      <a class="list-group-item" href="../module/prng_class.html">Prng_Class</a>
+      
+      <a class="list-group-item" href="../module/progressbar_class.html">ProgressBar_Class</a>
+      
+      <a class="list-group-item" href="../module/rargdynamicarray_class.html">rArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/rdynamicarray_class.html">rDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/stopwatch_class.html">Stopwatch_Class</a>
+      
+      <a class="list-group-item" href="../module/variablekind.html">variableKind</a>
+      
+    </div>
+  </div>
+</div>
+
+
+</div>  
+
+    </div>
+    
+    <div class="col-md-9" id='text'>
+      
+    
+  
+    <ul class="list-inline">
+      <li><h4>Uses:</h4></li>
+      
+      <li><a href='../module/variablekind.html'>variableKind</a></li>
+      
+      <li><a href="https://software.intel.com/en-us/node/511041">iso_fortran_env</a></li>
+      
+      <li><a href='../module/m_errors.html'>m_errors</a></li>
+      
+      <li><a href='../module/idynamicarray_class.html'>iDynamicArray_Class</a></li>
+      
+      <li><a href='../module/ddynamicarray_class.html'>dDynamicArray_Class</a></li>
+      
+      <li><a href='../module/m_searching.html'>m_searching</a></li>
+      
+      <li><a href='../module/m_strings.html'>m_strings</a></li>
+      
+    </ul>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: module~~dargdynamicarray_class~~UsesGraph Pages: 1 -->
+<svg id="moduledargdynamicarray_classUsesGraph" width="641pt" height="274pt"
+ viewBox="0.00 0.00 641.00 273.73" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~dargdynamicarray_class~~UsesGraph" class="graph" transform="scale(.6673 .6673) rotate(0) translate(4 406.2157)">
+<title>module~~dargdynamicarray_class~~UsesGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-406.2157 956.5959,-406.2157 956.5959,4 -4,4"/>
+<!-- module~dargdynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_node1" class="node">
+<title>module~dargdynamicarray_class</title>
+<polygon fill="none" stroke="#000000" points="952.6968,-269.2347 820.2937,-269.2347 820.2937,-247.2238 952.6968,-247.2238 952.6968,-269.2347"/>
+<text text-anchor="middle" x="886.4952" y="-255.0792" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">dArgDynamicArray_Class</text>
+</g>
+<!-- module~idynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_node2" class="node">
+<title>module~idynamicarray_class</title>
+<g id="a_module~~dargdynamicarray_class~~UsesGraph_node2"><a xlink:href="../module/idynamicarray_class.html" xlink:title="iDynamicArray_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="782.8192,-249.2347 670.1081,-249.2347 670.1081,-227.2238 782.8192,-227.2238 782.8192,-249.2347"/>
+<text text-anchor="middle" x="726.4636" y="-235.0792" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">iDynamicArray_Class</text>
+</a>
+</g>
+</g>
+<!-- module~idynamicarray_class&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge38" class="edge">
+<title>module~idynamicarray_class&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M782.8848,-245.2805C791.7402,-246.3872 801.0191,-247.5468 810.2314,-248.6981"/>
+<polygon fill="#000000" stroke="#000000" points="809.8217,-252.1741 820.1786,-249.9413 810.6898,-245.2281 809.8217,-252.1741"/>
+</g>
+<!-- module~variablekind -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_node3" class="node">
+<title>module~variablekind</title>
+<g id="a_module~~dargdynamicarray_class~~UsesGraph_node3"><a xlink:href="../module/variablekind.html" xlink:title="variableKind">
+<polygon fill="#337ab7" stroke="#337ab7" points="190.0564,-194.2347 120.4839,-194.2347 120.4839,-172.2238 190.0564,-172.2238 190.0564,-194.2347"/>
+<text text-anchor="middle" x="155.2701" y="-180.0792" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">variableKind</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge39" class="edge">
+<title>module~variablekind&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M596.476,-395.2292C654.2055,-393.0082 670.9341,-411.1702 726.4636,-395.2292"/>
+</g>
+<!-- module~variablekind&#45;&gt;module~idynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge13" class="edge">
+<title>module~variablekind&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M171.4024,-172.1814C185.2955,-163.2128 206.2043,-150.9842 226.1631,-144.2292 353.1461,-101.2525 392.3119,-122.0184 524.4192,-99.2292 556.5684,-93.6833 564.9988,-76.6547 596.476,-85.2292"/>
+</g>
+<!-- module~m_strings -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_node4" class="node">
+<title>module~m_strings</title>
+<g id="a_module~~dargdynamicarray_class~~UsesGraph_node4"><a xlink:href="../module/m_strings.html" xlink:title="m_strings">
+<polygon fill="#337ab7" stroke="#337ab7" points="406.4225,-58.2347 349.3944,-58.2347 349.3944,-36.2238 406.4225,-36.2238 406.4225,-58.2347"/>
+<text text-anchor="middle" x="377.9084" y="-44.0792" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_strings</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~m_strings -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge24" class="edge">
+<title>module~variablekind&#45;&gt;module~m_strings</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M175.0634,-172.0045C180.5103,-168.185 186.0454,-163.5234 190.1631,-158.2292 217.1199,-123.5704 191.5081,-93.191 226.1631,-66.2292 258.0245,-41.4408 305.5671,-39.3952 338.925,-41.8213"/>
+<polygon fill="#000000" stroke="#000000" points="338.9468,-45.3372 349.2191,-42.743 339.5711,-38.365 338.9468,-45.3372"/>
+</g>
+<!-- module~m_errors -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_node5" class="node">
+<title>module~m_errors</title>
+<g id="a_module~~dargdynamicarray_class~~UsesGraph_node5"><a xlink:href="../module/m_errors.html" xlink:title="m_errors">
+<polygon fill="#337ab7" stroke="#337ab7" points="293.0138,-175.2347 239.0035,-175.2347 239.0035,-153.2238 293.0138,-153.2238 293.0138,-175.2347"/>
+<text text-anchor="middle" x="266.0087" y="-161.0792" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_errors</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~m_errors -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge27" class="edge">
+<title>module~variablekind&#45;&gt;module~m_errors</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M190.3085,-177.2175C202.5855,-175.1111 216.4111,-172.7389 228.8552,-170.6038"/>
+<polygon fill="#000000" stroke="#000000" points="229.6549,-174.0179 238.919,-168.8772 228.4711,-167.1187 229.6549,-174.0179"/>
+</g>
+<!-- module~m_searching -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_node6" class="node">
+<title>module~m_searching</title>
+<g id="a_module~~dargdynamicarray_class~~UsesGraph_node6"><a xlink:href="../module/m_searching.html" xlink:title="m_searching">
+<polygon fill="#337ab7" stroke="#337ab7" points="632.5896,-367.2347 560.3623,-367.2347 560.3623,-345.2238 632.5896,-345.2238 632.5896,-367.2347"/>
+<text text-anchor="middle" x="596.476" y="-353.0792" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_searching</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~m_searching -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge29" class="edge">
+<title>module~variablekind&#45;&gt;module~m_searching</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M487.1909,-356.2292C507.2888,-361.377 530.1563,-362.1272 549.7606,-361.2973"/>
+<polygon fill="#000000" stroke="#000000" points="550.1955,-364.7782 559.9794,-360.7131 549.7959,-357.7896 550.1955,-364.7782"/>
+</g>
+<!-- module~ddynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_node7" class="node">
+<title>module~ddynamicarray_class</title>
+<g id="a_module~~dargdynamicarray_class~~UsesGraph_node7"><a xlink:href="../module/ddynamicarray_class.html" xlink:title="dDynamicArray_Class">
+<polygon fill="#337ab7" stroke="#337ab7" points="784.3255,-290.2347 668.6017,-290.2347 668.6017,-268.2238 784.3255,-268.2238 784.3255,-290.2347"/>
+<text text-anchor="middle" x="726.4636" y="-276.0792" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">dDynamicArray_Class</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge30" class="edge">
+<title>module~variablekind&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M487.1909,-356.2292C537.1494,-369.0255 544.9428,-397.2119 596.476,-395.2292"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M596.476,-395.2292C653.1441,-393.049 696.5307,-331.8403 715.6938,-299.2364"/>
+<polygon fill="#000000" stroke="#000000" points="718.759,-300.9264 720.65,-290.5017 712.6708,-297.4718 718.759,-300.9264"/>
+</g>
+<!-- module~m_sort -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_node9" class="node">
+<title>module~m_sort</title>
+<g id="a_module~~dargdynamicarray_class~~UsesGraph_node9"><a xlink:href="../module/m_sort.html" xlink:title="m_sort">
+<polygon fill="#337ab7" stroke="#337ab7" points="623.476,-289.2347 569.476,-289.2347 569.476,-267.2238 623.476,-267.2238 623.476,-289.2347"/>
+<text text-anchor="middle" x="596.476" y="-275.0792" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_sort</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~m_sort -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge1" class="edge">
+<title>module~variablekind&#45;&gt;module~m_sort</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M487.1909,-356.2292C526.1104,-366.198 527.6365,-326.4541 560.4192,-303.2292 564.1563,-300.5817 568.1269,-297.7987 572.0152,-295.09"/>
+<polygon fill="#000000" stroke="#000000" points="574.0524,-297.9365 580.2732,-289.3602 570.0619,-292.1853 574.0524,-297.9365"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-278.2292C437.5307,-275.7783 429.3844,-341.4228 487.1909,-356.2292"/>
+</g>
+<!-- module~m_allocate -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_node10" class="node">
+<title>module~m_allocate</title>
+<g id="a_module~~dargdynamicarray_class~~UsesGraph_node10"><a xlink:href="../module/m_allocate.html" xlink:title="m_allocate">
+<polygon fill="#337ab7" stroke="#337ab7" points="518.4687,-211.2347 455.9132,-211.2347 455.9132,-189.2238 518.4687,-189.2238 518.4687,-211.2347"/>
+<text text-anchor="middle" x="487.1909" y="-197.0792" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_allocate</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~m_allocate -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge5" class="edge">
+<title>module~variablekind&#45;&gt;module~m_allocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-278.2292C417.6234,-276.4611 418.9038,-250.0436 449.9626,-225.2292 453.384,-222.4957 457.0992,-219.7565 460.814,-217.146"/>
+<polygon fill="#000000" stroke="#000000" points="463.0377,-219.8666 469.3424,-211.3518 459.1039,-214.0765 463.0377,-219.8666"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-278.2292C313.9631,-291.4112 328.2244,-280.4412 377.9084,-278.2292"/>
+</g>
+<!-- module~m_deallocate -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_node11" class="node">
+<title>module~m_deallocate</title>
+<g id="a_module~~dargdynamicarray_class~~UsesGraph_node11"><a xlink:href="../module/m_deallocate.html" xlink:title="m_deallocate">
+<polygon fill="#337ab7" stroke="#337ab7" points="524.6489,-289.2347 449.733,-289.2347 449.733,-267.2238 524.6489,-267.2238 524.6489,-289.2347"/>
+<text text-anchor="middle" x="487.1909" y="-275.0792" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_deallocate</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~m_deallocate -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge8" class="edge">
+<title>module~variablekind&#45;&gt;module~m_deallocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-278.2292C398.1521,-277.328 420.526,-277.1787 439.729,-277.3109"/>
+<polygon fill="#000000" stroke="#000000" points="439.7116,-280.8108 449.7447,-277.4067 439.7786,-273.8111 439.7116,-280.8108"/>
+</g>
+<!-- module~m_reallocate -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_node12" class="node">
+<title>module~m_reallocate</title>
+<g id="a_module~~dargdynamicarray_class~~UsesGraph_node12"><a xlink:href="../module/m_reallocate.html" xlink:title="m_reallocate">
+<polygon fill="#337ab7" stroke="#337ab7" points="632.5896,-211.2347 560.3623,-211.2347 560.3623,-189.2238 632.5896,-189.2238 632.5896,-211.2347"/>
+<text text-anchor="middle" x="596.476" y="-197.0792" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_reallocate</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~m_reallocate -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge11" class="edge">
+<title>module~variablekind&#45;&gt;module~m_reallocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-278.2292C396.4572,-277.4034 501.6184,-237.3247 559.042,-214.9503"/>
+<polygon fill="#000000" stroke="#000000" points="560.4609,-218.1537 568.5028,-211.2559 557.9147,-211.6332 560.4609,-218.1537"/>
+</g>
+<!-- module~m_unittester -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_node13" class="node">
+<title>module~m_unittester</title>
+<g id="a_module~~dargdynamicarray_class~~UsesGraph_node13"><a xlink:href="../module/m_unittester.html" xlink:title="m_unitTester">
+<polygon fill="#337ab7" stroke="#337ab7" points="414.0169,-250.2347 341.8,-250.2347 341.8,-228.2238 414.0169,-228.2238 414.0169,-250.2347"/>
+<text text-anchor="middle" x="377.9084" y="-236.0792" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_unitTester</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~m_unittester -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge2" class="edge">
+<title>module~variablekind&#45;&gt;module~m_unittester</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M162.7788,-194.27C178.6557,-216.3735 218.1364,-265.0699 266.0087,-278.2292"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-278.2292C297.2176,-286.8081 332.3288,-270.1136 354.7594,-255.9692"/>
+<polygon fill="#000000" stroke="#000000" points="356.8571,-258.7781 363.2652,-250.3408 352.9943,-252.9404 356.8571,-258.7781"/>
+</g>
+<!-- module~m_parameters -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_node14" class="node">
+<title>module~m_parameters</title>
+<g id="a_module~~dargdynamicarray_class~~UsesGraph_node14"><a xlink:href="../module/m_parameters.html" xlink:title="m_parameters">
+<polygon fill="#337ab7" stroke="#337ab7" points="305.7004,-97.2347 226.3169,-97.2347 226.3169,-75.2238 305.7004,-75.2238 305.7004,-97.2347"/>
+<text text-anchor="middle" x="266.0087" y="-83.0792" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_parameters</text>
+</a>
+</g>
+</g>
+<!-- module~variablekind&#45;&gt;module~m_parameters -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge22" class="edge">
+<title>module~variablekind&#45;&gt;module~m_parameters</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M172.743,-172.2215C178.5743,-168.1647 184.9172,-163.3102 190.1631,-158.2292 209.0635,-139.923 206.71,-128.9471 226.1631,-111.2292 229.3555,-108.3216 232.9289,-105.5486 236.5899,-102.9786"/>
+<polygon fill="#000000" stroke="#000000" points="238.6964,-105.7831 245.1527,-97.3827 234.867,-99.9234 238.6964,-105.7831"/>
+</g>
+<!-- module~m_strings&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge40" class="edge">
+<title>module~m_strings&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M406.6698,-47.2292C428.7077,-47.2292 459.8703,-47.2292 487.1909,-47.2292"/>
+</g>
+<!-- module~m_strings&#45;&gt;module~idynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge15" class="edge">
+<title>module~m_strings&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M596.476,-85.2292C661.0285,-102.8136 701.8582,-180.0483 718.2476,-217.5933"/>
+<polygon fill="#000000" stroke="#000000" points="715.1201,-219.1854 722.2215,-227.0479 721.5732,-216.4729 715.1201,-219.1854"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M405.8253,-58.3482C427.6801,-66.7064 458.9949,-77.9277 487.1909,-85.2292"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M487.1909,-85.2292C534.2111,-97.4054 549.6124,-72.4634 596.476,-85.2292"/>
+</g>
+<!-- module~m_strings&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge32" class="edge">
+<title>module~m_strings&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M487.1909,-85.2292C561.898,-104.5751 582.1047,-121.8133 632.5327,-180.2292 657.4822,-209.1308 640.4167,-232.3977 668.5327,-258.2292 670.4283,-259.9708 672.4794,-261.5705 674.6399,-263.0397"/>
+<polygon fill="#000000" stroke="#000000" points="673.0042,-266.1364 683.4187,-268.0827 676.4911,-260.0666 673.0042,-266.1364"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge41" class="edge">
+<title>module~m_errors&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M281.9639,-153.2222C324.7998,-124.0966 442.1207,-47.2292 487.1909,-47.2292"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~idynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge16" class="edge">
+<title>module~m_errors&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M293.2214,-172.7201C315.9296,-179.8688 349.1125,-190.4616 377.9084,-200.2292"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M487.1909,-161.2292C506.2393,-156.2589 508.1589,-148.3264 524.4192,-137.2292 557.0399,-114.9665 558.3709,-74.8493 596.476,-85.2292"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-200.2292C426.7456,-216.7948 437.2914,-174.2495 487.1909,-161.2292"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_strings -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge26" class="edge">
+<title>module~m_errors&#45;&gt;module~m_strings</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M273.5646,-153.2026C286.321,-135.0524 313.5207,-98.2992 341.8542,-72.2292 344.8583,-69.4652 348.1847,-66.7627 351.5669,-64.2172"/>
+<polygon fill="#000000" stroke="#000000" points="353.8143,-66.9139 359.9371,-58.2674 349.7586,-61.2085 353.8143,-66.9139"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge33" class="edge">
+<title>module~m_errors&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-200.2292C395.0615,-206.0476 401.5278,-206.059 413.9626,-219.2292 440.4518,-247.2848 418.924,-275.3078 449.9626,-298.2292 502.7831,-337.2361 531.0229,-311.9914 596.476,-317.2292"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_allocate -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge6" class="edge">
+<title>module~m_errors&#45;&gt;module~m_allocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-200.2292C399.4269,-207.5283 424.7298,-207.9979 445.5664,-206.4305"/>
+<polygon fill="#000000" stroke="#000000" points="446.0734,-209.8985 455.7051,-205.4848 445.4233,-202.9288 446.0734,-209.8985"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_deallocate -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge9" class="edge">
+<title>module~m_errors&#45;&gt;module~m_deallocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M377.9084,-200.2292C414.1551,-212.5241 448.8639,-241.1373 469.0952,-260.0766"/>
+<polygon fill="#000000" stroke="#000000" points="466.7184,-262.6466 476.3563,-267.0467 471.5659,-257.5967 466.7184,-262.6466"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_reallocate -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge12" class="edge">
+<title>module~m_errors&#45;&gt;module~m_reallocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M487.1909,-161.2292C517.5503,-153.3076 551.4202,-169.4607 573.2915,-183.3268"/>
+<polygon fill="#000000" stroke="#000000" points="571.6224,-186.4204 581.8851,-189.0525 575.5038,-180.595 571.6224,-186.4204"/>
+</g>
+<!-- module~m_errors&#45;&gt;module~m_unittester -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge4" class="edge">
+<title>module~m_errors&#45;&gt;module~m_unittester</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M283.9736,-175.2535C290.8622,-179.5452 298.7671,-184.5488 305.8542,-189.2292 322.109,-199.9642 325.8503,-203.1238 341.8542,-214.2292 345.6168,-216.8401 349.6008,-219.6037 353.4946,-222.3041"/>
+<polygon fill="#000000" stroke="#000000" points="351.5417,-225.2091 361.7538,-228.0312 355.5306,-219.4567 351.5417,-225.2091"/>
+</g>
+<!-- module~m_searching&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge42" class="edge">
+<title>module~m_searching&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M726.4636,-395.2292C792.6569,-376.227 848.0542,-311.0598 872.7258,-277.92"/>
+<polygon fill="#000000" stroke="#000000" points="875.8064,-279.6344 878.8532,-269.4871 870.1435,-275.5197 875.8064,-279.6344"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M612.8549,-367.34C637.466,-382.6282 685.4735,-406.9964 726.4636,-395.2292"/>
+</g>
+<!-- module~m_searching&#45;&gt;module~idynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge18" class="edge">
+<title>module~m_searching&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M603.5524,-345.1133C618.2216,-322.3573 651.9563,-271.5666 668.5327,-259.2292 671.1931,-257.2492 674.0586,-255.4407 677.0406,-253.7914"/>
+<polygon fill="#000000" stroke="#000000" points="678.7891,-256.8329 686.2474,-249.308 675.7244,-250.5395 678.7891,-256.8329"/>
+</g>
+<!-- module~m_searching&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge35" class="edge">
+<title>module~m_searching&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M615.1,-345.197C637.1079,-332.1603 673.9169,-310.356 699.1502,-295.4087"/>
+<polygon fill="#000000" stroke="#000000" points="701.0541,-298.3489 707.8741,-290.241 697.4865,-292.3263 701.0541,-298.3489"/>
+</g>
+<!-- module~ddynamicarray_class&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge43" class="edge">
+<title>module~ddynamicarray_class&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M784.6914,-271.5883C792.9776,-270.501 801.6012,-269.3694 810.1684,-268.2451"/>
+<polygon fill="#000000" stroke="#000000" points="810.7163,-271.7033 820.1759,-266.9319 809.8055,-264.7628 810.7163,-271.7033"/>
+</g>
+<!-- iso_fortran_env -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_node8" class="node">
+<title>iso_fortran_env</title>
+<g id="a_module~~dargdynamicarray_class~~UsesGraph_node8"><a xlink:href="https://software.intel.com/en-us/node/511041" xlink:title="iso_fortran_env">
+<polygon fill="#337ab7" stroke="#337ab7" points="84.5666,-174.2347 -.1894,-174.2347 -.1894,-152.2238 84.5666,-152.2238 84.5666,-174.2347"/>
+<text text-anchor="middle" x="42.1886" y="-160.0792" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">iso_fortran_env</text>
+</a>
+</g>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~dargdynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge44" class="edge">
+<title>iso_fortran_env&#45;&gt;module~dargdynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M155.2701,-144.2292C211.1188,-134.5784 186.8896,-79.0924 226.1631,-38.2292 241.3406,-22.4374 245.5097,-16.9447 266.0087,-9.2292"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M84.6264,-156.1948C105.8503,-152.6523 131.9263,-148.2631 155.2701,-144.2292"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M487.1909,-47.2292C552.6572,-46.4306 572.2088,-45.7835 632.5327,-71.2292 731.9119,-113.1492 828.7226,-201.2797 868.0745,-239.683"/>
+<polygon fill="#000000" stroke="#000000" points="866.0033,-242.5563 875.5798,-247.0885 870.9198,-237.5735 866.0033,-242.5563"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-9.2292C328.0049,14.1051 348.9611,-14.4691 413.9626,-27.2292 447.0687,-33.7281 453.4977,-45.4922 487.1909,-47.2292"/>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~variablekind -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge21" class="edge">
+<title>iso_fortran_env&#45;&gt;module~variablekind</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M84.6177,-170.7334C92.994,-172.2149 101.8118,-173.7744 110.2697,-175.2703"/>
+<polygon fill="#000000" stroke="#000000" points="109.8974,-178.7587 120.3541,-177.0539 111.1165,-171.8657 109.8974,-178.7587"/>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~m_strings -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge25" class="edge">
+<title>iso_fortran_env&#45;&gt;module~m_strings</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M266.0087,-9.2292C280.9522,-3.6048 319.0899,-18.867 346.6934,-31.6968"/>
+<polygon fill="#000000" stroke="#000000" points="345.4276,-34.9701 355.9626,-36.0952 348.4286,-28.646 345.4276,-34.9701"/>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~m_errors -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge28" class="edge">
+<title>iso_fortran_env&#45;&gt;module~m_errors</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M155.2701,-144.2292C179.8849,-140.0867 207.5133,-145.0609 229.0161,-151.0835"/>
+<polygon fill="#000000" stroke="#000000" points="228.1514,-154.4781 238.7351,-153.9918 230.1582,-147.7719 228.1514,-154.4781"/>
+</g>
+<!-- iso_fortran_env&#45;&gt;module~m_unittester -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge3" class="edge">
+<title>iso_fortran_env&#45;&gt;module~m_unittester</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M155.2701,-144.2292C190.9458,-138.2253 193.3992,-168.8887 226.1631,-184.2292 260.8558,-200.4729 301.7681,-215.052 332.3646,-225.1123"/>
+<polygon fill="#000000" stroke="#000000" points="331.3228,-228.4539 341.915,-228.2162 333.4865,-221.7966 331.3228,-228.4539"/>
+</g>
+<!-- module~m_sort&#45;&gt;module~idynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge14" class="edge">
+<title>module~m_sort&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M623.7256,-269.8439C640.2085,-264.7718 661.6478,-258.1744 680.6746,-252.3195"/>
+<polygon fill="#000000" stroke="#000000" points="681.8371,-255.6238 690.3654,-249.3374 679.7783,-248.9334 681.8371,-255.6238"/>
+</g>
+<!-- module~m_sort&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge31" class="edge">
+<title>module~m_sort&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M623.7256,-278.4389C633.9038,-278.5172 645.972,-278.61 658.195,-278.704"/>
+<polygon fill="#000000" stroke="#000000" points="658.4339,-282.2059 668.4606,-278.783 658.4878,-275.2061 658.4339,-282.2059"/>
+</g>
+<!-- module~m_allocate&#45;&gt;module~idynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge17" class="edge">
+<title>module~m_allocate&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M516.6387,-189.2062C546.3554,-179.6953 593.3284,-169.1007 632.5327,-180.2292 660.1023,-188.0551 687.5121,-206.5272 705.5426,-220.5384"/>
+<polygon fill="#000000" stroke="#000000" points="703.607,-223.4723 713.6001,-226.992 707.9831,-218.0087 703.607,-223.4723"/>
+</g>
+<!-- module~m_allocate&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge34" class="edge">
+<title>module~m_allocate&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M494.5323,-211.2805C509.7234,-233.9319 544.5133,-284.6398 560.4192,-298.2292 574.1912,-309.9956 578.4197,-315.7843 596.476,-317.2292"/>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M596.476,-317.2292C631.8053,-320.0564 670.5986,-306.3784 696.5269,-294.6527"/>
+<polygon fill="#000000" stroke="#000000" points="698.2396,-297.715 705.8001,-290.2927 695.2612,-291.3802 698.2396,-297.715"/>
+</g>
+<!-- module~m_allocate&#45;&gt;module~m_reallocate -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge10" class="edge">
+<title>module~m_allocate&#45;&gt;module~m_reallocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M518.5076,-200.2292C528.354,-200.2292 539.4443,-200.2292 550.1046,-200.2292"/>
+<polygon fill="#000000" stroke="#000000" points="550.139,-203.7293 560.139,-200.2292 550.139,-196.7293 550.139,-203.7293"/>
+</g>
+<!-- module~m_deallocate&#45;&gt;module~idynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge19" class="edge">
+<title>module~m_deallocate&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M523.4449,-267.1967C535.1592,-263.9368 548.2616,-260.6083 560.4192,-258.2292 592.9325,-251.8668 629.4487,-247.2028 659.9405,-243.9872"/>
+<polygon fill="#000000" stroke="#000000" points="660.4451,-247.4539 670.0358,-242.9519 659.7309,-240.4905 660.4451,-247.4539"/>
+</g>
+<!-- module~m_deallocate&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge36" class="edge">
+<title>module~m_deallocate&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M507.8137,-289.2864C529.2562,-299.8837 564.1458,-314.6421 596.476,-317.2292"/>
+</g>
+<!-- module~m_reallocate&#45;&gt;module~idynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge20" class="edge">
+<title>module~m_reallocate&#45;&gt;module~idynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M632.6848,-210.8143C646.9814,-214.9937 663.6066,-219.8539 678.8541,-224.3113"/>
+<polygon fill="#000000" stroke="#000000" points="678.0562,-227.7245 688.6366,-227.171 680.0204,-221.0057 678.0562,-227.7245"/>
+</g>
+<!-- module~m_reallocate&#45;&gt;module~ddynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge37" class="edge">
+<title>module~m_reallocate&#45;&gt;module~ddynamicarray_class</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M607.8318,-211.3862C621.3377,-224.1515 645.0232,-244.9939 668.5327,-258.2292 672.413,-260.4138 676.5631,-262.4431 680.7925,-264.3099"/>
+<polygon fill="#000000" stroke="#000000" points="679.5246,-267.5728 690.1045,-268.1344 682.184,-261.0977 679.5246,-267.5728"/>
+</g>
+<!-- module~m_unittester&#45;&gt;module~m_allocate -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge7" class="edge">
+<title>module~m_unittester&#45;&gt;module~m_allocate</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M408.9321,-228.1577C420.5835,-223.9997 434.0089,-219.2085 446.4136,-214.7816"/>
+<polygon fill="#000000" stroke="#000000" points="447.8479,-217.986 456.0897,-211.3284 445.495,-211.3932 447.8479,-217.986"/>
+</g>
+<!-- module~m_parameters&#45;&gt;module~m_strings -->
+<g id="module~~dargdynamicarray_class~~UsesGraph_edge23" class="edge">
+<title>module~m_parameters&#45;&gt;module~m_strings</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M297.7753,-75.1577C310.7739,-70.6274 325.9289,-65.3455 339.539,-60.602"/>
+<polygon fill="#000000" stroke="#000000" points="340.8323,-63.8578 349.1233,-57.2616 338.5284,-57.2478 340.8323,-63.8578"/>
+</g>
+</g>
+</svg>
+</div>
+                <script>var panmoduledargdynamicarray_classUsesGraph = svgPanZoom('#moduledargdynamicarray_classUsesGraph', {
+                    zoomEnabled: true,
+                    controlIconsEnabled: true,
+                    fit: true,
+                    center: true,});
+                    </script>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="484pt" height="31pt"
+ viewBox="0.00 0.00 483.85 30.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 26.5)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-26.5 479.8539,-26.5 479.8539,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-22.2554 0,-22.2554 0,-.2446 54,-.2446 54,-22.2554"/>
+<text text-anchor="middle" x="27" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="137.6205,-22.2554 72.3795,-22.2554 72.3795,-.2446 137.6205,-.2446 137.6205,-22.2554"/>
+<text text-anchor="middle" x="105" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="218.288,-22.2554 155.712,-22.2554 155.712,-.2446 218.288,-.2446 218.288,-22.2554"/>
+<text text-anchor="middle" x="187" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="290,-22.2554 236,-22.2554 236,-.2446 290,-.2446 290,-22.2554"/>
+<text text-anchor="middle" x="263" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="362,-22.2554 308,-22.2554 308,-.2446 362,-.2446 362,-22.2554"/>
+<text text-anchor="middle" x="335" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="475.7082,-22.2554 380.2918,-22.2554 380.2918,-.2446 475.7082,-.2446 475.7082,-22.2554"/>
+<text text-anchor="middle" x="428" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a parent (sub)module to the submodule which is
+    descended from it. Dashed arrows point from a module being used to the
+    module or program unit using it.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    
+
+    
+    <p>Class that act as stacks, queues, and priority queues like <a href="../module/ddynamicarray_class.html">dDynamicArray_Class</a> but with an added
+ integer index so that 'lists' of both a key and value can be maintained.
+ These classes use dynamically allocated contiguous blocks of memory to store a list of numbers.
+ The queues can be sorted to become priority queues and use binary searches to quickly insert new numbers.
+ If the allocated memory is filled, the available space is doubled.
+ Memory is only reallocated to a smaller size, if the utilization is a quarter of that allocated.
+ The array can be specified as fixed, so that no reallocation occurs.  This is useful for heaps of given 
+ like k nearest neighbours, or k smallest.</p>
+<p>Example usage</p>
+<div class="codehilite"><pre><span></span><span class="k">program </span><span class="n">dynamicArray_test</span>
+<span class="k">use </span><span class="n">variableKind</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">i32</span>
+<span class="k">use </span><span class="n">dArgDynamicArray_Class</span><span class="p">,</span> <span class="n">only</span><span class="p">:</span> <span class="n">dArgDynamicArray</span>
+
+<span class="k">implicit none</span>
+
+<span class="k">type</span><span class="p">(</span><span class="n">dArgDynamicArray</span><span class="p">)</span> <span class="kd">::</span> <span class="n">da</span><span class="p">,</span> <span class="n">da2</span>
+<span class="kt">integer</span><span class="p">(</span><span class="n">i32</span><span class="p">)</span> <span class="kd">::</span> <span class="n">ia</span>
+
+<span class="n">da</span> <span class="o">=</span> <span class="n">dArgDynamicArray</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertAt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertAt</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">2</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">prepend</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">3</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">append</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">4</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">remove</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">tighten</span><span class="p">()</span>
+<span class="n">da2</span> <span class="o">=</span> <span class="n">da</span>
+<span class="n">da2</span><span class="p">%</span><span class="n">v</span><span class="p">%</span><span class="n">values</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">5</span><span class="mf">0.d0</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
+<span class="k">call </span><span class="n">da2</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
+
+<span class="n">da</span> <span class="o">=</span> <span class="n">dArgDynamicArray</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">sorted</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="n">ia</span> <span class="o">=</span> <span class="n">da</span><span class="p">%</span><span class="n">locationOf</span><span class="p">(</span><span class="mi">2</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="n">ia</span> <span class="o">=</span> <span class="n">da</span><span class="p">%</span><span class="n">argOf</span><span class="p">(</span><span class="mi">2</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSortedUnique</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSortedUnique</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="mf">5.d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
+
+<span class="n">da</span> <span class="o">=</span> <span class="n">dArgDynamicArray</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">sorted</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.,</span> <span class="n">fixed</span><span class="o">=</span><span class="p">.</span><span class="n">true</span><span class="p">.)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSorted</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="n">ia</span> <span class="o">=</span> <span class="n">da</span><span class="p">%</span><span class="n">locationOf</span><span class="p">(</span><span class="mi">2</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="n">ia</span> <span class="o">=</span> <span class="n">da</span><span class="p">%</span><span class="n">argOf</span><span class="p">(</span><span class="mi">2</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSortedUnique</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="mf">0.d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="n">insertSortedUnique</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">1</span><span class="mf">5.d0</span><span class="p">)</span>
+<span class="k">call </span><span class="n">da</span><span class="p">%</span><span class="k">deallocate</span><span class="p">()</span>
+<span class="k">end program</span>
+</pre></div>
+    
+    
+    <h3>Used By</h3>
+    
+                <div class="depgraph"><?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: module~~dargdynamicarray_class~~UsedByGraph Pages: 1 -->
+<svg id="moduledargdynamicarray_classUsedByGraph" width="482pt" height="72pt"
+ viewBox="0.00 0.00 482.25 71.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="module~~dargdynamicarray_class~~UsedByGraph" class="graph" transform="scale(1 1) rotate(0) translate(4 67.5)">
+<title>module~~dargdynamicarray_class~~UsedByGraph</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-67.5 478.2454,-67.5 478.2454,4 -4,4"/>
+<!-- module~dargdynamicarray_class -->
+<g id="module~~dargdynamicarray_class~~UsedByGraph_node1" class="node">
+<title>module~dargdynamicarray_class</title>
+<polygon fill="none" stroke="#000000" points="132.3023,-43.2554 -.1009,-43.2554 -.1009,-21.2446 132.3023,-21.2446 132.3023,-43.2554"/>
+<text text-anchor="middle" x="66.1007" y="-29.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">dArgDynamicArray_Class</text>
+</g>
+<!-- module~m_tests -->
+<g id="module~~dargdynamicarray_class~~UsedByGraph_node2" class="node">
+<title>module~m_tests</title>
+<g id="a_module~~dargdynamicarray_class~~UsedByGraph_node2"><a xlink:href="../module/m_tests.html" xlink:title="m_tests">
+<polygon fill="#337ab7" stroke="#337ab7" points="341.8993,-63.2554 287.8993,-63.2554 287.8993,-41.2446 341.8993,-41.2446 341.8993,-63.2554"/>
+<text text-anchor="middle" x="314.8993" y="-49.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_tests</text>
+</a>
+</g>
+</g>
+<!-- module~dargdynamicarray_class&#45;&gt;module~m_tests -->
+<g id="module~~dargdynamicarray_class~~UsedByGraph_edge4" class="edge">
+<title>module~dargdynamicarray_class&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M132.4473,-37.5834C178.8952,-41.3171 239.2618,-46.1698 277.5568,-49.2482"/>
+<polygon fill="#000000" stroke="#000000" points="277.4944,-52.7544 287.7427,-50.067 278.0554,-45.7769 277.4944,-52.7544"/>
+</g>
+<!-- module~m_kdtree -->
+<g id="module~~dargdynamicarray_class~~UsedByGraph_node3" class="node">
+<title>module~m_kdtree</title>
+<g id="a_module~~dargdynamicarray_class~~UsedByGraph_node3"><a xlink:href="../module/m_kdtree.html" xlink:title="m_KdTree">
+<polygon fill="#337ab7" stroke="#337ab7" points="228.6539,-24.2554 168.3832,-24.2554 168.3832,-2.2446 228.6539,-2.2446 228.6539,-24.2554"/>
+<text text-anchor="middle" x="198.5186" y="-10.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">m_KdTree</text>
+</a>
+</g>
+</g>
+<!-- module~dargdynamicarray_class&#45;&gt;module~m_kdtree -->
+<g id="module~~dargdynamicarray_class~~UsedByGraph_edge5" class="edge">
+<title>module~dargdynamicarray_class&#45;&gt;module~m_kdtree</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M132.3096,-22.75C141.1293,-21.4845 149.9489,-20.219 158.1425,-19.0434"/>
+<polygon fill="#000000" stroke="#000000" points="158.7377,-22.4939 168.1392,-17.609 157.7435,-15.5649 158.7377,-22.4939"/>
+</g>
+<!-- program~test_coretran -->
+<g id="module~~dargdynamicarray_class~~UsedByGraph_node4" class="node">
+<title>program~test_coretran</title>
+<g id="a_module~~dargdynamicarray_class~~UsedByGraph_node4"><a xlink:href="../program/test_coretran.html" xlink:title="test_coretran">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="474.3871,-63.2554 400.8211,-63.2554 400.8211,-41.2446 474.3871,-41.2446 474.3871,-63.2554"/>
+<text text-anchor="middle" x="437.6041" y="-49.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">test_coretran</text>
+</a>
+</g>
+</g>
+<!-- module~m_tests&#45;&gt;program~test_coretran -->
+<g id="module~~dargdynamicarray_class~~UsedByGraph_edge1" class="edge">
+<title>module~m_tests&#45;&gt;program~test_coretran</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M342.1315,-52.25C356.2635,-52.25 373.937,-52.25 390.2233,-52.25"/>
+<polygon fill="#000000" stroke="#000000" points="390.6743,-55.7501 400.6743,-52.25 390.6742,-48.7501 390.6743,-55.7501"/>
+</g>
+<!-- module~m_kdtree&#45;&gt;module~m_tests -->
+<g id="module~~dargdynamicarray_class~~UsedByGraph_edge3" class="edge">
+<title>module~m_kdtree&#45;&gt;module~m_tests</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M228.7924,-23.395C243.8514,-28.4414 262.1793,-34.5832 278.0491,-39.9013"/>
+<polygon fill="#000000" stroke="#000000" points="276.9676,-43.2301 287.5615,-43.0889 279.1918,-36.5928 276.9676,-43.2301"/>
+</g>
+<!-- program~scaletest_coretran -->
+<g id="module~~dargdynamicarray_class~~UsedByGraph_node5" class="node">
+<title>program~scaletest_coretran</title>
+<g id="a_module~~dargdynamicarray_class~~UsedByGraph_node5"><a xlink:href="../program/scaletest_coretran.html" xlink:title="scaleTest_coretran">
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="365.0266,-22.2554 264.772,-22.2554 264.772,-.2446 365.0266,-.2446 365.0266,-22.2554"/>
+<text text-anchor="middle" x="314.8993" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">scaleTest_coretran</text>
+</a>
+</g>
+</g>
+<!-- module~m_kdtree&#45;&gt;program~scaletest_coretran -->
+<g id="module~~dargdynamicarray_class~~UsedByGraph_edge2" class="edge">
+<title>module~m_kdtree&#45;&gt;program~scaletest_coretran</title>
+<path fill="none" stroke="#000000" stroke-dasharray="5,2" d="M228.7924,-12.7297C236.7197,-12.5935 245.5528,-12.4417 254.4564,-12.2887"/>
+<polygon fill="#000000" stroke="#000000" points="254.5559,-15.7876 264.4942,-12.1162 254.4355,-8.7886 254.5559,-15.7876"/>
+</g>
+</g>
+</svg>
+</div>
+                <div><a type="button" class="graph-help" data-toggle="modal" href="#graph-help-text">Help</a></div>
+                <div class="modal fade" id="graph-help-text" tabindex="-1" role="dialog">
+                  <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        <h4 class="modal-title" id="-graph-help-label">Graph Key</h4>
+                      </div>
+                      <div class="modal-body">
+                        
+    <p>Nodes of different colours represent the following: </p>
+    <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+ "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<!-- Generated by graphviz version 2.40.1 (20161225.0304)
+ -->
+<!-- Title: Graph Key Pages: 1 -->
+<svg width="484pt" height="31pt"
+ viewBox="0.00 0.00 483.85 30.50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 26.5)">
+<title>Graph Key</title>
+<polygon fill="#ffffff" stroke="transparent" points="-4,4 -4,-26.5 479.8539,-26.5 479.8539,4 -4,4"/>
+<!-- Module -->
+<g id="node1" class="node">
+<title>Module</title>
+<polygon fill="#337ab7" stroke="#337ab7" points="54,-22.2554 0,-22.2554 0,-.2446 54,-.2446 54,-22.2554"/>
+<text text-anchor="middle" x="27" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Module</text>
+</g>
+<!-- Submodule -->
+<g id="node2" class="node">
+<title>Submodule</title>
+<polygon fill="#5bc0de" stroke="#5bc0de" points="137.6205,-22.2554 72.3795,-22.2554 72.3795,-.2446 137.6205,-.2446 137.6205,-22.2554"/>
+<text text-anchor="middle" x="105" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Submodule</text>
+</g>
+<!-- Subroutine -->
+<g id="node3" class="node">
+<title>Subroutine</title>
+<polygon fill="#d9534f" stroke="#d9534f" points="218.288,-22.2554 155.712,-22.2554 155.712,-.2446 218.288,-.2446 218.288,-22.2554"/>
+<text text-anchor="middle" x="187" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Subroutine</text>
+</g>
+<!-- Function -->
+<g id="node4" class="node">
+<title>Function</title>
+<polygon fill="#d94e8f" stroke="#d94e8f" points="290,-22.2554 236,-22.2554 236,-.2446 290,-.2446 290,-22.2554"/>
+<text text-anchor="middle" x="263" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Function</text>
+</g>
+<!-- Program -->
+<g id="node5" class="node">
+<title>Program</title>
+<polygon fill="#f0ad4e" stroke="#f0ad4e" points="362,-22.2554 308,-22.2554 308,-.2446 362,-.2446 362,-22.2554"/>
+<text text-anchor="middle" x="335" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#ffffff">Program</text>
+</g>
+<!-- This Page&#39;s Entity -->
+<g id="node6" class="node">
+<title>This Page&#39;s Entity</title>
+<polygon fill="none" stroke="#000000" points="475.7082,-22.2554 380.2918,-22.2554 380.2918,-.2446 475.7082,-.2446 475.7082,-22.2554"/>
+<text text-anchor="middle" x="428" y="-8.1" font-family="Helvetica,sans-Serif" font-size="10.50" fill="#000000">This Page&#39;s Entity</text>
+</g>
+</g>
+</svg>
+
+    
+    <p>Solid arrows point from a parent (sub)module to the submodule which is
+    descended from it. Dashed arrows point from a module being used to the
+    module or program unit using it.
+    </p>
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                
+    <br>
+    
+
+    <section class="visible-xs visible-sm hidden-md">
+      
+
+
+
+
+
+
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#inters-1">Interfaces</a></h3></div>
+  <div id="inters-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/dargdynamicarray_class.html#interface-dargdynamicarray">dArgDynamicArray</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+<div class="panel panel-primary">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#types-1">Derived Types</a></h3></div>
+  <div id="types-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/dargdynamicarray_class.html#type-dargdynamicarray">dArgDynamicArray</a>
+      
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+    </section>
+    <br class="visible-xs visible-sm hidden-md">
+
+    
+
+    
+    
+    
+    
+    
+    <section>
+	 <h2>Interfaces</h2>
+	 
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="interface-dargdynamicarray"></span><h3>public interface <a href='../interface/dargdynamicarray.html'>dArgDynamicArray</a>
+    
+  </h3></div>
+  
+  <ul class="list-group">
+  
+  
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private function init_dArgDynamicArray_i1(M, sorted, fixed) result(this)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Overloaded by interface [[dArgDynamicArray(type)]]</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>M</strong></td><td><p>Amount of memory to allocate.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>sorted</strong></td><td><p>Maintain a sorted array.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>fixed</strong></td><td><p>Maintain a fixed size array.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>type(<a href='../type/dargdynamicarray.html'>dArgDynamicArray</a>)
+  </small></h4>
+  
+    
+
+    </li>
+  
+    <li class="list-group-item">
+    
+    
+    <h3>
+private function init_dArgDynamicArray_d1D(i, values, M, sorted, fixed) result(this)
+    
+    
+	 
+</h3>
+    
+
+
+
+<p>Overloaded by interface [[dArgDynamicArray(type)]]</p>
+    
+    <h4>Arguments</h4>
+    
+      
+      
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th>
+<th>Intent</th><th>Optional</th>
+<th>Attributes</th><th></th><th>Name</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>i</strong>(:)</td><td><p>Set of value indices to initialize with.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>real(kind=r64),</td>
+  <td>intent(in)</td>
+  <td></td>
+  
+  <td></td><td>::</td>
+  <td><strong>values</strong>(:)</td><td><p>Set of values to initialize with.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>integer(kind=i32),</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>M</strong></td><td><p>Amount of memory to allocate.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>sorted</strong></td><td><p>Maintain a sorted array.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" ></span>logical,</td>
+  <td>intent(in),</td>
+  <td>optional</td>
+  
+  <td></td><td>::</td>
+  <td><strong>fixed</strong></td><td><p>Maintain a fixed size array.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+      
+    
+    
+
+  
+  
+  
+  
+     <h4>Return Value <small>type(<a href='../type/dargdynamicarray.html'>dArgDynamicArray</a>)
+  </small></h4>
+  
+    
+
+    </li>
+  
+  
+  </ul>
+</div>
+
+    
+    </section>
+	<br>
+    
+
+    
+    
+    
+    <section>
+     <h2>Derived Types</h2>
+	 
+	   
+<div class="panel panel-default">
+  <div class="panel-heading codesum"><span class="anchor" id="type-dargdynamicarray"></span><h3>type, public :: <a href='../type/dargdynamicarray.html'>dArgDynamicArray</a>
+    
+  </h3></div>
+  <div class="panel-body">
+    
+    
+    <p>Class that act as stacks, queues, and priority queues. See <a href="../module/dargdynamicarray_class.html">dArgDynamicArray_Class</a> for more information on how to use this class.</p>
+    
+     
+     <h4>Components</h4>
+    
+<table class="table table-striped varlist">
+<thead><tr><th>Type</th><th>Visibility</th>
+
+<th>Attributes</th><th></th><th>Name</th><th></th><th>Initial</th><th></th></thead>
+
+
+
+<tbody>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-i"></span>type(iDynamicArray),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>i</strong></td><td></td><td></td><td><p>Argument of the values.</p></td>
+  
+</tr>
+
+  
+  
+  
+  
+<tr>
+  
+  <td><span class="anchor" id="variable-v"></span>type(dDynamicArray),</td>
+  
+  <td>public</td>
+  <td></td><td>::</td>
+  <td><strong>v</strong></td><td></td><td></td><td><p>Values.</p></td>
+  
+</tr>
+
+</tbody>
+</table>
+
+     
+     
+     <h4>Constructor</h4>
+       
+         
+       
+       <table class="table table-striped varlist">
+      <tbody>
+        
+             
+             
+             
+             <tr><td>private  function <strong>init_dArgDynamicArray_i1</strong>(M, sorted, fixed)</td><td><p>Overloaded by interface [[dArgDynamicArray(type)]]</p></td></tr>
+             
+             
+             <tr><td>private  function <strong>init_dArgDynamicArray_d1D</strong>(i, values, M, sorted, fixed)</td><td><p>Overloaded by interface [[dArgDynamicArray(type)]]</p></td></tr>
+             
+        
+       </tbody>
+       </table>
+     
+          
+     
+     <h4>Type-Bound Procedures</h4>
+      <table class="table table-striped varlist">
+      <tbody>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/dargdynamicarray.html#boundprocedure-append'>append</a></strong>  => append_dArgDynamicArray </td>
+       <td><p>dArgDynamicArray%append() - Append a value to the end of the dynamic array.  Will change a sorted dynamic array to unsorted.</p></td></tr>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/dargdynamicarray.html#boundprocedure-argof'>argOf</a></strong>  => argOf_dArgDynamicArray </td>
+       <td><p>dArgDynamicArray%argOf() - Get the argument of a value in a sorted dynamic array</p></td></tr>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/dargdynamicarray.html#boundprocedure-deallocate'>deallocate</a></strong>  => deallocate_dArgDynamicArray </td>
+       <td><p>dArgDynamicArray%%deallocate() - Deallocate a dynamic array.</p></td></tr>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/dargdynamicarray.html#boundprocedure-insertat'>insertAt</a></strong>  => insertAt_dArgDynamicArray </td>
+       <td><p>dArgDynamicArray%insertAt() - Insert a value at a given index.</p></td></tr>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/dargdynamicarray.html#boundprocedure-insertsorted'>insertSorted</a></strong>  => insertSorted_dArgDynamicArray </td>
+       <td><p>dArgDynamicArray%insertSorted() - Insert a value into a sorted dynamic array.</p></td></tr>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/dargdynamicarray.html#boundprocedure-insertsortedunique'>insertSortedUnique</a></strong>  => insertSortedUnique_dArgDynamicArray </td>
+       <td><p>dArgDynamicArray%insertSortedUnique() - Inserts only unique numbers into a dynamic array.</p></td></tr>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/dargdynamicarray.html#boundprocedure-isempty'>isEmpty</a></strong>  => isEmpty_dArgDynamicArray </td>
+       <td><p>dArgDynamicArray%isEmpty() - True if the array is empty.</p></td></tr>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/dargdynamicarray.html#boundprocedure-isfilled'>isFilled</a></strong>  => isFilled_dArgDynamicArray </td>
+       <td><p>dArgDynamicArray%isFilled() - True if the allocated memory has been filled.</p></td></tr>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/dargdynamicarray.html#boundprocedure-locationof'>locationOf</a></strong>  => locationOf_dArgDynamicArray </td>
+       <td><p>dArgDynamicArray%locationOf() - Get the location of a value in a sorted dynamic array.</p></td></tr>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/dargdynamicarray.html#boundprocedure-prepend'>prepend</a></strong>  => prepend_dArgDynamicArray </td>
+       <td><p>dArgDynamicArray%prepend() - Prepend a value to the start of the dynamic array. Only for unsorted dynamic arrays</p></td></tr>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/dargdynamicarray.html#boundprocedure-print'>print</a></strong>  => print_dArgDynamicArray </td>
+       <td><p>dArgDynamicArray%print() - Print to the screen</p></td></tr>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/dargdynamicarray.html#boundprocedure-remove'>remove</a></strong>  => remove_dArgDynamicArray </td>
+       <td><p>dArgDynamicArray%remove() - Remove an element from the array.</p></td></tr>
+      
+       <tr><td>procedure, public :: <strong><a href='../type/dargdynamicarray.html#boundprocedure-tighten'>tighten</a></strong>  => tighten_dArgDynamicArray </td>
+       <td><p>dArgDynamicArray%tighten() - Removes excess buffer memory and trims it to the current length.</p></td></tr>
+      
+       </tbody>
+       </table>
+     
+  </div>
+</div>
+
+     
+    </section>
+	<br>
+    
+    
+    
+
+    
+    
+    
+    </div>
+  </div>
+
+  <section class="visible-xs visible-sm hidden-md">
+    <hr>
+    
+
+<div class="panel panel-default">
+  <div class="panel-heading text-left"><h3 class="panel-title"><a data-toggle="collapse" href="#allmods-1">All Modules</a></h3></div>
+  <div id="allmods-1" class="panel-collapse collapse">
+    <div class="list-group">
+      
+      <a class="list-group-item" href="../module/dargdynamicarray_class.html">dArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/ddynamicarray_class.html">dDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/formatting.html">formatting</a>
+      
+      <a class="list-group-item" href="../module/iargdynamicarray_class.html">iArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/idargdynamicarray_class.html">idArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/iddynamicarray_class.html">idDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/idynamicarray_class.html">iDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/m_allocate.html">m_allocate</a>
+      
+      <a class="list-group-item" href="../module/m_array1d.html">m_array1D</a>
+      
+      <a class="list-group-item" href="../module/m_compare.html">m_compare</a>
+      
+      <a class="list-group-item" href="../module/m_copy.html">m_copy</a>
+      
+      <a class="list-group-item" href="../module/m_deallocate.html">m_deallocate</a>
+      
+      <a class="list-group-item" href="../module/m_debugging.html">m_debugging</a>
+      
+      <a class="list-group-item" href="../module/m_errors.html">m_errors</a>
+      
+      <a class="list-group-item" href="../module/m_fileio.html">m_fileIO</a>
+      
+      <a class="list-group-item" href="../module/m_indexing.html">m_indexing</a>
+      
+      <a class="list-group-item" href="../module/m_kdtree.html">m_KdTree</a>
+      
+      <a class="list-group-item" href="../module/m_maths.html">m_maths</a>
+      
+      <a class="list-group-item" href="../module/m_medianof3.html">m_medianOf3</a>
+      
+      <a class="list-group-item" href="../module/m_parameters.html">m_parameters</a>
+      
+      <a class="list-group-item" href="../module/m_partition.html">m_partition</a>
+      
+      <a class="list-group-item" href="../module/m_partition3way.html">m_partition3way</a>
+      
+      <a class="list-group-item" href="../module/m_random.html">m_random</a>
+      
+      <a class="list-group-item" href="../module/m_readline.html">m_readline</a>
+      
+      <a class="list-group-item" href="../module/m_reallocate.html">m_reallocate</a>
+      
+      <a class="list-group-item" href="../module/m_searching.html">m_searching</a>
+      
+      <a class="list-group-item" href="../module/m_select.html">m_select</a>
+      
+      <a class="list-group-item" href="../module/m_sort.html">m_sort</a>
+      
+      <a class="list-group-item" href="../module/m_strings.html">m_strings</a>
+      
+      <a class="list-group-item" href="../module/m_swap.html">m_swap</a>
+      
+      <a class="list-group-item" href="../module/m_tests.html">m_tests</a>
+      
+      <a class="list-group-item" href="../module/m_time.html">m_time</a>
+      
+      <a class="list-group-item" href="../module/m_unittester.html">m_unitTester</a>
+      
+      <a class="list-group-item" href="../module/m_writeline.html">m_writeline</a>
+      
+      <a class="list-group-item" href="../module/prng_class.html">Prng_Class</a>
+      
+      <a class="list-group-item" href="../module/progressbar_class.html">ProgressBar_Class</a>
+      
+      <a class="list-group-item" href="../module/rargdynamicarray_class.html">rArgDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/rdynamicarray_class.html">rDynamicArray_Class</a>
+      
+      <a class="list-group-item" href="../module/stopwatch_class.html">Stopwatch_Class</a>
+      
+      <a class="list-group-item" href="../module/variablekind.html">variableKind</a>
+      
+    </div>
+  </div>
+</div>
+
+
+  </section>
+  
+    <hr>    
+    </div> <!-- /container -->
+    <footer>
+      <div class="container">
+      <div class="row">
+        <div class="col-xs-6 col-md-4"><p>&copy; 2018 </p></div>
+        <div class="col-xs-6 col-md-4 col-md-push-4">
+          <p class="text-right">
+            Documentation generated by 
+            <a href="https://github.com/cmacmackin/ford">FORD</a>
+            
+          </p>
+        </div>
+        <div class="col-xs-12 col-md-4 col-md-pull-4"><p class="text-center"> Fortran Program was developed by Leon Foks</p></div>
+      </div>
+      <br>
+      </div> <!-- /container -->    
+    </footer>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+<!--
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+-->
+    <script src="../js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../js/ie10-viewport-bug-workaround.js"></script>
+
+    <!-- MathJax JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } },
+        jax: ['input/TeX','input/MathML','output/HTML-CSS'],
+        extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js'],
+        'HTML-CSS': { 
+           styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: '#000000 ! important'} }
+        }
+      });
+    </script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  </body>
+</html>
