@@ -152,8 +152,8 @@ module m_KdTree
   use m_deallocate, only: deallocate
   use m_errors, only: eMsg
   use m_maths, only: variance
-  use m_iDynamicArray, only: iDynamicArray
-  use m_dArgDynamicArray, only: dArgDynamicArray
+  use iDynamicArray_Class, only: iDynamicArray
+  use dArgDynamicArray_Class, only: dArgDynamicArray
   use m_select, only: argSelect
   use m_strings, only: str
 
