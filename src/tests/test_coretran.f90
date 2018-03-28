@@ -3,37 +3,7 @@ program test_coretran
   use m_unitTester
   use iso_fortran_env
   use variableKind
-  use m_array1D
-  use m_errors
-  use m_fileIO
-  use m_indexing
   use m_random
-  use Prng_Class
-  use m_readLine
-  use m_strings
-  use m_writeLine
-  use m_time
-  use m_allocate
-  use m_deallocate
-  use m_reallocate
-  use m_copy
-  ! Sorting routines
-  use m_Sort
-  use m_Select
-  use m_Searching
-  use m_maths
-  use m_KdTree
-
-  use m_rDynamicArray
-  use m_dDynamicArray
-  use m_iDynamicArray
-  use m_idDynamicArray
-
-  use m_rArgDynamicArray
-  use m_dArgDynamicArray
-  use m_iArgDynamicArray
-  use m_idArgDynamicArray
-
   use m_tests
 
   implicit none

@@ -5,14 +5,14 @@ use m_allocate, only: allocate
 use m_array1D
 use m_copy, only: copy
 use m_deallocate, only: deallocate
-use m_dDynamicArray, only: dDynamicArray
-use m_iDynamicArray, only: iDynamicArray
-use m_idDynamicArray, only: idDynamicArray
-use m_rDynamicArray, only: rDynamicArray
-use m_dArgDynamicArray, only: dArgDynamicArray
-use m_iArgDynamicArray, only: iArgDynamicArray
-use m_idArgDynamicArray, only: idArgDynamicArray
-use m_rArgDynamicArray, only: rArgDynamicArray
+use dDynamicArray_Class, only: dDynamicArray
+use iDynamicArray_Class, only: iDynamicArray
+use idDynamicArray_Class, only: idDynamicArray
+use rDynamicArray_Class, only: rDynamicArray
+use dArgDynamicArray_Class, only: dArgDynamicArray
+use iArgDynamicArray_Class, only: iArgDynamicArray
+use idArgDynamicArray_Class, only: idArgDynamicArray
+use rArgDynamicArray_Class, only: rArgDynamicArray
 use m_errors
 use m_fileIO
 use m_indexing, only: ind2sub, sub2ind
@@ -38,6 +38,112 @@ implicit none
 
 contains
 
+  !====================================================================!
+  subroutine allocate_test(test)
+    !! graph: false
+  !====================================================================!
+  class(tester) :: test
+  real(r32), allocatable :: ar1D(:), ar2D(:,:), ar3D(:,:,:)
+  real(r64), allocatable :: a1D(:), a2D(:,:), a3D(:,:,:)
+  integer(i32), allocatable :: ia1D(:), ia2D(:,:), ia3D(:,:,:)
+  integer(i64), allocatable :: iad1D(:), iad2D(:,:), iad3D(:,:,:)
+  complex(r32), allocatable :: z1D(:), z2D(:,:), z3D(:,:,:)
+  complex(r64), allocatable :: zz1D(:), zz2D(:,:), zz3D(:,:,:)
+  logical, allocatable :: la1D(:), la2D(:,:), la3D(:,:,:)
+
+  call Msg('==========================')
+  call Msg('Testing : Allocate')
+  call Msg('==========================')
+
+  call allocate(ar1D, 100)
+  call test%test(size(ar1D) == 100,'allocate_r1D')
+  call allocate(ar2D, [5,6])
+  call test%test(all(shape(ar2D) == [5,6]),'allocate_r2D')
+  call allocate(ar3D, [10,9,8])
+  call test%test(all(shape(ar3D) == [10,9,8]),'allocate_r3D')
+  call allocate(ar1D, -10, 100)
+  call test%test(lbound(ar1D,1) == -10 .and. size(ar1D) == 100, 'allocate_lb_r1D')
+  call allocate(ar2D, [-3, -2], [5,6])
+  call test%test(all(lbound(ar2D) == [-3, -2]) .and. all(shape(ar2D) == [5,6]),'allocate_lb_r2D')
+  call allocate(ar3D, [-3, -5, -7], [10,9,8])
+  call test%test(all(lbound(ar3D) == [-3, -5, -7]) .and. all(shape(ar3D) == [10,9,8]),'allocate_lb_r3D')
+
+  call allocate(a1D, 100)
+  call test%test(size(a1D) == 100,'allocate_d1D')
+  call allocate(a2D, [5,6])
+  call test%test(all(shape(a2D) == [5,6]),'allocate_d2D')
+  call allocate(a3D, [10,9,8])
+  call test%test(all(shape(a3D) == [10,9,8]),'allocate_d3D')
+  call allocate(a1D, -10, 100)
+  call test%test(lbound(a1D,1) == -10 .and. size(a1D) == 100, 'allocate_lb_d1D')
+  call allocate(a2D, [-3, -2], [5,6])
+  call test%test(all(lbound(a2D) == [-3, -2]) .and. all(shape(a2D) == [5,6]),'allocate_lb_d2D')
+  call allocate(a3D, [-3, -5, -7], [10,9,8])
+  call test%test(all(lbound(a3D) == [-3, -5, -7]) .and. all(shape(a3D) == [10,9,8]),'allocate_lb_d3D')
+
+  call allocate(ia1D, 100)
+  call test%test(size(ia1D) == 100,'allocate_i1D')
+  call allocate(ia2D, [5,6])
+  call test%test(all(shape(ia2D) == [5,6]),'allocate_i2D')
+  call allocate(ia3D, [10,9,8])
+  call test%test(all(shape(ia3D) == [10,9,8]),'allocate_i3D')
+  call allocate(ia1D, -10, 100)
+  call test%test(lbound(ia1D,1) == -10 .and. size(ia1D) == 100, 'allocate_lb_i1D')
+  call allocate(ia2D, [-3, -2], [5,6])
+  call test%test(all(lbound(ia2D) == [-3, -2]) .and. all(shape(ia2D) == [5,6]),'allocate_lb_i2D')
+  call allocate(ia3D, [-3, -5, -7], [10,9,8])
+  call test%test(all(lbound(ia3D) == [-3, -5, -7]) .and. all(shape(ia3D) == [10,9,8]),'allocate_lb_i3D')
+
+  call allocate(iad1D, 100)
+  call test%test(size(iad1D) == 100,'allocate_id1D')
+  call allocate(iad2D, [5,6])
+  call test%test(all(shape(iad2D) == [5,6]),'allocate_id2D')
+  call allocate(iad3D, [10,9,8])
+  call test%test(all(shape(iad3D) == [10,9,8]),'allocate_id3D')
+  call allocate(iad1D, -10, 100)
+  call test%test(lbound(iad1D,1) == -10 .and. size(iad1D) == 100, 'allocate_lb_id1D')
+  call allocate(iad2D, [-3, -2], [5,6])
+  call test%test(all(lbound(iad2D) == [-3, -2]) .and. all(shape(iad2D) == [5,6]),'allocate_lb_id2D')
+  call allocate(iad3D, [-3, -5, -7], [10,9,8])
+  call test%test(all(lbound(iad3D) == [-3, -5, -7]) .and. all(shape(iad3D) == [10,9,8]),'allocate_lb_id3D')
+
+  call allocate(z1D, 100)
+  call test%test(size(z1D) == 100,'allocate_c1D')
+  call allocate(z2D, [5,6])
+  call test%test(all(shape(z2D) == [5,6]),'allocate_c2D')
+  call allocate(z3D, [10,9,8])
+  call test%test(all(shape(z3D) == [10,9,8]),'allocate_c3D')
+  call allocate(z1D, -10, 100)
+  call test%test(lbound(z1D,1) == -10 .and. size(z1D) == 100, 'allocate_lb_c1D')
+  call allocate(z2D, [-3, -2], [5,6])
+  call test%test(all(lbound(z2D) == [-3, -2]) .and. all(shape(z2D) == [5,6]),'allocate_lb_c2D')
+  call allocate(z3D, [-3, -5, -7], [10,9,8])
+  call test%test(all(lbound(z3D) == [-3, -5, -7]) .and. all(shape(z3D) == [10,9,8]),'allocate_lb_c3D')
+
+  call allocate(zz1D, 100)
+  call test%test(size(zz1D) == 100,'allocate_z1D')
+  call allocate(zz2D, [5,6])
+  call test%test(all(shape(zz2D) == [5,6]),'allocate_z2D')
+  call allocate(zz3D, [10,9,8])
+  call test%test(all(shape(zz3D) == [10,9,8]),'allocate_z3D')
+  call allocate(zz1D, -10, 100)
+  call test%test(lbound(zz1D,1) == -10 .and. size(zz1D) == 100, 'allocate_lb_z1D')
+  call allocate(zz2D, [-3, -2], [5,6])
+  call test%test(all(lbound(zz2D) == [-3, -2]) .and. all(shape(zz2D) == [5,6]),'allocate_lb_z2D')
+  call allocate(zz3D, [-3, -5, -7], [10,9,8])
+  call test%test(all(lbound(zz3D) == [-3, -5, -7]) .and. all(shape(zz3D) == [10,9,8]),'allocate_lb_z3D')
+
+  call allocate(la1D, 100)
+  call test%test(size(la1D) == 100,'allocate_l1D')
+  call allocate(la2D, [5,6])
+  call test%test(all(shape(la2D) == [5,6]),'allocate_l2D')
+  call allocate(la3D, [10,9,8])
+  call test%test(all(shape(la3D) == [10,9,8]),'allocate_l3D')
+  deallocate(ar1D,ar2D,ar3D,a1D,a2D,a3D,ia1D,ia2D,ia3D)
+  deallocate(iad1D,iad2D,iad3D,z1D,z2D,z3D,zz1D,zz2D,zz3D)
+  deallocate(la1D,la2D,la3D)
+  end subroutine
+  !====================================================================!
   !====================================================================!
   subroutine dDynamicArray_test(test)
     !! graph: false
