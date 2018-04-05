@@ -640,7 +640,7 @@ t = timeToInteger(dt)
 
 ! use splimix64 for initialization
 do i = 1, nSeeds
-  seed(i) = splitmix64(t)
+  call splitmix64(t, seed(i))
 end do
 
 end subroutine
@@ -696,9 +696,9 @@ endif
 
 if(all(seed(:) == 0_i64)) then
   ! initialize with some non-zero values
-  tmp = 0
+  tmp = 0_i64
   do i = 0, nSeeds-1
-    this%seed(i) = splitmix64(tmp)
+    call splitmix64(tmp, this%seed(i))
   end do
 else
   this%seed(0:nSeeds-1) = seed(1:nSeeds)
@@ -730,11 +730,13 @@ end subroutine
 !====================================================================!
 
 !====================================================================!
-function splitmix64(seed) result(res)
+subroutine splitmix64(seed, res)
   !! SplitMix64 implementation for random number seed initialization
 !====================================================================!
 integer(i64), intent(inout) :: seed
 integer(i64) :: res
+
+integer(i64), volatile :: tmp
 
 ! As of Fortran95 BOZ literals are available only in DATA stmts.
 ! Also, gfortran does not allow integer(8) greater than 2^63...
@@ -746,10 +748,11 @@ integer(i64), parameter :: mix2 = -7723592293110705685_i64 ! 0x94D049BB133111EB
 ! This is because splitmix64 assumes uint64 wrap-around, which is undefined in F90/95 std.
 ! Even though there are warnings, AFAIK, generated assembler codes are ones as expected.
 seed = seed + step
-res = seed
-res = ieor(res, ishft(res, -30)) * mix1
-res = ieor(res, ishft(res, -27)) * mix2
-res = ieor(res, ishft(res, -31))
-end function
+tmp = seed
+tmp = ieor(tmp, ishft(res, -30)) * mix1
+tmp = ieor(tmp, ishft(res, -27)) * mix2
+tmp = ieor(tmp, ishft(res, -31))
+res = tmp
+end subroutine
 !====================================================================!
 end module 
