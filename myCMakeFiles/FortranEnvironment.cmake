@@ -8,6 +8,8 @@
 
 enable_language(Fortran)
 
+option (BUILD_SHARED_LIBS "Shared or static libraries"  ON)
+
 # Check if linux
 if(UNIX AND NOT APPLE)
   set(LINUX TRUE)
