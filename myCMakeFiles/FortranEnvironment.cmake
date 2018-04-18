@@ -68,12 +68,13 @@ endif()
 # Set the output directories for compiled libraries and module files.
 # Paths are relative to the build folder where you call cmake
 # ================================
-set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../lib) # Static library location
-set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../lib) # Shared library location
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/../lib) # Static library location
+set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/../lib) # Shared library location
 # Place module files in specific include folder
-set(CMAKE_Fortran_MODULE_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../include)
+set(CMAKE_Fortran_MODULE_DIRECTORY ${PROJECT_BINARY_DIR}/../include)
 # Place executables in bin
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_CURRENT_SOURCE_DIR}/../bin)
+set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${PROJECT_BINARY_DIR}/../bin)
+INCLUDE_DIRECTORIES(${CMAKE_Fortran_MODULE_DIRECTORY})
 
 # ++++++++++++++++++++++++++++++++
 
@@ -98,3 +99,4 @@ message(STATUS "Using the following program link flags \n ${CMAKE_EXE_LINKER_FLA
 
 message(STATUS "make install will install to ${CMAKE_INSTALL_PREFIX}")
 message(STATUS "To change, use option -DCMAKE_INSTALL_PREFIX:PATH=/path/to/install/to")
+
