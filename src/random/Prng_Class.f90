@@ -736,7 +736,7 @@ subroutine splitmix64(seed, res)
 integer(i64), intent(inout) :: seed
 integer(i64) :: res
 
-integer(i64), volatile :: tmp
+integer(i64), volatile :: tmp0, tmp
 
 ! As of Fortran95 BOZ literals are available only in DATA stmts.
 ! Also, gfortran does not allow integer(8) greater than 2^63...
@@ -747,12 +747,13 @@ integer(i64), parameter :: mix2 = -7723592293110705685_i64 ! 0x94D049BB133111EB
 ! gfortran may issue warning at the following lines.
 ! This is because splitmix64 assumes uint64 wrap-around, which is undefined in F90/95 std.
 ! Even though there are warnings, AFAIK, generated assembler codes are ones as expected.
-seed = seed + step
-tmp = seed
-tmp = ieor(tmp, ishft(res, -30)) * mix1
-tmp = ieor(tmp, ishft(res, -27)) * mix2
-tmp = ieor(tmp, ishft(res, -31))
-res = tmp
+tmp0 = seed + step
+seed = tmp0
+res = tmp0
+res = ieor(res, ishft(res, -30)) * mix1
+res = ieor(res, ishft(res, -27)) * mix2
+res = ieor(res, ishft(res, -31))
+!res = tmp
 end subroutine
 !====================================================================!
 end module 
