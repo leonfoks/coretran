@@ -747,13 +747,12 @@ integer(i64), parameter :: mix2 = -7723592293110705685_i64 ! 0x94D049BB133111EB
 ! gfortran may issue warning at the following lines.
 ! This is because splitmix64 assumes uint64 wrap-around, which is undefined in F90/95 std.
 ! Even though there are warnings, AFAIK, generated assembler codes are ones as expected.
-tmp0 = seed + step
-seed = tmp0
-res = tmp0
+tmp = seed + step
+seed = tmp
+res = tmp
 res = ieor(res, ishft(res, -30)) * mix1
 res = ieor(res, ishft(res, -27)) * mix2
 res = ieor(res, ishft(res, -31))
-!res = tmp
 end subroutine
 !====================================================================!
 end module 

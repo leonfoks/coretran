@@ -113,19 +113,28 @@ To compile the coretran library, navigate to the root directory and create a new
 Change directory to build and type 
 
 ```
-cmake -DCMAKE_BUILD_TYPE=[DEBUG,RELEASE] -G "Insert type here" ../src
+cmake [-D options] [-G option] ../src
 ```
 
+There are a number of extra options you can pass through to this cmake command. Each option follows a -D flag.
+
 * -D
-	* CMAKE\_BUILD\_TYPE 
+	* -DCMAKE\_BUILD\_TYPE=
 		* DEBUG will add all debugging flags, tracebacks, and array bound checking.  This is great for development.
 		* RELEASE will turn of the less efficient checks, and will compile with higher levels of optimization.  This is great for production runs once everything is debugged.
-	* CMAKE\_Fortran\_COMPILER
-		* If cmake does not use the compiler you need, you can specify the path to the compiler you want. I had some issues on OSX with the intel compiler and gfortran both installed.  Using -G "Unix Makefiles" would always detect the intel compiler.  To force cmake to use gfortran, I used -DCMAKE\_Fortran\_COMPILER=/usr/local/Cellar/gcc/6.2.0/bin/gfortran (Remember I used brew to install gfortran, and that the version number might change!) 
+	* -DCMAKE\_Fortran\_COMPILER=
+		* If cmake does not use the compiler you need, you can specify the path to the compiler you want. I had some issues on OSX with the intel compiler and gfortran both installed.  Using -G "Unix Makefiles" would always detect the intel compiler.  To force cmake to use gfortran, I used -DCMAKE\_Fortran\_COMPILER=/usr/local/Cellar/gcc/6.2.0/bin/gfortran (Remember I used brew to install gfortran, and that the version number might change!)
+	* -DBUILD\_SHARED\_LIBS=
+		* ON this is the default option and will build shared libraries.
+		* OFF this will build static libraries.
+
+	* -DCMAKE\_INSTALL\_PREFIX=
+		* This allows you to specify an install directory after you compile the library. e.g. -DCMAKE\_INSTALL\_PREFIX=/path/to/dir will put all compiled modules in an include folder, and compiled libraries in a lib folder. Additionally, the lib folder will contain a folder called "cmake" that contains a cmake config file for coretran.  If you append the lib/cmake folder to an environment variable called "CMAKE\_LIBRARY\_PATH" you will be able to use "find_package(coretran REQUIRED CONFIG)" in your own cmake project to make linking to coretran very easy.
+
+
+Cmake can generate makefiles for a multitude of different compilers.  The -G option allows you to specify which compiler you wish to generate a makefile for. 
 
 * -G 
-
-	Cmake can generate makefiles for a multitude of different compilers.  The -G option specifies which compiler you wish to generate make files for.
 
 	If you type 
 
@@ -163,29 +172,59 @@ cmake -DCMAKE_BUILD_TYPE=[DEBUG,RELEASE] -G "Insert type here" ../src
 	On OSX and Linux I have always used \"Unix Makefiles\".
 	
 	On Windows, I have used \"MinGW Makefiles\" or \"NMake Makefile\" for gfortran or intel respectively.
+	
+	So the -G option might be " -G \"Unix Makefiles\" "
 
-Finally, to compile the library, type "make", or "mingw32-make" on windows if you did not follow [this step](#makeAlias)
+Finally, to compile the library, type 
 
-#### Compiling the coretran test code
+```
+make
+```
+or on Windows, 
 
-Most software libraries have a built in test build function when the library is built.  I have stayed away from this so that you can see how I build my test such that it links to the coretran library.  You can duplicate my process for your own programs.
+```
+mingw32-make
+``` 
+if you did not follow [this step](#makeAlias).
 
-Navigate to the test folder of coretran.
+If you want to "install" coretran to the directory specified using the -DCMAKE\_INSTALL\_PREFIX option (see above), type 
 
-Create a new folder "build" and change directory to that folder.
+```
+make install
+```
 
-Run the same cmake command you used to build the coretran library.
+#### Testing Coretran and running the scaling code
 
-Type "make", or "mingw32-make" on windows if you did not follow [this step](#makeAlias)
+The makefile will automatically generate two programs, a "unit tester" and a scalability test. These programs will be located in the bin folder within the coretran repository.
 
-Run the test script located in the bin folder!  It should show whether each function has passed or failed, and may show timings for the sorting routines.
+To run the test program type (assuming you are still in the build folder)
+
+```
+../bin/coretranTest N 1
+```
+where N is a number > 15.  N defines the size of arrays to use in the tests.  Over 1e8 your might have slow tests...
+
+To run the scalability program type
+
+```
+../bin/coretranScale
+```
+
+This will perform some timing tests on the sorting algorithms, selection, KDtree generation, etc.
+This lets you get a feel for how quickly coretran will perform these algorithms.  These algorithms are not the best in the world by any means, but hopefully they are readable and usable!
+
 
 #### How to use coretran in your library or program
 
-Once the coretran library is compiled, you can easily use it in your own program.  When you compile your Fortran codes to object files, simply use -I/path/to/coretran/include.  When you link your objects, use -L/path/to/coretran/lib and -lcoretran.
+Once the coretran library is compiled, you can easily use it in your own program.  
 
+* Using your own make files or compile.bat scripts
+	
+	When you compile your Fortran codes to object files, simply use -I/	path/to/coretran/include.  When you link your objects, use -L/path/	to/coretran/lib and -lcoretran.
 
-
+* Using cmake to build your own project
+	
+	If you use cmake, and you used "make install" to install coretran, you can append the path "install-path/lib/cmake" to an environment variable called "CMAKE\_LIBRARY\_PATH".  You can then use ```"find_package(coretran REQUIRED CONFIG)"``` to easily find coretran, followed by ```"target_link_libraries(${PROJECT_NAME} coretran)"```
 
 
 ## Documentation <a name="docs"></a>
