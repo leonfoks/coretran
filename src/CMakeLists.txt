@@ -66,6 +66,9 @@ install(DIRECTORY ${CMAKE_Fortran_MODULE_DIRECTORY}/ DESTINATION include/${PROJE
     PATTERN "CMakeFiles" EXCLUDE)
 
 install(EXPORT ${PROJECT_NAME}-config DESTINATION lib/cmake)
+install(FILES ../myCMakeFiles/FortranEnvironment.cmake DESTINATION lib/cmake)
+install(FILES ../myCMakeFiles/gfortran_flags.cmake DESTINATION lib/cmake)
+install(FILES ../myCMakeFiles/intel_flags.cmake DESTINATION lib/cmake)
 
 export(TARGETS ${PROJECT_NAME} FILE ${PROJECT_NAME}-config.cmake)
 #    RUNTIME  DESTINATION ${CMAKE_INSTALL_BINDIR})  # This is for Windows
