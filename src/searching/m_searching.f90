@@ -5,7 +5,7 @@ module m_searching
   !!```fortran
   !!program binarySearch_test
   !!use variableKind, only: i32, r64
-  !!use m_BinarySearch, only: binarySearch
+  !!use m_searching, only: binarySearch
   !!
   !!implicit none
   !!
@@ -23,7 +23,7 @@ module m_searching
   !! Example usage
   !!```fortran
   !!use variableKind
-  !!use m_BinarySearch, only: intervalSearch
+  !!use m_searching, only: intervalSearch
   !!real(r64) :: arr(20)
   !!integer(i32) :: i
   !!integer(i32) :: j(3)
@@ -45,7 +45,59 @@ public :: simpleSearch
 interface binarySearch
   !! Perform a binary search.  See [[m_searching]] for more information on how to use this interface
   !====================================================================!
-  module recursive function binarySearch_i1D(this,v,imin,imax) result(iout)
+  module function binarySearch_i1D(this,v) result(iout)
+    !! Search for the value i in an integer vector
+    !! Assumes this is sorted!
+  !====================================================================!
+  integer(i32) :: this(:)
+    !! Vector to search within
+  integer(i32) :: v
+    !! Number to find in the vector
+  integer(i32) :: iout
+    !! Location of i in this. Returns -1 if not present
+  end function
+  !====================================================================!
+  !====================================================================!
+  module function binarySearch_id1D(this,v) result(iout)
+    !! Search for the value i in an integer vector
+    !! Assumes this is sorted!
+  !====================================================================!
+  integer(i64) :: this(:)
+    !! Vector to search within
+  integer(i64) :: v
+    !! Number to find in the vector
+  integer(i32) :: iout
+    !! Location of i in this. Returns -1 if not present
+  end function
+  !====================================================================!
+  !====================================================================!
+  module function binarySearch_r1D(this,v) result(iout)
+    !! Search for the value i in an integer vector
+    !! Assumes this is sorted!
+  !====================================================================!
+  real(r32) :: this(:)
+    !! Vector to search within
+  real(r32) :: v
+    !! Number to find in the vector
+  integer(i32) :: iout
+    !! Location of i in this. Returns -1 if not present
+  end function
+  !====================================================================!
+  !====================================================================!
+  module function binarySearch_d1D(this,v) result(iout)
+    !! Search for the value i in an integer vector
+    !! Assumes this is sorted!
+  !====================================================================!
+  real(r64) :: this(:)
+    !! Vector to search within
+  real(r64) :: v
+    !! Number to find in the vector
+  integer(i32) :: iout
+    !! Location of i in this. Returns -1 if not present
+  end function
+  !====================================================================!
+  !====================================================================!
+  module recursive function binarySearch_i1D_limits(this,v,imin,imax) result(iout)
     !! Search for the value i in an integer vector
     !! Assumes this is sorted!
   !====================================================================!
@@ -62,7 +114,7 @@ interface binarySearch
   end function
   !====================================================================!
   !====================================================================!
-  module recursive function binarySearch_id1D(this,v,imin,imax) result(iout)
+  module recursive function binarySearch_id1D_limits(this,v,imin,imax) result(iout)
     !! Search for the value i in an integer vector
     !! Assumes this is sorted!
   !====================================================================!
@@ -79,7 +131,7 @@ interface binarySearch
   end function
   !====================================================================!
   !====================================================================!
-  module recursive function binarySearch_r1D(this,v,imin,imax) result(iout)
+  module recursive function binarySearch_r1D_limits(this,v,imin,imax) result(iout)
     !! Search for the value i in an integer vector
     !! Assumes this is sorted!
   !====================================================================!
@@ -96,7 +148,7 @@ interface binarySearch
   end function
   !====================================================================!
   !====================================================================!
-  module recursive function binarySearch_d1D(this,v,imin,imax) result(iout)
+  module recursive function binarySearch_d1D_limits(this,v,imin,imax) result(iout)
     !! Search for the value i in an integer vector
     !! Assumes this is sorted!
   !====================================================================!
