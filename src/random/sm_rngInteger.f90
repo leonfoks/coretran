@@ -31,7 +31,7 @@ contains
   
   real(r64) :: wk
   
-  call this%rngUniform(wk)
+  call this%rngUniform(wk, 0.d0, 1.d0)
   
   res = imin + idnint(wk * dble(imax - imin))
   end procedure

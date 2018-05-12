@@ -1376,7 +1376,7 @@ contains
 
   rng = Prng(big = .false.)
 
-  call rng%rngUniform(a)
+  call rng%rngUniform(a, 0.d0, 1.d0)
 
   call rng%rngInteger(id, 1, 100)
 

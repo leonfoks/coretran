@@ -53,8 +53,8 @@ contains
   real(r64) :: y
 
   do
-    call this%rngUniform(u)
-    call this%rngUniform(v)
+    call this%rngUniform(u, 0.d0, 1.d0)
+    call this%rngUniform(v, 0.d0, 1.d0)
     v = 1.7156d0 * (v - 0.5d0)
 
     ! Evaluate the quadratic form

@@ -30,9 +30,10 @@ contains
   !  !! Maximum value to draw between. Requires rmin be used as well.
   
   call rngUniform_xorshift(this, res)
-  if (present(rmin)) then
-    if (present(rmax)) res=rmin+(rmax-rmin)*res
-  endif
+  res = rmin + (rmax - rmin) * res
+  !if (present(rmin)) then
+  !  if (present(rmax)) res=rmin+(rmax-rmin)*res
+  !endif
   end procedure
   !====================================================================!
 
@@ -69,11 +70,9 @@ contains
   !  !! Maximum value to draw between. Requires rmin be used as well.
   integer(i32) :: i, iSub(2)
   integer(i32) :: n, nSub(2)
-  nSub = shape(res)
-  n=size(res)
+  n=size(res, 2)
   do i = 1, n
-    iSub = ind2sub(i, nSub)
-    call rngUniform_d1_Prng(this, res(iSub(1), iSub(2)), rmin, rmax)
+    call rngUniform_d1D_Prng(this, res(:, i), rmin, rmax)
   enddo
   end procedure
   !====================================================================!
