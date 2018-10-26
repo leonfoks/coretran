@@ -114,10 +114,10 @@ contains
   ! TO EXP(-random_exponential), USING INVERSION.
   !class(Prng)  :: this
   !real(r64)  :: res
-  call this%rngUniform(res)
+  call this%rngUniform(res, 0.d0, 1.d0)
 
   do while (res == 0.d0)
-    call this%rngUniform(res)
+    call this%rngUniform(res, 0.d0, 1.d0)
   end do
   res = -log(res)
   end procedure

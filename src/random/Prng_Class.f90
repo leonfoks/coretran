@@ -399,9 +399,9 @@ interface
     !! Prng Class
   real(r64), intent(inout) :: res
     !! Random uniform
-  real(r64), intent(in), optional :: rmin
+  real(r64), intent(in) :: rmin
     !! Minimum value to draw between. Requires rmax be used as well.
-  real(r64), intent(in), optional :: rmax
+  real(r64), intent(in) :: rmax
     !! Maximum value to draw between. Requires rmin be used as well.
   end subroutine
   !====================================================================!
@@ -413,9 +413,9 @@ interface
     !! Prng Class
   real(r64), intent(inout) :: res(:)
     !! Random uniform
-  real(r64), intent(in), optional :: rmin
+  real(r64), intent(in) :: rmin
     !! Minimum value to draw between. Requires rmax be used as well.
-  real(r64), intent(in), optional :: rmax
+  real(r64), intent(in) :: rmax
     !! Maximum value to draw between. Requires rmin be used as well.
   end subroutine
   !====================================================================!
@@ -427,9 +427,9 @@ interface
     !! Prng Class
   real(r64), intent(inout) :: res(:,:)
     !! Random uniform
-  real(r64), intent(in), optional :: rmin
+  real(r64), intent(in) :: rmin
     !! Minimum value to draw between. Requires rmax be used as well.
-  real(r64), intent(in), optional :: rmax
+  real(r64), intent(in) :: rmax
     !! Maximum value to draw between. Requires rmin be used as well.
   end subroutine
   !====================================================================!
@@ -441,9 +441,9 @@ interface
     !! Prng Class
   real(r64), intent(inout) :: res(:,:,:)
     !! Random uniform
-  real(r64), intent(in), optional :: rmin
+  real(r64), intent(in) :: rmin
     !! Minimum value to draw between. Requires rmax be used as well.
-  real(r64), intent(in), optional :: rmax
+  real(r64), intent(in) :: rmax
     !! Maximum value to draw between. Requires rmin be used as well.
   end subroutine
   !====================================================================!

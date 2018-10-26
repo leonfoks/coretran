@@ -124,6 +124,7 @@ There are a number of extra options you can pass through to this cmake command. 
 		* RELEASE will turn of the less efficient checks, and will compile with higher levels of optimization.  This is great for production runs once everything is debugged.
 	* -DCMAKE\_Fortran\_COMPILER=
 		* If cmake does not use the compiler you need, you can specify the path to the compiler you want. I had some issues on OSX with the intel compiler and gfortran both installed.  Using -G "Unix Makefiles" would always detect the intel compiler.  To force cmake to use gfortran, I used -DCMAKE\_Fortran\_COMPILER=/usr/local/Cellar/gcc/6.2.0/bin/gfortran (Remember I used brew to install gfortran, and that the version number might change!)
+		* Even if you type "which gfortran" and it shows the correct one, cmake may still detect a lower version system level gcc/gfortran. If you encounter build errors such as "unclassifiable statement", cmake is probably using too old a version of gfortran. In this case, explicitly specify the gfortran to use with this option.
 	* -DBUILD\_SHARED\_LIBS=
 		* ON this is the default option and will build shared libraries.
 		* OFF this will build static libraries.
