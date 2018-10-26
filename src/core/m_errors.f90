@@ -33,17 +33,16 @@ contains
 
     character(len=:), allocatable :: tmp
 
+    if (istat == 0) return
     ! If istat is not zero, there is an error.
     tmp=''
-    if (istat /= 0) then
-      select case(alloc)
-      case(1)
-        tmp='Allocating Memory: '//trim(aMsg)
-      case(2)
-        tmp='Deallocating Memory: '//trim(aMsg)
-      end select
-      call eMsg(tmp, iunit)
-    endif
+    select case(alloc)
+    case(1)
+      tmp='Allocating Memory: '//trim(aMsg)
+    case(2)
+      tmp='Deallocating Memory: '//trim(aMsg)
+    end select
+    call eMsg(tmp, iunit)
   end subroutine
   !====================================================================!
   !====================================================================!
@@ -104,23 +103,23 @@ contains
 
     character(len=:),allocatable :: Amsg
 
-    Amsg=''
-    if (istat /= 0) then
-      select case(flg)
-      case(IO_OPEN)
-        Amsg='Opening file: '//trim(fname)
-      case(IO_READ)
-        Amsg='Reading from: '//trim(fname)
-      case(IO_WRITE)
-        Amsg='Writing to file: '//trim(fname)
-      case(IO_CLOSE)
-        Amsg='Closing file: '//trim(fname)
-      case default
-        Amsg='Error:Invalid error flag [1-4]'
-      end select
+    if (istat == 0) return
 
-      call eMsg(aMsg, iunit)
-    endif
+    Amsg=''
+    select case(flg)
+    case(IO_OPEN)
+      Amsg='Opening file: '//trim(fname)
+    case(IO_READ)
+      Amsg='Reading from: '//trim(fname)
+    case(IO_WRITE)
+      Amsg='Writing to file: '//trim(fname)
+    case(IO_CLOSE)
+      Amsg='Closing file: '//trim(fname)
+    case default
+      Amsg='Error:Invalid error flag [1-4]'
+    end select
+
+    call eMsg(aMsg, iunit)
   end subroutine
   !====================================================================!
 end module m_errors
