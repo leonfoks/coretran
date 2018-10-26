@@ -4,4 +4,6 @@ target_sources(${PROJECT_NAME}
     "${CMAKE_CURRENT_LIST_DIR}/sm_KdTree_class.f90"
     "${CMAKE_CURRENT_LIST_DIR}/sm_KdTreeBranch_class.f90"
     "${CMAKE_CURRENT_LIST_DIR}/sm_KdTreeSearch_class.f90"
+    "${CMAKE_CURRENT_LIST_DIR}/m_geometry.f90"
+    "${CMAKE_CURRENT_LIST_DIR}/sm_geometry.f90"
 )
