@@ -23,7 +23,7 @@ module m_swap
     !!call swap(a,b)
     !!write(*,'(a)') 'Values were swapped? '//str(a == 100.d0 .and. b == 10.d0)
     !!```
-    module procedure :: swap_i1, swap_id1, swap_r1, swap_d1, swap_c1, swap_z1, swap_l1
+    module procedure :: swap_i1, swap_id1, swap_r1, swap_d1, swap_d1D, swap_c1, swap_z1, swap_l1
   end interface
 
   contains
@@ -66,6 +66,20 @@ module m_swap
   real(r64), intent(inout) :: that
   real(r64) :: tmp
   tmp = this ; this = that ; that = tmp
+  end subroutine
+  !====================================================================!
+  !====================================================================!
+  subroutine swap_d1D(this,that)
+    !! Interfaced with swap()
+  !====================================================================!
+  real(r64), intent(inout) :: this(:)
+  real(r64), intent(inout) :: that(:)
+  real(r64) :: tmp
+  integer(i32) :: i, N
+  N = size(this)
+  do i = 1, N
+    tmp = this(i) ; this(i) = that(i) ; that(i) = tmp
+  enddo
   end subroutine
   !====================================================================!
   !====================================================================!
