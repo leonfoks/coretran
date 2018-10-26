@@ -16,6 +16,7 @@ use rArgDynamicArray_Class, only: rArgDynamicArray
 use m_errors
 use m_fileIO
 use m_indexing, only: ind2sub, sub2ind
+use m_geometry
 use m_KdTree, only: KdTree, KdTreeSearch
 use m_maths
 use m_random, only: rngInteger, rngNormal
@@ -1303,14 +1304,6 @@ contains
   br = 0.1
   a = 0.2d0
   b = 0.1d0
-  ar1D = twoSum(ar,br)
-  call test%test(abs(ar1D(2)) < 1.d-7,'twoSum_r')
-  a1D = twoSum(a,b)
-  call test%test(abs(a1D(2)) < 1.d-15,'twoSum_d')
-  ar1D = fastTwoSum(ar,br)
-  call test%test(abs(ar1D(2)) < 1.d-7,'fastTwoSum_r')
-  a1D = fastTwoSum(a,b)
-  call test%test(abs(a1D(2)) < 1.d-15,'fastTwoSum_d')
 
   ar1D=[1.0,2.0,3.0]
   br1D=[0.0,0.5,0.0]
