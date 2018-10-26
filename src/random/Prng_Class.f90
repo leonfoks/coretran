@@ -736,7 +736,7 @@ subroutine splitmix64(seed, res)
 integer(i64), intent(inout) :: seed
 integer(i64) :: res
 
-integer(i64), volatile :: tmp0, tmp
+integer(i64), volatile :: tmp
 
 ! As of Fortran95 BOZ literals are available only in DATA stmts.
 ! Also, gfortran does not allow integer(8) greater than 2^63...
