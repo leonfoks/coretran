@@ -79,41 +79,7 @@ module m_maths
     end function
   end interface
 
-  public :: fastTwoDiff
-  interface fastTwoDiff
-    !! Compute the difference two numbers and compute the numerical round-off error. See Shewchuk 1997 Adaptive Precision Floating-Point Arithmetic and Fast Robust Geometric Predicates
-    !! This should only be used if you know that the magnitude of a is greater than or equal to b, otherwise, you should use the slower twoDiff routine
-    module function fastTwoDiff_r(a,b) result(res)
-      !! Interfaced with fastTwoDiff()
-      real(r32), intent(in) :: a !! First number
-      real(r32), intent(in) :: b !! Second number
-      real(r32) :: res(2) !! Result and its error
-    end function
-    module function fastTwoDiff_d(a,b) result(res)
-      !! Interfaced with fastTwoDiff()
-      real(r64), intent(in) :: a !! First number
-      real(r64), intent(in) :: b !! Second number
-      real(r64) :: res(2) !! Result and its error
-    end function
-  end interface
 
-  public :: fastTwoSum
-  interface fastTwoSum
-    !! Compute the sum of two numbers and compute the numerical round-off error. See Shewchuk 1997 Adaptive Precision Floating-Point Arithmetic and Fast Robust Geometric Predicates
-    !! This should only be used if you know that the magnitude of a is greater than or equal to b, otherwise, you should use the slower twoSum routine
-    module function fastTwoSum_r(a,b) result(res)
-      !! Interfaced with fastTwoSum()
-      real(r32), intent(in) :: a !! First number
-      real(r32), intent(in) :: b !! Second number
-      real(r32) :: res(2) !! Result and its error
-    end function
-    module function fastTwoSum_d(a,b) result(res)
-      !! Interfaced with fastTwoSum()
-      real(r64), intent(in) :: a !! First number
-      real(r64), intent(in) :: b !! Second number
-      real(r64) :: res(2) !! Result and its error
-    end function
-  end interface
 
   public :: geometricMean
   interface geometricMean
@@ -286,41 +252,7 @@ module m_maths
     end function
   end interface
 
-  public :: twoDiff
-  interface twoDiff
-    !! Compute the difference between two numbers and compute the numerical round-off error. See Shewchuk 1997 Adaptive Precision Floating-Point Arithmetic and Fast Robust Geometric Predicates
-    !! If you know that the magnitude of a is greater than or equal to b, use fastTwoDiff
-    module function twoDiff_r(a,b) result(res)
-      !! Interfaced with twoDiff()
-      real(r32), intent(in) :: a !! First number
-      real(r32), intent(in) :: b !! Second number
-      real(r32) :: res(2) !! Result and its error
-    end function
-    module function twoDiff_d(a,b) result(res)
-      !! Interfaced with twoDiff()
-      real(r64), intent(in) :: a !! First number
-      real(r64), intent(in) :: b !! Second number
-      real(r64) :: res(2) !! Result and its error
-    end function
-  end interface
-
-  public :: twoSum
-  interface twoSum
-    !! Compute the sum of two numbers and compute the numerical round-off error. See Shewchuk 1997 Adaptive Precision Floating-Point Arithmetic and Fast Robust Geometric Predicates
-    !! If you know that the magnitude of a is greater than or equal to b, use fastTwoSum
-    module function twoSum_r(a,b) result(res)
-      !! Interfaced with twoSum()
-      real(r32), intent(in) :: a !! First number in sum
-      real(r32), intent(in) :: b !! Second number in sum
-      real(r32) :: res(2) !! The sum and its error
-    end function
-    module function twoSum_d(a,b) result(res)
-      !! Interfaced with twoSum()
-      real(r64), intent(in) :: a !! First number in sum
-      real(r64), intent(in) :: b !! Second number in sum
-      real(r64) :: res(2) !! The sum and its error
-    end function
-  end interface
+  
 
   public :: std
   interface std

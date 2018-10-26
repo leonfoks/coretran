@@ -46,32 +46,6 @@ contains
   end function
   !====================================================================!
   !====================================================================!
-  module function fastTwoDiff_r(a,b) result(res)
-    !! Interfaced with fastTwoDiff()
-  !====================================================================!
-    real(r32), intent(in) :: a !! First number
-    real(r32), intent(in) :: b !! Second number
-    real(r32) :: res(2) !! Result and its error
-    real(r32) :: bVirtual
-    res(1) = a - b
-    bVirtual = a - res(1)
-    res(2) = bVirtual - b
-  end function
-  !====================================================================!
-  !====================================================================!
-  module function fastTwoSum_r(a,b) result(res)
-    !! Interfaced with fastTwoSum()
-  !====================================================================!
-    real(r32), intent(in) :: a !! First number
-    real(r32), intent(in) :: b !! Second number
-    real(r32) :: res(2) !! Result and its error
-    real(r32) :: bVirtual
-    res(1) = a + b
-    bVirtual = res(1) - a
-    res(2) = b - bVirtual
-  end function
-  !====================================================================!
-  !====================================================================!
   module function geometricMean_r1D(this) result(res)
     !! Interfaced with geometricMean()
   !====================================================================!
@@ -211,40 +185,6 @@ contains
   end procedure
   !====================================================================!
 
-  !====================================================================!
-  module function twoDiff_r(a,b) result(res)
-  !====================================================================!
-    !! Interfaced with twoDiff()
-  real(r32), intent(in) :: a !! First number
-  real(r32), intent(in) :: b !! Second number
-  real(r32) :: res(2) !! Result and its error
-  real(r32) :: aVirtual, bVirtual
-  real(r32) :: aRoundoff, bRoundoff
-  res(1) = a - b
-  bVirtual = a - res(1)
-  aVirtual = res(1) + bVirtual
-  bRoundoff = bVirtual - b
-  aRoundoff = a - aVirtual
-  res(2) = aRoundoff + bRoundoff
-  end function
-  !====================================================================!
-  !====================================================================!
-  module function twoSum_r(a,b) result(res)
-    !! Interfaced with twoSum()
-  !====================================================================!
-  real(r32), intent(in) :: a !! First number in sum
-  real(r32), intent(in) :: b !! Second number in sum
-  real(r32) :: res(2) !! The sum and its error
-  real(r32) :: aVirtual, bVirtual
-  real(r32) :: aRoundoff, bRoundoff
-  res(1) = a + b
-  bVirtual = res(1) - a
-  aVirtual = res(1) - bVirtual
-  bRoundoff = b - bVirtual
-  aRoundoff = a - aVirtual
-  res(2) = aRoundoff + bRoundoff
-  end function
-  !====================================================================!
   !====================================================================!
   module procedure std_r1D
     !! Interfaced with std()
