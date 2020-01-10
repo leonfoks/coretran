@@ -11,7 +11,7 @@ project(coretran LANGUAGES Fortran)
 if(NOT CMAKE_MODULE_PATH)
   set(CMAKE_MODULE_PATH)
 endif()
-list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/../myCMakeFiles")
+list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/../myCMakeFiles")
 
 # GNUInstallDirs is used to install libraries into correct locations
 # on all platforms.
@@ -78,7 +78,7 @@ export(TARGETS ${PROJECT_NAME} FILE ${PROJECT_NAME}-config.cmake)
 # ================================
 # Compile the test and scaling codes
 # ================================
-add_subdirectory(${CMAKE_SOURCE_DIR}/tests)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
 
 # ++++++++++++++++++++++++++++++++
 
