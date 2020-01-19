@@ -41,50 +41,50 @@ program test_coretran
 
   call geometryTest(test)
 
-  ! call strings_test(test)
+  call strings_test(test)
   
-  ! call fileIO_test(test)
+  call fileIO_test(test)
   
-  ! call random_test(test, .false.)
+  call random_test(test, .false.)
 
-  ! call Prng_test(test)
+  call Prng_test(test)
 
-  ! call time_test(test, nIterations)
+  call time_test(test, nIterations)
   
-  ! call indexing_test(test)
+  call indexing_test(test)
   
-  ! call allocate_test(test)
+  call allocate_test(test)
   
-  ! call reallocate_test(test)
+  call reallocate_test(test)
   
-  ! call copy_test(test)
+  call copy_test(test)
   
-  ! call sorting_test(test, N)
+  call sorting_test(test, N)
   
-  ! call select_test(test, N)
+  call select_test(test, N)
   
-  ! call array1D_test(test)
+  call array1D_test(test)
   
-  ! call maths_test(test)
+  call maths_test(test)
 
-  ! call KdTree_test(test, N)
+  call KdTree_test(test, N)
   
 
-  ! call Msg('==========================')
-  ! call Msg('Testing : Dynamic Arrays')
-  ! call Msg('==========================')
-  ! call rDynamicArray_test(test)
-  ! call dDynamicArray_test(test)
-  ! call iDynamicArray_test(test)
-  ! call idDynamicArray_test(test)
+  call Msg('==========================')
+  call Msg('Testing : Dynamic Arrays')
+  call Msg('==========================')
+  call rDynamicArray_test(test)
+  call dDynamicArray_test(test)
+  call iDynamicArray_test(test)
+  call idDynamicArray_test(test)
   
-  ! call Msg('==========================')
-  ! call Msg('Testing : ArgDynamic Arrays')
-  ! call Msg('==========================')
-  ! call rArgDynamicArray_test(test)
-  ! call dArgDynamicArray_test(test)
-  ! call iArgDynamicArray_test(test)
-  ! call idArgDynamicArray_test(test)
+  call Msg('==========================')
+  call Msg('Testing : ArgDynamic Arrays')
+  call Msg('==========================')
+  call rArgDynamicArray_test(test)
+  call dArgDynamicArray_test(test)
+  call iArgDynamicArray_test(test)
+  call idArgDynamicArray_test(test)
 
   call test%summary()
 
