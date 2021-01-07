@@ -42,14 +42,6 @@ The code can be compiled easily across platforms using [CMake](https://cmake.org
 
 All functions and subroutines are interfaces, they work no matter the input type whether it real, or integer etc. where it makes sense.
 
-
-## Licensing
-
-coretran is an open source project, it is distributed under the GPL v3 licensing system:
-[GPL v3](http://www.gnu.org/licenses/gpl-3.0.html)
-
-Go to [Top](#top)
-
 ## Getting Ready for Compiling and Creating the Documentation
 There are three aspects that we need to address
 1. Installing a Fortran compiler to create the libraries
