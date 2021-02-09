@@ -28,7 +28,7 @@ contains
   !  !! Minimum value to draw between. Requires rmax be used as well.
   !real(r64), intent(in), optional :: rmax
   !  !! Maximum value to draw between. Requires rmin be used as well.
-  
+
   call rngUniform_xorshift(this, res)
   res = rmin + (rmax - rmin) * res
   !if (present(rmin)) then

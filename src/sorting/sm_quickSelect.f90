@@ -1,7 +1,6 @@
 submodule (m_Select) sm_quickselect
   !! quickselect and argQuickselect routines
 
-  use variableKind
   use m_swap, only: swap
   use m_random, only: rngInteger
   use m_partition, only: partition, argPartition

@@ -3,7 +3,7 @@
   use iso_fortran_env, only: output_unit
   use variableKind
   use m_errors, only: wMsg, eMsg, Ferr, mErr
-  use m_parameters, only: NaN, inf
+  use m_parameters, only: inf
   implicit none
 
   private

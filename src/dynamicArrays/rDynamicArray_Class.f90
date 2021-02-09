@@ -95,6 +95,8 @@ contains
     !! rDynamicArray%reallocate() - Create new contiguous memory to match the needs of the expanding or shrinking array.
   procedure, public :: remove => remove_rDynamicArray
     !! rDynamicArray%remove() - Remove an element from the array.
+  procedure, public :: size => size_rDynamicArray
+    !! rDynamicArray%size() - Get the size of the array.
   procedure, public :: tighten => tighten_rDynamicArray
     !! rDynamicArray%tighten() - Removes excess buffer memory and trims it to the current length.
 end type
@@ -120,6 +122,7 @@ contains
   call this%insertAt(this%N + 1, val) ! Append at last location.
   end subroutine
   !====================================================================!
+
   !====================================================================!
   subroutine copy_rDynamicArray(new,this)
     !! Overloaded assignment of equals.  new = this
@@ -135,6 +138,7 @@ contains
   new%fixed = this%fixed
   end subroutine
   !====================================================================!
+
   !====================================================================!
   subroutine deallocate_rDynamicArray(this)
     !! Overloaded type bound procedure rDynamicArray%deallocate()
@@ -145,6 +149,7 @@ contains
   this%sorted = .false.
   end subroutine
   !====================================================================!
+
   !====================================================================!
   function init_rDynamicArray_i1(M, sorted, fixed) result(this)
     !! Overloaded by interface rDynamicArray()
@@ -173,6 +178,7 @@ contains
   if (present(fixed)) this%fixed = fixed
   end function
   !====================================================================!
+
   !====================================================================!
   function init_rDynamicArray_d1D(values, M, sorted, fixed) result(this)
     !! Overloaded by interface rDynamicArray()
@@ -209,6 +215,7 @@ contains
   if (present(fixed)) this%fixed = fixed
   end function
   !====================================================================!
+
   !====================================================================!
   subroutine insertAt_rDynamicArray(this, i, val)
     !! Private insert into array without checking for sorted flag.
@@ -243,6 +250,7 @@ contains
   this%values(i) = val
   end subroutine
   !====================================================================!
+
   !====================================================================!
   subroutine insertSorted_rDynamicArray(this,val)
     !! Overloaded type bound procedure rDynamicArray%insertSorted()
@@ -256,6 +264,7 @@ contains
   call this%insertAt(iSearch(3),val)
   end subroutine
   !====================================================================!
+
   !====================================================================!
   subroutine insertSortedUnique_rDynamicArray(this,val)
     !! Overloaded type bound procedure rDynamicArray%insertSortedUnique()
@@ -269,6 +278,7 @@ contains
   if (iSearch(1) == -1) call this%insertAt(iSearch(3),val)
   end subroutine
   !====================================================================!
+
   !====================================================================!
   function isEmpty_rDynamicArray(this) result(yes)
     !! Overloaded type bound procedure rDynamicArray%isEmpty()
@@ -279,6 +289,7 @@ contains
   yes = (this%N == 0)
   end function
   !====================================================================!
+
   !====================================================================!
   function isFilled_rDynamicArray(this) result(yes)
     !! Overloaded type bound procedure rDynamicArray%isFilled()
@@ -289,6 +300,7 @@ contains
   yes = (this%N == size(this%values))
   end function
   !====================================================================!
+
   !====================================================================!
   function locationOf_rDynamicArray(this, val) result(i)
     !! Overloaded type bound procedure rDynamicArray%locationOf().
@@ -302,6 +314,7 @@ contains
   i = binarySearch(this%values, val, 1, this%N)
   end function
   !====================================================================!
+
   !====================================================================!
   subroutine prepend_rDynamicArray(this,val)
     !! Overloaded type bound procedure rDynamicArray%prepend()
@@ -313,6 +326,7 @@ contains
   call this%insertAt(1, val)
   end subroutine
   !====================================================================!
+
   !====================================================================!
   subroutine reallocate_rDynamicArray(this, M)
     !! Overloaded type bound procedure rDynamicArray%reallocate().
@@ -323,6 +337,7 @@ contains
   call reallocate(this%values, M)
   end subroutine
   !====================================================================!
+
   !====================================================================!
   subroutine remove_rDynamicArray(this, i)
     !! Overloaded type bound procedure rDynamicArray%remove().
@@ -341,6 +356,18 @@ contains
   endif
   end subroutine
   !====================================================================!
+
+  !====================================================================!
+  function size_rDynamicArray(this) result(res)
+    !! Overloaded type bound procedure rDynamicArray%size()
+  !====================================================================!
+  class(rDynamicArray) :: this
+  integer(i32) :: res
+    !! The size of the array
+  res = this%N
+  end function
+  !====================================================================!
+
   !====================================================================!
   subroutine tighten_rDynamicArray(this)
     !! Overloaded type bound procedure rDynamicArray%tighten().

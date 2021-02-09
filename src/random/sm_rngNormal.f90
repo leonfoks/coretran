@@ -13,9 +13,6 @@ submodule (Prng_Class) sm_rngNormal
   ! Added overloaded operations for single number, nD arrays
   !     Author: Leon Foks
 
-use m_indexing, only: ind2sub
-use m_parameters
-
 implicit none
 
 contains

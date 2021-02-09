@@ -1,6 +1,5 @@
   submodule (m_sort) sm_sort
     !! Sorting routines, by default uses a introsort. If stable_ is true, then a merge sort is used instead.
-  use variableKind
 
   implicit none
 

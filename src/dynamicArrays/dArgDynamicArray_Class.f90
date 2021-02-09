@@ -72,7 +72,7 @@ type :: dArgDynamicArray
   type(iDynamicArray) :: i
     !! Argument of the values.
   type(dDynamicArray) :: v
-    !! Values.
+    !! Values
 contains
   procedure, public :: append => append_dArgDynamicArray
     !! dArgDynamicArray%append() - Append a value to the end of the dynamic array.  Will change a sorted dynamic array to unsorted.
@@ -98,6 +98,8 @@ contains
     !! dArgDynamicArray%print() - Print to the screen
   procedure, public :: remove => remove_dArgDynamicArray
     !! dArgDynamicArray%remove() - Remove an element from the array.
+  procedure, public :: size => size_dArgDynamicArray
+    !! dArgDynamicArray%size() - Get the size of the array
   procedure, public :: tighten => tighten_dArgDynamicArray
     !! dArgDynamicArray%tighten() - Removes excess buffer memory and trims it to the current length.
 end type
@@ -341,6 +343,17 @@ contains
   call this%i%remove(i)
   call this%v%remove(i)
   end subroutine
+  !====================================================================!
+
+  !====================================================================!
+  function size_dArgDynamicArray(this) result(res)
+    !! Overloaded type bound procedure dArgDynamicArray%size()
+  !====================================================================!
+  class(dArgDynamicArray) :: this
+  integer(i32) :: res
+    !! The size of the array
+  res = this%i%N
+  end function
   !====================================================================!
 
   !====================================================================!

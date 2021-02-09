@@ -95,6 +95,8 @@ contains
     !! rArgDynamicArray%prepend() - Prepend a value to the start of the dynamic array. Only for unsorted dynamic arrays
   procedure, public :: remove => remove_rArgDynamicArray
     !! rArgDynamicArray%remove() - Remove an element from the array.
+  procedure, public :: size => size_rArgDynamicArray
+    !! rArgDynamicArray%size() - Get the size of the array
   procedure, public :: tighten => tighten_rArgDynamicArray
     !! rArgDynamicArray%tighten() - Removes excess buffer memory and trims it to the current length.
 end type
@@ -317,6 +319,17 @@ contains
   call this%i%remove(i)
   call this%v%remove(i)
   end subroutine
+  !====================================================================!
+
+  !====================================================================!
+  function size_rArgDynamicArray(this) result(res)
+    !! Overloaded type bound procedure rArgDynamicArray%size()
+  !====================================================================!
+  class(rArgDynamicArray) :: this
+  integer(i32) :: res
+    !! The size of the array
+  res = this%i%N
+  end function
   !====================================================================!
 
   !====================================================================!

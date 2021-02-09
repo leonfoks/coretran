@@ -1,6 +1,5 @@
   submodule (m_sort) m_heapsort
     !! Heapsort routines see https://rosettacode.org/wiki/Sorting_algorithms/Heapsort#Fortran
-  use variableKind
   use m_swap, only: swap
 
   implicit none

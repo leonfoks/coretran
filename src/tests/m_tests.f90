@@ -17,15 +17,15 @@ use m_errors
 use m_fileIO
 use m_indexing, only: ind2sub, sub2ind
 use m_geometry
-use m_KdTree, only: KdTree, KdTreeSearch
+use m_KdTree
 use m_maths
 use m_random, only: rngInteger, rngNormal
 use m_reallocate, only: reallocate
-use m_select, only: argSelect, select
+use m_select, only: select, argSelect !!! end select (just for syntax highlighting...)
 use m_sort, only: argSort, sort
 use Prng_Class, only: Prng, getRandomSeed
-  use Stopwatch_Class
-  use ProgressBar_Class
+use Stopwatch_Class
+use ProgressBar_Class
 use m_strings
 use m_time
 !use m_readline, only: readline
@@ -539,7 +539,7 @@ contains
   call test%test(all(ida%i%values(1:3)==[3, 4, 1]) .and. all(ida%v%values(1:3)==[10, 15, 20]), 'iArgDynamicArray%insertSortedUnique')
   call test%test(size(ida%i%values) == 3 .and. size(ida%v%values) == 3, 'iArgDynamicArray%insert')
   call ida%deallocate()
-  end subroutine 
+  end subroutine
   !====================================================================!
 
   !====================================================================!
@@ -867,14 +867,14 @@ contains
 !    real(r64) :: a, b, c
 !    real(r64) :: a1D(5), b1D(5), c1D(5)
 !    integer(i32) :: ia,ib,ic,id
-!  
+!
 !    fName = 'testFile.txt'
-!  
+!
 !    a = 1.d0 ; b = 2.d0 ; c = 3.d0
 !    a1D = [0.d0,1.d0,2.d0,3.d0,4.d0]
 !    b1D = [5.d0,6.d0,7.d0,8.d0,9.d0]
 !    c1D = [10.d0,11.d0,12.d0,13.d0,14.d0]
-!  
+!
 !    call Msg('==========================')
 !    call Msg('Testing : file IO')
 !    call Msg('==========================')
@@ -916,33 +916,33 @@ contains
 !    ! call test%test(all(c1D == [10.d0,11.d0,12.d0,13.d0,14.d0]),'writeLine/readLine')
 !    call closeFile(fName,iTest,'delete',istat)
 !    call test%test(istat == 0,'closeFile + Delete')
-!  
+!
 !    ia = 1
 !    open(unit = ia, file = 'test.txt', status='unknown', iostat=istat)
 !    write(ia, *) ia
 !    close(ia, iostat=istat)
 !    call test%test(istat == 0, 'Open file - fixed unit')
-!  
+!
 !    ib = 999
 !    istat = 999
 !    open(unit = ia, file = 'test.txt', status='old', iostat=istat)
 !    read(ia, *) ib
 !    close(ia, iostat=istat)
-!  
+!
 !    call test%test(istat == 0 .and. ib==1, 'reopen file - fixed unit')
-!  
+!
 !    ia = 999
 !    ib = 999
-!    istat = 999   
+!    istat = 999
 !    open(newunit = ia, file = 'test.txt', status='unknown', iostat=istat)
-!  
+!
 !    write(ia, *) ib
 !    do ib = 1, 10
 !      write(ia, *) ib, ib
 !    enddo
 !    close(ia, iostat=istat)
 !    call test%test(istat == 0, 'Open file - new unit')
-!  
+!
 !    ia = 999
 !    ib = 10
 !    istat = 999
@@ -950,7 +950,7 @@ contains
 !    read(ia, *) ib
 !    close(ia, iostat=istat)
 !    call test%test(istat == 0 .and. ib==999, 'reopen file - new unit, read a little')
-!  
+!
 !    open(newunit = ia, file = 'test.txt', status='old', iostat=istat)
 !    read(ia, *) istat
 !    do ib = 1, 10
@@ -959,7 +959,7 @@ contains
 !    close(ia, iostat=istat)
 !
 !    call test%test(istat == 0 .and. id==10, 'reopen file - new unit, read all')
-!  
+!
 !    end subroutine
 !    !====================================================================!
 
@@ -999,7 +999,7 @@ contains
   real(r64) :: a,b,c
   real(r64),allocatable :: a1D(:), b1D(:), c1D(:), d1D(:)
   real(r64),allocatable :: a2D(:,:)
-  integer(i32) :: ia, N
+  integer(i32) :: ia, N, iTmp
   integer(i32), allocatable :: ia1D(:)
   type(KdTree) :: tree
   type(KdTreeSearch) :: search
@@ -1028,29 +1028,36 @@ contains
 
   c1D = a1D**2.d0
   c1D = c1D + b1D**2.d0
-  call arange(ia1D, 1, N)  
+  c1D = sqrt(c1D)
+  call arange(ia1D, 1, N)
   call argSort(c1D, ia1D)
 
   ia = search%nearest(tree, a1D, b1D, 0.d0, 0.d0)
- 
+
   call test%test(ia == ia1D(1), '2D - KdTreeSearch%nearest')
 
   da = search%kNearest(tree, a1D, b1D, 0.d0, 0.d0, k = 10)
 
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - sqrt(c1D(ia1D(1:10)))) <= 1.d-15), '2D - KdTreeSearch%kNearest, k nearest')
+  iTmp = da%size()
 
-  c1D = sqrt(c1D(ia1D))
-  a = c1D(15) + 1.d-14
+  call test%test(iTmp == 10 .and. all(da%i%values == ia1D(1:iTmp)) .and. all(abs(da%v%values - c1D(ia1D(1:iTmp))) <= 1.d-15), '2D - KdTreeSearch%kNearest, k nearest')
+
+  a = c1D(15) + 1d-16
 
   call da%deallocate()
 
   da = search%kNearest(tree, a1D, b1D, 0.d0, 0.d0, radius = a)
 
-  call test%test(all(da%i%values == ia1D(1:15)) .and. all(abs(da%v%values - (c1D(1:15))) <= 1.d-15), '2D - KdTreeSearch%kNearest, radius search')
+  iTmp = da%size()
+
+  call test%test(all(da%i%values == ia1D(1:iTmp)) .and. all(abs(da%v%values - c1D(ia1D(1:iTmp))) <= 1.d-15), '2D - KdTreeSearch%kNearest, radius search')
 
   call da%deallocate()
   da = search%kNearest(tree, a1D, b1D, 0.d0, 0.d0, k=10, radius = a)
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - (c1D(1:10))) <= 1.d-15), '2D - KdTreeSearch%kNearest, k radius search')
+
+  iTmp = da%size()
+
+  call test%test(iTmp == 10 .and. all(da%i%values == ia1D(1:iTmp)) .and. all(abs(da%v%values - c1D(ia1D(1:iTmp))) <= 1.d-15), '2D - KdTreeSearch%kNearest, k radius search')
 
   ida = search%rangeSearch(tree, a1D, b1D, [-0.2d0, -0.2d0], [0.2d0, 0.2d0])
 
@@ -1069,7 +1076,7 @@ contains
   else
     call test%test(all(ida%values == ida2%values), '2D - KdTreeSearch%rangeSearch')
   endif
- 
+
   call ida%deallocate()
   call ida2%deallocate()
   call tree%deallocate()
@@ -1087,23 +1094,31 @@ contains
   d1D = a1D**2.d0
   d1D = d1D + b1D**2.d0
   d1D = d1D + c1D**2.d0
+  d1D = sqrt(d1D)
   call arange(ia1D, 1, N)
   call argSort(d1D, ia1D)
+  d1D = d1D(ia1D)
+
+  iTmp = da%size()
 
   call test%test(ia == ia1D(1), '3D - KdTreeSearch%nearest')
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - sqrt(d1D(ia1D(1:10)))) <= 1.d-15), '3D - KdTreeSearch%kNearest')
+  call test%test(iTmp == 10 .and. all(da%i%values == ia1D(1:iTmp)) .and. all(abs(da%v%values - d1D(1:iTmp)) <= 1.d-15), '3D - KdTreeSearch%kNearest')
 
-  d1D = sqrt(d1D(ia1D))
-  a = d1D(15) + 1.d-14
+  a = d1D(15) + 1d-16
 
   call da%deallocate()
   da = search%kNearest(tree, a1D, b1D, c1D, 0.d0, 0.d0, 0.d0, radius = a)
 
-  call test%test(all(da%i%values == ia1D(1:15)) .and. all(abs(da%v%values - (d1D(1:15))) <= 1.d-15), '3D - KdTreeSearch%kNearest, radius search')
+  iTmp = da%size()
+
+  call test%test(all(da%i%values == ia1D(1:iTmp)) .and. all(abs(da%v%values - (d1D(1:iTmp))) <= 1.d-15), '3D - KdTreeSearch%kNearest, radius search')
 
   call da%deallocate()
   da = search%kNearest(tree, a1D, b1D, c1D, 0.d0, 0.d0, 0.d0, k=10, radius = a)
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - (d1D(1:10))) <= 1.d-15), '3D - KdTreeSearch%kNearest, k radius search')
+
+  iTmp = da%size()
+
+  call test%test(iTmp == 10 .and. all(da%i%values == ia1D(1:iTmp)) .and. all(abs(da%v%values - (d1D(1:iTmp))) <= 1.d-15), '3D - KdTreeSearch%kNearest, k radius search')
 
   ida = search%rangeSearch(tree, a1D, b1D, c1D, [-0.2d0, -0.2d0, -0.2d0], [0.2d0, 0.2d0, 0.2d0])
 
@@ -1124,7 +1139,7 @@ contains
   else
     call test%test(all(ida%values == ida2%values), '3D - KdTreeSearch%rangeSearch')
   endif
- 
+
   call ida%deallocate()
   call ida2%deallocate()
 
@@ -1142,26 +1157,34 @@ contains
 
   c1D = a1D**2.d0
   c1D = c1D + b1D**2.d0
+  c1D = sqrt(c1D)
 
-  call arange(ia1D, 1, N)  
+  call arange(ia1D, 1, N)
   call argSort(c1D, ia1D)
 
-  call test%test(ia == ia1d(1), 'KD - KdTreeSearch%nearest')
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - sqrt(c1D(ia1D(1:10)))) <= 1.d-15), 'KD - KdTreeSearch%kNearest')
+  iTmp = da%size()
 
-  do ia = 1, N
-    d1D(ia) = sqrt(c1D(ia1D(ia)))
-  enddo
-  a = d1D(15) + 1.d-14
+  c1D = c1D(ia1D)
+
+  call test%test(ia == ia1d(1), 'KD - KdTreeSearch%nearest')
+  call test%test(iTmp == 10 .and. all(da%i%values == ia1D(1:iTmp)) .and. all(abs(da%v%values - c1D(1:iTmp)) <= 1.d-15), 'KD - KdTreeSearch%kNearest')
+
+  d1D = c1D
+  a = d1D(15) + 1d-16
 
   call da%deallocate()
   da = search%kNearest(tree, a2D, [0.d0, 0.d0], radius = a)
 
-  call test%test(all(da%i%values == ia1D(1:15)) .and. all(abs(da%v%values - (d1D(1:15))) <= 1.d-15), 'KD - KdTreeSearch%kNearest, radius search')
+  iTmp = da%size()
+
+  call test%test(all(da%i%values == ia1D(1:iTmp)) .and. all(abs(da%v%values - (d1D(1:iTmp))) <= 1.d-15), 'KD - KdTreeSearch%kNearest, radius search')
 
   call da%deallocate()
   da = search%kNearest(tree, a2D, [0.d0, 0.d0], k=10, radius = a)
-  call test%test(all(da%i%values == ia1D(1:10)) .and. all(abs(da%v%values - (d1D(1:10))) <= 1.d-15), 'KD - KdTreeSearch%kNearest, k radius search')
+
+  iTmp = da%size()
+
+  call test%test(all(iTmp == 10 .and. da%i%values == ia1D(1:iTmp)) .and. all(abs(da%v%values - (d1D(1:iTmp))) <= 1.d-15), 'KD - KdTreeSearch%kNearest, k radius search')
 
   ida = search%rangeSearch(tree, a2D, [-0.2d0, -0.2d0], [0.2d0, 0.2d0])
 
@@ -1180,7 +1203,7 @@ contains
   else
     call test%test(all(ida%values == ida2%values), 'KD - KdTreeSearch%rangeSearch')
   endif
- 
+
   call ida%deallocate()
   call ida2%deallocate()
 
@@ -1377,7 +1400,7 @@ contains
   !! Test the jump capabilities of the xorshift128+ in parallel
   !!
   ! Get the number of threads available
-  !$omp parallel 
+  !$omp parallel
     nThreads = omp_get_num_threads()
   !$omp end parallel
 
@@ -1453,9 +1476,9 @@ contains
 !  write(*,1) 'Setting the random seed'
 !
   rng = Prng(big = .true.)
-  
+
 !  !call setRNG([546420601, 1302718556, 802583095, 136684118, 1163051410, 592779069, 660876855, 767615536, 1788597594, 775517554, 657867655, 1334969129])
-  
+
   call allocate(ia1D, 3)
   ia=1
   call rng%rngInteger(ia1D,ia, 5)
@@ -1666,7 +1689,7 @@ contains
   do i = 1, N
     cr1D(i) = br1D(ic1D(i))
   enddo
-  
+
   la = all(cr1D(1:ic-1) <= cr1D(ic)) .and. all(cr1D(ic+1:N) >= cr1D(ic))
   call test%test(la,'argQuickSelect_r1D')
 
@@ -1778,8 +1801,8 @@ contains
   call rngNormal(a1D)
   ar1D = real(a1D)
 
-  printOptions%threshold=0
-  write(*,*)"[", str(a1D, delim=','),"]"
+  ! printOptions%threshold=0
+  ! write(*,*)"[", str(a1D, delim=','),"]"
 
   br1D = ar1D
   call sort(br1D)

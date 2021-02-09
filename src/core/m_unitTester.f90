@@ -37,7 +37,7 @@ subroutine test_tester(this, l, msg)
   character(len=*) :: msg
   this%total = this%total + 1
   if (l) then
-    write(output_unit,1) msg//' Passed!'
+    ! write(output_unit,1) msg//' Passed!'
     this%success = this%success + 1
   else
     write(output_unit,1) msg//' Failed!'

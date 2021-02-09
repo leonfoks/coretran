@@ -10,6 +10,7 @@ module m_geometry
   public :: orient3D
   public :: geometryTest
 
+
   interface
     !====================================================================!
     module function inCircle(ax, ay, bx, by, cx, cy, dx, dy) result(determinant)
@@ -122,7 +123,7 @@ module m_geometry
   interface
     !====================================================================!
     module function orient3D(ax, ay, az, bx, by, bz, cx, cy, cz, dx, dy, dz) result(determinant)
-      !! Determines whether the points a, b, c, c defining a polyhedron are ordered
+      !! Determines whether the points a, b, c, d defining a polyhedron are ordered
       !! in an anticlockwise manner.
       !! Returns a positive value if a-b-c-d are in an anticlockwise order.
       !! Returns a negative value if a-b-c-d are in clockwise order.

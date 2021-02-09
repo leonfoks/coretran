@@ -47,7 +47,7 @@ contains
     eps = eps * half
     check = 1.d0 + eps
   enddo
-  splitter = splitter + 1.d0 
+  splitter = splitter + 1.d0
 
   ! Set the error bounds for orientation and incircle tests
   resErrBound = (3.d0 + 8.d0 * eps) * eps
@@ -131,7 +131,7 @@ contains
   endif
 
   hIndex = 1
-  ! If both arrays are larger than 1 element, perform the 
+  ! If both arrays are larger than 1 element, perform the
   ! fast two sum and two sums.
   if (eIndex < nE .and. fIndex < nF) then
     if ((fNow > eNow) .eqv. (fNow > -eNow)) then ! First
@@ -174,7 +174,7 @@ contains
 
   ! At this point either e is finished, f is finished, or both.
   ! So account for the Errs of either e or f
-  do while (eIndex < nE) 
+  do while (eIndex < nE)
     call twoSum(q, eNow, qNew, hh)
     eIndex = eIndex + 1
     eNow = e(eIndex)
@@ -221,7 +221,7 @@ contains
     h(hIndex) = q
     hIndex = hIndex + 1
   endif
-  
+
   hIndex = hIndex - 1
 
   end subroutine
@@ -250,13 +250,13 @@ contains
     !! Compute the sum of two numbers and compute the numerical round-off error.
     !! This should only be used if you know that the magnitude of a is greater than or equal to b, otherwise, you should use the slower twoSum routine
   !====================================================================!
-    real(r64), intent(in) :: a 
+    real(r64), intent(in) :: a
       !! First number
-    real(r64), intent(in) :: b 
+    real(r64), intent(in) :: b
       !! Second number
-    real(r64), intent(out) :: x 
+    real(r64), intent(out) :: x
       !! Result
-    real(r64), intent(out) :: y 
+    real(r64), intent(out) :: y
       !! Error
     real(r64) :: bVirtual
     x = a + b
@@ -320,7 +320,7 @@ contains
   real(r64), dimension(48) :: t48
   real(r64), dimension(64) :: t64
   integer(i32) :: nT8, nT16a, nT16b, nT16c, nT32a, nT32b, nT48, nT64
-  
+
   real(r64), dimension(4) :: u
   real(r64), dimension(4) :: v
 
@@ -331,11 +331,11 @@ contains
   real(r64) :: cdx, cdy, cdz, cdxady, cdxbdy, cLift
   real(r64) :: cdxErr, cdyErr, cdzErr
   real(r64) :: errBound
-  
+
   real(r64) :: keep
   real(r64) :: negate
   real(r64) :: tmp1, tmp2, tmp3, tmp4
-    
+
   adx = ax - dx
   bdx = bx - dx
   cdx = cx - dx
@@ -351,10 +351,10 @@ contains
   adxcdy = adx * cdy
   bLift = bdx * bdx + bdy * bdy
 
-  adxbdy = adx * bdy  
+  adxbdy = adx * bdy
   bdxady = bdx * ady
   cLift = cdx * cdx + cdy * cdy
-  
+
   determinant = (aLift * (bdxcdy - cdxbdy)) &
               + (bLift * (cdxady - adxcdy)) &
               + (cLift * (adxbdy - bdxady))
@@ -428,7 +428,7 @@ contains
               + (cLift * ((adx * bdyErr + bdy * adxErr)  &
                        -  (ady * bdxErr + bdx * adyErr)) &
               + 2.d0 * (cdx * cdxErr + cdy * cdyErr) * (adx * bdy - ady * bdx))
-        
+
   ! Third escape at C
   if ((determinant > errBound) .or. (-determinant > errBound)) return
 
@@ -616,7 +616,7 @@ contains
       call move(nFin2, fin2, fin1, nFin1)
     endif
   endif
-    
+
   if ((bdxErr /= 0.d0) .or. (bdyErr /= 0.d0)) then
     if ((cdxErr /= 0.d0) .or. (cdyErr /= 0.d0) .or. (adxErr /= 0.d0) .or. (adyErr /= 0.d0)) then
       call twoProduct(cdxErr, ady, tmp1, tmp2)
@@ -760,7 +760,7 @@ contains
   endif
 
   determinant = fin1(nFin1)
-  
+
   end procedure
   !====================================================================!
   !====================================================================!
@@ -976,7 +976,7 @@ contains
   call scaleExpansion(nT24, t24, bez, t48, nT48)
   call scaleExpansion(nT48, t48, bez, zdet, nZ)
   call fastExpansionSum(nX, nY, xDet, yDet, xyDet, nXY)
-  call fastExpansionSum(nXY, nZ, xyDet, zDet, bDet, nB) 
+  call fastExpansionSum(nXY, nZ, xyDet, zDet, bDet, nB)
 
   call scaleExpansion(4, ab, dez, t8a, nT8a)
   call scaleExpansion(4, bd, aez, t8b, nT8b)
@@ -1013,8 +1013,8 @@ contains
   determinant = estimate(nFin1, fin1)
 
   errBound = icsBound_B * keep
-  
-  if ((determinant >= errBound) .or. (-determinant >= errBound)) return 
+
+  if ((determinant >= errBound) .or. (-determinant >= errBound)) return
 
   call twoDiffErr(ax, ex, aex, aexErr)
   call twoDiffErr(ay, ey, aey, aeyErr)
@@ -1200,7 +1200,7 @@ contains
   call fastExpansionSum(nT32a, nT32b, t32a, t32b, t64c, nT64c)
   call fastExpansionSum(nT64a, nT64b, t64a, t64b, t128, nT128)
   call fastExpansionSum(nT64c, nT128, t64c, t128, t192, nT192)
-  
+
   call scaleExpansion(nT192, t192, aex, xDet, nX)
   call scaleExpansion(nX, xDet, aex, xxDet, nXX)
   call scaleExpansion(nT192, t192, aexErr, xtDet, nXt)
@@ -1459,7 +1459,7 @@ contains
     detSum = lDet + rDet
   elseif (lDet < 0.0_r64) then
     if (rDet >= 0.0_r64) return
-    detSum = -lDet - rDet  
+    detSum = -lDet - rDet
   else
     return
   endif
@@ -1468,7 +1468,7 @@ contains
 
   ! First escape at A
   if ((determinant >= errBound) .or. (-determinant >= errBound)) return
-   
+
   call twoProduct(acx, bcy, lDet, lDetErr)
   call twoProduct(acy, bcx, rDet, rDetErr)
   call twoTwoDiff(lDet, lDetErr, rDet, rDetErr, b)
@@ -1476,7 +1476,7 @@ contains
 
   determinant = estimate(4, b)
   errBound = o2DBound_B * detSum
-  
+
   ! Second escape at B
   if ((determinant >= errBound) .or. (-determinant >= errBound)) return
 
@@ -1494,7 +1494,7 @@ contains
 
   ! Third escape at C
   if ((determinant >= errBound) .or. (-determinant >= errBound)) return
-  
+
   call twoProduct(acxErr, bcy, s1, s0)
   call twoProduct(acyErr, bcx, t1, t0)
   call twoTwoDiff(s1, s0, t1, t0, u)
@@ -1589,9 +1589,9 @@ contains
   cdxady = cdx * ady
   adxcdy = adx * cdy
 
-  adxbdy = adx * bdy  
+  adxbdy = adx * bdy
   bdxady = bdx * ady
-  
+
   determinant = (adz * (bdxcdy - cdxbdy)) &
               + (bdz * (cdxady - adxcdy)) &
               + (cdz * (adxbdy - bdxady))
@@ -1655,7 +1655,7 @@ contains
               + (cdz * ((adx * bdyErr + bdy * adxErr)  &
                       - (ady * bdxErr + bdx * adyErr)) &
               + cdzErr * (adx * bdy - ady * bdx))
-        
+
   if ((determinant > errBound) .or. (-determinant > errBound)) return
 
   ! Final leg, exact computation
@@ -1758,7 +1758,7 @@ contains
   call fastExpansionSum(nBtc, nCtb, btC, ctB, bct, nBct)
   call scaleExpansion(nBct, bct, adz, w, nW)
   call fastExpansionSum(nFin2, nW, fin2, w, fin1, nFin1)
-  
+
   call fastExpansionSum(nCta, nAtc, ctA, atC, cat, nCat)
   call scaleExpansion(nCat, cat, bdz, w, nW)
   call fastExpansionSum(nFin1, nW, fin1, w, fin2, nFin2)
@@ -1864,20 +1864,20 @@ contains
   if (adzErr /= 0.d0) then
     call scaleExpansion(nBct, bct, adzErr, w, nW)
     call fastExpansionSum(nFin1, nW, fin1, w, fin2, nFin2)
-    call move(nFin2, fin2, fin1, nFin1)  
+    call move(nFin2, fin2, fin1, nFin1)
   endif
   if (bdzErr /= 0.d0) then
     call scaleExpansion(nCat, cat, bdzErr, w, nW)
     call fastExpansionSum(nFin1, nW, fin1, w, fin2, nFin2)
-    call move(nFin2, fin2, fin1, nFin1)  
+    call move(nFin2, fin2, fin1, nFin1)
   endif
   if (cdzErr /= 0.d0) then
     call scaleExpansion(nAbt, abt, cdzErr, w, nW)
     call fastExpansionSum(nFin1, nW, fin1, w, fin2, nFin2)
-    call move(nFin2, fin2, fin1, nFin1)  
+    call move(nFin2, fin2, fin1, nFin1)
   endif
 
-  determinant = fin1(nFin1)  
+  determinant = fin1(nFin1)
 
   end procedure
   !====================================================================!
@@ -1987,13 +1987,13 @@ contains
     !! Compute the difference between two numbers and compute the numerical round-off error.
     !! If you know that the magnitude of a is greater than or equal to b, use fastTwoDiff
   !====================================================================!
-    real(r64), intent(in) :: a 
+    real(r64), intent(in) :: a
       !! First number
-    real(r64), intent(in) :: b 
+    real(r64), intent(in) :: b
       !! Second number
-    real(r64), intent(out) :: x 
+    real(r64), intent(out) :: x
       !! Result
-    real(r64), intent(out) :: y 
+    real(r64), intent(out) :: y
       !! Error
     x = a - b
     call twoDiffErr(a, b, x, y)
@@ -2002,13 +2002,13 @@ contains
   !====================================================================!
   subroutine twoDiffErr(a, b, x, y)
   !====================================================================!
-  real(r64), intent(in) :: a 
+  real(r64), intent(in) :: a
     !! First number
-  real(r64), intent(in) :: b 
+  real(r64), intent(in) :: b
     !! Second number
-  real(r64), intent(inout) :: x 
+  real(r64), intent(inout) :: x
     !! Result
-  real(r64), intent(out) :: y 
+  real(r64), intent(out) :: y
     !! Error
   real(r64) :: aVirtual, bVirtual
   real(r64) :: aRoundoff, bRoundoff
@@ -2017,7 +2017,7 @@ contains
   bRoundoff = bVirtual - b
   aRoundoff = a - aVirtual
   y = aRoundoff + bRoundoff
-  end subroutine 
+  end subroutine
   !====================================================================!
   !====================================================================!
   subroutine twoOneDiff(a1, a0, b, x2, x1, x0)
@@ -2153,7 +2153,7 @@ contains
   real(r64) :: a0hi, a0lo, a1hi, a1lo
   real(r64) :: bhi, blo
   real(r64) :: tmp0, tmp1, tmp2, tmpI, tmpJ, tmpK, tmpL, tmpM, tmpN, tmpO
-  
+
   call split(a0, a0hi, a0lo)
   call split(b0, bhi, blo)
   call twoProductABsplit(a0, a0hi, a0lo, b0, bhi, blo, tmpI, x(1))
@@ -2186,13 +2186,13 @@ contains
     !! Compute the sum of two numbers and compute the numerical round-off error.
     !! If you know that the magnitude of a is greater than or equal to b, use fastTwoSum
   !====================================================================!
-    real(r64), intent(in) :: a 
+    real(r64), intent(in) :: a
       !! First number
-    real(r64), intent(in) :: b 
+    real(r64), intent(in) :: b
       !! Second number
-    real(r64), intent(out) :: x 
+    real(r64), intent(out) :: x
       !! Result
-    real(r64), intent(out) :: y 
+    real(r64), intent(out) :: y
       !! Error
     real(r64) :: aVirtual, bVirtual
     real(r64) :: aRoundoff, bRoundoff
@@ -2300,12 +2300,12 @@ contains
   ! write(*,*) 'O3D: ', ax
 
   !! Set up some perturbations
-  
+
   q = 2.d0**(-53)
   px = 0.5d0
 
-  ii = 1 
-  i = 1 
+  ii = 1
+  i = 1
   x0 = 1000.d0
   goX = .true.
   do while (goX)
@@ -2322,14 +2322,14 @@ contains
 
   y1 = x1
 
-  
+
 
   write(*,*) 'Orient2D'
   !!! Orient2D Test
   call openFile('orient2D.txt', iUnit, 'unknown', istat)
-  
+
   px = 0.5d0
-  py = 0.5d0 
+  py = 0.5d0
   bx = 12.d0
   by = 12.d0
   cx = 24.d0
@@ -2345,9 +2345,9 @@ contains
     enddo
   enddo
   call closeFile('orient2D.txt', iunit, '', istat)
-  
+
   ! call openFile('coplanar_test.txt', iUnit, 'unknown', istat)
-  
+
   ! px = 0.5d0 py = 9.d0 pz = 0.5d0
   ! ax = 12.d0 ay = 6.d0 az = 12.d0
   ! bx = 12.d0 by = 12.d0 bz = 12.d0
@@ -2358,7 +2358,7 @@ contains
   !   x = px + dble(i - 1) * q
   !   do j = 1, 256
   !     y = py + dble(j - 1) * q
-  !     do k = 1, 256     
+  !     do k = 1, 256
   !       z = pz + dble(k - 1) * q
   !       !write(*,*) 'i,j,k', i,j,k
   !       !write(*,'(12(e23.15e3, 2x))') ax, ay, az, bx, by, bz, cx, cy, cz, x, y, z
@@ -2373,14 +2373,14 @@ contains
   write(*,*) 'Incircle'
   !!! Incircle Test
   call openFile('incircle.txt', iUnit, 'unknown', istat)
-  
+
   px = 0.5d0
-  py = 0.5d0 
+  py = 0.5d0
   ax = 0.5d0
   ay = -11.d0
-  bx = 12.d0 
+  bx = 12.d0
   by = -11.d0
-  cx = 12.d0 
+  cx = 12.d0
   cy = 0.5d0
 
   q = eps
@@ -2395,47 +2395,47 @@ contains
   enddo
   call closeFile('incircle.txt', iunit, '', istat)
 
-  
+
   write(*,*) 'InSphere'
 
   call openFile('inSphere.txt', iUnit, 'unknown', istat)
-  
+
   ax = 0.5d0
   ay = 12.d0
   az = -11.d0
-  bx = 12.d0 
+  bx = 12.d0
   by = 12.d0
   bz = -11.d0
-  cx = 12.d0 
+  cx = 12.d0
   cy = 0.5d0
   cz = -11.d0
   dx = 12.d0
   dy = 12.d0
   dz = 0.5d0
-  
+
   !do k = 1, 512
-  
+
     !z = x1(k)
     z = 0.5d0
     do j = 1, 512
       y = y1(j)
       do i = 1,512
-        x = x1(i)  
+        x = x1(i)
         ! write(*,*) i,j,k
         ! write(*,*) x, y, z
         a = inSphere(ax, ay, az, bx, by, bz, cx, cy, cz, dx, dy, dz, x, y, z)
         ! if (abs(a) > 10000) stop
         !if (a /= 0.d0) a = sign(1.d0, a)
         write(iUnit, *) x, y, z, a
-        
+
       enddo
     enddo
   !enddo
   call closeFile('inSphere.txt', iunit, '', istat)
-    
+
 
   end procedure
 
 
-  
+
 end submodule

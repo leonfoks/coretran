@@ -1,6 +1,5 @@
 submodule (m_Sort) sm_MergeSort
   !! Merge sort and arg Merge sort routines
-use variableKind
 use m_errors, only: mErr
 
 contains

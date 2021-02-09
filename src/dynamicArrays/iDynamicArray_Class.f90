@@ -95,6 +95,8 @@ contains
     !! iDynamicArray%reallocate() - Create new contiguous memory to match the needs of the expanding or shrinking array.
   procedure, public :: remove => remove_iDynamicArray
     !! iDynamicArray%remove() - Remove an element from the array.
+  procedure, public :: size => size_iDynamicArray
+    !! iDynamicArray%size() - Get the size of the array
   procedure, public :: tighten => tighten_iDynamicArray
     !! iDynamicArray%tighten() - Removes excess buffer memory and trims it to the current length.
 end type
@@ -342,6 +344,17 @@ contains
     if (this%N < size(this%values)/4) call this%reallocate(this%N)
   endif
   end subroutine
+  !====================================================================!
+
+  !====================================================================!
+  function size_iDynamicArray(this) result(res)
+    !! Overloaded type bound procedure iDynamicArray%size()
+  !====================================================================!
+  class(iDynamicArray) :: this
+  integer(i32) :: res
+    !! The size of the array
+  res = this%N
+  end function
   !====================================================================!
 
   !====================================================================!

@@ -1,6 +1,5 @@
 submodule (m_KdTree) sm_KdTree_class
   !! Contains the implementations of overloaded KdTree class type bound procedures
-  use m_parameters, only: nan
   use m_sort, only: argSort
 implicit none
 

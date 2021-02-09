@@ -1,7 +1,6 @@
 submodule (m_Sort) sm_introsort
   !! introsort and argIntrosort routines
 
-  use variableKind
   use m_swap, only: swap
   use m_partition, only: partition, argPartition
   use m_medianOf3, only: medianOf3, argMedianOf3

@@ -1,7 +1,6 @@
 submodule (m_Sort) m_InsertionSort
   !! Insertion sort and argInsertion sort routines
 
-use variableKind
 use m_swap, only: swap
 
 implicit none

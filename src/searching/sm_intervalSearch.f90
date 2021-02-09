@@ -1,6 +1,5 @@
 submodule (m_searching) sm_intervalSearch
 
-use variableKind, only: r32, r64, i32, i64
 implicit none
 
 contains

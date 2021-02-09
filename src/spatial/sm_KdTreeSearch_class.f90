@@ -58,12 +58,12 @@ contains
 
     if (query <= trunk%median) then ! If the query is to the left of the current median
       currentNearest = nearestBranch_2D(trunk%buds(1), x, y, indx, xQuery, yQuery, currentNearest, distance)
-      if ((query + distance) >= trunk%median) then ! Need to still check the other half if its on the other side of the median
+      if ((query + distance - trunk%median) >= 0.0) then ! Need to still check the other half if its on the other side of the median
         currentNearest = nearestBranch_2D(trunk%buds(2), x, y, indx, xQuery, yQuery, currentNearest, distance)
       end if
     else ! The query is to the right of the current median
       currentNearest = nearestBranch_2D(trunk%buds(2), x, y, indx, xQuery, yQuery, currentNearest, distance)
-      if ((query-distance) <= trunk%median) then ! Need to still check the other half if its on the other side of the median
+      if ((query - distance + trunk%median) <= 0.0)then ! Need to still check the other half if its on the other side of the median
         currentNearest = nearestBranch_2D(trunk%buds(1), x, y, indx, xQuery, yQuery, currentNearest, distance)
       end if
     end if
@@ -94,11 +94,11 @@ contains
   end if
 
   iTmp = indx(i)
-  minDistance=(xQuery - x(iTmp))**2.d0 + (yQuery-y(iTmp))**2.d0
+  minDistance = (xQuery - x(iTmp))**2.d0 + (yQuery-y(iTmp))**2.d0
   nearest = i
 
   ! Find the minimum point distance to the query out of all the leaves
-  do i=iLeft, right
+  do i = iLeft, right
     iTmp = indx(i)
     distance = (xQuery - x(iTmp))**2.d0 + (yQuery - y(iTmp))**2.d0
     if (distance < minDistance) then
@@ -513,7 +513,7 @@ contains
     iTmp = indx(i)
     distance = (xQuery - x(iTmp))**2.d0 + (yQuery - y(iTmp))**2.d0
     ! If the distance is less than the search radius
-    if (distance <= radiusSquared) then
+    if (distance < radiusSquared) then
       if (kNearest%isEmpty()) then ! Insert the point if the list is empty
         call kNearest%insertSorted(iTmp, distance)
       else
@@ -549,7 +549,7 @@ contains
   do i = left, right
     iTmp = indx(i)
     distance = (xQuery - x(iTmp))**2.d0 + (yQuery - y(iTmp))**2.d0
-    if (distance <= radiusSquared) then
+    if (distance < radiusSquared) then
       call kNearest%insertSorted(iTmp, distance)
     endif
   end do
@@ -740,7 +740,7 @@ contains
     iTmp = indx(i)
     distance = (xQuery - x(iTmp))**2.d0 + (yQuery - y(iTmp))**2.d0 + (zQuery-z(iTmp))**2.d0
     ! If the distance is less than the search radius
-    if (distance <= radiusSquared) then
+    if (distance < radiusSquared) then
       if (kNearest%isEmpty()) then ! Insert the point if the list is empty
         call kNearest%insertSorted(iTmp, distance)
       else
@@ -778,7 +778,7 @@ contains
   do i = left, right
     iTmp = indx(i)
     distance = (xQuery - x(iTmp))**2.d0 + (yQuery - y(iTmp))**2.d0 + (zQuery-z(iTmp))**2.d0
-    if (distance <= radiusSquared) then
+    if (distance < radiusSquared) then
       call kNearest%insertSorted(iTmp, distance)
     endif
   end do
@@ -941,7 +941,7 @@ contains
     test = D(iTmp, :)
     distance = sum((query - test)**2.d0)
     ! If the distance is less than the search radius
-    if (distance <= radiusSquared) then
+    if (distance < radiusSquared) then
       if (kNearest%isEmpty()) then ! Insert the point if the list is empty
         call kNearest%insertSorted(iTmp, distance)
       else
@@ -976,7 +976,7 @@ contains
     iTmp = indx(i)
     test = D(iTmp, :)
     distance = sum((query - test)**2.d0)
-    if (distance <= radiusSquared) then
+    if (distance < radiusSquared) then
       call kNearest%insertSorted(iTmp, distance)
     endif
   end do
@@ -1025,9 +1025,9 @@ contains
     do i = trunk%left, trunk%right
       iTmp = indx(i)
       xTmp = x(iTmp)
-      if (xTmp >= lowerBound(1) .and. xTmp <= upperBound(1)) then
+      if (xTmp > lowerBound(1) .and. xTmp < upperBound(1)) then
         yTmp = y(iTmp)
-        if (yTmp >= lowerBound(2) .and. yTmp <= upperBound(2)) then
+        if (yTmp > lowerBound(2) .and. yTmp < upperBound(2)) then
           call iPoints%insertSorted(iTmp)
         endif
       endif 
@@ -1098,11 +1098,11 @@ contains
     do i = trunk%left, trunk%right
       iTmp = indx(i)
       xTmp = x(iTmp)
-      if (xTmp >= lowerBound(1) .and. xTmp <= upperBound(1)) then
+      if (xTmp > lowerBound(1) .and. xTmp < upperBound(1)) then
         yTmp = y(iTmp)
-        if (yTmp >= lowerBound(2) .and. yTmp <= upperBound(2)) then
+        if (yTmp > lowerBound(2) .and. yTmp < upperBound(2)) then
           zTmp = z(iTmp)
-          if (zTmp >= lowerBound(3) .and. zTmp <= upperBound(3)) then
+          if (zTmp > lowerBound(3) .and. zTmp < upperBound(3)) then
             call iPoints%insertSorted(iTmp)
           endif
         endif
@@ -1177,12 +1177,12 @@ contains
       ! Test the first dimension
       j = 1
       test = D(iTmp, j)
-      insert = (test >= lowerBound(j) .and. test <= upperBound(j))
+      insert = (test > lowerBound(j) .and. test < upperBound(j))
       ! While loop allows early exit if point is outside any bounds.
       do while (insert .and. j < k)
         j = j + 1
         test = D(iTmp, j)
-        insert = (test >= lowerBound(j) .and. test <= upperBound(j))
+        insert = (test > lowerBound(j) .and. test < upperBound(j))
       enddo
       ! Insert the point if point is within range.
       if (insert) call iPoints%insertSorted(iTmp)
