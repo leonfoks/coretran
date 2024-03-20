@@ -8,13 +8,13 @@
     !!type(ProgressBar) :: P
     !!integer(i32) :: i, N
     !!N = 100000
-    !!call P%set(N, time = .false.)
+    !!P = ProgressBar(N, time = .false.)
     !!call P%print(0)
     !!do i = 1, N
     !!  Compute some stuff
     !!  call P%print(i)
     !!enddo
-    !!call P%set(N, time = .true.)
+    !!P = ProgressBar(N, time = .true.)
     !!call P%print(0)
     !!do i = 1, N
     !!  Compute some stuff
@@ -44,10 +44,6 @@
     real(r64) :: cumTime !! Cumulative time
     character(len=88) :: bar !! String to write the progress bar to output
   contains
-    !generic, public :: set => set_i1_ProgressBar_,set_id1_ProgressBar_
-    !! Print the progress Bar
-    !procedure, private :: set_i1_ProgressBar_ => set_i1_ProgressBar
-    !procedure, private :: set_id1_ProgressBar_ => set_id1_ProgressBar
     !! Initialize the Progress Bar
     generic, public :: print => print_i1_ProgressBar_,print_id1_ProgressBar_
       !! Print the progress Bar
