@@ -161,6 +161,36 @@ module m_geometry
       !! [-ve, 0, +ve] for point d [right, on, left] of the plane defined by points a -> b -> c
     end function
   end interface
+  
+  interface
+    module subroutine fastTwoDiff(a, b, x, y)
+      !! Compute the difference two numbers and compute the numerical round-off error.
+      !! This should only be used if you know that the magnitude of a is greater than or equal to b, otherwise, you should use the slower twoDiff routine
+    !====================================================================!
+      real(r64), intent(in) :: a
+        !! First number
+      real(r64), intent(in) :: b
+        !! Second number
+      real(r64), intent(out) :: x
+        !! Result
+      real(r64), intent(out) :: y
+    end subroutine
+  end interface
+
+  interface
+    module subroutine fastTwoSum(a, b, x, y)
+      !! Compute the sum of two numbers and compute the numerical round-off error.
+      !! This should only be used if you know that the magnitude of a is greater than or equal to b, otherwise, you should use the slower twoSum routine
+    !====================================================================!
+      real(r64), intent(in) :: a
+        !! First number
+      real(r64), intent(in) :: b
+        !! Second number
+      real(r64), intent(out) :: x
+        !! Result
+      real(r64), intent(out) :: y
+    end subroutine
+  end interface
 
   interface
     !====================================================================!
