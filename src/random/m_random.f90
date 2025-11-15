@@ -75,44 +75,44 @@ module m_random
     ! !====================================================================!
   end interface
 
-  ! public rngChisq
+  public :: rngChisq
 
-  ! interface rngChisq
-  !   !! Pull from a Chi Ssquared distribution
-  !   !!
-  !   !! Example
-  !   !!```fortran
-  !   !!program Chisq_test
-  !   !!use variableKind, only: r64
-  !   !!use m_allocate, only: allocate
-  !   !!use m_random, only: rngChiSq
-  !   !!implicit none
-  !   !!real(r64), allocatable :: a
-  !   !!call allocate(a, 10000)
-  !   !!call rngChiSq(a, )
-  !   !!end program
-  !   !!```
-  !   !====================================================================!
-  !   module subroutine rngChisq_d1(this,ndf,first)
-  !     !! Interfaced with [[rngChiSq]]
-  !   !====================================================================!
-  !   ! Generates a random variate from the chi-squared distribution with
-  !   ! ndf degrees of freedom
-  !   real(r64) :: this
-  !   INTEGER, INTENT(IN) :: ndf
-  !   LOGICAL, INTENT(IN) :: first
-  !   END subroutine
-  !   !====================================================================!
-  !   !====================================================================!
-  !   module subroutine rngChisq_d1D(this,ndf,first)
-  !     !! Interfaced with [[rngChiSq]]
-  !   !====================================================================!
-  !   real(r64) :: this(:)
-  !   INTEGER, INTENT(IN) :: ndf
-  !   LOGICAL, INTENT(IN) :: first
-  !   end subroutine
-  !   !====================================================================!
-  ! end interface
+  interface rngChisq
+    !! Pull from a Chi Ssquared distribution
+    !!
+    !! Example
+    !!```fortran
+    !!program Chisq_test
+    !!use variableKind, only: r64
+    !!use m_allocate, only: allocate
+    !!use m_random, only: rngChiSq
+    !!implicit none
+    !!real(r64), allocatable :: a
+    !!call allocate(a, 10000)
+    !!call rngChiSq(a, )
+    !!end program
+    !!```
+    !====================================================================!
+    module subroutine rngChisq_d1(this,ndf,first)
+      !! Interfaced with [[rngChiSq]]
+    !====================================================================!
+    ! Generates a random variate from the chi-squared distribution with
+    ! ndf degrees of freedom
+    real(r64) :: this
+    INTEGER, INTENT(IN) :: ndf
+    LOGICAL, INTENT(IN) :: first
+    END subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine rngChisq_d1D(this,ndf,first)
+      !! Interfaced with [[rngChiSq]]
+    !====================================================================!
+    real(r64) :: this(:)
+    INTEGER, INTENT(IN) :: ndf
+    LOGICAL, INTENT(IN) :: first
+    end subroutine
+    !====================================================================!
+  end interface
 
   public :: rngExponential
 
@@ -120,28 +120,28 @@ module m_random
     module procedure :: rngExponential_d1, rngExponential_d1D, rngExponential_d2D, rngExponential_d3D
   end interface
 
-  ! public :: rngGamma
+  public :: rngGamma
 
-  ! interface rngGamma
-  !   !====================================================================!
-  !   module subroutine rngGamma_d1D(this,s,first)
-  !     !! Interfaced with [[rngGamma]]
-  !   !====================================================================!
-  !   real(r64) :: this(:)
-  !   real(r64), INTENT(IN) :: s
-  !   LOGICAL, INTENT(IN) :: first
-  !   end subroutine
-  !   !====================================================================!
-  !   !====================================================================!
-  !   module subroutine rngGamma_d1(this,s,first)
-  !     !! Interfaced with [[rngGamma]]
-  !   !====================================================================!
-  !   real(r64) :: this
-  !   real(r64), INTENT(IN)    :: s
-  !   LOGICAL, INTENT(IN) :: first
-  !   END subroutine
-  !   !====================================================================!
-  ! end interface
+  interface rngGamma
+    !====================================================================!
+    module subroutine rngGamma_d1D(this,s,first)
+      !! Interfaced with [[rngGamma]]
+    !====================================================================!
+    real(r64) :: this(:)
+    real(r64), INTENT(IN) :: s
+    LOGICAL, INTENT(IN) :: first
+    end subroutine
+    !====================================================================!
+    !====================================================================!
+    module subroutine rngGamma_d1(this,s,first)
+      !! Interfaced with [[rngGamma]]
+    !====================================================================!
+    real(r64) :: this
+    real(r64), INTENT(IN)    :: s
+    LOGICAL, INTENT(IN) :: first
+    END subroutine
+    !====================================================================!
+  end interface
 
   public :: rngInteger
 

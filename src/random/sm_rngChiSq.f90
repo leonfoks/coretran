@@ -11,7 +11,12 @@ submodule (m_random) sm_rngChiSq
   ! Updated again
   ! Added overloaded operations for single number, nD arrays
   !     Author: Leon Foks
+use variableKind
+
 implicit none
+
+real(r64), parameter :: half = 0.5_r64
+real(r64), parameter :: two = 2.0_r64
 
 contains
 
