@@ -78,7 +78,7 @@ export(TARGETS ${PROJECT_NAME} FILE ${PROJECT_NAME}-config.cmake)
 # ================================
 # Compile the test and scaling codes
 # ================================
-add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/tests)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/../test)
 
 # ++++++++++++++++++++++++++++++++
 

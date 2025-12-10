@@ -10,7 +10,7 @@ module procedure mergeSort_d1D
 !module subroutine mergeSort_d1D
 !real(r64) :: this(:)
 real(r64),allocatable :: aux(:)
-integer(i32) :: iLeft,iRight
+integer(i32) :: iLeft,iRight,istat
 iLeft=1;iRight=size(this)
 allocate(aux(iRight),stat=istat);call mErr(istat,'MergeSort:Auxiliary Array',1)
 aux=0.d0
@@ -66,7 +66,7 @@ module procedure mergeSort_r1D
 !module subroutine mergeSort_r1D
 !real(r32) :: this(:)
 real(r32),allocatable :: aux(:)
-integer(i32) :: iLeft,iRight
+integer(i32) :: iLeft,iRight,istat
 iLeft=1;iRight=size(this)
 allocate(aux(iRight),stat=istat);call Merr(istat,'MergeSort:Auxiliary Array',1)
 aux=0.d0
@@ -122,7 +122,7 @@ module procedure MergeSort_i1D
 !module subroutine mergeSort_i1D
 !integer(i32) :: this(:)
 integer(i32),allocatable :: aux(:)
-integer(i32) :: iLeft,iRight
+integer(i32) :: iLeft,iRight,istat
 iLeft=1;iRight=size(this)
 allocate(aux(iRight),stat=istat);call Merr(istat,'MergeSort:Auxiliary Array',1)
 aux=0
@@ -180,7 +180,7 @@ module procedure MergeSort_id1D
 !module subroutine mergeSort_id1D
 !integer(i64) :: this(:)
 integer(i64),allocatable :: aux(:)
-integer(i32) :: iLeft,iRight
+integer(i32) :: iLeft,iRight,istat
 iLeft=1;iRight=size(this)
 allocate(aux(iRight),stat=istat);call Merr(istat,'MergeSort:Auxiliary Array',1)
 aux=0
@@ -239,7 +239,7 @@ module procedure argMergeSort_d1D
 !real(r64) :: this(:)
 !integer(i32) :: i(:)
 integer(i32),allocatable :: aux(:)
-integer(i32) :: iLeft,iRight
+integer(i32) :: iLeft,iRight,istat
 iLeft=1;iRight=size(this)
 allocate(aux(iRight),stat=istat);call Merr(istat,'MergeSort:Auxiliary Array',1)
 aux=0
@@ -298,7 +298,7 @@ module procedure argMergeSort_r1D
 !real(r32) :: this(:)
 !integer(i32) :: i(:)
 integer(i32),allocatable :: aux(:)
-integer(i32) :: iLeft,iRight
+integer(i32) :: iLeft,iRight,istat
 iLeft=1;iRight=size(this)
 allocate(aux(iRight),stat=istat);call Merr(istat,'MergeSort:Auxiliary Array',1)
 aux=0
@@ -357,7 +357,7 @@ module procedure argMergeSort_i1D
 !integer(i32) :: this(:)
 !integer(i32) :: i(:)
 integer(i32),allocatable :: aux(:)
-integer(i32) :: iLeft,iRight
+integer(i32) :: iLeft,iRight,istat
 iLeft=1;iRight=size(this)
 allocate(aux(iRight),stat=istat);call Merr(istat,'MergeSort:Auxiliary Array',1)
 aux=0
@@ -416,7 +416,7 @@ module procedure argMergeSort_id1D
 !integer(i64) :: this(:)
 !integer(i32) :: i(:)
 integer(i32),allocatable :: aux(:)
-integer(i32) :: iLeft,iRight
+integer(i32) :: iLeft,iRight,istat
 iLeft=1;iRight=size(this)
 allocate(aux(iRight),stat=istat);call Merr(istat,'MergeSort:Auxiliary Array',1)
 aux=0

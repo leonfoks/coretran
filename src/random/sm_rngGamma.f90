@@ -12,7 +12,14 @@ submodule (m_random) sm_rngGamma
   ! Added overloaded operations for single number, nD arrays
   !     Author: Leon Foks
 
+use variableKind
+
 implicit none
+
+real(r64), parameter :: zero = 0.0_r64
+real(r64), parameter :: one = 1.0_r64
+real(r64), parameter :: half = 0.5_r64
+real(r64), parameter :: vsmall = tiny(1.0_r64)
 
 contains
 
@@ -43,7 +50,7 @@ contains
   ELSE IF (s < one) THEN
     this = rngGamma2(s,first)
   ELSE
-    call rngExponential(this)
+    call rngExponential(this, one)
   END IF
   END procedure
   !====================================================================!

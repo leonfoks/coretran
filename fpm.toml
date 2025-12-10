@@ -1,0 +1,23 @@
+name = "coretran"
+version = "1.0.1"
+license = "BSD-3-Clause"
+author = "coretran developers"
+
+[dependencies]
+openmp = "*"
+
+[library]
+source-dir = "src"
+
+[install]
+library = true
+
+[[test]]
+name = "coretranTest"
+source-dir = "test"
+main = "test_coretran.f90"
+
+[[test]]
+name = "coretranScale"
+source-dir = "test"
+main = "scale_coretran.f90"
