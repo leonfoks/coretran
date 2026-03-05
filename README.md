@@ -4,6 +4,11 @@
 
 An easy to follow library to make Fortran easier in general with wrapped interfaces, sorting routines, kD-Trees, and other algorithms to handle scientific data and concepts. The library contains core fortran routines and object-oriented classes.
 
+# Citation
+[![DOI](https://zenodo.org/badge/107634868.svg)](https://doi.org/10.5281/zenodo.18871697)
+
+Please see the metadatga in the citation.cff file!
+
 ### Why coretran?
 
 I used Fortran extensively during my PhD to solve very large systems of equations with application to the inversion of geophysical data for 3D subsurface physical property models. I developed algorithms that utilized random point clouds in space, structured rectilinear, triangular, and voronoi meshes, and the unstructured versions of these.  Fortran has relatively little modern and freely available source code, compared to other languages, which have easy to use libraries that perform these types of operations. 
