@@ -7,7 +7,7 @@ An easy to follow library to make Fortran easier in general with wrapped interfa
 ### Citation
 [![DOI](https://zenodo.org/badge/107634868.svg)](https://doi.org/10.5281/zenodo.18871697)
 
-Please see the metadatga in the citation.cff file!
+Please see the metadata in the citation.cff file!
 
 ### Why coretran?
 
