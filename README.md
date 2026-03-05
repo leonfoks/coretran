@@ -4,7 +4,7 @@
 
 An easy to follow library to make Fortran easier in general with wrapped interfaces, sorting routines, kD-Trees, and other algorithms to handle scientific data and concepts. The library contains core fortran routines and object-oriented classes.
 
-# Citation
+### Citation
 [![DOI](https://zenodo.org/badge/107634868.svg)](https://doi.org/10.5281/zenodo.18871697)
 
 Please see the metadatga in the citation.cff file!
