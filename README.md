@@ -223,7 +223,7 @@ Once the coretran library is compiled, you can easily use it in your own program
 	If you use cmake, and you used "make install" to install coretran, you can append the path "install-path/lib/cmake" to an environment variable called "CMAKE\_LIBRARY\_PATH".  You can then use ```"find_package(coretran REQUIRED CONFIG)"``` to easily find coretran, followed by ```"target_link_libraries(${PROJECT_NAME} coretran)"```
 
 
-### Install through conda
+### Install with conda
 
 [![Conda Recipe](https://img.shields.io/badge/recipe-coretran-green.svg)](https://anaconda.org/conda-forge/coretran)
 [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/coretran.svg)](https://anaconda.org/conda-forge/coretran)
