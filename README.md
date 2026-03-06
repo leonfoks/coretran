@@ -223,6 +223,30 @@ Once the coretran library is compiled, you can easily use it in your own program
 	If you use cmake, and you used "make install" to install coretran, you can append the path "install-path/lib/cmake" to an environment variable called "CMAKE\_LIBRARY\_PATH".  You can then use ```"find_package(coretran REQUIRED CONFIG)"``` to easily find coretran, followed by ```"target_link_libraries(${PROJECT_NAME} coretran)"```
 
 
+### Install through conda
+
+[![Conda Recipe](https://img.shields.io/badge/recipe-coretran-green.svg)](https://anaconda.org/conda-forge/coretran)
+[![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/coretran.svg)](https://anaconda.org/conda-forge/coretran)
+[![Conda Version](https://img.shields.io/conda/vn/conda-forge/coretran.svg)](https://anaconda.org/conda-forge/coretran)
+[![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/coretran.svg)](https://anaconda.org/conda-forge/coretran)
+
+Coretran is also available through the [conda-forge](https://conda-forge.org/) community software package index.
+Pre-compiled amd64 binaries for Linux and macOS can be installed with the *conda* package manager:
+```
+conda install -c conda-forge coretran
+```
+This installs coretran into the current [conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html).
+While conda has its roots in Python,
+it packages its own set of C, C++, and Fortran compilers,
+making it a great choice for building libraries in these languages, as well.
+
+#### Environments
+
+Environments are isolated, ephemeral filesystems, separate from the root filesystem, and separate from system libraries.
+They're great for dependency management:
+create an environment for each project you work on, then discard it when you're done.
+
+
 ## Documentation <a name="docs"></a>
 
 Any good software library should come with documentation. In this library, I have extensive source code comments that you should be able to follow.  The source code comments also contain snippets of code that show how to use the functions I have written. In addition to this, the source code comments can be used to automatically generate html pages.  These pages are fully searchable and very nicely organized.  This is where Ford comes in.
