@@ -238,7 +238,7 @@ conda install -c conda-forge coretran
 This installs coretran into the current [conda environment](https://docs.conda.io/projects/conda/en/latest/user-guide/concepts/environments.html).
 While conda has its roots in Python,
 it packages its own set of C, C++, and Fortran compilers,
-making it a great choice for building libraries in these languages, as well.
+making it useful for building libraries in these languages, as well.
 
 #### Environments
 
