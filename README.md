@@ -231,7 +231,7 @@ Once the coretran library is compiled, you can easily use it in your own program
 [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/coretran.svg)](https://anaconda.org/conda-forge/coretran)
 
 Coretran is also available through the [conda-forge](https://conda-forge.org/) community software package index.
-Pre-compiled amd64 binaries for Linux and macOS can be installed with the *conda* package manager:
+Pre-compiled amd64 binaries for Linux and macOS can be installed with the [conda](https://en.wikipedia.org/wiki/Conda_(package_manager)) package manager:
 ```
 conda install -c conda-forge coretran
 ```
